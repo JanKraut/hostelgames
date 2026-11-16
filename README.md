@@ -54,6 +54,11 @@ Die Spielseite läuft komplett im Browser, ohne Server, auch offline.
   Regelseite: starke Karten offen hinlegen, kleine Karten zuerst, Sonderkarten sparen, große Stapel mit
   der 10 verbrennen, Vierlinge vollmachen, die 7 gezielt einsetzen. Im Endspiel legt er seine höchste
   Karte auf einen freien Stapel.
+- **Bot-Namen** kommen aus der jeweiligen Sprache (`game.botNames` in den i18n-Dateien, vier Namen
+  pro Sprache) und werden pro Partie zufällig verteilt. Hebräisch nutzt nur Namen, die zu den
+  männlichen Verbformen der Spielmeldungen passen.
+- **Statistik:** Spiele, Siege und Shithead-Runden pro Schwierigkeit stehen nur im `localStorage`
+  des Geräts (`game-stats`), nichts verlässt das Gerät. Sie lässt sich im Spiel zurücksetzen.
 - **Endlosschleifen:** In seltenen Endspielen ist jeder Zug erzwungen und dieselben Karten wandern ewig
   im Kreis (gefunden per Simulation, etwa 1 von 3.000 Partien). Kommt dieselbe Stellung zum 10. Mal vor,
   endet die Partie unentschieden. Bots weichen wiederholten Stellungen aus, wo sie eine Wahl haben.

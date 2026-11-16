@@ -156,7 +156,6 @@
     "normal": "Normal",
     "start": "Start spillet",
     "you": "Du",
-    "bot": "Bot {n}",
     "deck": "Trekkbunke",
     "pile": "Kastebunke",
     "burned": "Brent: {n}",
@@ -197,6 +196,15 @@
     "ctaH": "Klar for en ekte runde?",
     "ctaP": "Spill mot 1–4 boter her – de følger nøyaktig disse reglene.",
     "ctaBtn": "Spill mot boter",
-    "stalemate": "Uendelig sløyfe: de samme kortene går rundt og rundt, og ingen kommer ut. Uavgjort!"
+    "stalemate": "Uendelig sløyfe: de samme kortene går rundt og rundt, og ingen kommer ut. Uavgjort!",
+    "botNames": "Ola, Kari, Jonas, Ingrid",
+    "statsH": "Statistikken din",
+    "statsGames": "Spill",
+    "statsWins": "Vunnet",
+    "statsShithead": "Shithead",
+    "statsTotal": "Totalt",
+    "statsReset": "Nullstill statistikk",
+    "statsConfirm": "Vil du virkelig slette statistikken?",
+    "statsNote": "Lagres bare på denne enheten."
   }
 }

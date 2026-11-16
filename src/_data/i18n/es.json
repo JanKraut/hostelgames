@@ -156,7 +156,6 @@
     "normal": "Normal",
     "start": "Empezar partida",
     "you": "Tú",
-    "bot": "Bot {n}",
     "deck": "Mazo para robar",
     "pile": "Montón de descarte",
     "burned": "Quemadas: {n}",
@@ -197,6 +196,15 @@
     "ctaH": "¿Te apetece una partida de verdad?",
     "ctaP": "Juega aquí mismo contra 1–4 bots: siguen exactamente estas reglas.",
     "ctaBtn": "Jugar contra bots",
-    "stalemate": "Bucle infinito: las mismas cartas dan vueltas sin parar y nadie puede terminar. ¡Empate!"
+    "stalemate": "Bucle infinito: las mismas cartas dan vueltas sin parar y nadie puede terminar. ¡Empate!",
+    "botNames": "Pablo, Lucía, Javier, Carmen",
+    "statsH": "Tus estadísticas",
+    "statsGames": "Partidas",
+    "statsWins": "Ganadas",
+    "statsShithead": "Shithead",
+    "statsTotal": "Total",
+    "statsReset": "Borrar estadísticas",
+    "statsConfirm": "¿Seguro que quieres borrar tus estadísticas?",
+    "statsNote": "Guardado solo en este dispositivo."
   }
 }

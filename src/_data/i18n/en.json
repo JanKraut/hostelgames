@@ -156,7 +156,6 @@
     "normal": "Normal",
     "start": "Start game",
     "you": "You",
-    "bot": "Bot {n}",
     "deck": "Draw pile",
     "pile": "Discard pile",
     "burned": "Burned: {n}",
@@ -197,6 +196,15 @@
     "ctaH": "Ready for a real round?",
     "ctaP": "Play against 1–4 bots right here – they play by exactly these rules.",
     "ctaBtn": "Play against bots",
-    "stalemate": "Endless loop: the same cards keep going round and nobody can get out. It’s a draw!"
+    "stalemate": "Endless loop: the same cards keep going round and nobody can get out. It’s a draw!",
+    "botNames": "Oliver, Emma, Jack, Sophie",
+    "statsH": "Your statistics",
+    "statsGames": "Games",
+    "statsWins": "Won",
+    "statsShithead": "Shithead",
+    "statsTotal": "Total",
+    "statsReset": "Reset statistics",
+    "statsConfirm": "Really delete your statistics?",
+    "statsNote": "Saved only on this device."
   }
 }

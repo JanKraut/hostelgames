@@ -81,6 +81,13 @@ for (const [bots, level, code] of [
     await page.check(`input[name=level][value="${level}"]`, { force: true });
     await page.locator("#setup-form button[type=submit]").click();
     await expect(page.locator("#opponents .opp")).toHaveCount(bots);
+
+    // Bots have typical first names of the page language, each one only once.
+    const names = lang.t.game.botNames.split(/\s*,\s*/);
+    const shown = await page.locator("#opponents .oppname").allTextContents();
+    expect(new Set(shown).size).toBe(bots);
+    for (const name of shown) expect(names).toContain(name.trim());
+
     await page.locator("#btn-ready").click();
 
     // Play like a beginner: first fitting card, otherwise pick up or flip.
@@ -103,6 +110,13 @@ for (const [bots, level, code] of [
     const draw = (await page.locator("#over-text").textContent()) === lang.t.game.stalemate;
     if (!draw) expect(ranking).toBe(bots + 1);
 
+    // The game counts in the statistics: one game at this level and in total.
+    const g = lang.t.game;
+    const levelName = level === "easy" ? g.easy : g.normal;
+    const statsRow = (name) => page.locator("#over table.stats tr", { has: page.locator(`th:text-is("${name}")`) }).locator("td");
+    await expect(statsRow(levelName).first()).toHaveText("1");
+    await expect(statsRow(g.statsTotal).first()).toHaveText("1");
+
     // Play again starts a fresh game with the same settings.
     await page.locator("#btn-again").click();
     await expect(page.locator("#over")).toBeHidden();
@@ -110,3 +124,45 @@ for (const [bots, level, code] of [
     await expect(page.locator("#btn-ready")).toBeVisible();
   });
 }
+
+test.describe("statistics", () => {
+  const lang = byCode.de;
+  const g = lang.t.game;
+  const saved = { easy: { games: 3, wins: 1, shithead: 1 }, normal: { games: 5, wins: 2, shithead: 0 } };
+
+  test("are hidden before the first game", async ({ page }) => {
+    await openPlay(page, lang);
+    await expect(page.locator("#setup table.stats")).toHaveCount(0);
+  });
+
+  test("are shown from this device and can be reset", async ({ page }) => {
+    await page.addInitScript((stats) => {
+      if (!sessionStorage.getItem("seeded")) {
+        localStorage.setItem("game-stats", JSON.stringify(stats));
+        sessionStorage.setItem("seeded", "1");
+      }
+    }, saved);
+    await openPlay(page, lang);
+    const rows = page.locator("#setup table.stats tbody tr");
+    await expect(rows.nth(0).locator("td")).toHaveText(["3", "1", "1"]);
+    await expect(rows.nth(1).locator("td")).toHaveText(["5", "2", "0"]);
+    await expect(rows.nth(2).locator("td")).toHaveText(["8", "3", "1"]);
+    await expect(page.locator("#setup .statsnote")).toContainText(g.statsNote);
+
+    // Survives a reload.
+    await page.reload();
+    await expect(rows.nth(2).locator("td")).toHaveText(["8", "3", "1"]);
+
+    // Reset asks first.
+    page.once("dialog", (dialog) => dialog.dismiss());
+    await page.locator("#setup [data-reset-stats]").click();
+    await expect(rows.nth(2).locator("td")).toHaveText(["8", "3", "1"]);
+    page.once("dialog", (dialog) => {
+      expect(dialog.message()).toBe(g.statsConfirm);
+      dialog.accept();
+    });
+    await page.locator("#setup [data-reset-stats]").click();
+    await expect(page.locator("#setup table.stats")).toHaveCount(0);
+    expect(await page.evaluate(() => localStorage.getItem("game-stats"))).toBeNull();
+  });
+});

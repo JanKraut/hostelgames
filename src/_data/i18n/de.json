@@ -156,7 +156,6 @@
     "normal": "Normal",
     "start": "Spiel starten",
     "you": "Du",
-    "bot": "Bot {n}",
     "deck": "Nachziehstapel",
     "pile": "Ablagestapel",
     "burned": "Verbrannt: {n}",
@@ -197,6 +196,15 @@
     "ctaH": "Lust auf eine echte Runde?",
     "ctaP": "Spiel hier direkt gegen 1–4 Bots – sie spielen genau nach diesen Regeln.",
     "ctaBtn": "Gegen Bots spielen",
-    "stalemate": "Endlosschleife: Dieselben Karten wandern immer im Kreis, niemand kommt raus. Unentschieden!"
+    "stalemate": "Endlosschleife: Dieselben Karten wandern immer im Kreis, niemand kommt raus. Unentschieden!",
+    "botNames": "Lukas, Anna, Max, Lena",
+    "statsH": "Deine Statistik",
+    "statsGames": "Spiele",
+    "statsWins": "Gewonnen",
+    "statsShithead": "Shithead",
+    "statsTotal": "Gesamt",
+    "statsReset": "Statistik zurücksetzen",
+    "statsConfirm": "Statistik wirklich löschen?",
+    "statsNote": "Nur auf diesem Gerät gespeichert."
   }
 }

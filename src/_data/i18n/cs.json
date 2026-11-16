@@ -156,7 +156,6 @@
     "normal": "Normální",
     "start": "Začít hru",
     "you": "Ty",
-    "bot": "Bot {n}",
     "deck": "Dobírací balíček",
     "pile": "Odhazovací balíček",
     "burned": "Spáleno: {n}",
@@ -197,6 +196,15 @@
     "ctaH": "Chceš si zahrát doopravdy?",
     "ctaP": "Hraj tady proti 1–4 botům – hrají přesně podle těchto pravidel.",
     "ctaBtn": "Hrát proti botům",
-    "stalemate": "Nekonečná smyčka: stejné karty pořád kolují dokola a nikdo se nemůže zbavit karet. Remíza!"
+    "stalemate": "Nekonečná smyčka: stejné karty pořád kolují dokola a nikdo se nemůže zbavit karet. Remíza!",
+    "botNames": "Jakub, Tereza, Tomáš, Eliška",
+    "statsH": "Tvoje statistiky",
+    "statsGames": "Hry",
+    "statsWins": "Výhry",
+    "statsShithead": "Shithead",
+    "statsTotal": "Celkem",
+    "statsReset": "Vynulovat statistiky",
+    "statsConfirm": "Opravdu smazat statistiky?",
+    "statsNote": "Uloženo jen v tomto zařízení."
   }
 }

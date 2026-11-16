@@ -156,7 +156,6 @@
     "normal": "Normal",
     "start": "Começar jogo",
     "you": "Você",
-    "bot": "Bot {n}",
     "deck": "Monte de compra",
     "pile": "Monte de descarte",
     "burned": "Queimadas: {n}",
@@ -197,6 +196,15 @@
     "ctaH": "Bora jogar de verdade?",
     "ctaP": "Jogue aqui contra 1–4 bots – eles seguem exatamente estas regras.",
     "ctaBtn": "Jogar contra bots",
-    "stalemate": "Loop infinito: as mesmas cartas ficam rodando e ninguém consegue terminar. Empate!"
+    "stalemate": "Loop infinito: as mesmas cartas ficam rodando e ninguém consegue terminar. Empate!",
+    "botNames": "Gabriel, Júlia, Pedro, Larissa",
+    "statsH": "Suas estatísticas",
+    "statsGames": "Jogos",
+    "statsWins": "Vitórias",
+    "statsShithead": "Shithead",
+    "statsTotal": "Total",
+    "statsReset": "Zerar estatísticas",
+    "statsConfirm": "Apagar mesmo suas estatísticas?",
+    "statsNote": "Salvo só neste aparelho."
   }
 }

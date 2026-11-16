@@ -156,7 +156,6 @@
     "normal": "Normaal",
     "start": "Spel starten",
     "you": "Jij",
-    "bot": "Bot {n}",
     "deck": "Trekstapel",
     "pile": "Aflegstapel",
     "burned": "Verbrand: {n}",
@@ -197,6 +196,15 @@
     "ctaH": "Zin in een echt potje?",
     "ctaP": "Speel hier tegen 1–4 bots – ze spelen precies volgens deze regels.",
     "ctaBtn": "Speel tegen bots",
-    "stalemate": "Eindeloze lus: dezelfde kaarten gaan steeds rond en niemand komt eruit. Gelijkspel!"
+    "stalemate": "Eindeloze lus: dezelfde kaarten gaan steeds rond en niemand komt eruit. Gelijkspel!",
+    "botNames": "Daan, Sanne, Bram, Lotte",
+    "statsH": "Jouw statistieken",
+    "statsGames": "Potjes",
+    "statsWins": "Gewonnen",
+    "statsShithead": "Shithead",
+    "statsTotal": "Totaal",
+    "statsReset": "Statistieken wissen",
+    "statsConfirm": "Statistieken echt wissen?",
+    "statsNote": "Alleen op dit apparaat opgeslagen."
   }
 }

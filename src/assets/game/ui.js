@@ -15,6 +15,8 @@ const BOT_DELAY = REDUCED_MOTION ? 120 : 900;
 
 const HUMAN = 0;
 const SETTINGS_KEY = "game-settings";
+const STATS_KEY = "game-stats";
+const BOT_NAMES = T.botNames.split(/\s*,\s*/);
 
 let state = null;
 let levels = [];
@@ -282,7 +284,9 @@ function newGame({ bots, level }) {
   botsRunning = false;
   state = E.createGame({ players: bots + 1 });
   levels = [null, ...Array(bots).fill(level)];
-  names = [T.you, ...Array.from({ length: bots }, (_, i) => fill(T.bot, { n: i + 1 }))];
+  // Typical first names of the page language, in random order.
+  const shuffled = [...BOT_NAMES].sort(() => Math.random() - 0.5);
+  names = [T.you, ...shuffled.slice(0, bots)];
   selected = new Set();
   swapPick = null;
   hint = "";
@@ -299,7 +303,68 @@ function newGame({ bots, level }) {
   $("table").scrollIntoView({ block: "start" });
 }
 
+// ---------- Statistics (only in this browser) ----------
+
+const LEVELS = ["easy", "normal"];
+const emptyStats = () => Object.fromEntries(LEVELS.map((level) => [level, { games: 0, wins: 0, shithead: 0 }]));
+
+function loadStats() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STATS_KEY));
+    const stats = emptyStats();
+    for (const level of LEVELS) Object.assign(stats[level], saved?.[level]);
+    return stats;
+  } catch {
+    return emptyStats();
+  }
+}
+
+function saveStats(stats) {
+  try {
+    localStorage.setItem(STATS_KEY, JSON.stringify(stats));
+  } catch {}
+}
+
+/** Counts a finished game once: played, won (1st place), Shithead (last place). */
+function recordGame() {
+  if (state.recorded) return;
+  state.recorded = true;
+  const stats = loadStats();
+  const row = stats[levels[1]];
+  const me = state.players[HUMAN];
+  row.games++;
+  if (!state.stalemate && me.place === 1) row.wins++;
+  if (!state.stalemate && me.place === state.players.length) row.shithead++;
+  saveStats(stats);
+}
+
+function renderStats() {
+  const stats = loadStats();
+  const total = { games: 0, wins: 0, shithead: 0 };
+  for (const level of LEVELS) for (const key in total) total[key] += stats[level][key];
+  const row = (name, r, cls = "") => `<tr class="${cls}"><th scope="row">${name}</th><td>${r.games}</td><td>${r.wins}</td><td>${r.shithead}</td></tr>`;
+  const html = total.games
+    ? `<h3>${T.statsH}</h3><table class="stats"><thead><tr><th></th><th scope="col">${T.statsGames}</th><th scope="col">${T.statsWins}</th><th scope="col">${T.statsShithead}</th></tr></thead><tbody>` +
+      row(T.easy, stats.easy) +
+      row(T.normal, stats.normal) +
+      row(T.statsTotal, total, "total") +
+      `</tbody></table><p class="statsnote">${T.statsNote} <button type="button" class="linkbtn" data-reset-stats>${T.statsReset}</button></p>`
+    : "";
+  for (const box of document.querySelectorAll("[data-stats]")) box.innerHTML = html;
+}
+
+document.addEventListener("click", (event) => {
+  if (!event.target.closest("[data-reset-stats]")) return;
+  if (!confirm(T.statsConfirm)) return;
+  try {
+    localStorage.removeItem(STATS_KEY);
+  } catch {}
+  renderStats();
+});
+
 function showOver() {
+  recordGame();
+  renderStats();
   const me = state.players[HUMAN];
   const total = state.players.length;
   $("over-text").textContent = state.stalemate ? T.stalemate : me.place === total ? T.lost : fill(T.won, { place: me.place, total });
@@ -333,6 +398,7 @@ $("btn-settings").addEventListener("click", () => {
   $("over").hidden = true;
   $("table").hidden = true;
   $("setup").hidden = false;
+  renderStats();
 });
 
 // Restore the last settings.
@@ -344,3 +410,5 @@ try {
     form.level.value = saved.level;
   }
 } catch {}
+
+renderStats();

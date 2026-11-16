@@ -156,7 +156,6 @@
     "normal": "Normal",
     "start": "Start spil",
     "you": "Dig",
-    "bot": "Bot {n}",
     "deck": "Træk-bunke",
     "pile": "Afkastbunke",
     "burned": "Brændt: {n}",
@@ -197,6 +196,15 @@
     "ctaH": "Klar til et rigtigt spil?",
     "ctaP": "Spil mod 1–4 bots lige her – de følger præcis disse regler.",
     "ctaBtn": "Spil mod bots",
-    "stalemate": "Uendelig løkke: de samme kort går rundt og rundt, og ingen kan komme ud. Uafgjort!"
+    "stalemate": "Uendelig løkke: de samme kort går rundt og rundt, og ingen kan komme ud. Uafgjort!",
+    "botNames": "Mads, Freja, Emil, Ida",
+    "statsH": "Din statistik",
+    "statsGames": "Spil",
+    "statsWins": "Vundet",
+    "statsShithead": "Shithead",
+    "statsTotal": "I alt",
+    "statsReset": "Nulstil statistik",
+    "statsConfirm": "Vil du virkelig slette din statistik?",
+    "statsNote": "Gemmes kun på denne enhed."
   }
 }

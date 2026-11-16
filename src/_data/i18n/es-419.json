@@ -5,6 +5,7 @@
   "startP": "Quien tenga un 4 en la mano lo juega y empieza. Si nadie tiene un 4, empieza la siguiente carta más alta, o sea un 5, y así sucesivamente. Después se sigue en sentido horario.",
   "chH": "Resumen",
   "game": {
-    "ctaH": "¿Quieres jugar una partida de verdad?"
+    "ctaH": "¿Quieres jugar una partida de verdad?",
+    "botNames": "Mateo, Valentina, Santiago, Camila"
   }
 }

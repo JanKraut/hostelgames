@@ -156,7 +156,6 @@
     "normal": "Normale",
     "start": "Inizia la partita",
     "you": "Tu",
-    "bot": "Bot {n}",
     "deck": "Mazzo da pescare",
     "pile": "Pila degli scarti",
     "burned": "Bruciate: {n}",
@@ -197,6 +196,15 @@
     "ctaH": "Voglia di una partita vera?",
     "ctaP": "Gioca qui contro 1–4 bot – seguono esattamente queste regole.",
     "ctaBtn": "Gioca contro i bot",
-    "stalemate": "Ciclo infinito: le stesse carte girano in tondo e nessuno riesce a uscire. Pareggio!"
+    "stalemate": "Ciclo infinito: le stesse carte girano in tondo e nessuno riesce a uscire. Pareggio!",
+    "botNames": "Marco, Giulia, Luca, Sofia",
+    "statsH": "Le tue statistiche",
+    "statsGames": "Partite",
+    "statsWins": "Vinte",
+    "statsShithead": "Shithead",
+    "statsTotal": "Totale",
+    "statsReset": "Azzera statistiche",
+    "statsConfirm": "Vuoi davvero cancellare le tue statistiche?",
+    "statsNote": "Salvato solo su questo dispositivo."
   }
 }

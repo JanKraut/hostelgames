@@ -48,6 +48,7 @@ scripts: ["/assets/game/ui.js"]
       </fieldset>
       <button type="submit" class="bigbtn">{{ g.start }}</button>
     </form>
+    <div class="statsbox" data-stats></div>
   </section>
 
   <!-- 2. The table -->
@@ -93,6 +94,7 @@ scripts: ["/assets/game/ui.js"]
     <h2>{{ g.overH }}</h2>
     <p id="over-text" class="overtext"></p>
     <ol id="ranking" class="ranking"></ol>
+    <div class="statsbox" data-stats></div>
     <div class="controls">
       <button type="button" id="btn-again" class="bigbtn">{{ g.again }}</button>
       <button type="button" id="btn-settings" class="bigbtn secondary">{{ g.settings }}</button>

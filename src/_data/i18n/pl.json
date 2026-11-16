@@ -156,7 +156,6 @@
     "normal": "Normalny",
     "start": "Rozpocznij grę",
     "you": "Ty",
-    "bot": "Bot {n}",
     "deck": "Stos do dobierania",
     "pile": "Stos odrzuconych kart",
     "burned": "Spalone: {n}",
@@ -197,6 +196,15 @@
     "ctaH": "Masz ochotę na prawdziwą partię?",
     "ctaP": "Zagraj tutaj z 1–4 botami – grają dokładnie według tych zasad.",
     "ctaBtn": "Zagraj z botami",
-    "stalemate": "Nieskończona pętla: te same karty krążą w kółko i nikt nie może skończyć. Remis!"
+    "stalemate": "Nieskończona pętla: te same karty krążą w kółko i nikt nie może skończyć. Remis!",
+    "botNames": "Jakub, Zuzanna, Kacper, Maja",
+    "statsH": "Twoje statystyki",
+    "statsGames": "Gry",
+    "statsWins": "Wygrane",
+    "statsShithead": "Shithead",
+    "statsTotal": "Razem",
+    "statsReset": "Wyzeruj statystyki",
+    "statsConfirm": "Na pewno usunąć statystyki?",
+    "statsNote": "Zapisane tylko na tym urządzeniu."
   }
 }
