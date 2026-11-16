@@ -35,7 +35,7 @@ Beim ersten Mal ggf. den Browser installieren: `npx playwright install chromium`
 | `src/assets/` | Stylesheet, JavaScript und Icons, werden unverändert kopiert |
 | `src/assets/site.js` | Auf jeder Seite: Sprachmenü, Service Worker |
 | `src/assets/rules.js` | Regelseite: Quiz, QR-Code, Teilen |
-| `src/assets/game/` | Spiel: `engine.js` (Regeln), `bots.js` (Computergegner), `ui.js` (Oberfläche), `game.css` |
+| `src/assets/game/` | Spiel: `engine.js` (Regeln), `bots.js` (Computergegner), `ui.js` (Oberfläche), `fx.js` (Animationen), `game.css` |
 | `src/sw.js` | Service Worker (Vorlage), siehe „Offline“ |
 | `src/manifest.webmanifest` | Web-App-Manifest, macht die Seite installierbar |
 | `scripts/check-i18n.js` | Prüft die Übersetzungen, siehe unten |
@@ -61,6 +61,10 @@ Die Spielseite läuft komplett im Browser, ohne Server, auch offline.
   Spielmeldungen passen.
 - **Statistik:** Spiele, Siege und Shithead-Runden pro Schwierigkeit stehen nur im `localStorage`
   des Geräts (`game-stats`), nichts verlässt das Gerät. Sie lässt sich im Spiel zurücksetzen.
+- **Animationen** (`fx.js`): Gelegte Karten fliegen vom Spieler auf den Stapel, ein aufgenommener
+  Stapel rutscht zu dem, der ihn nimmt, ein verbrannter Stapel flackert mit 🔥 weg, wer aussetzt,
+  wackelt kurz mit ⏭. Bewegt werden nur Kopien über dem Tisch, das Layout bleibt fest. Mit
+  „Bewegung reduzieren“ im System gibt es keine Animationen (so laufen auch die meisten Tests).
 - **Layout:** Während einer Partie füllt der Tisch genau einen Bildschirm (`100dvh`). Jeder Bereich hat
   eine feste Höhe, die Kartengröße richtet sich nach der Bildschirmhöhe, Buttons werden nur unsichtbar
   statt entfernt, und viele Handkarten überlappen in einer Reihe. So verschiebt sich zwischen den

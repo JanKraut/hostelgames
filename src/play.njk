@@ -87,6 +87,9 @@ scripts: ["/assets/game/ui.js"]
       <div id="my-hand" class="myhand" role="group" aria-label="{{ g.yourHand }}"></div>
     </div>
 
+    <!-- Flying cards during animations (see fx.js) -->
+    <div id="fx" class="fx" aria-hidden="true"></div>
+
     <div class="controls">
       <button type="button" id="btn-play" class="bigbtn">{{ g.play }}</button>
       <button type="button" id="btn-pickup" class="bigbtn secondary">{{ g.pickUp }}</button>
