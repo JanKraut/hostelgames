@@ -1,6 +1,41 @@
 # shithead-rules
 
-**Shithead in 3 minutes** – eine mehrsprachige Kurzanleitung für das Kartenspiel Shithead, als einzelne statische Seite (`index.html`).
+**Shithead in 3 minutes** – eine mehrsprachige Kurzanleitung für das Kartenspiel Shithead.
+Statische Seiten, gebaut mit [Eleventy](https://www.11ty.dev/): Jede Sprache ist eine eigene, fertig
+gerenderte Seite (`/`, `/de/`, `/es/`, …), die Regeln sind also auch ohne JavaScript lesbar.
+JavaScript ergänzt nur das Übungsquiz, QR-Code und Teilen-Buttons und merkt sich die gewählte Sprache.
 
-Deployment: Jeder Push auf `main` veröffentlicht die Seite per GitHub Action (`.github/workflows/pages.yml`) auf GitHub Pages.
-Einmalig nötig: in den Repo-Einstellungen unter *Settings → Pages → Build and deployment* als Source **GitHub Actions** wählen.
+## Entwickeln
+
+```sh
+npm install
+npm start        # Dev-Server mit Live-Reload: http://localhost:8080/shithead-rules/
+npm run build    # schreibt die Seite nach _site/
+```
+
+## Aufbau
+
+| Pfad | Inhalt |
+| --- | --- |
+| `src/index.njk` | Die Seitenvorlage, wird einmal pro Sprache gerendert |
+| `src/_includes/card.njk` | Makros für die Spielkarten-Grafiken |
+| `src/_includes/redirect.njk` | Nur Startseite: leitet auf die gemerkte bzw. Browsersprache weiter |
+| `src/_data/languages.js` | Liste der Sprachen (Reihenfolge im Menü, Flagge, Fallback-Kette) |
+| `src/_data/i18n/*.json` | Texte pro Sprache, inklusive Quiztexte unter `quiz` |
+| `src/_data/site.js` | Öffentliche URL und Pfad-Präfix |
+| `src/assets/` | Stylesheet und JavaScript, werden unverändert kopiert |
+
+## Sprachen und Fallbacks
+
+Englisch ist Standard und liegt unter `/`, jede andere Sprache unter `/<code>/`.
+Eine Sprache muss nur die Texte enthalten, die sie wirklich braucht: Fehlende Texte kommen der Reihe
+nach aus ihren `fallback`-Sprachen und zuletzt aus Englisch. `es-419` (Lateinamerika) enthält zum
+Beispiel nur die wenigen Texte, die von `es` abweichen.
+
+**Neue Sprache:** `src/_data/i18n/<code>.json` anlegen und eine Zeile in `src/_data/languages.js` ergänzen.
+
+## Deployment
+
+Jeder Push auf `main` baut die Seite und veröffentlicht sie auf GitHub Pages
+(`.github/workflows/pages.yml`). Einmalig nötig: *Settings → Pages → Build and deployment → Source:
+GitHub Actions*. Für eine eigene Domain `src/_data/site.js` anpassen.

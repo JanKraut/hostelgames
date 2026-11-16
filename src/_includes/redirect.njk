@@ -1,0 +1,25 @@
+{#- Only on the English start page: send visitors to their saved or browser language. -#}
+(function () {
+  var paths = {
+    {%- for l in languages %}"{{ l.code }}": "{{ site.pathPrefix }}{{ l.path | replace('/', '', 1) }}"{% if not loop.last %}, {% endif %}{% endfor -%}
+  };
+  var legacy = { br: "pt-br", la: "es-419", no: "nb" }; // codes saved by older versions
+  function fromBrowser() {
+    var list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+    for (var i = 0; i < list.length; i++) {
+      var parts = String(list[i] || "").toLowerCase().replace("_", "-").split("-");
+      var base = parts[0], region = parts[1] || "";
+      if (base === "es") return region === "" || region === "es" ? "es" : "es-419";
+      if (base === "pt") return region === "br" ? "pt-br" : "pt";
+      if (base === "nb" || base === "nn" || base === "no") return "nb";
+      if (base === "iw") return "he";
+      if (paths[base]) return base;
+    }
+    return null;
+  }
+  var saved = null;
+  try { saved = localStorage.getItem("lang"); } catch (e) {}
+  saved = legacy[saved] || saved;
+  var target = paths[saved] || paths[fromBrowser()];
+  if (target && target !== location.pathname) location.replace(target + location.hash);
+})();
