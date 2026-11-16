@@ -1069,8 +1069,3 @@ footer {
   font-weight: 700;
   text-decoration: none;
 }
-
-/* Shown only when JavaScript is off */
-html.js .nojs-only {
-  display: none;
-}

@@ -25,8 +25,6 @@ scripts: ["/assets/game/ui.js"]
 </header>
 
 <main class="wrap game">
-  <p class="nojs-only gamenote">{{ g.noJs }}</p>
-
   <!-- 1. Settings -->
   <section id="setup" class="js-only gamebox">
     <h2>{{ g.setupH }}</h2>
@@ -55,20 +53,25 @@ scripts: ["/assets/game/ui.js"]
     <div class="statsbox" data-stats></div>
   </section>
 
-  <!-- 2. The table -->
-  <section id="table" class="js-only" hidden>
+  <!-- 2. The table: fills exactly one screen, every area has a fixed size -->
+  <section id="table" class="js-only table" hidden>
+    <div class="topbar">
+      <a href="{{ lang.path }}">← {{ g.back }}</a>
+      <span>{{ g.h1 }}</span>
+    </div>
+
     <div id="opponents" class="opponents"></div>
 
     <div class="center">
       <div class="pilebox">
-        <div id="deck"></div>
+        <div id="deck" class="pileslot"></div>
         <small>{{ g.deck }}</small>
       </div>
       <div class="pilebox">
-        <div id="pile" class="pile"></div>
+        <div id="pile" class="pileslot pile"></div>
         <small>{{ g.pile }}</small>
       </div>
-      <div class="pilebox burnedbox">
+      <div class="pileinfo">
         <span id="burned"></span>
         <small id="invisible"></small>
       </div>
@@ -80,28 +83,28 @@ scripts: ["/assets/game/ui.js"]
     </div>
 
     <div class="me" id="me">
-      <h3>{{ g.yourTable }}</h3>
-      <div id="my-table" class="mytable"></div>
-      <h3>{{ g.yourHand }}</h3>
-      <div id="my-hand" class="myhand"></div>
+      <div id="my-table" class="mytable" role="group" aria-label="{{ g.yourTable }}"></div>
+      <div id="my-hand" class="myhand" role="group" aria-label="{{ g.yourHand }}"></div>
     </div>
 
     <div class="controls">
-      <button type="button" id="btn-ready" class="bigbtn">{{ g.ready }}</button>
       <button type="button" id="btn-play" class="bigbtn">{{ g.play }}</button>
       <button type="button" id="btn-pickup" class="bigbtn secondary">{{ g.pickUp }}</button>
+      <button type="button" id="btn-ready" class="bigbtn ready">{{ g.ready }}</button>
     </div>
   </section>
 
-  <!-- 3. Game over -->
-  <section id="over" class="js-only gamebox" hidden>
-    <h2>{{ g.overH }}</h2>
-    <p id="over-text" class="overtext"></p>
-    <ol id="ranking" class="ranking"></ol>
-    <div class="statsbox" data-stats></div>
-    <div class="controls">
-      <button type="button" id="btn-again" class="bigbtn">{{ g.again }}</button>
-      <button type="button" id="btn-settings" class="bigbtn secondary">{{ g.settings }}</button>
+  <!-- 3. Game over, on top of the table -->
+  <section id="over" class="js-only overlay" hidden>
+    <div class="gamebox overbox" role="dialog" aria-modal="true" aria-labelledby="over-h">
+      <h2 id="over-h">{{ g.overH }}</h2>
+      <p id="over-text" class="overtext"></p>
+      <ol id="ranking" class="ranking"></ol>
+      <div class="overbtns">
+        <button type="button" id="btn-again" class="bigbtn">{{ g.again }}</button>
+        <button type="button" id="btn-settings" class="bigbtn secondary">{{ g.settings }}</button>
+      </div>
+      <div class="statsbox" data-stats></div>
     </div>
   </section>
 

@@ -47,7 +47,7 @@ const ltr = (text) => `\u2066${text}\u2069`;
 const label = (card) => `${E.rankLabel(card.rank)}${card.suit}`;
 const cardsText = (cards) => ltr(cards.map(label).join(" "));
 
-function cardHTML(card, { size = "sm", tag = "div", classes = "", attrs = "" } = {}) {
+function cardHTML(card, { size = "tc", tag = "div", classes = "", attrs = "" } = {}) {
   const red = E.isRed(card) ? " r" : "";
   const rank = E.rankLabel(card.rank);
   return (
@@ -56,7 +56,13 @@ function cardHTML(card, { size = "sm", tag = "div", classes = "", attrs = "" } =
   );
 }
 
-const backHTML = (size = "sm", attrs = "", tag = "div") => `<${tag} class="card ${size} back" ${attrs}></${tag}>`;
+const backHTML = (size = "tc", attrs = "", tag = "div") => `<${tag} class="card ${size} back" ${attrs}></${tag}>`;
+
+/** Opponent's face-up card (or a back where only the face-down card is left) as a small chip. */
+function chipHTML(card) {
+  if (!card) return `<span class="chip back"></span>`;
+  return `<span class="chip${E.isRed(card) ? " r" : ""}">${E.rankLabel(card.rank)}${card.suit}</span>`;
+}
 
 /** Face-down cards with the face-up cards on top, as on the rules page. */
 function tableHTML(player, size, { upButtons = false, downButtons = false, upPlayable = () => false, picked = null } = {}) {
@@ -96,22 +102,24 @@ function render() {
       if (i === HUMAN) return "";
       const classes = ["opp", state.phase === "play" && state.turn === i ? "active" : "", player.place ? "done" : ""].join(" ");
       const place = player.place ? ` · ${player.place}.` : "";
+      const slots = Math.max(player.up.length, player.down.length);
+      const chips = Array.from({ length: slots }, (_, k) => chipHTML(player.up[k])).join("");
       return (
-        `<div class="${classes}"><div class="oppname">${names[i]}${place}</div>` +
-        `<div class="opptable">${tableHTML(player, "xs")}</div>` +
-        `<div class="opphand${player.hand.length ? "" : " empty"}">${backHTML("xs")}<span>${fill(T.handCount, { n: player.hand.length })}</span></div></div>`
+        `<div class="${classes}"><div class="opphead"><span class="oppname">${names[i]}${place}</span>` +
+        `<span class="oppcount">${fill(T.handCount, { n: player.hand.length })}</span></div>` +
+        `<div class="oppcards">${chips}</div></div>`
       );
     })
     .join("");
 
   // Draw pile, discard pile, burned cards
   $("deck").innerHTML = state.deck.length
-    ? `<div class="deckstack">${backHTML("sm")}<span class="count">${state.deck.length}</span></div>`
-    : `<div class="card sm emptyslot"></div>`;
+    ? `${backHTML()}<span class="count">${state.deck.length}</span>`
+    : `<div class="card tc emptyslot"></div>`;
   const top = state.pile.slice(-3);
   $("pile").innerHTML = top.length
     ? top.map((card) => cardHTML(card)).join("") + `<span class="count">${state.pile.length}</span>`
-    : `<div class="card sm emptyslot"></div>`;
+    : `<div class="card tc emptyslot"></div>`;
   $("burned").textContent = state.burned ? fill(T.burned, { n: state.burned }) : "";
   const effective = E.effectiveTop(state);
   const topIsThree = state.pile.length && state.pile[state.pile.length - 1].rank === 3;
@@ -120,7 +128,7 @@ function render() {
   // Your table and hand
   const me = state.players[HUMAN];
   const swapping = state.phase === "swap";
-  $("my-table").innerHTML = tableHTML(me, "sm", {
+  $("my-table").innerHTML = tableHTML(me, "tc", {
     upButtons: swapping || (myTurn && from === "up"),
     downButtons: myTurn && from === "down",
     upPlayable: (card) => myTurn && from === "up" && playable.has(card.rank),
@@ -128,6 +136,7 @@ function render() {
   });
   $("me").classList.toggle("active", myTurn);
   const hand = [...me.hand].sort((a, b) => a.rank - b.rank || a.suit.localeCompare(b.suit));
+  $("my-hand").style.setProperty("--n", hand.length); // the CSS overlaps cards to fit them in one row
   $("my-hand").innerHTML = hand
     .map((card) => {
       const classes = [
@@ -139,15 +148,16 @@ function render() {
     })
     .join("");
 
-  // Buttons
-  $("btn-ready").hidden = !swapping;
-  $("btn-play").hidden = !(myTurn && (from === "hand" || from === "up"));
-  $("btn-play").disabled = selected.size === 0;
-  $("btn-pickup").hidden = !(myTurn && from !== "down");
-  $("btn-pickup").disabled = playable.size > 0;
+  // Buttons stay in place: hidden ones keep their space, unusable ones are disabled.
+  $("btn-ready").classList.toggle("off", !swapping);
+  $("btn-play").classList.toggle("off", swapping);
+  $("btn-pickup").classList.toggle("off", swapping);
+  $("btn-play").disabled = !(myTurn && (from === "hand" || from === "up") && selected.size > 0);
+  $("btn-pickup").disabled = !(myTurn && (from === "hand" || from === "up") && playable.size === 0);
 
   // Messages
   $("status").textContent = hint || statusText(myTurn, from, playable);
+  $("status").parentElement.classList.toggle("long", swapping);
   $("log").replaceChildren(...log.map((line) => listItem(line)));
 }
 
@@ -312,8 +322,11 @@ function newGame({ bots, level, player = "" }) {
   $("setup").hidden = true;
   $("over").hidden = true;
   $("table").hidden = false;
+  $("table").dataset.rows = bots > 2 ? "2" : "1";
+  $("opponents").dataset.n = String(bots);
+  document.documentElement.classList.add("playing"); // the table takes the whole screen
+  window.scrollTo(0, 0);
   render();
-  $("table").scrollIntoView({ block: "start" });
 }
 
 // ---------- Statistics (only in this browser) ----------
@@ -386,7 +399,8 @@ function showOver() {
     ...state.finished.map((p, i) => listItem(`${names[p]}${i === total - 1 ? ` – ${T.shithead}` : ""}`, p === HUMAN ? "you" : "")),
   );
   $("over").hidden = false;
-  $("over").scrollIntoView({ block: "nearest" });
+  $("over").querySelector(".overbox").scrollTop = 0;
+  $("btn-again").focus({ preventScroll: true });
 }
 
 function readSettings() {
@@ -411,6 +425,7 @@ $("btn-settings").addEventListener("click", () => {
   $("over").hidden = true;
   $("table").hidden = true;
   $("setup").hidden = false;
+  document.documentElement.classList.remove("playing");
   renderStats();
 });
 
