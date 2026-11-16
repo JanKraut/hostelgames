@@ -61,6 +61,10 @@ Die Spielseite läuft komplett im Browser, ohne Server, auch offline.
   Spielmeldungen passen.
 - **Statistik:** Spiele, Siege und Shithead-Runden pro Schwierigkeit stehen nur im `localStorage`
   des Geräts (`game-stats`), nichts verlässt das Gerät. Sie lässt sich im Spiel zurücksetzen.
+- **Layout:** Während einer Partie füllt der Tisch genau einen Bildschirm (`100dvh`). Jeder Bereich hat
+  eine feste Höhe, die Kartengröße richtet sich nach der Bildschirmhöhe, Buttons werden nur unsichtbar
+  statt entfernt, und viele Handkarten überlappen in einer Reihe. So verschiebt sich zwischen den
+  Zügen nichts. Ein Test prüft das auf dem kleinsten Handy (320 × 568) und einem Tablet.
 - **Endlosschleifen:** In seltenen Endspielen ist jeder Zug erzwungen und dieselben Karten wandern ewig
   im Kreis (gefunden per Simulation, etwa 1 von 3.000 Partien). Kommt dieselbe Stellung zum 10. Mal vor,
   endet die Partie unentschieden. Bots weichen wiederholten Stellungen aus, wo sie eine Wahl haben.
