@@ -111,6 +111,13 @@ for (const [bots, level, code] of [
     expect(new Set(shown).size).toBe(bots);
     for (const name of shown) expect(names).toContain(name.trim());
 
+    // Each bot's hand is a fan of face-down cards (3 at the start), the number only for screen readers.
+    for (const fan of await page.locator("#opponents .oppfan").all()) {
+      await expect(fan.locator(".fanback")).toHaveCount(3);
+      await expect(fan).toHaveAttribute("aria-label", lang.t.game.handCount.replace("{n}", "3"));
+    }
+    await expect(page.locator("#opponents")).not.toContainText(lang.t.game.handCount.replace("{n}", "3"));
+
     await page.locator("#btn-ready").click();
 
     for (let move = 0; move < 1000; move++) {
