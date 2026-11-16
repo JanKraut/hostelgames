@@ -11,7 +11,10 @@ JavaScript ergänzt nur das Übungsquiz, QR-Code und Teilen-Buttons und merkt si
 npm install
 npm start        # Dev-Server mit Live-Reload: http://localhost:8080/shithead-rules/
 npm run build    # schreibt die Seite nach _site/
+npm test         # Playwright-Tests gegen das gebaute _site/ (vorher npm run build)
 ```
+
+Beim ersten Mal ggf. den Browser installieren: `npx playwright install chromium`.
 
 ## Aufbau
 
@@ -24,6 +27,8 @@ npm run build    # schreibt die Seite nach _site/
 | `src/_data/i18n/*.json` | Texte pro Sprache, inklusive Quiztexte unter `quiz` |
 | `src/_data/site.js` | Öffentliche URL und Pfad-Präfix |
 | `src/assets/` | Stylesheet und JavaScript, werden unverändert kopiert |
+| `tests/site.spec.js` | Playwright-Tests: alle Sprachseiten, Weiterleitung, ohne JavaScript, Quiz, Teilen |
+| `tests/serve.js` | Kleiner Server, der `_site/` unter dem Pages-Pfad ausliefert |
 
 ## Sprachen und Fallbacks
 
@@ -36,6 +41,7 @@ Beispiel nur die wenigen Texte, die von `es` abweichen.
 
 ## Deployment
 
-Jeder Push auf `main` baut die Seite und veröffentlicht sie auf GitHub Pages
-(`.github/workflows/pages.yml`). Einmalig nötig: *Settings → Pages → Build and deployment → Source:
+`.github/workflows/ci.yml` baut die Seite und führt die Tests bei jedem Pull Request und Push aus.
+Nur auf `main` und nur wenn die Tests grün sind, wird sie auf GitHub Pages veröffentlicht. Schlägt ein
+Test fehl, liegen Report und Screenshots als Artefakt `playwright-report` am Workflow-Lauf. Einmalig nötig: *Settings → Pages → Build and deployment → Source:
 GitHub Actions*. Für eine eigene Domain `src/_data/site.js` anpassen.
