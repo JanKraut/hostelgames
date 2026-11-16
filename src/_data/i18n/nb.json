@@ -60,13 +60,15 @@
   "startH": "Hvem begynner?",
   "startP": "Den som har en 4-er på hånden, legger den og begynner. Har ingen en 4-er, begynner nest høyeste kort, altså en 5-er og så videre. Deretter går det med klokka.",
   "spH": "Spesialkort",
-  "spLead": "Disse kortene kan du nesten alltid legge, uansett hva som ligger øverst.",
+  "spLead": "Disse kortene har en spesiell virkning. 2, 3 og 10 kan du legge nesten alltid, uansett hva som ligger øverst.",
   "sp2h": "2 – Nullstill",
   "sp2p": "Nullstiller bunken. Etterpå kan hvilket som helst kort legges oppå.",
   "sp3h": "3 – Usynlig",
   "sp3p": "Teller rett og slett ikke. Neste må slå kortet som ligger <em>under</em> 3-eren.",
   "sp7h": "7 – Nedover",
-  "sp7p": "Bare neste spiller må legge en 7-er eller <strong>lavere</strong>, eller et annet spesialkort.",
+  "sp7p": "Bare neste spiller må legge en 7 eller <strong>lavere</strong> – eller en 2, 3 eller 10.",
+  "sp8h": "8 – Stå over",
+  "sp8p": "Du legger den som et vanlig kort. Deretter må neste spiller stå over – med to 8-ere de to neste, og så videre.",
   "sp10h": "10 – Brenn",
   "sp10p": "Hele bunken går ut av spillet. Du er på igjen med en gang.",
   "sp4h": "Fire like – Brenn",
@@ -122,6 +124,7 @@
   "c4d": "Nullstiller bunken.",
   "c5d": "Usynlig.",
   "c6d": "Neste legger 7 eller lavere.",
+  "c8bd": "Neste står over (én per 8-er).",
   "c7d": "Brenn bunken, spill igjen.",
   "c8d": "Fire like brenner også.",
   "c9t": "Slutt",
@@ -205,6 +208,8 @@
     "statsReset": "Nullstill statistikk",
     "statsConfirm": "Vil du virkelig slette statistikken?",
     "statsNote": "Lagres bare på denne enheten.",
-    "yourName": "Navnet ditt"
+    "yourName": "Navnet ditt",
+    "skipped": "{name} står over.",
+    "youSkipped": "Du står over."
   }
 }

@@ -143,11 +143,12 @@ scripts: ["/assets/rules.js"]
       <div class="sp">{{ card("2", "♣", "sm") }}<div><h3>{{ t.sp2h }}</h3><p>{{ t.sp2p | safe }}</p></div></div>
       <div class="sp">{{ card("3", "♥", "sm") }}<div><h3>{{ t.sp3h }}</h3><p>{{ t.sp3p | safe }}</p></div></div>
       <div class="sp">{{ card("7", "♠", "sm") }}<div><h3>{{ t.sp7h }}</h3><p>{{ t.sp7p | safe }}</p></div></div>
+      <div class="sp">{{ card("8", "♥", "sm") }}<div><h3>{{ t.sp8h }}</h3><p>{{ t.sp8p | safe }}</p></div></div>
       <div class="sp">{{ card("10", "♦", "sm") }}<div><h3>{{ t.sp10h }}</h3><p>{{ t.sp10p | safe }}</p></div></div>
       <div class="sp">
         <div class="four">
           {%- for s in ["♠","♥","♣","♦"] %}
-          {{ card("8", s, "xs") }}
+          {{ card("9", s, "xs") }}
           {%- endfor %}
         </div>
         <div><h3>{{ t.sp4h }}</h3><p>{{ t.sp4p | safe }}</p></div>
@@ -236,6 +237,7 @@ scripts: ["/assets/rules.js"]
         <dt>2</dt><dd>{{ t.c4d | safe }}</dd>
         <dt>3</dt><dd>{{ t.c5d | safe }}</dd>
         <dt>7</dt><dd>{{ t.c6d | safe }}</dd>
+        <dt>8</dt><dd>{{ t.c8bd | safe }}</dd>
         <dt>10</dt><dd>{{ t.c7d | safe }}</dd>
         <dt>4×</dt><dd>{{ t.c8d | safe }}</dd>
         <dt>{{ t.c9t }}</dt><dd>{{ t.c9d | safe }}</dd>

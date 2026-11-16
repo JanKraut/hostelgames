@@ -60,13 +60,15 @@
   "startH": "Qui commence ?",
   "startP": "Celui qui a un 4 en main le pose et commence. Si personne n’a de 4, c’est la carte suivante qui commence, donc un 5, et ainsi de suite. Ensuite, on joue dans le sens des aiguilles d’une montre.",
   "spH": "Cartes spéciales",
-  "spLead": "Ces cartes se jouent presque toujours, peu importe ce qu’il y a dessus.",
+  "spLead": "Ces cartes ont un effet spécial. Le 2, le 3 et le 10 se jouent presque toujours, quoi qu’il y ait dessus.",
   "sp2h": "2 – Remise à zéro",
   "sp2p": "Remet la défausse à zéro. Ensuite, n’importe quelle carte peut aller dessus.",
   "sp3h": "3 – Invisible",
   "sp3p": "Ne compte pas. Le suivant doit battre la carte qui est <em>sous</em> le 3.",
   "sp7h": "7 – Plus bas",
-  "sp7p": "Seul le joueur suivant doit poser un 7 ou <strong>moins</strong>, ou une autre carte spéciale.",
+  "sp7p": "Seul le joueur suivant doit jouer un 7 ou <strong>moins</strong> – ou un 2, 3 ou 10.",
+  "sp8h": "8 – Passe ton tour",
+  "sp8p": "Tu la joues comme une carte normale. Ensuite, le joueur suivant passe son tour – avec deux 8, les deux suivants, et ainsi de suite.",
   "sp10h": "10 – Brûler",
   "sp10p": "Toute la défausse sort du jeu. Tu rejoues tout de suite.",
   "sp4h": "Quatre identiques – Brûler",
@@ -122,6 +124,7 @@
   "c4d": "Remet la défausse à zéro.",
   "c5d": "Invisible.",
   "c6d": "Le suivant pose 7 ou moins.",
+  "c8bd": "Le suivant passe son tour (un par 8).",
   "c7d": "Brûle la défausse, tu rejoues.",
   "c8d": "Quatre identiques brûlent aussi.",
   "c9t": "Fin",
@@ -205,6 +208,8 @@
     "statsReset": "Réinitialiser les statistiques",
     "statsConfirm": "Vraiment effacer tes statistiques ?",
     "statsNote": "Enregistré uniquement sur cet appareil.",
-    "yourName": "Ton prénom"
+    "yourName": "Ton prénom",
+    "skipped": "{name} passe son tour.",
+    "youSkipped": "Tu passes ton tour."
   }
 }

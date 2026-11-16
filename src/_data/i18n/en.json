@@ -60,13 +60,15 @@
   "startH": "Who starts?",
   "startP": "Whoever has a 4 in their hand plays it and starts. If nobody has a 4, the next higher card starts, so a 5 and so on. After that, play goes clockwise.",
   "spH": "Special cards",
-  "spLead": "You can play these almost anytime, no matter what’s on top.",
+  "spLead": "These cards do something special. The 2, 3 and 10 can be played almost anytime, no matter what’s on top.",
   "sp2h": "2 – Reset",
   "sp2p": "Resets the pile. Any card can go on top of it.",
   "sp3h": "3 – Invisible",
   "sp3p": "Doesn’t count. The next player has to beat the card <em>under</em> the 3.",
   "sp7h": "7 – Go lower",
-  "sp7p": "Only the next player must play a 7 or <strong>lower</strong>, or another special card.",
+  "sp7p": "Only the next player must play a 7 or <strong>lower</strong>, or a 2, 3 or 10.",
+  "sp8h": "8 – Skip",
+  "sp8p": "You play it like a normal card. Then the next player misses a turn – with two 8s the next two players, and so on.",
   "sp10h": "10 – Burn",
   "sp10p": "The whole pile is out of the game. You go again right away.",
   "sp4h": "Four of a kind – Burn",
@@ -122,6 +124,7 @@
   "c4d": "Reset the pile.",
   "c5d": "Invisible.",
   "c6d": "Next player plays 7 or lower.",
+  "c8bd": "Next player misses a turn (one per 8).",
   "c7d": "Burn the pile, go again.",
   "c8d": "Four of a kind burns too.",
   "c9t": "End",
@@ -205,6 +208,8 @@
     "statsReset": "Reset statistics",
     "statsConfirm": "Really delete your statistics?",
     "statsNote": "Saved only on this device.",
-    "yourName": "Your name"
+    "yourName": "Your name",
+    "skipped": "{name} misses a turn.",
+    "youSkipped": "You miss a turn."
   }
 }

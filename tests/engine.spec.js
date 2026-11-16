@@ -87,6 +87,56 @@ test.describe("moves", () => {
     expect(() => E.play(s, 0, ["5♠"])).toThrow();
   });
 
+  test("an 8 makes the next player miss a turn", () => {
+    const s = game({ players: [{ hand: "8♠ 4♦" }, { hand: "K♠" }, { hand: "Q♠" }] });
+    const events = E.play(s, 0, ["8♠"]);
+    expect(events.filter((e) => e.type === "skip")).toEqual([{ type: "skip", player: 1 }]);
+    expect(s.turn).toBe(2);
+  });
+
+  test("two 8s skip the next two players", () => {
+    const s = game({ players: [{ hand: "8♠ 8♥ 4♦" }, { hand: "K♠" }, { hand: "Q♠" }, { hand: "J♠" }] });
+    const events = E.play(s, 0, ["8♠", "8♥"]);
+    expect(events.filter((e) => e.type === "skip").map((e) => e.player)).toEqual([1, 2]);
+    expect(s.turn).toBe(3);
+  });
+
+  test("with two players: one 8 and you go again, two 8s and it is the other's turn", () => {
+    const one = game({ players: [{ hand: "8♠ 4♦" }, { hand: "K♠" }] });
+    E.play(one, 0, ["8♠"]);
+    expect(one.turn).toBe(0);
+    const two = game({ players: [{ hand: "8♠ 8♥ 4♦" }, { hand: "K♠" }] });
+    E.play(two, 0, ["8♠", "8♥"]);
+    expect(two.turn).toBe(1);
+  });
+
+  test("players who are out are not skipped, the next one still in the game is", () => {
+    const s = game({ players: [{ hand: "8♠ 4♦" }, { hand: "K♠" }, { hand: "Q♠" }] });
+    s.players[1].place = 1;
+    s.finished = [1];
+    E.play(s, 0, ["8♠"]);
+    expect(s.turn).toBe(0);
+  });
+
+  test("the 8 itself is a normal card: equal or higher", () => {
+    expect(E.canPlayRank(game({ players: [{}, {}], pile: "9♦" }), 8)).toBe(false);
+    expect(E.canPlayRank(game({ players: [{}, {}], pile: "7♦" }), 8)).toBe(false);
+    expect(E.canPlayRank(game({ players: [{}, {}], pile: "6♦" }), 8)).toBe(true);
+  });
+
+  test("a flipped 8 skips too", () => {
+    const s = game({ players: [{ down: "8♣ 4♠" }, { hand: "K♠" }, { hand: "Q♠" }], pile: "5♦" });
+    E.flip(s, 0, 0);
+    expect(s.turn).toBe(2);
+  });
+
+  test("burning beats skipping: four 8s burn and you go again", () => {
+    const s = game({ players: [{ hand: "8♠ 8♥ 4♦" }, { hand: "K♠" }, { hand: "Q♠" }], pile: "8♣ 8♦" });
+    const events = E.play(s, 0, ["8♠", "8♥"]);
+    expect(events.some((e) => e.type === "skip")).toBe(false);
+    expect(s.turn).toBe(0);
+  });
+
   test("10 burns the pile and you go again", () => {
     const s = game({ players: [{ hand: "10♠ 4♥" }, { hand: "K♠" }], pile: "A♦ K♣" });
     const events = E.play(s, 0, ["10♠"]);
@@ -216,6 +266,7 @@ test.describe("bots", () => {
   for (const level of ["easy", "normal"]) {
     test(`${level}: 1,000 complete games, cards never get lost`, () => {
       const random = seeded(level === "easy" ? 11 : 12);
+      let draws = 0;
       for (let g = 0; g < 1000; g++) {
         const n = 2 + (g % 4);
         const s = E.createGame({ players: n, random });
@@ -234,8 +285,11 @@ test.describe("bots", () => {
           if (E.countCards(s) !== 52) throw new Error(`Game ${g}: ${E.countCards(s)} cards instead of 52`);
           if (++moves > 10000) throw new Error(`Game ${g} does not end`);
         }
-        if (s.finished.length !== n) throw new Error(`Game ${g}: not everyone finished`);
+        // A draw (endless loop) ends the game before everyone is out; it must stay rare.
+        if (s.stalemate) draws++;
+        else if (s.finished.length !== n) throw new Error(`Game ${g}: not everyone finished`);
       }
+      expect(draws, "draws").toBeLessThan(10);
     });
   }
 

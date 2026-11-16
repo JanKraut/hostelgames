@@ -191,6 +191,8 @@ function describe(event) {
     case "flip":
       if (event.fits) return fill(you ? T.youFlipOk : T.flipOk, { name, cards: ltr(label(event.card)) });
       return fill(you ? T.youFlipFail : T.flipFail, { name, cards: ltr(label(event.card)) });
+    case "skip":
+      return you ? T.youSkipped : fill(T.skipped, { name });
     case "stalemate":
       return T.stalemate;
     case "out":

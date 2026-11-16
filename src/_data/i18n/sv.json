@@ -60,13 +60,15 @@
   "startH": "Vem börjar?",
   "startP": "Den som har en 4:a på handen lägger den och börjar. Har ingen en 4:a börjar närmast högre kort, alltså en 5:a och så vidare. Sedan går det medurs.",
   "spH": "Specialkort",
-  "spLead": "De här korten får du lägga nästan alltid, oavsett vad som ligger överst.",
+  "spLead": "De här korten har en särskild effekt. 2:an, 3:an och 10:an får du lägga nästan alltid, oavsett vad som ligger överst.",
   "sp2h": "2 – Nollställ",
   "sp2p": "Nollställer högen. Sedan får vilket kort som helst läggas ovanpå.",
   "sp3h": "3 – Osynlig",
   "sp3p": "Räknas helt enkelt inte. Nästa spelare måste slå kortet som ligger <em>under</em> 3:an.",
   "sp7h": "7 – Neråt",
-  "sp7p": "Bara nästa spelare måste lägga en 7:a eller <strong>lägre</strong>, eller ett annat specialkort.",
+  "sp7p": "Bara nästa spelare måste lägga en 7:a eller <strong>lägre</strong> – eller en 2:a, 3:a eller 10:a.",
+  "sp8h": "8 – Står över",
+  "sp8p": "Du lägger den som ett vanligt kort. Sedan får nästa spelare stå över – med två 8:or de två nästa, och så vidare.",
   "sp10h": "10 – Bränn",
   "sp10p": "Hela högen åker ur spelet. Du får spela igen direkt.",
   "sp4h": "Fyra lika – Bränn",
@@ -122,6 +124,7 @@
   "c4d": "Nollställer högen.",
   "c5d": "Osynlig.",
   "c6d": "Nästa lägger 7 eller lägre.",
+  "c8bd": "Nästa står över (en per 8:a).",
   "c7d": "Bränn högen, spela igen.",
   "c8d": "Fyra lika bränner också.",
   "c9t": "Slut",
@@ -205,6 +208,8 @@
     "statsReset": "Nollställ statistik",
     "statsConfirm": "Vill du verkligen radera din statistik?",
     "statsNote": "Sparas bara på den här enheten.",
-    "yourName": "Ditt namn"
+    "yourName": "Ditt namn",
+    "skipped": "{name} står över.",
+    "youSkipped": "Du står över."
   }
 }

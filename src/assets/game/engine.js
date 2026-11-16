@@ -7,6 +7,8 @@
 //   - Play a card that is equal or higher, several of the same rank together.
 //     Then draw back to 3 cards while the draw pile lasts.
 //   - 2 resets, 3 is invisible, after a 7 the next card must be 7 or lower,
+//     an 8 (played like a normal card) makes the next player miss a turn; two 8s
+//     the next two players, and so on,
 //     10 burns the pile, four of a kind on top burns too. After a burn you go again.
 //   - Can't play: pick up the whole pile.
 //   - Hand empty and draw pile empty: play face-up cards, then face-down cards blind.
@@ -155,8 +157,9 @@ function cardsLeft(player) {
   return player.hand.length + player.up.length + player.down.length;
 }
 
-/** After a play: burn, refill, check out, move the turn on. */
-function afterPlay(state, p, events) {
+/** After a play: burn, refill, check out, move the turn on (skipping one player per 8). */
+function afterPlay(state, p, events, played) {
+  const eights = played.filter((card) => card.rank === 8).length;
   const burn = burnsPile(state);
   if (burn) {
     state.burned += state.pile.length;
@@ -169,25 +172,32 @@ function afterPlay(state, p, events) {
     state.finished.push(p);
     events.push({ type: "out", player: p, place: player.place });
     if (burn) events.push({ type: "burn", player: p, again: false });
-    nextTurn(state, p);
+    nextTurn(state, p, burn ? 0 : eights, events);
   } else if (burn) {
+    // Same player goes again; a burn beats the 8s.
     events.push({ type: "burn", player: p, again: true });
-    // same player goes again
   } else {
-    nextTurn(state, p);
+    nextTurn(state, p, eights, events);
   }
   checkOver(state, events);
   return events;
 }
 
-function nextTurn(state, from) {
+/** Gives the turn to the next player still in the game, skipping `skips` players (8s). */
+function nextTurn(state, from, skips = 0, events = []) {
   const n = state.players.length;
-  for (let step = 1; step <= n; step++) {
-    const i = (from + step) % n;
-    if (!isOut(state, i)) {
-      state.turn = i;
-      return;
+  const next = (i) => {
+    for (let step = 1; step <= n; step++) {
+      const j = (i + step) % n;
+      if (!isOut(state, j)) return j;
     }
+    return i;
+  };
+  state.turn = next(from);
+  if (activePlayers(state).length < 2) return;
+  for (let k = 0; k < skips; k++) {
+    events.push({ type: "skip", player: state.turn });
+    state.turn = next(state.turn);
   }
 }
 
@@ -223,7 +233,7 @@ export function play(state, p, ids) {
   player[from] = player[from].filter((c) => !ids.includes(c.id));
   state.pile.push(...cards);
   state.startRank = null;
-  return remember(state, afterPlay(state, p, [{ type: "play", player: p, cards, from }]));
+  return remember(state, afterPlay(state, p, [{ type: "play", player: p, cards, from }], cards));
 }
 
 /** Picks up the whole pile. Only allowed when nothing can be played. Returns events. */
@@ -248,7 +258,7 @@ export function flip(state, p, index) {
   if (canPlayRank(state, card.rank)) {
     state.pile.push(card);
     state.startRank = null;
-    return remember(state, afterPlay(state, p, [{ type: "flip", player: p, card, fits: true }]));
+    return remember(state, afterPlay(state, p, [{ type: "flip", player: p, card, fits: true }], [card]));
   }
   const count = state.pile.length + 1;
   player.hand.push(...state.pile, card);

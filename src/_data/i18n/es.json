@@ -60,13 +60,15 @@
   "startH": "¿Quién empieza?",
   "startP": "Quien tenga un 4 en la mano lo juega y empieza. Si nadie tiene un 4, empieza la siguiente carta más alta, o sea un 5, y así sucesivamente. Después se sigue en el sentido de las agujas del reloj.",
   "spH": "Cartas especiales",
-  "spLead": "Estas cartas las puedes jugar casi siempre, da igual lo que haya arriba.",
+  "spLead": "Estas cartas tienen un efecto especial. El 2, el 3 y el 10 los puedes jugar casi siempre, da igual lo que haya arriba.",
   "sp2h": "2 – Reinicio",
   "sp2p": "Reinicia el montón. Después se puede poner cualquier carta encima.",
   "sp3h": "3 – Invisible",
   "sp3p": "No cuenta. El siguiente tiene que superar la carta que hay <em>debajo</em> del 3.",
   "sp7h": "7 – Más bajo",
-  "sp7p": "Solo el siguiente jugador tiene que jugar un 7 o <strong>más bajo</strong>, u otra carta especial.",
+  "sp7p": "Solo el siguiente jugador tiene que jugar un 7 o <strong>más bajo</strong>, o un 2, 3 o 10.",
+  "sp8h": "8 – Saltar",
+  "sp8p": "La juegas como una carta normal. Después, el siguiente jugador pierde su turno; con dos 8, los dos siguientes, y así sucesivamente.",
   "sp10h": "10 – Quemar",
   "sp10p": "Todo el montón sale del juego. Vuelves a jugar enseguida.",
   "sp4h": "Cuatro iguales – Quemar",
@@ -122,6 +124,7 @@
   "c4d": "Reinicia el montón.",
   "c5d": "Invisible.",
   "c6d": "El siguiente juega 7 o más bajo.",
+  "c8bd": "El siguiente pierde el turno (uno por cada 8).",
   "c7d": "Quema el montón, vuelves a jugar.",
   "c8d": "Cuatro iguales también queman.",
   "c9t": "Final",
@@ -205,6 +208,8 @@
     "statsReset": "Borrar estadísticas",
     "statsConfirm": "¿Seguro que quieres borrar tus estadísticas?",
     "statsNote": "Guardado solo en este dispositivo.",
-    "yourName": "Tu nombre"
+    "yourName": "Tu nombre",
+    "skipped": "{name} pierde el turno.",
+    "youSkipped": "Pierdes el turno."
   }
 }
