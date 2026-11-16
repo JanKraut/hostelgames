@@ -1,0 +1,13 @@
+{#- A playing card. size: "" | "sm" | "xs"; extra: more classes, e.g. "gold". -#}
+{% macro card(rank, suit, size="", extra="", pip=true) -%}
+<div class="card{% if suit == '♥' or suit == '♦' %} r{% endif %}{% if size %} {{ size }}{% endif %}{% if extra %} {{ extra }}{% endif %}"><div class="c">{{ rank }}<span>{{ suit }}</span></div>{% if pip %}<div class="pip">{{ suit }}</div>{% endif %}</div>
+{%- endmacro %}
+
+{% macro back(size="sm") -%}
+<div class="card {{ size }} back"></div>
+{%- endmacro %}
+
+{#- Face-down card with a face-up card on top. -#}
+{% macro stack(rank, suit, extra="") -%}
+<div class="stack">{{ back() }}{{ card(rank, suit, "sm", extra) }}</div>
+{%- endmacro %}

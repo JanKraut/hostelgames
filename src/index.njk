@@ -1,0 +1,294 @@
+---
+pagination:
+  data: languages
+  size: 1
+  alias: lang
+permalink: "{{ lang.path }}"
+---
+{%- from "card.njk" import card, back, stack -%}
+{%- set t = lang.t -%}
+<!DOCTYPE html>
+<html lang="{{ lang.htmlLang }}" dir="{{ lang.dir }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{ t.title }}</title>
+<meta name="description" content="{{ t.sub | striptags }}">
+<link rel="canonical" href="{{ lang.url }}">
+{%- for l in languages %}
+<link rel="alternate" hreflang="{{ l.htmlLang }}" href="{{ l.url }}">
+{%- endfor %}
+<link rel="alternate" hreflang="x-default" href="{{ languages[0].url }}">
+<script>document.documentElement.classList.add("js")</script>
+{%- if lang.path == "/" %}
+<script>{% include "redirect.njk" %}</script>
+{%- endif %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Atkinson+Hyperlegible:wght@400;700&family=Rubik:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js" defer></script>
+<script src="/assets/app.js" defer></script>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="langbar">
+      <details class="langmenu">
+        <summary aria-label="Language / Sprache / Idioma: {{ lang.name }}">
+          <span class="flag" aria-hidden="true">{{ lang.flag }}</span>
+          <span>{{ lang.name }}</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
+        <ul>
+          {%- for l in languages %}
+          <li><a href="{{ l.path }}" hreflang="{{ l.htmlLang }}" lang="{{ l.htmlLang }}" data-lang="{{ l.code }}"{% if l.code == lang.code %} aria-current="page"{% endif %}><span class="flag" aria-hidden="true">{{ l.flag }}</span>{{ l.name }}</a></li>
+          {%- endfor %}
+        </ul>
+      </details>
+    </div>
+    <h1>{{ t.h1 | safe }}</h1>
+    <p>{{ t.sub | safe }}</p>
+    <div class="fan" aria-hidden="true">
+      {{ card("2", "♣") }}
+      {{ card("10", "♥") }}
+      {{ card("7", "♠") }}
+    </div>
+    <div class="goal">
+      <div class="goal-icon" aria-hidden="true">🎯</div>
+      <p>{{ t.goal | safe }}</p>
+    </div>
+  </div>
+</header>
+
+<nav aria-label="{{ t.navLabel }}">
+  <ul>
+    <li><a href="#aufbau">{{ t.n1 }}</a></li>
+    <li><a href="#tauschen">{{ t.n1b }}</a></li>
+    <li><a href="#ablauf">{{ t.n2 }}</a></li>
+    <li><a href="#sonderkarten">{{ t.n3 }}</a></li>
+    <li><a href="#ende">{{ t.n4 }}</a></li>
+    <li class="js-only"><a href="#ueben">{{ t.n5 }}</a></li>
+    <li><a href="#strategie">{{ t.n6 }}</a></li>
+    <li><a href="#spickzettel">{{ t.n7 }}</a></li>
+    <li><a href="#teilen">{{ t.n8 }}</a></li>
+  </ul>
+</nav>
+
+<main class="wrap">
+
+  <section id="aufbau">
+    <h2>{{ t.setupH }}</h2>
+    <p class="lead">{{ t.setupLead | safe }}</p>
+
+    <h3 class="sub">{{ t.rankH }}</h3>
+    <p class="lead">{{ t.rankLead | safe }}</p>
+    <div class="ranks" role="img" aria-label="{{ t.rankAlt }}">
+      {%- for r in [["2","♠"],["3","♥"],["4","♣"],["5","♦"],["6","♠"],["7","♥"],["8","♣"],["9","♦"],["10","♠"],["J","♥"],["Q","♣"],["K","♦"],["A","♠"]] %}
+      {{ card(r[0], r[1]) }}
+      {%- endfor %}
+    </div>
+    <div class="rankscale" aria-hidden="true"><span>{{ t.rankLow }}</span><span>{{ t.rankHigh }}</span></div>
+    <p>{{ t.rankP | safe }}</p>
+
+    <h3 class="sub">{{ t.dealH }}</h3>
+    <p>{{ t.dealP | safe }}</p>
+
+    <div class="setupvis" role="img" aria-label="{{ t.setupAlt }}">
+      <div class="wood">
+        <div class="row">
+          {{ stack("K", "♠") }}
+          {{ stack("A", "♦") }}
+          {{ stack("2", "♣") }}
+        </div>
+        <div class="legend"><div>{{ t.lgDown | safe }}</div><div>{{ t.lgUp | safe }}</div></div>
+      </div>
+      <div class="hand">
+        <div class="row">
+          {{ card("5", "♥", "sm") }}
+          {{ card("9", "♠", "sm") }}
+          {{ card("J", "♦", "sm") }}
+        </div>
+        <div class="legend"><div>{{ t.lgHand | safe }}</div></div>
+      </div>
+    </div>
+
+    <p>{{ t.setupP | safe }}</p>
+  </section>
+
+  <section id="tauschen">
+    <h2>{{ t.swH }}</h2>
+    <p class="lead">{{ t.swLead | safe }}</p>
+    <div class="setupvis swapvis" role="img" aria-label="{{ t.swAlt }}">
+      <div class="wood">
+        <div class="row">
+          {{ stack("4", "♦", "gold") }}
+          {{ stack("9", "♣") }}
+          {{ stack("K", "♥") }}
+        </div>
+        <div class="legend"><div>{{ t.swUp | safe }}</div></div>
+      </div>
+      <div class="swaparrow" aria-hidden="true">⇅</div>
+      <div class="hand">
+        <div class="row">
+          {{ card("A", "♠", "sm", "gold") }}
+          {{ card("6", "♥", "sm") }}
+          {{ card("J", "♦", "sm") }}
+        </div>
+        <div class="legend"><div>{{ t.swHand | safe }}</div></div>
+      </div>
+    </div>
+    <ol class="steps">
+      <li><h3>{{ t.w1h }}</h3><p>{{ t.w1p | safe }}</p></li>
+      <li><h3>{{ t.w2h }}</h3><p>{{ t.w2p | safe }}</p></li>
+      <li><h3>{{ t.w3h }}</h3><p>{{ t.w3p | safe }}</p></li>
+    </ol>
+    <p>{{ t.swWhy | safe }}</p>
+  </section>
+
+  <section id="ablauf">
+    <h2>{{ t.playH }}</h2>
+
+    <h3 class="sub first">{{ t.startH }}</h3>
+    <p>{{ t.startP | safe }}</p>
+
+    <h3 class="sub">{{ t.turnH }}</h3>
+    <p>{{ t.turnLead | safe }}</p>
+    <div class="decide">
+      <p class="dq">{{ t.dq }}</p>
+      <p class="dqs">{{ t.dqs | safe }}</p>
+      <div class="branches">
+        <div class="br yes-br">
+          <div class="bh">{{ t.byH }}</div>
+          <ol>
+            <li>{{ t.by1 | safe }}</li>
+            <li>{{ t.by2 | safe }}</li>
+          </ol>
+        </div>
+        <div class="br no-br">
+          <div class="bh">{{ t.bnH }}</div>
+          <p class="bp">{{ t.bn1 | safe }}</p>
+        </div>
+      </div>
+      <p class="dnext">{{ t.dnext | safe }}</p>
+    </div>
+  </section>
+
+  <section id="sonderkarten">
+    <h2>{{ t.spH }}</h2>
+    <p class="lead">{{ t.spLead | safe }}</p>
+    <div class="specials">
+      <div class="sp">{{ card("2", "♣", "sm") }}<div><h3>{{ t.sp2h }}</h3><p>{{ t.sp2p | safe }}</p></div></div>
+      <div class="sp">{{ card("3", "♥", "sm") }}<div><h3>{{ t.sp3h }}</h3><p>{{ t.sp3p | safe }}</p></div></div>
+      <div class="sp">{{ card("7", "♠", "sm") }}<div><h3>{{ t.sp7h }}</h3><p>{{ t.sp7p | safe }}</p></div></div>
+      <div class="sp">{{ card("10", "♦", "sm") }}<div><h3>{{ t.sp10h }}</h3><p>{{ t.sp10p | safe }}</p></div></div>
+      <div class="sp">
+        <div class="four">
+          {%- for s in ["♠","♥","♣","♦"] %}
+          {{ card("8", s, "xs") }}
+          {%- endfor %}
+        </div>
+        <div><h3>{{ t.sp4h }}</h3><p>{{ t.sp4p | safe }}</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ende">
+    <h2>{{ t.endH }}</h2>
+
+    <h3 class="sub first">{{ t.e1h }}</h3>
+    <p>{{ t.e1p | safe }}</p>
+
+    <h3 class="sub">{{ t.e2h }}</h3>
+    <p>{{ t.e2p | safe }}</p>
+    <div class="phases">
+      <div class="phase">
+        <div class="row">{{ card("5", "♥", "xs", pip=false) }}{{ card("9", "♠", "xs", pip=false) }}</div>
+        <b>{{ t.ph1b }}</b><small>{{ t.ph1s }}</small>
+      </div>
+      <div class="phase wood">
+        <div class="row">{{ card("K", "♠", "xs", pip=false) }}{{ card("A", "♦", "xs", pip=false) }}</div>
+        <b>{{ t.ph2b }}</b><small>{{ t.ph2s }}</small>
+      </div>
+      <div class="phase wood">
+        <div class="row">{{ back("xs") }}{{ back("xs") }}</div>
+        <b>{{ t.ph3b }}</b><small>{{ t.ph3s }}</small>
+      </div>
+    </div>
+
+    <h3 class="sub">{{ t.e3h }}</h3>
+    <p>{{ t.e3p | safe }}</p>
+
+    <h3 class="sub">{{ t.e4h }}</h3>
+    <p>{{ t.e4p | safe }}</p>
+
+    <h3 class="sub">{{ t.e5h }}</h3>
+    <p>{{ t.e5p | safe }}</p>
+  </section>
+
+  <section id="ueben" class="js-only">
+    <h2>{{ t.qH }}</h2>
+    <p class="lead">{{ t.qLead | safe }}</p>
+    <div class="trainer" aria-live="polite">
+      <div class="duel">
+        <div><div id="topCard"></div><div class="lbl">{{ t.qTop }}</div></div>
+        <div><div id="myCard"></div><div class="lbl">{{ t.qMine }}</div></div>
+      </div>
+      <p class="q">{{ t.qQ }}</p>
+      <div class="btns" id="btns">
+        <button class="yes" data-a="1">{{ t.qYes }}</button>
+        <button class="no" data-a="0">{{ t.qNo }}</button>
+      </div>
+      <div class="fb" id="fb"></div>
+      <button class="next" id="next" hidden>{{ t.qNext }}</button>
+      <div class="score" id="score"></div>
+    </div>
+    <script type="application/json" id="quiz-text">{{ t.quiz | dump | safe }}</script>
+  </section>
+
+  <section id="strategie">
+    <h2>{{ t.stH }}</h2>
+    <p class="lead">{{ t.stLead | safe }}</p>
+    <ul class="strats">
+      {%- for i in range(1, 8) %}
+      <li><h3>{{ t["t" + i + "h"] }}</h3><p>{{ t["t" + i + "p"] | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="spickzettel">
+    <div class="cheat">
+      <h2>{{ t.chH }}</h2>
+      <dl>
+        <dt>{{ t.c1t }}</dt><dd>{{ t.c1d | safe }}</dd>
+        <dt>{{ t.c2t }}</dt><dd>{{ t.c2d | safe }}</dd>
+        <dt>{{ t.c3t }}</dt><dd>{{ t.c3d | safe }}</dd>
+        <dt>2</dt><dd>{{ t.c4d | safe }}</dd>
+        <dt>3</dt><dd>{{ t.c5d | safe }}</dd>
+        <dt>7</dt><dd>{{ t.c6d | safe }}</dd>
+        <dt>10</dt><dd>{{ t.c7d | safe }}</dd>
+        <dt>4×</dt><dd>{{ t.c8d | safe }}</dd>
+        <dt>{{ t.c9t }}</dt><dd>{{ t.c9d | safe }}</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section id="teilen">
+    <div class="sharebox">
+      <h2>{{ t.shH }}</h2>
+      <p class="shlead">{{ t.shLead | safe }}</p>
+      <div class="qr" id="qr" role="img" aria-label="{{ t.shAlt }}"></div>
+      <p class="shurl"><a id="shurl" href="{{ lang.url }}">{{ lang.url | replace("https://", "") }}</a></p>
+      <div class="shbtns js-only">
+        <button type="button" class="shbtn primary" id="shShare" hidden>{{ t.shBtn }}</button>
+        <button type="button" class="shbtn" id="shCopy" data-done="{{ t.shCopied }}">{{ t.shCopy }}</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>{{ t.foot | safe }}</footer>
+
+</body>
+</html>
