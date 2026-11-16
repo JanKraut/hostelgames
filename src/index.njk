@@ -4,52 +4,20 @@ pagination:
   size: 1
   alias: lang
 permalink: "{{ lang.path }}"
+layout: layouts/base.njk
+subpath: ""
+eleventyComputed:
+  pageTitle: "{{ lang.t.title }}"
+  pageDescription: "{{ lang.t.sub | striptags }}"
+classicScripts: ["/assets/qrcode.js"]
+scripts: ["/assets/rules.js"]
 ---
 {%- from "card.njk" import card, back, stack, cardRow -%}
 {%- set t = lang.t -%}
-<!DOCTYPE html>
-<html lang="{{ lang.htmlLang }}" dir="{{ lang.dir }}">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>{{ t.title }}</title>
-<meta name="description" content="{{ t.sub | striptags }}">
-<link rel="canonical" href="{{ lang.url }}">
-{%- for l in languages %}
-<link rel="alternate" hreflang="{{ l.htmlLang }}" href="{{ l.url }}">
-{%- endfor %}
-<link rel="alternate" hreflang="x-default" href="{{ languages[0].url }}">
-<script>document.documentElement.classList.add("js")</script>
-{%- if lang.path == "/" %}
-<script>{% include "redirect.njk" %}</script>
-{%- endif %}
-<meta name="theme-color" content="#164634">
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="manifest" href="/manifest.webmanifest">
-<link rel="stylesheet" href="/assets/fonts.css">
-<link rel="stylesheet" href="/assets/styles.css">
-<script src="/assets/qrcode.js" defer></script>
-<script src="/assets/app.js" defer></script>
-</head>
-<body>
 
 <header class="hero">
   <div class="wrap">
-    <div class="langbar">
-      <details class="langmenu">
-        <summary aria-label="Language / Sprache / Idioma: {{ lang.name }}">
-          <span class="flag" aria-hidden="true">{{ lang.flag }}</span>
-          <span>{{ lang.name }}</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-        </summary>
-        <ul>
-          {%- for l in languages %}
-          <li><a href="{{ l.path }}" hreflang="{{ l.htmlLang }}" lang="{{ l.htmlLang }}" data-lang="{{ l.code }}"{% if l.code == lang.code %} aria-current="page"{% endif %}><span class="flag" aria-hidden="true">{{ l.flag }}</span>{{ l.name }}</a></li>
-          {%- endfor %}
-        </ul>
-      </details>
-    </div>
+    {% include "langmenu.njk" %}
     <h1>{{ t.h1 | safe }}</h1>
     <p>{{ t.sub | safe }}</p>
     <div class="fan" aria-hidden="true">
@@ -72,6 +40,7 @@ permalink: "{{ lang.path }}"
     <li><a href="#sonderkarten">{{ t.n3 }}</a></li>
     <li><a href="#ende">{{ t.n4 }}</a></li>
     <li class="js-only"><a href="#ueben">{{ t.n5 }}</a></li>
+    <li><a href="{{ lang.path }}play/">{{ t.game.ctaBtn }}</a></li>
     <li><a href="#strategie">{{ t.n6 }}</a></li>
     <li><a href="#spickzettel">{{ t.n7 }}</a></li>
     <li><a href="#teilen">{{ t.n8 }}</a></li>
@@ -239,6 +208,14 @@ permalink: "{{ lang.path }}"
     <script type="application/json" id="quiz-text">{{ t.quiz | dump | safe }}</script>
   </section>
 
+  <section id="gegen-bots">
+    <div class="cta">
+      <h2>{{ t.game.ctaH }}</h2>
+      <p>{{ t.game.ctaP }}</p>
+      <a class="ctabtn" href="{{ lang.path }}play/">{{ t.game.ctaBtn }} →</a>
+    </div>
+  </section>
+
   <section id="strategie">
     <h2>{{ t.stH }}</h2>
     <p class="lead">{{ t.stLead | safe }}</p>
@@ -281,6 +258,3 @@ permalink: "{{ lang.path }}"
 </main>
 
 <footer>{{ t.foot | safe }}</footer>
-
-</body>
-</html>

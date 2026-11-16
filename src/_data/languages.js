@@ -27,16 +27,21 @@ const DEFAULT = "en";
 const load = (code) =>
   JSON.parse(readFileSync(new URL(`./i18n/${code}.json`, import.meta.url), "utf8"));
 
-// Merge English <- fallbacks <- own texts. `quiz` is merged one level deeper.
+// Merges b into a; sections like `quiz` or `game` are merged text by text.
+function merge(a, b) {
+  const result = { ...a };
+  for (const [key, value] of Object.entries(b)) {
+    result[key] = value && typeof value === "object" ? merge(a[key] ?? {}, value) : value;
+  }
+  return result;
+}
+
+// English <- fallbacks <- own texts.
 function texts(lang) {
   const chain = [DEFAULT, ...(lang.fallback ?? []), lang.code].filter(
     (code, i, all) => all.indexOf(code) === i,
   );
-  return chain.map(load).reduce((merged, own) => ({
-    ...merged,
-    ...own,
-    quiz: { ...merged.quiz, ...own.quiz },
-  }));
+  return chain.map(load).reduce(merge);
 }
 
 export default LANGUAGES.map((lang) => {

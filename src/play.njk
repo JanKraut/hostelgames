@@ -1,0 +1,105 @@
+---
+pagination:
+  data: languages
+  size: 1
+  alias: lang
+permalink: "{{ lang.path }}play/"
+layout: layouts/base.njk
+subpath: "play/"
+eleventyComputed:
+  pageTitle: "{{ lang.t.game.title }}"
+  pageDescription: "{{ lang.t.game.sub | striptags }}"
+styles: ["/assets/game/game.css"]
+scripts: ["/assets/game/ui.js"]
+---
+{%- set t = lang.t -%}
+{%- set g = lang.t.game -%}
+
+<header class="hero hero-small">
+  <div class="wrap">
+    {% include "langmenu.njk" %}
+    <p class="backlink"><a href="{{ lang.path }}">← {{ g.back }}</a></p>
+    <h1>{{ g.h1 }}</h1>
+    <p>{{ g.sub }}</p>
+  </div>
+</header>
+
+<main class="wrap game">
+  <p class="nojs-only gamenote">{{ g.noJs }}</p>
+
+  <!-- 1. Settings -->
+  <section id="setup" class="js-only gamebox">
+    <h2>{{ g.setupH }}</h2>
+    <form id="setup-form">
+      <fieldset>
+        <legend>{{ g.bots }}</legend>
+        <div class="choices">
+          {%- for n in [1, 2, 3, 4] %}
+          <label><input type="radio" name="bots" value="{{ n }}"{% if n == 2 %} checked{% endif %}><span>{{ n }}</span></label>
+          {%- endfor %}
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>{{ g.level }}</legend>
+        <div class="choices">
+          <label><input type="radio" name="level" value="easy"><span>{{ g.easy }}</span></label>
+          <label><input type="radio" name="level" value="normal" checked><span>{{ g.normal }}</span></label>
+        </div>
+      </fieldset>
+      <button type="submit" class="bigbtn">{{ g.start }}</button>
+    </form>
+  </section>
+
+  <!-- 2. The table -->
+  <section id="table" class="js-only" hidden>
+    <div id="opponents" class="opponents"></div>
+
+    <div class="center">
+      <div class="pilebox">
+        <div id="deck"></div>
+        <small>{{ g.deck }}</small>
+      </div>
+      <div class="pilebox">
+        <div id="pile" class="pile"></div>
+        <small>{{ g.pile }}</small>
+      </div>
+      <div class="pilebox burnedbox">
+        <span id="burned"></span>
+        <small id="invisible"></small>
+      </div>
+    </div>
+
+    <div class="status" aria-live="polite">
+      <p id="status"></p>
+      <ol id="log" class="log"></ol>
+    </div>
+
+    <div class="me" id="me">
+      <h3>{{ g.yourTable }}</h3>
+      <div id="my-table" class="mytable"></div>
+      <h3>{{ g.yourHand }}</h3>
+      <div id="my-hand" class="myhand"></div>
+    </div>
+
+    <div class="controls">
+      <button type="button" id="btn-ready" class="bigbtn">{{ g.ready }}</button>
+      <button type="button" id="btn-play" class="bigbtn">{{ g.play }}</button>
+      <button type="button" id="btn-pickup" class="bigbtn secondary">{{ g.pickUp }}</button>
+    </div>
+  </section>
+
+  <!-- 3. Game over -->
+  <section id="over" class="js-only gamebox" hidden>
+    <h2>{{ g.overH }}</h2>
+    <p id="over-text" class="overtext"></p>
+    <ol id="ranking" class="ranking"></ol>
+    <div class="controls">
+      <button type="button" id="btn-again" class="bigbtn">{{ g.again }}</button>
+      <button type="button" id="btn-settings" class="bigbtn secondary">{{ g.settings }}</button>
+    </div>
+  </section>
+
+  <script type="application/json" id="game-text">{{ g | dump | safe }}</script>
+</main>
+
+<footer>{{ t.foot | safe }}</footer>

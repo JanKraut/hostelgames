@@ -21,7 +21,10 @@ Beim ersten Mal ggf. den Browser installieren: `npx playwright install chromium`
 
 | Pfad | Inhalt |
 | --- | --- |
-| `src/index.njk` | Die Seitenvorlage, wird einmal pro Sprache gerendert |
+| `src/index.njk` | Regelseite, wird einmal pro Sprache gerendert |
+| `src/play.njk` | Spielseite gegen Bots (`/play/`, `/de/play/` …) |
+| `src/_includes/layouts/base.njk` | Gemeinsamer Rahmen: Kopf, `hreflang`, Skripte |
+| `src/_includes/langmenu.njk` | Sprachmenü, verlinkt auf dieselbe Seite in jeder Sprache |
 | `src/_includes/card.njk` | Makros für die Spielkarten-Grafiken |
 | `src/_includes/redirect.njk` | Nur Startseite: leitet auf die gemerkte bzw. Browsersprache weiter |
 | `src/_data/languages.js` | Liste der Sprachen (Reihenfolge im Menü, Flagge, Fallback-Kette) |
@@ -30,11 +33,30 @@ Beim ersten Mal ggf. den Browser installieren: `npx playwright install chromium`
 | `src/_data/fonts.js` | Welche Schriften, Schnitte und Zeichensätze ausgeliefert werden |
 | `src/fonts.11ty.js` | Erzeugt `/assets/fonts.css` aus den `@fontsource`-Paketen |
 | `src/assets/` | Stylesheet, JavaScript und Icons, werden unverändert kopiert |
+| `src/assets/site.js` | Auf jeder Seite: Sprachmenü, Service Worker |
+| `src/assets/rules.js` | Regelseite: Quiz, QR-Code, Teilen |
+| `src/assets/game/` | Spiel: `engine.js` (Regeln), `bots.js` (Computergegner), `ui.js` (Oberfläche), `game.css` |
 | `src/sw.js` | Service Worker (Vorlage), siehe „Offline“ |
 | `src/manifest.webmanifest` | Web-App-Manifest, macht die Seite installierbar |
 | `scripts/check-i18n.js` | Prüft die Übersetzungen, siehe unten |
 | `tests/site.spec.js` | Playwright-Tests: alle Sprachseiten, Weiterleitung, ohne JavaScript, Quiz, Teilen, Offline |
+| `tests/play.spec.js` | Spielseite in allen Sprachen, komplette Partien über die Oberfläche |
+| `tests/engine.spec.js` | Spielregeln und Bots ohne Browser, inklusive Tausender simulierter Partien |
 | `tests/serve.js` | Kleiner Server, der `_site/` unter dem Pages-Pfad ausliefert |
+
+## Gegen Bots spielen
+
+Die Spielseite läuft komplett im Browser, ohne Server, auch offline.
+
+- `engine.js` enthält nur die Regeln, genau wie auf der Regelseite, ohne Oberfläche. Dadurch lässt sie
+  sich in Node testen und simulieren.
+- `bots.js`: **Leicht** legt eine zufällige passende Karte. **Normal** spielt die Strategien von der
+  Regelseite: starke Karten offen hinlegen, kleine Karten zuerst, Sonderkarten sparen, große Stapel mit
+  der 10 verbrennen, Vierlinge vollmachen, die 7 gezielt einsetzen. Im Endspiel legt er seine höchste
+  Karte auf einen freien Stapel.
+- **Endlosschleifen:** In seltenen Endspielen ist jeder Zug erzwungen und dieselben Karten wandern ewig
+  im Kreis (gefunden per Simulation, etwa 1 von 3.000 Partien). Kommt dieselbe Stellung zum 10. Mal vor,
+  endet die Partie unentschieden. Bots weichen wiederholten Stellungen aus, wo sie eine Wahl haben.
 
 ## Keine externen Ressourcen
 
