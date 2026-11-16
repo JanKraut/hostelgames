@@ -23,11 +23,12 @@ permalink: "{{ lang.path }}"
 {%- if lang.path == "/" %}
 <script>{% include "redirect.njk" %}</script>
 {%- endif %}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Atkinson+Hyperlegible:wght@400;700&family=Rubik:wght@400;700;900&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#164634">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/fonts.css">
 <link rel="stylesheet" href="/assets/styles.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js" defer></script>
+<script src="/assets/qrcode.js" defer></script>
 <script src="/assets/app.js" defer></script>
 </head>
 <body>
