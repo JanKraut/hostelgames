@@ -1618,15 +1618,8 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.92rem;text-align:center
   }
   var start="en";
   try{var s=localStorage.getItem("lang");if(s&&DICT[s])start=s;else start=fromBrowser()||"en"}catch(e){start=fromBrowser()||"en"}
-  // Share: the link follows wherever the page is opened from.
-  var FALLBACK_URL="https://claude.ai/artifact/U4ih9S8wEwMefo1CeazwjE";
-  function pageUrl(){
-    try{ if(window.top===window && /^https?:/.test(location.href)) return location.href.split("#")[0]; }catch(e){}
-    var r=document.referrer||"";
-    if(/^https?:\/\/[^\/]+\/.*artifact/.test(r)) return r.split("#")[0];
-    return FALLBACK_URL;
-  }
-  var SHARE_URL=pageUrl();
+  // Share: the link points to wherever the page is hosted.
+  var SHARE_URL=location.href.split("#")[0];
   document.getElementById("shurl").textContent=SHARE_URL.replace(/^https?:\/\//,"");
   try{
     if(window.qrcode){var q=qrcode(0,"M");q.addData(SHARE_URL);q.make();document.getElementById("qr").innerHTML=q.createSvgTag(5,2);}
