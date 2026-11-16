@@ -5,7 +5,7 @@ pagination:
   alias: lang
 permalink: "{{ lang.path }}"
 ---
-{%- from "card.njk" import card, back, stack -%}
+{%- from "card.njk" import card, back, stack, cardRow -%}
 {%- set t = lang.t -%}
 <!DOCTYPE html>
 <html lang="{{ lang.htmlLang }}" dir="{{ lang.dir }}">
@@ -85,9 +85,7 @@ permalink: "{{ lang.path }}"
     <h3 class="sub">{{ t.rankH }}</h3>
     <p class="lead">{{ t.rankLead | safe }}</p>
     <div class="ranks" role="img" aria-label="{{ t.rankAlt }}">
-      {%- for r in [["2","♠"],["3","♥"],["4","♣"],["5","♦"],["6","♠"],["7","♥"],["8","♣"],["9","♦"],["10","♠"],["J","♥"],["Q","♣"],["K","♦"],["A","♠"]] %}
-      {{ card(r[0], r[1]) }}
-      {%- endfor %}
+      {{ cardRow([["2","♠"],["3","♥"],["4","♣"],["5","♦"],["6","♠"],["7","♥"],["8","♣"],["9","♦"],["10","♠"],["J","♥"],["Q","♣"],["K","♦"],["A","♠"]], lang.dir) }}
     </div>
     <div class="rankscale" aria-hidden="true"><span>{{ t.rankLow }}</span><span>{{ t.rankHigh }}</span></div>
     <p>{{ t.rankP | safe }}</p>
@@ -105,11 +103,7 @@ permalink: "{{ lang.path }}"
         <div class="legend"><div>{{ t.lgDown | safe }}</div><div>{{ t.lgUp | safe }}</div></div>
       </div>
       <div class="hand">
-        <div class="row">
-          {{ card("5", "♥", "sm") }}
-          {{ card("9", "♠", "sm") }}
-          {{ card("J", "♦", "sm") }}
-        </div>
+        <div class="row">{{ cardRow([["5","♥"],["9","♠"],["J","♦"]], lang.dir, "sm") }}</div>
         <div class="legend"><div>{{ t.lgHand | safe }}</div></div>
       </div>
     </div>
@@ -131,11 +125,7 @@ permalink: "{{ lang.path }}"
       </div>
       <div class="swaparrow" aria-hidden="true">⇅</div>
       <div class="hand">
-        <div class="row">
-          {{ card("A", "♠", "sm", "gold") }}
-          {{ card("6", "♥", "sm") }}
-          {{ card("J", "♦", "sm") }}
-        </div>
+        <div class="row">{{ cardRow([["A","♠","gold"],["6","♥"],["J","♦"]], lang.dir, "sm") }}</div>
         <div class="legend"><div>{{ t.swHand | safe }}</div></div>
       </div>
     </div>
