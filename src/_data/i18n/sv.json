@@ -197,7 +197,7 @@
     "ctaP": "Spela mot 1–4 bottar här – de följer exakt de här reglerna.",
     "ctaBtn": "Spela mot bottar",
     "stalemate": "Oändlig loop: samma kort går runt och runt och ingen kommer ut. Oavgjort!",
-    "botNames": "Erik, Elsa, Oskar, Astrid",
+    "botNames": "Erik/Lucas, Elsa/Alice, Oskar/William, Astrid/Maja",
     "statsH": "Din statistik",
     "statsGames": "Spel",
     "statsWins": "Vunna",
@@ -205,6 +205,7 @@
     "statsTotal": "Totalt",
     "statsReset": "Nollställ statistik",
     "statsConfirm": "Vill du verkligen radera din statistik?",
-    "statsNote": "Sparas bara på den här enheten."
+    "statsNote": "Sparas bara på den här enheten.",
+    "yourName": "Ditt namn"
   }
 }

@@ -69,6 +69,8 @@ test("swapping before the start", async ({ page }) => {
   await expect(page.locator(`#my-hand button[data-id="${upCard}"]`)).toBeVisible();
 });
 
+const PLAYER = "<b>Jo</b>";
+
 for (const [bots, level, code] of [
   [1, "normal", "de"],
   [4, "easy", "he"],
@@ -79,11 +81,12 @@ for (const [bots, level, code] of [
     await openPlay(page, lang);
     await page.check(`input[name=bots][value="${bots}"]`, { force: true });
     await page.check(`input[name=level][value="${level}"]`, { force: true });
+    await page.locator("input[name=player]").fill(PLAYER);
     await page.locator("#setup-form button[type=submit]").click();
     await expect(page.locator("#opponents .opp")).toHaveCount(bots);
 
     // Bots have typical first names of the page language, each one only once.
-    const names = lang.t.game.botNames.split(/\s*,\s*/);
+    const names = lang.t.game.botNames.split(/\s*,\s*/).map((pair) => pair.split("/")[0]);
     const shown = await page.locator("#opponents .oppname").allTextContents();
     expect(new Set(shown).size).toBe(bots);
     for (const name of shown) expect(names).toContain(name.trim());
@@ -106,6 +109,9 @@ for (const [bots, level, code] of [
 
     await expect(page.locator("#over")).toBeVisible();
     await expect(page.locator("#over h2")).toHaveText(lang.t.game.overH);
+    // Your name appears as plain text, never as HTML.
+    await expect(page.locator("#ranking li.you")).toContainText(PLAYER);
+    await expect(page.locator("#ranking b")).toHaveCount(0);
     const ranking = await page.locator("#ranking li").count();
     const draw = (await page.locator("#over-text").textContent()) === lang.t.game.stalemate;
     if (!draw) expect(ranking).toBe(bots + 1);
@@ -164,5 +170,42 @@ test.describe("statistics", () => {
     await page.locator("#setup [data-reset-stats]").click();
     await expect(page.locator("#setup table.stats")).toHaveCount(0);
     expect(await page.evaluate(() => localStorage.getItem("game-stats"))).toBeNull();
+  });
+});
+
+test.describe("names", () => {
+  for (const lang of languages) {
+    test(`${lang.code}: four bot names, each with an alternative that is not taken`, () => {
+      const pairs = lang.t.game.botNames.split(/\s*,\s*/).map((pair) => pair.split("/").map((n) => n.trim()));
+      expect(pairs).toHaveLength(4);
+      const all = pairs.flat();
+      for (const pair of pairs) expect(pair).toHaveLength(2);
+      expect(new Set(all).size, "all eight names differ").toBe(8);
+    });
+  }
+
+  const opponents = async (page, lang, player) => {
+    await openPlay(page, lang);
+    await page.check('input[name=bots][value="4"]', { force: true });
+    await page.locator("input[name=player]").fill(player);
+    await page.locator("#setup-form button[type=submit]").click();
+    return (await page.locator("#opponents .oppname").allTextContents()).map((n) => n.trim()).sort();
+  };
+
+  test("a bot with your name uses its alternative", async ({ page }) => {
+    expect(await opponents(page, byCode.de, "Lukas")).toEqual(["Anna", "Jonas", "Lena", "Max"]);
+  });
+
+  test("names match regardless of case and accents", async ({ page }) => {
+    expect(await opponents(page, byCode.es, "lucia")).toEqual(["Carmen", "Javier", "Marta", "Pablo"]);
+  });
+
+  test("without a name you are 'you', and your name is remembered", async ({ page }) => {
+    await openPlay(page, byCode.de);
+    await expect(page.locator("input[name=player]")).toHaveAttribute("placeholder", byCode.de.t.game.you);
+    await page.locator("input[name=player]").fill("Kim");
+    await page.locator("#setup-form button[type=submit]").click();
+    await page.reload();
+    await expect(page.locator("input[name=player]")).toHaveValue("Kim");
   });
 });

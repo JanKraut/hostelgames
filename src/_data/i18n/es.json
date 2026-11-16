@@ -197,7 +197,7 @@
     "ctaP": "Juega aquí mismo contra 1–4 bots: siguen exactamente estas reglas.",
     "ctaBtn": "Jugar contra bots",
     "stalemate": "Bucle infinito: las mismas cartas dan vueltas sin parar y nadie puede terminar. ¡Empate!",
-    "botNames": "Pablo, Lucía, Javier, Carmen",
+    "botNames": "Pablo/Daniel, Lucía/Marta, Javier/Sergio, Carmen/Laura",
     "statsH": "Tus estadísticas",
     "statsGames": "Partidas",
     "statsWins": "Ganadas",
@@ -205,6 +205,7 @@
     "statsTotal": "Total",
     "statsReset": "Borrar estadísticas",
     "statsConfirm": "¿Seguro que quieres borrar tus estadísticas?",
-    "statsNote": "Guardado solo en este dispositivo."
+    "statsNote": "Guardado solo en este dispositivo.",
+    "yourName": "Tu nombre"
   }
 }

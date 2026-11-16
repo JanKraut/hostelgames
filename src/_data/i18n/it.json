@@ -197,7 +197,7 @@
     "ctaP": "Gioca qui contro 1–4 bot – seguono esattamente queste regole.",
     "ctaBtn": "Gioca contro i bot",
     "stalemate": "Ciclo infinito: le stesse carte girano in tondo e nessuno riesce a uscire. Pareggio!",
-    "botNames": "Marco, Giulia, Luca, Sofia",
+    "botNames": "Marco/Matteo, Giulia/Chiara, Luca/Andrea, Sofia/Francesca",
     "statsH": "Le tue statistiche",
     "statsGames": "Partite",
     "statsWins": "Vinte",
@@ -205,6 +205,7 @@
     "statsTotal": "Totale",
     "statsReset": "Azzera statistiche",
     "statsConfirm": "Vuoi davvero cancellare le tue statistiche?",
-    "statsNote": "Salvato solo su questo dispositivo."
+    "statsNote": "Salvato solo su questo dispositivo.",
+    "yourName": "Il tuo nome"
   }
 }

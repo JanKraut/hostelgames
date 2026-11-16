@@ -197,7 +197,7 @@
     "ctaP": "Spiel hier direkt gegen 1–4 Bots – sie spielen genau nach diesen Regeln.",
     "ctaBtn": "Gegen Bots spielen",
     "stalemate": "Endlosschleife: Dieselben Karten wandern immer im Kreis, niemand kommt raus. Unentschieden!",
-    "botNames": "Lukas, Anna, Max, Lena",
+    "botNames": "Lukas/Jonas, Anna/Marie, Max/Paul, Lena/Sarah",
     "statsH": "Deine Statistik",
     "statsGames": "Spiele",
     "statsWins": "Gewonnen",
@@ -205,6 +205,7 @@
     "statsTotal": "Gesamt",
     "statsReset": "Statistik zurücksetzen",
     "statsConfirm": "Statistik wirklich löschen?",
-    "statsNote": "Nur auf diesem Gerät gespeichert."
+    "statsNote": "Nur auf diesem Gerät gespeichert.",
+    "yourName": "Dein Name"
   }
 }

@@ -197,7 +197,7 @@
     "ctaP": "Joga aqui contra 1–4 bots – seguem exatamente estas regras.",
     "ctaBtn": "Jogar contra bots",
     "stalemate": "Ciclo sem fim: as mesmas cartas andam sempre à roda e ninguém consegue terminar. Empate!",
-    "botNames": "João, Inês, Tiago, Beatriz",
+    "botNames": "João/Rodrigo, Inês/Mariana, Tiago/Diogo, Beatriz/Leonor",
     "statsH": "As tuas estatísticas",
     "statsGames": "Jogos",
     "statsWins": "Ganhos",
@@ -205,6 +205,7 @@
     "statsTotal": "Total",
     "statsReset": "Repor estatísticas",
     "statsConfirm": "Apagar mesmo as tuas estatísticas?",
-    "statsNote": "Guardado só neste dispositivo."
+    "statsNote": "Guardado só neste dispositivo.",
+    "yourName": "O teu nome"
   }
 }

@@ -197,7 +197,7 @@
     "ctaP": "Zagraj tutaj z 1–4 botami – grają dokładnie według tych zasad.",
     "ctaBtn": "Zagraj z botami",
     "stalemate": "Nieskończona pętla: te same karty krążą w kółko i nikt nie może skończyć. Remis!",
-    "botNames": "Jakub, Zuzanna, Kacper, Maja",
+    "botNames": "Jakub/Antoni, Zuzanna/Julia, Kacper/Szymon, Maja/Hanna",
     "statsH": "Twoje statystyki",
     "statsGames": "Gry",
     "statsWins": "Wygrane",
@@ -205,6 +205,7 @@
     "statsTotal": "Razem",
     "statsReset": "Wyzeruj statystyki",
     "statsConfirm": "Na pewno usunąć statystyki?",
-    "statsNote": "Zapisane tylko na tym urządzeniu."
+    "statsNote": "Zapisane tylko na tym urządzeniu.",
+    "yourName": "Twoje imię"
   }
 }

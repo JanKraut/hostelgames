@@ -197,7 +197,7 @@
     "ctaP": "Joue ici contre 1 à 4 bots – ils suivent exactement ces règles.",
     "ctaBtn": "Jouer contre des bots",
     "stalemate": "Boucle sans fin : les mêmes cartes tournent en rond et personne ne peut finir. Match nul !",
-    "botNames": "Lucas, Chloé, Hugo, Léa",
+    "botNames": "Lucas/Louis, Chloé/Manon, Hugo/Arthur, Léa/Camille",
     "statsH": "Tes statistiques",
     "statsGames": "Parties",
     "statsWins": "Gagnées",
@@ -205,6 +205,7 @@
     "statsTotal": "Total",
     "statsReset": "Réinitialiser les statistiques",
     "statsConfirm": "Vraiment effacer tes statistiques ?",
-    "statsNote": "Enregistré uniquement sur cet appareil."
+    "statsNote": "Enregistré uniquement sur cet appareil.",
+    "yourName": "Ton prénom"
   }
 }

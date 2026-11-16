@@ -197,7 +197,7 @@
     "ctaP": "Hraj tady proti 1–4 botům – hrají přesně podle těchto pravidel.",
     "ctaBtn": "Hrát proti botům",
     "stalemate": "Nekonečná smyčka: stejné karty pořád kolují dokola a nikdo se nemůže zbavit karet. Remíza!",
-    "botNames": "Jakub, Tereza, Tomáš, Eliška",
+    "botNames": "Jakub/Jan, Tereza/Anna, Tomáš/Petr, Eliška/Klára",
     "statsH": "Tvoje statistiky",
     "statsGames": "Hry",
     "statsWins": "Výhry",
@@ -205,6 +205,7 @@
     "statsTotal": "Celkem",
     "statsReset": "Vynulovat statistiky",
     "statsConfirm": "Opravdu smazat statistiky?",
-    "statsNote": "Uloženo jen v tomto zařízení."
+    "statsNote": "Uloženo jen v tomto zařízení.",
+    "yourName": "Tvoje jméno"
   }
 }

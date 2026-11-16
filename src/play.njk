@@ -31,6 +31,10 @@ scripts: ["/assets/game/ui.js"]
   <section id="setup" class="js-only gamebox">
     <h2>{{ g.setupH }}</h2>
     <form id="setup-form">
+      <label class="namefield">
+        <span>{{ g.yourName }}</span>
+        <input type="text" name="player" maxlength="20" autocomplete="given-name" placeholder="{{ g.you }}">
+      </label>
       <fieldset>
         <legend>{{ g.bots }}</legend>
         <div class="choices">

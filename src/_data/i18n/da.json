@@ -197,7 +197,7 @@
     "ctaP": "Spil mod 1–4 bots lige her – de følger præcis disse regler.",
     "ctaBtn": "Spil mod bots",
     "stalemate": "Uendelig løkke: de samme kort går rundt og rundt, og ingen kan komme ud. Uafgjort!",
-    "botNames": "Mads, Freja, Emil, Ida",
+    "botNames": "Mads/Oscar, Freja/Emma, Emil/William, Ida/Sofie",
     "statsH": "Din statistik",
     "statsGames": "Spil",
     "statsWins": "Vundet",
@@ -205,6 +205,7 @@
     "statsTotal": "I alt",
     "statsReset": "Nulstil statistik",
     "statsConfirm": "Vil du virkelig slette din statistik?",
-    "statsNote": "Gemmes kun på denne enhed."
+    "statsNote": "Gemmes kun på denne enhed.",
+    "yourName": "Dit navn"
   }
 }

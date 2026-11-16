@@ -427,3 +427,31 @@ table.stats {
   text-decoration: underline;
   cursor: pointer;
 }
+
+/* ---------- Your name ---------- */
+
+.namefield {
+  display: block;
+  margin-bottom: 1.2rem;
+}
+
+.namefield span {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.namefield input {
+  width: 100%;
+  max-width: 20rem;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+  color: var(--card-ink);
+  font: 400 1rem var(--font-body);
+}
+
+.namefield input:focus-visible {
+  border-color: var(--felt);
+}

@@ -54,9 +54,11 @@ Die Spielseite läuft komplett im Browser, ohne Server, auch offline.
   Regelseite: starke Karten offen hinlegen, kleine Karten zuerst, Sonderkarten sparen, große Stapel mit
   der 10 verbrennen, Vierlinge vollmachen, die 7 gezielt einsetzen. Im Endspiel legt er seine höchste
   Karte auf einen freien Stapel.
-- **Bot-Namen** kommen aus der jeweiligen Sprache (`game.botNames` in den i18n-Dateien, vier Namen
-  pro Sprache) und werden pro Partie zufällig verteilt. Hebräisch nutzt nur Namen, die zu den
-  männlichen Verbformen der Spielmeldungen passen.
+- **Namen:** Du kannst deinen eigenen Namen eingeben (wird mit den Einstellungen gespeichert). Die Bots
+  heißen wie in der Sprache üblich: `game.botNames` in den i18n-Dateien enthält vier Paare
+  `Name/Ersatzname`, z. B. `Lukas/Jonas`. Heißt du wie ein Bot (Groß-/Kleinschreibung und Akzente egal),
+  spielt sein Ersatzname mit. Hebräisch nutzt nur Namen, die zu den männlichen Verbformen der
+  Spielmeldungen passen.
 - **Statistik:** Spiele, Siege und Shithead-Runden pro Schwierigkeit stehen nur im `localStorage`
   des Geräts (`game-stats`), nichts verlässt das Gerät. Sie lässt sich im Spiel zurücksetzen.
 - **Endlosschleifen:** In seltenen Endspielen ist jeder Zug erzwungen und dieselben Karten wandern ewig

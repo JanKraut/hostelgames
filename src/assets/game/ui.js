@@ -16,7 +16,10 @@ const BOT_DELAY = REDUCED_MOTION ? 120 : 900;
 const HUMAN = 0;
 const SETTINGS_KEY = "game-settings";
 const STATS_KEY = "game-stats";
-const BOT_NAMES = T.botNames.split(/\s*,\s*/);
+// "Lukas/Jonas, Anna/Marie, …": a typical first name per bot and an alternative
+// for when you have the same name.
+const BOT_NAMES = T.botNames.split(/\s*,\s*/).map((pair) => pair.split("/").map((name) => name.trim()));
+const sameName = (a, b) => a.localeCompare(b, document.documentElement.lang, { sensitivity: "base" }) === 0;
 
 let state = null;
 let levels = [];
@@ -29,6 +32,14 @@ let botsRunning = false;
 let gameId = 0;
 
 // ---------- Rendering helpers ----------
+
+/** A list item with plain text: names you type in are never read as HTML. */
+function listItem(text, className = "") {
+  const li = document.createElement("li");
+  li.textContent = text;
+  if (className) li.className = className;
+  return li;
+}
 
 // Card names like "10♣" are always left to right, also inside Hebrew sentences
 // (U+2066 / U+2069 isolate them from the surrounding text direction).
@@ -137,7 +148,7 @@ function render() {
 
   // Messages
   $("status").textContent = hint || statusText(myTurn, from, playable);
-  $("log").innerHTML = log.map((line) => `<li>${line}</li>`).join("");
+  $("log").replaceChildren(...log.map((line) => listItem(line)));
 }
 
 function statusText(myTurn, from, playable) {
@@ -279,14 +290,16 @@ $("btn-ready").addEventListener("click", () => {
 
 // ---------- Game start and end ----------
 
-function newGame({ bots, level }) {
+function newGame({ bots, level, player = "" }) {
   gameId++;
   botsRunning = false;
   state = E.createGame({ players: bots + 1 });
   levels = [null, ...Array(bots).fill(level)];
-  // Typical first names of the page language, in random order.
+  // Typical first names of the page language, in random order. A bot that has
+  // your name uses its alternative.
+  const me = player.trim() || T.you;
   const shuffled = [...BOT_NAMES].sort(() => Math.random() - 0.5);
-  names = [T.you, ...shuffled.slice(0, bots)];
+  names = [me, ...shuffled.slice(0, bots).map(([name, alternative]) => (sameName(name, me) ? alternative : name))];
   selected = new Set();
   swapPick = null;
   hint = "";
@@ -369,16 +382,16 @@ function showOver() {
   const total = state.players.length;
   $("over-text").textContent = state.stalemate ? T.stalemate : me.place === total ? T.lost : fill(T.won, { place: me.place, total });
   // In a draw only the players who got out have a place.
-  $("ranking").innerHTML = state.finished
-    .map((p, i) => `<li${p === HUMAN ? ' class="you"' : ""}>${names[p]}${i === total - 1 ? ` – ${T.shithead}` : ""}</li>`)
-    .join("");
+  $("ranking").replaceChildren(
+    ...state.finished.map((p, i) => listItem(`${names[p]}${i === total - 1 ? ` – ${T.shithead}` : ""}`, p === HUMAN ? "you" : "")),
+  );
   $("over").hidden = false;
   $("over").scrollIntoView({ block: "nearest" });
 }
 
 function readSettings() {
   const form = $("setup-form");
-  return { bots: Number(form.bots.value), level: form.level.value };
+  return { bots: Number(form.bots.value), level: form.level.value, player: form.player.value.trim() };
 }
 
 $("setup-form").addEventListener("submit", (event) => {
@@ -408,6 +421,7 @@ try {
     const form = $("setup-form");
     form.bots.value = String(saved.bots);
     form.level.value = saved.level;
+    form.player.value = saved.player ?? "";
   }
 } catch {}
 
