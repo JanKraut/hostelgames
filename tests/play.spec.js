@@ -111,6 +111,13 @@ for (const [bots, level, code] of [
     expect(new Set(shown).size).toBe(bots);
     for (const name of shown) expect(names).toContain(name.trim());
 
+    // Each bot's hand is a fan of face-down cards (3 at the start), the number only for screen readers.
+    for (const fan of await page.locator("#opponents .oppfan").all()) {
+      await expect(fan.locator(".fanback")).toHaveCount(3);
+      await expect(fan).toHaveAttribute("aria-label", lang.t.game.handCount.replace("{n}", "3"));
+    }
+    await expect(page.locator("#opponents")).not.toContainText(lang.t.game.handCount.replace("{n}", "3"));
+
     await page.locator("#btn-ready").click();
 
     for (let move = 0; move < 1000; move++) {
@@ -255,4 +262,31 @@ test.describe("layout during a game", () => {
       }
     });
   }
+});
+
+test.describe("animations", () => {
+  test.use({ reducedMotion: "no-preference" });
+
+  test("cards fly and the table is clean again after every move", async ({ page }) => {
+    test.setTimeout(120_000);
+    await openPlay(page, byCode.de);
+    await page.check('input[name=bots][value="1"]', { force: true });
+    await page.locator("#setup-form button[type=submit]").click();
+    await page.locator("#btn-ready").click();
+
+    let sawFlyingCards = false;
+    for (let move = 0; move < 12; move++) {
+      // While a bot moves, copies of the cards fly over the table …
+      for (let t = 0; t < 100 && !(await page.locator("#me.active").count()); t++) {
+        if (await page.locator("#over").isVisible()) return;
+        if (await page.locator("#fx .fxcard").count()) sawFlyingCards = true;
+        await page.waitForTimeout(30);
+      }
+      // … and when it is your turn, they are gone and the pile is visible again.
+      await expect(page.locator("#fx > *")).toHaveCount(0);
+      await expect(page.locator("#pile")).toBeVisible();
+      if (!(await playOneMove(page))) return;
+    }
+    expect(sawFlyingCards).toBe(true);
+  });
 });

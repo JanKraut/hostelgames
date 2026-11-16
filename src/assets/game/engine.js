@@ -258,13 +258,13 @@ export function flip(state, p, index) {
   if (canPlayRank(state, card.rank)) {
     state.pile.push(card);
     state.startRank = null;
-    return remember(state, afterPlay(state, p, [{ type: "flip", player: p, card, fits: true }], [card]));
+    return remember(state, afterPlay(state, p, [{ type: "flip", player: p, card, index, fits: true }], [card]));
   }
   const count = state.pile.length + 1;
   player.hand.push(...state.pile, card);
   state.pile = [];
   nextTurn(state, p);
-  return remember(state, [{ type: "flip", player: p, card, fits: false, count }]);
+  return remember(state, [{ type: "flip", player: p, card, index, fits: false, count }]);
 }
 
 const ids = (cards) => cards.map((c) => c.id);

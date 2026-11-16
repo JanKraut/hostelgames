@@ -3,6 +3,7 @@
 
 import * as E from "./engine.js";
 import { chooseMove, chooseSwaps } from "./bots.js";
+import { animate, snapshot } from "./fx.js";
 
 const T = JSON.parse(document.getElementById("game-text").textContent);
 const $ = (id) => document.getElementById(id);
@@ -29,6 +30,7 @@ let swapPick = null; // { zone, id } during the swap phase
 let hint = ""; // short-lived message for you, e.g. "doesn't fit"
 let log = [];
 let botsRunning = false;
+let animating = false; // no input while cards are moving
 let gameId = 0;
 
 // ---------- Rendering helpers ----------
@@ -92,7 +94,8 @@ function tableHTML(player, size, { upButtons = false, downButtons = false, upPla
 
 function render() {
   if (!state) return;
-  const myTurn = state.phase === "play" && state.turn === HUMAN && !E.isOut(state, HUMAN);
+  // Your turn starts when the cards of the last move have landed.
+  const myTurn = state.phase === "play" && state.turn === HUMAN && !E.isOut(state, HUMAN) && !animating;
   const from = E.source(state, HUMAN);
   const playable = new Set(myTurn ? E.playableRanks(state, HUMAN).map((o) => o.rank) : []);
 
@@ -105,8 +108,10 @@ function render() {
       const slots = Math.max(player.up.length, player.down.length);
       const chips = Array.from({ length: slots }, (_, k) => chipHTML(player.up[k])).join("");
       return (
-        `<div class="${classes}"><div class="opphead"><span class="oppname">${names[i]}${place}</span>` +
-        `<span class="oppcount">${fill(T.handCount, { n: player.hand.length })}</span></div>` +
+        `<div class="${classes}" data-player="${i}"><div class="opphead"><span class="oppname">${names[i]}${place}</span>` +
+        // The hand as a fan of face-down cards; the number is only for screen readers.
+        `<span class="oppfan" role="img" aria-label="${fill(T.handCount, { n: player.hand.length })}" style="--n:${player.hand.length}">` +
+        `${'<span class="fanback"></span>'.repeat(player.hand.length)}</span></div>` +
         `<div class="oppcards">${chips}</div></div>`
       );
     })
@@ -202,13 +207,25 @@ function describe(event) {
   }
 }
 
-function handle(events) {
+function logEvents(events) {
   for (const event of events) {
     const line = describe(event);
     if (line) log = [line, ...log].slice(0, 4);
   }
+}
+
+/** Runs one move of yours: apply it, show it, animate it, then let the bots play. */
+async function perform(move) {
+  if (animating) return;
+  const before = snapshot(state, HUMAN);
+  const events = move();
+  logEvents(events);
   selected = new Set();
   hint = "";
+  animating = true; // before render(), so it never shows "your turn" too early
+  render();
+  await animate(before, events, { cardHTML });
+  animating = false;
   render();
   if (state.phase === "over") showOver();
   else if (state.phase === "play" && state.turn !== HUMAN) runBots();
@@ -229,11 +246,16 @@ async function runBots() {
     }
     const p = state.turn;
     const move = chooseMove(state, p, levels[p]);
+    const before = snapshot(state, HUMAN);
     const events =
       move.type === "play" ? E.play(state, p, move.ids) : move.type === "flip" ? E.flip(state, p, move.index) : E.pickUp(state, p);
-    for (const event of events) {
-      const line = describe(event);
-      if (line) log = [line, ...log].slice(0, 4);
+    logEvents(events);
+    if (!E.isOut(state, HUMAN)) {
+      animating = true;
+      render();
+      await animate(before, events, { cardHTML });
+      animating = false;
+      if (id !== gameId) return;
     }
   }
   botsRunning = false;
@@ -245,7 +267,7 @@ async function runBots() {
 
 $("me").addEventListener("click", (event) => {
   const button = event.target.closest("button[data-zone]");
-  if (!button || !state) return;
+  if (!button || !state || animating) return;
   const { zone, id, index } = button.dataset;
 
   if (state.phase === "swap") {
@@ -265,7 +287,7 @@ $("me").addEventListener("click", (event) => {
   if (state.phase !== "play" || state.turn !== HUMAN) return;
 
   if (zone === "down") {
-    handle(E.flip(state, HUMAN, Number(index)));
+    perform(() => E.flip(state, HUMAN, Number(index)));
     return;
   }
 
@@ -280,7 +302,8 @@ $("me").addEventListener("click", (event) => {
   hint = "";
   if (selected.has(id)) {
     // Tapping a selected card again plays the selection.
-    handle(E.play(state, HUMAN, [...selected]));
+    const ids = [...selected];
+    perform(() => E.play(state, HUMAN, ids));
     return;
   }
   const selectedRank = [...selected].map((sid) => state.players[HUMAN][zone].find((c) => c.id === sid)?.rank)[0];
@@ -290,14 +313,15 @@ $("me").addEventListener("click", (event) => {
 });
 
 $("btn-play").addEventListener("click", () => {
-  if (selected.size) handle(E.play(state, HUMAN, [...selected]));
+  const ids = [...selected];
+  if (ids.length) perform(() => E.play(state, HUMAN, ids));
 });
 
-$("btn-pickup").addEventListener("click", () => handle(E.pickUp(state, HUMAN)));
+$("btn-pickup").addEventListener("click", () => perform(() => E.pickUp(state, HUMAN)));
 
 $("btn-ready").addEventListener("click", () => {
   swapPick = null;
-  handle(E.setReady(state, HUMAN));
+  perform(() => E.setReady(state, HUMAN));
 });
 
 // ---------- Game start and end ----------
@@ -305,6 +329,7 @@ $("btn-ready").addEventListener("click", () => {
 function newGame({ bots, level, player = "" }) {
   gameId++;
   botsRunning = false;
+  animating = false;
   state = E.createGame({ players: bots + 1 });
   levels = [null, ...Array(bots).fill(level)];
   // Typical first names of the page language, in random order. A bot that has
