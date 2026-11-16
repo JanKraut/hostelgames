@@ -135,14 +135,6 @@ h3.sub{font-size:1.3rem;margin:1.8rem 0 .4rem}
 [dir="rtl"] .ranks .card{box-shadow:2px 0 4px rgba(0,0,0,.18),0 4px 10px rgba(0,0,0,.25)}
 [dir="rtl"] .ranks .card:nth-child(1){z-index:13}[dir="rtl"] .ranks .card:nth-child(2){z-index:12}[dir="rtl"] .ranks .card:nth-child(3){z-index:11}[dir="rtl"] .ranks .card:nth-child(4){z-index:10}[dir="rtl"] .ranks .card:nth-child(5){z-index:9}[dir="rtl"] .ranks .card:nth-child(6){z-index:8}[dir="rtl"] .ranks .card:nth-child(7){z-index:7}[dir="rtl"] .ranks .card:nth-child(8){z-index:6}[dir="rtl"] .ranks .card:nth-child(9){z-index:5}[dir="rtl"] .ranks .card:nth-child(10){z-index:4}[dir="rtl"] .ranks .card:nth-child(11){z-index:3}[dir="rtl"] .ranks .card:nth-child(12){z-index:2}[dir="rtl"] .ranks .card:nth-child(13){z-index:1}
 .rankscale{display:flex;justify-content:space-between;font-size:.85rem;font-weight:700;color:var(--muted);margin-bottom:.8rem}
-.faq{margin:.6rem 0 1rem}
-.faq details{border-top:1px solid var(--line);padding:.85rem 0}
-.faq details:last-child{border-bottom:1px solid var(--line)}
-.faq summary{cursor:pointer;font-weight:700;font-size:1.05rem;list-style:none;display:flex;justify-content:space-between;gap:1rem}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-family:"Archivo Black",sans-serif;color:var(--muted)}
-.faq details[open] summary::after{content:"–"}
-.faq details p{margin:.5rem 0 0;color:var(--muted)}
 .decide{background:var(--felt);color:var(--felt-text);border-radius:20px;padding:1.2rem 1rem;margin:1rem 0}
 .dq{font-family:"Archivo Black","Arial Black",sans-serif;font-size:1.2rem;line-height:1.25;text-align:center;margin:0 0 .35rem}
 .dqs{text-align:center;color:var(--felt-soft);font-size:.92rem;margin:0 0 1rem}
@@ -531,22 +523,7 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.92rem;text-align:center
     by2:"<strong>Draw</strong> until you have 3 cards in your hand again. If you still have 3 or more, you don’t draw.",
     bnH:"✗ No",
     bn1:"<strong>Pick up the whole discard pile</strong> into your hand.",
-    bn2:"The discard pile is now empty, so the next player can play any card.",
     dnext:"Either way, it’s then the next player’s turn, clockwise.",
-    s1h:"Play a card that’s equal or higher",
-    s1p:"It goes face-up on the discard pile in the middle. If you have several of the same rank, you can play them together, like three 6s.",
-    s1p2:"<strong>If you can’t play anything,</strong> you pick up the whole discard pile. Your turn is over, and the next player starts a new pile with any card.",
-    s2h:"Draw cards until you have 3 again",
-    s2p:"After you’ve played your card, draw from the draw pile until you have 3 cards in your hand. If you still have 3 or more, you don’t draw.",
-    s3h:"Next player’s turn",
-    s3p:"Play goes clockwise. They now have to beat your card.",
-    turnNote:"In short: <strong>play, draw, pass.</strong> As long as the draw pile isn’t empty, you always have at least 3 cards after your turn.",
-    faqH:"What if …",
-    f1q:"… I can’t play anything?",f1a:"Then you pick up the whole discard pile. Your turn is over. The next player starts a new pile and can play any card.",
-    f2q:"… I have more than 3 cards in my hand?",f2a:"No problem, that happens after picking up. You just don’t draw and keep playing your hand normally until you’re below 3.",
-    f3q:"… the draw pile is empty?",f3a:"Then nobody draws anymore. You just keep playing your hand until it’s empty.",
-    f4q:"… my hand is empty?",f4a:"Then you play from your face-up cards on the table, then from the face-down ones. See the <a href=\"#ende\">endgame</a> below.",
-    f5q:"… I could play but don’t want to?",f5a:"Usually you have to play if you can. Some groups allow picking up the pile voluntarily – agree on it beforehand.",
     startH:"Who starts?",
     startP:"Whoever has a 4 in their hand plays it and starts. If nobody has a 4, the next higher card starts, so a 5 and so on. After that, play goes clockwise.",
     spH:"Special cards",
@@ -562,10 +539,7 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.92rem;text-align:center
     e3h:"Face-up cards",e3p:"You play a face-up card just like one from your hand, and several of the same rank together. If you can’t play any, you pick up the discard pile and first play your hand empty again.",
     e4h:"Face-down cards",e4p:"Tap one and flip it. If it fits, great. If not, you pick it up <strong>together with the discard pile</strong> and first play those empty again.",
     e5h:"Done",e5p:"Once you’re out of cards, you’ve won. The last one at the table is the Shithead and deals the next round.",
-    endLead:"Once the draw pile is gone and your hand is empty, you play from the table.",
     ph1b:"1. Hand",ph1s:"until empty",ph2b:"2. Face-up",ph2s:"like hand cards",ph3b:"3. Face-down",ph3s:"flip blind",
-    endP1:"For face-down cards, tap one and flip it. If it fits, great. If not, you pick it up <strong>together with the pile</strong> and have to get rid of those first.",
-    endP2:"If you pick up the pile in this phase, you first play your hand empty again before continuing on the table. Once you’re out of cards, you’re out and you’ve won. The last one at the table is the Shithead.",
     qH:"Can I play this?",
     qLead:"Quick test. One card is on top, you have one in your hand.",
     qTop:"on top",qMine:"your card",qQ:"Can you play it?",qYes:"Yes",qNo:"No",qNext:"Next card",
