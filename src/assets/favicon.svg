@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <pattern id="back" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="4" height="4" fill="#c8243b"/>
+      <rect width="2" height="4" fill="#a61c30"/>
+    </pattern>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#1e5b45"/>
+  <g transform="rotate(-14 32 40)">
+    <rect x="13" y="13" width="28" height="40" rx="4" fill="#fbfaf6"/>
+    <rect x="15.5" y="15.5" width="23" height="35" rx="2.5" fill="url(#back)"/>
+  </g>
+  <g transform="rotate(10 32 40)">
+    <rect x="24" y="10" width="28" height="40" rx="4" fill="#fbfaf6" stroke="#164634" stroke-opacity=".35"/>
+    <path fill="#1a1d21" d="M38 18c-1.5 3.2-8 7.6-8 12.2 0 3 2.4 4.8 4.8 4.2.9-.2 1.6-.8 2-1.4l-1.2 6h4.8l-1.2-6c.4.6 1.1 1.2 2 1.4 2.4.6 4.8-1.2 4.8-4.2 0-4.6-6.5-9-8-12.2z"/>
+  </g>
+</svg>

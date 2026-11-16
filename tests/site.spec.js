@@ -200,3 +200,36 @@ test.describe("share", () => {
     await expect(page.locator("#shCopy")).toBeVisible();
   });
 });
+
+test.describe("self-contained", () => {
+  for (const lang of [byCode.en, byCode.cs, byCode.he]) {
+    test(`${lang.code} loads nothing from other servers and every file exists`, async ({ page, baseURL }) => {
+      const origin = new URL(baseURL).origin;
+      const foreign = [];
+      const broken = [];
+      page.on("request", (request) => {
+        if (!request.url().startsWith(origin)) foreign.push(request.url());
+      });
+      page.on("response", (response) => {
+        if (response.status() >= 400) broken.push(`${response.status()} ${response.url()}`);
+      });
+
+      await openLanguage(page, lang);
+      await page.evaluate(() => document.fonts.ready);
+
+      expect(foreign, "requests to other servers").toEqual([]);
+      expect(broken, "missing files").toEqual([]);
+      const failedFonts = await page.evaluate(() => [...document.fonts].filter((f) => f.status === "error").length);
+      expect(failedFonts, "fonts that failed to load").toBe(0);
+    });
+  }
+
+  test("icons exist", async ({ page, request }) => {
+    await openLanguage(page, byCode.en);
+    for (const selector of ['link[rel="icon"]', 'link[rel="apple-touch-icon"]']) {
+      const href = await page.locator(selector).getAttribute("href");
+      const response = await request.get(new URL(href, page.url()).href);
+      expect(response.ok(), `${selector} → ${href}`).toBe(true);
+    }
+  });
+});

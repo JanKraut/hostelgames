@@ -27,10 +27,24 @@ Beim ersten Mal ggf. den Browser installieren: `npx playwright install chromium`
 | `src/_data/languages.js` | Liste der Sprachen (Reihenfolge im Menü, Flagge, Fallback-Kette) |
 | `src/_data/i18n/*.json` | Texte pro Sprache, inklusive Quiztexte unter `quiz` |
 | `src/_data/site.js` | Öffentliche URL und Pfad-Präfix |
-| `src/assets/` | Stylesheet und JavaScript, werden unverändert kopiert |
+| `src/_data/fonts.js` | Welche Schriften, Schnitte und Zeichensätze ausgeliefert werden |
+| `src/fonts.11ty.js` | Erzeugt `/assets/fonts.css` aus den `@fontsource`-Paketen |
+| `src/assets/` | Stylesheet, JavaScript und Icons, werden unverändert kopiert |
 | `scripts/check-i18n.js` | Prüft die Übersetzungen, siehe unten |
 | `tests/site.spec.js` | Playwright-Tests: alle Sprachseiten, Weiterleitung, ohne JavaScript, Quiz, Teilen |
 | `tests/serve.js` | Kleiner Server, der `_site/` unter dem Pages-Pfad ausliefert |
+
+## Keine externen Ressourcen
+
+Die Seite lädt nichts von fremden Servern (kein Google Fonts, kein CDN):
+
+- **Schriften** kommen aus den npm-Paketen `@fontsource/atkinson-hyperlegible`, `@fontsource/archivo-black`
+  und `@fontsource/rubik` (alle SIL Open Font License 1.1). Ausgeliefert werden nur die in
+  `src/_data/fonts.js` gelisteten Schnitte und Zeichensätze. Dank `unicode-range` lädt der Browser
+  nur, was eine Sprache wirklich braucht.
+- **QR-Code** erzeugt `qrcode-generator` (MIT), kopiert nach `/assets/qrcode.js`.
+
+Ein Test stellt sicher, dass das so bleibt.
 
 ## Sprachen und Fallbacks
 
