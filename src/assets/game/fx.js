@@ -57,10 +57,16 @@ export async function animate(before, events, { cardHTML }) {
       if (event.type === "flip") return before.down.get(event.index);
       return null; // per card, see below
     }
-    return document.querySelector(`.opp[data-player="${event.player}"]`)?.getBoundingClientRect();
+    // Bots: from the hand fan, or from the face-up chips.
+    const box = `.opp[data-player="${event.player}"]`;
+    const part = event.type === "play" && event.from === "hand" ? ".oppfan" : ".oppcards";
+    return (document.querySelector(`${box} ${part}`) ?? document.querySelector(box))?.getBoundingClientRect();
   };
+  // A picked-up pile goes into the hand: your hand, or the bot's hand fan.
   const targetRect = (player) =>
-    player === before.human ? $("my-hand").getBoundingClientRect() : document.querySelector(`.opp[data-player="${player}"]`)?.getBoundingClientRect();
+    player === before.human
+      ? $("my-hand").getBoundingClientRect()
+      : document.querySelector(`.opp[data-player="${player}"] .oppfan`)?.getBoundingClientRect();
 
   // The visible top of the discard pile, as clones. At most three cards show.
   let pile = before.pile.map((card, i) => ({ card, el: clone(cardHTML(card), slotPos(i)) }));

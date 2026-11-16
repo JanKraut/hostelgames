@@ -109,7 +109,9 @@ function render() {
       const chips = Array.from({ length: slots }, (_, k) => chipHTML(player.up[k])).join("");
       return (
         `<div class="${classes}" data-player="${i}"><div class="opphead"><span class="oppname">${names[i]}${place}</span>` +
-        `<span class="oppcount">${fill(T.handCount, { n: player.hand.length })}</span></div>` +
+        // The hand as a fan of face-down cards; the number is only for screen readers.
+        `<span class="oppfan" role="img" aria-label="${fill(T.handCount, { n: player.hand.length })}" style="--n:${player.hand.length}">` +
+        `${'<span class="fanback"></span>'.repeat(player.hand.length)}</span></div>` +
         `<div class="oppcards">${chips}</div></div>`
       );
     })
