@@ -1,4 +1,4 @@
-{#- Only on the English start page: send visitors to their saved or browser language. -#}
+{#- Only on English pages: send visitors to the same page in their saved or browser language. -#}
 (function () {
   var paths = {
     {%- for l in languages %}"{{ l.code }}": "{{ site.pathPrefix }}{{ l.path | replace('/', '', 1) }}"{% if not loop.last %}, {% endif %}{% endfor -%}
@@ -20,6 +20,8 @@
   var saved = null;
   try { saved = localStorage.getItem("lang"); } catch (e) {}
   saved = legacy[saved] || saved;
-  var target = paths[saved] || paths[fromBrowser()];
+  var sub = "{{ subpath or '' }}"; // page below the language folder, e.g. "play/"
+  var base = paths[saved] || paths[fromBrowser()];
+  var target = base && base + sub;
   if (target && target !== location.pathname) location.replace(target + location.hash);
 })();
