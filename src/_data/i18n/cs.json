@@ -60,13 +60,15 @@
   "startH": "Kdo začíná?",
   "startP": "Kdo má v ruce čtyřku, vyloží ji a začíná. Pokud nikdo čtyřku nemá, začíná nejbližší vyšší karta, tedy pětka a tak dále. Pak se pokračuje po směru hodinových ručiček.",
   "spH": "Speciální karty",
-  "spLead": "Tyhle karty můžeš zahrát skoro vždycky, ať leží navrchu cokoli.",
+  "spLead": "Tyto karty mají zvláštní účinek. Dvojku, trojku a desítku můžeš zahrát skoro vždycky, ať je nahoře cokoli.",
   "sp2h": "2 – Reset",
   "sp2p": "Vynuluje balíček. Potom na ni smí jakákoli karta.",
   "sp3h": "3 – Neviditelná",
   "sp3p": "Prostě se nepočítá. Další musí přebít kartu, která leží <em>pod</em> trojkou.",
   "sp7h": "7 – Dolů",
-  "sp7p": "Jen další hráč musí zahrát sedmičku nebo <strong>nižší</strong> kartu, případně jinou speciální kartu.",
+  "sp7p": "Jen další hráč musí zahrát 7 nebo <strong>nižší</strong> – nebo 2, 3 či 10.",
+  "sp8h": "8 – Stojí",
+  "sp8p": "Hraješ ji jako normální kartu. Další hráč pak jedno kolo stojí – při dvou osmičkách další dva a tak dál.",
   "sp10h": "10 – Spálení",
   "sp10p": "Celý balíček jde ze hry. Hned hraješ znovu.",
   "sp4h": "Čtyři stejné – Spálení",
@@ -122,6 +124,7 @@
   "c4d": "Vynuluje balíček.",
   "c5d": "Neviditelná.",
   "c6d": "Další hraje 7 nebo nižší.",
+  "c8bd": "Další hráč stojí (za každou 8 jeden).",
   "c7d": "Spálí balíček, hraješ znovu.",
   "c8d": "Čtyři stejné taky pálí.",
   "c9t": "Konec",
@@ -205,6 +208,8 @@
     "statsReset": "Vynulovat statistiky",
     "statsConfirm": "Opravdu smazat statistiky?",
     "statsNote": "Uloženo jen v tomto zařízení.",
-    "yourName": "Tvoje jméno"
+    "yourName": "Tvoje jméno",
+    "skipped": "{name} stojí.",
+    "youSkipped": "Stojíš."
   }
 }

@@ -60,13 +60,15 @@
   "startH": "Hvem starter?",
   "startP": "Den, der har en 4’er på hånden, lægger den og starter. Har ingen en 4’er, starter det næsthøjere kort, altså en 5’er og så videre. Derefter går det med uret.",
   "spH": "Specialkort",
-  "spLead": "Disse kort må du næsten altid lægge, uanset hvad der ligger øverst.",
+  "spLead": "Disse kort har en særlig virkning. 2, 3 og 10 må du spille næsten altid, uanset hvad der ligger øverst.",
   "sp2h": "2 – Nulstil",
   "sp2p": "Nulstiller bunken. Bagefter må et hvilket som helst kort lægges ovenpå.",
   "sp3h": "3 – Usynlig",
   "sp3p": "Tæller bare ikke. Den næste skal slå kortet, der ligger <em>under</em> 3’eren.",
   "sp7h": "7 – Nedad",
-  "sp7p": "Kun den næste spiller skal lægge en 7’er eller <strong>lavere</strong> eller et andet specialkort.",
+  "sp7p": "Kun den næste spiller skal spille en 7 eller <strong>lavere</strong> – eller en 2, 3 eller 10.",
+  "sp8h": "8 – Spring over",
+  "sp8p": "Du spiller den som et normalt kort. Derefter bliver den næste spiller sprunget over – med to 8’ere de næste to og så videre.",
   "sp10h": "10 – Brænd",
   "sp10p": "Hele bunken ryger ud af spillet. Du er straks på igen.",
   "sp4h": "Fire ens – Brænd",
@@ -122,6 +124,7 @@
   "c4d": "Nulstiller bunken.",
   "c5d": "Usynlig.",
   "c6d": "Næste lægger 7 eller lavere.",
+  "c8bd": "Næste springes over (én pr. 8’er).",
   "c7d": "Brænd bunken, spil igen.",
   "c8d": "Fire ens brænder også.",
   "c9t": "Slut",
@@ -205,6 +208,8 @@
     "statsReset": "Nulstil statistik",
     "statsConfirm": "Vil du virkelig slette din statistik?",
     "statsNote": "Gemmes kun på denne enhed.",
-    "yourName": "Dit navn"
+    "yourName": "Dit navn",
+    "skipped": "{name} springes over.",
+    "youSkipped": "Du springes over."
   }
 }

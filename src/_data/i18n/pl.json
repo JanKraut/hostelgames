@@ -60,13 +60,15 @@
   "startH": "Kto zaczyna?",
   "startP": "Kto ma w ręce 4, kładzie ją i zaczyna. Jeśli nikt nie ma 4, zaczyna następna wyższa karta, czyli 5 i tak dalej. Potem gra toczy się zgodnie z ruchem wskazówek zegara.",
   "spH": "Karty specjalne",
-  "spLead": "Te karty możesz zagrać prawie zawsze, niezależnie od tego, co leży na wierzchu.",
+  "spLead": "Te karty mają specjalne działanie. 2, 3 i 10 możesz zagrać prawie zawsze, bez względu na to, co leży na wierzchu.",
   "sp2h": "2 – Reset",
   "sp2p": "Resetuje stos. Potem można na nią położyć dowolną kartę.",
   "sp3h": "3 – Niewidzialna",
   "sp3p": "Po prostu się nie liczy. Następny musi przebić kartę leżącą <em>pod</em> trójką.",
   "sp7h": "7 – W dół",
-  "sp7p": "Tylko następny gracz musi położyć 7 lub <strong>niższą</strong> kartę albo inną kartę specjalną.",
+  "sp7p": "Tylko następny gracz musi zagrać 7 lub <strong>niżej</strong> – albo 2, 3 lub 10.",
+  "sp8h": "8 – Czekasz",
+  "sp8p": "Zagrywasz ją jak zwykłą kartę. Potem następny gracz traci kolejkę – przy dwóch ósemkach dwóch następnych i tak dalej.",
   "sp10h": "10 – Spalenie",
   "sp10p": "Cały stos wypada z gry. Od razu grasz jeszcze raz.",
   "sp4h": "Cztery takie same – Spalenie",
@@ -122,6 +124,7 @@
   "c4d": "Resetuje stos.",
   "c5d": "Niewidzialna.",
   "c6d": "Następny kładzie 7 lub niżej.",
+  "c8bd": "Następny traci kolejkę (jeden za każdą 8).",
   "c7d": "Pali stos, grasz jeszcze raz.",
   "c8d": "Cztery takie same też palą.",
   "c9t": "Koniec",
@@ -205,6 +208,8 @@
     "statsReset": "Wyzeruj statystyki",
     "statsConfirm": "Na pewno usunąć statystyki?",
     "statsNote": "Zapisane tylko na tym urządzeniu.",
-    "yourName": "Twoje imię"
+    "yourName": "Twoje imię",
+    "skipped": "{name} traci kolejkę.",
+    "youSkipped": "Tracisz kolejkę."
   }
 }

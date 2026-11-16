@@ -60,13 +60,15 @@
   "startH": "Quem começa?",
   "startP": "Quem tiver um 4 na mão joga-o e começa. Se ninguém tiver um 4, começa a carta seguinte mais alta, ou seja um 5, e assim por diante. Depois joga-se no sentido dos ponteiros do relógio.",
   "spH": "Cartas especiais",
-  "spLead": "Estas cartas podes jogá-las quase sempre, seja qual for a carta de cima.",
+  "spLead": "Estas cartas têm um efeito especial. O 2, o 3 e o 10 podes jogar quase sempre, seja o que for que estiver em cima.",
   "sp2h": "2 – Recomeço",
   "sp2p": "Recomeça o monte. A seguir pode ir qualquer carta por cima.",
   "sp3h": "3 – Invisível",
   "sp3p": "Não conta. O próximo tem de bater a carta que está <em>debaixo</em> do 3.",
   "sp7h": "7 – Mais baixo",
-  "sp7p": "Só o próximo jogador tem de jogar um 7 ou <strong>mais baixo</strong>, ou outra carta especial.",
+  "sp7p": "Só o jogador seguinte tem de jogar um 7 ou <strong>mais baixo</strong> – ou um 2, 3 ou 10.",
+  "sp8h": "8 – Salta a vez",
+  "sp8p": "Jogas como uma carta normal. Depois, o jogador seguinte perde a vez – com dois 8, os dois seguintes, e assim por diante.",
   "sp10h": "10 – Queimar",
   "sp10p": "O monte todo sai do jogo. Voltas a jogar logo a seguir.",
   "sp4h": "Quatro iguais – Queimar",
@@ -122,6 +124,7 @@
   "c4d": "Recomeça o monte.",
   "c5d": "Invisível.",
   "c6d": "O próximo joga 7 ou mais baixo.",
+  "c8bd": "O seguinte perde a vez (um por cada 8).",
   "c7d": "Queima o monte, voltas a jogar.",
   "c8d": "Quatro iguais também queimam.",
   "c9t": "Fim",
@@ -205,6 +208,8 @@
     "statsReset": "Repor estatísticas",
     "statsConfirm": "Apagar mesmo as tuas estatísticas?",
     "statsNote": "Guardado só neste dispositivo.",
-    "yourName": "O teu nome"
+    "yourName": "O teu nome",
+    "skipped": "{name} perde a vez.",
+    "youSkipped": "Perdes a vez."
   }
 }

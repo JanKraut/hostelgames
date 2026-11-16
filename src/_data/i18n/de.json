@@ -60,13 +60,15 @@
   "startH": "Wer fängt an?",
   "startP": "Wer eine 4 auf der Hand hat, legt sie und beginnt. Hat niemand eine 4, fängt die nächsthöhere Karte an, also eine 5 und so weiter. Danach geht es im Uhrzeigersinn weiter.",
   "spH": "Sonderkarten",
-  "spLead": "Diese Karten darfst du fast immer legen, egal was oben liegt.",
+  "spLead": "Diese Karten haben eine besondere Wirkung. Die 2, 3 und 10 darfst du fast immer legen, egal was oben liegt.",
   "sp2h": "2 – Neustart",
   "sp2p": "Setzt den Stapel zurück. Danach darf jede Karte drauf.",
   "sp3h": "3 – Unsichtbar",
   "sp3p": "Zählt einfach nicht. Der Nächste muss auf die Karte <em>unter</em> der 3 antworten.",
   "sp7h": "7 – Runter",
-  "sp7p": "Nur der nächste Spieler muss eine 7 oder <strong>niedriger</strong> oder eine andere Sonderkarte legen.",
+  "sp7p": "Nur der nächste Spieler muss eine 7 oder <strong>niedriger</strong> legen – oder eine 2, 3 oder 10.",
+  "sp8h": "8 – Aussetzen",
+  "sp8p": "Du legst sie wie eine normale Karte. Danach muss der nächste Spieler aussetzen – bei zwei 8ern die nächsten beiden und so weiter.",
   "sp10h": "10 – Verbrennen",
   "sp10p": "Der ganze Stapel fliegt aus dem Spiel. Du bist gleich nochmal dran.",
   "sp4h": "4 Gleiche – Verbrennen",
@@ -122,6 +124,7 @@
   "c4d": "Stapel zurücksetzen.",
   "c5d": "Unsichtbar.",
   "c6d": "Nächster legt 7 oder niedriger.",
+  "c8bd": "Nächster setzt aus (pro 8 einer).",
   "c7d": "Stapel verbrennen, nochmal dran.",
   "c8d": "Vier Gleiche verbrennen auch.",
   "c9t": "Ende",
@@ -205,6 +208,8 @@
     "statsReset": "Statistik zurücksetzen",
     "statsConfirm": "Statistik wirklich löschen?",
     "statsNote": "Nur auf diesem Gerät gespeichert.",
-    "yourName": "Dein Name"
+    "yourName": "Dein Name",
+    "skipped": "{name} setzt aus.",
+    "youSkipped": "Du setzt aus."
   }
 }

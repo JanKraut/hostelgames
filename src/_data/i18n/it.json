@@ -60,13 +60,15 @@
   "startH": "Chi inizia?",
   "startP": "Chi ha un 4 in mano lo gioca e inizia. Se nessuno ha un 4, inizia la carta successiva più alta, quindi un 5 e così via. Poi si prosegue in senso orario.",
   "spH": "Carte speciali",
-  "spLead": "Queste carte puoi giocarle quasi sempre, qualunque carta ci sia sopra.",
+  "spLead": "Queste carte hanno un effetto speciale. Il 2, il 3 e il 10 li puoi giocare quasi sempre, qualunque cosa ci sia sopra.",
   "sp2h": "2 – Reset",
   "sp2p": "Azzera la pila. Dopo ci si può mettere sopra qualsiasi carta.",
   "sp3h": "3 – Invisibile",
   "sp3p": "Non conta. Il prossimo deve battere la carta che sta <em>sotto</em> il 3.",
   "sp7h": "7 – Più basso",
-  "sp7p": "Solo il giocatore successivo deve giocare un 7 o <strong>più basso</strong>, oppure un’altra carta speciale.",
+  "sp7p": "Solo il giocatore successivo deve giocare un 7 o <strong>meno</strong> – oppure un 2, 3 o 10.",
+  "sp8h": "8 – Salta",
+  "sp8p": "La giochi come una carta normale. Poi il giocatore successivo salta il turno – con due 8 i due successivi, e così via.",
   "sp10h": "10 – Brucia",
   "sp10p": "Tutta la pila esce dal gioco. Tocca di nuovo a te subito.",
   "sp4h": "Quattro uguali – Brucia",
@@ -122,6 +124,7 @@
   "c4d": "Azzera la pila.",
   "c5d": "Invisibile.",
   "c6d": "Il prossimo gioca 7 o meno.",
+  "c8bd": "Il successivo salta il turno (uno per ogni 8).",
   "c7d": "Brucia la pila, rigiochi.",
   "c8d": "Anche quattro uguali bruciano.",
   "c9t": "Fine",
@@ -205,6 +208,8 @@
     "statsReset": "Azzera statistiche",
     "statsConfirm": "Vuoi davvero cancellare le tue statistiche?",
     "statsNote": "Salvato solo su questo dispositivo.",
-    "yourName": "Il tuo nome"
+    "yourName": "Il tuo nome",
+    "skipped": "{name} salta il turno.",
+    "youSkipped": "Salti il turno."
   }
 }

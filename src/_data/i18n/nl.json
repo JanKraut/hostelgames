@@ -60,13 +60,15 @@
   "startH": "Wie begint?",
   "startP": "Wie een 4 in zijn hand heeft, legt die en begint. Heeft niemand een 4, dan begint de eerstvolgende hogere kaart, dus een 5 enzovoort. Daarna gaat het met de klok mee.",
   "spH": "Speciale kaarten",
-  "spLead": "Deze kaarten mag je bijna altijd leggen, wat er ook bovenop ligt.",
+  "spLead": "Deze kaarten hebben een speciaal effect. De 2, 3 en 10 mag je bijna altijd leggen, wat er ook bovenop ligt.",
   "sp2h": "2 – Reset",
   "sp2p": "Zet de stapel terug op nul. Daarna mag er elke kaart op.",
   "sp3h": "3 – Onzichtbaar",
   "sp3p": "Telt gewoon niet. De volgende moet de kaart <em>onder</em> de 3 overtreffen.",
   "sp7h": "7 – Omlaag",
-  "sp7p": "Alleen de volgende speler moet een 7 of <strong>lager</strong> leggen, of een andere speciale kaart.",
+  "sp7p": "Alleen de volgende speler moet een 7 of <strong>lager</strong> leggen – of een 2, 3 of 10.",
+  "sp8h": "8 – Beurt overslaan",
+  "sp8p": "Je legt hem als een gewone kaart. Daarna moet de volgende speler een beurt overslaan – bij twee 8en de volgende twee, enzovoort.",
   "sp10h": "10 – Verbranden",
   "sp10p": "De hele stapel gaat uit het spel. Jij bent meteen nog een keer aan de beurt.",
   "sp4h": "Vier gelijke – Verbranden",
@@ -122,6 +124,7 @@
   "c4d": "Stapel resetten.",
   "c5d": "Onzichtbaar.",
   "c6d": "Volgende legt 7 of lager.",
+  "c8bd": "Volgende slaat een beurt over (één per 8).",
   "c7d": "Stapel verbranden, nog een keer.",
   "c8d": "Vier gelijke verbranden ook.",
   "c9t": "Eind",
@@ -205,6 +208,8 @@
     "statsReset": "Statistieken wissen",
     "statsConfirm": "Statistieken echt wissen?",
     "statsNote": "Alleen op dit apparaat opgeslagen.",
-    "yourName": "Jouw naam"
+    "yourName": "Jouw naam",
+    "skipped": "{name} slaat een beurt over.",
+    "youSkipped": "Je slaat een beurt over."
   }
 }
