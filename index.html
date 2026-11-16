@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shithead in 3 minutes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Atkinson+Hyperlegible:wght@400;700&family=Rubik:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --wood-a:#BC8752; --wood-b:#A46F3C; --wood-edge:#6E4826;
+  --felt:#1E5B45; --felt-deep:#164634; --felt-text:#F3F0E6; --felt-soft:#BFD6C9;
+  --paper:#FBFAF6; --page:#F2F4EF; --ink:#1A1D21; --muted:#55605A;
+  --red:#C8243B; --gold:#E8B22C; --line:#D9DDD6; --cheat-dt:#FF8A97;
+  color-scheme: light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --felt:#173F31; --felt-deep:#0F2E23; --felt-text:#EEF1EA; --felt-soft:#9FBFAE;
+    --paper:#F4F2EC; --page:#121614; --ink:#E9ECE7; --muted:#A7B2AB;
+    --red:#E0485D; --gold:#F0C04A; --line:#2A332E; --cheat-dt:#A61C30;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --felt:#173F31; --felt-deep:#0F2E23; --felt-text:#EEF1EA; --felt-soft:#9FBFAE;
+  --paper:#F4F2EC; --page:#121614; --ink:#E9ECE7; --muted:#A7B2AB;
+  --red:#E0485D; --gold:#F0C04A; --line:#2A332E; --cheat-dt:#A61C30;
+  color-scheme: dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--page);color:var(--ink);font:400 1.0625rem/1.6 "Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--felt-deep)}
+h1,h2,h3{font-family:"Archivo Black","Arial Black",Impact,sans-serif;font-weight:400;line-height:1.08;margin:0}
+h2{font-size:clamp(1.7rem,6.5vw,2.4rem);margin-bottom:.6rem}
+h3{font-size:1.15rem;margin-bottom:.25rem}
+p{margin:0 0 .9rem}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+.wrap{max-width:40rem;margin:0 auto;padding:0 1.25rem}
+
+/* language switch */
+.langbar{display:flex;justify-content:flex-end;margin-bottom:1rem}
+.langpick{position:relative;display:inline-flex;align-items:center;gap:.5rem;font:700 .95rem/1 "Atkinson Hyperlegible",sans-serif;color:var(--felt-text);background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.28);border-radius:999px;padding:.55rem .8rem .55rem .7rem;cursor:pointer}
+.langpick:hover{background:rgba(255,255,255,.2)}
+.langpick:focus-within{outline:3px solid var(--gold);outline-offset:3px}
+.langpick svg{flex:none}
+.langpick .flag{font-size:1.25rem;line-height:1;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}
+.langpick select{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;font-size:16px;appearance:none;-webkit-appearance:none;border:0}
+
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--felt-deep);color:var(--felt-text)}
+nav ul{display:flex;gap:.25rem;overflow-x:auto;list-style:none;margin:0 auto;padding:.55rem 1rem;max-width:40rem;scrollbar-width:none}
+nav ul::-webkit-scrollbar{display:none}
+nav a{display:block;white-space:nowrap;text-decoration:none;font-weight:700;font-size:.92rem;padding:.4rem .8rem;border-radius:999px;background:rgba(255,255,255,.08)}
+nav a:hover{background:rgba(255,255,255,.18)}
+
+/* hero */
+.hero{background:radial-gradient(120% 90% at 50% 0%,var(--felt) 0%,var(--felt-deep) 100%);color:var(--felt-text);padding:1rem 0 2.6rem;overflow:hidden}
+.hero h1{font-size:clamp(2.6rem,13vw,4.6rem);letter-spacing:-.01em}
+.hero p{color:var(--felt-soft);font-size:1.15rem;max-width:30rem}
+.fan{position:relative;height:190px;margin:1.6rem auto 1.4rem;width:260px}
+.fan .card{position:absolute;left:50%;bottom:0;transform-origin:50% 120%}
+.fan .card:nth-child(1){transform:translateX(-50%) rotate(-20deg)}
+.fan .card:nth-child(2){transform:translateX(-50%) rotate(0deg) translateY(-8px)}
+.fan .card:nth-child(3){transform:translateX(-50%) rotate(20deg)}
+@media (prefers-reduced-motion: no-preference){
+  .fan .card{animation:deal .7s cubic-bezier(.2,.8,.2,1) both}
+  .fan .card:nth-child(1){animation-delay:.05s}.fan .card:nth-child(2){animation-delay:.18s}.fan .card:nth-child(3){animation-delay:.31s}
+  @keyframes deal{from{transform:translateX(-50%) translateY(60px) rotate(0);opacity:0}}
+}
+.goal{display:flex;gap:.9rem;align-items:flex-start;background:rgba(0,0,0,.18);border-radius:14px;padding:1rem 1.1rem;margin-top:.4rem}
+.goal strong{color:var(--gold)}
+.goal p{margin:0;color:var(--felt-text);font-size:1.05rem}
+
+/* playing cards */
+.card{--w:96px;width:var(--w);height:calc(var(--w)*1.4);background:var(--paper);color:#1A1D21;border-radius:calc(var(--w)*.1);box-shadow:0 1px 0 rgba(0,0,0,.25),0 6px 16px rgba(0,0,0,.28);position:relative;font-family:"Archivo Black","Arial Black",sans-serif;flex:none}
+.card .c{position:absolute;top:6%;left:9%;line-height:.95;font-size:calc(var(--w)*.24);text-align:center}
+.card .c span{display:block;font-size:.8em}
+.card .pip{position:absolute;inset:0;display:grid;place-items:center;font-size:calc(var(--w)*.5)}
+.card.r{color:#C8243B}
+.card,.four,.fan,.stack{direction:ltr}
+html[lang="he"] body{font-family:"Rubik","Atkinson Hyperlegible",system-ui,sans-serif}
+html[lang="he"] h1,html[lang="he"] h2,html[lang="he"] h3,html[lang="he"] .dq,html[lang="he"] .bh,html[lang="he"] .cheat dt{font-family:"Rubik","Archivo Black",sans-serif;font-weight:900}
+.card.back{background:repeating-linear-gradient(45deg,#C8243B 0 6px,#A61C30 6px 12px);border:calc(var(--w)*.06) solid var(--paper)}
+.card.sm{--w:58px}
+.card.xs{--w:44px}
+.card.gold{outline:3px solid var(--gold);outline-offset:2px}
+
+section{padding:2.6rem 0 1rem}
+.lead{color:var(--muted);font-size:1.08rem}
+
+.setupvis{margin:1.2rem 0}
+.wood{border-radius:16px;padding:1.4rem 1rem 1.1rem;background:
+  repeating-linear-gradient(0deg,rgba(60,32,12,.28) 0 1px,transparent 1px 44px),
+  repeating-linear-gradient(0deg,rgba(255,235,200,.06) 0 2px,rgba(70,40,15,.07) 2px 4px,transparent 4px 9px,rgba(70,40,15,.05) 9px 10px,transparent 10px 15px),
+  radial-gradient(ellipse 45% 7% at 28% 30%,rgba(80,45,15,.32),transparent 70%),
+  radial-gradient(ellipse 35% 5% at 72% 62%,rgba(80,45,15,.28),transparent 70%),
+  radial-gradient(ellipse 50% 6% at 40% 88%,rgba(80,45,15,.22),transparent 70%),
+  linear-gradient(180deg,var(--wood-a),var(--wood-b));
+  box-shadow:inset 0 0 0 2px rgba(60,32,12,.35),0 5px 0 var(--wood-edge),0 10px 18px rgba(0,0,0,.18);color:#FFF4E2}
+.wood .legend,.wood .legend b{color:#FFF4E2;text-shadow:0 1px 2px rgba(40,20,5,.6)}
+.row{display:flex;gap:.6rem;justify-content:center;align-items:center}
+.stack{position:relative;width:58px;height:81px}
+.stack .card{position:absolute;inset:0}
+.stack .card + .card{transform:translateY(-10px) rotate(-3deg)}
+.legend{display:flex;justify-content:center;gap:1.4rem;margin-top:.9rem;font-size:.9rem;color:var(--felt-soft);flex-wrap:wrap;text-align:center}
+.legend b{display:block;color:var(--felt-text);font-size:1rem}
+.hand{margin-top:1.6rem}
+.hand .legend{color:var(--muted)}.hand .legend b{color:var(--ink)}
+.hand .row .card{margin:0 -10px}
+.hand .row .card:nth-child(1){transform:rotate(-8deg)}.hand .row .card:nth-child(3){transform:rotate(8deg)}
+[dir="rtl"] .hand .row .card:nth-child(1){transform:rotate(8deg);z-index:3}[dir="rtl"] .hand .row .card:nth-child(2){z-index:2}[dir="rtl"] .hand .row .card:nth-child(3){transform:rotate(-8deg);z-index:1}
+
+ol.steps{list-style:none;padding:0;margin:1rem 0;counter-reset:s}
+ol.steps li{counter-increment:s;position:relative;padding:0 0 1.1rem;padding-inline-start:3.2rem}
+ol.steps li::before{content:counter(s);position:absolute;inset-inline-start:0;top:-.1rem;width:2.3rem;height:2.3rem;border-radius:50%;background:var(--felt);color:var(--felt-text);display:grid;place-items:center;font-family:"Archivo Black",sans-serif;font-size:1.05rem}
+ol.steps li::after{content:"";position:absolute;inset-inline-start:1.13rem;top:2.4rem;bottom:.2rem;width:2px;background:var(--line)}
+ol.steps li:last-child::after{display:none}
+ol.steps p{margin:.2rem 0 0;color:var(--muted)}
+
+.note{border-inline-start:4px solid var(--gold);padding:.6rem 0;padding-inline-start:1rem;margin:1rem 0;color:var(--ink)}
+h3.sub{font-size:1.3rem;margin:1.8rem 0 .4rem}
+.ranks{display:flex;justify-content:center;background:var(--felt);border-radius:18px;padding:1.1rem .9rem;margin:.8rem 0 .35rem;overflow:hidden}
+.ranks .card{--w:52px;box-shadow:-2px 0 4px rgba(0,0,0,.18),0 4px 10px rgba(0,0,0,.25)}
+.ranks .card + .card{margin-left:min(-16px, calc((100% - var(--w)) / 12 - var(--w)))}
+[dir="rtl"] .ranks .card + .card{margin-left:0;margin-right:min(-16px, calc((100% - var(--w)) / 12 - var(--w)))}
+[dir="rtl"] .ranks .card{box-shadow:2px 0 4px rgba(0,0,0,.18),0 4px 10px rgba(0,0,0,.25)}
+[dir="rtl"] .ranks .card:nth-child(1){z-index:13}[dir="rtl"] .ranks .card:nth-child(2){z-index:12}[dir="rtl"] .ranks .card:nth-child(3){z-index:11}[dir="rtl"] .ranks .card:nth-child(4){z-index:10}[dir="rtl"] .ranks .card:nth-child(5){z-index:9}[dir="rtl"] .ranks .card:nth-child(6){z-index:8}[dir="rtl"] .ranks .card:nth-child(7){z-index:7}[dir="rtl"] .ranks .card:nth-child(8){z-index:6}[dir="rtl"] .ranks .card:nth-child(9){z-index:5}[dir="rtl"] .ranks .card:nth-child(10){z-index:4}[dir="rtl"] .ranks .card:nth-child(11){z-index:3}[dir="rtl"] .ranks .card:nth-child(12){z-index:2}[dir="rtl"] .ranks .card:nth-child(13){z-index:1}
+.rankscale{display:flex;justify-content:space-between;font-size:.85rem;font-weight:700;color:var(--muted);margin-bottom:.8rem}
+.faq{margin:.6rem 0 1rem}
+.faq details{border-top:1px solid var(--line);padding:.85rem 0}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;font-weight:700;font-size:1.05rem;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:"Archivo Black",sans-serif;color:var(--muted)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{margin:.5rem 0 0;color:var(--muted)}
+.decide{background:var(--felt);color:var(--felt-text);border-radius:20px;padding:1.2rem 1rem;margin:1rem 0}
+.dq{font-family:"Archivo Black","Arial Black",sans-serif;font-size:1.2rem;line-height:1.25;text-align:center;margin:0 0 .35rem}
+.dqs{text-align:center;color:var(--felt-soft);font-size:.92rem;margin:0 0 1rem}
+.branches{display:grid;gap:.8rem}
+@media (min-width:34rem){.branches{grid-template-columns:1fr 1fr}}
+.br{background:var(--paper);color:#1A1D21;border-radius:14px;padding:.9rem 1rem}
+.bh{font-family:"Archivo Black","Arial Black",sans-serif;font-size:1.15rem;margin-bottom:.35rem}
+.yes-br .bh{color:#1F7A4D}.no-br .bh{color:#C8243B}
+.br ol{margin:0;padding:0;padding-inline-start:1.2rem}
+.br li{margin:.35rem 0;line-height:1.45}
+.br .bp{margin:.35rem 0 0;line-height:1.45}
+.dnext{text-align:center;margin:1rem 0 0;font-weight:700}
+.swaparrow{text-align:center;font-size:2.2rem;line-height:1;color:var(--gold);margin:1.1rem 0 -.2rem}
+.swapvis .hand{margin-top:.6rem}
+
+.specials{display:grid;gap:.9rem;margin-top:1rem}
+.sp{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:center;padding:.9rem;border-radius:16px;border:2px solid var(--line)}
+.sp p{margin:0;color:var(--muted)}
+.four{display:flex}.four .card{margin-right:-30px}.four .card:last-child{margin-right:0}
+
+.phases{display:flex;gap:.5rem;align-items:stretch;margin:1.2rem 0;overflow-x:auto;padding-bottom:.3rem}
+.phase{flex:1 1 0;min-width:0;border:2px solid var(--line);color:var(--ink);border-radius:14px;padding:.9rem .7rem;text-align:center}
+.phase.wood{border:0;padding:.9rem .4rem;margin-bottom:6px}
+.phase.wood small,.phase.wood b{color:#FFF4E2;text-shadow:0 1px 2px rgba(40,20,5,.6)}
+.phase .row{margin-bottom:.6rem;gap:.2rem}
+.phase .card.xs{--w:40px}
+.phase b{display:block}
+.phase small{display:block;color:var(--muted);font-size:.85rem;line-height:1.3;margin-top:.2rem}
+.phase b{line-height:1.2}
+
+.trainer{background:var(--felt);color:var(--felt-text);border-radius:20px;padding:1.3rem 1rem 1.2rem;margin:1rem 0;text-align:center}
+.trainer .duel{display:flex;justify-content:center;align-items:center;gap:1.4rem;margin:.6rem 0 1rem}
+.trainer .lbl{font-size:.85rem;color:var(--felt-soft);margin-top:.45rem}
+.trainer .q{font-size:1.2rem;font-weight:700;margin:0 0 .8rem}
+.btns{display:flex;gap:.7rem;justify-content:center}
+.btns button,.next{font:700 1.1rem/1 "Atkinson Hyperlegible",sans-serif;border:0;border-radius:999px;padding:.95rem 1.6rem;min-width:7rem;cursor:pointer}
+.yes{background:var(--paper);color:#1A1D21}
+.no{background:var(--red);color:#fff}
+.next{background:var(--gold);color:#1A1D21;margin-top:.8rem}
+.fb{min-height:3.2rem;margin:.9rem auto 0;max-width:26rem;font-size:1rem}
+.fb .ok{color:#8EF0BC;font-weight:700}.fb .ko{color:#FFB4AC;font-weight:700}
+.score{font-size:.9rem;color:var(--felt-soft);margin-top:.4rem}
+
+.strats{list-style:none;padding:0;margin:1rem 0}
+.strats li{padding:1rem 0;border-bottom:1px solid var(--line)}
+.strats li:last-child{border-bottom:0}
+.strats p{margin:.2rem 0 0;color:var(--muted)}
+
+.cheat{background:var(--ink);color:var(--page);border-radius:20px;padding:1.4rem 1.2rem;margin:1rem 0 0}
+.cheat h2{color:var(--page)}
+.cheat dl{display:grid;grid-template-columns:auto 1fr;gap:.55rem 1rem;margin:0}
+.cheat dt{font-family:"Archivo Black",sans-serif;color:var(--cheat-dt)}
+.cheat dd{margin:0}
+.sharebox{background:var(--felt);color:var(--felt-text);border-radius:20px;padding:1.5rem 1.2rem;text-align:center}
+.sharebox h2{color:var(--felt-text)}
+.shlead{color:var(--felt-soft);max-width:26rem;margin:0 auto 1.2rem}
+.qr{background:#fff;border-radius:16px;padding:10px;width:min(240px,72vw);margin:0 auto .9rem;line-height:0;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.qr svg{display:block;width:100%;height:auto}
+.qr:empty{display:none}
+.shurl{font-size:.88rem;color:var(--felt-soft);word-break:break-all;margin:0 auto 1.1rem;max-width:22rem;direction:ltr}
+.shbtns{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap}
+.shbtn{font:700 1.05rem/1 "Atkinson Hyperlegible",sans-serif;border:0;border-radius:999px;padding:.9rem 1.4rem;cursor:pointer;background:rgba(255,255,255,.14);color:var(--felt-text)}
+.shbtn.primary{background:var(--gold);color:#1A1D21}
+html[lang="he"] .shbtn{font-family:"Rubik",sans-serif}
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.92rem;text-align:center}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="langbar">
+      <label class="langpick">
+        <span id="langFlag" class="flag" aria-hidden="true">🇬🇧</span>
+        <span id="langName">English</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        <select id="langSelect" aria-label="Language / Sprache / Idioma"></select>
+      </label>
+    </div>
+    <h1 data-i18n="h1">Shithead in 3&nbsp;Minuten</h1>
+    <p data-i18n="sub">Das Kartenspiel aus jedem Hostel der Welt. Einmal lesen, eine Runde mitspielen, fertig.</p>
+    <div class="fan" aria-hidden="true">
+      <div class="card"><div class="c">2<span>♣</span></div><div class="pip">♣</div></div>
+      <div class="card r"><div class="c">10<span>♥</span></div><div class="pip">♥</div></div>
+      <div class="card"><div class="c">7<span>♠</span></div><div class="pip">♠</div></div>
+    </div>
+    <div class="goal">
+      <div style="font-size:1.8rem;line-height:1" aria-hidden="true">🎯</div>
+      <p data-i18n="goal"><strong>Das Ziel:</strong> Werde alle deine Karten los. Wer als Letzter noch Karten hat, ist der Shithead – und mischt die nächste Runde.</p>
+    </div>
+  </div>
+</header>
+
+<nav data-i18n-label="navLabel" aria-label="Abschnitte">
+  <ul>
+    <li><a href="#aufbau" data-i18n="n1">Aufbau</a></li>
+    <li><a href="#tauschen" data-i18n="n1b">Tauschen</a></li>
+    <li><a href="#ablauf" data-i18n="n2">Spielen</a></li>
+    <li><a href="#sonderkarten" data-i18n="n3">Sonderkarten</a></li>
+    <li><a href="#ende" data-i18n="n4">Später</a></li>
+    <li><a href="#ueben" data-i18n="n5">Üben</a></li>
+    <li><a href="#strategie" data-i18n="n6">Strategie</a></li>
+    <li><a href="#spickzettel" data-i18n="n7">Spickzettel</a></li>
+    <li><a href="#teilen" data-i18n="n8">Teilen</a></li>
+  </ul>
+</nav>
+
+<main class="wrap">
+
+  <section id="aufbau">
+    <h2 data-i18n="setupH">Aufbau</h2>
+    <p class="lead" data-i18n="setupLead">Ihr braucht ein normales Deck mit 52 Karten, ohne Joker, und 2 bis 5 Leute.</p>
+
+    <h3 class="sub" data-i18n="rankH">Reihenfolge der Karten</h3>
+    <p class="lead" data-i18n="rankLead">Die 2 ist die niedrigste Karte, das Ass die höchste. Die Farbe (♠♥♦♣) spielt keine Rolle.</p>
+    <div class="ranks" role="img" data-i18n-label="rankAlt" aria-label="Reihenfolge von niedrig nach hoch: 2, 3, 4, 5, 6, 7, 8, 9, 10, Bube, Dame, König, Ass.">
+      <div class="card"><div class="c">2<span>♠</span></div><div class="pip">♠</div></div>
+      <div class="card r"><div class="c">3<span>♥</span></div><div class="pip">♥</div></div>
+      <div class="card"><div class="c">4<span>♣</span></div><div class="pip">♣</div></div>
+      <div class="card r"><div class="c">5<span>♦</span></div><div class="pip">♦</div></div>
+      <div class="card"><div class="c">6<span>♠</span></div><div class="pip">♠</div></div>
+      <div class="card r"><div class="c">7<span>♥</span></div><div class="pip">♥</div></div>
+      <div class="card"><div class="c">8<span>♣</span></div><div class="pip">♣</div></div>
+      <div class="card r"><div class="c">9<span>♦</span></div><div class="pip">♦</div></div>
+      <div class="card"><div class="c">10<span>♠</span></div><div class="pip">♠</div></div>
+      <div class="card r"><div class="c">J<span>♥</span></div><div class="pip">♥</div></div>
+      <div class="card"><div class="c">Q<span>♣</span></div><div class="pip">♣</div></div>
+      <div class="card r"><div class="c">K<span>♦</span></div><div class="pip">♦</div></div>
+      <div class="card"><div class="c">A<span>♠</span></div><div class="pip">♠</div></div>
+    </div>
+    <div class="rankscale" aria-hidden="true"><span data-i18n="rankLow">niedrig</span><span data-i18n="rankHigh">hoch</span></div>
+    <p data-i18n="rankP">J = Bube, Q = Dame, K = König, A = Ass.</p>
+
+    <h3 class="sub" data-i18n="dealH">Karten austeilen</h3>
+    <p data-i18n="dealP">Jeder bekommt 9 Karten in drei Lagen.</p>
+
+    <div class="setupvis" role="img" data-i18n-label="setupAlt" aria-label="Vor jedem Spieler liegen drei Stapel aus je einer verdeckten und einer offenen Karte, dazu drei Karten auf der Hand.">
+      <div class="wood">
+      <div class="row">
+        <div class="stack"><div class="card sm back"></div><div class="card sm"><div class="c">K<span>♠</span></div><div class="pip">♠</div></div></div>
+        <div class="stack"><div class="card sm back"></div><div class="card sm r"><div class="c">A<span>♦</span></div><div class="pip">♦</div></div></div>
+        <div class="stack"><div class="card sm back"></div><div class="card sm"><div class="c">2<span>♣</span></div><div class="pip">♣</div></div></div>
+      </div>
+      <div class="legend"><div data-i18n="lgDown"><b>3 verdeckt</b>auf den Tisch</div><div data-i18n="lgUp"><b>3 offen</b>obendrauf</div></div>
+      </div>
+      <div class="hand">
+        <div class="row">
+          <div class="card sm r"><div class="c">5<span>♥</span></div><div class="pip">♥</div></div>
+          <div class="card sm"><div class="c">9<span>♠</span></div><div class="pip">♠</div></div>
+          <div class="card sm r"><div class="c">J<span>♦</span></div><div class="pip">♦</div></div>
+        </div>
+        <div class="legend"><div data-i18n="lgHand"><b>3 auf die Hand</b>nur du siehst sie</div></div>
+      </div>
+    </div>
+
+    <p data-i18n="setupP">Die verdeckten Karten schaust du dir <strong>nicht</strong> an. Der Rest des Decks kommt als Nachziehstapel in die Mitte.</p>
+  </section>
+
+  <section id="tauschen">
+    <h2 data-i18n="swH">Vor dem Start: Karten tauschen</h2>
+    <p class="lead" data-i18n="swLead">Bevor die erste Karte gelegt wird, darf jeder zwischen seiner Hand und seinen offenen Karten tauschen. Sobald das Spiel läuft, geht das nicht mehr.</p>
+    <div class="setupvis swapvis" role="img" data-i18n-label="swAlt" aria-label="Die offene 4 auf dem Tisch wird gegen das Ass aus der Hand getauscht.">
+      <div class="wood">
+        <div class="row">
+          <div class="stack"><div class="card sm back"></div><div class="card sm r gold"><div class="c">4<span>♦</span></div><div class="pip">♦</div></div></div>
+          <div class="stack"><div class="card sm back"></div><div class="card sm"><div class="c">9<span>♣</span></div><div class="pip">♣</div></div></div>
+          <div class="stack"><div class="card sm back"></div><div class="card sm r"><div class="c">K<span>♥</span></div><div class="pip">♥</div></div></div>
+        </div>
+        <div class="legend"><div data-i18n="swUp"><b>offen</b>auf dem Tisch</div></div>
+      </div>
+      <div class="swaparrow" aria-hidden="true">⇅</div>
+      <div class="hand">
+        <div class="row">
+          <div class="card sm gold"><div class="c">A<span>♠</span></div><div class="pip">♠</div></div>
+          <div class="card sm r"><div class="c">6<span>♥</span></div><div class="pip">♥</div></div>
+          <div class="card sm r"><div class="c">J<span>♦</span></div><div class="pip">♦</div></div>
+        </div>
+        <div class="legend"><div data-i18n="swHand"><b>Hand</b>nur du siehst sie</div></div>
+      </div>
+    </div>
+    <ol class="steps">
+      <li><h3 data-i18n="w1h">Karten anschauen</h3><p data-i18n="w1p">Schau dir deine 3 Handkarten und deine 3 offenen Karten an. Die verdeckten bleiben verdeckt.</p></li>
+      <li><h3 data-i18n="w2h">Tauschen</h3><p data-i18n="w2p">Tausch so viele Karten zwischen Hand und offenen Karten, wie du willst.</p></li>
+      <li><h3 data-i18n="w3h">Bereit machen</h3><p data-i18n="w3p">Am Ende liegen wieder 3 Karten offen vor dir und du hast 3 auf der Hand. Wenn alle fertig sind, geht es los.</p></li>
+    </ol>
+    <p data-i18n="swWhy">Deine offenen Karten spielst du erst ganz am Ende, ohne Hand als Rückhalt. Leg dir deshalb starke Karten offen hin: hohe Karten wie Asse und Könige oder Sonderkarten wie die 2 und die 10. Was die Sonderkarten können, erfährst du weiter unten bei den <a href="#sonderkarten">Sonderkarten</a>.</p>
+  </section>
+
+  <section id="ablauf">
+    <h2 data-i18n="playH">So spielst du</h2>
+
+    <h3 class="sub" style="margin-top:.8rem" data-i18n="startH">Wer fängt an?</h3>
+    <p data-i18n="startP">Wer eine 4 auf der Hand hat, legt sie und beginnt. Hat niemand eine 4, fängt die nächsthöhere Karte an, also eine 5 und so weiter. Danach geht es im Uhrzeigersinn weiter.</p>
+
+    <h3 class="sub" data-i18n="turnH">Ein Spielzug</h3>
+    <p data-i18n="turnLead">Schau auf die oberste Karte im Ablagestapel. Dann gibt es nur eine Frage:</p>
+    <div class="decide">
+      <p class="dq" data-i18n="dq">Hast du eine Karte, die gleich hoch oder höher ist?</p>
+      <p class="dqs" data-i18n="dqs">Sonderkarten wie die 2 oder die 10 gehen fast immer – mehr dazu unten.</p>
+      <div class="branches">
+        <div class="br yes-br">
+          <div class="bh" data-i18n="byH">✓ Ja</div>
+          <ol>
+            <li data-i18n="by1"><strong>Leg sie</strong> offen auf den Ablagestapel. Mehrere gleiche darfst du zusammen legen, zum Beispiel drei 6er.</li>
+            <li data-i18n="by2"><strong>Zieh nach,</strong> bis du wieder 3 Karten auf der Hand hast. Hast du noch 3 oder mehr, ziehst du nichts.</li>
+          </ol>
+        </div>
+        <div class="br no-br">
+          <div class="bh" data-i18n="bnH">✗ Nein</div>
+          <p class="bp" data-i18n="bn1"><strong>Nimm den ganzen Ablagestapel</strong> auf die Hand.</p>
+        </div>
+      </div>
+      <p class="dnext" data-i18n="dnext">In beiden Fällen ist danach der Nächste im Uhrzeigersinn dran.</p>
+    </div>
+  </section>
+
+  <section id="sonderkarten">
+    <h2 data-i18n="spH">Sonderkarten</h2>
+    <p class="lead" data-i18n="spLead">Diese Karten darfst du fast immer legen, egal was oben liegt.</p>
+    <div class="specials">
+      <div class="sp">
+        <div class="card sm"><div class="c">2<span>♣</span></div><div class="pip">♣</div></div>
+        <div><h3 data-i18n="sp2h">2 – Neustart</h3><p data-i18n="sp2p">Setzt den Stapel zurück. Danach darf jede Karte drauf.</p></div>
+      </div>
+      <div class="sp">
+        <div class="card sm r"><div class="c">3<span>♥</span></div><div class="pip">♥</div></div>
+        <div><h3 data-i18n="sp3h">3 – Unsichtbar</h3><p data-i18n="sp3p">Zählt einfach nicht. Der Nächste muss auf die Karte <em>unter</em> der 3 antworten.</p></div>
+      </div>
+      <div class="sp">
+        <div class="card sm"><div class="c">7<span>♠</span></div><div class="pip">♠</div></div>
+        <div><h3 data-i18n="sp7h">7 – Runter</h3><p data-i18n="sp7p">Nur der nächste Spieler muss eine 7 oder <strong>niedriger</strong> oder eine andere Sonderkarte legen.</p></div>
+      </div>
+      <div class="sp">
+        <div class="card sm r"><div class="c">10<span>♦</span></div><div class="pip">♦</div></div>
+        <div><h3 data-i18n="sp10h">10 – Verbrennen</h3><p data-i18n="sp10p">Der ganze Stapel fliegt aus dem Spiel. Du bist gleich nochmal dran.</p></div>
+      </div>
+      <div class="sp">
+        <div class="four">
+          <div class="card xs"><div class="c">8<span>♠</span></div><div class="pip">♠</div></div>
+          <div class="card xs r"><div class="c">8<span>♥</span></div><div class="pip">♥</div></div>
+          <div class="card xs"><div class="c">8<span>♣</span></div><div class="pip">♣</div></div>
+          <div class="card xs r"><div class="c">8<span>♦</span></div><div class="pip">♦</div></div>
+        </div>
+        <div><h3 data-i18n="sp4h">4 Gleiche – Verbrennen</h3><p data-i18n="sp4p">Liegen oben vier gleiche Karten (auch von verschiedenen Leuten), brennt der Stapel ebenfalls.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ende">
+    <h2 data-i18n="endH">Später im Spiel</h2>
+
+    <h3 class="sub" style="margin-top:.8rem" data-i18n="e1h">Der Nachziehstapel ist leer</h3>
+    <p data-i18n="e1p">Dann zieht niemand mehr nach. Du spielst ganz normal weiter, nur wird deine Hand jetzt mit jedem Zug kleiner. Musst du den Ablagestapel aufnehmen, hast du natürlich wieder mehr Karten.</p>
+
+    <h3 class="sub" data-i18n="e2h">Deine Hand ist leer</h3>
+    <p data-i18n="e2p">Erst wenn der Nachziehstapel leer ist und du keine Handkarten mehr hast, spielst du von deinem Tisch: zuerst die offenen Karten, dann die verdeckten.</p>
+    <div class="phases">
+      <div class="phase">
+        <div class="row"><div class="card xs r"><div class="c">5<span>♥</span></div></div><div class="card xs"><div class="c">9<span>♠</span></div></div></div>
+        <b data-i18n="ph1b">1. Hand</b><small data-i18n="ph1s">bis leer</small>
+      </div>
+      <div class="phase wood">
+        <div class="row"><div class="card xs"><div class="c">K<span>♠</span></div></div><div class="card xs r"><div class="c">A<span>♦</span></div></div></div>
+        <b data-i18n="ph2b">2. Offene</b><small data-i18n="ph2s">wie Handkarten</small>
+      </div>
+      <div class="phase wood">
+        <div class="row"><div class="card xs back"></div><div class="card xs back"></div></div>
+        <b data-i18n="ph3b">3. Verdeckte</b><small data-i18n="ph3s">blind aufdecken</small>
+      </div>
+    </div>
+
+    <h3 class="sub" data-i18n="e3h">Offene Karten</h3>
+    <p data-i18n="e3p">Du legst eine offene Karte genau wie eine Handkarte, mehrere gleiche auch zusammen. Kannst du keine legen, nimmst du den Ablagestapel auf und spielst erst deine Hand wieder leer.</p>
+
+    <h3 class="sub" data-i18n="e4h">Verdeckte Karten</h3>
+    <p data-i18n="e4p">Tipp eine an und deck sie auf. Passt sie, super. Passt sie nicht, nimmst du sie <strong>zusammen mit dem Ablagestapel</strong> auf die Hand und spielst erst die wieder leer.</p>
+
+    <h3 class="sub" data-i18n="e5h">Geschafft</h3>
+    <p data-i18n="e5p">Wer keine Karten mehr hat, hat gewonnen. Der Letzte am Tisch ist der Shithead und teilt die nächste Runde aus.</p>
+  </section>
+
+  <section id="ueben">
+    <h2 data-i18n="qH">Darf ich das legen?</h2>
+    <p class="lead" data-i18n="qLead">Kurzer Test. Oben liegt eine Karte, du hast eine in der Hand.</p>
+    <div class="trainer" aria-live="polite">
+      <div class="duel">
+        <div><div id="topCard"></div><div class="lbl" data-i18n="qTop">liegt oben</div></div>
+        <div><div id="myCard"></div><div class="lbl" data-i18n="qMine">deine Karte</div></div>
+      </div>
+      <p class="q" data-i18n="qQ">Darfst du sie legen?</p>
+      <div class="btns" id="btns">
+        <button class="yes" data-a="1" data-i18n="qYes">Ja</button>
+        <button class="no" data-a="0" data-i18n="qNo">Nein</button>
+      </div>
+      <div class="fb" id="fb"></div>
+      <button class="next" id="next" hidden data-i18n="qNext">Nächste Karte</button>
+      <div class="score" id="score"></div>
+    </div>
+  </section>
+
+  <section id="strategie">
+    <h2 data-i18n="stH">Strategien</h2>
+    <p class="lead" data-i18n="stLead">Wenn du die Regeln drauf hast, gewinnst du damit öfter.</p>
+    <ul class="strats">
+      <li><h3 data-i18n="t1h">Offen nur Starkes</h3><p data-i18n="t1p">Leg beim Tauschen am Anfang Asse, 10er und 2er offen. Am Ende spielst du die ohne Hand – dann sollen sie stechen.</p></li>
+      <li><h3 data-i18n="t2h">Kleine Karten zuerst</h3><p data-i18n="t2p">Werd 4er, 5er und 6er früh los, solange der Stapel niedrig ist. Später passen sie nirgends mehr.</p></li>
+      <li><h3 data-i18n="t3h">Sonderkarten horten</h3><p data-i18n="t3p">Eine 2 oder 10 ist dein Notausgang. Verschenk sie nicht, wenn du auch normal legen kannst.</p></li>
+      <li><h3 data-i18n="t4h">Die 7 gezielt setzen</h3><p data-i18n="t4p">Liegt bei deinem Nachbarn nur noch Hohes offen, zwingt ihn eine 7, den Stapel zu nehmen.</p></li>
+      <li><h3 data-i18n="t5h">Früh aufnehmen ist okay</h3><p data-i18n="t5p">Ein kleiner Stapel am Anfang tut kaum weh und gibt dir oft gute Karten. Ein großer am Ende ist das Problem.</p></li>
+      <li><h3 data-i18n="t6h">Mitzählen</h3><p data-i18n="t6p">Merk dir grob, wie viele 10er und 2er schon weg sind. Dann weißt du, wann du dich trauen kannst.</p></li>
+      <li><h3 data-i18n="t7h">Paare zusammenhalten</h3><p data-i18n="t7p">Gleiche Karten zusammen legen spart Züge – und mit dem vierten Gleichen verbrennst du den Stapel.</p></li>
+    </ul>
+  </section>
+
+  <section id="spickzettel">
+    <div class="cheat">
+      <h2 data-i18n="chH">Spickzettel</h2>
+      <dl>
+        <dt data-i18n="c1t">Ziel</dt><dd data-i18n="c1d">Alle Karten loswerden.</dd>
+        <dt data-i18n="c2t">Zug</dt><dd data-i18n="c2d">Gleich oder höher legen, auf 3 nachziehen.</dd>
+        <dt data-i18n="c3t">Geht nicht</dt><dd data-i18n="c3d">Ganzen Stapel aufnehmen.</dd>
+        <dt>2</dt><dd data-i18n="c4d">Stapel zurücksetzen.</dd>
+        <dt>3</dt><dd data-i18n="c5d">Unsichtbar.</dd>
+        <dt>7</dt><dd data-i18n="c6d">Nächster legt 7 oder niedriger.</dd>
+        <dt>10</dt><dd data-i18n="c7d">Stapel verbrennen, nochmal dran.</dd>
+        <dt>4×</dt><dd data-i18n="c8d">Vier Gleiche verbrennen auch.</dd>
+        <dt data-i18n="c9t">Ende</dt><dd data-i18n="c9d">Hand, dann offen, dann blind.</dd>
+      </dl>
+    </div>
+  </section>
+
+
+  <section id="teilen">
+    <div class="sharebox">
+      <h2 data-i18n="shH">Anleitung teilen</h2>
+      <p class="shlead" data-i18n="shLead">Lass die anderen am Tisch den Code scannen. Jeder kann sich dann seine eigene Sprache aussuchen.</p>
+      <div class="qr" id="qr" role="img" data-i18n-label="shAlt" aria-label="QR-Code zu dieser Seite"></div>
+      <p class="shurl" id="shurl"></p>
+      <div class="shbtns">
+        <button type="button" class="shbtn primary" id="shShare" hidden data-i18n="shBtn">Teilen</button>
+        <button type="button" class="shbtn" id="shCopy" data-i18n="shCopy">Link kopieren</button>
+      </div>
+      <span hidden data-i18n="shCopied">Link kopiert</span>
+    </div>
+  </section>
+</main>
+
+<footer data-i18n="foot">Viel Spaß am Tisch. Und denk dran: Shithead ist nur, wer zuletzt lacht.</footer>
+
+<script>
+(function(){
+  var EN={
+    n8:"Share",shH:"Share this guide",shLead:"Let the others at the table scan the code. Everyone can then pick their own language.",shBtn:"Share",shCopy:"Copy link",shCopied:"Link copied",shAlt:"QR code for this page",
+    title:"Shithead in 3 minutes",
+    h1:"Shithead in 3&nbsp;minutes",
+    sub:"The card game from every hostel in the world. Read it once, play one round, done.",
+    goal:"<strong>The goal:</strong> Get rid of all your cards. The last person still holding cards is the Shithead – and shuffles for the next round.",
+    navLabel:"Sections",
+    n1:"Setup",n1b:"Swap",n2:"Play",n3:"Special cards",n4:"Later",n5:"Practice",n6:"Strategy",n7:"Cheat sheet",
+    setupH:"Setup",
+    setupLead:"You need a standard 52-card deck without jokers and 2 to 5 players.",
+    dealH:"Dealing",dealP:"Everyone gets 9 cards in three layers.",
+    setupAlt:"In front of each player are three piles, each with one face-down and one face-up card, plus three cards in hand.",
+    lgDown:"<b>3 face-down</b>on the table",lgUp:"<b>3 face-up</b>on top",lgHand:"<b>3 in your hand</b>only you see them",
+    setupP:"Do <strong>not</strong> look at your face-down cards. The rest of the deck goes in the middle as the draw pile.",
+    swH:"Before you start: swap cards",
+    swLead:"Before the first card is played, everyone may swap between their hand and their face-up cards. Once the game is running, you can’t anymore.",
+    swAlt:"The face-up 4 on the table is swapped with the ace from the hand.",
+    swHand:"<b>hand</b>only you see them",swUp:"<b>face-up</b>on the table",
+    w1h:"Look at your cards",w1p:"Look at your 3 hand cards and your 3 face-up cards. The face-down ones stay face-down.",
+    w2h:"Swap",w2p:"Swap as many cards between your hand and your face-up cards as you like.",
+    w3h:"Get ready",w3p:"In the end you have 3 face-up cards in front of you and 3 in your hand. Once everyone is done, the game starts.",
+    swWhy:"You only play your face-up cards at the very end, without a hand to fall back on. So put strong cards face-up: high cards like aces and kings, or special cards like the 2 and the 10. You’ll learn what the special cards do further down under <a href=\"#sonderkarten\">special cards</a>.",
+    playH:"How to play",
+    rankH:"Card order",
+    rankLead:"The 2 is the lowest card, the ace the highest. Suits (♠♥♦♣) don’t matter.",
+    rankAlt:"Card order from low to high: 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King, Ace.",
+    rankLow:"low",rankHigh:"high",
+    rankP:"J = Jack, Q = Queen, K = King, A = Ace.",
+    turnH:"One turn",
+    turnLead:"Look at the top card of the discard pile. Then there’s only one question:",
+    dq:"Do you have a card that’s equal or higher?",
+    dqs:"Special cards like the 2 or the 10 work almost always – more on that below.",
+    byH:"✓ Yes",
+    by1:"<strong>Play it</strong> face-up on the discard pile. You can play several of the same rank together, like three 6s.",
+    by2:"<strong>Draw</strong> until you have 3 cards in your hand again. If you still have 3 or more, you don’t draw.",
+    bnH:"✗ No",
+    bn1:"<strong>Pick up the whole discard pile</strong> into your hand.",
+    bn2:"The discard pile is now empty, so the next player can play any card.",
+    dnext:"Either way, it’s then the next player’s turn, clockwise.",
+    s1h:"Play a card that’s equal or higher",
+    s1p:"It goes face-up on the discard pile in the middle. If you have several of the same rank, you can play them together, like three 6s.",
+    s1p2:"<strong>If you can’t play anything,</strong> you pick up the whole discard pile. Your turn is over, and the next player starts a new pile with any card.",
+    s2h:"Draw cards until you have 3 again",
+    s2p:"After you’ve played your card, draw from the draw pile until you have 3 cards in your hand. If you still have 3 or more, you don’t draw.",
+    s3h:"Next player’s turn",
+    s3p:"Play goes clockwise. They now have to beat your card.",
+    turnNote:"In short: <strong>play, draw, pass.</strong> As long as the draw pile isn’t empty, you always have at least 3 cards after your turn.",
+    faqH:"What if …",
+    f1q:"… I can’t play anything?",f1a:"Then you pick up the whole discard pile. Your turn is over. The next player starts a new pile and can play any card.",
+    f2q:"… I have more than 3 cards in my hand?",f2a:"No problem, that happens after picking up. You just don’t draw and keep playing your hand normally until you’re below 3.",
+    f3q:"… the draw pile is empty?",f3a:"Then nobody draws anymore. You just keep playing your hand until it’s empty.",
+    f4q:"… my hand is empty?",f4a:"Then you play from your face-up cards on the table, then from the face-down ones. See the <a href=\"#ende\">endgame</a> below.",
+    f5q:"… I could play but don’t want to?",f5a:"Usually you have to play if you can. Some groups allow picking up the pile voluntarily – agree on it beforehand.",
+    startH:"Who starts?",
+    startP:"Whoever has a 4 in their hand plays it and starts. If nobody has a 4, the next higher card starts, so a 5 and so on. After that, play goes clockwise.",
+    spH:"Special cards",
+    spLead:"You can play these almost anytime, no matter what’s on top.",
+    sp2h:"2 – Reset",sp2p:"Resets the pile. Any card can go on top of it.",
+    sp3h:"3 – Invisible",sp3p:"Doesn’t count. The next player has to beat the card <em>under</em> the 3.",
+    sp7h:"7 – Go lower",sp7p:"Only the next player must play a 7 or <strong>lower</strong>, or another special card.",
+    sp10h:"10 – Burn",sp10p:"The whole pile is out of the game. You go again right away.",
+    sp4h:"Four of a kind – Burn",sp4p:"If four cards of the same rank are on top (even from different players), the pile burns too.",
+    endH:"Later in the game",
+    e1h:"The draw pile is empty",e1p:"Then nobody draws anymore. You keep playing as usual, but your hand gets smaller with every turn. If you have to pick up the discard pile, you get more cards again, of course.",
+    e2h:"Your hand is empty",e2p:"Only once the draw pile is gone and you have no cards left in your hand do you play from the table: first your face-up cards, then the face-down ones.",
+    e3h:"Face-up cards",e3p:"You play a face-up card just like one from your hand, and several of the same rank together. If you can’t play any, you pick up the discard pile and first play your hand empty again.",
+    e4h:"Face-down cards",e4p:"Tap one and flip it. If it fits, great. If not, you pick it up <strong>together with the discard pile</strong> and first play those empty again.",
+    e5h:"Done",e5p:"Once you’re out of cards, you’ve won. The last one at the table is the Shithead and deals the next round.",
+    endLead:"Once the draw pile is gone and your hand is empty, you play from the table.",
+    ph1b:"1. Hand",ph1s:"until empty",ph2b:"2. Face-up",ph2s:"like hand cards",ph3b:"3. Face-down",ph3s:"flip blind",
+    endP1:"For face-down cards, tap one and flip it. If it fits, great. If not, you pick it up <strong>together with the pile</strong> and have to get rid of those first.",
+    endP2:"If you pick up the pile in this phase, you first play your hand empty again before continuing on the table. Once you’re out of cards, you’re out and you’ve won. The last one at the table is the Shithead.",
+    qH:"Can I play this?",
+    qLead:"Quick test. One card is on top, you have one in your hand.",
+    qTop:"on top",qMine:"your card",qQ:"Can you play it?",qYes:"Yes",qNo:"No",qNext:"Next card",
+    stH:"Strategies",
+    stLead:"Once you know the rules, these help you win more often.",
+    t1h:"Only strong cards face-up",t1p:"When swapping at the start, put aces, 10s and 2s face-up. You play those at the end without a hand – that’s when they need to hit.",
+    t2h:"Low cards first",t2p:"Dump your 4s, 5s and 6s early while the pile is low. Later they won’t fit anywhere.",
+    t3h:"Save special cards",t3p:"A 2 or a 10 is your emergency exit. Don’t waste it if you can play normally.",
+    t4h:"Use the 7 on purpose",t4p:"If your neighbor only has high cards face-up, a 7 forces them to pick up the pile.",
+    t5h:"Picking up early is fine",t5p:"A small pile early on barely hurts and often gives you good cards. A big one at the end is the problem.",
+    t6h:"Keep count",t6p:"Roughly track how many 10s and 2s are gone. Then you know when you can take a risk.",
+    t7h:"Keep pairs together",t7p:"Playing matching cards together saves turns – and the fourth one burns the pile.",
+    chH:"Cheat sheet",
+    c1t:"Goal",c1d:"Get rid of all your cards.",
+    c2t:"Turn",c2d:"Play equal or higher, draw back to 3.",
+    c3t:"Can’t play",c3d:"Pick up the whole pile.",
+    c4d:"Reset the pile.",c5d:"Invisible.",c6d:"Next player plays 7 or lower.",c7d:"Burn the pile, go again.",c8d:"Four of a kind burns too.",
+    c9t:"End",c9d:"Hand, then face-up, then blind.",
+    foot:"Have fun at the table. And remember: you’re only the Shithead if you can’t laugh about it."
+  };
+  var ES={
+    n8:"Compartir",shH:"Compartir esta guía",shLead:"Deja que los demás de la mesa escaneen el código. Luego cada uno puede elegir su idioma.",shBtn:"Compartir",shCopy:"Copiar enlace",shCopied:"Enlace copiado",shAlt:"Código QR de esta página",
+    title:"Shithead en 3 minutos",
+    h1:"Shithead en 3&nbsp;minutos",
+    sub:"El juego de cartas de todos los hostales del mundo. Léelo una vez, juega una ronda y listo.",
+    goal:"<strong>El objetivo:</strong> Quédate sin cartas. Quien se quede con cartas al final es el Shithead – y baraja la siguiente ronda.",
+    navLabel:"Secciones",
+    n1:"Preparación",n1b:"Cambiar",n2:"Jugar",n3:"Cartas especiales",n4:"Más tarde",n5:"Practicar",n6:"Estrategia",n7:"Chuleta",
+    setupH:"Preparación",
+    setupLead:"Necesitáis una baraja normal de 52 cartas sin comodines y de 2 a 5 personas.",
+    rankH:"Orden de las cartas",
+    rankLead:"El 2 es la carta más baja y el as la más alta. El palo (♠♥♦♣) no importa.",
+    rankAlt:"Orden de las cartas de menor a mayor: 2, 3, 4, 5, 6, 7, 8, 9, 10, jota, reina, rey, as.",
+    rankLow:"baja",rankHigh:"alta",
+    rankP:"J = jota, Q = reina, K = rey, A = as.",
+    dealH:"Repartir",dealP:"Cada uno recibe 9 cartas en tres capas.",
+    setupAlt:"Delante de cada jugador hay tres montoncitos, cada uno con una carta boca abajo y otra boca arriba, más tres cartas en la mano.",
+    lgDown:"<b>3 boca abajo</b>sobre la mesa",lgUp:"<b>3 boca arriba</b>encima",lgHand:"<b>3 en la mano</b>solo las ves tú",
+    setupP:"<strong>No</strong> mires tus cartas boca abajo. El resto de la baraja va al centro como mazo para robar.",
+    swH:"Antes de empezar: cambiar cartas",
+    swLead:"Antes de jugar la primera carta, cada uno puede cambiar cartas entre su mano y sus cartas boca arriba. Una vez empezada la partida, ya no se puede.",
+    swAlt:"El 4 boca arriba de la mesa se cambia por el as de la mano.",
+    swUp:"<b>boca arriba</b>sobre la mesa",swHand:"<b>mano</b>solo las ves tú",
+    w1h:"Mira tus cartas",w1p:"Mira tus 3 cartas de la mano y tus 3 cartas boca arriba. Las de boca abajo se quedan boca abajo.",
+    w2h:"Cambia",w2p:"Cambia tantas cartas como quieras entre tu mano y tus cartas boca arriba.",
+    w3h:"Prepárate",w3p:"Al final tienes 3 cartas boca arriba delante de ti y 3 en la mano. Cuando todos estén listos, empieza la partida.",
+    swWhy:"Tus cartas boca arriba solo las juegas al final, sin la mano como respaldo. Así que pon boca arriba cartas fuertes: cartas altas como ases y reyes, o cartas especiales como el 2 y el 10. Lo que hacen las cartas especiales lo verás más abajo en <a href=\"#sonderkarten\">cartas especiales</a>.",
+    playH:"Cómo se juega",
+    startH:"¿Quién empieza?",
+    startP:"Quien tenga un 4 en la mano lo juega y empieza. Si nadie tiene un 4, empieza la siguiente carta más alta, o sea un 5, y así sucesivamente. Después se sigue en el sentido de las agujas del reloj.",
+    turnH:"Un turno",
+    turnLead:"Mira la carta de arriba del montón de descarte. Luego solo hay una pregunta:",
+    dq:"¿Tienes una carta igual o más alta?",
+    dqs:"Las cartas especiales como el 2 o el 10 casi siempre valen – más sobre eso abajo.",
+    byH:"✓ Sí",
+    by1:"<strong>Juégala</strong> boca arriba en el montón de descarte. Puedes jugar varias del mismo valor a la vez, por ejemplo tres 6.",
+    by2:"<strong>Roba</strong> hasta volver a tener 3 cartas en la mano. Si aún tienes 3 o más, no robas.",
+    bnH:"✗ No",
+    bn1:"<strong>Toma todo el montón de descarte</strong> a tu mano.",
+    dnext:"En ambos casos, después le toca al siguiente, en el sentido de las agujas del reloj.",
+    spH:"Cartas especiales",
+    spLead:"Estas cartas las puedes jugar casi siempre, da igual lo que haya arriba.",
+    sp2h:"2 – Reinicio",sp2p:"Reinicia el montón. Después se puede poner cualquier carta encima.",
+    sp3h:"3 – Invisible",sp3p:"No cuenta. El siguiente tiene que superar la carta que hay <em>debajo</em> del 3.",
+    sp7h:"7 – Más bajo",sp7p:"Solo el siguiente jugador tiene que jugar un 7 o <strong>más bajo</strong>, u otra carta especial.",
+    sp10h:"10 – Quemar",sp10p:"Todo el montón sale del juego. Vuelves a jugar enseguida.",
+    sp4h:"Cuatro iguales – Quemar",sp4p:"Si arriba hay cuatro cartas del mismo valor (aunque sean de jugadores distintos), el montón también se quema.",
+    endH:"Más tarde en la partida",
+    e1h:"El mazo para robar está vacío",e1p:"Entonces ya nadie roba. Sigues jugando normal, pero tu mano se hace más pequeña en cada turno. Si tienes que tomar el montón de descarte, vuelves a tener más cartas, claro.",
+    e2h:"Tu mano está vacía",e2p:"Solo cuando el mazo para robar se ha acabado y ya no te quedan cartas en la mano juegas desde la mesa: primero las cartas boca arriba, luego las de boca abajo.",
+    ph1b:"1. Mano",ph1s:"hasta vaciarla",ph2b:"2. Boca arriba",ph2s:"como las de la mano",ph3b:"3. Boca abajo",ph3s:"a ciegas",
+    e3h:"Cartas boca arriba",e3p:"Juegas una carta boca arriba igual que una de la mano, y varias del mismo valor a la vez. Si no puedes jugar ninguna, tomas el montón de descarte y primero vuelves a vaciar tu mano.",
+    e4h:"Cartas boca abajo",e4p:"Toca una y dale la vuelta. Si vale, genial. Si no, la tomas <strong>junto con el montón de descarte</strong> y primero tienes que volver a deshacerte de ellas.",
+    e5h:"Lo lograste",e5p:"Quien se queda sin cartas, gana. El último en la mesa es el Shithead y reparte la siguiente ronda.",
+    qH:"¿Puedo jugar esta?",
+    qLead:"Prueba rápida. Hay una carta arriba y tú tienes una en la mano.",
+    qTop:"arriba",qMine:"tu carta",qQ:"¿Puedes jugarla?",qYes:"Sí",qNo:"No",qNext:"Siguiente carta",
+    stH:"Estrategias",
+    stLead:"Cuando ya sepas las reglas, esto te ayuda a ganar más a menudo.",
+    t1h:"Boca arriba, solo cartas fuertes",t1p:"Al cambiar al principio, pon ases, 10 y 2 boca arriba. Esas las juegas al final sin mano – ahí es cuando tienen que funcionar.",
+    t2h:"Primero las bajas",t2p:"Deshazte pronto de tus 4, 5 y 6 mientras el montón esté bajo. Más tarde no encajarán en ningún sitio.",
+    t3h:"Guarda las especiales",t3p:"Un 2 o un 10 es tu salida de emergencia. No lo gastes si puedes jugar normal.",
+    t4h:"Usa el 7 a propósito",t4p:"Si tu vecino solo tiene cartas altas boca arriba, un 7 le obliga a tomar el montón.",
+    t5h:"Tomar pronto no pasa nada",t5p:"Un montón pequeño al principio apenas duele y a menudo te da buenas cartas. Uno grande al final es el problema.",
+    t6h:"Lleva la cuenta",t6p:"Fíjate más o menos en cuántos 10 y 2 han salido ya. Así sabes cuándo puedes arriesgarte.",
+    t7h:"Mantén las parejas juntas",t7p:"Jugar cartas iguales juntas ahorra turnos – y con la cuarta quemas el montón.",
+    chH:"Chuleta",
+    c1t:"Objetivo",c1d:"Quedarte sin cartas.",
+    c2t:"Turno",c2d:"Juega igual o más alta, roba hasta 3.",
+    c3t:"No puedes",c3d:"Toma todo el montón.",
+    c4d:"Reinicia el montón.",c5d:"Invisible.",c6d:"El siguiente juega 7 o más bajo.",c7d:"Quema el montón, vuelves a jugar.",c8d:"Cuatro iguales también queman.",
+    c9t:"Final",c9d:"Mano, luego boca arriba, luego a ciegas.",
+    foot:"Que lo pases bien en la mesa. Y recuerda: solo eres el Shithead si no puedes reírte de ello."
+  };
+  var LA={
+    n8:"Compartir",shH:"Compartir esta guía",shLead:"Deja que los demás de la mesa escaneen el código. Luego cada uno puede elegir su idioma.",shBtn:"Compartir",shCopy:"Copiar enlace",shCopied:"Enlace copiado",shAlt:"Código QR de esta página",
+    title:"Shithead en 3 minutos",
+    h1:"Shithead en 3&nbsp;minutos",
+    sub:"El juego de cartas de todos los hostales del mundo. Léelo una vez, juega una ronda y listo.",
+    goal:"<strong>El objetivo:</strong> Quédate sin cartas. Quien se quede con cartas al final es el Shithead – y baraja la siguiente ronda.",
+    navLabel:"Secciones",
+    n1:"Preparación",n1b:"Cambiar",n2:"Jugar",n3:"Cartas especiales",n4:"Más tarde",n5:"Practicar",n6:"Estrategia",n7:"Resumen",
+    setupH:"Preparación",
+    setupLead:"Necesitan una baraja normal de 52 cartas sin comodines y de 2 a 5 personas.",
+    rankH:"Orden de las cartas",
+    rankLead:"El 2 es la carta más baja y el as la más alta. El palo (♠♥♦♣) no importa.",
+    rankAlt:"Orden de las cartas de menor a mayor: 2, 3, 4, 5, 6, 7, 8, 9, 10, jota, reina, rey, as.",
+    rankLow:"baja",rankHigh:"alta",
+    rankP:"J = jota, Q = reina, K = rey, A = as.",
+    dealH:"Repartir",dealP:"Cada uno recibe 9 cartas en tres capas.",
+    setupAlt:"Delante de cada jugador hay tres montoncitos, cada uno con una carta boca abajo y otra boca arriba, más tres cartas en la mano.",
+    lgDown:"<b>3 boca abajo</b>sobre la mesa",lgUp:"<b>3 boca arriba</b>encima",lgHand:"<b>3 en la mano</b>solo las ves tú",
+    setupP:"<strong>No</strong> mires tus cartas boca abajo. El resto de la baraja va al centro como mazo para robar.",
+    swH:"Antes de empezar: cambiar cartas",
+    swLead:"Antes de jugar la primera carta, cada uno puede cambiar cartas entre su mano y sus cartas boca arriba. Una vez empezada la partida, ya no se puede.",
+    swAlt:"El 4 boca arriba de la mesa se cambia por el as de la mano.",
+    swUp:"<b>boca arriba</b>sobre la mesa",swHand:"<b>mano</b>solo las ves tú",
+    w1h:"Mira tus cartas",w1p:"Mira tus 3 cartas de la mano y tus 3 cartas boca arriba. Las de boca abajo se quedan boca abajo.",
+    w2h:"Cambia",w2p:"Cambia tantas cartas como quieras entre tu mano y tus cartas boca arriba.",
+    w3h:"Prepárate",w3p:"Al final tienes 3 cartas boca arriba delante de ti y 3 en la mano. Cuando todos estén listos, empieza la partida.",
+    swWhy:"Tus cartas boca arriba solo las juegas al final, sin la mano como respaldo. Así que pon boca arriba cartas fuertes: cartas altas como ases y reyes, o cartas especiales como el 2 y el 10. Lo que hacen las cartas especiales lo verás más abajo en <a href=\"#sonderkarten\">cartas especiales</a>.",
+    playH:"Cómo se juega",
+    startH:"¿Quién empieza?",
+    startP:"Quien tenga un 4 en la mano lo juega y empieza. Si nadie tiene un 4, empieza la siguiente carta más alta, o sea un 5, y así sucesivamente. Después se sigue en sentido horario.",
+    turnH:"Un turno",
+    turnLead:"Mira la carta de arriba del montón de descarte. Luego solo hay una pregunta:",
+    dq:"¿Tienes una carta igual o más alta?",
+    dqs:"Las cartas especiales como el 2 o el 10 casi siempre valen – más sobre eso abajo.",
+    byH:"✓ Sí",
+    by1:"<strong>Juégala</strong> boca arriba en el montón de descarte. Puedes jugar varias del mismo valor a la vez, por ejemplo tres 6.",
+    by2:"<strong>Roba</strong> hasta volver a tener 3 cartas en la mano. Si aún tienes 3 o más, no robas.",
+    bnH:"✗ No",
+    bn1:"<strong>Toma todo el montón de descarte</strong> a tu mano.",
+    dnext:"En ambos casos, después le toca al siguiente, en sentido horario.",
+    spH:"Cartas especiales",
+    spLead:"Estas cartas las puedes jugar casi siempre, da igual lo que haya arriba.",
+    sp2h:"2 – Reinicio",sp2p:"Reinicia el montón. Después se puede poner cualquier carta encima.",
+    sp3h:"3 – Invisible",sp3p:"No cuenta. El siguiente tiene que superar la carta que hay <em>debajo</em> del 3.",
+    sp7h:"7 – Más bajo",sp7p:"Solo el siguiente jugador tiene que jugar un 7 o <strong>más bajo</strong>, u otra carta especial.",
+    sp10h:"10 – Quemar",sp10p:"Todo el montón sale del juego. Vuelves a jugar enseguida.",
+    sp4h:"Cuatro iguales – Quemar",sp4p:"Si arriba hay cuatro cartas del mismo valor (aunque sean de jugadores distintos), el montón también se quema.",
+    endH:"Más tarde en la partida",
+    e1h:"El mazo para robar está vacío",e1p:"Entonces ya nadie roba. Sigues jugando normal, pero tu mano se hace más pequeña en cada turno. Si tienes que tomar el montón de descarte, vuelves a tener más cartas, claro.",
+    e2h:"Tu mano está vacía",e2p:"Solo cuando el mazo para robar se ha acabado y ya no te quedan cartas en la mano juegas desde la mesa: primero las cartas boca arriba, luego las de boca abajo.",
+    ph1b:"1. Mano",ph1s:"hasta vaciarla",ph2b:"2. Boca arriba",ph2s:"como las de la mano",ph3b:"3. Boca abajo",ph3s:"a ciegas",
+    e3h:"Cartas boca arriba",e3p:"Juegas una carta boca arriba igual que una de la mano, y varias del mismo valor a la vez. Si no puedes jugar ninguna, tomas el montón de descarte y primero vuelves a vaciar tu mano.",
+    e4h:"Cartas boca abajo",e4p:"Toca una y dale la vuelta. Si vale, genial. Si no, la tomas <strong>junto con el montón de descarte</strong> y primero tienes que volver a deshacerte de ellas.",
+    e5h:"Lo lograste",e5p:"Quien se queda sin cartas, gana. El último en la mesa es el Shithead y reparte la siguiente ronda.",
+    qH:"¿Puedo jugar esta?",
+    qLead:"Prueba rápida. Hay una carta arriba y tú tienes una en la mano.",
+    qTop:"arriba",qMine:"tu carta",qQ:"¿Puedes jugarla?",qYes:"Sí",qNo:"No",qNext:"Siguiente carta",
+    stH:"Estrategias",
+    stLead:"Cuando ya sepas las reglas, esto te ayuda a ganar más a menudo.",
+    t1h:"Boca arriba, solo cartas fuertes",t1p:"Al cambiar al principio, pon ases, 10 y 2 boca arriba. Esas las juegas al final sin mano – ahí es cuando tienen que funcionar.",
+    t2h:"Primero las bajas",t2p:"Deshazte pronto de tus 4, 5 y 6 mientras el montón esté bajo. Más tarde no encajarán en ningún sitio.",
+    t3h:"Guarda las especiales",t3p:"Un 2 o un 10 es tu salida de emergencia. No lo gastes si puedes jugar normal.",
+    t4h:"Usa el 7 a propósito",t4p:"Si tu vecino solo tiene cartas altas boca arriba, un 7 le obliga a tomar el montón.",
+    t5h:"Tomar pronto no pasa nada",t5p:"Un montón pequeño al principio apenas duele y a menudo te da buenas cartas. Uno grande al final es el problema.",
+    t6h:"Lleva la cuenta",t6p:"Fíjate más o menos en cuántos 10 y 2 han salido ya. Así sabes cuándo puedes arriesgarte.",
+    t7h:"Mantén las parejas juntas",t7p:"Jugar cartas iguales juntas ahorra turnos – y con la cuarta quemas el montón.",
+    chH:"Resumen",
+    c1t:"Objetivo",c1d:"Quedarte sin cartas.",
+    c2t:"Turno",c2d:"Juega igual o más alta, roba hasta 3.",
+    c3t:"No puedes",c3d:"Toma todo el montón.",
+    c4d:"Reinicia el montón.",c5d:"Invisible.",c6d:"El siguiente juega 7 o más bajo.",c7d:"Quema el montón, vuelves a jugar.",c8d:"Cuatro iguales también queman.",
+    c9t:"Final",c9d:"Mano, luego boca arriba, luego a ciegas.",
+    foot:"Que lo pases bien en la mesa. Y recuerda: solo eres el Shithead si no puedes reírte de ello."
+  };
+  var HE={
+    n8:"שיתוף",shH:"שתפו את המדריך",shLead:"תנו לשאר האנשים בשולחן לסרוק את הקוד. אחר כך כל אחד יכול לבחור את השפה שלו.",shBtn:"שיתוף",shCopy:"העתקת קישור",shCopied:"הקישור הועתק",shAlt:"קוד QR לעמוד הזה",
+    title:"Shithead ב־3 דקות",
+    h1:"Shithead ב־3&nbsp;דקות",
+    sub:"משחק הקלפים מכל הוסטל בעולם. קוראים פעם אחת, משחקים סיבוב אחד, וזהו.",
+    goal:"<strong>המטרה:</strong> להיפטר מכל הקלפים שלך. מי שנשאר אחרון עם קלפים הוא ה־Shithead – והוא מערבב לסיבוב הבא.",
+    navLabel:"חלקים",
+    n1:"הכנה",n1b:"החלפה",n2:"משחק",n3:"קלפים מיוחדים",n4:"בהמשך",n5:"תרגול",n6:"אסטרטגיה",n7:"שליף",
+    setupH:"הכנה",
+    setupLead:"צריך חפיסה רגילה של 52 קלפים בלי ג׳וקרים, ו־2 עד 5 שחקנים.",
+    rankH:"סדר הקלפים",
+    rankLead:"ה־2 הוא הקלף הנמוך ביותר, והאס הגבוה ביותר. הצורה (♠♥♦♣) לא משנה.",
+    rankAlt:"סדר הקלפים מהנמוך לגבוה: 2, 3, 4, 5, 6, 7, 8, 9, 10, נסיך, מלכה, מלך, אס.",
+    rankLow:"נמוך",rankHigh:"גבוה",
+    rankP:"J = נסיך, Q = מלכה, K = מלך, A = אס.",
+    dealH:"חלוקה",dealP:"כל אחד מקבל 9 קלפים בשלוש שכבות.",
+    setupAlt:"מול כל שחקן יש שלוש ערימות, בכל אחת קלף הפוך וקלף גלוי, ועוד שלושה קלפים ביד.",
+    lgDown:"<b>3 הפוכים</b>על השולחן",lgUp:"<b>3 גלויים</b>מעליהם",lgHand:"<b>3 ביד</b>רק אתה רואה אותם",
+    setupP:"<strong>לא</strong> מסתכלים על הקלפים ההפוכים. שאר החפיסה הולכת לאמצע כקופה.",
+    swH:"לפני ההתחלה: החלפת קלפים",
+    swLead:"לפני שמשחקים את הקלף הראשון, כל אחד יכול להחליף בין הקלפים ביד לקלפים הגלויים שלו. אחרי שהמשחק התחיל, כבר אי אפשר.",
+    swAlt:"ה־4 הגלוי על השולחן מוחלף באס מהיד.",
+    swUp:"<b>גלויים</b>על השולחן",swHand:"<b>יד</b>רק אתה רואה אותם",
+    w1h:"תסתכל על הקלפים",w1p:"תסתכל על 3 הקלפים ביד ועל 3 הקלפים הגלויים. ההפוכים נשארים הפוכים.",
+    w2h:"תחליף",w2p:"תחליף כמה קלפים שבא לך בין היד לקלפים הגלויים.",
+    w3h:"תתכונן",w3p:"בסוף יש לפניך שוב 3 קלפים גלויים ו־3 ביד. כשכולם מוכנים, המשחק מתחיל.",
+    swWhy:"את הקלפים הגלויים משחקים רק ממש בסוף, בלי יד לגיבוי. לכן כדאי לשים גלויים קלפים חזקים: קלפים גבוהים כמו אסים ומלכים, או קלפים מיוחדים כמו ה־2 וה־10. מה הקלפים המיוחדים עושים תגלה בהמשך, בחלק <a href=\"#sonderkarten\">קלפים מיוחדים</a>.",
+    playH:"איך משחקים",
+    startH:"מי מתחיל?",
+    startP:"מי שיש לו 4 ביד מניח אותו ומתחיל. אם לאף אחד אין 4, מתחיל הקלף הבא בגובהו, כלומר 5 וכן הלאה. אחר כך ממשיכים עם כיוון השעון.",
+    turnH:"תור אחד",
+    turnLead:"תסתכל על הקלף העליון בערימת הזריקה. ואז יש רק שאלה אחת:",
+    dq:"יש לך קלף שווה או גבוה יותר?",
+    dqs:"קלפים מיוחדים כמו 2 או 10 עובדים כמעט תמיד – עוד על זה בהמשך.",
+    byH:"✓ כן",
+    by1:"<strong>תניח אותו</strong> גלוי על ערימת הזריקה. כמה קלפים זהים אפשר להניח ביחד, למשל שלושה 6.",
+    by2:"<strong>תמשוך</strong> מהקופה עד שיש לך שוב 3 קלפים ביד. אם יש לך עדיין 3 או יותר, לא מושכים.",
+    bnH:"✗ לא",
+    bn1:"<strong>תיקח את כל ערימת הזריקה</strong> ליד.",
+    dnext:"בשני המקרים, אחר כך התור עובר לשחקן הבא, עם כיוון השעון.",
+    spH:"קלפים מיוחדים",
+    spLead:"את הקלפים האלה אפשר לשחק כמעט תמיד, לא משנה מה למעלה.",
+    sp2h:"2 – איפוס",sp2p:"מאפס את הערימה. אחריו אפשר להניח כל קלף.",
+    sp3h:"3 – שקוף",sp3p:"פשוט לא נחשב. השחקן הבא צריך לנצח את הקלף ש<em>מתחת</em> ל־3.",
+    sp7h:"7 – למטה",sp7p:"רק השחקן הבא חייב להניח 7 או <strong>נמוך יותר</strong>, או קלף מיוחד אחר.",
+    sp10h:"10 – שריפה",sp10p:"כל הערימה יוצאת מהמשחק. אתה משחק שוב מיד.",
+    sp4h:"ארבעה זהים – שריפה",sp4p:"אם למעלה יש ארבעה קלפים באותו ערך (גם משחקנים שונים), הערימה נשרפת גם כן.",
+    endH:"בהמשך המשחק",
+    e1h:"הקופה נגמרה",e1p:"אז אף אחד כבר לא מושך. ממשיכים לשחק כרגיל, רק שהיד קטנה בכל תור. אם צריך לקחת את ערימת הזריקה, יש לך כמובן שוב יותר קלפים.",
+    e2h:"היד שלך ריקה",e2p:"רק כשהקופה נגמרה ואין לך יותר קלפים ביד, משחקים מהשולחן: קודם הקלפים הגלויים, אחר כך ההפוכים.",
+    ph1b:"1. יד",ph1s:"עד שנגמר",ph2b:"2. גלויים",ph2s:"כמו קלפי יד",ph3b:"3. הפוכים",ph3s:"הופכים בעיוורון",
+    e3h:"קלפים גלויים",e3p:"מניחים קלף גלוי בדיוק כמו קלף מהיד, וגם כמה זהים ביחד. אם אי אפשר להניח אף אחד, לוקחים את ערימת הזריקה וקודם מרוקנים שוב את היד.",
+    e4h:"קלפים הפוכים",e4p:"נוגעים באחד והופכים אותו. מתאים? מעולה. לא מתאים? לוקחים אותו <strong>יחד עם ערימת הזריקה</strong> וקודם צריך להיפטר מהם.",
+    e5h:"סיימת",e5p:"מי שנגמרו לו הקלפים ניצח. האחרון ליד השולחן הוא ה־Shithead והוא מחלק בסיבוב הבא.",
+    qH:"מותר לי להניח את זה?",
+    qLead:"מבחן קצר. יש קלף למעלה, ולך יש אחד ביד.",
+    qTop:"למעלה",qMine:"הקלף שלך",qQ:"מותר לך להניח אותו?",qYes:"כן",qNo:"לא",qNext:"הקלף הבא",
+    stH:"אסטרטגיות",
+    stLead:"כשהחוקים כבר ברורים, אלה יעזרו לך לנצח יותר.",
+    t1h:"גלויים – רק חזקים",t1p:"בהחלפה בהתחלה, שים גלויים אסים, 10 ו־2. אותם משחקים בסוף בלי יד – ואז הם חייבים לעבוד.",
+    t2h:"קודם הנמוכים",t2p:"תיפטר מוקדם מה־4, 5 ו־6 כל עוד הערימה נמוכה. אחר כך הם כבר לא יתאימו לשום מקום.",
+    t3h:"שמור את המיוחדים",t3p:"2 או 10 הם יציאת החירום שלך. אל תבזבז אותם אם אפשר לשחק רגיל.",
+    t4h:"תשתמש ב־7 בכוונה",t4p:"אם לשכן שלך נשארו רק קלפים גבוהים גלויים, 7 יכריח אותו לקחת את הערימה.",
+    t5h:"לקחת מוקדם זה בסדר",t5p:"ערימה קטנה בהתחלה כמעט לא כואבת ולעיתים קרובות נותנת קלפים טובים. ערימה גדולה בסוף – זו הבעיה.",
+    t6h:"תספור",t6p:"תעקוב בערך כמה 10 ו־2 כבר יצאו. ככה תדע מתי אפשר להסתכן.",
+    t7h:"תשמור זוגות ביחד",t7p:"להניח קלפים זהים ביחד חוסך תורות – ועם הרביעי שורפים את הערימה.",
+    chH:"שליף",
+    c1t:"מטרה",c1d:"להיפטר מכל הקלפים.",
+    c2t:"תור",c2d:"להניח שווה או גבוה יותר, למשוך עד 3.",
+    c3t:"אין מה להניח",c3d:"לוקחים את כל הערימה.",
+    c4d:"מאפס את הערימה.",c5d:"שקוף.",c6d:"הבא מניח 7 או פחות.",c7d:"שורף את הערימה, משחקים שוב.",c8d:"ארבעה זהים שורפים גם.",
+    c9t:"סוף",c9d:"יד, אחר כך גלויים, אחר כך בעיוורון.",
+    foot:"תהנו ליד השולחן. ותזכרו: אתה ה־Shithead רק אם אתה לא מסוגל לצחוק על זה."
+  };
+
+  var FR={
+    n8:"Partager",shH:"Partager ce guide",shLead:"Fais scanner le code aux autres à table. Chacun peut ensuite choisir sa langue.",shBtn:"Partager",shCopy:"Copier le lien",shCopied:"Lien copié",shAlt:"Code QR de cette page",
+    title:"Shithead en 3 minutes",
+    h1:"Shithead en 3&nbsp;minutes",
+    sub:"Le jeu de cartes de toutes les auberges de jeunesse du monde. Lis-le une fois, joue une partie, c’est tout.",
+    goal:"<strong>Le but :</strong> Te débarrasser de toutes tes cartes. Le dernier à avoir encore des cartes est le Shithead – et mélange pour la partie suivante.",
+    navLabel:"Sections",
+    n1:"Mise en place",n1b:"Échanger",n2:"Jouer",n3:"Cartes spéciales",n4:"Plus tard",n5:"S’entraîner",n6:"Stratégie",n7:"Antisèche",
+    setupH:"Mise en place",
+    setupLead:"Il vous faut un jeu normal de 52 cartes sans jokers et 2 à 5 joueurs.",
+    rankH:"Ordre des cartes",
+    rankLead:"Le 2 est la carte la plus faible, l’as la plus forte. La couleur (♠♥♦♣) n’a pas d’importance.",
+    rankAlt:"Ordre des cartes de la plus faible à la plus forte : 2, 3, 4, 5, 6, 7, 8, 9, 10, valet, dame, roi, as.",
+    rankLow:"faible",rankHigh:"forte",
+    rankP:"J = valet, Q = dame, K = roi, A = as.",
+    dealH:"Distribuer",dealP:"Chacun reçoit 9 cartes en trois couches.",
+    setupAlt:"Devant chaque joueur, trois petits tas avec chacun une carte face cachée et une carte face visible, plus trois cartes en main.",
+    lgDown:"<b>3 face cachée</b>sur la table",lgUp:"<b>3 face visible</b>par-dessus",lgHand:"<b>3 en main</b>toi seul les vois",
+    setupP:"Ne regarde <strong>pas</strong> tes cartes face cachée. Le reste du paquet va au milieu comme pioche.",
+    swH:"Avant de commencer : échanger des cartes",
+    swLead:"Avant que la première carte soit jouée, chacun peut échanger des cartes entre sa main et ses cartes face visible. Une fois la partie lancée, ce n’est plus possible.",
+    swAlt:"Le 4 face visible sur la table est échangé contre l’as de la main.",
+    swUp:"<b>face visible</b>sur la table",swHand:"<b>main</b>toi seul les vois",
+    w1h:"Regarde tes cartes",w1p:"Regarde tes 3 cartes en main et tes 3 cartes face visible. Les cartes face cachée restent cachées.",
+    w2h:"Échange",w2p:"Échange autant de cartes que tu veux entre ta main et tes cartes face visible.",
+    w3h:"Prépare-toi",w3p:"À la fin, tu as 3 cartes face visible devant toi et 3 en main. Quand tout le monde est prêt, la partie commence.",
+    swWhy:"Tu ne joues tes cartes face visible qu’à la toute fin, sans main pour te dépanner. Mets donc des cartes fortes face visible : des cartes hautes comme les as et les rois, ou des cartes spéciales comme le 2 et le 10. Ce que font les cartes spéciales, tu le verras plus bas dans <a href=\"#sonderkarten\">cartes spéciales</a>.",
+    playH:"Comment jouer",
+    startH:"Qui commence ?",
+    startP:"Celui qui a un 4 en main le pose et commence. Si personne n’a de 4, c’est la carte suivante qui commence, donc un 5, et ainsi de suite. Ensuite, on joue dans le sens des aiguilles d’une montre.",
+    turnH:"Un tour",
+    turnLead:"Regarde la carte du dessus de la défausse. Ensuite, il n’y a qu’une question :",
+    dq:"As-tu une carte de même valeur ou plus forte ?",
+    dqs:"Les cartes spéciales comme le 2 ou le 10 passent presque toujours – plus de détails plus bas.",
+    byH:"✓ Oui",
+    by1:"<strong>Pose-la</strong> face visible sur la défausse. Tu peux poser plusieurs cartes de même valeur ensemble, par exemple trois 6.",
+    by2:"<strong>Pioche</strong> jusqu’à avoir de nouveau 3 cartes en main. Si tu en as encore 3 ou plus, tu ne pioches pas.",
+    bnH:"✗ Non",
+    bn1:"<strong>Prends toute la défausse</strong> dans ta main.",
+    dnext:"Dans les deux cas, c’est ensuite au joueur suivant, dans le sens des aiguilles d’une montre.",
+    spH:"Cartes spéciales",
+    spLead:"Ces cartes se jouent presque toujours, peu importe ce qu’il y a dessus.",
+    sp2h:"2 – Remise à zéro",sp2p:"Remet la défausse à zéro. Ensuite, n’importe quelle carte peut aller dessus.",
+    sp3h:"3 – Invisible",sp3p:"Ne compte pas. Le suivant doit battre la carte qui est <em>sous</em> le 3.",
+    sp7h:"7 – Plus bas",sp7p:"Seul le joueur suivant doit poser un 7 ou <strong>moins</strong>, ou une autre carte spéciale.",
+    sp10h:"10 – Brûler",sp10p:"Toute la défausse sort du jeu. Tu rejoues tout de suite.",
+    sp4h:"Quatre identiques – Brûler",sp4p:"Si quatre cartes de même valeur sont au-dessus (même posées par des joueurs différents), la défausse brûle aussi.",
+    endH:"Plus tard dans la partie",
+    e1h:"La pioche est vide",e1p:"Alors plus personne ne pioche. Tu continues à jouer normalement, mais ta main diminue à chaque tour. Si tu dois prendre la défausse, tu as bien sûr de nouveau plus de cartes.",
+    e2h:"Ta main est vide",e2p:"Ce n’est que lorsque la pioche est épuisée et que tu n’as plus de cartes en main que tu joues depuis la table : d’abord les cartes face visible, puis les cartes face cachée.",
+    ph1b:"1. Main",ph1s:"jusqu’à vide",ph2b:"2. Visibles",ph2s:"comme en main",ph3b:"3. Cachées",ph3s:"à l’aveugle",
+    e3h:"Cartes face visible",e3p:"Tu poses une carte face visible comme une carte de ta main, et plusieurs de même valeur ensemble. Si tu ne peux en poser aucune, tu prends la défausse et tu vides d’abord à nouveau ta main.",
+    e4h:"Cartes face cachée",e4p:"Touche-en une et retourne-la. Si elle passe, super. Sinon, tu la prends <strong>avec la défausse</strong> et tu dois d’abord t’en débarrasser.",
+    e5h:"Terminé",e5p:"Celui qui n’a plus de cartes a gagné. Le dernier à table est le Shithead et distribue la partie suivante.",
+    qH:"Est-ce que je peux la poser ?",
+    qLead:"Petit test. Une carte est sur la défausse, tu en as une en main.",
+    qTop:"sur la défausse",qMine:"ta carte",qQ:"Peux-tu la poser ?",qYes:"Oui",qNo:"Non",qNext:"Carte suivante",
+    stH:"Stratégies",
+    stLead:"Une fois les règles comprises, voici de quoi gagner plus souvent.",
+    t1h:"Face visible, que du fort",t1p:"Lors de l’échange au début, mets les as, les 10 et les 2 face visible. Tu les joues à la fin sans main – c’est là qu’ils doivent faire mouche.",
+    t2h:"Les petites d’abord",t2p:"Débarrasse-toi tôt de tes 4, 5 et 6 tant que la défausse est basse. Plus tard, elles ne passeront plus nulle part.",
+    t3h:"Garde les spéciales",t3p:"Un 2 ou un 10, c’est ta sortie de secours. Ne le gaspille pas si tu peux jouer normalement.",
+    t4h:"Utilise le 7 exprès",t4p:"Si ton voisin n’a plus que des cartes hautes face visible, un 7 l’oblige à prendre la défausse.",
+    t5h:"Ramasser tôt, ce n’est pas grave",t5p:"Une petite défausse au début fait à peine mal et te donne souvent de bonnes cartes. Une grosse à la fin, c’est ça le problème.",
+    t6h:"Compte",t6p:"Retiens à peu près combien de 10 et de 2 sont déjà passés. Tu sauras quand tu peux prendre un risque.",
+    t7h:"Garde les paires",t7p:"Poser des cartes identiques ensemble fait gagner des tours – et avec la quatrième, tu brûles la défausse.",
+    chH:"Antisèche",
+    c1t:"But",c1d:"Se débarrasser de toutes ses cartes.",
+    c2t:"Tour",c2d:"Poser égal ou plus fort, repiocher jusqu’à 3.",
+    c3t:"Impossible",c3d:"Prendre toute la défausse.",
+    c4d:"Remet la défausse à zéro.",c5d:"Invisible.",c6d:"Le suivant pose 7 ou moins.",c7d:"Brûle la défausse, tu rejoues.",c8d:"Quatre identiques brûlent aussi.",
+    c9t:"Fin",c9d:"Main, puis face visible, puis à l’aveugle.",
+    foot:"Amuse-toi bien à table. Et rappelle-toi : tu n’es le Shithead que si tu n’arrives pas à en rire."
+  };
+  var PT={
+    n8:"Partilhar",shH:"Partilhar este guia",shLead:"Deixa os outros à mesa ler o código. Depois cada um pode escolher a sua língua.",shBtn:"Partilhar",shCopy:"Copiar link",shCopied:"Link copiado",shAlt:"Código QR desta página",
+    title:"Shithead em 3 minutos",
+    h1:"Shithead em 3&nbsp;minutos",
+    sub:"O jogo de cartas de todos os hostels do mundo. Lê uma vez, joga uma ronda e pronto.",
+    goal:"<strong>O objetivo:</strong> Livra-te de todas as tuas cartas. Quem ficar por último com cartas é o Shithead – e baralha para a ronda seguinte.",
+    navLabel:"Secções",
+    n1:"Preparação",n1b:"Trocar",n2:"Jogar",n3:"Cartas especiais",n4:"Mais tarde",n5:"Praticar",n6:"Estratégia",n7:"Cábula",
+    setupH:"Preparação",
+    setupLead:"Precisam de um baralho normal de 52 cartas sem jokers e de 2 a 5 pessoas.",
+    rankH:"Ordem das cartas",
+    rankLead:"O 2 é a carta mais baixa e o ás a mais alta. O naipe (♠♥♦♣) não interessa.",
+    rankAlt:"Ordem das cartas da mais baixa para a mais alta: 2, 3, 4, 5, 6, 7, 8, 9, 10, valete, dama, rei, ás.",
+    rankLow:"baixa",rankHigh:"alta",
+    rankP:"J = valete, Q = dama, K = rei, A = ás.",
+    dealH:"Dar as cartas",dealP:"Cada um recebe 9 cartas em três camadas.",
+    setupAlt:"À frente de cada jogador há três montinhos, cada um com uma carta virada para baixo e outra virada para cima, mais três cartas na mão.",
+    lgDown:"<b>3 viradas para baixo</b>na mesa",lgUp:"<b>3 viradas para cima</b>por cima",lgHand:"<b>3 na mão</b>só tu as vês",
+    setupP:"<strong>Não</strong> olhes para as tuas cartas viradas para baixo. O resto do baralho fica no meio como monte de compra.",
+    swH:"Antes de começar: trocar cartas",
+    swLead:"Antes de jogar a primeira carta, cada um pode trocar cartas entre a mão e as cartas viradas para cima. Depois de o jogo começar, já não dá.",
+    swAlt:"O 4 virado para cima na mesa é trocado pelo ás da mão.",
+    swUp:"<b>viradas para cima</b>na mesa",swHand:"<b>mão</b>só tu as vês",
+    w1h:"Olha para as tuas cartas",w1p:"Olha para as tuas 3 cartas da mão e as tuas 3 cartas viradas para cima. As viradas para baixo ficam como estão.",
+    w2h:"Troca",w2p:"Troca quantas cartas quiseres entre a mão e as cartas viradas para cima.",
+    w3h:"Prepara-te",w3p:"No fim tens 3 cartas viradas para cima à tua frente e 3 na mão. Quando todos estiverem prontos, o jogo começa.",
+    swWhy:"As cartas viradas para cima só as jogas mesmo no fim, sem a mão como apoio. Por isso, põe cartas fortes viradas para cima: cartas altas como ases e reis, ou cartas especiais como o 2 e o 10. O que fazem as cartas especiais vês mais abaixo em <a href=\"#sonderkarten\">cartas especiais</a>.",
+    playH:"Como se joga",
+    startH:"Quem começa?",
+    startP:"Quem tiver um 4 na mão joga-o e começa. Se ninguém tiver um 4, começa a carta seguinte mais alta, ou seja um 5, e assim por diante. Depois joga-se no sentido dos ponteiros do relógio.",
+    turnH:"Uma jogada",
+    turnLead:"Olha para a carta de cima do monte de descarte. Depois só há uma pergunta:",
+    dq:"Tens uma carta igual ou mais alta?",
+    dqs:"Cartas especiais como o 2 ou o 10 quase sempre servem – mais sobre isso abaixo.",
+    byH:"✓ Sim",
+    by1:"<strong>Joga-a</strong> virada para cima no monte de descarte. Podes jogar várias do mesmo valor juntas, por exemplo três 6.",
+    by2:"<strong>Compra</strong> até voltares a ter 3 cartas na mão. Se ainda tiveres 3 ou mais, não compras.",
+    bnH:"✗ Não",
+    bn1:"<strong>Apanha o monte de descarte todo</strong> para a mão.",
+    dnext:"Em ambos os casos, a seguir é a vez do próximo, no sentido dos ponteiros do relógio.",
+    spH:"Cartas especiais",
+    spLead:"Estas cartas podes jogá-las quase sempre, seja qual for a carta de cima.",
+    sp2h:"2 – Recomeço",sp2p:"Recomeça o monte. A seguir pode ir qualquer carta por cima.",
+    sp3h:"3 – Invisível",sp3p:"Não conta. O próximo tem de bater a carta que está <em>debaixo</em> do 3.",
+    sp7h:"7 – Mais baixo",sp7p:"Só o próximo jogador tem de jogar um 7 ou <strong>mais baixo</strong>, ou outra carta especial.",
+    sp10h:"10 – Queimar",sp10p:"O monte todo sai do jogo. Voltas a jogar logo a seguir.",
+    sp4h:"Quatro iguais – Queimar",sp4p:"Se em cima estiverem quatro cartas do mesmo valor (mesmo de jogadores diferentes), o monte também queima.",
+    endH:"Mais tarde no jogo",
+    e1h:"O monte de compra acabou",e1p:"Então já ninguém compra. Continuas a jogar normalmente, mas a tua mão fica mais pequena a cada jogada. Se tiveres de apanhar o monte de descarte, voltas a ter mais cartas, claro.",
+    e2h:"A tua mão está vazia",e2p:"Só quando o monte de compra acabou e já não tens cartas na mão é que jogas da mesa: primeiro as cartas viradas para cima, depois as viradas para baixo.",
+    ph1b:"1. Mão",ph1s:"até esvaziar",ph2b:"2. Para cima",ph2s:"como as da mão",ph3b:"3. Para baixo",ph3s:"às cegas",
+    e3h:"Cartas viradas para cima",e3p:"Jogas uma carta virada para cima tal como uma da mão, e várias do mesmo valor juntas. Se não puderes jogar nenhuma, apanhas o monte de descarte e primeiro voltas a esvaziar a mão.",
+    e4h:"Cartas viradas para baixo",e4p:"Toca numa e vira-a. Se servir, ótimo. Se não, apanhas a carta <strong>junto com o monte de descarte</strong> e primeiro tens de te livrar delas.",
+    e5h:"Conseguiste",e5p:"Quem fica sem cartas ganha. O último à mesa é o Shithead e dá as cartas na ronda seguinte.",
+    qH:"Posso jogar esta?",
+    qLead:"Teste rápido. Há uma carta em cima e tu tens uma na mão.",
+    qTop:"em cima",qMine:"a tua carta",qQ:"Podes jogá-la?",qYes:"Sim",qNo:"Não",qNext:"Próxima carta",
+    stH:"Estratégias",
+    stLead:"Quando já souberes as regras, isto ajuda-te a ganhar mais vezes.",
+    t1h:"Para cima, só cartas fortes",t1p:"Na troca do início, põe ases, 10 e 2 virados para cima. Jogas essas no fim sem mão – é aí que têm de funcionar.",
+    t2h:"Primeiro as baixas",t2p:"Livra-te cedo dos teus 4, 5 e 6 enquanto o monte está baixo. Mais tarde não vão servir em lado nenhum.",
+    t3h:"Guarda as especiais",t3p:"Um 2 ou um 10 é a tua saída de emergência. Não o gastes se puderes jogar normalmente.",
+    t4h:"Usa o 7 de propósito",t4p:"Se o teu vizinho só tiver cartas altas viradas para cima, um 7 obriga-o a apanhar o monte.",
+    t5h:"Apanhar cedo não faz mal",t5p:"Um monte pequeno no início quase não custa e muitas vezes dá-te boas cartas. Um grande no fim é que é o problema.",
+    t6h:"Faz as contas",t6p:"Repara mais ou menos quantos 10 e 2 já saíram. Assim sabes quando podes arriscar.",
+    t7h:"Guarda os pares juntos",t7p:"Jogar cartas iguais juntas poupa jogadas – e com a quarta queimas o monte.",
+    chH:"Cábula",
+    c1t:"Objetivo",c1d:"Ficar sem cartas.",
+    c2t:"Jogada",c2d:"Jogar igual ou mais alta, comprar até 3.",
+    c3t:"Não dá",c3d:"Apanhar o monte todo.",
+    c4d:"Recomeça o monte.",c5d:"Invisível.",c6d:"O próximo joga 7 ou mais baixo.",c7d:"Queima o monte, voltas a jogar.",c8d:"Quatro iguais também queimam.",
+    c9t:"Fim",c9d:"Mão, depois para cima, depois às cegas.",
+    foot:"Diverte-te à mesa. E lembra-te: só és o Shithead se não te conseguires rir disso."
+  };
+  var BR={
+    n8:"Compartilhar",shH:"Compartilhar este guia",shLead:"Deixe o pessoal da mesa escanear o código. Depois cada um escolhe o próprio idioma.",shBtn:"Compartilhar",shCopy:"Copiar link",shCopied:"Link copiado",shAlt:"QR code desta página",
+    title:"Shithead em 3 minutos",
+    h1:"Shithead em 3&nbsp;minutos",
+    sub:"O jogo de cartas de todo hostel do mundo. Leia uma vez, jogue uma rodada e pronto.",
+    goal:"<strong>O objetivo:</strong> Se livrar de todas as suas cartas. Quem ficar por último com cartas é o Shithead – e embaralha a próxima rodada.",
+    navLabel:"Seções",
+    n1:"Preparação",n1b:"Trocar",n2:"Jogar",n3:"Cartas especiais",n4:"Mais tarde",n5:"Praticar",n6:"Estratégia",n7:"Cola",
+    setupH:"Preparação",
+    setupLead:"Vocês precisam de um baralho normal de 52 cartas sem coringas e de 2 a 5 pessoas.",
+    rankH:"Ordem das cartas",
+    rankLead:"O 2 é a carta mais baixa e o ás a mais alta. O naipe (♠♥♦♣) não importa.",
+    rankAlt:"Ordem das cartas da mais baixa para a mais alta: 2, 3, 4, 5, 6, 7, 8, 9, 10, valete, dama, rei, ás.",
+    rankLow:"baixa",rankHigh:"alta",
+    rankP:"J = valete, Q = dama, K = rei, A = ás.",
+    dealH:"Dar as cartas",dealP:"Cada um recebe 9 cartas em três camadas.",
+    setupAlt:"Na frente de cada jogador há três montinhos, cada um com uma carta virada para baixo e outra virada para cima, mais três cartas na mão.",
+    lgDown:"<b>3 viradas para baixo</b>na mesa",lgUp:"<b>3 viradas para cima</b>por cima",lgHand:"<b>3 na mão</b>só você vê",
+    setupP:"<strong>Não</strong> olhe suas cartas viradas para baixo. O resto do baralho fica no meio como monte de compra.",
+    swH:"Antes de começar: trocar cartas",
+    swLead:"Antes da primeira carta ser jogada, cada um pode trocar cartas entre a mão e as cartas viradas para cima. Depois que o jogo começa, não dá mais.",
+    swAlt:"O 4 virado para cima na mesa é trocado pelo ás da mão.",
+    swUp:"<b>viradas para cima</b>na mesa",swHand:"<b>mão</b>só você vê",
+    w1h:"Olhe suas cartas",w1p:"Olhe suas 3 cartas da mão e suas 3 cartas viradas para cima. As viradas para baixo continuam viradas.",
+    w2h:"Troque",w2p:"Troque quantas cartas quiser entre a mão e as cartas viradas para cima.",
+    w3h:"Se prepare",w3p:"No final você tem 3 cartas viradas para cima na sua frente e 3 na mão. Quando todo mundo estiver pronto, o jogo começa.",
+    swWhy:"Você só joga as cartas viradas para cima bem no final, sem a mão como apoio. Por isso, deixe cartas fortes viradas para cima: cartas altas como ases e reis, ou cartas especiais como o 2 e o 10. O que as cartas especiais fazem você vê mais abaixo em <a href=\"#sonderkarten\">cartas especiais</a>.",
+    playH:"Como jogar",
+    startH:"Quem começa?",
+    startP:"Quem tiver um 4 na mão joga ele e começa. Se ninguém tiver um 4, começa a próxima carta mais alta, ou seja um 5, e assim por diante. Depois o jogo segue em sentido horário.",
+    turnH:"Uma jogada",
+    turnLead:"Olhe a carta de cima do monte de descarte. Aí só existe uma pergunta:",
+    dq:"Você tem uma carta igual ou mais alta?",
+    dqs:"Cartas especiais como o 2 ou o 10 quase sempre valem – mais sobre isso abaixo.",
+    byH:"✓ Sim",
+    by1:"<strong>Jogue a carta</strong> virada para cima no monte de descarte. Você pode jogar várias do mesmo valor juntas, por exemplo três 6.",
+    by2:"<strong>Compre</strong> até ter de novo 3 cartas na mão. Se ainda tiver 3 ou mais, não compra.",
+    bnH:"✗ Não",
+    bn1:"<strong>Pegue o monte de descarte inteiro</strong> para a mão.",
+    dnext:"Nos dois casos, depois é a vez do próximo, em sentido horário.",
+    spH:"Cartas especiais",
+    spLead:"Essas cartas você pode jogar quase sempre, não importa qual carta está em cima.",
+    sp2h:"2 – Reinício",sp2p:"Reinicia o monte. Depois qualquer carta pode ir por cima.",
+    sp3h:"3 – Invisível",sp3p:"Não conta. O próximo tem que bater a carta que está <em>embaixo</em> do 3.",
+    sp7h:"7 – Mais baixo",sp7p:"Só o próximo jogador tem que jogar um 7 ou <strong>mais baixo</strong>, ou outra carta especial.",
+    sp10h:"10 – Queimar",sp10p:"O monte inteiro sai do jogo. Você joga de novo na hora.",
+    sp4h:"Quatro iguais – Queimar",sp4p:"Se em cima tiver quatro cartas do mesmo valor (mesmo de jogadores diferentes), o monte também queima.",
+    endH:"Mais tarde no jogo",
+    e1h:"O monte de compra acabou",e1p:"Aí ninguém compra mais. Você continua jogando normalmente, mas sua mão fica menor a cada jogada. Se tiver que pegar o monte de descarte, você volta a ter mais cartas, claro.",
+    e2h:"Sua mão está vazia",e2p:"Só quando o monte de compra acabou e você não tem mais cartas na mão é que joga da mesa: primeiro as cartas viradas para cima, depois as viradas para baixo.",
+    ph1b:"1. Mão",ph1s:"até esvaziar",ph2b:"2. Para cima",ph2s:"como as da mão",ph3b:"3. Para baixo",ph3s:"às cegas",
+    e3h:"Cartas viradas para cima",e3p:"Você joga uma carta virada para cima igual a uma da mão, e várias do mesmo valor juntas. Se não puder jogar nenhuma, pega o monte de descarte e primeiro esvazia a mão de novo.",
+    e4h:"Cartas viradas para baixo",e4p:"Toque em uma e vire. Se servir, ótimo. Se não, você pega a carta <strong>junto com o monte de descarte</strong> e primeiro tem que se livrar delas.",
+    e5h:"Conseguiu",e5p:"Quem fica sem cartas ganha. O último na mesa é o Shithead e dá as cartas na próxima rodada.",
+    qH:"Posso jogar essa?",
+    qLead:"Teste rápido. Tem uma carta em cima e você tem uma na mão.",
+    qTop:"em cima",qMine:"sua carta",qQ:"Você pode jogar?",qYes:"Sim",qNo:"Não",qNext:"Próxima carta",
+    stH:"Estratégias",
+    stLead:"Quando você já souber as regras, isso ajuda a ganhar mais vezes.",
+    t1h:"Para cima, só cartas fortes",t1p:"Na troca do início, deixe ases, 10 e 2 virados para cima. Você joga essas no final sem mão – é aí que elas precisam funcionar.",
+    t2h:"Primeiro as baixas",t2p:"Se livre cedo dos seus 4, 5 e 6 enquanto o monte está baixo. Depois elas não vão servir em lugar nenhum.",
+    t3h:"Guarde as especiais",t3p:"Um 2 ou um 10 é sua saída de emergência. Não gaste se puder jogar normalmente.",
+    t4h:"Use o 7 de propósito",t4p:"Se o seu vizinho só tem cartas altas viradas para cima, um 7 obriga ele a pegar o monte.",
+    t5h:"Pegar cedo não tem problema",t5p:"Um monte pequeno no começo quase não pesa e muitas vezes te dá cartas boas. Um grande no final é que é o problema.",
+    t6h:"Conte as cartas",t6p:"Repare mais ou menos quantos 10 e 2 já saíram. Assim você sabe quando pode arriscar.",
+    t7h:"Mantenha os pares juntos",t7p:"Jogar cartas iguais juntas economiza jogadas – e com a quarta você queima o monte.",
+    chH:"Cola",
+    c1t:"Objetivo",c1d:"Ficar sem cartas.",
+    c2t:"Jogada",c2d:"Jogar igual ou mais alta, comprar até 3.",
+    c3t:"Não dá",c3d:"Pegar o monte inteiro.",
+    c4d:"Reinicia o monte.",c5d:"Invisível.",c6d:"O próximo joga 7 ou mais baixo.",c7d:"Queima o monte, joga de novo.",c8d:"Quatro iguais também queimam.",
+    c9t:"Fim",c9d:"Mão, depois para cima, depois às cegas.",
+    foot:"Divirta-se na mesa. E lembre-se: você só é o Shithead se não conseguir rir disso."
+  };
+  var IT={
+    n8:"Condividi",shH:"Condividi questa guida",shLead:"Fai scansionare il codice agli altri al tavolo. Poi ognuno può scegliere la sua lingua.",shBtn:"Condividi",shCopy:"Copia link",shCopied:"Link copiato",shAlt:"Codice QR di questa pagina",
+    title:"Shithead in 3 minuti",
+    h1:"Shithead in 3&nbsp;minuti",
+    sub:"Il gioco di carte di ogni ostello del mondo. Leggilo una volta, gioca un giro e via.",
+    goal:"<strong>L’obiettivo:</strong> Liberarti di tutte le tue carte. L’ultimo che ha ancora carte è lo Shithead – e mescola per il giro successivo.",
+    navLabel:"Sezioni",
+    n1:"Preparazione",n1b:"Scambio",n2:"Giocare",n3:"Carte speciali",n4:"Più avanti",n5:"Allenati",n6:"Strategia",n7:"Bigino",
+    setupH:"Preparazione",
+    setupLead:"Vi serve un normale mazzo da 52 carte senza jolly e da 2 a 5 persone.",
+    rankH:"Ordine delle carte",
+    rankLead:"Il 2 è la carta più bassa, l’asso la più alta. Il seme (♠♥♦♣) non conta.",
+    rankAlt:"Ordine delle carte dalla più bassa alla più alta: 2, 3, 4, 5, 6, 7, 8, 9, 10, fante, donna, re, asso.",
+    rankLow:"bassa",rankHigh:"alta",
+    rankP:"J = fante, Q = donna, K = re, A = asso.",
+    dealH:"Distribuire",dealP:"Ognuno riceve 9 carte in tre strati.",
+    setupAlt:"Davanti a ogni giocatore ci sono tre mucchietti, ognuno con una carta coperta e una scoperta, più tre carte in mano.",
+    lgDown:"<b>3 coperte</b>sul tavolo",lgUp:"<b>3 scoperte</b>sopra",lgHand:"<b>3 in mano</b>le vedi solo tu",
+    setupP:"<strong>Non</strong> guardare le tue carte coperte. Il resto del mazzo va al centro come mazzo da cui pescare.",
+    swH:"Prima di iniziare: scambiare le carte",
+    swLead:"Prima che venga giocata la prima carta, ognuno può scambiare carte tra la mano e le carte scoperte. Una volta iniziato il gioco, non si può più.",
+    swAlt:"Il 4 scoperto sul tavolo viene scambiato con l’asso in mano.",
+    swUp:"<b>scoperte</b>sul tavolo",swHand:"<b>mano</b>le vedi solo tu",
+    w1h:"Guarda le tue carte",w1p:"Guarda le tue 3 carte in mano e le tue 3 carte scoperte. Quelle coperte restano coperte.",
+    w2h:"Scambia",w2p:"Scambia quante carte vuoi tra la mano e le carte scoperte.",
+    w3h:"Preparati",w3p:"Alla fine hai 3 carte scoperte davanti a te e 3 in mano. Quando tutti sono pronti, si comincia.",
+    swWhy:"Le carte scoperte le giochi solo alla fine, senza la mano come riserva. Quindi metti scoperte carte forti: carte alte come assi e re, oppure carte speciali come il 2 e il 10. Cosa fanno le carte speciali lo scopri più sotto in <a href=\"#sonderkarten\">carte speciali</a>.",
+    playH:"Come si gioca",
+    startH:"Chi inizia?",
+    startP:"Chi ha un 4 in mano lo gioca e inizia. Se nessuno ha un 4, inizia la carta successiva più alta, quindi un 5 e così via. Poi si prosegue in senso orario.",
+    turnH:"Un turno",
+    turnLead:"Guarda la carta in cima agli scarti. Poi c’è solo una domanda:",
+    dq:"Hai una carta uguale o più alta?",
+    dqs:"Le carte speciali come il 2 o il 10 vanno quasi sempre bene – più sotto i dettagli.",
+    byH:"✓ Sì",
+    by1:"<strong>Giocala</strong> scoperta sulla pila degli scarti. Puoi giocare insieme più carte dello stesso valore, per esempio tre 6.",
+    by2:"<strong>Pesca</strong> finché non hai di nuovo 3 carte in mano. Se ne hai ancora 3 o più, non peschi.",
+    bnH:"✗ No",
+    bn1:"<strong>Prendi tutta la pila degli scarti</strong> in mano.",
+    dnext:"In entrambi i casi, poi tocca al prossimo, in senso orario.",
+    spH:"Carte speciali",
+    spLead:"Queste carte puoi giocarle quasi sempre, qualunque carta ci sia sopra.",
+    sp2h:"2 – Reset",sp2p:"Azzera la pila. Dopo ci si può mettere sopra qualsiasi carta.",
+    sp3h:"3 – Invisibile",sp3p:"Non conta. Il prossimo deve battere la carta che sta <em>sotto</em> il 3.",
+    sp7h:"7 – Più basso",sp7p:"Solo il giocatore successivo deve giocare un 7 o <strong>più basso</strong>, oppure un’altra carta speciale.",
+    sp10h:"10 – Brucia",sp10p:"Tutta la pila esce dal gioco. Tocca di nuovo a te subito.",
+    sp4h:"Quattro uguali – Brucia",sp4p:"Se in cima ci sono quattro carte dello stesso valore (anche di giocatori diversi), la pila brucia lo stesso.",
+    endH:"Più avanti nel gioco",
+    e1h:"Il mazzo da pescare è finito",e1p:"Allora nessuno pesca più. Continui a giocare normalmente, ma la tua mano diventa più piccola a ogni turno. Se devi prendere la pila degli scarti, ovviamente hai di nuovo più carte.",
+    e2h:"La tua mano è vuota",e2p:"Solo quando il mazzo da pescare è finito e non hai più carte in mano giochi dal tavolo: prima le carte scoperte, poi quelle coperte.",
+    ph1b:"1. Mano",ph1s:"fino a svuotarla",ph2b:"2. Scoperte",ph2s:"come quelle in mano",ph3b:"3. Coperte",ph3s:"alla cieca",
+    e3h:"Carte scoperte",e3p:"Giochi una carta scoperta come una carta della mano, e più carte dello stesso valore insieme. Se non puoi giocarne nessuna, prendi la pila degli scarti e prima svuoti di nuovo la mano.",
+    e4h:"Carte coperte",e4p:"Toccane una e girala. Se va bene, ottimo. Se no, la prendi <strong>insieme alla pila degli scarti</strong> e prima devi liberartene.",
+    e5h:"Fatto",e5p:"Chi resta senza carte ha vinto. L’ultimo al tavolo è lo Shithead e distribuisce il giro successivo.",
+    qH:"Posso giocarla?",
+    qLead:"Test veloce. C’è una carta in cima e tu ne hai una in mano.",
+    qTop:"in cima",qMine:"la tua carta",qQ:"Puoi giocarla?",qYes:"Sì",qNo:"No",qNext:"Prossima carta",
+    stH:"Strategie",
+    stLead:"Quando conosci le regole, questi trucchi ti aiutano a vincere più spesso.",
+    t1h:"Scoperte solo carte forti",t1p:"Nello scambio iniziale metti scoperti assi, 10 e 2. Li giochi alla fine senza mano – è lì che devono colpire.",
+    t2h:"Prima le basse",t2p:"Liberati presto dei tuoi 4, 5 e 6 finché la pila è bassa. Più avanti non andranno più bene da nessuna parte.",
+    t3h:"Tieni le speciali",t3p:"Un 2 o un 10 è la tua uscita di emergenza. Non sprecarlo se puoi giocare normalmente.",
+    t4h:"Usa il 7 apposta",t4p:"Se il tuo vicino ha solo carte alte scoperte, un 7 lo costringe a prendere la pila.",
+    t5h:"Raccogliere presto va bene",t5p:"Una pila piccola all’inizio fa poco male e spesso ti dà buone carte. Una grande alla fine è il problema.",
+    t6h:"Conta le carte",t6p:"Tieni più o meno il conto di quanti 10 e 2 sono già usciti. Così sai quando puoi rischiare.",
+    t7h:"Tieni insieme le coppie",t7p:"Giocare carte uguali insieme fa risparmiare turni – e con la quarta bruci la pila.",
+    chH:"Bigino",
+    c1t:"Obiettivo",c1d:"Liberarsi di tutte le carte.",
+    c2t:"Turno",c2d:"Gioca uguale o più alta, pesca fino a 3.",
+    c3t:"Non puoi",c3d:"Prendi tutta la pila.",
+    c4d:"Azzera la pila.",c5d:"Invisibile.",c6d:"Il prossimo gioca 7 o meno.",c7d:"Brucia la pila, rigiochi.",c8d:"Anche quattro uguali bruciano.",
+    c9t:"Fine",c9d:"Mano, poi scoperte, poi alla cieca.",
+    foot:"Divertiti al tavolo. E ricorda: sei lo Shithead solo se non riesci a riderci su."
+  };
+  var NL={
+    n8:"Delen",shH:"Deel deze uitleg",shLead:"Laat de anderen aan tafel de code scannen. Daarna kiest iedereen zijn eigen taal.",shBtn:"Delen",shCopy:"Link kopiëren",shCopied:"Link gekopieerd",shAlt:"QR-code van deze pagina",
+    title:"Shithead in 3 minuten",
+    h1:"Shithead in 3&nbsp;minuten",
+    sub:"Het kaartspel uit elk hostel ter wereld. Eén keer lezen, één potje meespelen, klaar.",
+    goal:"<strong>Het doel:</strong> Raak al je kaarten kwijt. Wie als laatste nog kaarten heeft, is de Shithead – en schudt voor het volgende potje.",
+    navLabel:"Onderdelen",
+    n1:"Opzet",n1b:"Ruilen",n2:"Spelen",n3:"Speciale kaarten",n4:"Later",n5:"Oefenen",n6:"Strategie",n7:"Spiekbriefje",
+    setupH:"Opzet",
+    setupLead:"Je hebt een gewoon kaartspel van 52 kaarten zonder jokers nodig en 2 tot 5 spelers.",
+    rankH:"Volgorde van de kaarten",
+    rankLead:"De 2 is de laagste kaart, de aas de hoogste. De kleur (♠♥♦♣) maakt niet uit.",
+    rankAlt:"Volgorde van laag naar hoog: 2, 3, 4, 5, 6, 7, 8, 9, 10, boer, vrouw, heer, aas.",
+    rankLow:"laag",rankHigh:"hoog",
+    rankP:"J = boer, Q = vrouw, K = heer, A = aas.",
+    dealH:"Delen",dealP:"Iedereen krijgt 9 kaarten in drie lagen.",
+    setupAlt:"Voor elke speler liggen drie stapeltjes met elk een dichte en een open kaart, plus drie kaarten in de hand.",
+    lgDown:"<b>3 dicht</b>op tafel",lgUp:"<b>3 open</b>erbovenop",lgHand:"<b>3 in je hand</b>alleen jij ziet ze",
+    setupP:"Kijk <strong>niet</strong> naar je dichte kaarten. De rest van het spel gaat in het midden als trekstapel.",
+    swH:"Voor de start: kaarten ruilen",
+    swLead:"Voordat de eerste kaart gespeeld wordt, mag iedereen ruilen tussen zijn hand en zijn open kaarten. Zodra het spel loopt, kan dat niet meer.",
+    swAlt:"De open 4 op tafel wordt geruild met de aas uit de hand.",
+    swUp:"<b>open</b>op tafel",swHand:"<b>hand</b>alleen jij ziet ze",
+    w1h:"Bekijk je kaarten",w1p:"Bekijk je 3 handkaarten en je 3 open kaarten. De dichte kaarten blijven dicht.",
+    w2h:"Ruilen",w2p:"Ruil zoveel kaarten als je wilt tussen je hand en je open kaarten.",
+    w3h:"Klaar maken",w3p:"Aan het eind liggen er weer 3 open kaarten voor je en heb je er 3 in je hand. Als iedereen klaar is, begint het spel.",
+    swWhy:"Je open kaarten speel je pas helemaal aan het eind, zonder hand als achtervang. Leg daarom sterke kaarten open: hoge kaarten zoals azen en heren, of speciale kaarten zoals de 2 en de 10. Wat de speciale kaarten doen, lees je verderop bij <a href=\"#sonderkarten\">speciale kaarten</a>.",
+    playH:"Zo speel je",
+    startH:"Wie begint?",
+    startP:"Wie een 4 in zijn hand heeft, legt die en begint. Heeft niemand een 4, dan begint de eerstvolgende hogere kaart, dus een 5 enzovoort. Daarna gaat het met de klok mee.",
+    turnH:"Een beurt",
+    turnLead:"Kijk naar de bovenste kaart van de aflegstapel. Dan is er maar één vraag:",
+    dq:"Heb je een kaart die even hoog of hoger is?",
+    dqs:"Speciale kaarten zoals de 2 of de 10 mogen bijna altijd – meer daarover hieronder.",
+    byH:"✓ Ja",
+    by1:"<strong>Leg hem</strong> open op de aflegstapel. Meerdere gelijke kaarten mag je samen leggen, bijvoorbeeld drie 6en.",
+    by2:"<strong>Trek bij</strong> tot je weer 3 kaarten in je hand hebt. Heb je er nog 3 of meer, dan trek je niets.",
+    bnH:"✗ Nee",
+    bn1:"<strong>Pak de hele aflegstapel</strong> in je hand.",
+    dnext:"In beide gevallen is daarna de volgende aan de beurt, met de klok mee.",
+    spH:"Speciale kaarten",
+    spLead:"Deze kaarten mag je bijna altijd leggen, wat er ook bovenop ligt.",
+    sp2h:"2 – Reset",sp2p:"Zet de stapel terug op nul. Daarna mag er elke kaart op.",
+    sp3h:"3 – Onzichtbaar",sp3p:"Telt gewoon niet. De volgende moet de kaart <em>onder</em> de 3 overtreffen.",
+    sp7h:"7 – Omlaag",sp7p:"Alleen de volgende speler moet een 7 of <strong>lager</strong> leggen, of een andere speciale kaart.",
+    sp10h:"10 – Verbranden",sp10p:"De hele stapel gaat uit het spel. Jij bent meteen nog een keer aan de beurt.",
+    sp4h:"Vier gelijke – Verbranden",sp4p:"Liggen er bovenop vier kaarten van dezelfde waarde (ook van verschillende spelers), dan verbrandt de stapel ook.",
+    endH:"Later in het spel",
+    e1h:"De trekstapel is leeg",e1p:"Dan trekt niemand meer bij. Je speelt gewoon verder, alleen wordt je hand nu elke beurt kleiner. Moet je de aflegstapel pakken, dan heb je natuurlijk weer meer kaarten.",
+    e2h:"Je hand is leeg",e2p:"Pas als de trekstapel op is en je geen handkaarten meer hebt, speel je vanaf tafel: eerst de open kaarten, dan de dichte.",
+    ph1b:"1. Hand",ph1s:"tot leeg",ph2b:"2. Open",ph2s:"zoals handkaarten",ph3b:"3. Dicht",ph3s:"blind omdraaien",
+    e3h:"Open kaarten",e3p:"Je legt een open kaart net als een handkaart, meerdere gelijke ook samen. Kun je er geen leggen, dan pak je de aflegstapel en speel je eerst je hand weer leeg.",
+    e4h:"Dichte kaarten",e4p:"Tik er een aan en draai hem om. Past hij, mooi. Past hij niet, dan pak je hem <strong>samen met de aflegstapel</strong> en moet je die eerst weer kwijt.",
+    e5h:"Gelukt",e5p:"Wie geen kaarten meer heeft, heeft gewonnen. De laatste aan tafel is de Shithead en deelt het volgende potje.",
+    qH:"Mag ik deze leggen?",
+    qLead:"Korte test. Er ligt een kaart bovenop, jij hebt er een in je hand.",
+    qTop:"ligt bovenop",qMine:"jouw kaart",qQ:"Mag je hem leggen?",qYes:"Ja",qNo:"Nee",qNext:"Volgende kaart",
+    stH:"Strategieën",
+    stLead:"Als je de regels kent, win je hiermee vaker.",
+    t1h:"Alleen sterke kaarten open",t1p:"Leg bij het ruilen aan het begin azen, 10en en 2en open. Die speel je aan het eind zonder hand – dan moeten ze raak zijn.",
+    t2h:"Lage kaarten eerst",t2p:"Raak je 4en, 5en en 6en vroeg kwijt zolang de stapel laag is. Later passen ze nergens meer.",
+    t3h:"Speciale kaarten bewaren",t3p:"Een 2 of 10 is je nooduitgang. Verspil hem niet als je ook gewoon kunt leggen.",
+    t4h:"Zet de 7 gericht in",t4p:"Heeft je buurman alleen nog hoge open kaarten, dan dwingt een 7 hem de stapel te pakken.",
+    t5h:"Vroeg oppakken is oké",t5p:"Een kleine stapel aan het begin doet nauwelijks pijn en geeft je vaak goede kaarten. Een grote aan het eind is het probleem.",
+    t6h:"Tellen",t6p:"Houd ongeveer bij hoeveel 10en en 2en al weg zijn. Dan weet je wanneer je risico kunt nemen.",
+    t7h:"Paren bij elkaar houden",t7p:"Gelijke kaarten samen leggen scheelt beurten – en met de vierde verbrand je de stapel.",
+    chH:"Spiekbriefje",
+    c1t:"Doel",c1d:"Al je kaarten kwijtraken.",
+    c2t:"Beurt",c2d:"Gelijk of hoger leggen, bijtrekken tot 3.",
+    c3t:"Kan niet",c3d:"Hele stapel pakken.",
+    c4d:"Stapel resetten.",c5d:"Onzichtbaar.",c6d:"Volgende legt 7 of lager.",c7d:"Stapel verbranden, nog een keer.",c8d:"Vier gelijke verbranden ook.",
+    c9t:"Eind",c9d:"Hand, dan open, dan blind.",
+    foot:"Veel plezier aan tafel. En onthoud: je bent pas de Shithead als je er niet om kunt lachen."
+  };
+  var PL={
+    n8:"Udostępnij",shH:"Udostępnij tę instrukcję",shLead:"Niech inni przy stole zeskanują kod. Potem każdy może wybrać swój język.",shBtn:"Udostępnij",shCopy:"Kopiuj link",shCopied:"Link skopiowany",shAlt:"Kod QR do tej strony",
+    title:"Shithead w 3 minuty",
+    h1:"Shithead w 3&nbsp;minuty",
+    sub:"Gra karciana z każdego hostelu na świecie. Przeczytaj raz, zagraj jedną rundę i gotowe.",
+    goal:"<strong>Cel:</strong> Pozbądź się wszystkich kart. Kto jako ostatni ma jeszcze karty, jest Shitheadem – i tasuje w następnej rundzie.",
+    navLabel:"Sekcje",
+    n1:"Przygotowanie",n1b:"Wymiana",n2:"Gra",n3:"Karty specjalne",n4:"Później",n5:"Ćwiczenie",n6:"Strategia",n7:"Ściąga",
+    setupH:"Przygotowanie",
+    setupLead:"Potrzebujecie zwykłej talii 52 kart bez jokerów i od 2 do 5 osób.",
+    rankH:"Kolejność kart",
+    rankLead:"2 to najniższa karta, as najwyższa. Kolor (♠♥♦♣) nie ma znaczenia.",
+    rankAlt:"Kolejność kart od najniższej do najwyższej: 2, 3, 4, 5, 6, 7, 8, 9, 10, walet, dama, król, as.",
+    rankLow:"niska",rankHigh:"wysoka",
+    rankP:"J = walet, Q = dama, K = król, A = as.",
+    dealH:"Rozdawanie",dealP:"Każdy dostaje 9 kart w trzech warstwach.",
+    setupAlt:"Przed każdym graczem leżą trzy kupki, każda z jedną kartą zakrytą i jedną odkrytą, do tego trzy karty w ręce.",
+    lgDown:"<b>3 zakryte</b>na stole",lgUp:"<b>3 odkryte</b>na wierzchu",lgHand:"<b>3 w ręce</b>widzisz je tylko ty",
+    setupP:"<strong>Nie</strong> oglądaj swoich zakrytych kart. Reszta talii idzie na środek jako stos do dobierania.",
+    swH:"Przed startem: wymiana kart",
+    swLead:"Zanim zostanie zagrana pierwsza karta, każdy może wymieniać karty między ręką a swoimi odkrytymi kartami. Gdy gra już trwa, nie można tego robić.",
+    swAlt:"Odkryta 4 na stole zostaje wymieniona na asa z ręki.",
+    swUp:"<b>odkryte</b>na stole",swHand:"<b>ręka</b>widzisz je tylko ty",
+    w1h:"Obejrzyj karty",w1p:"Obejrzyj swoje 3 karty w ręce i 3 odkryte karty. Zakryte zostają zakryte.",
+    w2h:"Wymień",w2p:"Wymień tyle kart między ręką a odkrytymi kartami, ile chcesz.",
+    w3h:"Przygotuj się",w3p:"Na koniec masz przed sobą 3 odkryte karty i 3 w ręce. Gdy wszyscy są gotowi, gra się zaczyna.",
+    swWhy:"Odkryte karty zagrywasz dopiero na samym końcu, bez ręki jako zabezpieczenia. Dlatego połóż odkryte mocne karty: wysokie karty, jak asy i króle, albo karty specjalne, jak 2 i 10. Co robią karty specjalne, dowiesz się niżej w części <a href=\"#sonderkarten\">karty specjalne</a>.",
+    playH:"Jak grać",
+    startH:"Kto zaczyna?",
+    startP:"Kto ma w ręce 4, kładzie ją i zaczyna. Jeśli nikt nie ma 4, zaczyna następna wyższa karta, czyli 5 i tak dalej. Potem gra toczy się zgodnie z ruchem wskazówek zegara.",
+    turnH:"Jeden ruch",
+    turnLead:"Spójrz na wierzchnią kartę stosu odrzuconych kart. Wtedy jest tylko jedno pytanie:",
+    dq:"Masz kartę równą lub wyższą?",
+    dqs:"Karty specjalne, jak 2 czy 10, prawie zawsze można zagrać – więcej o tym niżej.",
+    byH:"✓ Tak",
+    by1:"<strong>Połóż ją</strong> odkrytą na stos odrzuconych kart. Kilka kart tej samej wartości możesz położyć razem, np. trzy szóstki.",
+    by2:"<strong>Dobierz</strong>, aż znów będziesz mieć 3 karty w ręce. Jeśli masz jeszcze 3 lub więcej, nie dobierasz.",
+    bnH:"✗ Nie",
+    bn1:"<strong>Weź cały stos odrzuconych kart</strong> do ręki.",
+    dnext:"W obu przypadkach potem ruch ma następny gracz, zgodnie z ruchem wskazówek zegara.",
+    spH:"Karty specjalne",
+    spLead:"Te karty możesz zagrać prawie zawsze, niezależnie od tego, co leży na wierzchu.",
+    sp2h:"2 – Reset",sp2p:"Resetuje stos. Potem można na nią położyć dowolną kartę.",
+    sp3h:"3 – Niewidzialna",sp3p:"Po prostu się nie liczy. Następny musi przebić kartę leżącą <em>pod</em> trójką.",
+    sp7h:"7 – W dół",sp7p:"Tylko następny gracz musi położyć 7 lub <strong>niższą</strong> kartę albo inną kartę specjalną.",
+    sp10h:"10 – Spalenie",sp10p:"Cały stos wypada z gry. Od razu grasz jeszcze raz.",
+    sp4h:"Cztery takie same – Spalenie",sp4p:"Jeśli na wierzchu leżą cztery karty tej samej wartości (nawet od różnych graczy), stos też się pali.",
+    endH:"Później w grze",
+    e1h:"Stos do dobierania jest pusty",e1p:"Wtedy nikt już nie dobiera. Grasz normalnie dalej, tylko twoja ręka maleje z każdym ruchem. Jeśli musisz wziąć stos odrzuconych kart, oczywiście znów masz więcej kart.",
+    e2h:"Twoja ręka jest pusta",e2p:"Dopiero gdy stos do dobierania się skończył i nie masz już kart w ręce, grasz ze stołu: najpierw odkryte karty, potem zakryte.",
+    ph1b:"1. Ręka",ph1s:"do końca",ph2b:"2. Odkryte",ph2s:"jak z ręki",ph3b:"3. Zakryte",ph3s:"w ciemno",
+    e3h:"Odkryte karty",e3p:"Odkrytą kartę kładziesz tak samo jak kartę z ręki, kilka takich samych też razem. Jeśli nie możesz żadnej położyć, bierzesz stos odrzuconych kart i najpierw znów opróżniasz rękę.",
+    e4h:"Zakryte karty",e4p:"Dotknij jednej i ją odwróć. Pasuje – super. Nie pasuje – bierzesz ją <strong>razem ze stosem odrzuconych kart</strong> i najpierw musisz się ich pozbyć.",
+    e5h:"Udało się",e5p:"Kto nie ma już kart, wygrywa. Ostatni przy stole jest Shitheadem i rozdaje w następnej rundzie.",
+    qH:"Czy mogę to położyć?",
+    qLead:"Krótki test. Na wierzchu leży karta, ty masz jedną w ręce.",
+    qTop:"na wierzchu",qMine:"twoja karta",qQ:"Możesz ją położyć?",qYes:"Tak",qNo:"Nie",qNext:"Następna karta",
+    stH:"Strategie",
+    stLead:"Gdy znasz już zasady, to pomoże ci wygrywać częściej.",
+    t1h:"Odkryte tylko mocne",t1p:"Przy wymianie na początku połóż odkryte asy, dziesiątki i dwójki. Grasz nimi na końcu bez ręki – wtedy muszą trafić.",
+    t2h:"Najpierw niskie",t2p:"Pozbądź się wcześnie czwórek, piątek i szóstek, póki stos jest niski. Później nigdzie nie będą pasować.",
+    t3h:"Oszczędzaj specjalne",t3p:"Dwójka albo dziesiątka to twoje wyjście awaryjne. Nie marnuj jej, jeśli możesz zagrać normalnie.",
+    t4h:"Używaj 7 celowo",t4p:"Jeśli twój sąsiad ma odkryte już tylko wysokie karty, siódemka zmusi go do wzięcia stosu.",
+    t5h:"Wczesne zbieranie jest OK",t5p:"Mały stos na początku prawie nie boli i często daje dobre karty. Duży na końcu to problem.",
+    t6h:"Licz karty",t6p:"Pamiętaj mniej więcej, ile dziesiątek i dwójek już zeszło. Wtedy wiesz, kiedy możesz zaryzykować.",
+    t7h:"Trzymaj pary razem",t7p:"Kładzenie takich samych kart razem oszczędza ruchy – a czwartą palisz stos.",
+    chH:"Ściąga",
+    c1t:"Cel",c1d:"Pozbyć się wszystkich kart.",
+    c2t:"Ruch",c2d:"Połóż równą lub wyższą, dobierz do 3.",
+    c3t:"Nie możesz",c3d:"Weź cały stos.",
+    c4d:"Resetuje stos.",c5d:"Niewidzialna.",c6d:"Następny kładzie 7 lub niżej.",c7d:"Pali stos, grasz jeszcze raz.",c8d:"Cztery takie same też palą.",
+    c9t:"Koniec",c9d:"Ręka, potem odkryte, potem w ciemno.",
+    foot:"Dobrej zabawy przy stole. I pamiętaj: jesteś Shitheadem tylko wtedy, gdy nie umiesz się z tego śmiać."
+  };
+  var CS={
+    n8:"Sdílet",shH:"Sdílej tento návod",shLead:"Ať ostatní u stolu naskenují kód. Pak si každý může vybrat svůj jazyk.",shBtn:"Sdílet",shCopy:"Kopírovat odkaz",shCopied:"Odkaz zkopírován",shAlt:"QR kód této stránky",
+    title:"Shithead za 3 minuty",
+    h1:"Shithead za 3&nbsp;minuty",
+    sub:"Karetní hra z každého hostelu na světě. Jednou si to přečti, zahraj si jedno kolo a hotovo.",
+    goal:"<strong>Cíl:</strong> Zbav se všech svých karet. Kdo má jako poslední ještě karty, je Shithead – a míchá další kolo.",
+    navLabel:"Sekce",
+    n1:"Příprava",n1b:"Výměna",n2:"Hra",n3:"Speciální karty",n4:"Později",n5:"Procvičení",n6:"Strategie",n7:"Tahák",
+    setupH:"Příprava",
+    setupLead:"Potřebujete normální balíček 52 karet bez žolíků a 2 až 5 hráčů.",
+    rankH:"Pořadí karet",
+    rankLead:"Dvojka je nejnižší karta, eso nejvyšší. Barva (♠♥♦♣) nehraje roli.",
+    rankAlt:"Pořadí karet od nejnižší po nejvyšší: 2, 3, 4, 5, 6, 7, 8, 9, 10, kluk, dáma, král, eso.",
+    rankLow:"nízká",rankHigh:"vysoká",
+    rankP:"J = kluk, Q = dáma, K = král, A = eso.",
+    dealH:"Rozdávání",dealP:"Každý dostane 9 karet ve třech vrstvách.",
+    setupAlt:"Před každým hráčem leží tři hromádky, každá s jednou kartou lícem dolů a jednou lícem nahoru, k tomu tři karty v ruce.",
+    lgDown:"<b>3 lícem dolů</b>na stole",lgUp:"<b>3 lícem nahoru</b>navrchu",lgHand:"<b>3 v ruce</b>vidíš je jen ty",
+    setupP:"Na karty lícem dolů se <strong>nedívej</strong>. Zbytek balíčku jde doprostřed jako dobírací balíček.",
+    swH:"Před začátkem: výměna karet",
+    swLead:"Než se zahraje první karta, smí si každý vyměnit karty mezi rukou a svými kartami lícem nahoru. Jakmile hra běží, už to nejde.",
+    swAlt:"Čtyřka lícem nahoru na stole se vymění za eso z ruky.",
+    swUp:"<b>lícem nahoru</b>na stole",swHand:"<b>ruka</b>vidíš je jen ty",
+    w1h:"Prohlédni si karty",w1p:"Prohlédni si svoje 3 karty v ruce a 3 karty lícem nahoru. Karty lícem dolů zůstanou zakryté.",
+    w2h:"Vyměň",w2p:"Vyměň mezi rukou a kartami lícem nahoru tolik karet, kolik chceš.",
+    w3h:"Připrav se",w3p:"Na konci máš před sebou zase 3 karty lícem nahoru a 3 v ruce. Až budou všichni hotoví, hra začíná.",
+    swWhy:"Karty lícem nahoru hraješ až úplně na konci, bez ruky jako zálohy. Proto si nahoru dej silné karty: vysoké karty jako esa a krále, nebo speciální karty jako dvojku a desítku. Co speciální karty umí, se dozvíš níže v části <a href=\"#sonderkarten\">speciální karty</a>.",
+    playH:"Jak se hraje",
+    startH:"Kdo začíná?",
+    startP:"Kdo má v ruce čtyřku, vyloží ji a začíná. Pokud nikdo čtyřku nemá, začíná nejbližší vyšší karta, tedy pětka a tak dále. Pak se pokračuje po směru hodinových ručiček.",
+    turnH:"Jeden tah",
+    turnLead:"Podívej se na vrchní kartu odhazovacího balíčku. Pak je jen jedna otázka:",
+    dq:"Máš kartu stejně vysokou nebo vyšší?",
+    dqs:"Speciální karty jako dvojka nebo desítka jdou skoro vždycky – víc o tom níže.",
+    byH:"✓ Ano",
+    by1:"<strong>Vylož ji</strong> lícem nahoru na odhazovací balíček. Víc stejných karet můžeš vyložit najednou, třeba tři šestky.",
+    by2:"<strong>Dober si</strong>, dokud nemáš zase 3 karty v ruce. Pokud máš ještě 3 nebo víc, nedobíráš.",
+    bnH:"✗ Ne",
+    bn1:"<strong>Vezmi si celý odhazovací balíček</strong> do ruky.",
+    dnext:"V obou případech je pak na tahu další hráč, po směru hodinových ručiček.",
+    spH:"Speciální karty",
+    spLead:"Tyhle karty můžeš zahrát skoro vždycky, ať leží navrchu cokoli.",
+    sp2h:"2 – Reset",sp2p:"Vynuluje balíček. Potom na ni smí jakákoli karta.",
+    sp3h:"3 – Neviditelná",sp3p:"Prostě se nepočítá. Další musí přebít kartu, která leží <em>pod</em> trojkou.",
+    sp7h:"7 – Dolů",sp7p:"Jen další hráč musí zahrát sedmičku nebo <strong>nižší</strong> kartu, případně jinou speciální kartu.",
+    sp10h:"10 – Spálení",sp10p:"Celý balíček jde ze hry. Hned hraješ znovu.",
+    sp4h:"Čtyři stejné – Spálení",sp4p:"Pokud navrchu leží čtyři karty stejné hodnoty (i od různých hráčů), balíček shoří taky.",
+    endH:"Později ve hře",
+    e1h:"Dobírací balíček je prázdný",e1p:"Pak už nikdo nedobírá. Hraješ normálně dál, jen se ti ruka s každým tahem zmenšuje. Když musíš vzít odhazovací balíček, máš samozřejmě zase víc karet.",
+    e2h:"Ruka je prázdná",e2p:"Teprve když je dobírací balíček pryč a nemáš už žádné karty v ruce, hraješ ze stolu: nejdřív karty lícem nahoru, pak lícem dolů.",
+    ph1b:"1. Ruka",ph1s:"do prázdna",ph2b:"2. Nahoru",ph2s:"jako z ruky",ph3b:"3. Dolů",ph3s:"naslepo",
+    e3h:"Karty lícem nahoru",e3p:"Kartu lícem nahoru hraješ stejně jako kartu z ruky, víc stejných i najednou. Když nemůžeš žádnou zahrát, vezmeš odhazovací balíček a nejdřív zase vyprázdníš ruku.",
+    e4h:"Karty lícem dolů",e4p:"Ťukni na jednu a otoč ji. Když sedí, super. Když ne, vezmeš ji <strong>spolu s odhazovacím balíčkem</strong> a nejdřív se jich musíš zbavit.",
+    e5h:"Hotovo",e5p:"Kdo už nemá karty, vyhrál. Poslední u stolu je Shithead a rozdává další kolo.",
+    qH:"Můžu to zahrát?",
+    qLead:"Rychlý test. Navrchu leží karta, ty máš jednu v ruce.",
+    qTop:"navrchu",qMine:"tvoje karta",qQ:"Můžeš ji zahrát?",qYes:"Ano",qNo:"Ne",qNext:"Další karta",
+    stH:"Strategie",
+    stLead:"Až budeš znát pravidla, tohle ti pomůže vyhrávat častěji.",
+    t1h:"Nahoru jen silné karty",t1p:"Při výměně na začátku dej nahoru esa, desítky a dvojky. Hraješ je na konci bez ruky – tehdy musí zabrat.",
+    t2h:"Nejdřív nízké",t2p:"Zbav se čtyřek, pětek a šestek brzy, dokud je balíček nízko. Později nebudou nikam pasovat.",
+    t3h:"Šetři speciální karty",t3p:"Dvojka nebo desítka je tvůj nouzový východ. Neplýtvej jí, když můžeš hrát normálně.",
+    t4h:"Sedmičku cíleně",t4p:"Když má soused nahoře už jen vysoké karty, sedmička ho donutí vzít balíček.",
+    t5h:"Brzké sebrání nevadí",t5p:"Malý balíček na začátku skoro nebolí a často ti dá dobré karty. Velký na konci je problém.",
+    t6h:"Počítej",t6p:"Zhruba si pamatuj, kolik desítek a dvojek už odešlo. Pak víš, kdy můžeš riskovat.",
+    t7h:"Drž páry pohromadě",t7p:"Vykládání stejných karet najednou šetří tahy – a čtvrtou kartou spálíš balíček.",
+    chH:"Tahák",
+    c1t:"Cíl",c1d:"Zbavit se všech karet.",
+    c2t:"Tah",c2d:"Zahraj stejnou nebo vyšší, dober na 3.",
+    c3t:"Nejde to",c3d:"Vezmi celý balíček.",
+    c4d:"Vynuluje balíček.",c5d:"Neviditelná.",c6d:"Další hraje 7 nebo nižší.",c7d:"Spálí balíček, hraješ znovu.",c8d:"Čtyři stejné taky pálí.",
+    c9t:"Konec",c9d:"Ruka, pak nahoru, pak naslepo.",
+    foot:"Bav se u stolu. A pamatuj: Shithead jsi jen tehdy, když se tomu nedokážeš zasmát."
+  };
+  var SV={
+    n8:"Dela",shH:"Dela den här guiden",shLead:"Låt de andra vid bordet skanna koden. Sedan kan alla välja sitt eget språk.",shBtn:"Dela",shCopy:"Kopiera länk",shCopied:"Länk kopierad",shAlt:"QR-kod till den här sidan",
+    title:"Shithead på 3 minuter",
+    h1:"Shithead på 3&nbsp;minuter",
+    sub:"Kortspelet från varje vandrarhem i världen. Läs en gång, spela en omgång, klart.",
+    goal:"<strong>Målet:</strong> Bli av med alla dina kort. Den som sist har kort kvar är Shithead – och blandar inför nästa omgång.",
+    navLabel:"Avsnitt",
+    n1:"Förberedelse",n1b:"Byta",n2:"Spela",n3:"Specialkort",n4:"Senare",n5:"Öva",n6:"Strategi",n7:"Fusklapp",
+    setupH:"Förberedelse",
+    setupLead:"Ni behöver en vanlig kortlek med 52 kort utan jokrar och 2 till 5 spelare.",
+    rankH:"Kortens ordning",
+    rankLead:"2:an är det lägsta kortet, esset det högsta. Färgen (♠♥♦♣) spelar ingen roll.",
+    rankAlt:"Kortens ordning från lägst till högst: 2, 3, 4, 5, 6, 7, 8, 9, 10, knekt, dam, kung, ess.",
+    rankLow:"lågt",rankHigh:"högt",
+    rankP:"J = knekt, Q = dam, K = kung, A = ess.",
+    dealH:"Dela ut",dealP:"Alla får 9 kort i tre lager.",
+    setupAlt:"Framför varje spelare ligger tre högar, var och en med ett kort med baksidan upp och ett med framsidan upp, plus tre kort på handen.",
+    lgDown:"<b>3 dolda</b>på bordet",lgUp:"<b>3 öppna</b>ovanpå",lgHand:"<b>3 på handen</b>bara du ser dem",
+    setupP:"Titta <strong>inte</strong> på dina dolda kort. Resten av leken läggs i mitten som draghög.",
+    swH:"Innan start: byta kort",
+    swLead:"Innan första kortet spelas får alla byta mellan handen och sina öppna kort. När spelet väl är igång går det inte längre.",
+    swAlt:"Den öppna 4:an på bordet byts mot esset från handen.",
+    swUp:"<b>öppna</b>på bordet",swHand:"<b>hand</b>bara du ser dem",
+    w1h:"Titta på dina kort",w1p:"Titta på dina 3 handkort och dina 3 öppna kort. De dolda förblir dolda.",
+    w2h:"Byt",w2p:"Byt så många kort du vill mellan handen och dina öppna kort.",
+    w3h:"Gör dig redo",w3p:"Till slut ligger det 3 öppna kort framför dig och du har 3 på handen. När alla är klara börjar spelet.",
+    swWhy:"Dina öppna kort spelar du först i slutet, utan hand att falla tillbaka på. Lägg därför starka kort öppna: höga kort som ess och kungar, eller specialkort som 2:an och 10:an. Vad specialkorten gör får du veta längre ner under <a href=\"#sonderkarten\">specialkort</a>.",
+    playH:"Så spelar du",
+    startH:"Vem börjar?",
+    startP:"Den som har en 4:a på handen lägger den och börjar. Har ingen en 4:a börjar närmast högre kort, alltså en 5:a och så vidare. Sedan går det medurs.",
+    turnH:"Ett drag",
+    turnLead:"Titta på översta kortet i slänghögen. Sedan finns det bara en fråga:",
+    dq:"Har du ett kort som är lika högt eller högre?",
+    dqs:"Specialkort som 2:an eller 10:an går nästan alltid – mer om det nedan.",
+    byH:"✓ Ja",
+    by1:"<strong>Lägg det</strong> öppet på slänghögen. Flera kort med samma valör får du lägga samtidigt, till exempel tre 6:or.",
+    by2:"<strong>Dra kort</strong> tills du har 3 på handen igen. Har du fortfarande 3 eller fler drar du inget.",
+    bnH:"✗ Nej",
+    bn1:"<strong>Ta upp hela slänghögen</strong> på handen.",
+    dnext:"I båda fallen är det sedan nästa spelares tur, medurs.",
+    spH:"Specialkort",
+    spLead:"De här korten får du lägga nästan alltid, oavsett vad som ligger överst.",
+    sp2h:"2 – Nollställ",sp2p:"Nollställer högen. Sedan får vilket kort som helst läggas ovanpå.",
+    sp3h:"3 – Osynlig",sp3p:"Räknas helt enkelt inte. Nästa spelare måste slå kortet som ligger <em>under</em> 3:an.",
+    sp7h:"7 – Neråt",sp7p:"Bara nästa spelare måste lägga en 7:a eller <strong>lägre</strong>, eller ett annat specialkort.",
+    sp10h:"10 – Bränn",sp10p:"Hela högen åker ur spelet. Du får spela igen direkt.",
+    sp4h:"Fyra lika – Bränn",sp4p:"Ligger fyra kort med samma valör överst (även från olika spelare) bränns högen också.",
+    endH:"Senare i spelet",
+    e1h:"Draghögen är slut",e1p:"Då drar ingen mer. Du spelar vidare som vanligt, men handen blir mindre för varje drag. Måste du ta upp slänghögen får du förstås fler kort igen.",
+    e2h:"Din hand är tom",e2p:"Först när draghögen är slut och du inte har några handkort kvar spelar du från bordet: först de öppna korten, sedan de dolda.",
+    ph1b:"1. Hand",ph1s:"tills den är tom",ph2b:"2. Öppna",ph2s:"som handkort",ph3b:"3. Dolda",ph3s:"vänd blint",
+    e3h:"Öppna kort",e3p:"Du lägger ett öppet kort precis som ett handkort, flera lika också samtidigt. Kan du inte lägga något tar du upp slänghögen och spelar först tomt på handen igen.",
+    e4h:"Dolda kort",e4p:"Tryck på ett och vänd det. Passar det, toppen. Passar det inte tar du upp det <strong>tillsammans med slänghögen</strong> och måste bli av med dem först.",
+    e5h:"Klart",e5p:"Den som inte har några kort kvar har vunnit. Den sista vid bordet är Shithead och delar ut nästa omgång.",
+    qH:"Får jag lägga det här?",
+    qLead:"Snabbtest. Ett kort ligger överst, du har ett på handen.",
+    qTop:"ligger överst",qMine:"ditt kort",qQ:"Får du lägga det?",qYes:"Ja",qNo:"Nej",qNext:"Nästa kort",
+    stH:"Strategier",
+    stLead:"När du kan reglerna vinner du oftare med de här.",
+    t1h:"Bara starka kort öppna",t1p:"Lägg ess, 10:or och 2:or öppna när du byter i början. De spelar du i slutet utan hand – då måste de sitta.",
+    t2h:"Låga kort först",t2p:"Bli av med 4:or, 5:or och 6:or tidigt medan högen är låg. Senare passar de ingenstans.",
+    t3h:"Spara specialkorten",t3p:"En 2:a eller 10:a är din nödutgång. Slösa inte bort den om du kan spela vanligt.",
+    t4h:"Använd 7:an medvetet",t4p:"Har grannen bara höga öppna kort kvar tvingar en 7:a hen att ta upp högen.",
+    t5h:"Ta upp tidigt är okej",t5p:"En liten hög i början gör knappt ont och ger dig ofta bra kort. En stor i slutet är problemet.",
+    t6h:"Räkna",t6p:"Håll ungefär koll på hur många 10:or och 2:or som redan är borta. Då vet du när du kan chansa.",
+    t7h:"Håll ihop par",t7p:"Att lägga lika kort tillsammans sparar drag – och med det fjärde bränner du högen.",
+    chH:"Fusklapp",
+    c1t:"Mål",c1d:"Bli av med alla kort.",
+    c2t:"Drag",c2d:"Lägg lika eller högre, dra upp till 3.",
+    c3t:"Går inte",c3d:"Ta upp hela högen.",
+    c4d:"Nollställer högen.",c5d:"Osynlig.",c6d:"Nästa lägger 7 eller lägre.",c7d:"Bränn högen, spela igen.",c8d:"Fyra lika bränner också.",
+    c9t:"Slut",c9d:"Hand, sedan öppna, sedan blint.",
+    foot:"Ha kul vid bordet. Och kom ihåg: du är bara Shithead om du inte kan skratta åt det."
+  };
+  var DA={
+    n8:"Del",shH:"Del denne guide",shLead:"Lad de andre ved bordet scanne koden. Så kan alle vælge deres eget sprog.",shBtn:"Del",shCopy:"Kopiér link",shCopied:"Link kopieret",shAlt:"QR-kode til denne side",
+    title:"Shithead på 3 minutter",
+    h1:"Shithead på 3&nbsp;minutter",
+    sub:"Kortspillet fra alle verdens hostels. Læs det én gang, spil et spil med, færdig.",
+    goal:"<strong>Målet:</strong> Bliv af med alle dine kort. Den, der til sidst stadig har kort, er Shithead – og blander til næste spil.",
+    navLabel:"Afsnit",
+    n1:"Opstilling",n1b:"Byt",n2:"Spil",n3:"Specialkort",n4:"Senere",n5:"Øv",n6:"Strategi",n7:"Snydeseddel",
+    setupH:"Opstilling",
+    setupLead:"I skal bruge et almindeligt spil med 52 kort uden jokere og 2 til 5 spillere.",
+    rankH:"Kortenes rækkefølge",
+    rankLead:"2’eren er det laveste kort, esset det højeste. Kulør (♠♥♦♣) er ligegyldig.",
+    rankAlt:"Kortenes rækkefølge fra lavest til højest: 2, 3, 4, 5, 6, 7, 8, 9, 10, knægt, dame, konge, es.",
+    rankLow:"lav",rankHigh:"høj",
+    rankP:"J = knægt, Q = dame, K = konge, A = es.",
+    dealH:"Uddeling",dealP:"Alle får 9 kort i tre lag.",
+    setupAlt:"Foran hver spiller ligger tre bunker med hver ét kort med bagsiden op og ét med billedsiden op, plus tre kort på hånden.",
+    lgDown:"<b>3 skjulte</b>på bordet",lgUp:"<b>3 åbne</b>ovenpå",lgHand:"<b>3 på hånden</b>kun du kan se dem",
+    setupP:"Kig <strong>ikke</strong> på dine skjulte kort. Resten af spillet lægges i midten som træk-bunke.",
+    swH:"Før start: byt kort",
+    swLead:"Før det første kort bliver spillet, må alle bytte mellem hånden og deres åbne kort. Når spillet er i gang, kan man ikke længere.",
+    swAlt:"Den åbne 4’er på bordet byttes med esset fra hånden.",
+    swUp:"<b>åbne</b>på bordet",swHand:"<b>hånd</b>kun du kan se dem",
+    w1h:"Kig på dine kort",w1p:"Kig på dine 3 håndkort og dine 3 åbne kort. De skjulte forbliver skjulte.",
+    w2h:"Byt",w2p:"Byt så mange kort, du vil, mellem hånden og dine åbne kort.",
+    w3h:"Gør klar",w3p:"Til sidst ligger der igen 3 åbne kort foran dig, og du har 3 på hånden. Når alle er klar, går spillet i gang.",
+    swWhy:"Dine åbne kort spiller du først helt til sidst, uden hånd at falde tilbage på. Læg derfor stærke kort åbne: høje kort som esser og konger eller specialkort som 2’eren og 10’eren. Hvad specialkortene kan, finder du længere nede under <a href=\"#sonderkarten\">specialkort</a>.",
+    playH:"Sådan spiller du",
+    startH:"Hvem starter?",
+    startP:"Den, der har en 4’er på hånden, lægger den og starter. Har ingen en 4’er, starter det næsthøjere kort, altså en 5’er og så videre. Derefter går det med uret.",
+    turnH:"En tur",
+    turnLead:"Kig på det øverste kort i afkastbunken. Så er der kun ét spørgsmål:",
+    dq:"Har du et kort, der er lige så højt eller højere?",
+    dqs:"Specialkort som 2’eren eller 10’eren må næsten altid spilles – mere om det nedenfor.",
+    byH:"✓ Ja",
+    by1:"<strong>Læg det</strong> åbent på afkastbunken. Flere ens kort må du lægge samtidig, fx tre 6’ere.",
+    by2:"<strong>Træk</strong>, indtil du har 3 kort på hånden igen. Har du stadig 3 eller flere, trækker du ikke.",
+    bnH:"✗ Nej",
+    bn1:"<strong>Tag hele afkastbunken</strong> op på hånden.",
+    dnext:"I begge tilfælde er det derefter næste spillers tur, med uret.",
+    spH:"Specialkort",
+    spLead:"Disse kort må du næsten altid lægge, uanset hvad der ligger øverst.",
+    sp2h:"2 – Nulstil",sp2p:"Nulstiller bunken. Bagefter må et hvilket som helst kort lægges ovenpå.",
+    sp3h:"3 – Usynlig",sp3p:"Tæller bare ikke. Den næste skal slå kortet, der ligger <em>under</em> 3’eren.",
+    sp7h:"7 – Nedad",sp7p:"Kun den næste spiller skal lægge en 7’er eller <strong>lavere</strong> eller et andet specialkort.",
+    sp10h:"10 – Brænd",sp10p:"Hele bunken ryger ud af spillet. Du er straks på igen.",
+    sp4h:"Fire ens – Brænd",sp4p:"Ligger der fire kort af samme værdi øverst (også fra forskellige spillere), brænder bunken også.",
+    endH:"Senere i spillet",
+    e1h:"Træk-bunken er tom",e1p:"Så trækker ingen flere kort. Du spiller videre som normalt, men hånden bliver mindre for hver tur. Skal du tage afkastbunken op, har du selvfølgelig flere kort igen.",
+    e2h:"Din hånd er tom",e2p:"Først når træk-bunken er tom, og du ikke har flere håndkort, spiller du fra bordet: først de åbne kort, derefter de skjulte.",
+    ph1b:"1. Hånd",ph1s:"til den er tom",ph2b:"2. Åbne",ph2s:"som håndkort",ph3b:"3. Skjulte",ph3s:"vend blindt",
+    e3h:"Åbne kort",e3p:"Du lægger et åbent kort ligesom et håndkort, flere ens også samtidig. Kan du ikke lægge nogen, tager du afkastbunken op og spiller først hånden tom igen.",
+    e4h:"Skjulte kort",e4p:"Tryk på et og vend det. Passer det, fedt. Passer det ikke, tager du det op <strong>sammen med afkastbunken</strong> og skal først af med dem igen.",
+    e5h:"Klaret",e5p:"Den, der ikke har flere kort, har vundet. Den sidste ved bordet er Shithead og deler ud til næste spil.",
+    qH:"Må jeg lægge det?",
+    qLead:"Hurtig test. Der ligger et kort øverst, og du har et på hånden.",
+    qTop:"ligger øverst",qMine:"dit kort",qQ:"Må du lægge det?",qYes:"Ja",qNo:"Nej",qNext:"Næste kort",
+    stH:"Strategier",
+    stLead:"Når du kan reglerne, vinder du oftere med disse.",
+    t1h:"Kun stærke kort åbne",t1p:"Læg esser, 10’ere og 2’ere åbne, når du bytter i starten. Dem spiller du til sidst uden hånd – så skal de sidde.",
+    t2h:"Lave kort først",t2p:"Kom af med dine 4’ere, 5’ere og 6’ere tidligt, mens bunken er lav. Senere passer de ingen steder.",
+    t3h:"Gem specialkortene",t3p:"En 2’er eller 10’er er din nødudgang. Spild den ikke, hvis du kan spille normalt.",
+    t4h:"Brug 7’eren bevidst",t4p:"Har din nabo kun høje åbne kort tilbage, tvinger en 7’er vedkommende til at tage bunken.",
+    t5h:"Tidligt at tage op er fint",t5p:"En lille bunke i starten gør knap ondt og giver dig ofte gode kort. En stor til sidst er problemet.",
+    t6h:"Tæl med",t6p:"Hold nogenlunde styr på, hvor mange 10’ere og 2’ere der allerede er væk. Så ved du, hvornår du kan tage en chance.",
+    t7h:"Hold par sammen",t7p:"At lægge ens kort samtidig sparer ture – og med det fjerde brænder du bunken.",
+    chH:"Snydeseddel",
+    c1t:"Mål",c1d:"Bliv af med alle kort.",
+    c2t:"Tur",c2d:"Læg lige så højt eller højere, træk op til 3.",
+    c3t:"Kan ikke",c3d:"Tag hele bunken op.",
+    c4d:"Nulstiller bunken.",c5d:"Usynlig.",c6d:"Næste lægger 7 eller lavere.",c7d:"Brænd bunken, spil igen.",c8d:"Fire ens brænder også.",
+    c9t:"Slut",c9d:"Hånd, så åbne, så blindt.",
+    foot:"God fornøjelse ved bordet. Og husk: du er kun Shithead, hvis du ikke kan grine af det."
+  };
+  var NO={
+    n8:"Del",shH:"Del denne guiden",shLead:"La de andre ved bordet skanne koden. Så kan alle velge sitt eget språk.",shBtn:"Del",shCopy:"Kopier lenke",shCopied:"Lenke kopiert",shAlt:"QR-kode til denne siden",
+    title:"Shithead på 3 minutter",
+    h1:"Shithead på 3&nbsp;minutter",
+    sub:"Kortspillet fra alle verdens hostels. Les det én gang, spill én runde, ferdig.",
+    goal:"<strong>Målet:</strong> Bli kvitt alle kortene dine. Den som til slutt fortsatt har kort, er Shithead – og stokker til neste runde.",
+    navLabel:"Deler",
+    n1:"Oppsett",n1b:"Bytte",n2:"Spille",n3:"Spesialkort",n4:"Senere",n5:"Øv",n6:"Strategi",n7:"Jukselapp",
+    setupH:"Oppsett",
+    setupLead:"Dere trenger en vanlig kortstokk med 52 kort uten jokere og 2 til 5 spillere.",
+    rankH:"Rekkefølgen på kortene",
+    rankLead:"2-eren er det laveste kortet, esset det høyeste. Fargen (♠♥♦♣) spiller ingen rolle.",
+    rankAlt:"Rekkefølgen fra lavest til høyest: 2, 3, 4, 5, 6, 7, 8, 9, 10, knekt, dame, konge, ess.",
+    rankLow:"lav",rankHigh:"høy",
+    rankP:"J = knekt, Q = dame, K = konge, A = ess.",
+    dealH:"Dele ut",dealP:"Alle får 9 kort i tre lag.",
+    setupAlt:"Foran hver spiller ligger tre bunker med ett kort med baksiden opp og ett med forsiden opp i hver, pluss tre kort på hånden.",
+    lgDown:"<b>3 skjulte</b>på bordet",lgUp:"<b>3 åpne</b>oppå",lgHand:"<b>3 på hånden</b>bare du ser dem",
+    setupP:"<strong>Ikke</strong> se på de skjulte kortene dine. Resten av kortstokken legges i midten som trekkbunke.",
+    swH:"Før start: bytte kort",
+    swLead:"Før det første kortet spilles, kan alle bytte mellom hånden og de åpne kortene sine. Når spillet er i gang, går ikke det lenger.",
+    swAlt:"Den åpne 4-eren på bordet byttes med esset fra hånden.",
+    swUp:"<b>åpne</b>på bordet",swHand:"<b>hånd</b>bare du ser dem",
+    w1h:"Se på kortene dine",w1p:"Se på de 3 kortene på hånden og de 3 åpne kortene. De skjulte forblir skjult.",
+    w2h:"Bytt",w2p:"Bytt så mange kort du vil mellom hånden og de åpne kortene.",
+    w3h:"Gjør deg klar",w3p:"Til slutt ligger det 3 åpne kort foran deg, og du har 3 på hånden. Når alle er klare, begynner spillet.",
+    swWhy:"De åpne kortene spiller du først helt til slutt, uten hånd å falle tilbake på. Legg derfor sterke kort åpne: høye kort som ess og konger, eller spesialkort som 2-eren og 10-eren. Hva spesialkortene gjør, finner du lenger ned under <a href=\"#sonderkarten\">spesialkort</a>.",
+    playH:"Slik spiller du",
+    startH:"Hvem begynner?",
+    startP:"Den som har en 4-er på hånden, legger den og begynner. Har ingen en 4-er, begynner nest høyeste kort, altså en 5-er og så videre. Deretter går det med klokka.",
+    turnH:"En tur",
+    turnLead:"Se på det øverste kortet i kastebunken. Da er det bare ett spørsmål:",
+    dq:"Har du et kort som er like høyt eller høyere?",
+    dqs:"Spesialkort som 2-eren eller 10-eren går nesten alltid – mer om det nedenfor.",
+    byH:"✓ Ja",
+    by1:"<strong>Legg det</strong> åpent på kastebunken. Flere like kort kan du legge samtidig, for eksempel tre 6-ere.",
+    by2:"<strong>Trekk</strong> til du har 3 kort på hånden igjen. Har du fortsatt 3 eller flere, trekker du ikke.",
+    bnH:"✗ Nei",
+    bn1:"<strong>Ta opp hele kastebunken</strong> på hånden.",
+    dnext:"I begge tilfeller er det deretter neste spillers tur, med klokka.",
+    spH:"Spesialkort",
+    spLead:"Disse kortene kan du nesten alltid legge, uansett hva som ligger øverst.",
+    sp2h:"2 – Nullstill",sp2p:"Nullstiller bunken. Etterpå kan hvilket som helst kort legges oppå.",
+    sp3h:"3 – Usynlig",sp3p:"Teller rett og slett ikke. Neste må slå kortet som ligger <em>under</em> 3-eren.",
+    sp7h:"7 – Nedover",sp7p:"Bare neste spiller må legge en 7-er eller <strong>lavere</strong>, eller et annet spesialkort.",
+    sp10h:"10 – Brenn",sp10p:"Hele bunken går ut av spillet. Du er på igjen med en gang.",
+    sp4h:"Fire like – Brenn",sp4p:"Ligger det fire kort med samme verdi øverst (også fra forskjellige spillere), brenner bunken også.",
+    endH:"Senere i spillet",
+    e1h:"Trekkbunken er tom",e1p:"Da trekker ingen flere kort. Du spiller videre som vanlig, men hånden blir mindre for hver tur. Må du ta opp kastebunken, har du selvsagt flere kort igjen.",
+    e2h:"Hånden din er tom",e2p:"Først når trekkbunken er tom og du ikke har flere kort på hånden, spiller du fra bordet: først de åpne kortene, så de skjulte.",
+    ph1b:"1. Hånd",ph1s:"til den er tom",ph2b:"2. Åpne",ph2s:"som håndkort",ph3b:"3. Skjulte",ph3s:"snu blindt",
+    e3h:"Åpne kort",e3p:"Du legger et åpent kort akkurat som et kort fra hånden, flere like også samtidig. Kan du ikke legge noe, tar du opp kastebunken og spiller først hånden tom igjen.",
+    e4h:"Skjulte kort",e4p:"Trykk på ett og snu det. Passer det, supert. Passer det ikke, tar du det opp <strong>sammen med kastebunken</strong> og må først bli kvitt dem igjen.",
+    e5h:"Ferdig",e5p:"Den som ikke har flere kort, har vunnet. Den siste ved bordet er Shithead og deler ut neste runde.",
+    qH:"Kan jeg legge dette?",
+    qLead:"Kjapp test. Ett kort ligger øverst, og du har ett på hånden.",
+    qTop:"ligger øverst",qMine:"kortet ditt",qQ:"Kan du legge det?",qYes:"Ja",qNo:"Nei",qNext:"Neste kort",
+    stH:"Strategier",
+    stLead:"Når du kan reglene, vinner du oftere med disse.",
+    t1h:"Bare sterke kort åpne",t1p:"Legg ess, 10-ere og 2-ere åpne når du bytter i starten. Dem spiller du til slutt uten hånd – da må de sitte.",
+    t2h:"Lave kort først",t2p:"Bli kvitt 4-ere, 5-ere og 6-ere tidlig mens bunken er lav. Senere passer de ingen steder.",
+    t3h:"Spar spesialkortene",t3p:"En 2-er eller 10-er er nødutgangen din. Ikke kast den bort hvis du kan spille vanlig.",
+    t4h:"Bruk 7-eren bevisst",t4p:"Har naboen bare høye åpne kort igjen, tvinger en 7-er vedkommende til å ta bunken.",
+    t5h:"Ta opp tidlig er greit",t5p:"En liten bunke i starten gjør knapt vondt og gir deg ofte gode kort. En stor på slutten er problemet.",
+    t6h:"Tell med",t6p:"Hold omtrent oversikt over hvor mange 10-ere og 2-ere som allerede er borte. Da vet du når du kan ta en sjanse.",
+    t7h:"Hold par sammen",t7p:"Å legge like kort samtidig sparer turer – og med det fjerde brenner du bunken.",
+    chH:"Jukselapp",
+    c1t:"Mål",c1d:"Bli kvitt alle kortene.",
+    c2t:"Tur",c2d:"Legg like høyt eller høyere, trekk opp til 3.",
+    c3t:"Går ikke",c3d:"Ta opp hele bunken.",
+    c4d:"Nullstiller bunken.",c5d:"Usynlig.",c6d:"Neste legger 7 eller lavere.",c7d:"Brenn bunken, spill igjen.",c8d:"Fire like brenner også.",
+    c9t:"Slutt",c9d:"Hånd, så åpne, så blindt.",
+    foot:"Kos deg ved bordet. Og husk: du er bare Shithead hvis du ikke kan le av det."
+  };
+  var T={
+    de:{always2:"Die 2 geht immer – sie setzt den Stapel zurück.",always3:"Die 3 geht immer – sie ist unsichtbar.",always10:"Die 10 geht immer – sie verbrennt den Stapel.",after2:"Nach einer 2 ist alles erlaubt.",after7ok:"Nach einer 7 muss es 7 oder niedriger sein – passt.",after7no:"Nach einer 7 muss es 7 oder niedriger sein.",same:"Gleiche Karte geht immer.",higher:function(m,t){return m+" ist höher als "+t+"."},lower:function(m,t){return m+" ist niedriger als "+t+" – du müsstest den Stapel nehmen."},right:"Richtig! ",wrong:"Nicht ganz. ",yes:"Ja. ",no:"Nein. ",score:function(r,n){return r+" von "+n+" richtig"}},
+    en:{always2:"A 2 can always be played – it resets the pile.",always3:"A 3 can always be played – it’s invisible.",always10:"A 10 can always be played – it burns the pile.",after2:"After a 2, anything goes.",after7ok:"After a 7 it has to be 7 or lower – fits.",after7no:"After a 7 it has to be 7 or lower.",same:"The same rank can always be played.",higher:function(m,t){return m+" is higher than "+t+"."},lower:function(m,t){return m+" is lower than "+t+" – you’d have to pick up the pile."},right:"Correct! ",wrong:"Not quite. ",yes:"Yes. ",no:"No. ",score:function(r,n){return r+" of "+n+" correct"}},
+    es:{always2:"El 2 siempre vale – reinicia el montón.",always3:"El 3 siempre vale – es invisible.",always10:"El 10 siempre vale – quema el montón.",after2:"Después de un 2, vale todo.",after7ok:"Después de un 7 tiene que ser 7 o más bajo – vale.",after7no:"Después de un 7 tiene que ser 7 o más bajo.",same:"El mismo valor siempre vale.",higher:function(m,t){return m+" es más alto que "+t+"."},lower:function(m,t){return m+" es más bajo que "+t+" – tendrías que tomar el montón."},right:"¡Correcto! ",wrong:"No del todo. ",yes:"Sí. ",no:"No. ",score:function(r,n){return r+" de "+n+" correctas"}},
+    la:{always2:"El 2 siempre vale – reinicia el montón.",always3:"El 3 siempre vale – es invisible.",always10:"El 10 siempre vale – quema el montón.",after2:"Después de un 2, vale todo.",after7ok:"Después de un 7 tiene que ser 7 o más bajo – vale.",after7no:"Después de un 7 tiene que ser 7 o más bajo.",same:"El mismo valor siempre vale.",higher:function(m,t){return m+" es más alto que "+t+"."},lower:function(m,t){return m+" es más bajo que "+t+" – tendrías que tomar el montón."},right:"¡Correcto! ",wrong:"No del todo. ",yes:"Sí. ",no:"No. ",score:function(r,n){return r+" de "+n+" correctas"}},
+    he:{always2:"2 תמיד מותר – הוא מאפס את הערימה.",always3:"3 תמיד מותר – הוא שקוף.",always10:"10 תמיד מותר – הוא שורף את הערימה.",after2:"אחרי 2 הכול מותר.",after7ok:"אחרי 7 צריך 7 או פחות – מתאים.",after7no:"אחרי 7 צריך 7 או פחות.",same:"אותו ערך תמיד מותר.",higher:function(m,t){return m+" גבוה מ־"+t+"."},lower:function(m,t){return m+" נמוך מ־"+t+" – היית צריך לקחת את הערימה."},right:"נכון! ",wrong:"לא בדיוק. ",yes:"כן. ",no:"לא. ",score:function(r,n){return r+" מתוך "+n+" נכונות"}},
+    fr:{always2:"Le 2 passe toujours – il remet la défausse à zéro.",always3:"Le 3 passe toujours – il est invisible.",always10:"Le 10 passe toujours – il brûle la défausse.",after2:"Après un 2, tout passe.",after7ok:"Après un 7, il faut 7 ou moins – ça passe.",after7no:"Après un 7, il faut 7 ou moins.",same:"La même valeur passe toujours.",higher:function(m,t){return m+" est plus fort que "+t+"."},lower:function(m,t){return m+" est plus faible que "+t+" – tu devrais prendre la défausse."},right:"Bravo ! ",wrong:"Pas tout à fait. ",yes:"Oui. ",no:"Non. ",score:function(r,n){return r+" sur "+n+" correctes"}},
+    pt:{always2:"O 2 serve sempre – recomeça o monte.",always3:"O 3 serve sempre – é invisível.",always10:"O 10 serve sempre – queima o monte.",after2:"Depois de um 2, vale tudo.",after7ok:"Depois de um 7 tem de ser 7 ou mais baixo – serve.",after7no:"Depois de um 7 tem de ser 7 ou mais baixo.",same:"O mesmo valor serve sempre.",higher:function(m,t){return m+" é mais alto que "+t+"."},lower:function(m,t){return m+" é mais baixo que "+t+" – terias de apanhar o monte."},right:"Certo! ",wrong:"Não exatamente. ",yes:"Sim. ",no:"Não. ",score:function(r,n){return r+" de "+n+" certas"}},
+    br:{always2:"O 2 sempre vale – reinicia o monte.",always3:"O 3 sempre vale – é invisível.",always10:"O 10 sempre vale – queima o monte.",after2:"Depois de um 2, vale tudo.",after7ok:"Depois de um 7 tem que ser 7 ou mais baixo – vale.",after7no:"Depois de um 7 tem que ser 7 ou mais baixo.",same:"O mesmo valor sempre vale.",higher:function(m,t){return m+" é mais alto que "+t+"."},lower:function(m,t){return m+" é mais baixo que "+t+" – você teria que pegar o monte."},right:"Certo! ",wrong:"Quase. ",yes:"Sim. ",no:"Não. ",score:function(r,n){return r+" de "+n+" certas"}},
+    it:{always2:"Il 2 va sempre bene – azzera la pila.",always3:"Il 3 va sempre bene – è invisibile.",always10:"Il 10 va sempre bene – brucia la pila.",after2:"Dopo un 2 va bene tutto.",after7ok:"Dopo un 7 serve un 7 o meno – va bene.",after7no:"Dopo un 7 serve un 7 o meno.",same:"Lo stesso valore va sempre bene.",higher:function(m,t){return m+" è più alto di "+t+"."},lower:function(m,t){return m+" è più basso di "+t+" – dovresti prendere la pila."},right:"Giusto! ",wrong:"Non proprio. ",yes:"Sì. ",no:"No. ",score:function(r,n){return r+" su "+n+" giuste"}},
+    nl:{always2:"Een 2 mag altijd – die reset de stapel.",always3:"Een 3 mag altijd – die is onzichtbaar.",always10:"Een 10 mag altijd – die verbrandt de stapel.",after2:"Na een 2 mag alles.",after7ok:"Na een 7 moet het 7 of lager zijn – klopt.",after7no:"Na een 7 moet het 7 of lager zijn.",same:"Dezelfde waarde mag altijd.",higher:function(m,t){return m+" is hoger dan "+t+"."},lower:function(m,t){return m+" is lager dan "+t+" – je zou de stapel moeten pakken."},right:"Goed! ",wrong:"Net niet. ",yes:"Ja. ",no:"Nee. ",score:function(r,n){return r+" van "+n+" goed"}},
+    pl:{always2:"2 można zagrać zawsze – resetuje stos.",always3:"3 można zagrać zawsze – jest niewidzialna.",always10:"10 można zagrać zawsze – pali stos.",after2:"Po dwójce można wszystko.",after7ok:"Po siódemce musi być 7 lub niżej – pasuje.",after7no:"Po siódemce musi być 7 lub niżej.",same:"Ta sama wartość pasuje zawsze.",higher:function(m,t){return m+" jest wyżej niż "+t+"."},lower:function(m,t){return m+" jest niżej niż "+t+" – musiał(a)byś wziąć stos."},right:"Dobrze! ",wrong:"Niezupełnie. ",yes:"Tak. ",no:"Nie. ",score:function(r,n){return r+" z "+n+" poprawnie"}},
+    cs:{always2:"Dvojka jde vždycky – vynuluje balíček.",always3:"Trojka jde vždycky – je neviditelná.",always10:"Desítka jde vždycky – spálí balíček.",after2:"Po dvojce jde cokoli.",after7ok:"Po sedmičce musí být 7 nebo nižší – sedí.",after7no:"Po sedmičce musí být 7 nebo nižší.",same:"Stejná hodnota jde vždycky.",higher:function(m,t){return m+" je výš než "+t+"."},lower:function(m,t){return m+" je níž než "+t+" – musel(a) bys vzít balíček."},right:"Správně! ",wrong:"Ne tak úplně. ",yes:"Ano. ",no:"Ne. ",score:function(r,n){return r+" z "+n+" správně"}},
+    sv:{always2:"En 2:a går alltid – den nollställer högen.",always3:"En 3:a går alltid – den är osynlig.",always10:"En 10:a går alltid – den bränner högen.",after2:"Efter en 2:a går allt.",after7ok:"Efter en 7:a måste det vara 7 eller lägre – det går.",after7no:"Efter en 7:a måste det vara 7 eller lägre.",same:"Samma valör går alltid.",higher:function(m,t){return m+" är högre än "+t+"."},lower:function(m,t){return m+" är lägre än "+t+" – du skulle behöva ta upp högen."},right:"Rätt! ",wrong:"Inte riktigt. ",yes:"Ja. ",no:"Nej. ",score:function(r,n){return r+" av "+n+" rätt"}},
+    da:{always2:"En 2’er må altid spilles – den nulstiller bunken.",always3:"En 3’er må altid spilles – den er usynlig.",always10:"En 10’er må altid spilles – den brænder bunken.",after2:"Efter en 2’er må alt.",after7ok:"Efter en 7’er skal det være 7 eller lavere – passer.",after7no:"Efter en 7’er skal det være 7 eller lavere.",same:"Samme værdi må altid spilles.",higher:function(m,t){return m+" er højere end "+t+"."},lower:function(m,t){return m+" er lavere end "+t+" – du ville skulle tage bunken."},right:"Rigtigt! ",wrong:"Ikke helt. ",yes:"Ja. ",no:"Nej. ",score:function(r,n){return r+" af "+n+" rigtige"}},
+    no:{always2:"En 2-er går alltid – den nullstiller bunken.",always3:"En 3-er går alltid – den er usynlig.",always10:"En 10-er går alltid – den brenner bunken.",after2:"Etter en 2-er går alt.",after7ok:"Etter en 7-er må det være 7 eller lavere – passer.",after7no:"Etter en 7-er må det være 7 eller lavere.",same:"Samme verdi går alltid.",higher:function(m,t){return m+" er høyere enn "+t+"."},lower:function(m,t){return m+" er lavere enn "+t+" – du måtte ha tatt bunken."},right:"Riktig! ",wrong:"Ikke helt. ",yes:"Ja. ",no:"Nei. ",score:function(r,n){return r+" av "+n+" riktige"}}
+  };
+  var DE={}, lang="de";
+  document.querySelectorAll("[data-i18n]").forEach(function(el){DE[el.dataset.i18n]=el.innerHTML});
+  document.querySelectorAll("[data-i18n-label]").forEach(function(el){DE[el.dataset.i18nLabel]=el.getAttribute("aria-label")});
+  DE.title="Shithead in 3 Minuten";
+
+  var ranks=["2","3","4","5","6","7","8","9","10","J","Q","K","A"];
+  var suits=[["♠",0],["♥",1],["♦",1],["♣",0]];
+  var val=function(r){return ranks.indexOf(r)+2};
+  var right=0,total=0,cur=null,last=null;
+  function cardHTML(r,s){return '<div class="card'+(s[1]?' r':'')+'"><div class="c">'+r+'<span>'+s[0]+'</span></div><div class="pip">'+s[0]+'</div></div>'}
+  function pick(a){return a[Math.floor(Math.random()*a.length)]}
+  function judge(top,mine){
+    var t=T[lang];
+    if(mine==="2")return [true,t.always2];
+    if(mine==="3")return [true,t.always3];
+    if(mine==="10")return [true,t.always10];
+    if(top==="2")return [true,t.after2];
+    if(top==="7")return val(mine)<=7?[true,t.after7ok]:[false,t.after7no];
+    if(mine===top)return [true,t.same];
+    return val(mine)>val(top)?[true,t.higher(mine,top)]:[false,t.lower(mine,top)];
+  }
+  function renderFb(){
+    if(!last){document.getElementById("fb").innerHTML="";return}
+    var t=T[lang], res=judge(cur.top,cur.mine);
+    document.getElementById("fb").innerHTML='<span class="'+(last.ok?'ok':'ko')+'">'+(last.ok?t.right:t.wrong)+'</span>'+(res[0]?t.yes:t.no)+res[1];
+  }
+  function renderScore(){document.getElementById("score").textContent=T[lang].score(right,total)}
+  function deal(){
+    var top=pick(ranks.filter(function(r){return r!=="3"&&r!=="10"})), mine=pick(ranks);
+    cur={top:top,mine:mine}; last=null;
+    document.getElementById("topCard").innerHTML=cardHTML(top,pick(suits));
+    document.getElementById("myCard").innerHTML=cardHTML(mine,pick(suits));
+    renderFb();
+    document.getElementById("btns").hidden=false;
+    document.getElementById("next").hidden=true;
+  }
+  document.getElementById("btns").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b||!cur)return;
+    var res=judge(cur.top,cur.mine), ok=(b.dataset.a==="1")===res[0];
+    total++; if(ok)right++; last={ok:ok};
+    renderFb(); renderScore();
+    document.getElementById("btns").hidden=true;
+    var n=document.getElementById("next"); n.hidden=false; n.focus({preventScroll:true});
+  });
+  document.getElementById("next").addEventListener("click",deal);
+
+  function setLang(l){
+    lang=l; var src=DICT[l];
+    document.documentElement.lang=({br:"pt-BR",no:"nb",la:"es-419"})[l]||l;
+    document.documentElement.dir=l==="he"?"rtl":"ltr";
+    document.title=src.title;
+    document.querySelectorAll("[data-i18n]").forEach(function(el){var k=el.dataset.i18n;if(src[k]!=null)el.innerHTML=src[k]});
+    document.querySelectorAll("[data-i18n-label]").forEach(function(el){var k=el.dataset.i18nLabel;if(src[k]!=null)el.setAttribute("aria-label",src[k])});
+    sel.value=l; var L=LANGS.filter(function(x){return x[0]===l})[0]; document.getElementById("langFlag").textContent=L[1]; document.getElementById("langName").textContent=L[2];
+    renderFb(); renderScore();
+  }
+  // Add a language: add its dictionary + quiz texts in T, then one line here.
+  var LANGS=[["en","🇬🇧","English"],["cs","🇨🇿","Čeština"],["da","🇩🇰","Dansk"],["de","🇩🇪","Deutsch"],["es","🇪🇸","Español"],["la","🌎","Español (Latinoamérica)"],["fr","🇫🇷","Français"],["it","🇮🇹","Italiano"],["nl","🇳🇱","Nederlands"],["no","🇳🇴","Norsk"],["pl","🇵🇱","Polski"],["pt","🇵🇹","Português"],["br","🇧🇷","Português (Brasil)"],["sv","🇸🇪","Svenska"],["he","🇮🇱","עברית"]];
+  var DICT={en:EN,es:ES,de:DE,fr:FR,pt:PT,br:BR,it:IT,nl:NL,pl:PL,cs:CS,sv:SV,da:DA,no:NO,la:LA,he:HE};
+  var sel=document.getElementById("langSelect");
+  LANGS.forEach(function(x){var o=document.createElement("option");o.value=x[0];o.textContent=x[1]+"  "+x[2];sel.appendChild(o)});
+  sel.addEventListener("change",function(){setLang(sel.value);try{localStorage.setItem("lang",sel.value)}catch(e){}});
+
+  // 1. own choice, 2. browser language, 3. English
+  function fromBrowser(){
+    var list=(navigator.languages&&navigator.languages.length)?navigator.languages:[navigator.language||""];
+    for(var i=0;i<list.length;i++){
+      var t=String(list[i]||"").toLowerCase().replace("_","-"), p=t.split("-")[0], r=t.split("-")[1]||"";
+      if(p==="es")return (r===""||r==="es")?"es":"la";
+      if(p==="pt")return r==="br"?"br":"pt";
+      if(p==="nb"||p==="nn"||p==="no")return "no";
+      if(p==="iw")return "he";
+      if(DICT[p]&&p!=="br"&&p!=="la")return p;
+    }
+    return null;
+  }
+  var start="en";
+  try{var s=localStorage.getItem("lang");if(s&&DICT[s])start=s;else start=fromBrowser()||"en"}catch(e){start=fromBrowser()||"en"}
+  // Share: the link follows wherever the page is opened from.
+  var FALLBACK_URL="https://claude.ai/artifact/U4ih9S8wEwMefo1CeazwjE";
+  function pageUrl(){
+    try{ if(window.top===window && /^https?:/.test(location.href)) return location.href.split("#")[0]; }catch(e){}
+    var r=document.referrer||"";
+    if(/^https?:\/\/[^\/]+\/.*artifact/.test(r)) return r.split("#")[0];
+    return FALLBACK_URL;
+  }
+  var SHARE_URL=pageUrl();
+  document.getElementById("shurl").textContent=SHARE_URL.replace(/^https?:\/\//,"");
+  try{
+    if(window.qrcode){var q=qrcode(0,"M");q.addData(SHARE_URL);q.make();document.getElementById("qr").innerHTML=q.createSvgTag(5,2);}
+  }catch(e){}
+  var cpBtn=document.getElementById("shCopy");
+  function copied(){var t=cpBtn.textContent;cpBtn.textContent=(DICT[lang]||DE).shCopied||"✓";setTimeout(function(){cpBtn.textContent=(DICT[lang]||DE).shCopy||t},1800)}
+  function selectUrl(){var el=document.getElementById("shurl");el.textContent=SHARE_URL;var r=document.createRange();r.selectNodeContents(el);var sel=window.getSelection();sel.removeAllRanges();sel.addRange(r)}
+  function fallbackCopy(){var ok=false,ta=document.createElement("textarea");ta.value=SHARE_URL;ta.setAttribute("readonly","");ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();try{ok=document.execCommand("copy")}catch(e){}document.body.removeChild(ta);if(ok)copied();else selectUrl()}
+  function copyLink(){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(SHARE_URL).then(copied,fallbackCopy)}else fallbackCopy()}
+  cpBtn.addEventListener("click",copyLink);
+  var shBtn=document.getElementById("shShare");
+  var pol=document.permissionsPolicy||document.featurePolicy;
+  var shareAllowed=!!navigator.share&&!(pol&&pol.allowsFeature&&!pol.allowsFeature("web-share"));
+  if(shareAllowed){shBtn.hidden=false;shBtn.addEventListener("click",function(){
+    navigator.share({title:document.title,url:SHARE_URL}).catch(function(e){if(!e||e.name!=="AbortError"){shBtn.hidden=true;copyLink()}});
+  });}
+  deal();
+  setLang(start);
+})();
+</script>
+</body>
+</html>
