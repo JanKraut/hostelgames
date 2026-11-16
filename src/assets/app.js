@@ -1,7 +1,15 @@
 // Progressive enhancement: the page is fully readable without this file.
-// It adds the practice quiz, the QR code and share buttons, and remembers the chosen language.
+// It adds the practice quiz, the QR code and share buttons, remembers the chosen language
+// and installs the service worker that makes the site work offline.
 
 const $ = (id) => document.getElementById(id);
+
+// ---------- Offline ----------
+
+// sw.js sits next to the pages, one folder above this script.
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register(new URL("../sw.js", document.currentScript.src)).catch(() => {});
+}
 
 // ---------- Language menu ----------
 

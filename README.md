@@ -30,8 +30,10 @@ Beim ersten Mal ggf. den Browser installieren: `npx playwright install chromium`
 | `src/_data/fonts.js` | Welche Schriften, Schnitte und Zeichensätze ausgeliefert werden |
 | `src/fonts.11ty.js` | Erzeugt `/assets/fonts.css` aus den `@fontsource`-Paketen |
 | `src/assets/` | Stylesheet, JavaScript und Icons, werden unverändert kopiert |
+| `src/sw.js` | Service Worker (Vorlage), siehe „Offline“ |
+| `src/manifest.webmanifest` | Web-App-Manifest, macht die Seite installierbar |
 | `scripts/check-i18n.js` | Prüft die Übersetzungen, siehe unten |
-| `tests/site.spec.js` | Playwright-Tests: alle Sprachseiten, Weiterleitung, ohne JavaScript, Quiz, Teilen |
+| `tests/site.spec.js` | Playwright-Tests: alle Sprachseiten, Weiterleitung, ohne JavaScript, Quiz, Teilen, Offline |
 | `tests/serve.js` | Kleiner Server, der `_site/` unter dem Pages-Pfad ausliefert |
 
 ## Keine externen Ressourcen
@@ -45,6 +47,21 @@ Die Seite lädt nichts von fremden Servern (kein Google Fonts, kein CDN):
 - **QR-Code** erzeugt `qrcode-generator` (MIT), kopiert nach `/assets/qrcode.js`.
 
 Ein Test stellt sicher, dass das so bleibt.
+
+## Offline
+
+Nach dem ersten Besuch funktioniert die ganze Seite ohne Netz, inklusive aller Sprachen, Quiz und
+QR-Code. Dafür speichert ein Service Worker alle Dateien der Seite (unter 1 MB):
+
+- `eleventy.config.js` schreibt nach jedem Build `_site/sw.js` aus der Vorlage `src/sw.js` und
+  trägt die Liste aller Dateien und einen Hash über ihren Inhalt ein. Ändert sich etwas, bekommt
+  der nächste Besuch eine neue Version und der alte Speicher wird gelöscht.
+- Seiten kommen zuerst aus dem Netz (Updates sind sofort da), nur offline aus dem Speicher.
+  CSS, JavaScript, Schriften und Icons kommen aus dem Speicher.
+- Über das Manifest lässt sich die Seite auf den Homescreen legen.
+
+Beim Entwickeln mit `npm start` ist der Service Worker auch aktiv: Geänderte CSS- oder JS-Dateien
+erscheinen deshalb erst nach einem zweiten Neuladen (oder in den DevTools „Update on reload“ aktivieren).
 
 ## Sprachen und Fallbacks
 
