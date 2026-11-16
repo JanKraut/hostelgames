@@ -233,3 +233,68 @@ test.describe("self-contained", () => {
     }
   });
 });
+
+test.describe("offline", () => {
+  /** Waits until the service worker has cached everything and controls the page. */
+  async function installed(page) {
+    await page.evaluate(async () => {
+      await navigator.serviceWorker.ready;
+      if (!navigator.serviceWorker.controller) {
+        await new Promise((resolve) => navigator.serviceWorker.addEventListener("controllerchange", resolve, { once: true }));
+      }
+    });
+  }
+
+  async function openAndInstall(page, lang) {
+    await openLanguage(page, lang);
+    await installed(page);
+  }
+
+  test("after one visit the whole site works without network", async ({ page, context }) => {
+    await openAndInstall(page, byCode.de);
+    await context.setOffline(true);
+
+    await page.reload();
+    await expect(page.locator("h2").first()).toHaveText(byCode.de.t.setupH);
+    await expect(page.locator("#qr svg")).toBeVisible();
+
+    // Other languages were cached too, not only the visited page.
+    await page.locator(".langmenu summary").click();
+    await page.locator('.langmenu a[data-lang="he"]').click();
+    await expect(page).toHaveURL(/\/he\/$/);
+    await expect(page.locator("h2").first()).toHaveText(byCode.he.t.setupH);
+    await page.evaluate(() => document.fonts.ready);
+    const failedFonts = await page.evaluate(() => [...document.fonts].filter((f) => f.status === "error").length);
+    expect(failedFonts, "fonts that failed to load offline").toBe(0);
+
+    // The quiz still works.
+    await page.locator("#btns .yes").click();
+    await expect(page.locator("#fb span")).toBeVisible();
+  });
+
+  test("the start page redirects offline too", async ({ browser, baseURL }) => {
+    const context = await browser.newContext({ locale: "en-US" });
+    const page = await context.newPage();
+    await page.goto(baseURL);
+    await installed(page);
+    await context.setOffline(true);
+    await page.evaluate(() => localStorage.setItem("lang", "es"));
+    await page.goto(baseURL);
+    await expect(page).toHaveURL(/\/es\/$/);
+    await expect(page.locator("h2").first()).toHaveText(byCode.es.t.setupH);
+    await context.close();
+  });
+
+  test("the app can be installed: manifest and its icons exist", async ({ page, request }) => {
+    await openLanguage(page, byCode.en);
+    const href = await page.locator('link[rel="manifest"]').getAttribute("href");
+    const manifestUrl = new URL(href, page.url()).href;
+    const manifest = await (await request.get(manifestUrl)).json();
+    expect(manifest.start_url).toBe("./");
+    expect(manifest.display).toBe("standalone");
+    for (const icon of manifest.icons) {
+      const response = await request.get(new URL(icon.src, manifestUrl).href);
+      expect(response.ok(), icon.src).toBe(true);
+    }
+  });
+});

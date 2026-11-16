@@ -6,7 +6,7 @@ import site from "../src/_data/site.js";
 
 const ROOT = new URL("../_site/", import.meta.url).pathname;
 const PORT = Number(process.env.PORT ?? 8080);
-const TYPES = { ".html": "text/html; charset=utf-8", ".css": "text/css", ".js": "text/javascript", ".json": "application/json", ".svg": "image/svg+xml", ".png": "image/png" };
+const TYPES = { ".html": "text/html; charset=utf-8", ".css": "text/css", ".js": "text/javascript", ".json": "application/json", ".svg": "image/svg+xml", ".png": "image/png", ".woff2": "font/woff2", ".webmanifest": "application/manifest+json" };
 
 createServer(async (req, res) => {
   const { pathname } = new URL(req.url, "http://localhost");
