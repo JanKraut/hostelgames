@@ -10,6 +10,7 @@ JavaScript ergänzt nur das Übungsquiz, QR-Code und Teilen-Buttons und merkt si
 ```sh
 npm install
 npm start        # Dev-Server mit Live-Reload: http://localhost:8080/shithead-rules/
+npm run check    # prüft die Übersetzungen (läuft auch bei jedem Build)
 npm run build    # schreibt die Seite nach _site/
 npm test         # Playwright-Tests gegen das gebaute _site/ (vorher npm run build)
 ```
@@ -27,6 +28,7 @@ Beim ersten Mal ggf. den Browser installieren: `npx playwright install chromium`
 | `src/_data/i18n/*.json` | Texte pro Sprache, inklusive Quiztexte unter `quiz` |
 | `src/_data/site.js` | Öffentliche URL und Pfad-Präfix |
 | `src/assets/` | Stylesheet und JavaScript, werden unverändert kopiert |
+| `scripts/check-i18n.js` | Prüft die Übersetzungen, siehe unten |
 | `tests/site.spec.js` | Playwright-Tests: alle Sprachseiten, Weiterleitung, ohne JavaScript, Quiz, Teilen |
 | `tests/serve.js` | Kleiner Server, der `_site/` unter dem Pages-Pfad ausliefert |
 
@@ -38,6 +40,13 @@ nach aus ihren `fallback`-Sprachen und zuletzt aus Englisch. `es-419` (Lateiname
 Beispiel nur die wenigen Texte, die von `es` abweichen.
 
 **Neue Sprache:** `src/_data/i18n/<code>.json` anlegen und eine Zeile in `src/_data/languages.js` ergänzen.
+
+**Prüfung:** `npm run check` (Teil von `npm run build`) bricht mit einer Liste der Probleme ab, wenn
+- ein Text fehlt, also weder in der Sprache selbst noch in einer ihrer Fallback-Sprachen steht und deshalb auf Englisch erscheinen würde,
+- ein Text leer ist oder nicht in Englisch vorkommt (Tippfehler, Überbleibsel),
+- Platzhalter wie `{mine}` oder `{top}` oder die HTML-Tags von Englisch abweichen oder Tags nicht geschlossen sind,
+- ein Link auf einen `#abschnitt` zeigt, den es auf der Seite nicht gibt,
+- `languages.js` und die JSON-Dateien nicht zusammenpassen.
 
 ## Deployment
 
