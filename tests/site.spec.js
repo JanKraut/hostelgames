@@ -30,7 +30,8 @@ test.describe("every language page", () => {
       await expect(page.locator("html")).toHaveAttribute("lang", lang.htmlLang);
       await expect(page.locator("html")).toHaveAttribute("dir", lang.dir);
       await expect(page.locator("h2").first()).toHaveText(lang.t.setupH);
-      await expect(page.locator("#spickzettel h2")).toHaveText(lang.t.chH);
+      await expect(page.locator("#spickzettel")).toHaveCount(0);
+      await expect(page.locator(".pagetabs a[aria-current=page]")).toHaveText(lang.t.pgRules);
       await expect(page.locator(".langmenu a[aria-current=page]")).toHaveAttribute("data-lang", lang.code);
 
       // One hreflang link per language plus x-default, and a canonical URL.
@@ -46,6 +47,61 @@ test.describe("every language page", () => {
       await openLanguage(page, lang);
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
       expect(overflow).toBeLessThanOrEqual(0);
+    });
+  }
+});
+
+// Strategy and quick start: one page each per language, linked by the tabs at the top.
+const SUBPAGES = [
+  { sub: "strategy/", tab: (t) => t.n6, title: (t) => `${t.stH} · ${t.title}`, check: "#strategie .strats li" },
+  { sub: "quickstart/", tab: (t) => t.pgQuick, title: (t) => `${t.pgQuick} · ${t.title}`, check: "#spickzettel dt" },
+];
+
+test.describe("strategy and quick start pages", () => {
+  for (const lang of languages) {
+    for (const { sub, tab, title, check } of SUBPAGES) {
+      test(`${lang.code} ${sub} renders its own texts and fits the screen`, async ({ page }) => {
+        await page.addInitScript((code) => localStorage.setItem("lang", code), lang.code);
+        await page.goto(pathOf(lang) + sub);
+
+        await expect(page).toHaveTitle(title(lang.t));
+        await expect(page.locator("html")).toHaveAttribute("lang", lang.htmlLang);
+        await expect(page.locator(check).first()).toBeVisible();
+        await expect(page.locator(".pagetabs a[aria-current=page]")).toHaveText(tab(lang.t));
+        await expect(page.locator("link[rel=canonical]")).toHaveAttribute("href", lang.url + sub);
+        await expect(page.locator(`.langmenu a[data-lang="${lang.code}"]`)).toHaveAttribute("href", new RegExp(`${sub}$`));
+
+        const text = await page.locator("body").innerText();
+        expect(text).not.toMatch(/undefined|\[object|\{\{|\{%/);
+        const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+        expect(overflow).toBeLessThanOrEqual(0);
+      });
+    }
+  }
+
+  test("the tabs link the three pages", async ({ page }) => {
+    await openLanguage(page, byCode.de);
+    await page.locator(".pagetabs a", { hasText: byCode.de.t.n6 }).click();
+    await expect(page).toHaveURL(/\/de\/strategy\/$/);
+    await page.locator(".pagetabs a", { hasText: byCode.de.t.pgQuick }).click();
+    await expect(page).toHaveURL(/\/de\/quickstart\/$/);
+    await page.locator(".pagetabs a", { hasText: byCode.de.t.pgRules }).click();
+    await expect(page).toHaveURL(/\/de\/$/);
+  });
+
+  test("the English quick start redirects to the saved language", async ({ page, baseURL }) => {
+    await page.addInitScript(() => localStorage.setItem("lang", "de"));
+    await page.goto(baseURL + "quickstart/");
+    await expect(page).toHaveURL(/\/de\/quickstart\/$/);
+  });
+
+  for (const [width, height] of [[360, 740], [390, 844]]) {
+    test(`the quick start fits on one phone screen (${width} × ${height})`, async ({ page }) => {
+      await page.setViewportSize({ width, height });
+      await openLanguage(page, byCode.de);
+      await page.goto("de/quickstart/");
+      const bottom = await page.locator("#spickzettel .cheat").evaluate((el) => el.getBoundingClientRect().bottom);
+      expect(bottom).toBeLessThanOrEqual(height);
     });
   }
 });

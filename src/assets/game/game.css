@@ -8,14 +8,6 @@
 
 /* ---------- Header (settings screen) ---------- */
 
-.hero-small {
-  padding-bottom: 1.6rem;
-}
-
-.hero-small h1 {
-  font-size: clamp(2rem, 9vw, 3.2rem);
-}
-
 .backlink {
   margin: 0 0 0.6rem;
 }

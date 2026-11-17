@@ -18,6 +18,7 @@ scripts: ["/assets/rules.js"]
 <header class="hero">
   <div class="wrap">
     {% include "langmenu.njk" %}
+    {% include "pagenav.njk" %}
     <h1>{{ t.h1 | safe }}</h1>
     <p>{{ t.sub | safe }}</p>
     <div class="fan" aria-hidden="true">
@@ -32,7 +33,7 @@ scripts: ["/assets/rules.js"]
   </div>
 </header>
 
-<nav aria-label="{{ t.navLabel }}">
+<nav class="secnav" aria-label="{{ t.navLabel }}">
   <ul>
     <li><a href="#aufbau">{{ t.n1 }}</a></li>
     <li><a href="#tauschen">{{ t.n1b }}</a></li>
@@ -41,8 +42,6 @@ scripts: ["/assets/rules.js"]
     <li><a href="#ende">{{ t.n4 }}</a></li>
     <li class="js-only"><a href="#ueben">{{ t.n5 }}</a></li>
     <li><a href="{{ lang.path }}play/">{{ t.game.ctaBtn }}</a></li>
-    <li><a href="#strategie">{{ t.n6 }}</a></li>
-    <li><a href="#spickzettel">{{ t.n7 }}</a></li>
     <li><a href="#teilen">{{ t.n8 }}</a></li>
   </ul>
 </nav>
@@ -214,34 +213,6 @@ scripts: ["/assets/rules.js"]
       <h2>{{ t.game.ctaH }}</h2>
       <p>{{ t.game.ctaP }}</p>
       <a class="ctabtn" href="{{ lang.path }}play/">{{ t.game.ctaBtn }} →</a>
-    </div>
-  </section>
-
-  <section id="strategie">
-    <h2>{{ t.stH }}</h2>
-    <p class="lead">{{ t.stLead | safe }}</p>
-    <ul class="strats">
-      {%- for i in range(1, 8) %}
-      <li><h3>{{ t["t" + i + "h"] }}</h3><p>{{ t["t" + i + "p"] | safe }}</p></li>
-      {%- endfor %}
-    </ul>
-  </section>
-
-  <section id="spickzettel">
-    <div class="cheat">
-      <h2>{{ t.chH }}</h2>
-      <dl>
-        <dt>{{ t.c1t }}</dt><dd>{{ t.c1d | safe }}</dd>
-        <dt>{{ t.c2t }}</dt><dd>{{ t.c2d | safe }}</dd>
-        <dt>{{ t.c3t }}</dt><dd>{{ t.c3d | safe }}</dd>
-        <dt>2</dt><dd>{{ t.c4d | safe }}</dd>
-        <dt>3</dt><dd>{{ t.c5d | safe }}</dd>
-        <dt>7</dt><dd>{{ t.c6d | safe }}</dd>
-        <dt>8</dt><dd>{{ t.c8bd | safe }}</dd>
-        <dt>10</dt><dd>{{ t.c7d | safe }}</dd>
-        <dt>4×</dt><dd>{{ t.c8d | safe }}</dd>
-        <dt>{{ t.c9t }}</dt><dd>{{ t.c9d | safe }}</dd>
-      </dl>
     </div>
   </section>
 

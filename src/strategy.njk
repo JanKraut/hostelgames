@@ -1,0 +1,34 @@
+---
+pagination:
+  data: languages
+  size: 1
+  alias: lang
+permalink: "{{ lang.path }}strategy/"
+layout: layouts/base.njk
+subpath: "strategy/"
+eleventyComputed:
+  pageTitle: "{{ lang.t.stH }} · {{ lang.t.title }}"
+  pageDescription: "{{ lang.t.stLead | striptags }}"
+---
+{%- set t = lang.t -%}
+
+<header class="hero hero-small">
+  <div class="wrap">
+    {% include "langmenu.njk" %}
+    {% include "pagenav.njk" %}
+    <h1>{{ t.stH }}</h1>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="strategie">
+    <p class="lead">{{ t.stLead | safe }}</p>
+    <ul class="strats">
+      {%- for i in range(1, 8) %}
+      <li><h3>{{ t["t" + i + "h"] }}</h3><p>{{ t["t" + i + "p"] | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+  </section>
+</main>
+
+<footer>{{ t.foot | safe }}</footer>

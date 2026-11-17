@@ -1,0 +1,41 @@
+---
+pagination:
+  data: languages
+  size: 1
+  alias: lang
+permalink: "{{ lang.path }}quickstart/"
+layout: layouts/base.njk
+subpath: "quickstart/"
+eleventyComputed:
+  pageTitle: "{{ lang.t.pgQuick }} · {{ lang.t.title }}"
+  pageDescription: "{{ lang.t.sub | striptags }}"
+---
+{#- Meant to stay open on a phone next to the game: everything fits on one screen. -#}
+{%- set t = lang.t -%}
+
+<header class="hero hero-small hero-quick">
+  <div class="wrap">
+    {% include "langmenu.njk" %}
+    {% include "pagenav.njk" %}
+  </div>
+</header>
+
+<main class="wrap quick">
+  <section id="spickzettel">
+    <div class="cheat">
+      <h1>{{ t.chH }}</h1>
+      <dl>
+        <dt>{{ t.c1t }}</dt><dd>{{ t.c1d | safe }}</dd>
+        <dt>{{ t.c2t }}</dt><dd>{{ t.c2d | safe }}</dd>
+        <dt>{{ t.c3t }}</dt><dd>{{ t.c3d | safe }}</dd>
+        <dt>2</dt><dd>{{ t.c4d | safe }}</dd>
+        <dt>3</dt><dd>{{ t.c5d | safe }}</dd>
+        <dt>7</dt><dd>{{ t.c6d | safe }}</dd>
+        <dt>8</dt><dd>{{ t.c8bd | safe }}</dd>
+        <dt>10</dt><dd>{{ t.c7d | safe }}</dd>
+        <dt>4×</dt><dd>{{ t.c8d | safe }}</dd>
+        <dt>{{ t.c9t }}</dt><dd>{{ t.c9d | safe }}</dd>
+      </dl>
+    </div>
+  </section>
+</main>
