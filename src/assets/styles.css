@@ -18,12 +18,27 @@
   --red: #c8243b;
   --gold: #e8b22c;
   --line: #d9ddd6;
+  --surface: #fbfaf6;
+  /* Headings: same as the surrounding text in light mode */
+  --ink-strong: currentColor;
+  /* Text on red buttons */
+  --on-red: #fff;
+  /* Quiz feedback on felt */
+  --ok: #8ef0bc;
+  --ko: #ffb4ac;
+  /* Cheat sheet box */
+  --cheat-bg: var(--ink);
+  --cheat-text: var(--page);
+  --cheat-heading: var(--page);
   --cheat-dt: #ff8a97;
 
   /* Fixed colours: cards and wood always look the same */
   --card-ink: #1a1d21;
   --card-red: #c8243b;
   --card-red-dark: #a61c30;
+  --card-green: #1f7a4d;
+  --menu-hover: #ecefe8;
+  --menu-current: #e2eae4;
   --wood-a: #bc8752;
   --wood-b: #a46f3c;
   --wood-edge: #6e4826;
@@ -40,20 +55,28 @@
   color-scheme: light;
 }
 
+/* Dark mode: slate background, light grey text with white headings,
+   navy panels and a warm gold accent. */
 @media (prefers-color-scheme: dark) {
   :root {
-    --felt: #173f31;
-    --felt-deep: #0f2e23;
-    --felt-text: #eef1ea;
-    --felt-soft: #9fbfae;
+    --felt: #002e69;
+    --felt-deep: #011927;
+    --felt-text: #ffffff;
+    --felt-soft: #b4bfd6;
     --paper: #f4f2ec;
-    --page: #121614;
-    --ink: #e9ece7;
-    --muted: #a7b2ab;
-    --red: #e0485d;
-    --gold: #f0c04a;
-    --line: #2a332e;
-    --cheat-dt: #a61c30;
+    --page: #1d1f26;
+    --surface: #262931;
+    --ink: #c3c3c3;
+    --ink-strong: #ffffff;
+    --muted: #9899ab;
+    --red: #ff4f55;
+    --on-red: #1d1f26;
+    --gold: #f0c029;
+    --line: #3a404c;
+    --cheat-bg: var(--surface);
+    --cheat-text: var(--ink);
+    --cheat-heading: var(--ink-strong);
+    --cheat-dt: var(--gold);
     color-scheme: dark;
   }
 }
@@ -105,6 +128,7 @@ h3 {
   font-family: var(--font-display);
   font-weight: var(--font-display-weight);
   line-height: 1.08;
+  color: var(--ink-strong);
 }
 
 h2 {
@@ -376,7 +400,7 @@ h3.sub.first {
 
 .quick .cheat h1 {
   margin-bottom: 0.6rem;
-  color: var(--page);
+  color: var(--cheat-heading);
   font-size: 1.6rem;
 }
 
@@ -461,11 +485,11 @@ h3.sub.first {
 }
 
 .langmenu a:hover {
-  background: #ecefe8;
+  background: var(--menu-hover);
 }
 
 .langmenu a[aria-current="page"] {
-  background: #e2eae4;
+  background: var(--menu-current);
   font-weight: 700;
 }
 
@@ -788,7 +812,7 @@ ol.steps p {
 }
 
 .yes-br .bh {
-  color: #1f7a4d;
+  color: var(--card-green);
 }
 
 .no-br .bh {
@@ -958,7 +982,7 @@ ol.steps p {
 
 .no {
   background: var(--red);
-  color: #fff;
+  color: var(--on-red);
 }
 
 .next {
@@ -975,12 +999,12 @@ ol.steps p {
 }
 
 .fb .ok {
-  color: #8ef0bc;
+  color: var(--ok);
   font-weight: 700;
 }
 
 .fb .ko {
-  color: #ffb4ac;
+  color: var(--ko);
   font-weight: 700;
 }
 
@@ -1018,12 +1042,12 @@ ol.steps p {
   margin: 1rem 0 0;
   padding: 1.4rem 1.2rem;
   border-radius: 20px;
-  background: var(--ink);
-  color: var(--page);
+  background: var(--cheat-bg);
+  color: var(--cheat-text);
 }
 
 .cheat h2 {
-  color: var(--page);
+  color: var(--cheat-heading);
 }
 
 .cheat dl {
