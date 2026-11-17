@@ -9,7 +9,7 @@ JavaScript ergänzt nur das Übungsquiz, QR-Code und Teilen-Buttons und merkt si
 
 ```sh
 npm install
-npm start        # Dev-Server mit Live-Reload: http://localhost:8080/shithead-rules/
+npm start        # Dev-Server mit Live-Reload: http://localhost:8080/shitheadgame/
 npm run check    # prüft die Übersetzungen (läuft auch bei jedem Build)
 npm run build    # schreibt die Seite nach _site/
 npm test         # Playwright-Tests gegen das gebaute _site/ (vorher npm run build)
