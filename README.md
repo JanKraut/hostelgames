@@ -22,6 +22,9 @@ Beim ersten Mal ggf. den Browser installieren: `npx playwright install chromium`
 | Pfad | Inhalt |
 | --- | --- |
 | `src/index.njk` | Regelseite, wird einmal pro Sprache gerendert |
+| `src/strategy.njk` | Strategieseite (`/strategy/`, `/de/strategy/` …) |
+| `src/quickstart.njk` | Quickstart: Spickzettel, passt auf einen Handybildschirm (`/quickstart/`, `/de/quickstart/` …) |
+| `src/_includes/pagenav.njk` | Reiter oben zwischen Regeln, Strategie und Quickstart |
 | `src/play.njk` | Spielseite gegen Bots (`/play/`, `/de/play/` …) |
 | `src/_includes/layouts/base.njk` | Gemeinsamer Rahmen: Kopf, `hreflang`, Skripte |
 | `src/_includes/langmenu.njk` | Sprachmenü, verlinkt auf dieselbe Seite in jeder Sprache |

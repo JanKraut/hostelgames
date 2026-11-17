@@ -304,6 +304,87 @@ h3.sub.first {
   font-size: 1.15rem;
 }
 
+/* Tabs between the pages: rules, strategy, quick start */
+.pagetabs ul {
+  display: flex;
+  gap: 0.3rem;
+  margin: 0 0 1.4rem;
+  padding: 0.25rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.18);
+  list-style: none;
+}
+
+.pagetabs li {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.pagetabs a {
+  display: block;
+  overflow: hidden;
+  padding: 0.45rem 0.5rem;
+  border-radius: 999px;
+  color: var(--felt-soft);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pagetabs a:hover {
+  color: var(--felt-text);
+}
+
+.pagetabs a[aria-current="page"] {
+  background: var(--felt-text);
+  color: var(--felt-deep);
+}
+
+/* Smaller header for the subpages */
+.hero-small {
+  padding-bottom: 1.6rem;
+}
+
+.hero-small h1 {
+  font-size: clamp(2rem, 9vw, 3.2rem);
+}
+
+/* Quick start: header is only language menu and tabs, so the cheat sheet fits one phone screen */
+.hero-quick {
+  padding-bottom: 0.2rem;
+}
+
+.hero-quick .langbar {
+  margin-bottom: 0.6rem;
+}
+
+.hero-quick .pagetabs ul {
+  margin-bottom: 0.6rem;
+}
+
+.quick section {
+  padding: 0.8rem 0 1.2rem;
+}
+
+.quick .cheat {
+  margin: 0;
+  padding: 1rem 1.1rem;
+}
+
+.quick .cheat h1 {
+  margin-bottom: 0.6rem;
+  color: var(--page);
+  font-size: 1.6rem;
+}
+
+.quick .cheat dl {
+  gap: 0.4rem 0.9rem;
+  line-height: 1.35;
+}
+
 /* Language menu: a plain <details> with links, works without JavaScript */
 .langbar {
   display: flex;
@@ -468,7 +549,7 @@ h3.sub.first {
 
 /* ---------- Section navigation ---------- */
 
-nav {
+.secnav {
   position: sticky;
   top: env(safe-area-inset-top, 0px);
   z-index: 9;
@@ -476,7 +557,7 @@ nav {
   color: var(--felt-text);
 }
 
-nav ul {
+.secnav ul {
   display: flex;
   gap: 0.25rem;
   max-width: 40rem;
@@ -487,11 +568,11 @@ nav ul {
   scrollbar-width: none;
 }
 
-nav ul::-webkit-scrollbar {
+.secnav ul::-webkit-scrollbar {
   display: none;
 }
 
-nav a {
+.secnav a {
   display: block;
   padding: 0.4rem 0.8rem;
   border-radius: 999px;
@@ -502,7 +583,7 @@ nav a {
   text-decoration: none;
 }
 
-nav a:hover {
+.secnav a:hover {
   background: rgba(255, 255, 255, 0.18);
 }
 

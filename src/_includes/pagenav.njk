@@ -1,0 +1,10 @@
+{#- Tabs between the three main pages. The current one is marked via `subpath`. -#}
+{%- set here = subpath or "" -%}
+{%- set t = lang.t -%}
+<nav class="pagetabs" aria-label="{{ t.pgLabel }}">
+  <ul>
+    {%- for p in [["", t.pgRules], ["strategy/", t.n6], ["quickstart/", t.pgQuick]] %}
+    <li><a href="{{ lang.path }}{{ p[0] }}"{% if p[0] == here %} aria-current="page"{% endif %}>{{ p[1] }}</a></li>
+    {%- endfor %}
+  </ul>
+</nav>
