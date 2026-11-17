@@ -46,10 +46,11 @@
   --wood-text-shadow: 0 1px 2px rgba(40, 20, 5, 0.6);
 
   /* Fonts */
-  --font-body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: "Archivo Black", "Arial Black", Impact, sans-serif;
-  --font-display-weight: 400;
-  --font-cards: "Archivo Black", "Arial Black", sans-serif;
+  --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display-weight: 800;
+  --font-cards: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-cards-weight: 800;
   --font-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
 
   color-scheme: light;
@@ -83,8 +84,8 @@
 
 /* Hebrew: Rubik has Hebrew glyphs, the Latin fonts above do not. */
 html[lang="he"] {
-  --font-body: "Rubik", "Atkinson Hyperlegible", system-ui, sans-serif;
-  --font-display: "Rubik", "Archivo Black", sans-serif;
+  --font-body: "Rubik", "Manrope", system-ui, sans-serif;
+  --font-display: "Rubik", "Manrope", sans-serif;
   --font-display-weight: 900;
 }
 
@@ -209,6 +210,7 @@ h3.sub.first {
   background: var(--paper);
   color: var(--card-ink);
   font-family: var(--font-cards);
+  font-weight: var(--font-cards-weight);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), 0 6px 16px rgba(0, 0, 0, 0.28);
 }
 
@@ -737,6 +739,7 @@ ol.steps li::before {
   background: var(--felt);
   color: var(--felt-text);
   font-family: var(--font-cards);
+  font-weight: var(--font-cards-weight);
   font-size: 1.05rem;
 }
 
