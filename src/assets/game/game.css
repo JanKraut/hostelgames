@@ -291,7 +291,7 @@ html.playing .game {
   background: var(--paper);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   color: var(--card-ink);
-  font: 0.8rem/1.45rem var(--font-cards);
+  font: var(--font-cards-weight) 0.8rem/1.45rem var(--font-cards);
   text-align: center;
 }
 

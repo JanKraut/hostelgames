@@ -22,6 +22,11 @@
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
+{%- if lang.dir != "rtl" %}
+{#- Fetch the main font files right away instead of after the CSS is parsed. #}
+<link rel="preload" href="/assets/fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/manrope-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+{%- endif %}
 <link rel="stylesheet" href="/assets/fonts.css">
 <link rel="stylesheet" href="/assets/styles.css">
 {%- for href in styles %}

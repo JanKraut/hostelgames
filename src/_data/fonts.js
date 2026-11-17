@@ -2,8 +2,8 @@
 // Only these weights and character subsets are published; the browser downloads
 // a file only when the page uses characters from its unicode-range.
 export default [
-  { pkg: "atkinson-hyperlegible", weights: [400, 700], subsets: ["latin", "latin-ext"] },
-  { pkg: "archivo-black", weights: [400], subsets: ["latin", "latin-ext"] },
+  // Body text (400, 700), headings and card ranks (800)
+  { pkg: "manrope", weights: [400, 700, 800], subsets: ["latin", "latin-ext"] },
   // Hebrew page only
   { pkg: "rubik", weights: [400, 700, 900], subsets: ["latin", "hebrew"] },
 ];
