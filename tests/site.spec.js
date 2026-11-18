@@ -184,7 +184,7 @@ test("strategy page: big header with its own title and intro", async ({ page }) 
     await openLanguage(page, lang);
     await page.goto(pathOf(lang) + "strategy/");
     await expect(page.locator(".hero h1")).toHaveText(lang.t.strategy.h1);
-    await expect(page.locator(".hero .fan .card")).toHaveCount(3);
+    await expect(page.locator(".hero .fan .card")).toHaveCount(4);
     await expect(page.locator(".hero .goal")).toBeVisible();
     if (code === "en") await expect(page.locator("#strategie h2")).toHaveText(lang.t.stH);
   }
