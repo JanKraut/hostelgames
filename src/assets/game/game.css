@@ -77,7 +77,7 @@
 }
 
 .choices input:focus-visible + span {
-  outline: 3px solid var(--gold);
+  outline: 3px solid var(--gold-line);
   outline-offset: 3px;
 }
 
@@ -224,7 +224,7 @@ html.playing .game {
 }
 
 .opp.active {
-  border-color: var(--gold);
+  border-color: var(--gold-line);
   background: color-mix(in srgb, var(--gold) 12%, transparent);
 }
 
@@ -291,7 +291,7 @@ html.playing .game {
   background: var(--paper);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   color: var(--card-ink);
-  font: 0.8rem/1.45rem var(--font-cards);
+  font: var(--font-cards-weight) 0.8rem/1.45rem var(--font-cards);
   text-align: center;
 }
 
@@ -448,7 +448,7 @@ html.playing .game {
 }
 
 .me.active {
-  border-color: var(--gold);
+  border-color: var(--gold-line);
   background: color-mix(in srgb, var(--gold) 8%, transparent);
 }
 
