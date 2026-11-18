@@ -13,8 +13,12 @@
 import { readFileSync, readdirSync } from "node:fs";
 
 const DIR = new URL("../src/_data/i18n/", import.meta.url);
-const TEMPLATE = new URL("../src/index.njk", import.meta.url);
+// The rules page and the parts it includes; #links in texts point to sections there.
+const TEMPLATES = ["../src/index.njk", "../src/_includes/specials.njk"].map((path) => new URL(path, import.meta.url));
 const DEFAULT = "en";
+// New sections that exist in some languages only, until they are translated.
+// The page shows them only where the texts exist (e.g. `info` = quick start fact sheet).
+const PENDING = ["info.", "quick."];
 
 // Only code and fallback are needed from languages.js.
 let LANGUAGES;
@@ -54,7 +58,9 @@ function unbalanced(text) {
   return open.length ? `<${open.join(">, <")}> not closed` : null;
 }
 
-const sectionIds = new Set([...readFileSync(TEMPLATE, "utf8").matchAll(/<section id="([^"]+)"/g)].map((m) => m[1]));
+const sectionIds = new Set(
+  TEMPLATES.flatMap((file) => [...readFileSync(file, "utf8").matchAll(/<section id="([^"]+)"/g)].map((m) => m[1])),
+);
 
 // ---------- languages.js and files match ----------
 
@@ -77,6 +83,7 @@ for (const lang of LANGUAGES) {
   const chain = [lang.code, ...(lang.fallback ?? [])].filter((code) => code !== DEFAULT);
 
   for (const key of Object.keys(own)) {
+    if (PENDING.some((prefix) => key.startsWith(prefix))) continue;
     if (!(key in english)) report(lang.code, key, "not in English (typo or leftover?)");
   }
 

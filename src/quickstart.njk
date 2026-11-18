@@ -10,20 +10,44 @@ eleventyComputed:
   pageTitle: "{{ lang.t.pgQuick }} · {{ lang.t.title }}"
   pageDescription: "{{ lang.t.sub | striptags }}"
 ---
-{#- Meant to stay open on a phone next to the game: everything fits on one screen. -#}
+{#- Same header as the rules page, then a compact cheat sheet (fits one phone screen)
+    and the special cards. Languages with `quick` texts get the new cheat sheet. -#}
 {%- set t = lang.t -%}
 
-<header class="hero hero-small hero-quick">
-  <div class="wrap">
-    {% include "langmenu.njk" %}
-    {% include "pagenav.njk" %}
-  </div>
-</header>
+{% include "hero.njk" %}
 
 <main class="wrap quick">
   <section id="spickzettel">
+    {%- if t.quick %}
+    {%- set k = t.quick %}
+    <div class="cheat cheat2">
+      <h2>{{ t.chH }}</h2>
+
+      <div class="ch-block ch-rule">
+        <div class="ch-icon" aria-hidden="true">≥</div>
+        <div><h3>{{ k.ruleH }}</h3><p>{{ k.rule | safe }}</p></div>
+      </div>
+
+      <div class="ch-block">
+        <h3>{{ t.spH }}</h3>
+        <ul class="ch-specials">
+          {%- for c in [["2", "♣", k.sp2, "any"], ["3", "♥", k.sp3, "any"], ["10", "♦", k.sp10, "any"], ["7", "♠", k.sp7, "order"], ["8", "♥", k.sp8, "order"]] %}
+          <li class="{{ c[3] }}"><span class="ch-card{% if c[1] in "♥♦" %} r{% endif %}" aria-hidden="true">{{ c[0] }}<small>{{ c[1] }}</small></span><span>{{ c[2] }}</span></li>
+          {%- endfor %}
+          <li class="wide"><span class="ch-four" aria-hidden="true">{% for s in ["♠", "♥", "♣", "♦"] %}<span class="ch-card{% if s in "♥♦" %} r{% endif %}">9<small>{{ s }}</small></span>{% endfor %}</span><span>{{ k.sp4 }}</span></li>
+        </ul>
+        <p class="ch-legend"><span class="any">{{ k.tagAny }}</span><span class="order">{{ k.tagOrder }}</span></p>
+      </div>
+
+      <div class="ch-block">
+        <h3>{{ k.rankH }}</h3>
+        <div class="ch-ranks" aria-hidden="true"><b>2</b><span></span><b>A</b></div>
+        <p>{{ t.rankLead | safe }}</p>
+      </div>
+    </div>
+    {%- else %}
     <div class="cheat">
-      <h1>{{ t.chH }}</h1>
+      <h2>{{ t.chH }}</h2>
       <dl>
         <dt>{{ t.c1t }}</dt><dd>{{ t.c1d | safe }}</dd>
         <dt>{{ t.c2t }}</dt><dd>{{ t.c2d | safe }}</dd>
@@ -37,5 +61,8 @@ eleventyComputed:
         <dt>{{ t.c9t }}</dt><dd>{{ t.c9d | safe }}</dd>
       </dl>
     </div>
+    {%- endif %}
   </section>
+
+  {% include "specials.njk" %}
 </main>

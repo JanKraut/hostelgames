@@ -1,0 +1,24 @@
+{#- Big header with title, intro and goal. Shared by the rules page and the quick start;
+    the rules page adds its fact sheet below the goal. -#}
+{%- from "card.njk" import card -%}
+{%- set t = lang.t -%}
+<header class="hero">
+  <div class="wrap">
+    {% include "langmenu.njk" %}
+    {% include "pagenav.njk" %}
+    <h1>{{ t.h1 | safe }}</h1>
+    <p>{{ t.sub | safe }}</p>
+    <div class="fan" aria-hidden="true">
+      {{ card("2", "♣") }}
+      {{ card("10", "♥") }}
+      {{ card("7", "♠") }}
+    </div>
+    <div class="goal">
+      <div class="goal-icon" aria-hidden="true">🎯</div>
+      <p>{{ t.goal | safe }}</p>
+    </div>
+    {%- if not subpath and t.info %}
+    {% include "factsheet.njk" %}
+    {%- endif %}
+  </div>
+</header>
