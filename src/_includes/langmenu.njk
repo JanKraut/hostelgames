@@ -1,4 +1,5 @@
 {#- Language menu: plain links to the same page in every language. -#}
+{%- from "flags.njk" import flag -%}
 <div class="langbar">
   <button type="button" class="themeswitch js-only" aria-label="{{ t.themeSwitch }}" title="{{ t.themeSwitch }}">
     <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
@@ -6,13 +7,13 @@
   </button>
   <details class="langmenu">
     <summary aria-label="Language / Sprache / Idioma: {{ lang.name }}">
-      <span class="flag" aria-hidden="true">{{ lang.flag }}</span>
+      <span class="flag" aria-hidden="true">{{ flag(lang.code) }}</span>
       <span>{{ lang.name }}</span>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
     </summary>
     <ul>
       {%- for l in languages %}
-      <li><a href="{{ l.path }}{{ subpath or '' }}" hreflang="{{ l.htmlLang }}" lang="{{ l.htmlLang }}" data-lang="{{ l.code }}"{% if l.code == lang.code %} aria-current="page"{% endif %}><span class="flag" aria-hidden="true">{{ l.flag }}</span>{{ l.name }}</a></li>
+      <li><a href="{{ l.path }}{{ subpath or '' }}" hreflang="{{ l.htmlLang }}" lang="{{ l.htmlLang }}" data-lang="{{ l.code }}"{% if l.code == lang.code %} aria-current="page"{% endif %}><span class="flag" aria-hidden="true">{{ flag(l.code) }}</span>{{ l.name }}</a></li>
       {%- endfor %}
     </ul>
   </details>
