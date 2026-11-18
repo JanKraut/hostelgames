@@ -268,13 +268,30 @@ test.describe("practice quiz", () => {
 });
 
 test.describe("share", () => {
-  test("QR code and link point to the page itself", async ({ page }) => {
-    const lang = byCode.de;
-    await openLanguage(page, lang);
-    await expect(page.locator("#shurl")).toHaveAttribute("href", lang.url);
-    await expect(page.locator("#qr svg")).toBeVisible();
-    await expect(page.locator("#shCopy")).toBeVisible();
-  });
+  for (const sub of ["", "strategy/", "quickstart/"]) {
+    test(`QR code and link point to the page itself (${sub || "rules"})`, async ({ page }) => {
+      const lang = byCode.de;
+      await openLanguage(page, lang);
+      await page.goto(pathOf(lang) + sub);
+      await expect(page.locator("#shurl")).toHaveAttribute("href", lang.url + sub);
+      await expect(page.locator("#qr svg")).toBeVisible();
+      await expect(page.locator("#shCopy")).toBeVisible();
+    });
+  }
+});
+
+test.describe("footer", () => {
+  for (const sub of ["", "strategy/", "quickstart/", "play/"]) {
+    test(`copyright and link on every page (${sub || "rules"})`, async ({ page }) => {
+      await openLanguage(page, byCode.es);
+      await page.goto(pathOf(byCode.es) + sub);
+      const footer = page.locator("footer .copyright");
+      await expect(footer).toContainText("Copyright © 2026");
+      await expect(footer).toContainText("by Jan Kraut");
+      await expect(footer.locator("a")).toHaveAttribute("href", "https://mut-im-rucksack.de/");
+      await expect(footer.locator("svg.heart")).toBeVisible();
+    });
+  }
 });
 
 test.describe("self-contained", () => {

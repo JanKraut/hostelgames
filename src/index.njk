@@ -10,7 +10,7 @@ eleventyComputed:
   pageTitle: "{{ lang.t.title }}"
   pageDescription: "{{ lang.t.sub | striptags }}"
 classicScripts: ["/assets/qrcode.js"]
-scripts: ["/assets/rules.js"]
+scripts: ["/assets/rules.js", "/assets/share.js"]
 ---
 {%- from "card.njk" import card, back, stack, cardRow -%}
 {%- set t = lang.t -%}
@@ -182,18 +182,7 @@ scripts: ["/assets/rules.js"]
     </div>
   </section>
 
-  <section id="teilen">
-    <div class="sharebox">
-      <h2>{{ t.shH }}</h2>
-      <p class="shlead">{{ t.shLead | safe }}</p>
-      <div class="qr" id="qr" role="img" aria-label="{{ t.shAlt }}"></div>
-      <p class="shurl"><a id="shurl" href="{{ lang.url }}">{{ lang.url | replace("https://", "") }}</a></p>
-      <div class="shbtns js-only">
-        <button type="button" class="shbtn primary" id="shShare" hidden>{{ t.shBtn }}</button>
-        <button type="button" class="shbtn" id="shCopy" data-done="{{ t.shCopied }}">{{ t.shCopy }}</button>
-      </div>
-    </div>
-  </section>
+  {% include "share.njk" %}
 </main>
 
-<footer>{{ t.foot | safe }}</footer>
+{% include "footer.njk" %}
