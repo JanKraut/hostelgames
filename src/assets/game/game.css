@@ -77,7 +77,7 @@
 }
 
 .choices input:focus-visible + span {
-  outline: 3px solid var(--gold);
+  outline: 3px solid var(--gold-line);
   outline-offset: 3px;
 }
 
@@ -224,7 +224,7 @@ html.playing .game {
 }
 
 .opp.active {
-  border-color: var(--gold);
+  border-color: var(--gold-line);
   background: color-mix(in srgb, var(--gold) 12%, transparent);
 }
 
@@ -448,7 +448,7 @@ html.playing .game {
 }
 
 .me.active {
-  border-color: var(--gold);
+  border-color: var(--gold-line);
   background: color-mix(in srgb, var(--gold) 8%, transparent);
 }
 

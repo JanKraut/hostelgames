@@ -9,6 +9,49 @@ if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register(new URL("../sw.js", import.meta.url)).catch(() => {});
 }
 
+// ---------- Light / dark switch ----------
+// Without a saved choice the page follows the system setting (CSS media query).
+// The choice is applied before the page is drawn by the inline script in base.njk.
+
+const root = document.documentElement;
+const dark = matchMedia("(prefers-color-scheme: dark)");
+const isDark = () => (root.dataset.theme ? root.dataset.theme === "dark" : dark.matches);
+
+function showTheme() {
+  // The switch shows the icon of the mode it switches to; it is in data-theme for CSS.
+  root.dataset.theme = isDark() ? "dark" : "light";
+  for (const meta of document.querySelectorAll('meta[name="theme-color"]')) {
+    meta.content = isDark() ? "#171a1f" : "#f4cf71";
+  }
+}
+
+const themeSwitch = document.querySelector(".themeswitch");
+if (themeSwitch) {
+  const saved = (() => {
+    try {
+      return localStorage.getItem("theme");
+    } catch {
+      return null;
+    }
+  })();
+  if (!saved) {
+    delete root.dataset.theme;
+    dark.addEventListener("change", () => {
+      delete root.dataset.theme;
+      showTheme();
+    });
+  }
+  showTheme();
+  themeSwitch.addEventListener("click", () => {
+    const next = isDark() ? "light" : "dark";
+    root.dataset.theme = next;
+    try {
+      localStorage.setItem("theme", next);
+    } catch {}
+    showTheme();
+  });
+}
+
 // ---------- Language menu ----------
 
 const menu = document.querySelector(".langmenu");

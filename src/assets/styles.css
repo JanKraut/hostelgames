@@ -6,39 +6,58 @@
 /* ---------- Design tokens ---------- */
 
 :root {
-  /* Page colours (switch in dark mode) */
-  --felt: #1e5b45;
-  --felt-deep: #164634;
-  --felt-text: #f3f0e6;
-  --felt-soft: #bfd6c9;
-  --paper: #fbfaf6;
-  --page: #f2f4ef;
-  --ink: #1a1d21;
-  --muted: #55605a;
-  --red: #c8243b;
-  --gold: #e8b22c;
-  --line: #d9ddd6;
-  --surface: #fbfaf6;
+  /* Colours follow mut-im-rucksack.de: warm amber, cream, slate blue.
+     Light is the default; dark mode below. */
+  --felt: #f4cf71;
+  /* Header, section bar, cheat sheet: own colours, so text and buttons on it
+     can be dark or light, whatever the header colour needs. */
+  --head-bg: #f4cf71;
+  --head-bg-2: #f8dc93;
+  --head-text: #202020;
+  --head-soft: #4a3d22;
+  --head-accent: #8a4b00;
+  --head-chip: rgba(255, 255, 255, 0.45);
+  --head-chip-hover: rgba(255, 255, 255, 0.7);
+  --head-chip-border: rgba(0, 0, 0, 0.15);
+  --head-well: rgba(255, 255, 255, 0.4);
+  --felt-text: #202020;
+  --felt-soft: #4a3d22;
+  --paper: #ffffff;
+  --page: #fdf9ec;
+  --surface: #ffffff;
+  --ink: #202020;
   /* Headings: same as the surrounding text in light mode */
   --ink-strong: currentColor;
-  /* Text on red buttons */
-  --on-red: #fff;
-  /* Quiz feedback on felt */
-  --ok: #8ef0bc;
-  --ko: #ffb4ac;
+  --muted: #666666;
+  --line: #e3d2ad;
+  /* Amber: fills (buttons) with dark text … */
+  --gold: #d68400;
+  /* … and lines or symbols on the page background, dark enough to see */
+  --gold-line: #995e00;
+  /* Highlighted text on the blue panels */
+  --highlight: #f4cf71;
+  --red: #c43d2e;
+  --on-red: #ffffff;
+  /* Quiz feedback on the blue panels */
+  --ok: #17613a;
+  --ko: #8f2418;
   /* Cheat sheet box */
-  --cheat-bg: var(--ink);
-  --cheat-text: var(--page);
-  --cheat-heading: var(--page);
-  --cheat-dt: #ff8a97;
+  /* Buttons on the yellow panels */
+  --felt-btn: #202020;
+  --felt-btn-text: #f4cf71;
+  --felt-chip: rgba(255, 255, 255, 0.45);
+  --cheat-bg: var(--head-bg);
+  --cheat-text: var(--head-text);
+  --cheat-heading: var(--head-text);
+  --cheat-dt: var(--head-accent);
 
   /* Fixed colours: cards and wood always look the same */
   --card-ink: #1a1d21;
   --card-red: #c8243b;
   --card-red-dark: #a61c30;
   --card-green: #1f7a4d;
-  --menu-hover: #ecefe8;
-  --menu-current: #e2eae4;
+  --menu-hover: #fff6e3;
+  --menu-current: #fbe7bf;
   --wood-a: #bc8752;
   --wood-b: #a46f3c;
   --wood-edge: #6e4826;
@@ -56,30 +75,78 @@
   color-scheme: light;
 }
 
-/* Dark mode: slate background, light grey text with white headings,
-   navy panels and a warm gold accent. */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --felt: #002e69;
-    --felt-deep: #011927;
-    --felt-text: #ffffff;
-    --felt-soft: #b4bfd6;
+/* Dark mode: slate background (bucketlistly.blog), light grey text with white
+   headings, slate-blue panels and amber accents (mut-im-rucksack.de).
+   Applies when chosen with the switch, or by the system setting when nothing was
+   chosen. Both blocks must stay identical. */
+:root[data-theme="dark"] {
+    --felt: #f4cf71;
+    --head-bg: #171a1f;
+    --head-bg-2: #262a31;
+    --head-text: #ffffff;
+    --head-soft: #c8ccd4;
+    --head-accent: #f4cf71;
+    --head-chip: rgba(255, 255, 255, 0.12);
+    --head-chip-hover: rgba(255, 255, 255, 0.2);
+    --head-chip-border: rgba(255, 255, 255, 0.28);
+    --head-well: rgba(0, 0, 0, 0.18);
+    --felt-text: #202020;
+    --felt-soft: #4a3d22;
     --paper: #f4f2ec;
-    --page: #1d1f26;
-    --surface: #262931;
+    --page: #171a1f;
+    --surface: #22262c;
     --ink: #c3c3c3;
     --ink-strong: #ffffff;
     --muted: #9899ab;
-    --red: #ff4f55;
-    --on-red: #1d1f26;
-    --gold: #f0c029;
     --line: #3a404c;
+    --gold: #eeab2d;
+    --gold-line: #eeab2d;
+    --highlight: #f4cf71;
+    --red: #c43d2e;
+    --on-red: #ffffff;
+    --ok: #17613a;
+    --ko: #8f2418;
     --cheat-bg: var(--surface);
     --cheat-text: var(--ink);
     --cheat-heading: var(--ink-strong);
-    --cheat-dt: var(--gold);
+    --cheat-dt: #f4cf71;
     color-scheme: dark;
-  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+      --felt: #f4cf71;
+      --head-bg: #171a1f;
+      --head-bg-2: #262a31;
+      --head-text: #ffffff;
+      --head-soft: #c8ccd4;
+      --head-accent: #f4cf71;
+      --head-chip: rgba(255, 255, 255, 0.12);
+      --head-chip-hover: rgba(255, 255, 255, 0.2);
+      --head-chip-border: rgba(255, 255, 255, 0.28);
+      --head-well: rgba(0, 0, 0, 0.18);
+      --felt-text: #202020;
+      --felt-soft: #4a3d22;
+      --paper: #f4f2ec;
+      --page: #171a1f;
+      --surface: #22262c;
+      --ink: #c3c3c3;
+      --ink-strong: #ffffff;
+      --muted: #9899ab;
+      --line: #3a404c;
+      --gold: #eeab2d;
+      --gold-line: #eeab2d;
+      --highlight: #f4cf71;
+      --red: #c43d2e;
+      --on-red: #ffffff;
+      --ok: #17613a;
+      --ko: #8f2418;
+      --cheat-bg: var(--surface);
+      --cheat-text: var(--ink);
+      --cheat-heading: var(--ink-strong);
+      --cheat-dt: #f4cf71;
+      color-scheme: dark;
+}
 }
 
 /* Hebrew: Rubik has Hebrew glyphs, the Latin fonts above do not. */
@@ -119,7 +186,7 @@ body::before {
   inset: 0 0 auto;
   z-index: 10;
   height: env(safe-area-inset-top, 0px);
-  background: var(--felt-deep);
+  background: var(--head-bg);
 }
 
 h1,
@@ -151,7 +218,7 @@ a {
 }
 
 :focus-visible {
-  outline: 3px solid var(--gold);
+  outline: 3px solid var(--gold-line);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -315,8 +382,16 @@ h3.sub.first {
 .hero {
   overflow-x: clip;
   padding: 1rem 0 2.6rem;
-  background: radial-gradient(120% 90% at 50% 0%, var(--felt) 0%, var(--felt-deep) 100%);
+  background: radial-gradient(120% 90% at 50% 0%, var(--head-bg-2) 0%, var(--head-bg) 100%);
   color: var(--felt-text);
+}
+
+/* Text colours inside the header and the section bar come from --head-*. */
+.hero,
+.secnav {
+  --felt-text: var(--head-text);
+  --felt-soft: var(--head-soft);
+  --highlight: var(--head-accent);
 }
 
 .hero h1 {
@@ -337,7 +412,7 @@ h3.sub.first {
   margin: 0 0 1.4rem;
   padding: 0.25rem;
   border-radius: 999px;
-  background: rgba(0, 0, 0, 0.18);
+  background: var(--head-well);
   list-style: none;
 }
 
@@ -365,8 +440,8 @@ h3.sub.first {
 }
 
 .pagetabs a[aria-current="page"] {
-  background: var(--felt-text);
-  color: var(--felt-deep);
+  background: var(--head-text);
+  color: var(--head-bg);
 }
 
 /* Smaller header for the subpages */
@@ -414,6 +489,7 @@ h3.sub.first {
 /* Language menu: a plain <details> with links, works without JavaScript */
 .langbar {
   display: flex;
+  gap: 0.5rem;
   justify-content: flex-end;
   margin-bottom: 1rem;
 }
@@ -427,9 +503,9 @@ h3.sub.first {
   align-items: center;
   gap: 0.5rem;
   padding: 0.55rem 0.8rem 0.55rem 0.7rem;
-  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  border: 1.5px solid var(--head-chip-border);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--head-chip);
   color: var(--felt-text);
   font: 700 0.95rem/1 var(--font-body);
   list-style: none;
@@ -441,7 +517,7 @@ h3.sub.first {
 }
 
 .langmenu summary:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--head-chip-hover);
 }
 
 .langmenu svg {
@@ -555,7 +631,7 @@ h3.sub.first {
   margin-top: 0.4rem;
   padding: 1rem 1.1rem;
   border-radius: 14px;
-  background: rgba(0, 0, 0, 0.18);
+  background: var(--head-well);
 }
 
 .goal-icon {
@@ -570,7 +646,7 @@ h3.sub.first {
 }
 
 .goal strong {
-  color: var(--gold);
+  color: var(--highlight);
 }
 
 /* ---------- Section navigation ---------- */
@@ -579,7 +655,7 @@ h3.sub.first {
   position: sticky;
   top: env(safe-area-inset-top, 0px);
   z-index: 9;
-  background: var(--felt-deep);
+  background: var(--head-bg);
   color: var(--felt-text);
 }
 
@@ -602,7 +678,7 @@ h3.sub.first {
   display: block;
   padding: 0.4rem 0.8rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--head-chip);
   font-size: 0.92rem;
   font-weight: 700;
   white-space: nowrap;
@@ -610,7 +686,7 @@ h3.sub.first {
 }
 
 .secnav a:hover {
-  background: rgba(255, 255, 255, 0.18);
+  background: var(--head-chip-hover);
 }
 
 /* ---------- Setup: card order ---------- */
@@ -705,7 +781,7 @@ h3.sub.first {
 
 .swaparrow {
   margin: 1.1rem 0 -0.2rem;
-  color: var(--gold);
+  color: var(--gold-line);
   font-size: 2.2rem;
   line-height: 1;
   text-align: center;
@@ -990,8 +1066,8 @@ ol.steps p {
 
 .next {
   margin-top: 0.8rem;
-  background: var(--gold);
-  color: var(--card-ink);
+  background: var(--felt-btn);
+  color: var(--felt-btn-text);
 }
 
 .fb {
@@ -1135,15 +1211,15 @@ ol.steps p {
   padding: 0.9rem 1.4rem;
   border: 0;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.14);
+  background: var(--felt-chip);
   color: var(--felt-text);
   font: 700 1.05rem/1 var(--font-body);
   cursor: pointer;
 }
 
 .shbtn.primary {
-  background: var(--gold);
-  color: var(--card-ink);
+  background: var(--felt-btn);
+  color: var(--felt-btn-text);
 }
 
 /* ---------- Footer ---------- */
@@ -1159,7 +1235,7 @@ footer {
 
 .cta {
   padding: 1.4rem 1.2rem;
-  border: 2px solid var(--gold);
+  border: 2px solid var(--gold-line);
   border-radius: 20px;
   text-align: center;
 }
@@ -1176,4 +1252,37 @@ footer {
   color: var(--card-ink);
   font-weight: 700;
   text-decoration: none;
+}
+
+/* ---------- Light / dark switch (top right, next to the language menu) ---------- */
+
+.themeswitch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  padding: 0;
+  border: 1.5px solid var(--head-chip-border);
+  border-radius: 999px;
+  background: var(--head-chip);
+  color: var(--felt-text);
+  cursor: pointer;
+}
+
+.themeswitch:hover {
+  background: var(--head-chip-hover);
+}
+
+/* Shows the mode you switch to: moon in light mode, sun in dark mode. */
+.themeswitch .sun {
+  display: none;
+}
+
+:root[data-theme="dark"] .themeswitch .sun {
+  display: block;
+}
+
+:root[data-theme="dark"] .themeswitch .moon {
+  display: none;
 }
