@@ -135,6 +135,14 @@ test("dealing graphic: fanned hand, three stacks, three labels", async ({ page }
   await expect(vis.locator(".dv-arrow")).toHaveCount(3);
 });
 
+test("hand-empty graphic: three steps with arrows", async ({ page }) => {
+  await openLanguage(page, byCode.de);
+  const vis = page.locator("#ende .phasevis");
+  await expect(vis.locator(".pv-step")).toHaveCount(3);
+  await expect(vis.locator(".pv-arrow")).toHaveCount(2);
+  await expect(vis.locator(".dv-note b").first()).toHaveText(byCode.de.t.ph1b);
+});
+
 test.describe("start page redirect", () => {
   const cases = [
     ["de-DE", "de"],
