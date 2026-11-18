@@ -95,6 +95,17 @@ test.describe("strategy and quick start pages", () => {
     await expect(page).toHaveURL(/\/de\/quickstart\/$/);
   });
 
+  test("the quick start fact sheet shows only where it is translated", async ({ page }) => {
+    await openLanguage(page, byCode.de);
+    await page.goto("de/quickstart/");
+    await expect(page.locator("#steckbrief h2")).toHaveText(byCode.de.t.info.title);
+    await expect(page.locator("#steckbrief .fs-scale")).toHaveCount(3);
+
+    await openLanguage(page, byCode.en);
+    await page.goto("quickstart/");
+    await expect(page.locator("#steckbrief")).toHaveCount(byCode.en.t.info ? 1 : 0);
+  });
+
   // The page starts with the same header as the rules; scrolled to, the cheat sheet fits one screen.
   for (const [width, height] of [[360, 740], [390, 844]]) {
     test(`the quick start cheat sheet fits on one phone screen (${width} × ${height})`, async ({ page }) => {

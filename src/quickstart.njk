@@ -16,6 +16,10 @@ eleventyComputed:
 {% include "hero.njk" %}
 
 <main class="wrap quick">
+  {%- if t.info %}
+  {% include "factsheet.njk" %}
+  {%- endif %}
+
   <section id="spickzettel">
     <div class="cheat">
       <h2>{{ t.chH }}</h2>

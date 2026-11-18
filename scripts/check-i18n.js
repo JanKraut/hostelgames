@@ -15,6 +15,9 @@ import { readFileSync, readdirSync } from "node:fs";
 const DIR = new URL("../src/_data/i18n/", import.meta.url);
 const TEMPLATE = new URL("../src/index.njk", import.meta.url);
 const DEFAULT = "en";
+// New sections that exist in some languages only, until they are translated.
+// The page shows them only where the texts exist (e.g. `info` = quick start fact sheet).
+const PENDING = ["info."];
 
 // Only code and fallback are needed from languages.js.
 let LANGUAGES;
@@ -77,6 +80,7 @@ for (const lang of LANGUAGES) {
   const chain = [lang.code, ...(lang.fallback ?? [])].filter((code) => code !== DEFAULT);
 
   for (const key of Object.keys(own)) {
+    if (PENDING.some((prefix) => key.startsWith(prefix))) continue;
     if (!(key in english)) report(lang.code, key, "not in English (typo or leftover?)");
   }
 

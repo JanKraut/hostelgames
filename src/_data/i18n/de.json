@@ -215,5 +215,31 @@
     "yourName": "Dein Name",
     "skipped": "{name} setzt aus.",
     "youSkipped": "Du setzt aus."
+  },
+  "info": {
+    "title": "Auf einen Blick",
+    "tagline": "Ein schnelles Spiel, das Reisende auf der ganzen Welt lieben. Sei nicht der Letzte, der fertig wird.",
+    "luck": "Glück",
+    "skill": "Können",
+    "easy": "Einfach",
+    "complex": "Komplex",
+    "kids": "Kinder",
+    "adults": "Erwachsene",
+    "playersH": "Spieler & Decks",
+    "players1": "2–4",
+    "players2": "5–8",
+    "decks1": "1 Deck",
+    "decks2": "2 Decks",
+    "timeH": "Spieldauer",
+    "timeN": "10",
+    "timeU": "Min.",
+    "similarH": "Ähnliche Spiele",
+    "similar": "Shed, Karma, Palace",
+    "cardsH": "Benötigte Karten",
+    "cardsN": "52 Karten",
+    "joker": "Joker",
+    "cardsAlt": "52 Karten von Ass bis König, ohne Joker",
+    "introH": "Einführung",
+    "intro": "Shithead ist leicht zu lernen und macht in jedem Alter Spaß. Ein bisschen Können gehört dazu, aber zum Sieg braucht man auch etwas Glück. Mit diesen einfachen Regeln lernst du Shithead in wenigen Minuten."
   }
 }
