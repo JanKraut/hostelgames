@@ -47,18 +47,28 @@ scripts: ["/assets/rules.js", "/assets/share.js"]
     <h3 class="sub">{{ t.dealH }}</h3>
     <p>{{ t.dealP | safe }}</p>
 
-    <div class="setupvis" role="img" aria-label="{{ t.setupAlt }}">
-      <div class="wood">
-        <div class="row">
-          {{ stack("K", "♠") }}
-          {{ stack("A", "♦") }}
-          {{ stack("2", "♣") }}
-        </div>
-        <div class="legend"><div>{{ t.lgDown | safe }}</div><div>{{ t.lgUp | safe }}</div></div>
+    {#- Dealing: hand cards fanned on top, below three face-up cards on three
+        face-down ones. Labels point at each layer with curved arrows. -#}
+    <div class="dealvis" role="img" aria-label="{{ t.setupAlt }}">
+      <div class="dv-hand">
+        <p class="dv-note dv-note-hand">{{ t.lgHand | safe }}</p>
+        <svg class="dv-arrow" viewBox="0 0 64 40" aria-hidden="true"><path d="M4 30 C 20 6, 40 4, 56 16"/><path d="M47 10 L57 17 L45 21"/></svg>
+        <div class="dv-fan">{{ back("sm") }}{{ back("sm") }}{{ back("sm") }}</div>
       </div>
-      <div class="hand">
-        <div class="row">{{ cardRow([["5","♥"],["9","♠"],["J","♦"]], lang.dir, "sm") }}</div>
-        <div class="legend"><div>{{ t.lgHand | safe }}</div></div>
+      <div class="dv-table">
+        {{ stack("8", "♥") }}
+        {{ stack("10", "♣") }}
+        {{ stack("5", "♦") }}
+      </div>
+      <div class="dv-notes">
+        <div class="dv-up">
+          <svg class="dv-arrow" viewBox="0 0 64 40" aria-hidden="true"><path d="M10 36 C 6 20, 14 8, 30 4"/><path d="M20 1 L31 4 L23 12"/></svg>
+          <p class="dv-note">{{ t.lgUp | safe }}</p>
+        </div>
+        <div class="dv-down">
+          <svg class="dv-arrow" viewBox="0 0 64 40" aria-hidden="true"><path d="M54 36 C 58 20, 50 10, 36 6"/><path d="M44 1 L34 6 L42 13"/></svg>
+          <p class="dv-note">{{ t.lgDown | safe }}</p>
+        </div>
       </div>
     </div>
 

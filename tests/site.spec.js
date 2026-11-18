@@ -126,6 +126,15 @@ test.describe("strategy and quick start pages", () => {
   }
 });
 
+test("dealing graphic: fanned hand, three stacks, three labels", async ({ page }) => {
+  await openLanguage(page, byCode.de);
+  const vis = page.locator("#aufbau .dealvis");
+  await expect(vis.locator(".dv-fan .card.back")).toHaveCount(3);
+  await expect(vis.locator(".dv-table .stack")).toHaveCount(3);
+  await expect(vis.locator(".dv-note")).toHaveCount(3);
+  await expect(vis.locator(".dv-arrow")).toHaveCount(3);
+});
+
 test.describe("start page redirect", () => {
   const cases = [
     ["de-DE", "de"],
