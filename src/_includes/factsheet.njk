@@ -1,15 +1,10 @@
-{#- Fact sheet at the top of the quick start: who, how long, what you need.
+{#- Fact sheet in the rules page header: who, how long, what you need.
     Only shown for languages that have the `info` texts (for now German). -#}
 {%- set i = lang.t.info -%}
 {%- set people -%}
 <svg class="fs-people" viewBox="0 0 32 24" aria-hidden="true"><circle cx="11" cy="7" r="4"/><path d="M3 21c0-4.5 3.6-7 8-7s8 2.5 8 7"/><circle cx="21" cy="6" r="3.5"/><path d="M19 13.2c.6-.1 1.3-.2 2-.2 4.4 0 8 2.5 8 7"/></svg>
 {%- endset -%}
-<section id="steckbrief" class="factsheet" aria-labelledby="fs-h">
-  <div class="fs-top">
-    <h2 id="fs-h">{{ i.title }}</h2>
-    <p class="fs-bubble">{{ i.tagline }}</p>
-  </div>
-
+<section id="steckbrief" class="factsheet" aria-label="{{ i.label }}">
   <div class="fs-grid">
     <div class="fs-box fs-scales">
       {%- for s in [[i.luck, i.skill, 55], [i.easy, i.complex, 25], [i.kids, i.adults, 25]] %}

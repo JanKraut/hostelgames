@@ -54,7 +54,7 @@ test.describe("every language page", () => {
 // Strategy and quick start: one page each per language, linked by the tabs at the top.
 const SUBPAGES = [
   { sub: "strategy/", tab: (t) => t.n6, title: (t) => `${t.stH} · ${t.title}`, check: "#strategie .strats li" },
-  { sub: "quickstart/", tab: (t) => t.pgQuick, title: (t) => `${t.pgQuick} · ${t.title}`, check: "#spickzettel dt" },
+  { sub: "quickstart/", tab: (t) => t.pgQuick, title: (t) => `${t.pgQuick} · ${t.title}`, check: "#spickzettel h2" },
 ];
 
 test.describe("strategy and quick start pages", () => {
@@ -95,15 +95,22 @@ test.describe("strategy and quick start pages", () => {
     await expect(page).toHaveURL(/\/de\/quickstart\/$/);
   });
 
-  test("the quick start fact sheet shows only where it is translated", async ({ page }) => {
+  test("fact sheet in the rules header and new cheat sheet: only where translated", async ({ page }) => {
     await openLanguage(page, byCode.de);
+    await expect(page.locator(".hero #steckbrief .fs-scale")).toHaveCount(3);
+    await expect(page.locator("#sonderkarten .sp-tag")).toHaveCount(5);
     await page.goto("de/quickstart/");
-    await expect(page.locator("#steckbrief h2")).toHaveText(byCode.de.t.info.title);
-    await expect(page.locator("#steckbrief .fs-scale")).toHaveCount(3);
+    await expect(page.locator("#steckbrief")).toHaveCount(0);
+    await expect(page.locator("#spickzettel .ch-specials li")).toHaveCount(6);
+    await expect(page.locator("#sonderkarten .sp")).toHaveCount(6);
 
+    // Languages without the new texts keep the old cheat sheet and no tags.
+    const en = byCode.en.t;
     await openLanguage(page, byCode.en);
+    await expect(page.locator("#steckbrief")).toHaveCount(en.info ? 1 : 0);
     await page.goto("quickstart/");
-    await expect(page.locator("#steckbrief")).toHaveCount(byCode.en.t.info ? 1 : 0);
+    await expect(page.locator("#spickzettel dt").first()).toBeVisible({ visible: !en.quick });
+    await expect(page.locator("#sonderkarten .sp-tag")).toHaveCount(en.quick ? 5 : 0);
   });
 
   // The page starts with the same header as the rules; scrolled to, the cheat sheet fits one screen.

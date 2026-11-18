@@ -64,7 +64,7 @@
   "startH": "Wer fängt an?",
   "startP": "Wer eine 4 auf der Hand hat, legt sie und beginnt. Hat niemand eine 4, fängt die nächsthöhere Karte an, also eine 5 und so weiter. Danach geht es im Uhrzeigersinn weiter.",
   "spH": "Sonderkarten",
-  "spLead": "Diese Karten haben eine besondere Wirkung. Die 2, 3 und 10 darfst du fast immer legen, egal was oben liegt.",
+  "spLead": "Diese Karten haben eine besondere Wirkung. Die 2, 3 und 10 darfst du immer legen, egal was liegt.",
   "sp2h": "2 – Neustart",
   "sp2p": "Setzt den Stapel zurück. Danach darf jede Karte drauf.",
   "sp3h": "3 – Unsichtbar",
@@ -217,8 +217,7 @@
     "youSkipped": "Du setzt aus."
   },
   "info": {
-    "title": "Auf einen Blick",
-    "tagline": "Ein schnelles Spiel, das Reisende auf der ganzen Welt lieben. Sei nicht der Letzte, der fertig wird.",
+    "label": "Steckbrief",
     "luck": "Glück",
     "skill": "Können",
     "easy": "Einfach",
@@ -226,8 +225,8 @@
     "kids": "Kinder",
     "adults": "Erwachsene",
     "playersH": "Spieler & Decks",
-    "players1": "2–4",
-    "players2": "5–8",
+    "players1": "2–5",
+    "players2": "6–10",
     "decks1": "1 Deck",
     "decks2": "2 Decks",
     "timeH": "Spieldauer",
@@ -241,5 +240,18 @@
     "cardsAlt": "52 Karten von Ass bis König, ohne Joker",
     "introH": "Einführung",
     "intro": "Shithead ist leicht zu lernen und macht in jedem Alter Spaß. Ein bisschen Können gehört dazu, aber zum Sieg braucht man auch etwas Glück. Mit diesen einfachen Regeln lernst du Shithead in wenigen Minuten."
+  },
+  "quick": {
+    "ruleH": "So legst du",
+    "rule": "Spiele Karten aus, deren Wert dem des Stapels entspricht oder höher ist. Wenn das nicht möglich ist, nimm den Stapel.",
+    "sp2": "Setzt zurück",
+    "sp3": "Unsichtbar",
+    "sp7": "Nächster legt niedriger",
+    "sp8": "Nächster setzt aus",
+    "sp10": "Verbrennt den Stapel",
+    "sp4": "Vier Gleiche in Folge verbrennen den Stapel",
+    "rankH": "Reihenfolge",
+    "tagAny": "Jederzeit legbar",
+    "tagOrder": "Nach Rang legen"
   }
 }

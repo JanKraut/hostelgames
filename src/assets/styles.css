@@ -455,36 +455,8 @@ h3.sub.first {
 
 /* Quick start: fact sheet (players, time, cards) */
 .factsheet {
-  padding: 1.6rem 0 0.4rem;
-}
-
-.fs-top {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem 1.2rem;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-
-.fs-top h2 {
-  margin: 0;
-  color: var(--ink-strong);
-  font-size: clamp(1.9rem, 8vw, 2.6rem);
-  letter-spacing: -0.01em;
-}
-
-.fs-bubble {
-  flex: 1 1 15rem;
-  margin: 0;
-  padding: 0.7rem 1.1rem;
-  border-radius: 26px 26px 26px 6px;
-  background: var(--felt);
-  color: var(--felt-text);
-  font-size: 0.95rem;
-  font-weight: 700;
-  line-height: 1.35;
-  text-align: center;
+  margin-top: 0.7rem;
+  padding: 0;
 }
 
 .fs-grid {
@@ -500,14 +472,13 @@ h3.sub.first {
 
 .fs-box {
   padding: 0.9rem 1rem;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  background: var(--surface);
+  border-radius: 14px;
+  background: var(--head-well);
 }
 
 .fs-box h3 {
   margin: 0 0 0.6rem;
-  color: var(--gold-line);
+  color: var(--head-accent);
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -541,11 +512,11 @@ h3.sub.first {
   position: relative;
   height: 4px;
   border-radius: 2px;
-  background: linear-gradient(to right, var(--gold) var(--v), var(--line) var(--v));
+  background: linear-gradient(to right, var(--head-accent) var(--v), var(--head-chip-border) var(--v));
 }
 
 [dir="rtl"] .fs-bar {
-  background: linear-gradient(to left, var(--gold) var(--v), var(--line) var(--v));
+  background: linear-gradient(to left, var(--head-accent) var(--v), var(--head-chip-border) var(--v));
 }
 
 .fs-bar::after {
@@ -556,7 +527,7 @@ h3.sub.first {
   width: 11px;
   height: 11px;
   border-radius: 50%;
-  background: var(--ink-strong);
+  background: var(--head-text);
   translate: -50% -50%;
 }
 
@@ -579,7 +550,7 @@ h3.sub.first {
 
 .fs-group + .fs-group {
   padding-inline-start: 0.8rem;
-  border-inline-start: 1px solid var(--line);
+  border-inline-start: 1px solid var(--head-chip-border);
 }
 
 .fs-who {
@@ -609,7 +580,7 @@ h3.sub.first {
   border: 2.5px solid currentColor;
   border-radius: 4px;
   background: var(--red);
-  box-shadow: 0 0 0 2px var(--surface) inset;
+  box-shadow: 0 0 0 2px var(--paper) inset;
 }
 
 .fs-deck.alt {
@@ -706,24 +677,25 @@ h3.sub.first {
 
 .fs-intro {
   margin-top: 0.7rem;
-  padding: 1.2rem 1.2rem 1.3rem;
-  border-radius: 20px;
-  background: var(--felt);
-  color: var(--felt-text);
+  padding: 1rem 1.1rem 1.1rem;
+  border-radius: 14px;
+  background: var(--head-well);
   text-align: center;
 }
 
 .fs-intro h3 {
   margin: 0 0 0.4rem;
-  color: var(--felt-text);
+  color: var(--head-accent);
   font-size: 0.95rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.fs-intro p {
+.hero .fs-intro p {
   max-width: 32rem;
   margin: 0 auto;
+  color: var(--felt-text);
+  font-size: 1rem;
 }
 
 /* Quick start: compact cheat sheet that fits one phone screen */
@@ -1405,6 +1377,192 @@ ol.steps p {
 
 .cheat dd {
   margin: 0;
+}
+
+/* Tags on the special cards: "play anytime" and "play in order" */
+.sp-tag {
+  display: inline-block;
+  margin-inline-start: 0.3rem;
+  padding: 0.12rem 0.5rem;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  vertical-align: 0.15em;
+  white-space: nowrap;
+}
+
+.sp-tag.any,
+.ch-legend .any::before {
+  background: var(--card-green);
+  color: #ffffff;
+}
+
+.sp-tag.order,
+.ch-legend .order::before {
+  background: var(--gold);
+  color: #202020;
+}
+
+/* New cheat sheet on the quick start: rule, special cards, card order */
+.cheat2 h2 {
+  margin-bottom: 0.4rem;
+}
+
+.ch-block {
+  padding: 0.8rem 0 0.2rem;
+  border-top: 1px solid var(--head-chip-border);
+}
+
+.cheat2 h2 + .ch-block {
+  border-top: 0;
+}
+
+.ch-block h3 {
+  margin: 0 0 0.45rem;
+  color: var(--cheat-dt);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cheat2 p {
+  margin: 0;
+}
+
+.ch-rule {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.8rem;
+  align-items: start;
+}
+
+.ch-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--cheat-text);
+  color: var(--cheat-bg);
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.ch-specials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ch-specials li {
+  display: flex;
+  gap: 0.55rem;
+  align-items: center;
+  padding: 0.4rem 0.5rem;
+  border-inline-start: 4px solid transparent;
+  border-radius: 10px;
+  background: var(--head-well);
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.ch-specials li.any {
+  border-color: var(--card-green);
+}
+
+.ch-specials li.order {
+  border-color: var(--gold);
+}
+
+.ch-specials li.wide {
+  grid-column: 1 / -1;
+}
+
+/* Mini card: big rank, small suit */
+.ch-card {
+  display: grid;
+  flex: none;
+  place-content: center;
+  width: 32px;
+  height: 44px;
+  border-radius: 5px;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  color: var(--card-ink);
+  font-family: var(--font-cards);
+  font-weight: var(--font-cards-weight);
+  font-size: 1.05rem;
+  line-height: 1;
+  text-align: center;
+}
+
+.ch-card small {
+  font-size: 0.7rem;
+}
+
+.ch-card.r {
+  color: var(--card-red);
+}
+
+.ch-four {
+  display: flex;
+  direction: ltr;
+}
+
+.ch-four .ch-card:not(:last-child) {
+  margin-right: -14px;
+}
+
+.ch-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1rem;
+  margin: 0.5rem 0 0 !important;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.ch-legend span::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-inline-end: 0.35rem;
+  border-radius: 3px;
+}
+
+.ch-ranks {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 0 0 0.35rem;
+  direction: ltr;
+}
+
+.ch-ranks b {
+  font-family: var(--font-cards);
+  font-weight: var(--font-cards-weight);
+  font-size: 1.1rem;
+}
+
+.ch-ranks span {
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(to right, var(--head-chip-border), var(--cheat-dt));
+}
+
+.quick #sonderkarten {
+  padding-top: 1.4rem;
 }
 
 /* ---------- Share ---------- */

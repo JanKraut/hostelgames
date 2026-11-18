@@ -119,25 +119,7 @@ scripts: ["/assets/rules.js"]
     </div>
   </section>
 
-  <section id="sonderkarten">
-    <h2>{{ t.spH }}</h2>
-    <p class="lead">{{ t.spLead | safe }}</p>
-    <div class="specials">
-      <div class="sp">{{ card("2", "♣", "sm") }}<div><h3>{{ t.sp2h }}</h3><p>{{ t.sp2p | safe }}</p></div></div>
-      <div class="sp">{{ card("3", "♥", "sm") }}<div><h3>{{ t.sp3h }}</h3><p>{{ t.sp3p | safe }}</p></div></div>
-      <div class="sp">{{ card("7", "♠", "sm") }}<div><h3>{{ t.sp7h }}</h3><p>{{ t.sp7p | safe }}</p></div></div>
-      <div class="sp">{{ card("8", "♥", "sm") }}<div><h3>{{ t.sp8h }}</h3><p>{{ t.sp8p | safe }}</p></div></div>
-      <div class="sp">{{ card("10", "♦", "sm") }}<div><h3>{{ t.sp10h }}</h3><p>{{ t.sp10p | safe }}</p></div></div>
-      <div class="sp">
-        <div class="four">
-          {%- for s in ["♠","♥","♣","♦"] %}
-          {{ card("9", s, "xs") }}
-          {%- endfor %}
-        </div>
-        <div><h3>{{ t.sp4h }}</h3><p>{{ t.sp4p | safe }}</p></div>
-      </div>
-    </div>
-  </section>
+  {% include "specials.njk" %}
 
   <section id="ende">
     <h2>{{ t.endH }}</h2>

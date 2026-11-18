@@ -1,0 +1,23 @@
+{#- Special cards, on the rules page and the quick start.
+    Languages with `quick` texts also get a tag per card (play anytime / in order). -#}
+{%- from "card.njk" import card -%}
+{%- set t = lang.t -%}
+<section id="sonderkarten">
+  <h2>{{ t.spH }}</h2>
+  <p class="lead">{{ t.spLead | safe }}</p>
+  <div class="specials">
+    <div class="sp">{{ card("2", "♣", "sm") }}<div><h3>{{ t.sp2h }}{% if t.quick %} <span class="sp-tag any">{{ t.quick.tagAny }}</span>{% endif %}</h3><p>{{ t.sp2p | safe }}</p></div></div>
+    <div class="sp">{{ card("3", "♥", "sm") }}<div><h3>{{ t.sp3h }}{% if t.quick %} <span class="sp-tag any">{{ t.quick.tagAny }}</span>{% endif %}</h3><p>{{ t.sp3p | safe }}</p></div></div>
+    <div class="sp">{{ card("7", "♠", "sm") }}<div><h3>{{ t.sp7h }}{% if t.quick %} <span class="sp-tag order">{{ t.quick.tagOrder }}</span>{% endif %}</h3><p>{{ t.sp7p | safe }}</p></div></div>
+    <div class="sp">{{ card("8", "♥", "sm") }}<div><h3>{{ t.sp8h }}{% if t.quick %} <span class="sp-tag order">{{ t.quick.tagOrder }}</span>{% endif %}</h3><p>{{ t.sp8p | safe }}</p></div></div>
+    <div class="sp">{{ card("10", "♦", "sm") }}<div><h3>{{ t.sp10h }}{% if t.quick %} <span class="sp-tag any">{{ t.quick.tagAny }}</span>{% endif %}</h3><p>{{ t.sp10p | safe }}</p></div></div>
+    <div class="sp">
+      <div class="four">
+        {%- for s in ["♠","♥","♣","♦"] %}
+        {{ card("9", s, "xs") }}
+        {%- endfor %}
+      </div>
+      <div><h3>{{ t.sp4h }}</h3><p>{{ t.sp4p | safe }}</p></div>
+    </div>
+  </div>
+</section>
