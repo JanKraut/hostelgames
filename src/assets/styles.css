@@ -705,7 +705,7 @@ h3.sub.first {
 
 .quick .cheat {
   margin: 0;
-  padding: 1rem 1.1rem;
+  padding: 0.9rem 1rem;
 }
 
 .quick .cheat h2 {
@@ -1413,7 +1413,7 @@ ol.steps p {
 }
 
 .ch-block {
-  padding: 0.8rem 0 0.2rem;
+  padding: 0.65rem 0 0.15rem;
   border-top: 1px solid var(--head-chip-border);
 }
 
@@ -1540,25 +1540,33 @@ ol.steps p {
   border-radius: 3px;
 }
 
+/* Card order: all 13 ranks in one row, always left to right */
 .ch-ranks {
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 0.5rem;
-  align-items: center;
-  margin: 0 0 0.35rem;
+  grid-template-columns: repeat(13, 1fr);
+  gap: 3px;
   direction: ltr;
 }
 
-.ch-ranks b {
-  font-family: var(--font-cards);
-  font-weight: var(--font-cards-weight);
-  font-size: 1.1rem;
+.ch-ranks .ch-card {
+  width: auto;
+  height: auto;
+  aspect-ratio: 5 / 7;
+  border-radius: 4px;
+  font-size: clamp(0.62rem, 2.6vw, 0.95rem);
+  letter-spacing: -0.04em;
 }
 
-.ch-ranks span {
-  height: 6px;
-  border-radius: 3px;
-  background: linear-gradient(to right, var(--head-chip-border), var(--cheat-dt));
+.ch-ranks .ch-card small {
+  font-size: 0.75em;
+}
+
+.ch-rankscale {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.25rem 0 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
 }
 
 .quick #sonderkarten {
@@ -1644,10 +1652,34 @@ ol.steps p {
 /* ---------- Footer ---------- */
 
 footer {
-  padding: 2rem 0 3rem;
+  padding: 2rem 1.25rem 3rem;
   color: var(--muted);
   font-size: 0.92rem;
   text-align: center;
+}
+
+footer p {
+  margin: 0 auto 0.6rem;
+  max-width: 34rem;
+}
+
+footer .copyright {
+  margin-bottom: 0;
+  font-size: 0.85rem;
+}
+
+footer .copyright a {
+  color: inherit;
+  font-weight: 700;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 0.2em;
+}
+
+footer .heart {
+  width: 0.95em;
+  height: 0.95em;
+  fill: var(--red);
+  vertical-align: -0.12em;
 }
 
 /* ---------- Play against bots: call to action ---------- */

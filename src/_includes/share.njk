@@ -1,0 +1,16 @@
+{#- "Share the guide" box with QR code. Points to the page it is on.
+    Pages that include it also load /assets/qrcode.js and /assets/share.js. -#}
+{%- set t = lang.t -%}
+{%- set url = lang.url + (subpath or "") -%}
+<section id="teilen">
+  <div class="sharebox">
+    <h2>{{ t.shH }}</h2>
+    <p class="shlead">{{ t.shLead | safe }}</p>
+    <div class="qr" id="qr" role="img" aria-label="{{ t.shAlt }}"></div>
+    <p class="shurl"><a id="shurl" href="{{ url }}">{{ url | replace("https://", "") }}</a></p>
+    <div class="shbtns js-only">
+      <button type="button" class="shbtn primary" id="shShare" hidden>{{ t.shBtn }}</button>
+      <button type="button" class="shbtn" id="shCopy" data-done="{{ t.shCopied }}">{{ t.shCopy }}</button>
+    </div>
+  </div>
+</section>

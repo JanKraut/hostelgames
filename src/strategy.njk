@@ -9,6 +9,8 @@ subpath: "strategy/"
 eleventyComputed:
   pageTitle: "{{ lang.t.stH }} · {{ lang.t.title }}"
   pageDescription: "{{ lang.t.stLead | striptags }}"
+classicScripts: ["/assets/qrcode.js"]
+scripts: ["/assets/share.js"]
 ---
 {%- set t = lang.t -%}
 
@@ -29,6 +31,7 @@ eleventyComputed:
       {%- endfor %}
     </ul>
   </section>
+  {% include "share.njk" %}
 </main>
 
-<footer>{{ t.foot | safe }}</footer>
+{% include "footer.njk" %}

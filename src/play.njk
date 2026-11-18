@@ -114,4 +114,4 @@ scripts: ["/assets/game/ui.js"]
   <script type="application/json" id="game-text">{{ g | dump | safe }}</script>
 </main>
 
-<footer>{{ t.foot | safe }}</footer>
+{% include "footer.njk" %}

@@ -9,6 +9,8 @@ subpath: "quickstart/"
 eleventyComputed:
   pageTitle: "{{ lang.t.pgQuick }} · {{ lang.t.title }}"
   pageDescription: "{{ lang.t.sub | striptags }}"
+classicScripts: ["/assets/qrcode.js"]
+scripts: ["/assets/share.js"]
 ---
 {#- Same header as the rules page, then a compact cheat sheet (fits one phone screen)
     and the special cards. Languages with `quick` texts get the new cheat sheet. -#}
@@ -41,7 +43,12 @@ eleventyComputed:
 
       <div class="ch-block">
         <h3>{{ k.rankH }}</h3>
-        <div class="ch-ranks" aria-hidden="true"><b>2</b><span></span><b>A</b></div>
+        <div class="ch-ranks" aria-hidden="true">
+          {%- for c in [["2","♠"],["3","♥"],["4","♣"],["5","♦"],["6","♠"],["7","♥"],["8","♣"],["9","♦"],["10","♠"],["J","♥"],["Q","♣"],["K","♦"],["A","♠"]] %}
+          <span class="ch-card{% if c[1] in "♥♦" %} r{% endif %}">{{ c[0] }}<small>{{ c[1] }}</small></span>
+          {%- endfor %}
+        </div>
+        <div class="ch-rankscale" aria-hidden="true"><span>{{ t.rankLow }}</span><span>{{ t.rankHigh }}</span></div>
         <p>{{ t.rankLead | safe }}</p>
       </div>
     </div>
@@ -65,4 +72,7 @@ eleventyComputed:
   </section>
 
   {% include "specials.njk" %}
+  {% include "share.njk" %}
 </main>
+
+{% include "footer.njk" %}
