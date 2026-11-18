@@ -333,8 +333,7 @@ h3.sub.first {
 .fan,
 .stack,
 .four,
-.ranks,
-.hand .row {
+.ranks {
   direction: ltr;
 }
 
@@ -955,57 +954,6 @@ h3.sub.first {
 
 /* ---------- Setup: table and hand ---------- */
 
-.setupvis {
-  margin: 1.2rem 0;
-}
-
-.legend {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.4rem;
-  margin-top: 0.9rem;
-  color: var(--felt-soft);
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-.legend b {
-  display: block;
-  color: var(--felt-text);
-  font-size: 1rem;
-}
-
-.wood .legend,
-.wood .legend b {
-  color: var(--wood-text);
-  text-shadow: var(--wood-text-shadow);
-}
-
-.hand {
-  margin-top: 1.6rem;
-}
-
-.hand .legend {
-  color: var(--muted);
-}
-
-.hand .legend b {
-  color: var(--ink);
-}
-
-.hand .row .card {
-  margin: 0 -10px;
-}
-
-.hand .row .card:nth-child(1) {
-  transform: rotate(-8deg);
-}
-
-.hand .row .card:nth-child(3) {
-  transform: rotate(8deg);
-}
-
 /* Dealing: hand cards fanned on top, three face-up on face-down cards below */
 .dealvis {
   display: grid;
@@ -1119,16 +1067,21 @@ h3.sub.first {
 
 /* ---------- Swap ---------- */
 
-.swapvis .hand {
-  margin-top: 0.6rem;
+/* Curved double arrow between the hand and the table */
+.dv-swap {
+  justify-self: center;
+  width: 96px;
+  height: 45px;
+  margin: -0.2rem 0 -0.3rem;
+  fill: none;
+  stroke: var(--gold-line);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-.swaparrow {
-  margin: 1.1rem 0 -0.2rem;
-  color: var(--gold-line);
-  font-size: 2.2rem;
-  line-height: 1;
-  text-align: center;
+[dir="rtl"] .dv-swap {
+  scale: -1 1;
 }
 
 ol.steps {
