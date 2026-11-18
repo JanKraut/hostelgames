@@ -135,6 +135,15 @@ test("dealing graphic: fanned hand, three stacks, three labels", async ({ page }
   await expect(vis.locator(".dv-arrow")).toHaveCount(3);
 });
 
+test("swap graphic: same style, ace and 4 marked", async ({ page }) => {
+  await openLanguage(page, byCode.de);
+  const vis = page.locator("#tauschen .dealvis");
+  await expect(vis.locator(".dv-fan .card")).toHaveCount(3);
+  await expect(vis.locator(".dv-table .stack")).toHaveCount(3);
+  await expect(vis.locator(".card.gold")).toHaveCount(2);
+  await expect(vis.locator(".dv-swap")).toBeVisible();
+});
+
 test.describe("start page redirect", () => {
   const cases = [
     ["de-DE", "de"],
