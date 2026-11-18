@@ -78,21 +78,31 @@ scripts: ["/assets/rules.js", "/assets/share.js"]
   <section id="tauschen">
     <h2>{{ t.swH }}</h2>
     <p class="lead">{{ t.swLead | safe }}</p>
-    <div class="setupvis swapvis" role="img" aria-label="{{ t.swAlt }}">
-      <div class="wood">
-        <div class="row">
-          {{ stack("4", "♦", "gold") }}
-          {{ stack("9", "♣") }}
-          {{ stack("K", "♥") }}
-        </div>
-        <div class="legend"><div>{{ t.swUp | safe }}</div></div>
+    {#- Swapping: same style as the dealing graphic. The ace from the hand
+        and the 4 on the table (outlined) change places. -#}
+    <div class="dealvis swapvis" role="img" aria-label="{{ t.swAlt }}">
+      <div class="dv-hand">
+        <p class="dv-note dv-note-hand">{{ t.swHand | safe }}</p>
+        <svg class="dv-arrow" viewBox="0 0 64 40" aria-hidden="true"><path d="M4 30 C 20 6, 40 4, 56 16"/><path d="M47 10 L57 17 L45 21"/></svg>
+        <div class="dv-fan">{{ card("6", "♥", "sm") }}{{ card("A", "♠", "sm", "gold") }}{{ card("J", "♦", "sm") }}</div>
       </div>
-      <div class="swaparrow" aria-hidden="true">⇅</div>
-      <div class="hand">
-        <div class="row">{{ cardRow([["A","♠","gold"],["6","♥"],["J","♦"]], lang.dir, "sm") }}</div>
-        <div class="legend"><div>{{ t.swHand | safe }}</div></div>
+      <svg class="dv-swap" viewBox="0 0 120 56" aria-hidden="true">
+        <path d="M84 6 C 60 6, 40 14, 34 44"/><path d="M26 36 L34 47 L42 36"/>
+        <path d="M46 50 C 70 50, 90 42, 96 12"/><path d="M88 20 L96 9 L104 20"/>
+      </svg>
+      <div class="dv-table">
+        {{ stack("4", "♦", "gold") }}
+        {{ stack("9", "♣") }}
+        {{ stack("K", "♥") }}
+      </div>
+      <div class="dv-notes">
+        <div class="dv-up">
+          <svg class="dv-arrow" viewBox="0 0 64 40" aria-hidden="true"><path d="M10 36 C 6 20, 14 8, 30 4"/><path d="M20 1 L31 4 L23 12"/></svg>
+          <p class="dv-note">{{ t.swUp | safe }}</p>
+        </div>
       </div>
     </div>
+
     <ol class="steps">
       <li><h3>{{ t.w1h }}</h3><p>{{ t.w1p | safe }}</p></li>
       <li><h3>{{ t.w2h }}</h3><p>{{ t.w2p | safe }}</p></li>
