@@ -52,8 +52,9 @@ test.describe("every language page", () => {
 
 // Strategy and quick start: one page each per language, linked by the tabs at the top.
 const SUBPAGES = [
-  { sub: "strategy/", tab: (t) => t.n6, title: (t) => `${t.stH} · ${t.title}`, check: "#strategie .strats li" },
-  { sub: "quickstart/", tab: (t) => t.pgQuick, title: (t) => `${t.pgQuick} · ${t.title}`, check: "#spickzettel h2" },
+  // Languages with the new strategy guide show it, the others the short list.
+  { sub: "strategy/", tab: (t) => t.n6, title: (t) => `${t.stH} · ${t.title}`, check: (t) => (t.strategy.principleH ? "#tausch .swapex" : "#strategie .strats li") },
+  { sub: "quickstart/", tab: (t) => t.pgQuick, title: (t) => `${t.pgQuick} · ${t.title}`, check: () => "#spickzettel h2" },
 ];
 
 test.describe("strategy and quick start pages", () => {
@@ -65,7 +66,7 @@ test.describe("strategy and quick start pages", () => {
 
         await expect(page).toHaveTitle(title(lang.t));
         await expect(page.locator("html")).toHaveAttribute("lang", lang.htmlLang);
-        await expect(page.locator(check).first()).toBeVisible();
+        await expect(page.locator(check(lang.t)).first()).toBeVisible();
         await expect(page.locator(".pagetabs a[aria-current=page]")).toHaveText(tab(lang.t));
         await expect(page.locator("link[rel=canonical]")).toHaveAttribute("href", lang.url + sub);
         await expect(page.locator(`.langmenu a[data-lang="${lang.code}"]`)).toHaveAttribute("href", new RegExp(`${sub}$`));
@@ -185,9 +186,38 @@ test("strategy page: big header with its own title and intro", async ({ page }) 
     await expect(page.locator(".hero h1")).toHaveText(lang.t.strategy.h1);
     await expect(page.locator(".hero .fan .card")).toHaveCount(3);
     await expect(page.locator(".hero .goal")).toBeVisible();
-    await expect(page.locator("#strategie h2")).toHaveText(lang.t.stH);
+    if (code === "en") await expect(page.locator("#strategie h2")).toHaveText(lang.t.stH);
   }
   await expect(page.locator(".hero > .wrap > p").first()).toHaveText(byCode.en.t.strategy.sub ?? byCode.en.t.sub);
+});
+
+test("strategy guide: German sections, swap example and boxes at the end", async ({ page }) => {
+  const s = byCode.de.t.strategy;
+  await openLanguage(page, byCode.de);
+  await page.goto("de/strategy/");
+  await expect(page.locator("#grundprinzip h2")).toHaveText(s.principleH);
+  await expect(page.locator("#tausch .strats li")).toHaveCount(s.up.length);
+  await expect(page.locator(".swapex .sx-panel")).toHaveCount(2);
+  await expect(page.locator(".swapex .sx-panel .stack")).toHaveCount(6);
+  for (const phase of s.phases) {
+    await expect(page.locator(`#${phase.id} .strats li`)).toHaveCount(phase.items.length);
+  }
+  await expect(page.locator("#sonderkarten-einsetzen .sp")).toHaveCount(s.sp.length);
+  await expect(page.locator("#fehler li")).toHaveCount(s.mistakes.length);
+  // Section menu at the top: every link points to a section on the page.
+  for (const href of await page.locator(".secnav a[href^='#']").evaluateAll((links) => links.map((a) => a.getAttribute("href")))) {
+    await expect(page.locator(href)).toHaveCount(1);
+  }
+  await expect(page.locator(".secnav a")).toHaveCount(s.phases.length + 6);
+  await page.locator("#weiter a", { hasText: s.ctaRulesBtn }).click();
+  await expect(page).toHaveURL(/\/de\/$/);
+
+  // Languages without the guide keep the short list.
+  await openLanguage(page, byCode.fr);
+  await page.goto("fr/strategy/");
+  await expect(page.locator("#strategie .strats li")).toHaveCount(7);
+  await expect(page.locator(".swapex")).toHaveCount(0);
+  await expect(page.locator(".secnav")).toHaveCount(0);
 });
 
 test.describe("start page redirect", () => {

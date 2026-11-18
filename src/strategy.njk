@@ -12,11 +12,147 @@ eleventyComputed:
 classicScripts: ["/assets/qrcode.js"]
 scripts: ["/assets/share.js"]
 ---
+{%- from "card.njk" import card, stack -%}
 {%- set t = lang.t -%}
+{%- set s = t.strategy -%}
+
+{#- Hand fan for the swap example: three small cards, swapped ones outlined. -#}
+{%- macro fan(cards) -%}
+<div class="dv-fan">{% for c in cards %}{{ card(c[0], c[1], "sm", c[2]) }}{% endfor %}</div>
+{%- endmacro -%}
 
 {% include "hero.njk" %}
 
+{%- if s.principleH %}
+<nav class="secnav" aria-label="{{ t.navLabel }}">
+  <ul>
+    <li><a href="#grundprinzip">{{ s.principleNav }}</a></li>
+    <li><a href="#tausch">{{ s.swapNav }}</a></li>
+    {%- for phase in s.phases %}
+    <li><a href="#{{ phase.id }}">{{ phase.h }}</a></li>
+    {%- endfor %}
+    <li><a href="#sonderkarten-einsetzen">{{ s.spNav }}</a></li>
+    <li><a href="#fehler">{{ s.mistakesNav }}</a></li>
+    <li><a href="{{ lang.path }}play/">{{ t.game.ctaBtn }}</a></li>
+    <li><a href="#teilen">{{ t.n8 }}</a></li>
+  </ul>
+</nav>
+{%- endif %}
+
 <main class="wrap">
+  {%- if s.principleH %}
+  {#- New strategy guide (where translated). Other languages keep the short list below. -#}
+  <section id="grundprinzip">
+    <h2>{{ s.principleH }}</h2>
+    <p class="lead">{{ s.principle | safe }}</p>
+  </section>
+
+  <section id="tausch">
+    <h2>{{ s.swapH }}</h2>
+    <p class="lead">{{ s.swapLead | safe }}</p>
+    <h3 class="sub first">{{ s.upH }}</h3>
+    <ul class="strats">
+      {%- for item in s.up %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+    <p class="notup">{{ s.notUp | safe }}</p>
+
+    {#- Swap example: before and after. 10 and king from the hand change places
+        with 4 and 8 on the table (outlined). -#}
+    <figure class="swapex">
+      <figcaption>{{ s.exH }}</figcaption>
+      <div class="sx-pair" role="img" aria-label="{{ s.exAlt }}">
+        <div class="sx-panel">
+          <p class="sx-title">{{ s.exBefore }}</p>
+          <p class="sx-label">{{ s.exHand }}</p>
+          {{ fan([["10", "♥", "gold"], ["K", "♠", "gold"], ["5", "♣"]]) }}
+          <p class="sx-label">{{ s.exUp }}</p>
+          <div class="dv-table">{{ stack("4", "♦", "gold") }}{{ stack("8", "♣", "gold") }}{{ stack("Q", "♥") }}</div>
+        </div>
+        <svg class="sx-arrow" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 24 H38"/><path d="M28 13 L40 24 L28 35"/></svg>
+        <div class="sx-panel">
+          <p class="sx-title">{{ s.exAfter }}</p>
+          <p class="sx-label">{{ s.exHand }}</p>
+          {{ fan([["4", "♦", "gold"], ["8", "♣", "gold"], ["5", "♣"]]) }}
+          <p class="sx-label">{{ s.exUp }}</p>
+          <div class="dv-table">{{ stack("10", "♥", "gold") }}{{ stack("K", "♠", "gold") }}{{ stack("Q", "♥") }}</div>
+        </div>
+      </div>
+      <p>{{ s.exWhy | safe }}</p>
+      <div class="sx-variant">
+        <div class="sx-mini" role="img" aria-label="{{ s.exVariantAlt }}">{{ card("10", "♥", "xs") }}{{ card("6", "♠", "xs") }}{{ card("6", "♦", "xs") }}</div>
+        <p>{{ s.exVariant | safe }}</p>
+      </div>
+    </figure>
+  </section>
+
+  {%- for phase in s.phases %}
+
+  <section id="{{ phase.id }}">
+    <h2>{{ phase.h }}</h2>
+    <ul class="strats">
+      {%- for item in phase.items %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endfor %}
+
+  <section id="sonderkarten-einsetzen">
+    <h2>{{ s.spH }}</h2>
+    <p class="lead">{{ s.spLead | safe }}</p>
+    <div class="specials">
+      {%- set suits = { "2": "♣", "3": "♥", "7": "♠", "8": "♥", "10": "♦" } %}
+      {%- for sp in s.sp %}
+      <div class="sp">
+        {%- if sp.rank == "four" %}
+        <div class="four">
+          {%- for suit in ["♠", "♥", "♣", "♦"] %}
+          {{ card("9", suit, "xs") }}
+          {%- endfor %}
+        </div>
+        {%- else %}
+        {{ card(sp.rank, suits[sp.rank], "sm") }}
+        {%- endif %}
+        <div>
+          <h3>{{ sp.h }}</h3>
+          <p>{{ sp.p | safe }}</p>
+          {%- if sp.items %}
+          <ul class="sp-list">
+            {%- for item in sp.items %}
+            <li>{{ item | safe }}</li>
+            {%- endfor %}
+          </ul>
+          {%- endif %}
+        </div>
+      </div>
+      {%- endfor %}
+    </div>
+  </section>
+
+  <section id="fehler">
+    <h2>{{ s.mistakesH }}</h2>
+    <ul class="variants">
+      {%- for item in s.mistakes %}
+      <li>{{ item | safe }}</li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="weiter" class="ctas">
+    <div class="cta">
+      <h2>{{ s.ctaPlayH }}</h2>
+      <p>{{ s.ctaPlayP }}</p>
+      <a class="ctabtn" href="{{ lang.path }}play/">{{ s.ctaPlayBtn }} →</a>
+    </div>
+    <div class="cta">
+      <h2>{{ s.ctaRulesH }}</h2>
+      <p>{{ s.ctaRulesP }}</p>
+      <a class="ctabtn" href="{{ lang.path }}">{{ s.ctaRulesBtn }} →</a>
+    </div>
+  </section>
+  {%- else %}
   <section id="strategie">
     <h2>{{ t.stH }}</h2>
     <p class="lead">{{ t.stLead | safe }}</p>
@@ -26,6 +162,8 @@ scripts: ["/assets/share.js"]
       {%- endfor %}
     </ul>
   </section>
+  {%- endif %}
+
   {% include "share.njk" %}
 </main>
 
