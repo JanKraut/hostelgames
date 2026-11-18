@@ -320,6 +320,42 @@ h3.sub.first {
   font-size: calc(var(--w) * 0.5);
 }
 
+/* The Shithead card: the pile instead of rank and suit */
+.card.sh .c {
+  width: 0.62em;
+}
+
+.card.sh .c svg {
+  display: block;
+  width: 100%;
+}
+
+.card.sh .c2 {
+  top: auto;
+  left: auto;
+  right: 9%;
+  bottom: 6%;
+  transform: rotate(180deg);
+}
+
+.card.sh .pip {
+  align-content: center;
+  gap: calc(var(--w) * 0.05);
+}
+
+.card.sh .pip svg {
+  width: calc(var(--w) * 0.52);
+}
+
+.card.sh .pip b {
+  font-family: var(--font-body);
+  font-size: calc(var(--w) * 0.105);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7a4520;
+}
+
 /* A row of cards */
 .row {
   display: flex;
@@ -793,9 +829,9 @@ h3.sub.first {
 /* Fanned cards */
 .fan {
   position: relative;
-  width: 260px;
-  height: 190px;
-  margin: 1.6rem auto 1.4rem;
+  width: 300px;
+  height: 160px;
+  margin: 1rem auto 1.4rem;
 }
 
 .fan .card {
@@ -806,15 +842,19 @@ h3.sub.first {
 }
 
 .fan .card:nth-child(1) {
-  transform: translateX(-50%) rotate(-20deg);
+  transform: translateX(-50%) rotate(-27deg);
 }
 
 .fan .card:nth-child(2) {
-  transform: translateX(-50%) rotate(0deg) translateY(-8px);
+  transform: translateX(-50%) rotate(-9deg) translateY(-6px);
 }
 
 .fan .card:nth-child(3) {
-  transform: translateX(-50%) rotate(20deg);
+  transform: translateX(-50%) rotate(9deg) translateY(-6px);
+}
+
+.fan .card:nth-child(4) {
+  transform: translateX(-50%) rotate(27deg);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -832,6 +872,10 @@ h3.sub.first {
 
   .fan .card:nth-child(3) {
     animation-delay: 0.31s;
+  }
+
+  .fan .card:nth-child(4) {
+    animation-delay: 0.5s;
   }
 
   @keyframes deal {
