@@ -178,6 +178,19 @@ test("every external link opens in a new tab", async ({ page }) => {
   }
 });
 
+test("strategy page: big header with its own title and intro", async ({ page }) => {
+  for (const code of ["de", "en"]) {
+    const lang = byCode[code];
+    await openLanguage(page, lang);
+    await page.goto(pathOf(lang) + "strategy/");
+    await expect(page.locator(".hero h1")).toHaveText(lang.t.strategy.h1);
+    await expect(page.locator(".hero .fan .card")).toHaveCount(3);
+    await expect(page.locator(".hero .goal")).toBeVisible();
+    await expect(page.locator("#strategie h2")).toHaveText(lang.t.stH);
+  }
+  await expect(page.locator(".hero > .wrap > p").first()).toHaveText(byCode.en.t.strategy.sub ?? byCode.en.t.sub);
+});
+
 test.describe("start page redirect", () => {
   const cases = [
     ["de-DE", "de"],
