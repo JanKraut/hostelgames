@@ -12,9 +12,7 @@
 <div class="stack">{{ back() }}{{ card(rank, suit, "sm", extra) }}</div>
 {%- endmacro %}
 
-{#- A row of overlapping cards, left to right. Cards are [rank, suit, extra?].
-    Right-to-left pages get the cards in reverse order, so they still read from
-    the right while each card keeps its index corner visible. -#}
-{% macro cardRow(cards, dir, size="") -%}
-{%- for c in (cards | reverse if dir == "rtl" else cards) %}{{ card(c[0], c[1], size, c[2]) }}{% endfor -%}
+{#- A row of overlapping cards, left to right. Cards are [rank, suit, extra?]. -#}
+{% macro cardRow(cards, size="") -%}
+{%- for c in cards %}{{ card(c[0], c[1], size, c[2]) }}{% endfor -%}
 {%- endmacro %}

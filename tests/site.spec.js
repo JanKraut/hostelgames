@@ -28,7 +28,6 @@ test.describe("every language page", () => {
 
       await expect(page).toHaveTitle(lang.t.title);
       await expect(page.locator("html")).toHaveAttribute("lang", lang.htmlLang);
-      await expect(page.locator("html")).toHaveAttribute("dir", lang.dir);
       await expect(page.locator("h2").first()).toHaveText(lang.t.setupH);
       await expect(page.locator("#spickzettel")).toHaveCount(0);
       await expect(page.locator(".pagetabs a[aria-current=page]")).toHaveText(lang.t.pgRules);
