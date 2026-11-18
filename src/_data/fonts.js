@@ -4,6 +4,4 @@
 export default [
   // Body text (400, 700), headings and card ranks (800)
   { pkg: "manrope", weights: [400, 700, 800], subsets: ["latin", "latin-ext"] },
-  // Hebrew page only
-  { pkg: "rubik", weights: [400, 700, 900], subsets: ["latin", "hebrew"] },
 ];

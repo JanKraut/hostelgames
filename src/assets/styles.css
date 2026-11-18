@@ -149,13 +149,6 @@
 }
 }
 
-/* Hebrew: Rubik has Hebrew glyphs, the Latin fonts above do not. */
-html[lang="he"] {
-  --font-body: "Rubik", "Manrope", system-ui, sans-serif;
-  --font-display: "Rubik", "Manrope", sans-serif;
-  --font-display-weight: 900;
-}
-
 /* ---------- Base ---------- */
 
 *,

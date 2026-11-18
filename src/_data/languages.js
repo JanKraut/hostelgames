@@ -19,7 +19,6 @@ const LANGUAGES = [
   { code: "pt", flag: "🇵🇹", name: "Português" },
   { code: "pt-br", flag: "🇧🇷", name: "Português (Brasil)", fallback: ["pt"] },
   { code: "sv", flag: "🇸🇪", name: "Svenska" },
-  { code: "he", flag: "🇮🇱", name: "עברית", dir: "rtl" },
 ];
 
 const DEFAULT = "en";

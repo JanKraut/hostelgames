@@ -199,7 +199,7 @@ test.describe("start page redirect", () => {
     ["pt-PT", "pt"],
     ["pt-BR", "pt-br"],
     ["nb-NO", "nb"],
-    ["he-IL", "he"],
+    ["he-IL", "en"],
     ["en-US", "en"],
     ["ja-JP", "en"],
   ];
@@ -252,9 +252,9 @@ test.describe("without JavaScript", () => {
 
     // The language menu is plain links.
     await page.locator(".langmenu summary").click();
-    await page.locator('.langmenu a[data-lang="he"]').click();
-    await expect(page).toHaveURL(/\/he\/$/);
-    await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
+    await page.locator('.langmenu a[data-lang="pl"]').click();
+    await expect(page).toHaveURL(/\/pl\/$/);
+    await expect(page.locator("html")).toHaveAttribute("lang", byCode.pl.htmlLang);
   });
 
   test("the start page stays English", async ({ browser, baseURL }) => {
@@ -362,7 +362,7 @@ test.describe("footer", () => {
 });
 
 test.describe("self-contained", () => {
-  for (const lang of [byCode.en, byCode.cs, byCode.he]) {
+  for (const lang of [byCode.en, byCode.cs, byCode.pl]) {
     test(`${lang.code} loads nothing from other servers and every file exists`, async ({ page, baseURL }) => {
       const origin = new URL(baseURL).origin;
       const foreign = [];
@@ -420,9 +420,9 @@ test.describe("offline", () => {
 
     // Other languages were cached too, not only the visited page.
     await page.locator(".langmenu summary").click();
-    await page.locator('.langmenu a[data-lang="he"]').click();
-    await expect(page).toHaveURL(/\/he\/$/);
-    await expect(page.locator("h2").first()).toHaveText(byCode.he.t.setupH);
+    await page.locator('.langmenu a[data-lang="pl"]').click();
+    await expect(page).toHaveURL(/\/pl\/$/);
+    await expect(page.locator("h2").first()).toHaveText(byCode.pl.t.setupH);
     await page.evaluate(() => document.fonts.ready);
     const failedFonts = await page.evaluate(() => [...document.fonts].filter((f) => f.status === "error").length);
     expect(failedFonts, "fonts that failed to load offline").toBe(0);
@@ -432,7 +432,7 @@ test.describe("offline", () => {
     await expect(page.locator("#fb span")).toBeVisible();
 
     // The game page works offline too.
-    await page.goto("he/play/");
+    await page.goto("pl/play/");
     await page.locator("#setup-form button[type=submit]").click();
     await expect(page.locator("#btn-ready")).toBeVisible();
   });
