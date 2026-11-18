@@ -144,6 +144,19 @@ test("swap graphic: same style, ace and 4 marked", async ({ page }) => {
   await expect(vis.locator(".dv-swap")).toBeVisible();
 });
 
+test("variants and FAQ: only where translated, FAQ opens on tap", async ({ page }) => {
+  await openLanguage(page, byCode.de);
+  await expect(page.locator("#varianten .variants li")).toHaveCount(3);
+  await expect(page.locator('.secnav a[href="#faq"]')).toBeVisible();
+  const first = page.locator("#faq details").first();
+  await expect(first.locator("p")).toBeHidden();
+  await first.locator("summary").click();
+  await expect(first.locator("p")).toBeVisible();
+
+  await openLanguage(page, byCode.en);
+  await expect(page.locator("#faq")).toHaveCount(byCode.en.t.rules ? 1 : 0);
+});
+
 test.describe("start page redirect", () => {
   const cases = [
     ["de-DE", "de"],
