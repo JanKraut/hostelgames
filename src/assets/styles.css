@@ -830,8 +830,8 @@ h3.sub.first {
 .fan {
   position: relative;
   width: 300px;
-  height: 150px;
-  margin: 0.6rem auto 1.4rem;
+  height: 160px;
+  margin: 1rem auto 1.4rem;
 }
 
 .fan .card {
