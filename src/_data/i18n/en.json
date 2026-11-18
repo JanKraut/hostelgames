@@ -215,5 +215,8 @@
     "yourName": "Your name",
     "skipped": "{name} misses a turn.",
     "youSkipped": "You miss a turn."
+  },
+  "strategy": {
+    "h1": "Don’t be the Shithead"
   }
 }

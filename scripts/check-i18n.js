@@ -18,8 +18,8 @@ const TEMPLATES = ["../src/index.njk", "../src/_includes/specials.njk"].map((pat
 const DEFAULT = "en";
 // New sections that exist in some languages only, until they are translated.
 // The page shows them only where the texts exist (`info` = fact sheet, `quick` = quick start
-// and special-card extras, `rules` = additions on the rules page).
-const PENDING = ["info.", "quick.", "rules."];
+// and special-card extras, `rules` = additions on the rules page, `strategy` = strategy page header).
+const PENDING = ["info.", "quick.", "rules.", "strategy."];
 
 // Only code and fallback are needed from languages.js.
 let LANGUAGES;
@@ -90,6 +90,7 @@ for (const lang of LANGUAGES) {
 
   if (lang.code === DEFAULT) continue;
   for (const [key, en] of Object.entries(english)) {
+    if (PENDING.some((prefix) => key.startsWith(prefix))) continue;
     const from = chain.find((code) => key in flatten(texts[code] ?? {}));
     if (!from) {
       report(lang.code, key, "missing, would show the English text");

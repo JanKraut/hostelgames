@@ -1,13 +1,15 @@
-{#- Big header with title, intro and goal. Shared by the rules page and the quick start;
-    the rules page adds its fact sheet below the goal. -#}
+{#- Big header with title, intro and goal. Shared by the rules page, the quick start and
+    the strategy page; the rules page adds its fact sheet below the goal, the strategy
+    page has its own title and intro (where translated). -#}
 {%- from "card.njk" import card -%}
 {%- set t = lang.t -%}
 <header class="hero">
   <div class="wrap">
     {% include "langmenu.njk" %}
     {% include "pagenav.njk" %}
-    <h1>{{ t.h1 | safe }}</h1>
-    <p>{{ t.sub | safe }}</p>
+    {%- set strat = subpath == "strategy/" %}
+    <h1>{{ (t.strategy.h1 if strat and t.strategy.h1 else t.h1) | safe }}</h1>
+    <p>{{ (t.strategy.sub if strat and t.strategy.sub else t.sub) | safe }}</p>
     <div class="fan" aria-hidden="true">
       {{ card("2", "♣") }}
       {{ card("10", "♥") }}
