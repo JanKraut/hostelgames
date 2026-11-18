@@ -283,6 +283,121 @@
   },
   "strategy": {
     "h1": "Don’t be the Shithead",
-    "sub": "Der ultimative Shithead-Strategie-Guide. Das Spiel ist zwar leicht zu erlernen, doch die Kombination aus Glück und Strategie verleiht ihm eine überraschende Tiefe."
+    "sub": "Der ultimative Shithead-Strategie-Guide. Das Spiel ist zwar leicht zu erlernen, doch die Kombination aus Glück und Strategie verleiht ihm eine überraschende Tiefe.",
+    "principleH": "Das Grundprinzip",
+    "principle": "Bei Shithead geht es nicht ums Gewinnen. Es geht darum, <strong>nicht zu verlieren</strong>. Spiel taktisch für dich selbst, denn am Ende willst du nur eines: nicht der Shithead sein.",
+    "principleNav": "Grundprinzip",
+    "swapH": "Vor dem Spiel: Der Tausch",
+    "swapLead": "Der Kartentausch zu Beginn ist eine der wichtigsten strategischen Entscheidungen. Deine offenen Karten sehen alle Mitspieler, und sie liegen fest. Wähle also gut.",
+    "swapNav": "Tausch",
+    "upH": "Das gehört nach oben (offen):",
+    "up": [
+      "<strong>Die 10 – immer.</strong> Hast du vor dem Start eine 10, legst du sie als offene Karte hin. Spiel sie als letzte deiner offenen Karten. Durch den Burn bist du direkt noch mal dran und kannst sofort eine verdeckte Karte spielen.",
+      "<strong>Mehrere 10er:</strong> Leg nicht unbedingt beide offen hin. Zusammen gespielt sind sie zwar ein einziger Zug statt mehrerer. Behalte lieber eine als Backup auf der Hand.",
+      "<strong>Sonderkarten:</strong> Jede Karte mit einer Fähigkeit ist gut. Die unsichtbare 3 und die 10 sind im späten Spiel am stärksten. Auch die 2 ist gut, allerdings darf der nächste Spieler danach alles legen.",
+      "<strong>Hohe Karten (K, D, B):</strong> Sie lassen sich leicht spielen, weil nur wenige Karten sie schlagen.",
+      "<strong>Paare:</strong> Zwei gleiche offene Karten spielst du gleichzeitig. Liegt eine 10 daneben, nimm lieber zwei niedrige gleiche Karten als zwei verschiedene hohe. Mit der 10 dahinter spielt der niedrige Wert keine Rolle."
+    ],
+    "notUp": "<strong>Das gehört nicht nach oben:</strong> niedrige Karten wie 4, 5 und 6. Im Endspiel kannst du sie kaum noch legen, und dann musst du sie ohne Handkarten spielen.",
+    "exH": "Beispiel-Tausch",
+    "exBefore": "Ausgeteilt",
+    "exAfter": "Nach dem Tausch",
+    "exHand": "Hand",
+    "exUp": "Offen",
+    "exAlt": "Beispiel-Tausch. Ausgeteilt: offen 4, 8 und Dame, auf der Hand 10, 5 und König. Nach dem Tausch: offen 10, König und Dame, auf der Hand 4, 5 und 8.",
+    "exWhy": "<strong>Warum?</strong> Die niedrigen Karten wirst du früh los, solange noch nachgezogen wird. Oben liegen nur starke Karten, und die 10 sichert dir am Ende den direkten Weg zu den verdeckten Karten.",
+    "exVariant": "<strong>Variante:</strong> offen 10 · 6 · 6. Das Paar plus die 10 spart Züge.",
+    "exVariantAlt": "Variante: offen 10, 6 und 6",
+    "phases": [
+      {
+        "id": "fruehes-spiel",
+        "h": "Frühes Spiel",
+        "items": [
+          "<strong>Früh aufnehmen ist okay.</strong> Ein kleiner Stapel am Anfang tut kaum weh und bringt manchmal gute Karten. Ein großer Stapel mit niedrigen Karten am Ende ist das eigentliche Problem.",
+          "<strong>Schlechte Starthand:</strong> Versuch, so schnell wie möglich nachzuziehen, oder nimm den Stapel auf. Liegen nur 3–4 Karten darin und verbessern sie deine Hand, ist Aufnehmen oft besser, als eine Sonderkarte zu verschwenden. Versuche, durch das Aufnehmen des Stapels den Spielfluss beim Nachziehen des Gegners zu unterbrechen.",
+          "<strong>Hohe Karten nicht gleichzeitig spielen</strong>, solange noch nachgezogen wird. Die Chance, dass bessere Karten kommen, ist gering.",
+          "<strong>Sonderkarten horten.</strong> 2, 3 und 10 sind im späten Spiel viel mehr wert, also nicht früh verschwenden.",
+          "<strong>Den Stapel im Blick behalten.</strong> Liegen oben schon zwei gleiche Karten, kannst du vielleicht einen Four of a Kind Burn vollmachen."
+        ]
+      },
+      {
+        "id": "mittleres-spiel",
+        "h": "Mittleres Spiel",
+        "items": [
+          "<strong>Niedrige Karten loswerden.</strong> Spiel 4, 5, 6 und 9 so schnell wie möglich aus. Eine 7 auf der Hand zu behalten kann taktisch sinnvoll sein. Hat dein Mitspieler nur noch hohe Karten, muss er aufnehmen.",
+          "<strong>An die offenen Karten denken.</strong> Hast du eine niedrige (offene) Karte, die du nicht legen kannst, spiel eine 2 und hoffe, dass die anderen ebenfalls nur niedrige Karten legen.",
+          "<strong>Mitzählen.</strong> Merk dir, welche Sonderkarten schon gespielt wurden. Sind alle 10er weg, lässt sich der Stapel nur noch mit einem Four of a Kind Burn verbrennen.",
+          "<strong>Schwache offene Karten zuerst.</strong> Wenn du den Stapel kontrollierst, wirst du deine schlechtesten offenen Karten früh los."
+        ]
+      },
+      {
+        "id": "endspiel",
+        "h": "Endspiel",
+        "items": [
+          "<strong>Handkarten mit offenen Karten kombinieren.</strong> Am Ende kannst du deine letzten Handkarten zusammen mit gleichen offenen Karten spielen, zum Beispiel als Abschluss für einen Four of a Kind Burn.",
+          "<strong>Hohe Karten aus dem Spiel nehmen.</strong> Hast du sehr schlechte offene Karten, kann sogar ein Burn mit vier 2ern oder vier 3ern auf hohe Karten Sinn ergeben, damit die hohen Karten raus sind. Sonst spiel ihn tendenziell lieber nicht.",
+          "<strong>Freiwillig aufnehmen.</strong> Bevor du eine gute Karte wie die 10 spielst und danach deine offenen oder verdeckten Karten nicht mehr loswirst, nimm lieber einen Stapel mit guten Karten auf.",
+          "<strong>Gegner beobachten.</strong> Sind noch mehrere Spieler im Spiel und ein Spieler hat nur noch 1–2 Karten, ist er ohnehin sehr schnell raus. Spiel trotzdem in erster Linie für dich, auch wenn er dadurch rausgeht: lieber ein Spieler weniger, dafür behältst du deine hohen Karten und wirst vermutlich nicht der Shithead. Konzentrier dich auf die übrigen Mitspieler.",
+          "<strong>Reset und Aufnehmen öffnen das Spiel.</strong> Nach einer 2 (und genauso nach einer 4, der niedrigsten normalen Karte) darf der nächste Spieler jede Karte legen, also auch jede beliebige verdeckte Karte. Dasselbe gilt, wenn du aufnehmen musst.",
+          "<strong>Verdeckte Karten sind reines Glück.</strong> Hier gibt es keine Strategie, nur Hoffnung – manche sagen allerdings, es sei Skill 😉"
+        ]
+      }
+    ],
+    "spH": "Sonderkarten richtig einsetzen",
+    "spLead": "Jede Fähigkeit verändert das Spiel auf ihre eigene Weise. Wer das Timing beherrscht, unterscheidet sich von den anderen und wird nicht Shithead.",
+    "spNav": "Sonderkarten",
+    "sp": [
+      {
+        "rank": "2",
+        "h": "2 – Reset",
+        "p": "Kann immer gespielt werden, ist aber die niedrigste Karte, und der nächste Spieler darf danach alles legen. Heb sie dir für Momente auf, in denen der Stapel zu hoch ist."
+      },
+      {
+        "rank": "3",
+        "h": "3 – Unsichtbar",
+        "p": "Stark unterschätzt. Du kannst so einen Stapel mit hohen Karten weiterreichen. Die Chance, dass dein Gegner eine höhere Karte wie Dame oder König hat, ist gegeben, spiele daher lieber erst andere Karten, bevor du die 3 spielst. Außerdem ist sie dein Sicherheitsnetz gegen eine 7."
+      },
+      {
+        "rank": "7",
+        "h": "7 – Niedriger",
+        "p": "Der nächste Spieler muss eine gleiche oder niedrigere Karte legen. Die 7 lässt sich unglaublich taktisch spielen. Wer sie beherrscht, entscheidet oft darüber, wer Shithead wird."
+      },
+      {
+        "rank": "8",
+        "h": "8 – Überspringen",
+        "p": "Wird umso stärker, je weniger Spieler übrig sind. Überspring den Spieler, der kurz vor dem Rausgehen ist, oder jemanden, der gerade stark spielt. Mehrere 8er überspringen mehrere Spieler. Du kannst auch so überspringen, dass du direkt wieder dran bist und dann zum Beispiel eine niedrigere Karte wie die 9 legst. Das klappt aber nur, wenn die Reihenfolge passt."
+      },
+      {
+        "rank": "10",
+        "h": "10 – Burn",
+        "p": "Die stärkste Karte. Sie verbrennt den Stapel und du bist noch mal dran.",
+        "items": [
+          "Versuche, die Karte lieber als Backup als Letztes zu spielen und keinen großen Stapel frühzeitig zu verbrennen. So muss dein Mitspieler einen großen Stapel aufnehmen.",
+          "Wenn du geburnt hast, leg deine niedrigste Karte ab.",
+          "Weil du nach dem Burn noch mal dran bist, wirst du später deine (niedrigen) offenen und verdeckten Karten sehr gut los."
+        ]
+      },
+      {
+        "rank": "four",
+        "h": "Four of a Kind Burn",
+        "p": "Vier gleiche Karten hintereinander verbrennen den Stapel. Hast du mitgezählt oder weißt du, dass alle vier Karten auf der Hand sind, spiel nicht alle, sondern versuche, lieber mit der letzten Karte zu burnen – so machst du den Four of a Kind Burn gezielt voll."
+      }
+    ],
+    "mistakesH": "Häufige Fehler",
+    "mistakesNav": "Fehler",
+    "mistakes": [
+      "<strong>Offene Karten der Gegner ignorieren.</strong> Haben alle nur niedrige Karten offen liegen, halt den Stapel hoch und zwing sie zum Aufnehmen. Besonders mit der 7 kannst du hier taktisch spielen. Liegt bei einem Gegner zum Beispiel ein König offen, weißt du, dass dein Four of a Kind Burn mit Königen gerade nicht klappt.",
+      "<strong>Nicht mitzählen.</strong> Sind alle vier 2er gespielt, kann niemand mehr resetten, und das ändert das ganze Spiel. Merk dir auch, welche Karten die Gegner vom Stapel aufnehmen. Vor allem bei Sonderkarten!",
+      "<strong>Niedrige Karten offen hinlegen.</strong> 4er, 5er und 6er sind im Endspiel schwer spielbar.",
+      "<strong>Sonderkarten verschenken.</strong> Eine 2, 3 oder 10 ist dein Notausgang. Verschenk sie nicht, wenn du auch normal legen kannst.",
+      "<strong>Paare auseinanderreißen.</strong> Gleiche Karten zusammen zu spielen spart Züge, und mit der vierten gleichen verbrennst du den Stapel.",
+      "<strong>Gleiche Karten falsch spielen.</strong> Hast du zwei Könige, der Gegner einen und sonst nichts Höheres: Spielst du beide auf einmal, legt er seinen König, und du musst aufnehmen. Spielst du sie einzeln (du K, er K, du K), muss er aufnehmen."
+    ],
+    "ctaPlayH": "Bereit zum Spielen?",
+    "ctaPlayP": "Starte ein Spiel und setz diese Strategien um.",
+    "ctaPlayBtn": "Gegen Bots spielen",
+    "ctaRulesH": "Neu im Spiel?",
+    "ctaRulesP": "Lies zuerst die Regeln.",
+    "ctaRulesBtn": "Zu den Regeln"
   }
 }

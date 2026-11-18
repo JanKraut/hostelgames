@@ -27,10 +27,12 @@ const load = (code) =>
   JSON.parse(readFileSync(new URL(`./i18n/${code}.json`, import.meta.url), "utf8"));
 
 // Merges b into a; sections like `quiz` or `game` are merged text by text.
+// Lists (e.g. the strategy tips) are taken whole, so they stay lists.
 function merge(a, b) {
   const result = { ...a };
   for (const [key, value] of Object.entries(b)) {
-    result[key] = value && typeof value === "object" ? merge(a[key] ?? {}, value) : value;
+    if (Array.isArray(value)) result[key] = value;
+    else result[key] = value && typeof value === "object" ? merge(a[key] ?? {}, value) : value;
   }
   return result;
 }
