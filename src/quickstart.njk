@@ -10,20 +10,15 @@ eleventyComputed:
   pageTitle: "{{ lang.t.pgQuick }} · {{ lang.t.title }}"
   pageDescription: "{{ lang.t.sub | striptags }}"
 ---
-{#- Meant to stay open on a phone next to the game: everything fits on one screen. -#}
+{#- Same header as the rules page; the cheat sheet below fits on one phone screen. -#}
 {%- set t = lang.t -%}
 
-<header class="hero hero-small hero-quick">
-  <div class="wrap">
-    {% include "langmenu.njk" %}
-    {% include "pagenav.njk" %}
-  </div>
-</header>
+{% include "hero.njk" %}
 
 <main class="wrap quick">
   <section id="spickzettel">
     <div class="cheat">
-      <h1>{{ t.chH }}</h1>
+      <h2>{{ t.chH }}</h2>
       <dl>
         <dt>{{ t.c1t }}</dt><dd>{{ t.c1d | safe }}</dd>
         <dt>{{ t.c2t }}</dt><dd>{{ t.c2d | safe }}</dd>

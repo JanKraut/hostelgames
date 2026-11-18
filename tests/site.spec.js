@@ -95,13 +95,15 @@ test.describe("strategy and quick start pages", () => {
     await expect(page).toHaveURL(/\/de\/quickstart\/$/);
   });
 
+  // The page starts with the same header as the rules; scrolled to, the cheat sheet fits one screen.
   for (const [width, height] of [[360, 740], [390, 844]]) {
-    test(`the quick start fits on one phone screen (${width} × ${height})`, async ({ page }) => {
+    test(`the quick start cheat sheet fits on one phone screen (${width} × ${height})`, async ({ page }) => {
       await page.setViewportSize({ width, height });
       await openLanguage(page, byCode.de);
       await page.goto("de/quickstart/");
-      const bottom = await page.locator("#spickzettel .cheat").evaluate((el) => el.getBoundingClientRect().bottom);
-      expect(bottom).toBeLessThanOrEqual(height);
+      await expect(page.locator(".hero h1")).toBeVisible();
+      const box = await page.locator("#spickzettel .cheat").boundingBox();
+      expect(box.height).toBeLessThanOrEqual(height);
     });
   }
 });

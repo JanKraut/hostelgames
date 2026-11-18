@@ -15,23 +15,7 @@ scripts: ["/assets/rules.js"]
 {%- from "card.njk" import card, back, stack, cardRow -%}
 {%- set t = lang.t -%}
 
-<header class="hero">
-  <div class="wrap">
-    {% include "langmenu.njk" %}
-    {% include "pagenav.njk" %}
-    <h1>{{ t.h1 | safe }}</h1>
-    <p>{{ t.sub | safe }}</p>
-    <div class="fan" aria-hidden="true">
-      {{ card("2", "♣") }}
-      {{ card("10", "♥") }}
-      {{ card("7", "♠") }}
-    </div>
-    <div class="goal">
-      <div class="goal-icon" aria-hidden="true">🎯</div>
-      <p>{{ t.goal | safe }}</p>
-    </div>
-  </div>
-</header>
+{% include "hero.njk" %}
 
 <nav class="secnav" aria-label="{{ t.navLabel }}">
   <ul>
