@@ -257,6 +257,28 @@
     "sp4extra": "Du kannst Karten desselben Wertes jederzeit zur Vervollständigung „reinschmeißen“ – auch wenn du eigentlich gar nicht an der Reihe bist. Wer den Burn vervollständigt, darf direkt weiterspielen."
   },
   "rules": {
-    "bnFree": "Das darfst du auch freiwillig tun, wenn du eine passende Karte hättest."
+    "bnFree": "Das darfst du auch freiwillig tun, wenn du eine passende Karte hättest.",
+    "varNav": "Varianten",
+    "varH": "Spieleranzahl und Varianten",
+    "varLead": "Shithead ist extrem flexibel und passt sich jeder Gruppengröße an:",
+    "var1": "<strong>4 Spieler:</strong> Dies ist die optimale Spieleranzahl für die beste Dynamik, Strategie und das nötige Glück.",
+    "var2": "<strong>6 Spieler:</strong> Hier wird nur mit zwei verdeckten/offenen Karten statt drei gespielt, damit das Deck ausreicht.",
+    "var3": "<strong>7+ Spieler:</strong> Zeit für ein zweites Kartendeck! Die Regeln bleiben gleich, auch die „Four-of-a-kind“-Regel gilt weiterhin über beide Decks hinweg.",
+    "faqNav": "FAQ",
+    "faqH": "FAQ",
+    "faq1q": "Kann ich mehrere Karten gleichzeitig ausspielen?",
+    "faq1a": "Ja! Wenn du zwei, drei oder sogar vier gleiche Karten hast (z. B. drei Damen), kannst du sie alle in einem einzigen Zug ausspielen. Das eignet sich hervorragend, um einen Four-of-a-Kind Burn zu vervollständigen.",
+    "faq2q": "Was passiert, wenn ich den Stapel aufnehme?",
+    "faq2a": "Alle Karten kommen auf deine Hand und dein Zug endet. Der nächste Spieler ist an der Reihe und darf eine beliebige Karte spielen.",
+    "faq3q": "Kann ich den Stapel aufnehmen, auch wenn ich spielen kann?",
+    "faq3a": "Ja, standardmäßig! Das kann ein kluger taktischer Schachzug sein – zum Beispiel, wenn der Stapel klein ist und viele nützliche Karten (wie Asse oder Spezialkarten) enthält, kann es sich lohnen, ihn aufzunehmen, um für das Endspiel besser gewappnet zu sein.",
+    "faq4q": "Darf ich meine aufgedeckten Karten tauschen?",
+    "faq4a": "Ja! Bevor das Spiel beginnt, darfst du deine drei offenen Karten beliebig mit deinen Handkarten tauschen. Deine stärksten Karten sollten offen auf dem Tisch liegen.",
+    "faq5q": "Darf ich meine verdeckten Karten ansehen?",
+    "faq5a": "Nein! Verdeckte Karten bleiben unbekannt, bis du sie ausspielst. Du musst sie zeigen, auch wenn du den Stapel nehmen musst. Das sorgt für Spannung und Unvorhersehbarkeit bis zum Ende des Spiels.",
+    "faq6q": "Wenn ein Spieler keine Karten mehr hat, wird dann weitergespielt?",
+    "faq6a": "Ja! Es geht nicht ums Gewinnen, sondern darum, nicht zu verlieren. Don’t be the shithead!",
+    "faq7q": "Wie lange dauert eine Partie?",
+    "faq7a": "Die meisten Partien dauern etwa 10 bis 15 Minuten. Neue Spieler haben den Spielablauf in der Regel schon nach einer Runde verstanden."
   }
 }
