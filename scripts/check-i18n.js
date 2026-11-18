@@ -17,8 +17,9 @@ const DIR = new URL("../src/_data/i18n/", import.meta.url);
 const TEMPLATES = ["../src/index.njk", "../src/_includes/specials.njk"].map((path) => new URL(path, import.meta.url));
 const DEFAULT = "en";
 // New sections that exist in some languages only, until they are translated.
-// The page shows them only where the texts exist (e.g. `info` = quick start fact sheet).
-const PENDING = ["info.", "quick."];
+// The page shows them only where the texts exist (`info` = fact sheet, `quick` = quick start
+// and special-card extras, `rules` = additions on the rules page).
+const PENDING = ["info.", "quick.", "rules."];
 
 // Only code and fallback are needed from languages.js.
 let LANGUAGES;

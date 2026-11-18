@@ -127,6 +127,11 @@ scripts: ["/assets/rules.js", "/assets/share.js"]
       </div>
       <p class="dnext">{{ t.dnext | safe }}</p>
     </div>
+    {%- if t.rules.pickH %}
+
+    <h3 class="sub">{{ t.rules.pickH }}</h3>
+    <p>{{ t.rules.pickP | safe }}</p>
+    {%- endif %}
   </section>
 
   {% include "specials.njk" %}
