@@ -257,7 +257,6 @@ html.playing .game {
   justify-content: flex-end;
   align-items: center;
   height: 1.05rem;
-  direction: ltr;
 }
 
 .fanback {
@@ -278,7 +277,6 @@ html.playing .game {
 .oppcards {
   display: flex;
   gap: 0.2rem;
-  direction: ltr;
 }
 
 .chip {
@@ -317,7 +315,6 @@ html.playing .game {
   border-radius: 16px;
   background: var(--felt);
   color: var(--felt-soft);
-  direction: ltr;
 }
 
 .pilebox {
@@ -456,7 +453,6 @@ html.playing .game {
   display: flex;
   gap: 0.5rem;
   height: calc(var(--ch) + 8px);
-  direction: ltr;
 }
 
 /* One row, never wraps. Many cards overlap more (each keeps at least a 26px
@@ -467,7 +463,6 @@ html.playing .game {
   padding: 14px 4px 4px; /* room for a lifted card and the gold outline */
   overflow-x: auto;
   overflow-y: hidden;
-  direction: ltr;
   scrollbar-width: none; /* the cut-off card at the edge shows that it scrolls */
 }
 

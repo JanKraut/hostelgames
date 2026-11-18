@@ -93,7 +93,7 @@ async function playOneMove(page) {
 
 for (const [bots, level, code] of [
   [1, "normal", "de"],
-  [4, "easy", "he"],
+  [4, "easy", "pl"],
 ]) {
   test(`a complete game against ${bots} ${level} bot(s) (${code})`, async ({ page }) => {
     test.setTimeout(120_000);

@@ -19,7 +19,6 @@ const LANGUAGES = [
   { code: "pt", flag: "🇵🇹", name: "Português" },
   { code: "pt-br", flag: "🇧🇷", name: "Português (Brasil)", fallback: ["pt"] },
   { code: "sv", flag: "🇸🇪", name: "Svenska" },
-  { code: "he", flag: "🇮🇱", name: "עברית", dir: "rtl" },
 ];
 
 const DEFAULT = "en";
@@ -47,7 +46,6 @@ function texts(lang) {
 export default LANGUAGES.map((lang) => {
   const path = lang.code === DEFAULT ? "/" : `/${lang.code}/`;
   return {
-    dir: "ltr",
     ...lang,
     // BCP 47 tag for <html lang> and hreflang, e.g. pt-BR
     htmlLang: lang.code.replace(/-([a-z]{2})$/, (_, region) => `-${region.toUpperCase()}`),

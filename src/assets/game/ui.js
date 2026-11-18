@@ -43,11 +43,8 @@ function listItem(text, className = "") {
   return li;
 }
 
-// Card names like "10♣" are always left to right, also inside Hebrew sentences
-// (U+2066 / U+2069 isolate them from the surrounding text direction).
-const ltr = (text) => `\u2066${text}\u2069`;
 const label = (card) => `${E.rankLabel(card.rank)}${card.suit}`;
-const cardsText = (cards) => ltr(cards.map(label).join(" "));
+const cardsText = (cards) => cards.map(label).join(" ");
 
 function cardHTML(card, { size = "tc", tag = "div", classes = "", attrs = "" } = {}) {
   const red = E.isRed(card) ? " r" : "";
@@ -194,8 +191,8 @@ function describe(event) {
     case "pickup":
       return fill(you ? T.youPickedUp : T.pickedUp, { name, n: event.count });
     case "flip":
-      if (event.fits) return fill(you ? T.youFlipOk : T.flipOk, { name, cards: ltr(label(event.card)) });
-      return fill(you ? T.youFlipFail : T.flipFail, { name, cards: ltr(label(event.card)) });
+      if (event.fits) return fill(you ? T.youFlipOk : T.flipOk, { name, cards: label(event.card) });
+      return fill(you ? T.youFlipFail : T.flipFail, { name, cards: label(event.card) });
     case "skip":
       return you ? T.youSkipped : fill(T.skipped, { name });
     case "stalemate":
@@ -294,7 +291,7 @@ $("me").addEventListener("click", (event) => {
   if (zone !== E.source(state, HUMAN)) return;
   const card = state.players[HUMAN][zone].find((c) => c.id === id);
   if (!E.canPlayRank(state, card.rank)) {
-    hint = fill(T.notThis, { cards: ltr(label(card)) });
+    hint = fill(T.notThis, { cards: label(card) });
     selected = new Set();
     render();
     return;

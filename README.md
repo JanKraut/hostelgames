@@ -60,8 +60,7 @@ Die Spielseite läuft komplett im Browser, ohne Server, auch offline.
 - **Namen:** Du kannst deinen eigenen Namen eingeben (wird mit den Einstellungen gespeichert). Die Bots
   heißen wie in der Sprache üblich: `game.botNames` in den i18n-Dateien enthält vier Paare
   `Name/Ersatzname`, z. B. `Lukas/Jonas`. Heißt du wie ein Bot (Groß-/Kleinschreibung und Akzente egal),
-  spielt sein Ersatzname mit. Hebräisch nutzt nur Namen, die zu den männlichen Verbformen der
-  Spielmeldungen passen.
+  spielt sein Ersatzname mit.
 - **Statistik:** Spiele, Siege und Shithead-Runden pro Schwierigkeit stehen nur im `localStorage`
   des Geräts (`game-stats`), nichts verlässt das Gerät. Sie lässt sich im Spiel zurücksetzen.
 - **Animationen** (`fx.js`): Gelegte Karten fliegen vom Spieler auf den Stapel, ein aufgenommener
@@ -80,8 +79,7 @@ Die Spielseite läuft komplett im Browser, ohne Server, auch offline.
 
 Die Seite lädt nichts von fremden Servern (kein Google Fonts, kein CDN):
 
-- **Schriften** kommen aus den npm-Paketen `@fontsource/atkinson-hyperlegible`, `@fontsource/archivo-black`
-  und `@fontsource/rubik` (alle SIL Open Font License 1.1). Ausgeliefert werden nur die in
+- **Schriften** kommen aus dem npm-Paket `@fontsource/manrope` (SIL Open Font License 1.1). Ausgeliefert werden nur die in
   `src/_data/fonts.js` gelisteten Schnitte und Zeichensätze. Dank `unicode-range` lädt der Browser
   nur, was eine Sprache wirklich braucht.
 - **QR-Code** erzeugt `qrcode-generator` (MIT), kopiert nach `/assets/qrcode.js`.

@@ -12,7 +12,6 @@
       if (base === "es") return region === "" || region === "es" ? "es" : "es-419";
       if (base === "pt") return region === "br" ? "pt-br" : "pt";
       if (base === "nb" || base === "nn" || base === "no") return "nb";
-      if (base === "iw") return "he";
       if (paths[base]) return base;
     }
     return null;
