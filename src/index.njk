@@ -133,6 +133,9 @@ scripts: ["/assets/rules.js", "/assets/share.js"]
         <div class="br no-br">
           <div class="bh">{{ t.bnH }}</div>
           <p class="bp">{{ t.bn1 | safe }}</p>
+          {%- if t.rules.bnFree %}
+          <p class="bp bfree">{{ t.rules.bnFree | safe }}</p>
+          {%- endif %}
         </div>
       </div>
       <p class="dnext">{{ t.dnext | safe }}</p>
@@ -149,18 +152,25 @@ scripts: ["/assets/rules.js", "/assets/share.js"]
 
     <h3 class="sub">{{ t.e2h }}</h3>
     <p>{{ t.e2p | safe }}</p>
-    <div class="phases">
-      <div class="phase">
-        <div class="row">{{ card("5", "♥", "xs", pip=false) }}{{ card("9", "♠", "xs", pip=false) }}</div>
-        <b>{{ t.ph1b }}</b><small>{{ t.ph1s }}</small>
+    {#- Order once the hand is empty: hand, then face-up, then face-down cards.
+        Same style as the dealing graphic. -#}
+    <div class="dealvis phasevis">
+      <div class="pv-step">
+        <div class="pv-cards pv-fan" aria-hidden="true">{{ card("5", "♥", "xs", pip=false) }}{{ card("9", "♠", "xs", pip=false) }}</div>
+        <p class="dv-note"><b>{{ t.ph1b }}</b>{{ t.ph1s }}</p>
       </div>
-      <div class="phase wood">
-        <div class="row">{{ card("K", "♠", "xs", pip=false) }}{{ card("A", "♦", "xs", pip=false) }}</div>
-        <b>{{ t.ph2b }}</b><small>{{ t.ph2s }}</small>
+      <svg class="pv-arrow" viewBox="0 0 40 24" aria-hidden="true"><path d="M3 16 C 12 4, 26 4, 35 13"/><path d="M27 12 L36 14 L34 5"/></svg>
+      <div class="pv-step">
+        <div class="pv-cards" aria-hidden="true">
+          <div class="pv-stack">{{ back("xs") }}{{ card("K", "♠", "xs", pip=false) }}</div>
+          <div class="pv-stack">{{ back("xs") }}{{ card("A", "♦", "xs", pip=false) }}</div>
+        </div>
+        <p class="dv-note"><b>{{ t.ph2b }}</b>{{ t.ph2s }}</p>
       </div>
-      <div class="phase wood">
-        <div class="row">{{ back("xs") }}{{ back("xs") }}</div>
-        <b>{{ t.ph3b }}</b><small>{{ t.ph3s }}</small>
+      <svg class="pv-arrow" viewBox="0 0 40 24" aria-hidden="true"><path d="M3 16 C 12 4, 26 4, 35 13"/><path d="M27 12 L36 14 L34 5"/></svg>
+      <div class="pv-step">
+        <div class="pv-cards pv-backs" aria-hidden="true">{{ back("xs") }}{{ back("xs") }}</div>
+        <p class="dv-note"><b>{{ t.ph3b }}</b>{{ t.ph3s }}</p>
       </div>
     </div>
 
