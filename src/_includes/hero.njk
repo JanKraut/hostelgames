@@ -1,7 +1,7 @@
 {#- Big header with title, intro and goal. Shared by the rules page, the quick start and
     the strategy page; the rules page adds its fact sheet below the goal, the strategy
     page has its own title and intro (where translated). -#}
-{%- from "card.njk" import card -%}
+{%- from "card.njk" import card, shithead -%}
 {%- set t = lang.t -%}
 <header class="hero">
   <div class="wrap">
@@ -14,6 +14,7 @@
       {{ card("2", "♣") }}
       {{ card("10", "♥") }}
       {{ card("7", "♠") }}
+      {{ shithead() }}
     </div>
     <div class="goal">
       <div class="goal-icon" aria-hidden="true">🎯</div>
