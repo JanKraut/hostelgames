@@ -123,15 +123,13 @@ scripts: ["/assets/rules.js", "/assets/share.js"]
         <div class="br no-br">
           <div class="bh">{{ t.bnH }}</div>
           <p class="bp">{{ t.bn1 | safe }}</p>
+          {%- if t.rules.bnFree %}
+          <p class="bp bfree">{{ t.rules.bnFree | safe }}</p>
+          {%- endif %}
         </div>
       </div>
       <p class="dnext">{{ t.dnext | safe }}</p>
     </div>
-    {%- if t.rules.pickH %}
-
-    <h3 class="sub">{{ t.rules.pickH }}</h3>
-    <p>{{ t.rules.pickP | safe }}</p>
-    {%- endif %}
   </section>
 
   {% include "specials.njk" %}
