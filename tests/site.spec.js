@@ -157,6 +157,27 @@ test("variants and FAQ: only where translated, FAQ opens on tap", async ({ page 
   await expect(page.locator("#faq")).toHaveCount(byCode.en.t.rules ? 1 : 0);
 });
 
+test("language menu shows a drawn flag for every language", async ({ page }) => {
+  await openLanguage(page, byCode.de);
+  await expect(page.locator(".langmenu summary .flag svg.flagsvg")).toHaveCount(1);
+  await expect(page.locator(".langmenu li .flag svg.flagsvg")).toHaveCount(languages.length);
+  for (const svg of await page.locator(".langmenu li .flagsvg").all()) {
+    expect(await svg.locator("rect, path, circle").count()).toBeGreaterThan(0);
+  }
+});
+
+test("every external link opens in a new tab", async ({ page }) => {
+  for (const sub of ["", "strategy/", "quickstart/", "play/"]) {
+    await openLanguage(page, byCode.de);
+    await page.goto("de/" + sub);
+    for (const link of await page.locator('a[href^="http"]').all()) {
+      const href = await link.getAttribute("href");
+      if (href.includes("jankraut.github.io") || href.startsWith(new URL(page.url()).origin)) continue;
+      await expect(link, href).toHaveAttribute("target", "_blank");
+    }
+  }
+});
+
 test.describe("start page redirect", () => {
   const cases = [
     ["de-DE", "de"],
@@ -320,6 +341,8 @@ test.describe("footer", () => {
       await expect(footer).toContainText("Copyright © 2026");
       await expect(footer).toContainText("by Jan Kraut");
       await expect(footer.locator("a")).toHaveAttribute("href", "https://mut-im-rucksack.de/");
+      await expect(footer.locator("a")).toHaveAttribute("target", "_blank");
+      await expect(footer.locator("a")).toHaveAttribute("rel", /noopener/);
       await expect(footer.locator("svg.heart")).toBeVisible();
     });
   }

@@ -1,0 +1,37 @@
+{#- Small flag graphics for the language menu. Emoji flags don't show on Windows,
+    so every flag is drawn here as a simplified SVG (3:2). -#}
+{% macro flag(code) -%}
+<svg class="flagsvg" viewBox="0 0 30 20" aria-hidden="true">
+{%- if code == "en" -%}
+<rect width="30" height="20" fill="#012169"/><path d="M0 0L30 20M30 0L0 20" stroke="#fff" stroke-width="4"/><path d="M0 0L30 20M30 0L0 20" stroke="#C8102E" stroke-width="1.6"/><path d="M15 0V20M0 10H30" stroke="#fff" stroke-width="6"/><path d="M15 0V20M0 10H30" stroke="#C8102E" stroke-width="3.6"/>
+{%- elif code == "cs" -%}
+<rect width="30" height="10" fill="#fff"/><rect y="10" width="30" height="10" fill="#D7141A"/><path d="M0 0L15 10L0 20Z" fill="#11457E"/>
+{%- elif code == "da" -%}
+<rect width="30" height="20" fill="#C8102E"/><path d="M11 0V20M0 10H30" stroke="#fff" stroke-width="3"/>
+{%- elif code == "de" -%}
+<rect width="30" height="7" fill="#000"/><rect y="6.67" width="30" height="6.67" fill="#DD0000"/><rect y="13.33" width="30" height="6.67" fill="#FFCE00"/>
+{%- elif code == "es" -%}
+<rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/>
+{%- elif code == "es-419" -%}
+<rect width="30" height="20" fill="#2F7DD1"/><circle cx="15" cy="10" r="7.5" fill="#BFE3FF"/><path d="M12.5 3.2c-2 1.4-1.4 3.4.2 4 1.3.5.8 2.2 2.1 3 1.6 1 .4 3.4 1.6 6.4-2.6-.8-4.4-3-4-5.5.3-1.7-1.8-1.8-2.8-3.2.6-2.2 1.6-3.9 2.9-4.7Z" fill="#2E9E5B"/><path d="M17 4c1.3.2 2.7 1.3 3.3 2.6-1.1.4-2.6-.2-3.3-2.6Z" fill="#2E9E5B"/>
+{%- elif code == "fr" -%}
+<rect width="10" height="20" fill="#002395"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#ED2939"/>
+{%- elif code == "it" -%}
+<rect width="10" height="20" fill="#009246"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#CE2B37"/>
+{%- elif code == "nl" -%}
+<rect width="30" height="7" fill="#AE1C28"/><rect y="6.67" width="30" height="6.67" fill="#fff"/><rect y="13.33" width="30" height="6.67" fill="#21468B"/>
+{%- elif code == "nb" -%}
+<rect width="30" height="20" fill="#BA0C2F"/><path d="M11 0V20M0 10H30" stroke="#fff" stroke-width="5"/><path d="M11 0V20M0 10H30" stroke="#00205B" stroke-width="2.5"/>
+{%- elif code == "pl" -%}
+<rect width="30" height="10" fill="#fff"/><rect y="10" width="30" height="10" fill="#DC143C"/>
+{%- elif code == "pt" -%}
+<rect width="30" height="20" fill="#FF0000"/><rect width="12" height="20" fill="#006600"/><circle cx="12" cy="10" r="4" fill="#FFCC00"/><circle cx="12" cy="10" r="2.4" fill="#FF0000"/>
+{%- elif code == "pt-br" -%}
+<rect width="30" height="20" fill="#009C3B"/><path d="M15 2.5L27 10L15 17.5L3 10Z" fill="#FFDF00"/><circle cx="15" cy="10" r="4.2" fill="#002776"/><path d="M11 9.2c2.8-.6 5.6-.2 8 1.2" stroke="#fff" stroke-width=".8" fill="none"/>
+{%- elif code == "sv" -%}
+<rect width="30" height="20" fill="#006AA7"/><path d="M11 0V20M0 10H30" stroke="#FECC00" stroke-width="3.5"/>
+{%- elif code == "he" -%}
+<rect width="30" height="20" fill="#fff"/><rect y="2" width="30" height="2.4" fill="#0038B8"/><rect y="15.6" width="30" height="2.4" fill="#0038B8"/><path d="M15 6.2L18.4 12H11.6ZM15 13.8L11.6 8H18.4Z" fill="none" stroke="#0038B8" stroke-width=".9"/>
+{%- endif -%}
+</svg>
+{%- endmacro %}

@@ -752,19 +752,29 @@ h3.sub.first {
   background: var(--head-chip-hover);
 }
 
-.langmenu svg {
+/* Chevron on the menu button */
+.langmenu summary > svg {
   flex: none;
   transition: transform 0.15s;
 }
 
-.langmenu[open] svg {
+.langmenu[open] summary > svg {
   transform: rotate(180deg);
 }
 
+/* Flags are SVGs (emoji flags don't show on Windows) */
 .langmenu .flag {
-  font-family: var(--font-emoji);
-  font-size: 1.25rem;
+  display: inline-flex;
+  flex: none;
   line-height: 1;
+}
+
+.flagsvg {
+  display: block;
+  width: 1.5rem;
+  height: 1rem;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18);
 }
 
 .langmenu ul {
