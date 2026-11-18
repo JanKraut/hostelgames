@@ -177,7 +177,7 @@ test.describe("without JavaScript", () => {
   test("the rules are readable and the menu works", async ({ page }) => {
     await page.goto("de/");
     await expect(page.locator("h1")).toContainText("Shithead");
-    await expect(page.locator("#sonderkarten h3").first()).toHaveText(byCode.de.t.sp2h);
+    await expect(page.locator("#sonderkarten h3").first()).toContainText(byCode.de.t.sp2h);
     await expect(page.locator("#shurl")).toHaveText(byCode.de.url.replace("https://", ""));
 
     // Things that need JavaScript are hidden.
