@@ -85,7 +85,8 @@ Die Seite lädt nichts von fremden Servern (kein Google Fonts, kein CDN):
   nur, was eine Sprache wirklich braucht.
 - **QR-Code** erzeugt `qrcode-generator` (MIT), kopiert nach `/assets/qrcode.js`.
 
-Ein Test stellt sicher, dass das so bleibt.
+Ein Test stellt sicher, dass das so bleibt. Einzige Ausnahme ist ein Tracking, falls es beim Build
+eingeschaltet wird (siehe „Tracking“).
 
 ## Offline
 
@@ -141,3 +142,19 @@ Einmalig nötig unter *Settings → Environments → New environment* `hetzner`:
 
 Übertragen werden nur geänderte Dateien. Was es in `_site/` nicht mehr gibt, wird auch im Zielverzeichnis
 gelöscht – das Zielverzeichnis gehört also allein dieser Seite.
+
+### Tracking
+
+Web-Analyse wird beim Build über Umgebungsvariablen eingeschaltet (`src/_data/tracking.js`,
+Code in `src/_includes/tracking-head.njk` und `tracking-body.njk`). Ohne Variablen – lokal, in den Tests
+und auf GitHub Pages – steht kein Tracking-Code in den Seiten.
+
+| Variable | Werte |
+| --- | --- |
+| `TRACKING_PROVIDER` | `gtm` (Google Tag Manager), `ga4` (Google Analytics direkt), `matomo` oder leer/`none` |
+| `TRACKING_ID` | `GTM-…`, `G-…` bzw. die Matomo-Site-ID (Zahl) |
+| `MATOMO_URL` | nur Matomo: Adresse der Matomo-Installation, `https://…` |
+
+Für Hetzner trägt man sie unter *Settings → Environments → `hetzner-webhosting` → Environment variables*
+ein (Variablen, keine Secrets – die IDs stehen ohnehin in jeder Seite). Eine falsche ID bricht den Build ab.
+Das Tracking lädt ohne Einwilligungsbanner direkt beim Seitenaufruf.

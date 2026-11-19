@@ -79,6 +79,10 @@ jobs:
         env:
           SITE_ORIGIN: https://shitheadgame.de
           SITE_PATH_PREFIX: /
+          # Web analytics, set as variables of the environment (see README)
+          TRACKING_PROVIDER: ${{ vars.TRACKING_PROVIDER }}
+          TRACKING_ID: ${{ vars.TRACKING_ID }}
+          MATOMO_URL: ${{ vars.MATOMO_URL }}
       # Upload with lftp: only changed files, files removed from the site are
       # removed on the server too. The password goes in via the environment,
       # so it never appears on a command line or in the log.
