@@ -37,7 +37,8 @@ Beim ersten Mal ggf. den Browser installieren: `npx playwright install chromium`
 | `src/fonts.11ty.js` | Erzeugt `/assets/fonts.css` aus den `@fontsource`-Paketen |
 | `src/assets/` | Stylesheet, JavaScript und Icons, werden unverändert kopiert |
 | `src/assets/site.js` | Auf jeder Seite: Sprachmenü, Service Worker |
-| `src/assets/rules.js` | Regelseite: Quiz, QR-Code, Teilen |
+| `src/assets/rules.js` | Regelseite: Quiz |
+| `src/assets/share.js` | Teilen-Box unten auf der Seite und QR-Popup oben: QR-Code, Link kopieren, Teilen |
 | `src/assets/game/` | Spiel: `engine.js` (Regeln), `bots.js` (Computergegner), `ui.js` (Oberfläche), `fx.js` (Animationen), `game.css` |
 | `src/sw.js` | Service Worker (Vorlage), siehe „Offline“ |
 | `src/manifest.webmanifest` | Web-App-Manifest, macht die Seite installierbar |

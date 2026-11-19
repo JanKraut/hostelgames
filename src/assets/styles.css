@@ -726,11 +726,6 @@ h3.sub.first {
   font-size: 1.6rem;
 }
 
-.quick .cheat dl {
-  gap: 0.4rem 0.9rem;
-  line-height: 1.35;
-}
-
 /* Language menu: a plain <details> with links, works without JavaScript */
 .langbar {
   display: flex;
@@ -1485,7 +1480,7 @@ ol.steps p {
   color: var(--muted);
 }
 
-/* ---------- Strategy guide (where translated) ---------- */
+/* ---------- Strategy guide ---------- */
 
 .strats strong,
 .notup strong,
@@ -1657,23 +1652,6 @@ ol.steps p {
 
 .cheat h2 {
   color: var(--cheat-heading);
-}
-
-.cheat dl {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.55rem 1rem;
-  margin: 0;
-}
-
-.cheat dt {
-  color: var(--cheat-dt);
-  font-family: var(--font-display);
-  font-weight: var(--font-display-weight);
-}
-
-.cheat dd {
-  margin: 0;
 }
 
 /* "Default: 2" under a special card, and the note below the four-of-a-kind box */

@@ -13,14 +13,13 @@ classicScripts: ["/assets/qrcode.js"]
 scripts: ["/assets/share.js"]
 ---
 {#- Same header as the rules page, then a compact cheat sheet (fits one phone screen)
-    and the special cards. Languages with `quick` texts get the new cheat sheet. -#}
+    and the special cards. -#}
 {%- set t = lang.t -%}
 
 {% include "hero.njk" %}
 
 <main class="wrap quick">
   <section id="spickzettel">
-    {%- if t.quick %}
     {%- set k = t.quick %}
     <div class="cheat cheat2">
       <h2>{{ t.chH }}</h2>
@@ -52,23 +51,6 @@ scripts: ["/assets/share.js"]
         <p>{{ t.rankLead | safe }}</p>
       </div>
     </div>
-    {%- else %}
-    <div class="cheat">
-      <h2>{{ t.chH }}</h2>
-      <dl>
-        <dt>{{ t.c1t }}</dt><dd>{{ t.c1d | safe }}</dd>
-        <dt>{{ t.c2t }}</dt><dd>{{ t.c2d | safe }}</dd>
-        <dt>{{ t.c3t }}</dt><dd>{{ t.c3d | safe }}</dd>
-        <dt>2</dt><dd>{{ t.c4d | safe }}</dd>
-        <dt>3</dt><dd>{{ t.c5d | safe }}</dd>
-        <dt>7</dt><dd>{{ t.c6d | safe }}</dd>
-        <dt>8</dt><dd>{{ t.c8bd | safe }}</dd>
-        <dt>10</dt><dd>{{ t.c7d | safe }}</dd>
-        <dt>4×</dt><dd>{{ t.c8d | safe }}</dd>
-        <dt>{{ t.c9t }}</dt><dd>{{ t.c9d | safe }}</dd>
-      </dl>
-    </div>
-    {%- endif %}
   </section>
 
   {% include "specials.njk" %}

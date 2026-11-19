@@ -53,7 +53,7 @@ test.describe("every language page", () => {
 // Strategy and quick start: one page each per language, linked by the tabs at the top.
 const SUBPAGES = [
   // Languages with the new strategy guide show it, the others the short list.
-  { sub: "strategy/", tab: (t) => t.n6, title: (t) => `${t.stH} · ${t.title}`, check: (t) => (t.strategy.principleH ? "#tausch .swapex" : "#strategie .strats li") },
+  { sub: "strategy/", tab: (t) => t.n6, title: (t) => `${t.stH} · ${t.title}`, check: () => "#tausch .swapex" },
   { sub: "quickstart/", tab: (t) => t.pgQuick, title: (t) => `${t.pgQuick} · ${t.title}`, check: () => "#spickzettel h2" },
 ];
 
@@ -104,13 +104,12 @@ test.describe("strategy and quick start pages", () => {
     await expect(page.locator("#spickzettel .ch-specials li")).toHaveCount(6);
     await expect(page.locator("#sonderkarten .sp")).toHaveCount(6);
 
-    // Languages without the new texts keep the old cheat sheet and no tags.
-    const en = byCode.en.t;
+    // Every language has the same parts, e.g. English.
     await openLanguage(page, byCode.en);
-    await expect(page.locator("#steckbrief")).toHaveCount(en.info ? 1 : 0);
+    await expect(page.locator("#steckbrief")).toHaveCount(1);
     await page.goto("quickstart/");
-    await expect(page.locator("#spickzettel dt").first()).toBeVisible({ visible: !en.quick });
-    await expect(page.locator("#sonderkarten .sp-tag")).toHaveCount(en.quick ? 5 : 0);
+    await expect(page.locator("#spickzettel .ch-specials li")).toHaveCount(6);
+    await expect(page.locator("#sonderkarten .sp-tag")).toHaveCount(5);
   });
 
   // The page starts with the same header as the rules; scrolled to, the cheat sheet fits one screen.
@@ -144,7 +143,7 @@ test("swap graphic: same style, ace and 4 marked", async ({ page }) => {
   await expect(vis.locator(".dv-swap")).toBeVisible();
 });
 
-test("variants and FAQ: only where translated, FAQ opens on tap", async ({ page }) => {
+test("variants and FAQ: in every language, FAQ opens on tap", async ({ page }) => {
   await openLanguage(page, byCode.de);
   await expect(page.locator("#varianten .variants li")).toHaveCount(3);
   await expect(page.locator('.secnav a[href="#faq"]')).toBeVisible();
@@ -154,7 +153,8 @@ test("variants and FAQ: only where translated, FAQ opens on tap", async ({ page 
   await expect(first.locator("p")).toBeVisible();
 
   await openLanguage(page, byCode.en);
-  await expect(page.locator("#faq")).toHaveCount(byCode.en.t.rules ? 1 : 0);
+  await expect(page.locator("#faq details")).toHaveCount(7);
+  await expect(page.locator("#varianten .variants li")).toHaveCount(3);
 });
 
 test("language menu shows a drawn flag for every language", async ({ page }) => {
@@ -186,12 +186,11 @@ test("strategy page: big header with its own title and intro", async ({ page }) 
     await expect(page.locator(".hero h1")).toHaveText(lang.t.strategy.h1);
     await expect(page.locator(".hero .fan .card")).toHaveCount(4);
     await expect(page.locator(".hero .goal")).toBeVisible();
-    if (code === "en") await expect(page.locator("#strategie h2")).toHaveText(lang.t.stH);
   }
-  await expect(page.locator(".hero > .wrap > p").first()).toHaveText(byCode.en.t.strategy.sub ?? byCode.en.t.sub);
+  await expect(page.locator(".hero > .wrap > p").first()).toHaveText(byCode.en.t.strategy.sub);
 });
 
-test("strategy guide: German sections, swap example and boxes at the end", async ({ page }) => {
+test("strategy guide: sections, swap example and boxes at the end", async ({ page }) => {
   const s = byCode.de.t.strategy;
   await openLanguage(page, byCode.de);
   await page.goto("de/strategy/");
@@ -212,12 +211,13 @@ test("strategy guide: German sections, swap example and boxes at the end", async
   await page.locator("#weiter a", { hasText: s.ctaRulesBtn }).click();
   await expect(page).toHaveURL(/\/de\/$/);
 
-  // Languages without the guide keep the short list.
+  // Other languages have the same guide, e.g. French.
+  const fr = byCode.fr.t.strategy;
   await openLanguage(page, byCode.fr);
   await page.goto("fr/strategy/");
-  await expect(page.locator("#strategie .strats li")).toHaveCount(7);
-  await expect(page.locator(".swapex")).toHaveCount(0);
-  await expect(page.locator(".secnav")).toHaveCount(0);
+  await expect(page.locator("#grundprinzip h2")).toHaveText(fr.principleH);
+  await expect(page.locator(".swapex .sx-panel")).toHaveCount(2);
+  await expect(page.locator(".secnav a")).toHaveCount(fr.phases.length + 6);
 });
 
 test.describe("start page redirect", () => {
