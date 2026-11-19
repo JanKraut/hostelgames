@@ -82,9 +82,9 @@ jobs:
       # Pinned to the commit of v4.4.0 so a changed tag can't reach the secrets.
       - uses: SamKirkland/FTP-Deploy-Action@110f9186c050f71550953127052e77650219c287 # v4.4.0
         with:
-          server: ${{ secrets.HETZNER_FTP_HOST }}
-          username: ${{ secrets.HETZNER_FTP_USER }}
-          password: ${{ secrets.HETZNER_FTP_PASSWORD }}
+          server: ${{ secrets.HETZNER_HOST }}
+          username: ${{ secrets.HETZNER_USER }}
+          password: ${{ secrets.HETZNER_PASSWORD }}
           protocol: ftps
           local-dir: ./_site/
           server-dir: ${{ vars.HETZNER_FTP_DIR || './' }}

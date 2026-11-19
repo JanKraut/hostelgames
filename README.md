@@ -135,7 +135,7 @@ auf den Hetzner-Webspace. GitHub Pages bleibt davon unberührt.
 Einmalig nötig unter *Settings → Environments → New environment* `hetzner`:
 
 - *Deployment branches*: nur `hetzner`
-- *Secrets*: `HETZNER_FTP_HOST` (z. B. `wwwXXX.your-server.de`), `HETZNER_FTP_USER`, `HETZNER_FTP_PASSWORD`
+- *Secrets*: `HETZNER_HOST` (z. B. `wwwXXX.your-server.de`), `HETZNER_USER`, `HETZNER_PASSWORD`
   – am besten ein zusätzlicher FTP-Benutzer aus konsoleH, der nur `public_html` (bzw. das Verzeichnis der Domain) sieht
 - *Variable* (optional): `HETZNER_FTP_DIR`, Zielverzeichnis relativ zum FTP-Login, Standard `./`, mit `/` am Ende
 
