@@ -2036,6 +2036,43 @@ ol.steps p {
   color: var(--felt-btn-text);
 }
 
+/* QR popup, opened from the QR button next to the light / dark switch */
+.qrpop {
+  width: min(26rem, calc(100vw - 2rem));
+  max-height: calc(100dvh - 2rem);
+  padding: 0;
+  border: 0;
+  border-radius: 20px;
+  background: transparent;
+  overflow: auto;
+}
+
+.qrpop::backdrop {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.qrpop .sharebox {
+  position: relative;
+  padding-top: 1.8rem;
+}
+
+.qrclose {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--felt-chip);
+  color: var(--felt-text);
+  cursor: pointer;
+}
+
 /* ---------- Footer ---------- */
 
 footer {
