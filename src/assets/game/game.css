@@ -63,7 +63,7 @@
   display: block;
   min-width: 3.2rem;
   padding: 0.75rem 1.1rem;
-  border: 2px solid var(--line);
+  border: 2px solid var(--control-line);
   border-radius: 999px;
   font-weight: 700;
   text-align: center;
@@ -119,7 +119,7 @@
   width: 100%;
   max-width: 20rem;
   padding: 0.75rem 1rem;
-  border: 2px solid var(--line);
+  border: 2px solid var(--control-line);
   border-radius: 12px;
   background: var(--paper);
   color: var(--card-ink);
@@ -136,8 +136,23 @@
    size follows the screen height.
    ========================================================================== */
 
-html.playing .hero,
 html.playing footer {
+  display: none;
+}
+
+/* The header disappears, but its h1 stays for screen readers. */
+html.playing .hero {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+html.playing .hero .wrap > :not(h1) {
   display: none;
 }
 
@@ -188,6 +203,10 @@ html.playing .game {
 }
 
 .topbar a {
+  /* At least 24px high to tap (WCAG 2.5.8) without changing the bar height */
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
   font-weight: 700;
   text-decoration: none;
 }
@@ -722,4 +741,42 @@ table.stats {
   25% { opacity: 1; transform: scale(1.2); }
   75% { opacity: 1; transform: scale(1); }
   100% { opacity: 0; }
+}
+
+/* ---------- Hover (devices with a real pointer only) ----------
+   Only colours and shadows change, never size or position, so the table
+   doesn't move. */
+
+.choices span,
+.bigbtn,
+.namefield input,
+button.card {
+  transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.12s, opacity 0.12s;
+}
+
+@media (hover: hover) {
+  .choices label:hover input:not(:checked) + span {
+    border-color: var(--gold-line);
+    background: color-mix(in srgb, var(--felt) 14%, transparent);
+  }
+
+  .namefield input:hover:not(:focus) {
+    border-color: var(--gold-line);
+  }
+
+  .bigbtn:hover:not(:disabled) {
+    box-shadow: inset 0 0 0 100vmax rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .topbar a:hover,
+  .linkbtn:hover {
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+  }
+
+  /* Cards you can click right now: during the swap, on your turn, not greyed out */
+  #me.active button.card:not(.dim):hover,
+  #me.swapping button.card:hover {
+    box-shadow: 0 0 0 3px var(--gold-line), 0 6px 14px rgba(0, 0, 0, 0.3);
+  }
 }

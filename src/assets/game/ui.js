@@ -137,6 +137,7 @@ function render() {
     picked: swapPick?.zone === "up" ? swapPick.id : null,
   });
   $("me").classList.toggle("active", myTurn);
+  $("me").classList.toggle("swapping", swapping); // for the hover effect on the cards
   const hand = [...me.hand].sort((a, b) => a.rank - b.rank || a.suit.localeCompare(b.suit));
   $("my-hand").style.setProperty("--n", hand.length); // the CSS overlaps cards to fit them in one row
   $("my-hand").innerHTML = hand

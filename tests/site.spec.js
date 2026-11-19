@@ -28,7 +28,7 @@ test.describe("every language page", () => {
 
       await expect(page).toHaveTitle(lang.t.title);
       await expect(page.locator("html")).toHaveAttribute("lang", lang.htmlLang);
-      await expect(page.locator("h2").first()).toHaveText(lang.t.setupH);
+      await expect(page.locator("main h2").first()).toHaveText(lang.t.setupH);
       await expect(page.locator("#spickzettel")).toHaveCount(0);
       await expect(page.locator(".pagetabs a[aria-current=page]")).toHaveText(lang.t.pgRules);
       await expect(page.locator(".langmenu a[aria-current=page]")).toHaveAttribute("data-lang", lang.code);
@@ -475,14 +475,14 @@ test.describe("offline", () => {
     await context.setOffline(true);
 
     await page.reload();
-    await expect(page.locator("h2").first()).toHaveText(byCode.de.t.setupH);
+    await expect(page.locator("main h2").first()).toHaveText(byCode.de.t.setupH);
     await expect(page.locator("#qr svg")).toBeVisible();
 
     // Other languages were cached too, not only the visited page.
     await page.locator(".langmenu summary").click();
     await page.locator('.langmenu a[data-lang="pl"]').click();
     await expect(page).toHaveURL(/\/pl\/$/);
-    await expect(page.locator("h2").first()).toHaveText(byCode.pl.t.setupH);
+    await expect(page.locator("main h2").first()).toHaveText(byCode.pl.t.setupH);
     await page.evaluate(() => document.fonts.ready);
     const failedFonts = await page.evaluate(() => [...document.fonts].filter((f) => f.status === "error").length);
     expect(failedFonts, "fonts that failed to load offline").toBe(0);
@@ -506,7 +506,7 @@ test.describe("offline", () => {
     await page.evaluate(() => localStorage.setItem("lang", "es"));
     await page.goto(baseURL);
     await expect(page).toHaveURL(/\/es\/$/);
-    await expect(page.locator("h2").first()).toHaveText(byCode.es.t.setupH);
+    await expect(page.locator("main h2").first()).toHaveText(byCode.es.t.setupH);
     await context.close();
   });
 
