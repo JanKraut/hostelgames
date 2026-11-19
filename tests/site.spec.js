@@ -221,40 +221,35 @@ test("strategy guide: sections, swap example and boxes at the end", async ({ pag
 });
 
 test.describe("start page redirect", () => {
-  const cases = [
-    ["de-DE", "de"],
-    ["es-ES", "es"],
-    ["es-MX", "es-419"],
-    ["pt-PT", "pt"],
-    ["pt-BR", "pt-br"],
-    ["nb-NO", "nb"],
-    ["he-IL", "en"],
-    ["en-US", "en"],
-    ["ja-JP", "en"],
-  ];
-  for (const [locale, code] of cases) {
-    test(`browser language ${locale} → ${code}`, async ({ browser, baseURL }) => {
+  for (const locale of ["de-DE", "es-MX", "pt-BR", "ja-JP", "en-US"]) {
+    test(`browser language ${locale} → English start page`, async ({ browser, baseURL }) => {
       const context = await browser.newContext({ locale });
       const page = await context.newPage();
       await page.goto(baseURL);
-      await expect(page).toHaveURL(byCode[code].url.replace(/^https:\/\/[^/]+/, new URL(baseURL).origin));
+      await expect(page).toHaveURL(baseURL);
+      await expect(page.locator("html")).toHaveAttribute("lang", "en");
       await context.close();
     });
   }
 
-  test("a language picked in the menu wins over the browser language", async ({ browser, baseURL }) => {
-    const context = await browser.newContext({ locale: "de-DE" });
+  test("a language picked in the menu is remembered on the start page", async ({ browser, baseURL }) => {
+    const context = await browser.newContext({ locale: "en-US" });
     const page = await context.newPage();
+    await page.goto(baseURL);
+    await expect(page).toHaveURL(baseURL);
+
+    await page.locator(".langmenu summary").click();
+    await page.locator('.langmenu a[data-lang="de"]').click();
+    await expect(page).toHaveURL(/\/de\/$/);
+
     await page.goto(baseURL);
     await expect(page).toHaveURL(/\/de\/$/);
 
+    // Picking English again stays on English.
     await page.locator(".langmenu summary").click();
     await page.locator('.langmenu a[data-lang="en"]').click();
-    await expect(page).toHaveURL(baseURL);
-
     await page.goto(baseURL);
     await expect(page).toHaveURL(baseURL);
-    await expect(page.locator("html")).toHaveAttribute("lang", "en");
     await context.close();
   });
 
