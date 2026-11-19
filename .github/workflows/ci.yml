@@ -3,7 +3,7 @@ name: Test and deploy
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [main, hetzner]
   workflow_dispatch:
 
 permissions:
@@ -32,7 +32,7 @@ jobs:
             test-results/
           retention-days: 14
       - uses: actions/upload-pages-artifact@v3
-        if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         with:
           path: _site
 
@@ -54,3 +54,37 @@ jobs:
       - uses: actions/configure-pages@v5
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # Hetzner webspace (shitheadgame.de). For now only from the "hetzner" branch,
+  # and only after the tests passed. Credentials live in the "hetzner"
+  # environment's secrets, never in the repo.
+  deploy-hetzner:
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/hetzner'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: hetzner
+      cancel-in-progress: false
+    environment:
+      name: hetzner
+      url: https://shitheadgame.de/
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+        env:
+          SITE_ORIGIN: https://shitheadgame.de
+          SITE_PATH_PREFIX: /
+      # Pinned to the commit of v4.4.0 so a changed tag can't reach the secrets.
+      - uses: SamKirkland/FTP-Deploy-Action@110f9186c050f71550953127052e77650219c287 # v4.4.0
+        with:
+          server: ${{ secrets.HETZNER_FTP_HOST }}
+          username: ${{ secrets.HETZNER_FTP_USER }}
+          password: ${{ secrets.HETZNER_FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: ./_site/
+          server-dir: ${{ vars.HETZNER_FTP_DIR || './' }}

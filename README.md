@@ -123,4 +123,21 @@ Beispiel nur die wenigen Texte, die von `es` abweichen.
 `.github/workflows/ci.yml` baut die Seite und führt die Tests bei jedem Pull Request und Push aus.
 Nur auf `main` und nur wenn die Tests grün sind, wird sie auf GitHub Pages veröffentlicht. Schlägt ein
 Test fehl, liegen Report und Screenshots als Artefakt `playwright-report` am Workflow-Lauf. Einmalig nötig: *Settings → Pages → Build and deployment → Source:
-GitHub Actions*. Für eine eigene Domain `src/_data/site.js` anpassen.
+GitHub Actions*. Adresse und Pfad-Präfix stehen in `src/_data/site.js` und lassen sich beim Build über
+`SITE_ORIGIN` und `SITE_PATH_PREFIX` überschreiben.
+
+### Hetzner (shitheadgame.de)
+
+Ein Push auf den Branch `hetzner` baut die Seite für `https://shitheadgame.de/` (ohne Pfad-Präfix,
+mit `src/.htaccess` für HTTPS-Weiterleitung und Caching) und lädt sie nach grünen Tests per FTPS
+auf den Hetzner-Webspace. GitHub Pages bleibt davon unberührt.
+
+Einmalig nötig unter *Settings → Environments → New environment* `hetzner`:
+
+- *Deployment branches*: nur `hetzner`
+- *Secrets*: `HETZNER_FTP_HOST` (z. B. `wwwXXX.your-server.de`), `HETZNER_FTP_USER`, `HETZNER_FTP_PASSWORD`
+  – am besten ein zusätzlicher FTP-Benutzer aus konsoleH, der nur `public_html` (bzw. das Verzeichnis der Domain) sieht
+- *Variable* (optional): `HETZNER_FTP_DIR`, Zielverzeichnis relativ zum FTP-Login, Standard `./`, mit `/` am Ende
+
+Die Upload-Action merkt sich in `.ftp-deploy-sync-state.json` auf dem Server, was schon hochgeladen ist,
+und überträgt danach nur noch Änderungen.
