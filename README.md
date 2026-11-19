@@ -130,14 +130,14 @@ GitHub Actions*. Adresse und Pfad-Präfix stehen in `src/_data/site.js` und lass
 
 Ein Push auf den Branch `hetzner` baut die Seite für `https://shitheadgame.de/` (ohne Pfad-Präfix,
 mit `src/.htaccess` für HTTPS-Weiterleitung und Caching) und lädt sie nach grünen Tests per FTPS
-auf den Hetzner-Webspace. GitHub Pages bleibt davon unberührt.
+(`lftp`) auf den Hetzner-Webspace. GitHub Pages bleibt davon unberührt.
 
 Einmalig nötig unter *Settings → Environments → New environment* `hetzner`:
 
 - *Deployment branches*: nur `hetzner`
 - *Secrets*: `HETZNER_HOST` (z. B. `wwwXXX.your-server.de`), `HETZNER_USER`, `HETZNER_PASSWORD`
   – am besten ein zusätzlicher FTP-Benutzer aus konsoleH, der nur `public_html` (bzw. das Verzeichnis der Domain) sieht
-- *Variable* (optional): `HETZNER_FTP_DIR`, Zielverzeichnis relativ zum FTP-Login, Standard `./`, mit `/` am Ende
+- *Variable* (optional): `HETZNER_FTP_DIR`, Zielverzeichnis relativ zum FTP-Login, Standard `.`
 
-Die Upload-Action merkt sich in `.ftp-deploy-sync-state.json` auf dem Server, was schon hochgeladen ist,
-und überträgt danach nur noch Änderungen.
+Übertragen werden nur geänderte Dateien. Was es in `_site/` nicht mehr gibt, wird auch im Zielverzeichnis
+gelöscht – das Zielverzeichnis gehört also allein dieser Seite.
