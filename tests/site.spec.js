@@ -372,6 +372,32 @@ test.describe("share", () => {
       await expect(page.locator("#shCopy")).toBeVisible();
     });
   }
+
+  test("QR button at the top opens the same box as a popup", async ({ page }) => {
+    const lang = byCode.de;
+    await openLanguage(page, lang);
+    await page.goto(pathOf(lang) + "strategy/");
+    const popup = page.locator(".qrpop");
+    await expect(popup).toBeHidden();
+
+    await page.locator(".qrbtn").click();
+    await expect(popup).toBeVisible();
+    await expect(popup.locator("h2")).toHaveText(lang.t.shH);
+    await expect(popup.locator(".qr svg")).toBeVisible();
+    await expect(popup.locator(".shurl a")).toHaveAttribute("href", lang.url + "strategy/");
+    await page.keyboard.press("Escape");
+    await expect(popup).toBeHidden();
+
+    await page.locator(".qrbtn").click();
+    await popup.locator(".qrclose").click();
+    await expect(popup).toBeHidden();
+  });
+
+  test("the game page has no QR button", async ({ page }) => {
+    await openLanguage(page, byCode.de);
+    await page.goto(pathOf(byCode.de) + "play/");
+    await expect(page.locator(".qrbtn")).toHaveCount(0);
+  });
 });
 
 test.describe("footer", () => {
