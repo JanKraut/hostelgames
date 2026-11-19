@@ -16,10 +16,6 @@ const DIR = new URL("../src/_data/i18n/", import.meta.url);
 // The rules page and the parts it includes; #links in texts point to sections there.
 const TEMPLATES = ["../src/index.njk", "../src/_includes/specials.njk"].map((path) => new URL(path, import.meta.url));
 const DEFAULT = "en";
-// New sections that exist in some languages only, until they are translated.
-// The page shows them only where the texts exist (`info` = fact sheet, `quick` = quick start
-// and special-card extras, `rules` = additions on the rules page, `strategy` = strategy page header).
-const PENDING = ["info.", "quick.", "rules.", "strategy."];
 
 // Only code and fallback are needed from languages.js.
 let LANGUAGES;
@@ -84,13 +80,11 @@ for (const lang of LANGUAGES) {
   const chain = [lang.code, ...(lang.fallback ?? [])].filter((code) => code !== DEFAULT);
 
   for (const key of Object.keys(own)) {
-    if (PENDING.some((prefix) => key.startsWith(prefix))) continue;
     if (!(key in english)) report(lang.code, key, "not in English (typo or leftover?)");
   }
 
   if (lang.code === DEFAULT) continue;
   for (const [key, en] of Object.entries(english)) {
-    if (PENDING.some((prefix) => key.startsWith(prefix))) continue;
     const from = chain.find((code) => key in flatten(texts[code] ?? {}));
     if (!from) {
       report(lang.code, key, "missing, would show the English text");

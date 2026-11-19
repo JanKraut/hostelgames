@@ -20,16 +20,12 @@ scripts: ["/assets/rules.js", "/assets/share.js"]
 <nav class="secnav" aria-label="{{ t.navLabel }}">
   <ul>
     <li><a href="#aufbau">{{ t.n1 }}</a></li>
-    {%- if t.rules.varH %}
     <li><a href="#varianten">{{ t.rules.varNav }}</a></li>
-    {%- endif %}
     <li><a href="#tauschen">{{ t.n1b }}</a></li>
     <li><a href="#ablauf">{{ t.n2 }}</a></li>
     <li><a href="#sonderkarten">{{ t.n3 }}</a></li>
     <li><a href="#ende">{{ t.n4 }}</a></li>
-    {%- if t.rules.faqH %}
     <li><a href="#faq">{{ t.rules.faqNav }}</a></li>
-    {%- endif %}
     <li class="js-only"><a href="#ueben">{{ t.n5 }}</a></li>
     <li><a href="{{ lang.path }}play/">{{ t.game.ctaBtn }}</a></li>
     <li><a href="#teilen">{{ t.n8 }}</a></li>
@@ -81,7 +77,6 @@ scripts: ["/assets/rules.js", "/assets/share.js"]
     <p>{{ t.setupP | safe }}</p>
   </section>
 
-  {%- if t.rules.varH %}
   <section id="varianten">
     <h2>{{ t.rules.varH }}</h2>
     <p class="lead">{{ t.rules.varLead | safe }}</p>
@@ -92,7 +87,6 @@ scripts: ["/assets/rules.js", "/assets/share.js"]
     </ul>
   </section>
 
-  {%- endif %}
   <section id="tauschen">
     <h2>{{ t.swH }}</h2>
     <p class="lead">{{ t.swLead | safe }}</p>
@@ -151,9 +145,7 @@ scripts: ["/assets/rules.js", "/assets/share.js"]
         <div class="br no-br">
           <div class="bh">{{ t.bnH }}</div>
           <p class="bp">{{ t.bn1 | safe }}</p>
-          {%- if t.rules.bnFree %}
           <p class="bp bfree">{{ t.rules.bnFree | safe }}</p>
-          {%- endif %}
         </div>
       </div>
       <p class="dnext">{{ t.dnext | safe }}</p>
@@ -202,22 +194,18 @@ scripts: ["/assets/rules.js", "/assets/share.js"]
     <p>{{ t.e5p | safe }}</p>
   </section>
 
-  {%- if t.rules.faqH %}
   <section id="faq">
     <h2>{{ t.rules.faqH }}</h2>
     <div class="faq">
       {%- for i in range(1, 8) %}
-      {%- if t.rules["faq" ~ i ~ "q"] %}
       <details>
         <summary>{{ t.rules["faq" ~ i ~ "q"] }}</summary>
         <p>{{ t.rules["faq" ~ i ~ "a"] | safe }}</p>
       </details>
-      {%- endif %}
       {%- endfor %}
     </div>
   </section>
 
-  {%- endif %}
   <section id="ueben" class="js-only">
     <h2>{{ t.qH }}</h2>
     <p class="lead">{{ t.qLead | safe }}</p>
