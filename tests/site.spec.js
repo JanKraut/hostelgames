@@ -391,6 +391,16 @@ test.describe("share", () => {
     await page.locator(".qrbtn").click();
     await popup.locator(".qrclose").click();
     await expect(popup).toBeHidden();
+
+    // The QR button does not touch the theme; the light / dark switch still works.
+    const theme = () => page.evaluate(() => document.documentElement.dataset.theme);
+    const before = await theme();
+    await page.locator(".qrbtn").click();
+    await popup.locator(".qrclose").click();
+    expect(await theme()).toBe(before);
+    await page.locator(".themeswitch").click();
+    expect(await theme()).not.toBe(before);
+    await expect(popup).toBeHidden();
   });
 
   test("the game page has no QR button", async ({ page }) => {

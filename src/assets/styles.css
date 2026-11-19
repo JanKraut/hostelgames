@@ -2129,9 +2129,10 @@ footer .heart {
   text-decoration: none;
 }
 
-/* ---------- Light / dark switch (top right, next to the language menu) ---------- */
+/* ---------- Light / dark switch and QR button (top right, next to the language menu) ---------- */
 
-.themeswitch {
+.themeswitch,
+.topbtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2145,7 +2146,8 @@ footer .heart {
   cursor: pointer;
 }
 
-.themeswitch:hover {
+.themeswitch:hover,
+.topbtn:hover {
   background: var(--head-chip-hover);
 }
 
