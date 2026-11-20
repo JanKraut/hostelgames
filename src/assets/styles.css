@@ -2211,25 +2211,30 @@ footer .heart {
   margin-inline: auto;
 }
 
+/* Three cards side by side, never overlapping; they grow and shrink with the screen */
 .nf-cards {
   display: flex;
+  gap: clamp(0.6rem, 3.5vw, 1.4rem);
   justify-content: center;
   align-items: flex-end;
   margin: 2rem auto 1.8rem;
 }
 
-.nf-cards .card:first-child {
-  transform: rotate(-10deg) translateX(10px);
+.nf-cards .card {
+  --w: clamp(70px, 24vw, 120px);
 }
 
 .nf-cards .card.sh {
-  z-index: 1;
-  margin-bottom: 10px;
-  --w: 104px;
+  --w: clamp(78px, 27vw, 134px);
+  margin-bottom: 0.4rem;
+}
+
+.nf-cards .card:first-child {
+  transform: rotate(-6deg);
 }
 
 .nf-cards .card:last-child {
-  transform: rotate(10deg) translateX(-10px);
+  transform: rotate(6deg);
 }
 
 .notfound .nf-code {
