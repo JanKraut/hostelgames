@@ -546,3 +546,17 @@ test.describe("404 page", () => {
     await expect(page).toHaveURL(/404\.html$/);
   });
 });
+
+test("structured data: one WebSite block, only on the English start page", async ({ page }) => {
+  await page.goto("./");
+  const blocks = await page.locator('script[type="application/ld+json"]').allTextContents();
+  expect(blocks).toHaveLength(1);
+  const data = JSON.parse(blocks[0]);
+  expect(data["@type"]).toBe("WebSite");
+  expect(data.name).toBe("Shithead");
+  expect(data.inLanguage).toContain("de");
+  await page.goto("de/");
+  await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(0);
+  await page.goto("strategy/");
+  await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(0);
+});
