@@ -28,8 +28,8 @@ test.describe("every language page", () => {
 
       await expect(page).toHaveTitle(lang.t.title);
       await expect(page.locator("html")).toHaveAttribute("lang", lang.htmlLang);
-      await expect(page.locator("main h2").first()).toHaveText(lang.t.setupH);
-      await expect(page.locator("#spickzettel")).toHaveCount(0);
+      await expect(page.locator("h2").first()).toHaveText(lang.t.setupH);
+      await expect(page.locator("#cheat-sheet")).toHaveCount(0);
       await expect(page.locator(".pagetabs a[aria-current=page]")).toHaveText(lang.t.pgRules);
       await expect(page.locator(".langmenu a[aria-current=page]")).toHaveAttribute("data-lang", lang.code);
 
@@ -53,8 +53,8 @@ test.describe("every language page", () => {
 // Strategy and quick start: one page each per language, linked by the tabs at the top.
 const SUBPAGES = [
   // Languages with the new strategy guide show it, the others the short list.
-  { sub: "strategy/", tab: (t) => t.n6, title: (t) => `${t.stH} · ${t.title}`, check: () => "#tausch .swapex" },
-  { sub: "quickstart/", tab: (t) => t.pgQuick, title: (t) => `${t.pgQuick} · ${t.title}`, check: () => "#spickzettel h2" },
+  { sub: "strategy/", tab: (t) => t.n6, title: (t) => `${t.stH} · ${t.title}`, check: () => "#swap .swapex" },
+  { sub: "quickstart/", tab: (t) => t.pgQuick, title: (t) => `${t.pgQuick} · ${t.title}`, check: () => "#cheat-sheet h2" },
 ];
 
 test.describe("strategy and quick start pages", () => {
@@ -98,18 +98,18 @@ test.describe("strategy and quick start pages", () => {
   test("fact sheet in the rules header and new cheat sheet: only where translated", async ({ page }) => {
     await openLanguage(page, byCode.de);
     await expect(page.locator(".hero #steckbrief .fs-scale")).toHaveCount(3);
-    await expect(page.locator("#sonderkarten .sp-tag")).toHaveCount(5);
+    await expect(page.locator("#special-cards .sp-tag")).toHaveCount(5);
     await page.goto("de/quickstart/");
     await expect(page.locator("#steckbrief")).toHaveCount(0);
-    await expect(page.locator("#spickzettel .ch-specials li")).toHaveCount(6);
-    await expect(page.locator("#sonderkarten .sp")).toHaveCount(6);
+    await expect(page.locator("#cheat-sheet .ch-specials li")).toHaveCount(6);
+    await expect(page.locator("#special-cards .sp")).toHaveCount(6);
 
     // Every language has the same parts, e.g. English.
     await openLanguage(page, byCode.en);
     await expect(page.locator("#steckbrief")).toHaveCount(1);
     await page.goto("quickstart/");
-    await expect(page.locator("#spickzettel .ch-specials li")).toHaveCount(6);
-    await expect(page.locator("#sonderkarten .sp-tag")).toHaveCount(5);
+    await expect(page.locator("#cheat-sheet .ch-specials li")).toHaveCount(6);
+    await expect(page.locator("#special-cards .sp-tag")).toHaveCount(5);
   });
 
   // The page starts with the same header as the rules; scrolled to, the cheat sheet fits one screen.
@@ -119,7 +119,7 @@ test.describe("strategy and quick start pages", () => {
       await openLanguage(page, byCode.de);
       await page.goto("de/quickstart/");
       await expect(page.locator(".hero h1")).toBeVisible();
-      const box = await page.locator("#spickzettel .cheat").boundingBox();
+      const box = await page.locator("#cheat-sheet .cheat").boundingBox();
       expect(box.height).toBeLessThanOrEqual(height);
     });
   }
@@ -127,7 +127,7 @@ test.describe("strategy and quick start pages", () => {
 
 test("dealing graphic: fanned hand, three stacks, three labels", async ({ page }) => {
   await openLanguage(page, byCode.de);
-  const vis = page.locator("#aufbau .dealvis");
+  const vis = page.locator("#setup .dealvis");
   await expect(vis.locator(".dv-fan .card.back")).toHaveCount(3);
   await expect(vis.locator(".dv-table .stack")).toHaveCount(3);
   await expect(vis.locator(".dv-note")).toHaveCount(3);
@@ -136,7 +136,7 @@ test("dealing graphic: fanned hand, three stacks, three labels", async ({ page }
 
 test("swap graphic: same style, ace and 4 marked", async ({ page }) => {
   await openLanguage(page, byCode.de);
-  const vis = page.locator("#tauschen .dealvis");
+  const vis = page.locator("#swap .dealvis");
   await expect(vis.locator(".dv-fan .card")).toHaveCount(3);
   await expect(vis.locator(".dv-table .stack")).toHaveCount(3);
   await expect(vis.locator(".card.gold")).toHaveCount(2);
@@ -145,7 +145,7 @@ test("swap graphic: same style, ace and 4 marked", async ({ page }) => {
 
 test("variants and FAQ: in every language, FAQ opens on tap", async ({ page }) => {
   await openLanguage(page, byCode.de);
-  await expect(page.locator("#varianten .variants li")).toHaveCount(3);
+  await expect(page.locator("#variants .variants li")).toHaveCount(3);
   await expect(page.locator('.secnav a[href="#faq"]')).toBeVisible();
   const first = page.locator("#faq details").first();
   await expect(first.locator("p")).toBeHidden();
@@ -153,8 +153,8 @@ test("variants and FAQ: in every language, FAQ opens on tap", async ({ page }) =
   await expect(first.locator("p")).toBeVisible();
 
   await openLanguage(page, byCode.en);
-  await expect(page.locator("#faq details")).toHaveCount(7);
-  await expect(page.locator("#varianten .variants li")).toHaveCount(3);
+  await expect(page.locator("#faq details")).toHaveCount(8);
+  await expect(page.locator("#variants .variants li")).toHaveCount(3);
 });
 
 test("language menu shows a drawn flag for every language", async ({ page }) => {
@@ -194,28 +194,28 @@ test("strategy guide: sections, swap example and boxes at the end", async ({ pag
   const s = byCode.de.t.strategy;
   await openLanguage(page, byCode.de);
   await page.goto("de/strategy/");
-  await expect(page.locator("#grundprinzip h2")).toHaveText(s.principleH);
-  await expect(page.locator("#tausch .strats li")).toHaveCount(s.up.length);
+  await expect(page.locator("#principle h2")).toHaveText(s.principleH);
+  await expect(page.locator("#swap .strats li")).toHaveCount(s.up.length);
   await expect(page.locator(".swapex .sx-panel")).toHaveCount(2);
   await expect(page.locator(".swapex .sx-panel .stack")).toHaveCount(6);
   for (const phase of s.phases) {
     await expect(page.locator(`#${phase.id} .strats li`)).toHaveCount(phase.items.length);
   }
-  await expect(page.locator("#sonderkarten-einsetzen .sp")).toHaveCount(s.sp.length);
-  await expect(page.locator("#fehler li")).toHaveCount(s.mistakes.length);
+  await expect(page.locator("#using-special-cards .sp")).toHaveCount(s.sp.length);
+  await expect(page.locator("#mistakes li")).toHaveCount(s.mistakes.length);
   // Section menu at the top: every link points to a section on the page.
   for (const href of await page.locator(".secnav a[href^='#']").evaluateAll((links) => links.map((a) => a.getAttribute("href")))) {
     await expect(page.locator(href)).toHaveCount(1);
   }
   await expect(page.locator(".secnav a")).toHaveCount(s.phases.length + 6);
-  await page.locator("#weiter a", { hasText: s.ctaRulesBtn }).click();
+  await page.locator("#next-steps a", { hasText: s.ctaRulesBtn }).click();
   await expect(page).toHaveURL(/\/de\/$/);
 
   // Other languages have the same guide, e.g. French.
   const fr = byCode.fr.t.strategy;
   await openLanguage(page, byCode.fr);
   await page.goto("fr/strategy/");
-  await expect(page.locator("#grundprinzip h2")).toHaveText(fr.principleH);
+  await expect(page.locator("#principle h2")).toHaveText(fr.principleH);
   await expect(page.locator(".swapex .sx-panel")).toHaveCount(2);
   await expect(page.locator(".secnav a")).toHaveCount(fr.phases.length + 6);
 });
@@ -266,12 +266,12 @@ test.describe("without JavaScript", () => {
   test("the rules are readable and the menu works", async ({ page }) => {
     await page.goto("de/");
     await expect(page.locator("h1")).toContainText("Shithead");
-    await expect(page.locator("#sonderkarten h3").first()).toContainText(byCode.de.t.sp2h);
+    await expect(page.locator("#special-cards h3").first()).toContainText(byCode.de.t.sp2h);
     await expect(page.locator("#shurl")).toHaveText(byCode.de.url.replace("https://", ""));
 
     // Things that need JavaScript are hidden.
-    await expect(page.locator("#ueben")).toBeHidden();
-    await expect(page.locator('nav a[href="#ueben"]')).toBeHidden();
+    await expect(page.locator("#practice")).toBeHidden();
+    await expect(page.locator('nav a[href="#practice"]')).toBeHidden();
     await expect(page.locator("#shCopy")).toBeHidden();
 
     // The language menu is plain links.
@@ -446,10 +446,11 @@ test.describe("self-contained", () => {
 
   test("icons exist", async ({ page, request }) => {
     await openLanguage(page, byCode.en);
-    for (const selector of ['link[rel="icon"]', 'link[rel="apple-touch-icon"]']) {
-      const href = await page.locator(selector).getAttribute("href");
+    const links = page.locator('link[rel="icon"], link[rel="apple-touch-icon"]');
+    await expect(links).toHaveCount(3);
+    for (const href of await links.evaluateAll((all) => all.map((link) => link.getAttribute("href")))) {
       const response = await request.get(new URL(href, page.url()).href);
-      expect(response.ok(), `${selector} → ${href}`).toBe(true);
+      expect(response.ok(), href).toBe(true);
     }
   });
 });

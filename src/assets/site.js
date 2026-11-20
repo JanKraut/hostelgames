@@ -9,6 +9,33 @@ if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register(new URL("../sw.js", import.meta.url)).catch(() => {});
 }
 
+// ---------- Old section links ----------
+// The section anchors used to be German (#aufbau …). Links shared before still
+// land on the right section.
+
+const OLD_ANCHORS = {
+  aufbau: "setup",
+  varianten: "variants",
+  tauschen: "swap",
+  ablauf: "how-to-play",
+  sonderkarten: "special-cards",
+  ende: "endgame",
+  ueben: "practice",
+  "gegen-bots": "play-bots",
+  teilen: "share",
+  grundprinzip: "principle",
+  tausch: "swap",
+  "sonderkarten-einsetzen": "using-special-cards",
+  fehler: "mistakes",
+  weiter: "next-steps",
+  spickzettel: "cheat-sheet",
+};
+const oldAnchor = OLD_ANCHORS[decodeURIComponent(location.hash.slice(1))];
+if (oldAnchor && document.getElementById(oldAnchor)) {
+  history.replaceState(null, "", `#${oldAnchor}`);
+  document.getElementById(oldAnchor).scrollIntoView();
+}
+
 // ---------- Light / dark switch ----------
 // Without a saved choice the page follows the system setting (CSS media query).
 // The choice is applied before the page is drawn by the inline script in base.njk.

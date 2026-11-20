@@ -43,7 +43,7 @@
   "w2p": "Troca quantas cartas quiseres entre a mão e as cartas viradas para cima.",
   "w3h": "Prepara-te",
   "w3p": "No fim tens 3 cartas viradas para cima à tua frente e 3 na mão. Quando todos estiverem prontos, o jogo começa.",
-  "swWhy": "As cartas viradas para cima só as jogas mesmo no fim, sem a mão como apoio. Por isso, põe cartas fortes viradas para cima: cartas altas como ases e reis, ou cartas especiais como o 2, o 3 e o 10. Podes jogar juntas cartas do mesmo valor. O que fazem as cartas especiais vês mais abaixo em <a href=\"#sonderkarten\">cartas especiais</a>.",
+  "swWhy": "As cartas viradas para cima só as jogas mesmo no fim, sem a mão como apoio. Por isso, põe cartas fortes viradas para cima: cartas altas como ases e reis, ou cartas especiais como o 2, o 3 e o 10. Podes jogar juntas cartas do mesmo valor. O que fazem as cartas especiais vês mais abaixo em <a href=\"#special-cards\">cartas especiais</a>.",
   "playH": "Como se joga",
   "rankH": "Ordem das cartas",
   "rankLead": "O 2 é a carta mais baixa e o ás a mais alta. O naipe (♠♥♦♣) não interessa.",
@@ -250,7 +250,9 @@
     "faq6q": "Quando um jogador fica sem cartas, o jogo continua?",
     "faq6a": "Sim! Não se trata de ganhar, mas de não perder. Don’t be the shithead!",
     "faq7q": "Quanto tempo dura uma partida?",
-    "faq7a": "A maioria das partidas dura cerca de 10 a 15 minutos. Os jogadores novos costumam perceber o jogo logo depois de uma ronda."
+    "faq7a": "A maioria das partidas dura cerca de 10 a 15 minutos. Os jogadores novos costumam perceber o jogo logo depois de uma ronda.",
+    "faq8q": "Por que outros nomes é conhecido o jogo?",
+    "faq8a": "O Shithead tem muitos nomes. Os mais comuns são <strong>Palace</strong>, <strong>Karma</strong> e <strong>Shed</strong>, mas também se ouve <strong>China Hand</strong> ou <strong>Ten-Two Slide</strong>. A ideia base é igual em todo o lado, só mudam as regras da casa – vê as <a href=\"#variants\">Variantes</a>."
   },
   "strategy": {
     "h1": "Don’t be the Shithead",

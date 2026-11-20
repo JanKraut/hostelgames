@@ -25,25 +25,25 @@ scripts: ["/assets/share.js"]
 
 <nav class="secnav" aria-label="{{ t.navLabel }}">
   <ul>
-    <li><a href="#grundprinzip">{{ s.principleNav }}</a></li>
-    <li><a href="#tausch">{{ s.swapNav }}</a></li>
+    <li><a href="#principle">{{ s.principleNav }}</a></li>
+    <li><a href="#swap">{{ s.swapNav }}</a></li>
     {%- for phase in s.phases %}
     <li><a href="#{{ phase.id }}">{{ phase.h }}</a></li>
     {%- endfor %}
-    <li><a href="#sonderkarten-einsetzen">{{ s.spNav }}</a></li>
-    <li><a href="#fehler">{{ s.mistakesNav }}</a></li>
+    <li><a href="#using-special-cards">{{ s.spNav }}</a></li>
+    <li><a href="#mistakes">{{ s.mistakesNav }}</a></li>
     <li><a href="{{ lang.path }}play/">{{ t.game.ctaBtn }}</a></li>
-    <li><a href="#teilen">{{ t.n8 }}</a></li>
+    <li><a href="#share">{{ t.n8 }}</a></li>
   </ul>
 </nav>
 
 <main class="wrap">
-  <section id="grundprinzip">
+  <section id="principle">
     <h2>{{ s.principleH }}</h2>
     <p class="lead">{{ s.principle | safe }}</p>
   </section>
 
-  <section id="tausch">
+  <section id="swap">
     <h2>{{ s.swapH }}</h2>
     <p class="lead">{{ s.swapLead | safe }}</p>
     <h3 class="sub first">{{ s.upH }}</h3>
@@ -95,7 +95,7 @@ scripts: ["/assets/share.js"]
   </section>
   {%- endfor %}
 
-  <section id="sonderkarten-einsetzen">
+  <section id="using-special-cards">
     <h2>{{ s.spH }}</h2>
     <p class="lead">{{ s.spLead | safe }}</p>
     <div class="specials">
@@ -127,7 +127,7 @@ scripts: ["/assets/share.js"]
     </div>
   </section>
 
-  <section id="fehler">
+  <section id="mistakes">
     <h2>{{ s.mistakesH }}</h2>
     <ul class="variants">
       {%- for item in s.mistakes %}
@@ -136,7 +136,7 @@ scripts: ["/assets/share.js"]
     </ul>
   </section>
 
-  <section id="weiter" class="ctas">
+  <section id="next-steps" class="ctas">
     <div class="cta">
       <h2>{{ s.ctaPlayH }}</h2>
       <p>{{ s.ctaPlayP }}</p>

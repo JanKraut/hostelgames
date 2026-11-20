@@ -43,7 +43,7 @@
   "w2p": "Tausch so viele Karten zwischen Hand und offenen Karten, wie du willst.",
   "w3h": "Bereit machen",
   "w3p": "Am Ende liegen wieder 3 Karten offen vor dir und du hast 3 auf der Hand. Wenn alle fertig sind, geht es los.",
-  "swWhy": "Deine offenen Karten spielst du erst ganz am Ende, ohne Hand als Rückhalt. Leg dir deshalb starke Karten offen hin: hohe Karten wie Asse und Könige oder Sonderkarten wie die 2, 3 und die 10. Du kannst gleiche Karten gleichzeitig spielen. Was die Sonderkarten können, erfährst du weiter unten bei den <a href=\"#sonderkarten\">Sonderkarten</a>.",
+  "swWhy": "Deine offenen Karten spielst du erst ganz am Ende, ohne Hand als Rückhalt. Leg dir deshalb starke Karten offen hin: hohe Karten wie Asse und Könige oder Sonderkarten wie die 2, 3 und die 10. Du kannst gleiche Karten gleichzeitig spielen. Was die Sonderkarten können, erfährst du weiter unten bei den <a href=\"#special-cards\">Sonderkarten</a>.",
   "playH": "So spielst du",
   "rankH": "Reihenfolge der Karten",
   "rankLead": "Die 2 ist die niedrigste Karte, das Ass die höchste. Die Farbe (♠♥♦♣) spielt keine Rolle.",
@@ -250,7 +250,9 @@
     "faq6q": "Wenn ein Spieler keine Karten mehr hat, wird dann weitergespielt?",
     "faq6a": "Ja! Es geht nicht ums Gewinnen, sondern darum, nicht zu verlieren. Don’t be the shithead!",
     "faq7q": "Wie lange dauert eine Partie?",
-    "faq7a": "Die meisten Partien dauern etwa 10 bis 15 Minuten. Neue Spieler haben den Spielablauf in der Regel schon nach einer Runde verstanden."
+    "faq7a": "Die meisten Partien dauern etwa 10 bis 15 Minuten. Neue Spieler haben den Spielablauf in der Regel schon nach einer Runde verstanden.",
+    "faq8q": "Unter welchen anderen Namen ist das Spiel bekannt?",
+    "faq8a": "Shithead hat viele Namen. Am häufigsten heißt es <strong>Palace</strong>, <strong>Karma</strong> oder <strong>Shed</strong>, seltener auch <strong>China Hand</strong> oder <strong>Ten-Two Slide</strong>. Das Grundprinzip ist überall gleich, nur die Hausregeln unterscheiden sich – mehr dazu bei den <a href=\"#variants\">Varianten</a>."
   },
   "strategy": {
     "h1": "Don’t be the Shithead",
