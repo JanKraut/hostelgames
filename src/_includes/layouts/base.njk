@@ -9,10 +9,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{{ pageTitle }}</title>
 <meta name="description" content="{{ pageDescription }}">
-{#- The GitHub Pages copy is only a preview; search engines should list shitheadgame.de. #}
-{%- if "github.io" in site.origin %}
+{#- The GitHub Pages copy is only a preview; search engines should list shitheadgame.de.
+    The 404 page (notFound) is never listed either. #}
+{%- if "github.io" in site.origin or notFound %}
 <meta name="robots" content="noindex">
 {%- endif %}
+{%- if not notFound %}
 <link rel="canonical" href="{{ lang.url }}{{ sub }}">
 {%- for l in languages %}
 <link rel="alternate" hreflang="{{ l.htmlLang }}" href="{{ l.url }}{{ sub }}">
@@ -29,8 +31,9 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Shithead card game">
 <meta name="twitter:card" content="summary_large_image">
+{%- endif %}
 <script>document.documentElement.classList.add("js");try{var th=localStorage.getItem("theme");if(th==="light"||th==="dark")document.documentElement.dataset.theme=th}catch(e){}</script>
-{%- if lang.path == "/" %}
+{%- if lang.path == "/" and not notFound %}
 <script>{% include "redirect.njk" %}</script>
 {%- endif %}
 {%- include "tracking-head.njk" %}

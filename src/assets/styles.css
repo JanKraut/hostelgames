@@ -2191,3 +2191,78 @@ footer .heart {
     background: var(--summary-hover);
   }
 }
+
+/* ---------- 404 page ---------- */
+
+.notfound {
+  min-height: 100vh;
+  padding-bottom: 3rem;
+}
+
+.nf-body {
+  text-align: center;
+}
+
+.notfound h1 {
+  font-size: clamp(2.2rem, 9vw, 3.6rem);
+}
+
+.notfound p {
+  margin-inline: auto;
+}
+
+.nf-cards {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 2rem auto 1.8rem;
+}
+
+.nf-cards .card:first-child {
+  transform: rotate(-10deg) translateX(10px);
+}
+
+.nf-cards .card.sh {
+  z-index: 1;
+  margin-bottom: 10px;
+  --w: 104px;
+}
+
+.nf-cards .card:last-child {
+  transform: rotate(10deg) translateX(-10px);
+}
+
+.notfound .nf-code {
+  margin-bottom: 0.3rem;
+  color: var(--head-accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.notfound .nf-punch {
+  margin-top: 1rem;
+  color: var(--felt-text);
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.notfound .nf-btns {
+  max-width: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  justify-content: center;
+  margin-top: 1.8rem;
+}
+
+.nf-btns .ctabtn {
+  background: var(--felt-text);
+  color: var(--head-bg);
+}
+
+.nf-btns .ctabtn.alt {
+  background: var(--head-well);
+  color: var(--felt-text);
+}

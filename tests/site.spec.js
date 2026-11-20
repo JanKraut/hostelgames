@@ -524,3 +524,25 @@ test.describe("offline", () => {
     }
   });
 });
+
+test.describe("404 page", () => {
+  test("is English, not indexed, and its links work", async ({ page, request }) => {
+    await page.goto("404.html");
+    await expect(page.locator("h1")).toHaveText("This page doesn’t exist.");
+    await expect(page.locator(".nf-punch")).toHaveText("Well. You’re the shithead.");
+    await expect(page.locator("html")).toHaveAttribute("lang", "en");
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex");
+    await expect(page.locator('link[rel="canonical"]')).toHaveCount(0);
+    for (const href of await page.locator(".nf-btns a").evaluateAll((all) => all.map((a) => a.getAttribute("href")))) {
+      const response = await request.get(new URL(href, page.url()).href);
+      expect(response.ok(), href).toBe(true);
+    }
+  });
+
+  test("does not send visitors to their saved language", async ({ page }) => {
+    await page.goto("de/");
+    await page.evaluate(() => localStorage.setItem("lang", "de"));
+    await page.goto("404.html");
+    await expect(page).toHaveURL(/404\.html$/);
+  });
+});
