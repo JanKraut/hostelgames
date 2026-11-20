@@ -43,7 +43,7 @@
   "w2p": "Cambia tantas cartas como quieras entre tu mano y tus cartas boca arriba.",
   "w3h": "Prepárate",
   "w3p": "Al final tienes 3 cartas boca arriba delante de ti y 3 en la mano. Cuando todos estén listos, empieza la partida.",
-  "swWhy": "Tus cartas boca arriba solo las juegas al final, sin la mano como respaldo. Así que pon boca arriba cartas fuertes: cartas altas como ases y reyes, o cartas especiales como el 2, el 3 y el 10. Puedes jugar a la vez cartas del mismo valor. Lo que hacen las cartas especiales lo verás más abajo en <a href=\"#sonderkarten\">cartas especiales</a>.",
+  "swWhy": "Tus cartas boca arriba solo las juegas al final, sin la mano como respaldo. Así que pon boca arriba cartas fuertes: cartas altas como ases y reyes, o cartas especiales como el 2, el 3 y el 10. Puedes jugar a la vez cartas del mismo valor. Lo que hacen las cartas especiales lo verás más abajo en <a href=\"#special-cards\">cartas especiales</a>.",
   "playH": "Cómo se juega",
   "rankH": "Orden de las cartas",
   "rankLead": "El 2 es la carta más baja y el as la más alta. El palo (♠♥♦♣) no importa.",
@@ -250,7 +250,9 @@
     "faq6q": "Cuando un jugador se queda sin cartas, ¿se sigue jugando?",
     "faq6a": "¡Sí! No se trata de ganar, sino de no perder. Don’t be the shithead!",
     "faq7q": "¿Cuánto dura una partida?",
-    "faq7a": "La mayoría de las partidas duran entre 10 y 15 minutos. Los jugadores nuevos suelen entender el juego después de una sola ronda."
+    "faq7a": "La mayoría de las partidas duran entre 10 y 15 minutos. Los jugadores nuevos suelen entender el juego después de una sola ronda.",
+    "faq8q": "¿Con qué otros nombres se conoce el juego?",
+    "faq8a": "Shithead tiene muchos nombres. Los más comunes son <strong>Palace</strong>, <strong>Karma</strong> y <strong>Shed</strong>, aunque también se oye <strong>China Hand</strong> o <strong>Ten-Two Slide</strong>. La idea básica es la misma en todas partes; solo cambian las reglas de la casa – mira las <a href=\"#variants\">Variantes</a>."
   },
   "strategy": {
     "h1": "Don’t be the Shithead",

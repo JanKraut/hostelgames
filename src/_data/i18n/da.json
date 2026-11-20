@@ -43,7 +43,7 @@
   "w2p": "Byt så mange kort, du vil, mellem hånden og dine åbne kort.",
   "w3h": "Gør klar",
   "w3p": "Til sidst ligger der igen 3 åbne kort foran dig, og du har 3 på hånden. Når alle er klar, går spillet i gang.",
-  "swWhy": "Dine åbne kort spiller du først helt til sidst, uden hånd at falde tilbage på. Læg derfor stærke kort åbne: høje kort som esser og konger eller specialkort som 2’eren, 3’eren og 10’eren. Du kan spille kort af samme værdi samtidig. Hvad specialkortene kan, finder du længere nede under <a href=\"#sonderkarten\">specialkort</a>.",
+  "swWhy": "Dine åbne kort spiller du først helt til sidst, uden hånd at falde tilbage på. Læg derfor stærke kort åbne: høje kort som esser og konger eller specialkort som 2’eren, 3’eren og 10’eren. Du kan spille kort af samme værdi samtidig. Hvad specialkortene kan, finder du længere nede under <a href=\"#special-cards\">specialkort</a>.",
   "playH": "Sådan spiller du",
   "rankH": "Kortenes rækkefølge",
   "rankLead": "2’eren er det laveste kort, esset det højeste. Kulør (♠♥♦♣) er ligegyldig.",
@@ -250,7 +250,9 @@
     "faq6q": "Spiller man videre, når en spiller ikke har flere kort?",
     "faq6a": "Ja! Det handler ikke om at vinde, men om ikke at tabe. Don’t be the shithead!",
     "faq7q": "Hvor lang tid tager et spil?",
-    "faq7a": "De fleste spil tager omkring 10 til 15 minutter. Nye spillere har som regel forstået spillet allerede efter én runde."
+    "faq7a": "De fleste spil tager omkring 10 til 15 minutter. Nye spillere har som regel forstået spillet allerede efter én runde.",
+    "faq8q": "Hvilke andre navne har spillet?",
+    "faq8a": "Shithead har mange navne. De mest almindelige er <strong>Palace</strong>, <strong>Karma</strong> og <strong>Shed</strong>, men du kan også høre <strong>China Hand</strong> eller <strong>Ten-Two Slide</strong>. Grundidéen er den samme overalt, kun husreglerne er forskellige – se <a href=\"#variants\">Varianter</a>."
   },
   "strategy": {
     "h1": "Don’t be the Shithead",

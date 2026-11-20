@@ -43,7 +43,7 @@
   "w2p": "Scambia quante carte vuoi tra la mano e le carte scoperte.",
   "w3h": "Preparati",
   "w3p": "Alla fine hai 3 carte scoperte davanti a te e 3 in mano. Quando tutti sono pronti, si comincia.",
-  "swWhy": "Le carte scoperte le giochi solo alla fine, senza la mano come riserva. Quindi metti scoperte carte forti: carte alte come assi e re, oppure carte speciali come il 2, il 3 e il 10. Puoi giocare insieme carte dello stesso valore. Cosa fanno le carte speciali lo scopri più sotto in <a href=\"#sonderkarten\">carte speciali</a>.",
+  "swWhy": "Le carte scoperte le giochi solo alla fine, senza la mano come riserva. Quindi metti scoperte carte forti: carte alte come assi e re, oppure carte speciali come il 2, il 3 e il 10. Puoi giocare insieme carte dello stesso valore. Cosa fanno le carte speciali lo scopri più sotto in <a href=\"#special-cards\">carte speciali</a>.",
   "playH": "Come si gioca",
   "rankH": "Ordine delle carte",
   "rankLead": "Il 2 è la carta più bassa, l’asso la più alta. Il seme (♠♥♦♣) non conta.",
@@ -250,7 +250,9 @@
     "faq6q": "Quando un giocatore non ha più carte, si continua a giocare?",
     "faq6a": "Sì! Non si tratta di vincere, ma di non perdere. Don’t be the shithead!",
     "faq7q": "Quanto dura una partita?",
-    "faq7a": "La maggior parte delle partite dura circa 10–15 minuti. Di solito i nuovi giocatori capiscono come funziona già dopo un giro."
+    "faq7a": "La maggior parte delle partite dura circa 10–15 minuti. Di solito i nuovi giocatori capiscono come funziona già dopo un giro.",
+    "faq8q": "Con quali altri nomi è conosciuto il gioco?",
+    "faq8a": "Shithead ha tanti nomi. I più diffusi sono <strong>Palace</strong>, <strong>Karma</strong> e <strong>Shed</strong>, ma si sente anche <strong>China Hand</strong> o <strong>Ten-Two Slide</strong>. L’idea di base è la stessa ovunque, cambiano solo le regole della casa – vedi <a href=\"#variants\">Varianti</a>."
   },
   "strategy": {
     "h1": "Don’t be the Shithead",

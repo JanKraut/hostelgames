@@ -43,7 +43,7 @@
   "w2p": "Swap as many cards between your hand and your face-up cards as you like.",
   "w3h": "Get ready",
   "w3p": "In the end you have 3 face-up cards in front of you and 3 in your hand. Once everyone is done, the game starts.",
-  "swWhy": "You only play your face-up cards at the very end, without a hand to fall back on. So put strong cards face-up: high cards like aces and kings, or special cards like the 2, 3 and 10. You can play cards of the same rank together. You’ll learn what the special cards do further down under <a href=\"#sonderkarten\">special cards</a>.",
+  "swWhy": "You only play your face-up cards at the very end, without a hand to fall back on. So put strong cards face-up: high cards like aces and kings, or special cards like the 2, 3 and 10. You can play cards of the same rank together. You’ll learn what the special cards do further down under <a href=\"#special-cards\">special cards</a>.",
   "playH": "How to play",
   "rankH": "Card order",
   "rankLead": "The 2 is the lowest card, the ace the highest. Suits (♠♥♦♣) don’t matter.",
@@ -369,6 +369,8 @@
     "faq6q": "When one player has no cards left, does the game go on?",
     "faq6a": "Yes! It’s not about winning, it’s about not losing. Don’t be the shithead!",
     "faq7q": "How long does a game take?",
-    "faq7a": "Most games take about 10 to 15 minutes. New players usually understand how it works after just one round."
+    "faq7a": "Most games take about 10 to 15 minutes. New players usually understand how it works after just one round.",
+    "faq8q": "What other names does the game go by?",
+    "faq8a": "Shithead has lots of names. The most common are <strong>Palace</strong>, <strong>Karma</strong> and <strong>Shed</strong>; you may also hear <strong>China Hand</strong> or <strong>Ten-Two Slide</strong>. The basic idea is the same everywhere, only the house rules differ – see <a href=\"#variants\">Variants</a>."
   }
 }

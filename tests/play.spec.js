@@ -42,7 +42,7 @@ test.describe("game page in every language", () => {
 test("the rules page links to the game", async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem("lang", "de"));
   await page.goto("de/");
-  await page.locator("#gegen-bots a").click();
+  await page.locator("#play-bots a").click();
   await expect(page).toHaveURL(/\/de\/play\/$/);
 });
 

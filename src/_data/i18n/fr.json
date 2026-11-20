@@ -43,7 +43,7 @@
   "w2p": "Échange autant de cartes que tu veux entre ta main et tes cartes face visible.",
   "w3h": "Prépare-toi",
   "w3p": "À la fin, tu as 3 cartes face visible devant toi et 3 en main. Quand tout le monde est prêt, la partie commence.",
-  "swWhy": "Tu ne joues tes cartes visibles qu’à la toute fin, sans main pour te rattraper. Pose donc des cartes fortes face visible : des cartes hautes comme les as et les rois, ou des cartes spéciales comme le 2, le 3 et le 10. Tu peux jouer ensemble des cartes de même valeur. Ce que font les cartes spéciales, tu le découvriras plus bas dans <a href=\"#sonderkarten\">cartes spéciales</a>.",
+  "swWhy": "Tu ne joues tes cartes visibles qu’à la toute fin, sans main pour te rattraper. Pose donc des cartes fortes face visible : des cartes hautes comme les as et les rois, ou des cartes spéciales comme le 2, le 3 et le 10. Tu peux jouer ensemble des cartes de même valeur. Ce que font les cartes spéciales, tu le découvriras plus bas dans <a href=\"#special-cards\">cartes spéciales</a>.",
   "playH": "Comment jouer",
   "rankH": "Ordre des cartes",
   "rankLead": "Le 2 est la carte la plus faible, l’as la plus forte. La couleur (♠♥♦♣) n’a pas d’importance.",
@@ -250,7 +250,9 @@
     "faq6q": "Quand un joueur n’a plus de cartes, la partie continue-t-elle ?",
     "faq6a": "Oui ! Le but n’est pas de gagner, mais de ne pas perdre. Don’t be the shithead !",
     "faq7q": "Combien de temps dure une partie ?",
-    "faq7a": "La plupart des parties durent environ 10 à 15 minutes. Les nouveaux joueurs comprennent en général le déroulement après un seul tour."
+    "faq7a": "La plupart des parties durent environ 10 à 15 minutes. Les nouveaux joueurs comprennent en général le déroulement après un seul tour.",
+    "faq8q": "Sous quels autres noms le jeu est-il connu ?",
+    "faq8a": "Le Shithead a beaucoup de noms. Les plus courants sont <strong>Palace</strong>, <strong>Karma</strong> et <strong>Shed</strong>, on entend aussi <strong>China Hand</strong> ou <strong>Ten-Two Slide</strong>. Le principe est le même partout, seules les règles maison changent – voir les <a href=\"#variants\">Variantes</a>."
   },
   "strategy": {
     "h1": "Don’t be the Shithead",

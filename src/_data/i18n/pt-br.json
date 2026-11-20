@@ -39,7 +39,7 @@
   "w2p": "Troque quantas cartas quiser entre a mão e as cartas viradas para cima.",
   "w3h": "Se prepare",
   "w3p": "No final você tem 3 cartas viradas para cima na sua frente e 3 na mão. Quando todo mundo estiver pronto, o jogo começa.",
-  "swWhy": "Você só joga as cartas viradas para cima bem no final, sem a mão como apoio. Por isso, deixe cartas fortes viradas para cima: cartas altas como ases e reis, ou cartas especiais como o 2, o 3 e o 10. Você pode jogar juntas cartas do mesmo valor. O que as cartas especiais fazem você vê mais abaixo em <a href=\"#sonderkarten\">cartas especiais</a>.",
+  "swWhy": "Você só joga as cartas viradas para cima bem no final, sem a mão como apoio. Por isso, deixe cartas fortes viradas para cima: cartas altas como ases e reis, ou cartas especiais como o 2, o 3 e o 10. Você pode jogar juntas cartas do mesmo valor. O que as cartas especiais fazem você vê mais abaixo em <a href=\"#special-cards\">cartas especiais</a>.",
   "playH": "Como jogar",
   "rankH": "Ordem das cartas",
   "rankLead": "O 2 é a carta mais baixa e o ás a mais alta. O naipe (♠♥♦♣) não importa.",
@@ -246,7 +246,9 @@
     "faq6q": "Quando um jogador fica sem cartas, o jogo continua?",
     "faq6a": "Sim! Não se trata de ganhar, mas de não perder. Don’t be the shithead!",
     "faq7q": "Quanto tempo dura uma partida?",
-    "faq7a": "A maioria das partidas dura uns 10 a 15 minutos. Jogadores novos costumam entender o jogo depois de uma rodada."
+    "faq7a": "A maioria das partidas dura uns 10 a 15 minutos. Jogadores novos costumam entender o jogo depois de uma rodada.",
+    "faq8q": "Por quais outros nomes o jogo é conhecido?",
+    "faq8a": "O Shithead tem muitos nomes. Os mais comuns são <strong>Palace</strong>, <strong>Karma</strong> e <strong>Shed</strong>, mas também dá pra ouvir <strong>China Hand</strong> ou <strong>Ten-Two Slide</strong>. A ideia básica é a mesma em todo lugar, só mudam as regras da casa – veja as <a href=\"#variants\">Variantes</a>."
   },
   "strategy": {
     "h1": "Don’t be the Shithead",

@@ -9,6 +9,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{{ pageTitle }}</title>
 <meta name="description" content="{{ pageDescription }}">
+{#- The GitHub Pages copy is only a preview; search engines should list shitheadgame.de. #}
+{%- if "github.io" in site.origin %}
+<meta name="robots" content="noindex">
+{%- endif %}
 <link rel="canonical" href="{{ lang.url }}{{ sub }}">
 {%- for l in languages %}
 <link rel="alternate" hreflang="{{ l.htmlLang }}" href="{{ l.url }}{{ sub }}">
@@ -20,6 +24,7 @@
 {%- endif %}
 <meta name="theme-color" content="#f4cf71" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#171a1f" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
