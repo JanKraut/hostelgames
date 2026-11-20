@@ -31,14 +31,26 @@ jobs:
             playwright-report/
             test-results/
           retention-days: 14
+
+  # GitHub Pages (preview copy, noindex): built and deployed straight from main,
+  # without waiting for the tests. The tests above still run alongside.
+  build-pages:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
       - uses: actions/upload-pages-artifact@v3
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         with:
           path: _site
 
-  # Only runs for main (not for pull requests), and only after the tests passed.
   deploy:
-    needs: test
+    needs: build-pages
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
