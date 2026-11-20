@@ -3,7 +3,7 @@
     the same box opens as a popup from the QR button at the top (langmenu.njk). -#}
 {%- from "sharebox.njk" import sharebox -%}
 {%- set t = lang.t -%}
-<section id="teilen">
+<section id="share">
   <div class="sharebox">
     {{ sharebox(t, lang.url + (subpath or ""), true) }}
   </div>

@@ -12,6 +12,9 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy({ "src/manifest.webmanifest": "manifest.webmanifest" });
 
+  // Classic favicon at the site root (16, 32, 48 px), which search engines look for.
+  eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });
+
   // QR code library (MIT) → /assets/qrcode.js
   eleventyConfig.addPassthroughCopy({ "node_modules/qrcode-generator/qrcode.js": "assets/qrcode.js" });
 

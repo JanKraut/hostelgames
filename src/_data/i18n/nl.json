@@ -43,7 +43,7 @@
   "w2p": "Ruil zoveel kaarten als je wilt tussen je hand en je open kaarten.",
   "w3h": "Klaar maken",
   "w3p": "Aan het eind liggen er weer 3 open kaarten voor je en heb je er 3 in je hand. Als iedereen klaar is, begint het spel.",
-  "swWhy": "Je open kaarten speel je pas helemaal aan het eind, zonder hand als achtervang. Leg daarom sterke kaarten open: hoge kaarten zoals azen en heren, of speciale kaarten zoals de 2, de 3 en de 10. Gelijke kaarten mag je samen spelen. Wat de speciale kaarten doen, lees je verderop bij <a href=\"#sonderkarten\">speciale kaarten</a>.",
+  "swWhy": "Je open kaarten speel je pas helemaal aan het eind, zonder hand als achtervang. Leg daarom sterke kaarten open: hoge kaarten zoals azen en heren, of speciale kaarten zoals de 2, de 3 en de 10. Gelijke kaarten mag je samen spelen. Wat de speciale kaarten doen, lees je verderop bij <a href=\"#special-cards\">speciale kaarten</a>.",
   "playH": "Zo speel je",
   "rankH": "Volgorde van de kaarten",
   "rankLead": "De 2 is de laagste kaart, de aas de hoogste. De kleur (♠♥♦♣) maakt niet uit.",
@@ -250,7 +250,9 @@
     "faq6q": "Als een speler geen kaarten meer heeft, wordt er dan doorgespeeld?",
     "faq6a": "Ja! Het gaat niet om winnen, maar om niet verliezen. Don’t be the shithead!",
     "faq7q": "Hoe lang duurt een potje?",
-    "faq7a": "De meeste potjes duren zo’n 10 tot 15 minuten. Nieuwe spelers snappen het spelverloop meestal al na één ronde."
+    "faq7a": "De meeste potjes duren zo’n 10 tot 15 minuten. Nieuwe spelers snappen het spelverloop meestal al na één ronde.",
+    "faq8q": "Onder welke andere namen is het spel bekend?",
+    "faq8a": "Shithead heeft veel namen. De bekendste zijn <strong>Palace</strong>, <strong>Karma</strong> en <strong>Shed</strong>, maar je hoort ook <strong>China Hand</strong> of <strong>Ten-Two Slide</strong>. Het basisidee is overal hetzelfde, alleen de huisregels verschillen – zie <a href=\"#variants\">Varianten</a>."
   },
   "strategy": {
     "h1": "Don’t be the Shithead",
