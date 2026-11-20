@@ -29,7 +29,7 @@ Beim ersten Mal ggf. den Browser installieren: `npx playwright install chromium`
 | `src/_includes/layouts/base.njk` | Gemeinsamer Rahmen: Kopf, `hreflang`, Skripte |
 | `src/_includes/langmenu.njk` | Sprachmenü, verlinkt auf dieselbe Seite in jeder Sprache |
 | `src/_includes/card.njk` | Makros für die Spielkarten-Grafiken |
-| `src/_includes/redirect.njk` | Nur Startseite: leitet auf die gemerkte bzw. Browsersprache weiter |
+| `src/_includes/redirect.njk` | Nur englische Seiten: leitet auf die im Menü gewählte Sprache weiter; ohne Wahl bleibt es Englisch, egal welche Browsersprache |
 | `src/_data/languages.js` | Liste der Sprachen (Reihenfolge im Menü, Flagge, Fallback-Kette) |
 | `src/_data/i18n/*.json` | Texte pro Sprache, inklusive Quiztexte unter `quiz` |
 | `src/_data/site.js` | Öffentliche URL und Pfad-Präfix |
@@ -85,7 +85,8 @@ Die Seite lädt nichts von fremden Servern (kein Google Fonts, kein CDN):
   nur, was eine Sprache wirklich braucht.
 - **QR-Code** erzeugt `qrcode-generator` (MIT), kopiert nach `/assets/qrcode.js`.
 
-Ein Test stellt sicher, dass das so bleibt.
+Ein Test stellt sicher, dass das so bleibt. Einzige Ausnahme ist ein Tracking, falls es beim Build
+eingeschaltet wird (siehe „Tracking“).
 
 ## Offline
 
@@ -123,4 +124,37 @@ Beispiel nur die wenigen Texte, die von `es` abweichen.
 `.github/workflows/ci.yml` baut die Seite und führt die Tests bei jedem Pull Request und Push aus.
 Nur auf `main` und nur wenn die Tests grün sind, wird sie auf GitHub Pages veröffentlicht. Schlägt ein
 Test fehl, liegen Report und Screenshots als Artefakt `playwright-report` am Workflow-Lauf. Einmalig nötig: *Settings → Pages → Build and deployment → Source:
-GitHub Actions*. Für eine eigene Domain `src/_data/site.js` anpassen.
+GitHub Actions*. Adresse und Pfad-Präfix stehen in `src/_data/site.js` und lassen sich beim Build über
+`SITE_ORIGIN` und `SITE_PATH_PREFIX` überschreiben.
+
+### Hetzner (shitheadgame.de)
+
+Ein Push auf den Branch `hetzner` baut die Seite für `https://shitheadgame.de/` (ohne Pfad-Präfix,
+mit `src/.htaccess` für HTTPS-Weiterleitung und Caching) und lädt sie nach grünen Tests per FTPS
+(`lftp`) auf den Hetzner-Webspace. GitHub Pages bleibt davon unberührt.
+
+Einmalig nötig unter *Settings → Environments → New environment* `hetzner`:
+
+- *Deployment branches*: nur `hetzner`
+- *Secrets*: `HETZNER_HOST` (z. B. `wwwXXX.your-server.de`), `HETZNER_USER`, `HETZNER_PASSWORD`
+  – am besten ein zusätzlicher FTP-Benutzer aus konsoleH, der nur `public_html` (bzw. das Verzeichnis der Domain) sieht
+- *Variable* (optional): `HETZNER_FTP_DIR`, Zielverzeichnis relativ zum FTP-Login, Standard `.`
+
+Übertragen werden nur geänderte Dateien. Was es in `_site/` nicht mehr gibt, wird auch im Zielverzeichnis
+gelöscht – das Zielverzeichnis gehört also allein dieser Seite.
+
+### Tracking
+
+Web-Analyse wird beim Build über Umgebungsvariablen eingeschaltet (`src/_data/tracking.js`,
+Code in `src/_includes/tracking-head.njk` und `tracking-body.njk`). Ohne Variablen – lokal, in den Tests
+und auf GitHub Pages – steht kein Tracking-Code in den Seiten.
+
+| Variable | Werte |
+| --- | --- |
+| `TRACKING_PROVIDER` | `gtm` (Google Tag Manager), `ga4` (Google Analytics direkt), `matomo` oder leer/`none` |
+| `TRACKING_ID` | `GTM-…`, `G-…` bzw. die Matomo-Site-ID (Zahl) |
+| `MATOMO_URL` | nur Matomo: Adresse der Matomo-Installation, `https://…` |
+
+Für Hetzner trägt man sie unter *Settings → Environments → `hetzner-webhosting` → Environment variables*
+ein (Variablen, keine Secrets – die IDs stehen ohnehin in jeder Seite). Eine falsche ID bricht den Build ab.
+Das Tracking lädt ohne Einwilligungsbanner direkt beim Seitenaufruf.

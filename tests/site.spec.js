@@ -28,7 +28,7 @@ test.describe("every language page", () => {
 
       await expect(page).toHaveTitle(lang.t.title);
       await expect(page.locator("html")).toHaveAttribute("lang", lang.htmlLang);
-      await expect(page.locator("h2").first()).toHaveText(lang.t.setupH);
+      await expect(page.locator("main h2").first()).toHaveText(lang.t.setupH);
       await expect(page.locator("#cheat-sheet")).toHaveCount(0);
       await expect(page.locator(".pagetabs a[aria-current=page]")).toHaveText(lang.t.pgRules);
       await expect(page.locator(".langmenu a[aria-current=page]")).toHaveAttribute("data-lang", lang.code);
@@ -221,40 +221,35 @@ test("strategy guide: sections, swap example and boxes at the end", async ({ pag
 });
 
 test.describe("start page redirect", () => {
-  const cases = [
-    ["de-DE", "de"],
-    ["es-ES", "es"],
-    ["es-MX", "es-419"],
-    ["pt-PT", "pt"],
-    ["pt-BR", "pt-br"],
-    ["nb-NO", "nb"],
-    ["he-IL", "en"],
-    ["en-US", "en"],
-    ["ja-JP", "en"],
-  ];
-  for (const [locale, code] of cases) {
-    test(`browser language ${locale} → ${code}`, async ({ browser, baseURL }) => {
+  for (const locale of ["de-DE", "es-MX", "pt-BR", "ja-JP", "en-US"]) {
+    test(`browser language ${locale} → English start page`, async ({ browser, baseURL }) => {
       const context = await browser.newContext({ locale });
       const page = await context.newPage();
       await page.goto(baseURL);
-      await expect(page).toHaveURL(byCode[code].url.replace(/^https:\/\/[^/]+/, new URL(baseURL).origin));
+      await expect(page).toHaveURL(baseURL);
+      await expect(page.locator("html")).toHaveAttribute("lang", "en");
       await context.close();
     });
   }
 
-  test("a language picked in the menu wins over the browser language", async ({ browser, baseURL }) => {
-    const context = await browser.newContext({ locale: "de-DE" });
+  test("a language picked in the menu is remembered on the start page", async ({ browser, baseURL }) => {
+    const context = await browser.newContext({ locale: "en-US" });
     const page = await context.newPage();
+    await page.goto(baseURL);
+    await expect(page).toHaveURL(baseURL);
+
+    await page.locator(".langmenu summary").click();
+    await page.locator('.langmenu a[data-lang="de"]').click();
+    await expect(page).toHaveURL(/\/de\/$/);
+
     await page.goto(baseURL);
     await expect(page).toHaveURL(/\/de\/$/);
 
+    // Picking English again stays on English.
     await page.locator(".langmenu summary").click();
     await page.locator('.langmenu a[data-lang="en"]').click();
-    await expect(page).toHaveURL(baseURL);
-
     await page.goto(baseURL);
     await expect(page).toHaveURL(baseURL);
-    await expect(page.locator("html")).toHaveAttribute("lang", "en");
     await context.close();
   });
 
@@ -481,14 +476,14 @@ test.describe("offline", () => {
     await context.setOffline(true);
 
     await page.reload();
-    await expect(page.locator("h2").first()).toHaveText(byCode.de.t.setupH);
+    await expect(page.locator("main h2").first()).toHaveText(byCode.de.t.setupH);
     await expect(page.locator("#qr svg")).toBeVisible();
 
     // Other languages were cached too, not only the visited page.
     await page.locator(".langmenu summary").click();
     await page.locator('.langmenu a[data-lang="pl"]').click();
     await expect(page).toHaveURL(/\/pl\/$/);
-    await expect(page.locator("h2").first()).toHaveText(byCode.pl.t.setupH);
+    await expect(page.locator("main h2").first()).toHaveText(byCode.pl.t.setupH);
     await page.evaluate(() => document.fonts.ready);
     const failedFonts = await page.evaluate(() => [...document.fonts].filter((f) => f.status === "error").length);
     expect(failedFonts, "fonts that failed to load offline").toBe(0);
@@ -512,7 +507,7 @@ test.describe("offline", () => {
     await page.evaluate(() => localStorage.setItem("lang", "es"));
     await page.goto(baseURL);
     await expect(page).toHaveURL(/\/es\/$/);
-    await expect(page.locator("h2").first()).toHaveText(byCode.es.t.setupH);
+    await expect(page.locator("main h2").first()).toHaveText(byCode.es.t.setupH);
     await context.close();
   });
 

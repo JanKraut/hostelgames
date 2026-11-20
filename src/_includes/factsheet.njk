@@ -15,7 +15,7 @@
     </div>
 
     <div class="fs-box">
-      <h3>{{ i.playersH }}</h3>
+      <h2>{{ i.playersH }}</h2>
       <div class="fs-players">
         <div class="fs-group" role="img" aria-label="{{ i.players1 }}: {{ i.decks1 }}">
           <div class="fs-who">{{ people | safe }}<span>{{ i.players1 }}</span></div>
@@ -30,11 +30,11 @@
 
     <div class="fs-box fs-pair">
       <div>
-        <h3>{{ i.timeH }}</h3>
+        <h2>{{ i.timeH }}</h2>
         <div class="fs-clock"><b>{{ i.timeN }}</b><small>{{ i.timeU }}</small></div>
       </div>
       <div>
-        <h3>{{ i.similarH }}</h3>
+        <h2>{{ i.similarH }}</h2>
         <ul class="fs-similar">
           {%- for name in i.similar.split(", ") %}
           <li>{{ name }}</li>
@@ -44,7 +44,7 @@
     </div>
 
     <div class="fs-box">
-      <h3>{{ i.cardsH }}</h3>
+      <h2>{{ i.cardsH }}</h2>
       <div class="fs-cards" role="img" aria-label="{{ i.cardsAlt }}">
         <span class="fs-mini">A</span><span class="fs-arrow" aria-hidden="true">→</span><span class="fs-mini">K</span>
         <span class="fs-mini fs-joker">{{ i.joker }}</span>
@@ -54,7 +54,7 @@
   </div>
 
   <div class="fs-intro">
-    <h3>{{ i.introH }}</h3>
+    <h2>{{ i.introH }}</h2>
     <p>{{ i.intro | safe }}</p>
   </div>
 </section>

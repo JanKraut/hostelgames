@@ -10,6 +10,9 @@ export default function (eleventyConfig) {
   eleventyConfig.addPlugin(HtmlBasePlugin);
   eleventyConfig.addPassthroughCopy("src/assets");
 
+  // Apache config for the Hetzner webspace; GitHub Pages doesn't need it.
+  if (process.env.SITE_ORIGIN) eleventyConfig.addPassthroughCopy({ "src/.htaccess": ".htaccess" });
+
   eleventyConfig.addPassthroughCopy({ "src/manifest.webmanifest": "manifest.webmanifest" });
 
   // Classic favicon at the site root (16, 32, 48 px), which search engines look for.
@@ -32,7 +35,7 @@ export default function (eleventyConfig) {
   // hash over their contents, so every deploy with changes gets a fresh cache.
   eleventyConfig.on("eleventy.after", ({ dir }) => {
     const files = readdirSync(dir.output, { recursive: true, withFileTypes: true })
-      .filter((entry) => entry.isFile() && entry.name !== "sw.js")
+      .filter((entry) => entry.isFile() && entry.name !== "sw.js" && entry.name !== ".htaccess")
       .map((entry) => relative(dir.output, join(entry.parentPath, entry.name)).split("\\").join("/"))
       .sort();
     const hash = createHash("sha256");

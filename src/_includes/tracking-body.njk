@@ -1,0 +1,4 @@
+{#- Google Tag Manager's fallback for visitors without JavaScript, first thing in <body>. -#}
+{%- if tracking.provider == "gtm" %}
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ tracking.id }}" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+{%- endif %}
