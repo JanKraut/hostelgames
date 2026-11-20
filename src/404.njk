@@ -1,0 +1,37 @@
+---js
+{
+  // Error page for unknown addresses. English only, on purpose.
+  permalink: "/404.html",
+  layout: "layouts/base.njk",
+  notFound: true,
+  pageTitle: "Page not found · Shithead",
+  pageDescription: "This page doesn't exist. Well. You're the shithead.",
+  eleventyExcludeFromCollections: true,
+  eleventyComputed: { lang: (data) => data.languages[0] },
+}
+---
+{%- from "card.njk" import card, shithead -%}
+{%- set t = lang.t -%}
+
+<header class="hero notfound">
+  <div class="wrap">
+    {% include "langmenu.njk" %}
+    <div class="nf-body">
+    <div class="nf-cards" aria-hidden="true">
+      {{ card("4", "♠") }}
+      {{ shithead() }}
+      {{ card("4", "♥") }}
+    </div>
+    <p class="nf-code">Error 404</p>
+    <h1>This page doesn’t exist.</h1>
+    <p>Maybe someone played a 10 and burned it. Or it’s already out, like everyone who has no cards left. Except you.</p>
+    <p class="nf-punch">Well. You’re the shithead.</p>
+    <p class="nf-btns">
+      <a class="ctabtn" href="/">Pick up the pile and read the rules</a>
+      <a class="ctabtn alt" href="/quickstart/">Go to the cheat sheet</a>
+    </p>
+    </div>
+  </div>
+</header>
+
+{% include "footer.njk" %}
