@@ -122,7 +122,8 @@ Beispiel nur die wenigen Texte, die von `es` abweichen.
 ## Deployment
 
 `.github/workflows/ci.yml` baut die Seite und führt die Tests bei jedem Pull Request und Push aus.
-Nur auf `main` und nur wenn die Tests grün sind, wird sie auf GitHub Pages veröffentlicht. Schlägt ein
+Auf GitHub Pages (Vorschau, `noindex`) wird bei jedem Push auf `main` direkt veröffentlicht, ohne auf
+die Tests zu warten; die Tests laufen parallel trotzdem mit. Schlägt ein
 Test fehl, liegen Report und Screenshots als Artefakt `playwright-report` am Workflow-Lauf. Einmalig nötig: *Settings → Pages → Build and deployment → Source:
 GitHub Actions*. Adresse und Pfad-Präfix stehen in `src/_data/site.js` und lassen sich beim Build über
 `SITE_ORIGIN` und `SITE_PATH_PREFIX` überschreiben.
