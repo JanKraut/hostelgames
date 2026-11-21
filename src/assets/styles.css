@@ -1763,7 +1763,7 @@ ol.steps p {
 
 .ch-specials {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 0.45rem;
   margin: 0;
   padding: 0;
@@ -1801,6 +1801,13 @@ ol.steps p {
 
 .ch-specials li.wide {
   grid-column: 1 / -1;
+}
+
+/* Long words (Finnish, German) may break instead of pushing the tile wider */
+.ch-specials li > span:last-child {
+  min-width: 0;
+  hyphens: auto;
+  overflow-wrap: break-word;
 }
 
 /* Mini card: big rank, small suit */

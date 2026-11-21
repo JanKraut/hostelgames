@@ -18,6 +18,7 @@ const LANGUAGES = [
   { code: "pl", flag: "🇵🇱", name: "Polski" },
   { code: "pt", flag: "🇵🇹", name: "Português" },
   { code: "pt-br", flag: "🇧🇷", name: "Português (Brasil)", fallback: ["pt"] },
+  { code: "fi", flag: "🇫🇮", name: "Suomi" },
   { code: "sv", flag: "🇸🇪", name: "Svenska" },
 ];
 
