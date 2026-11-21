@@ -225,6 +225,8 @@
     "tryH": "Ainda com dúvidas? Experimente agora!"
   },
   "rules": {
+    "h1": "Jogo de cartas Shithead",
+    "h1sub": "Regras e como jogar",
     "bnFree": "Você também pode fazer isso por vontade própria, mesmo se tivesse uma carta que servisse.",
     "varNav": "Variantes",
     "varH": "Número de jogadores e variantes",

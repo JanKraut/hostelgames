@@ -229,6 +229,8 @@
     "tryH": "Nog twijfels? Probeer het meteen!"
   },
   "rules": {
+    "h1": "Kaartspel Shithead",
+    "h1sub": "Regels en uitleg",
     "bnFree": "Dat mag je ook vrijwillig doen, ook als je een passende kaart zou hebben.",
     "varNav": "Varianten",
     "varH": "Aantal spelers en varianten",

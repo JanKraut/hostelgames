@@ -8,7 +8,12 @@
     {% include "langmenu.njk" %}
     {% include "pagenav.njk" %}
     {%- set strat = subpath == "strategy/" %}
+    {#- The rules page gets a descriptive title for search engines; the quick start keeps the short one. -#}
+    {%- if not subpath and t.rules.h1 %}
+    <h1>{{ t.rules.h1 }}<span class="h1-sub"> {{ t.rules.h1sub }}</span></h1>
+    {%- else %}
     <h1>{{ (t.strategy.h1 if strat else t.h1) | safe }}</h1>
+    {%- endif %}
     <p>{{ (t.strategy.sub if strat else t.sub) | safe }}</p>
     <div class="fan" aria-hidden="true">
       {{ card("2", "♣") }}

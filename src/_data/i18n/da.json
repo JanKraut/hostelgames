@@ -229,6 +229,8 @@
     "tryH": "Stadig usikker? Prøv det med det samme!"
   },
   "rules": {
+    "h1": "Kortspillet Shithead",
+    "h1sub": "Regler og vejledning",
     "bnFree": "Det må du også gøre frivilligt, selvom du har et kort, der passer.",
     "varNav": "Varianter",
     "varH": "Antal spillere og varianter",

@@ -229,6 +229,8 @@
     "tryH": "Ještě si nejsi jistý? Vyzkoušej si to hned!"
   },
   "rules": {
+    "h1": "Karetní hra Shithead",
+    "h1sub": "Pravidla a návod",
     "bnFree": "Můžeš to udělat i dobrovolně, i kdybys měl kartu, která sedí.",
     "varNav": "Varianty",
     "varH": "Počet hráčů a varianty",

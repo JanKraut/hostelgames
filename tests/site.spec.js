@@ -29,6 +29,7 @@ test.describe("every language page", () => {
       await expect(page).toHaveTitle(lang.t.title);
       await expect(page.locator("html")).toHaveAttribute("lang", lang.htmlLang);
       await expect(page.locator("main h2").first()).toHaveText(lang.t.setupH);
+      await expect(page.locator(".hero h1")).toHaveText(`${lang.t.rules.h1} ${lang.t.rules.h1sub}`);
       await expect(page.locator("#cheat-sheet")).toHaveCount(0);
       await expect(page.locator(".pagetabs a[aria-current=page]")).toHaveText(lang.t.pgRules);
       await expect(page.locator(".langmenu a[aria-current=page]")).toHaveAttribute("data-lang", lang.code);
