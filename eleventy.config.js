@@ -10,6 +10,15 @@ export default function (eleventyConfig) {
   eleventyConfig.addPlugin(HtmlBasePlugin);
   eleventyConfig.addPassthroughCopy("src/assets");
 
+  // Version of CSS and JS, appended as ?v=… to their URLs in the pages. It changes
+  // whenever a file in src/assets changes, so browsers never keep old styles or scripts.
+  const assetHash = createHash("sha256");
+  for (const entry of readdirSync("src/assets", { recursive: true, withFileTypes: true }).filter((e) => e.isFile())) {
+    const file = join(entry.parentPath, entry.name);
+    assetHash.update(file).update(readFileSync(file));
+  }
+  eleventyConfig.addGlobalData("assetVersion", assetHash.digest("hex").slice(0, 10));
+
   // Apache config for the Hetzner webspace; GitHub Pages doesn't need it.
   if (process.env.SITE_ORIGIN) eleventyConfig.addPassthroughCopy({ "src/.htaccess": ".htaccess" });
 

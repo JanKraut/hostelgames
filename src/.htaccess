@@ -12,13 +12,13 @@ AddType application/manifest+json .webmanifest
 ErrorDocument 404 /404.html
 
 <IfModule mod_headers.c>
-  # Fonts, images and scripts may be cached for a week …
-  <FilesMatch "\.(woff2|png|svg|ico|css|js)$">
+  # Fonts and images may be cached for a week …
+  <FilesMatch "\.(woff2|png|svg|ico)$">
     Header set Cache-Control "public, max-age=604800"
   </FilesMatch>
-  # … but pages, the manifest and the service worker are always revalidated,
-  # so every deploy reaches visitors.
-  <FilesMatch "(\.html|\.webmanifest|^sw\.js)$">
+  # … but pages, CSS, scripts, the manifest and the service worker are always
+  # revalidated (cheap thanks to ETags), so every deploy reaches visitors.
+  <FilesMatch "\.(html|css|js|webmanifest)$">
     Header set Cache-Control "no-cache"
   </FilesMatch>
 </IfModule>
