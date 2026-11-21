@@ -228,6 +228,8 @@
     "sp4extra": "Karty tej samej wartości możesz w każdej chwili „wrzucić”, żeby dokończyć czwórkę – nawet jeśli właściwie nie jest twoja kolej. Kto dokończy burn, od razu gra dalej."
   },
   "rules": {
+    "h1": "Gra karciana Shithead",
+    "h1sub": "Zasady i instrukcja",
     "bnFree": "Możesz to zrobić także dobrowolnie, nawet jeśli masz pasującą kartę.",
     "varNav": "Warianty",
     "varH": "Liczba graczy i warianty",

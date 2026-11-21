@@ -228,6 +228,8 @@
     "sp4extra": "Puedes «meter» en cualquier momento cartas del mismo valor para completar, aunque en realidad no sea tu turno. Quien completa el burn sigue jugando enseguida."
   },
   "rules": {
+    "h1": "Juego de cartas Shithead",
+    "h1sub": "Reglas y cómo jugar",
     "bnFree": "También puedes hacerlo voluntariamente, aunque tuvieras una carta que vale.",
     "varNav": "Variantes",
     "varH": "Número de jugadores y variantes",

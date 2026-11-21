@@ -228,6 +228,8 @@
     "sp4extra": "Du kannst Karten desselben Wertes jederzeit zur Vervollständigung „reinschmeißen“ – auch wenn du eigentlich gar nicht an der Reihe bist. Wer den Burn vervollständigt, darf direkt weiterspielen."
   },
   "rules": {
+    "h1": "Shithead Kartenspiel",
+    "h1sub": "Regeln & Anleitung",
     "bnFree": "Das darfst du auch freiwillig tun, wenn du eine passende Karte hättest.",
     "varNav": "Varianten",
     "varH": "Spieleranzahl und Varianten",

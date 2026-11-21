@@ -228,6 +228,8 @@
     "sp4extra": "Du kan när som helst “slänga in” kort med samma valör för att fylla på – även när det egentligen inte är din tur. Den som fullbordar burn får spela vidare direkt."
   },
   "rules": {
+    "h1": "Kortspelet Shithead",
+    "h1sub": "Regler och instruktioner",
     "bnFree": "Det får du också göra frivilligt, även om du har ett kort som passar.",
     "varNav": "Varianter",
     "varH": "Antal spelare och varianter",

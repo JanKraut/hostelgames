@@ -228,6 +228,8 @@
     "sp4extra": "Tu peux à tout moment « balancer » des cartes de même valeur pour compléter – même si ce n’est pas ton tour. Celui qui complète le burn rejoue aussitôt."
   },
   "rules": {
+    "h1": "Jeu de cartes Shithead",
+    "h1sub": "Règles et explications",
     "bnFree": "Tu peux aussi le faire volontairement, même si tu avais une carte qui passe.",
     "varNav": "Variantes",
     "varH": "Nombre de joueurs et variantes",

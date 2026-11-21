@@ -228,6 +228,8 @@
     "sp4extra": "Du kan når som helst “smide” kort af samme værdi ind for at gøre den komplet – også selvom det egentlig ikke er din tur. Den, der gør burn komplet, må straks spille videre."
   },
   "rules": {
+    "h1": "Kortspillet Shithead",
+    "h1sub": "Regler og vejledning",
     "bnFree": "Det må du også gøre frivilligt, selvom du har et kort, der passer.",
     "varNav": "Varianter",
     "varH": "Antal spillere og varianter",

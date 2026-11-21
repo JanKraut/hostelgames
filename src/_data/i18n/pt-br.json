@@ -224,6 +224,8 @@
     "sp4extra": "Você pode “jogar junto” a qualquer momento cartas do mesmo valor para completar – mesmo que nem seja a sua vez. Quem completa o burn continua jogando na hora."
   },
   "rules": {
+    "h1": "Jogo de cartas Shithead",
+    "h1sub": "Regras e como jogar",
     "bnFree": "Você também pode fazer isso por vontade própria, mesmo se tivesse uma carta que servisse.",
     "varNav": "Variantes",
     "varH": "Número de jogadores e variantes",
