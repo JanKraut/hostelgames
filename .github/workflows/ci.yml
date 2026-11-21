@@ -3,7 +3,7 @@ name: Test and deploy
 on:
   pull_request:
   push:
-    branches: [main, hetzner]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -67,12 +67,12 @@ jobs:
       - id: deployment
         uses: actions/deploy-pages@v4
 
-  # Hetzner webspace (shitheadgame.de). For now only from the "hetzner" branch,
-  # and only after the tests passed. Credentials live in the secrets of the
-  # "hetzner-webhosting" environment, never in the repo.
+  # Hetzner webspace (shitheadgame.de): every push to main, but only after the
+  # tests passed. Credentials live in the secrets of the "hetzner-webhosting"
+  # environment, never in the repo.
   deploy-hetzner:
     needs: test
-    if: github.event_name == 'push' && github.ref == 'refs/heads/hetzner'
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     concurrency:
       group: hetzner
