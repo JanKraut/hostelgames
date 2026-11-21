@@ -10,10 +10,10 @@ eleventyComputed:
   pageTitle: "{{ lang.t.pgQuick }} · {{ lang.t.title }}"
   pageDescription: "{{ lang.t.sub | striptags }}"
 classicScripts: ["/assets/qrcode.js"]
-scripts: ["/assets/share.js"]
+scripts: ["/assets/rules.js", "/assets/share.js"]
 ---
-{#- Same header as the rules page, then a compact cheat sheet (fits one phone screen)
-    and the special cards. -#}
+{#- Same header as the rules page, then a compact cheat sheet (fits one phone screen),
+    the special cards and the practice quiz. -#}
 {%- set t = lang.t -%}
 
 {% include "hero.njk" %}
@@ -54,6 +54,7 @@ scripts: ["/assets/share.js"]
   </section>
 
   {% include "specials.njk" %}
+  {% include "quiz.njk" %}
   {% include "share.njk" %}
 </main>
 

@@ -1,4 +1,4 @@
-// Rules page only. Adds the practice quiz.
+// Practice quiz on the rules page and the quick start.
 // The page is fully readable without this file.
 
 const $ = (id) => document.getElementById(id);

@@ -225,7 +225,8 @@
     "tagAny": "Kan altid lægges",
     "tagOrder": "Efter værdi",
     "default": "Default",
-    "sp4extra": "Du kan når som helst “smide” kort af samme værdi ind for at gøre den komplet – også selvom det egentlig ikke er din tur. Den, der gør burn komplet, må straks spille videre."
+    "sp4extra": "Du kan når som helst “smide” kort af samme værdi ind for at gøre den komplet – også selvom det egentlig ikke er din tur. Den, der gør burn komplet, må straks spille videre.",
+    "tryH": "Stadig usikker? Prøv det med det samme!"
   },
   "rules": {
     "bnFree": "Det må du også gøre frivilligt, selvom du har et kort, der passer.",
