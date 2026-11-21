@@ -249,6 +249,17 @@ test("quick start has the practice quiz with its own heading", async ({ page }) 
   }
 });
 
+test("CSS and scripts carry a version, so browsers never keep old ones", async ({ page }) => {
+  await openLanguage(page, byCode.de);
+  const urls = await page.evaluate(() => [
+    ...[...document.querySelectorAll('link[rel="stylesheet"]')].map((el) => el.getAttribute("href")),
+    ...[...document.querySelectorAll("script[src]")].map((el) => el.getAttribute("src")),
+  ]);
+  const own = urls.filter((url) => url.includes("/assets/"));
+  expect(own.length).toBeGreaterThan(3);
+  for (const url of own) expect(url, url).toMatch(/\?v=[0-9a-f]{10}$/);
+});
+
 test.describe("start page redirect", () => {
   for (const locale of ["de-DE", "es-MX", "pt-BR", "ja-JP", "en-US"]) {
     test(`browser language ${locale} → English start page`, async ({ browser, baseURL }) => {

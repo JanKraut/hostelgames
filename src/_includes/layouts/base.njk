@@ -60,17 +60,17 @@
 {#- Fetch the main font files right away instead of after the CSS is parsed. #}
 <link rel="preload" href="/assets/fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/manrope-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/fonts.css">
-<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/assets/fonts.css?v={{ assetVersion }}">
+<link rel="stylesheet" href="/assets/styles.css?v={{ assetVersion }}">
 {%- for href in styles %}
-<link rel="stylesheet" href="{{ href }}">
+<link rel="stylesheet" href="{{ href }}?v={{ assetVersion }}">
 {%- endfor %}
 {%- for src in classicScripts %}
-<script src="{{ src }}" defer></script>
+<script src="{{ src }}?v={{ assetVersion }}" defer></script>
 {%- endfor %}
-<script type="module" src="/assets/site.js"></script>
+<script type="module" src="/assets/site.js?v={{ assetVersion }}"></script>
 {%- for src in scripts %}
-<script type="module" src="{{ src }}"></script>
+<script type="module" src="{{ src }}?v={{ assetVersion }}"></script>
 {%- endfor %}
 </head>
 <body>

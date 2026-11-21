@@ -11,7 +11,8 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
       .open(CACHE)
-      .then((cache) => cache.addAll(FILES.map((file) => new URL(file, self.registration.scope))))
+      // cache: "reload" skips the browser's HTTP cache, so a new version never stores old files.
+      .then((cache) => cache.addAll(FILES.map((file) => new Request(new URL(file, self.registration.scope), { cache: "reload" }))))
       .then(() => self.skipWaiting()),
   );
 });
