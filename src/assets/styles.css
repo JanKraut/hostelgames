@@ -1774,12 +1774,20 @@ ol.steps p {
   line-height: 1.2;
 }
 
+/* Colour shows how a card may be played: tinted tile plus a wide stripe */
+.ch-specials li.any,
+.ch-specials li.order {
+  border-inline-start-width: 10px;
+}
+
 .ch-specials li.any {
   border-color: var(--card-green);
+  background: color-mix(in srgb, var(--card-green) 22%, transparent);
 }
 
 .ch-specials li.order {
   border-color: var(--gold);
+  background: color-mix(in srgb, var(--gold) 28%, transparent);
 }
 
 .ch-specials li.wide {
