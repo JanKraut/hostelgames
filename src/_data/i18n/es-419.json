@@ -5,5 +5,11 @@
   "game": {
     "ctaH": "¿Quieres jugar una partida de verdad?",
     "botNames": "Mateo/Diego, Valentina/Isabella, Santiago/Sebastián, Camila/Mariana"
+  },
+  "seo": {
+    "quickT": "Reglas rápidas de Shithead – acordeón para el celular",
+    "quickD": "Todas las reglas clave de Shithead de un vistazo: la regla básica, las cartas especiales y el orden – cabe en una pantalla de celular, ideal junto al juego.",
+    "playD": "Juega Shithead gratis en tu navegador contra 1–4 rivales de la computadora. Sin registro, también funciona sin conexión.",
+    "playT": "Juega Shithead online – gratis contra bots"
   }
 }

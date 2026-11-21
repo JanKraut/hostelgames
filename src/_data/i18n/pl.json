@@ -375,5 +375,15 @@
     "ctaRulesH": "Nowy w grze?",
     "ctaRulesP": "Najpierw przeczytaj zasady.",
     "ctaRulesBtn": "Do zasad"
+  },
+  "seo": {
+    "rulesT": "Zasady Shithead – gra karciana prosto wyjaśniona",
+    "rulesD": "Gra karciana Shithead wyjaśniona w 3 minuty: przygotowanie, ruch, karty specjalne (2, 3, 7, 8, 10) i FAQ. Znana też jako Palace lub Karma.",
+    "strategyT": "Strategia Shithead: porady, jak nie przegrać",
+    "strategyD": "Przewodnik strategiczny po Shithead: wymieniaj z głową, zagrywaj karty specjalne we właściwym momencie i unikaj typowych błędów. Don’t be the Shithead!",
+    "quickT": "Skrócone zasady Shithead – ściąga na telefon",
+    "quickD": "Wszystkie najważniejsze zasady Shithead w jednym miejscu: podstawowa zasada, karty specjalne i kolejność – mieści się na ekranie telefonu, idealne obok gry.",
+    "playT": "Graj w Shithead online – za darmo z botami",
+    "playD": "Graj w Shithead za darmo w przeglądarce przeciwko 1–4 komputerowym przeciwnikom. Bez rejestracji, działa też offline."
   }
 }

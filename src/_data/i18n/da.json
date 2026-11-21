@@ -375,5 +375,15 @@
     "ctaRulesH": "Ny i spillet?",
     "ctaRulesP": "Læs reglerne først.",
     "ctaRulesBtn": "Til reglerne"
+  },
+  "seo": {
+    "rulesT": "Shithead regler – kortspillet nemt forklaret",
+    "rulesD": "Kortspillet Shithead forklaret på 3 minutter: opstilling, et træk, specialkort (2, 3, 7, 8, 10) og FAQ. Også kendt som Palace eller Karma.",
+    "strategyT": "Shithead strategi: tips til ikke at tabe",
+    "strategyD": "Strategiguiden til Shithead: byt smart, spil specialkort på det rigtige tidspunkt og undgå typiske fejl. Don’t be the Shithead!",
+    "quickT": "Shithead kortregler – snydeark til mobilen",
+    "quickD": "Alle vigtige Shithead-regler på ét blik: grundreglen, specialkort og rækkefølge – passer på én mobilskærm, perfekt ved siden af spillet.",
+    "playT": "Spil Shithead online – gratis mod bots",
+    "playD": "Spil Shithead gratis i din browser mod 1–4 computermodstandere. Ingen tilmelding, virker også offline."
   }
 }
