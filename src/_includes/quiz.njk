@@ -1,0 +1,22 @@
+{#- Practice quiz "Can I play this?", on the rules page and the quick start.
+    Needs /assets/rules.js; hidden without JavaScript. -#}
+{%- set t = lang.t -%}
+<section id="practice" class="js-only">
+  <h2>{{ t.quick.tryH if subpath == "quickstart/" else t.qH }}</h2>
+  <p class="lead">{{ t.qLead | safe }}</p>
+  <div class="trainer" aria-live="polite">
+    <div class="duel">
+      <div><div id="topCard"></div><div class="lbl">{{ t.qTop }}</div></div>
+      <div><div id="myCard"></div><div class="lbl">{{ t.qMine }}</div></div>
+    </div>
+    <p class="q">{{ t.qQ }}</p>
+    <div class="btns" id="btns">
+      <button class="yes" data-a="1">{{ t.qYes }}</button>
+      <button class="no" data-a="0">{{ t.qNo }}</button>
+    </div>
+    <div class="fb" id="fb"></div>
+    <button class="next" id="next" hidden>{{ t.qNext }}</button>
+    <div class="score" id="score"></div>
+  </div>
+  <script type="application/json" id="quiz-text">{{ t.quiz | dump | safe }}</script>
+</section>

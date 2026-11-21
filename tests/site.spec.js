@@ -234,6 +234,20 @@ test("404 page: the three cards sit side by side on small and large screens", as
   }
 });
 
+test("quick start has the practice quiz with its own heading", async ({ page }) => {
+  for (const code of ["de", "fr"]) {
+    const lang = byCode[code];
+    await openLanguage(page, lang);
+    await page.goto(pathOf(lang) + "quickstart/");
+    const quiz = page.locator("#practice");
+    await expect(quiz.locator("h2")).toHaveText(lang.t.quick.tryH);
+    await expect(quiz.locator("#topCard .card")).toBeVisible();
+    await quiz.locator(".yes").click();
+    await expect(quiz.locator("#fb")).not.toBeEmpty();
+    await expect(quiz.locator("#next")).toBeVisible();
+  }
+});
+
 test.describe("start page redirect", () => {
   for (const locale of ["de-DE", "es-MX", "pt-BR", "ja-JP", "en-US"]) {
     test(`browser language ${locale} → English start page`, async ({ browser, baseURL }) => {

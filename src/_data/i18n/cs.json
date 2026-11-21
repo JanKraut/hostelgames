@@ -225,7 +225,8 @@
     "tagAny": "Zahratelná vždy",
     "tagOrder": "Podle hodnoty",
     "default": "Default",
-    "sp4extra": "Karty stejné hodnoty můžeš kdykoli „přihodit“, abys čtveřici doplnil – i když vlastně nejsi na tahu. Kdo burn dokončí, hraje hned dál."
+    "sp4extra": "Karty stejné hodnoty můžeš kdykoli „přihodit“, abys čtveřici doplnil – i když vlastně nejsi na tahu. Kdo burn dokončí, hraje hned dál.",
+    "tryH": "Ještě si nejsi jistý? Vyzkoušej si to hned!"
   },
   "rules": {
     "bnFree": "Můžeš to udělat i dobrovolně, i kdybys měl kartu, která sedí.",

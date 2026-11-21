@@ -225,7 +225,8 @@
     "tagAny": "Toujours jouable",
     "tagOrder": "Selon la valeur",
     "default": "Default",
-    "sp4extra": "Tu peux à tout moment « balancer » des cartes de même valeur pour compléter – même si ce n’est pas ton tour. Celui qui complète le burn rejoue aussitôt."
+    "sp4extra": "Tu peux à tout moment « balancer » des cartes de même valeur pour compléter – même si ce n’est pas ton tour. Celui qui complète le burn rejoue aussitôt.",
+    "tryH": "Encore un doute ? Essaie tout de suite !"
   },
   "rules": {
     "bnFree": "Tu peux aussi le faire volontairement, même si tu avais une carte qui passe.",

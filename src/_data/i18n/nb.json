@@ -225,7 +225,8 @@
     "tagAny": "Kan alltid legges",
     "tagOrder": "Etter verdi",
     "default": "Default",
-    "sp4extra": "Du kan når som helst “slenge inn” kort med samme verdi for å fullføre – også når det egentlig ikke er din tur. Den som fullfører burn, kan spille videre med en gang."
+    "sp4extra": "Du kan når som helst “slenge inn” kort med samme verdi for å fullføre – også når det egentlig ikke er din tur. Den som fullfører burn, kan spille videre med en gang.",
+    "tryH": "Fortsatt usikker? Prøv det med en gang!"
   },
   "rules": {
     "bnFree": "Det kan du også gjøre frivillig, selv om du har et kort som passer.",

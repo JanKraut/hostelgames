@@ -14,7 +14,7 @@ import { readFileSync, readdirSync } from "node:fs";
 
 const DIR = new URL("../src/_data/i18n/", import.meta.url);
 // The rules page and the parts it includes; #links in texts point to sections there.
-const TEMPLATES = ["../src/index.njk", "../src/_includes/specials.njk"].map((path) => new URL(path, import.meta.url));
+const TEMPLATES = ["../src/index.njk", "../src/_includes/specials.njk", "../src/_includes/quiz.njk"].map((path) => new URL(path, import.meta.url));
 const DEFAULT = "en";
 
 // Only code and fallback are needed from languages.js.

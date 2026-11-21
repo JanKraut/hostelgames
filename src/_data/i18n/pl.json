@@ -225,7 +225,8 @@
     "tagAny": "Zawsze można położyć",
     "tagOrder": "Według wartości",
     "default": "Default",
-    "sp4extra": "Karty tej samej wartości możesz w każdej chwili „wrzucić”, żeby dokończyć czwórkę – nawet jeśli właściwie nie jest twoja kolej. Kto dokończy burn, od razu gra dalej."
+    "sp4extra": "Karty tej samej wartości możesz w każdej chwili „wrzucić”, żeby dokończyć czwórkę – nawet jeśli właściwie nie jest twoja kolej. Kto dokończy burn, od razu gra dalej.",
+    "tryH": "Nadal masz wątpliwości? Wypróbuj od razu!"
   },
   "rules": {
     "bnFree": "Możesz to zrobić także dobrowolnie, nawet jeśli masz pasującą kartę.",

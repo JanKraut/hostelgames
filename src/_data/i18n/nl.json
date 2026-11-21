@@ -225,7 +225,8 @@
     "tagAny": "Altijd te leggen",
     "tagOrder": "Op waarde leggen",
     "default": "Default",
-    "sp4extra": "Je mag op elk moment kaarten met dezelfde waarde “erin gooien” om aan te vullen – ook als je eigenlijk niet aan de beurt bent. Wie de burn compleet maakt, mag meteen verder spelen."
+    "sp4extra": "Je mag op elk moment kaarten met dezelfde waarde “erin gooien” om aan te vullen – ook als je eigenlijk niet aan de beurt bent. Wie de burn compleet maakt, mag meteen verder spelen.",
+    "tryH": "Nog twijfels? Probeer het meteen!"
   },
   "rules": {
     "bnFree": "Dat mag je ook vrijwillig doen, ook als je een passende kaart zou hebben.",

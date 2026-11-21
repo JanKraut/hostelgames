@@ -225,7 +225,8 @@
     "tagAny": "Se juega siempre",
     "tagOrder": "Según el valor",
     "default": "Default",
-    "sp4extra": "Puedes «meter» en cualquier momento cartas del mismo valor para completar, aunque en realidad no sea tu turno. Quien completa el burn sigue jugando enseguida."
+    "sp4extra": "Puedes «meter» en cualquier momento cartas del mismo valor para completar, aunque en realidad no sea tu turno. Quien completa el burn sigue jugando enseguida.",
+    "tryH": "¿Todavía con dudas? ¡Pruébalo ahora mismo!"
   },
   "rules": {
     "bnFree": "También puedes hacerlo voluntariamente, aunque tuvieras una carta que vale.",

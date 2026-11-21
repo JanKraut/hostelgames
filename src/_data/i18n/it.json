@@ -225,7 +225,8 @@
     "tagAny": "Giocabile sempre",
     "tagOrder": "Secondo il valore",
     "default": "Default",
-    "sp4extra": "Puoi “buttare dentro” in qualsiasi momento carte dello stesso valore per completare, anche se in realtà non è il tuo turno. Chi completa il burn continua subito a giocare."
+    "sp4extra": "Puoi “buttare dentro” in qualsiasi momento carte dello stesso valore per completare, anche se in realtà non è il tuo turno. Chi completa il burn continua subito a giocare.",
+    "tryH": "Ancora qualche dubbio? Provalo subito!"
   },
   "rules": {
     "bnFree": "Puoi farlo anche volontariamente, anche se avessi una carta adatta.",
