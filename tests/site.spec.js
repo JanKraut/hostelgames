@@ -220,6 +220,20 @@ test("strategy guide: sections, swap example and boxes at the end", async ({ pag
   await expect(page.locator(".secnav a")).toHaveCount(fr.phases.length + 6);
 });
 
+test("404 page: the three cards sit side by side on small and large screens", async ({ page }) => {
+  for (const width of [320, 390, 1024]) {
+    await page.setViewportSize({ width, height: 800 });
+    await page.goto("404.html");
+    const boxes = await page.locator(".nf-cards .card").evaluateAll((cards) =>
+      cards.map((card) => card.getBoundingClientRect().toJSON()),
+    );
+    expect(boxes).toHaveLength(3);
+    for (let i = 0; i < 2; i++) expect(boxes[i].right, `card ${i + 1} overlaps the next (${width}px)`).toBeLessThanOrEqual(boxes[i + 1].left);
+    expect(boxes[0].left).toBeGreaterThanOrEqual(0);
+    expect(boxes[2].right).toBeLessThanOrEqual(width);
+  }
+});
+
 test.describe("start page redirect", () => {
   for (const locale of ["de-DE", "es-MX", "pt-BR", "ja-JP", "en-US"]) {
     test(`browser language ${locale} → English start page`, async ({ browser, baseURL }) => {
