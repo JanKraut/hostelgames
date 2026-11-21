@@ -130,13 +130,13 @@ GitHub Actions*. Adresse und Pfad-Präfix stehen in `src/_data/site.js` und lass
 
 ### Hetzner (shitheadgame.de)
 
-Ein Push auf den Branch `hetzner` baut die Seite für `https://shitheadgame.de/` (ohne Pfad-Präfix,
+Jeder Push auf `main` baut die Seite zusätzlich für `https://shitheadgame.de/` (ohne Pfad-Präfix,
 mit `src/.htaccess` für HTTPS-Weiterleitung und Caching) und lädt sie nach grünen Tests per FTPS
-(`lftp`) auf den Hetzner-Webspace. GitHub Pages bleibt davon unberührt.
+(`lftp`) auf den Hetzner-Webspace. GitHub Pages wird parallel aus demselben Stand aktualisiert.
 
-Einmalig nötig unter *Settings → Environments → New environment* `hetzner`:
+Einmalig nötig unter *Settings → Environments → New environment* `hetzner-webhosting`:
 
-- *Deployment branches*: nur `hetzner`
+- *Deployment branches*: nur `main`
 - *Secrets*: `HETZNER_HOST` (z. B. `wwwXXX.your-server.de`), `HETZNER_USER`, `HETZNER_PASSWORD`
   – am besten ein zusätzlicher FTP-Benutzer aus konsoleH, der nur `public_html` (bzw. das Verzeichnis der Domain) sieht
 - *Variable* (optional): `HETZNER_FTP_DIR`, Zielverzeichnis relativ zum FTP-Login, Standard `.`
