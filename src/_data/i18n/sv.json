@@ -375,5 +375,15 @@
     "ctaRulesH": "Ny i spelet?",
     "ctaRulesP": "Läs reglerna först.",
     "ctaRulesBtn": "Till reglerna"
+  },
+  "seo": {
+    "rulesT": "Shithead regler – kortspelet enkelt förklarat",
+    "rulesD": "Kortspelet Shithead förklarat på 3 minuter: förberedelser, ett drag, specialkort (2, 3, 7, 8, 10) och FAQ. Även känt som Palace eller Karma.",
+    "strategyT": "Shithead strategi: tips för att inte förlora",
+    "strategyD": "Strategiguiden för Shithead: byt smart, spela specialkort i rätt ögonblick och undvik vanliga misstag. Don’t be the Shithead!",
+    "quickT": "Shithead snabbregler – fusklapp för mobilen",
+    "quickD": "Alla viktiga Shithead-regler i en överblick: grundregeln, specialkort och ordning – får plats på en mobilskärm, perfekt bredvid spelet.",
+    "playT": "Spela Shithead online – gratis mot bottar",
+    "playD": "Spela Shithead gratis i webbläsaren mot 1–4 datormotståndare. Ingen registrering, fungerar även offline."
   }
 }

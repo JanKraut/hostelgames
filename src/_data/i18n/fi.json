@@ -375,5 +375,15 @@
     "faq7a": "Useimmat pelit kestävät noin 10–15 minuuttia. Uudet pelaajat ymmärtävät pelin kulun yleensä jo yhden kierroksen jälkeen.",
     "faq8q": "Millä muilla nimillä peli tunnetaan?",
     "faq8a": "Shitheadilla on monta nimeä. Yleisimmät ovat <strong>Palace</strong>, <strong>Karma</strong> ja <strong>Shed</strong>, mutta voit kuulla myös nimet <strong>China Hand</strong>, <strong>Ten-Two Slide</strong> tai <strong>Zweeds pesten</strong>. Perusidea on kaikkialla sama, vain talon säännöt vaihtelevat – katso <a href=\"#variants\">Muunnelmat</a>."
+  },
+  "seo": {
+    "rulesT": "Shithead säännöt – korttipeli helposti selitettynä",
+    "rulesD": "Shithead-korttipeli selitettynä 3 minuutissa: valmistelu, vuoro, erikoiskortit (2, 3, 7, 8, 10) ja UKK. Tunnetaan myös nimillä Palace ja Karma.",
+    "strategyT": "Shithead strategia: vinkit, joilla et häviä",
+    "strategyD": "Shitheadin strategiaopas: vaihda fiksusti, pelaa erikoiskortit oikealla hetkellä ja vältä tyypilliset virheet. Don’t be the Shithead!",
+    "quickT": "Shithead pikasäännöt – lunttilappu puhelimeen",
+    "quickD": "Kaikki tärkeimmät Shithead-säännöt yhdellä silmäyksellä: perussääntö, erikoiskortit ja järjestys – mahtuu puhelimen näytölle, täydellinen pelin viereen.",
+    "playT": "Pelaa Shitheadia netissä – ilmaiseksi botteja vastaan",
+    "playD": "Pelaa Shitheadia ilmaiseksi selaimessa 1–4 tietokonevastustajaa vastaan. Ei rekisteröitymistä, toimii myös ilman verkkoyhteyttä."
   }
 }

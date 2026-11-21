@@ -375,5 +375,15 @@
     "ctaRulesH": "Nový ve hře?",
     "ctaRulesP": "Nejdřív si přečti pravidla.",
     "ctaRulesBtn": "K pravidlům"
+  },
+  "seo": {
+    "rulesT": "Shithead pravidla – karetní hra jednoduše",
+    "rulesD": "Karetní hra Shithead vysvětlená za 3 minuty: příprava, tah, speciální karty (2, 3, 7, 8, 10) a FAQ. Známá také jako Palace nebo Karma.",
+    "strategyT": "Shithead strategie: tipy, jak neprohrát",
+    "strategyD": "Strategický průvodce hrou Shithead: chytře vyměňuj, hraj speciální karty ve správnou chvíli a vyhni se častým chybám. Don’t be the Shithead!",
+    "quickT": "Shithead stručná pravidla – tahák do mobilu",
+    "quickD": "Všechna důležitá pravidla hry Shithead na jeden pohled: základní pravidlo, speciální karty a pořadí – vejde se na displej mobilu, ideální vedle hry.",
+    "playT": "Hraj Shithead online – zdarma proti botům",
+    "playD": "Hraj Shithead zdarma v prohlížeči proti 1–4 počítačovým soupeřům. Bez registrace, funguje i offline."
   }
 }

@@ -26,7 +26,7 @@ test.describe("game page in every language", () => {
   for (const lang of languages) {
     test(`${lang.code}`, async ({ page }) => {
       await openPlay(page, lang);
-      await expect(page).toHaveTitle(lang.t.game.title);
+      await expect(page).toHaveTitle(lang.t.seo.playT);
       await expect(page.locator("html")).toHaveAttribute("lang", lang.htmlLang);
       await expect(page.locator("h1")).toHaveText(lang.t.game.h1);
       await expect(page.locator("#setup h2")).toHaveText(lang.t.game.setupH);

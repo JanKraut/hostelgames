@@ -26,7 +26,7 @@ test.describe("every language page", () => {
     test(`${lang.code} renders its own texts`, async ({ page }) => {
       await openLanguage(page, lang);
 
-      await expect(page).toHaveTitle(lang.t.title);
+      await expect(page).toHaveTitle(lang.t.seo.rulesT);
       await expect(page.locator("html")).toHaveAttribute("lang", lang.htmlLang);
       await expect(page.locator("main h2").first()).toHaveText(lang.t.setupH);
       await expect(page.locator(".hero h1")).toHaveText(`${lang.t.rules.h1} ${lang.t.rules.h1sub}`);
@@ -54,8 +54,8 @@ test.describe("every language page", () => {
 // Strategy and quick start: one page each per language, linked by the tabs at the top.
 const SUBPAGES = [
   // Languages with the new strategy guide show it, the others the short list.
-  { sub: "strategy/", tab: (t) => t.n6, title: (t) => `${t.stH} · ${t.title}`, check: () => "#swap .swapex" },
-  { sub: "quickstart/", tab: (t) => t.pgQuick, title: (t) => `${t.pgQuick} · ${t.title}`, check: () => "#cheat-sheet h2" },
+  { sub: "strategy/", tab: (t) => t.n6, title: (t) => t.seo.strategyT, check: () => "#swap .swapex" },
+  { sub: "quickstart/", tab: (t) => t.pgQuick, title: (t) => t.seo.quickT, check: () => "#cheat-sheet h2" },
 ];
 
 test.describe("strategy and quick start pages", () => {
