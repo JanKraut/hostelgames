@@ -16,8 +16,8 @@ bis dahin gibt es nur Builds und eine manuelle Vorschau auf GitHub Pages.
 | `games/<slug>/` | Ein Spiel, eigene Eleventy-Seite mit `game.json`, Texten, Tests. Erstes Spiel: [`games/shithead/`](games/shithead/README.md) |
 | `hub/` | Startseite von hostelgames.com, listet automatisch alle Spiele aus `games/*/game.json` |
 | `scripts/build-all.js` | Baut Hub und alle Spiele in ein gemeinsames `_site/` (Aufbau wie hostelgames.com) |
-| `.github/workflows/ci.yml` | Build und Tests bei jedem Push und Pull Request, **ohne Deployment** |
-| `.github/workflows/deploy.yml` | Deployment, **nur manuell** (Actions → „Deploy (manual)“) |
+| `scripts/ci-plan.js` | Bestimmt, welche Spiele getestet und deployt werden (geänderte Dateien) |
+| `.github/workflows/ci.yml` | Build und Tests bei jedem Push und Pull Request; auf `main` danach **automatisches Deployment** |
 
 Die Workspaces (npm) sind `packages/*`, `games/*` und `hub`. Abhängigkeiten werden einmal im Root
 installiert.
@@ -60,24 +60,38 @@ Alles auf `github.io` bekommt `noindex` und keine Sitemap.
 4. Im Layout erst `/assets/core/fonts.css` und `/assets/core/core.css`, dann die eigenen Styles laden,
    und `/assets/core/core.js` als Modul. Sprachmenü, Footer, Tracking per `{% include %}` aus dem Core.
 5. `npm install` im Root. Die Startseite listet das Spiel automatisch.
-6. In `ci.yml` einen Test-Job für das Spiel ergänzen (wie `test-shithead`).
+6. Nichts in `ci.yml` nötig: Tests und Deploy erkennen das Spiel automatisch. Für ein Deploy
+   `domain` in `game.json` setzen und die Variable `HETZNER_FTP_DIR_<SLUG>` anlegen.
 
 ## Deployment
 
-**Es wird nichts automatisch deployt.** `ci.yml` baut und testet nur. Deployments laufen ausschließlich
-von Hand über *Actions → Deploy (manual) → Run workflow* mit einem Ziel:
+Ein Workflow (`.github/workflows/ci.yml`) testet und deployt:
 
-- `shithead-hetzner`: baut Shithead für `https://shitheadgame.de/` und lädt es per FTPS (`lftp`) auf den
-  Hetzner-Webspace. Nötig ist das Environment `hetzner-webhosting` mit den Secrets `HETZNER_HOST`,
-  `HETZNER_USER`, `HETZNER_PASSWORD` und optional der Variable `HETZNER_FTP_DIR` (Zielverzeichnis relativ
-  zum FTP-Login, Standard `.`). Übertragen werden nur Änderungen; was es im Build nicht mehr gibt,
-  wird auch auf dem Server gelöscht – das Zielverzeichnis gehört also allein dieser Seite.
-- `github-pages`: baut alles (Hub + Spiele) und veröffentlicht es als Vorschau unter
-  `https://jankraut.github.io/hostelgames/`. Einmalig nötig: *Settings → Pages → Source: GitHub Actions*
-  (bei privaten Repos nur mit passendem GitHub-Plan).
+- **Jeder Pull Request und Push:** Übersetzungen prüfen und alles bauen; Browser-Tests **nur für
+  Spiele, die sich geändert haben** (`scripts/ci-plan.js`). Änderungen in `packages/`, `scripts/`,
+  `.github/` oder `package*.json` zählen für alle Spiele. Die Tests laufen im Playwright-Container
+  (Chromium vorinstalliert) und verteilt auf mehrere Runner (`testShards` in `game.json`).
+- **Jeder Push auf `main`:** danach automatisch – nur wenn Build und Tests grün sind –
+  - **jedes geänderte Spiel mit `domain`** auf seine eigene Domain (Hetzner, FTPS mit `lftp`;
+    nur geänderte Dateien, was es im Build nicht mehr gibt, wird auch auf dem Server gelöscht),
+  - die **Vorschau** (Hub + alle Spiele) auf GitHub Pages: `https://jankraut.github.io/hostelgames/`,
+    immer noindex. Einmalig nötig: *Settings → Pages → Source: GitHub Actions*.
+- **Von Hand** (*Actions → CI & Deploy → Run workflow*): alles testen und – auf `main` – alles deployen.
 
-Ein Ziel für hostelgames.com kommt dazu, sobald die Domain bereitsteht. Automatisch deployen heißt
-später: in `deploy.yml` einen `push`-Trigger ergänzen.
+### Zugangsdaten pro Spiel (optional)
+
+Standardmäßig nutzen alle Spiele das Environment **`hetzner-webhosting`** mit den Secrets
+`HETZNER_HOST`, `HETZNER_USER`, `HETZNER_PASSWORD`. Das Zielverzeichnis steht in einer Variable
+desselben Environments, je Spiel eine eigene: standardmäßig `HETZNER_FTP_DIR_<SLUG>`
+(z. B. `HETZNER_FTP_DIR_KNIFFEL`). Shithead nutzt weiterhin `HETZNER_FTP_DIR` (leer = FTP-Login-Ordner).
+Ein Spiel kann später ein eigenes Environment bekommen, in seiner `game.json`:
+
+```json
+"deploy": { "environment": "kniffel-hetzner", "ftpDirVar": "HETZNER_FTP_DIR" }
+```
+
+Zwei Spiele dürfen nie in dasselbe Verzeichnis deployen; `ci-plan.js` bricht dann ab.
+Ein Ziel für hostelgames.com (Hub) kommt dazu, sobald die Domain bereitsteht.
 
 ### Tracking
 
