@@ -14,7 +14,7 @@ Testserver kommen aus dem gemeinsamen Core [`packages/core`](../../packages/core
 Einmal im Root des Repos `npm install` (installiert alle Workspaces). Dann in `games/shithead/`:
 
 ```sh
-npm start        # Dev-Server mit Live-Reload: http://localhost:8080/hostelgames/shithead/
+npm start        # Dev-Server mit Live-Reload: http://localhost:8080/hostelgames/shitheadgame/
 npm run check    # prüft die Übersetzungen (läuft auch bei jedem Build)
 npm run build    # schreibt die Seite nach games/shithead/_site/
 npm test         # Playwright-Tests gegen das gebaute _site/ (vorher npm run build)

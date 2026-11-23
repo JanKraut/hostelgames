@@ -12,7 +12,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
 
   // Apache config for the Hetzner webspace of the game's own domain (shitheadgame.de).
-  // Not needed on GitHub Pages, and wrong below hostelgames.com/shithead/.
+  // Not needed on GitHub Pages, and wrong below hostelgames.com/shitheadgame/.
   if (site.ownDomain) eleventyConfig.addPassthroughCopy({ "src/.htaccess": ".htaccess" });
 
   eleventyConfig.addPassthroughCopy({ "src/manifest.webmanifest": "manifest.webmanifest" });

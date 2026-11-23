@@ -2,7 +2,7 @@
 // Builds everything into one folder, laid out like the main domain:
 //
 //   _site/              hub (start page, list of games)
-//   _site/<slug>/       each game in games/
+//   _site/<path>/       each game in games/ (path from its game.json)
 //
 //   SITE_ORIGIN       default https://jankraut.github.io (GitHub Pages preview, noindex)
 //   SITE_PATH_PREFIX  default /hostelgames/ – for hostelgames.com use SITE_ORIGIN=https://hostelgames.com SITE_PATH_PREFIX=/
@@ -40,9 +40,9 @@ run(`hub → ${prefix}`, join(root, "hub"), [process.execPath, ELEVENTY, "--quie
 
 for (const game of games()) {
   const dir = fileURLToPath(game.dir);
-  const gamePrefix = `${prefix}${game.slug}/`;
+  const gamePrefix = `${prefix}${game.path}/`;
   run(`${game.slug}: check`, dir, ["npm", "run", "--silent", "check"]);
-  run(`${game.slug} → ${gamePrefix}`, dir, [process.execPath, ELEVENTY, "--quiet", `--output=${join(OUT, game.slug)}`], { SITE_PATH_PREFIX: gamePrefix });
+  run(`${game.slug} → ${gamePrefix}`, dir, [process.execPath, ELEVENTY, "--quiet", `--output=${join(OUT, game.path)}`], { SITE_PATH_PREFIX: gamePrefix });
 }
 
 console.log(`\n✓ Built ${games().length} game(s) and the hub into _site/ (path prefix ${prefix})`);
