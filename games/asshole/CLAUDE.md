@@ -4,11 +4,14 @@ Domain: assholegame.de · Ordner: assholegame · Slug: asshole · Status: draft
 Ähnliches Spiel: president (gegenseitig in `related` der game.json)
 
 ## Stand
-- Grundgerüst: nur die Regelseite (src/index.njk) als Rahmen, Texte de + en.
-- Nächste Schritte: Regeln schreiben, danach ggf. Strategie / Quickstart
+- Regelseite (src/index.njk) geschrieben, Texte de + en. Grundregeln: 32 Karten
+  (7 bis Ass, Ass hoch), gleich viele höhere Karten legen, Passen jederzeit,
+  Arschloch gibt 2 höchste an den König, Vize-Arschloch 1 an den Vize-König.
+- Feste Begriffe: König / Vize-König / Bürger / Vize-Arschloch / Arschloch
+  (en: king / vice king / citizen / vice asshole / asshole), „drücken“ = Kartentausch.
+- Nächste Schritte: ggf. Strategie / Quickstart
   (Datei anlegen UND in `pages` der game.json eintragen, sonst bricht der Build ab).
-- Ein Spiel gegen Bots (`play`) erst später; die Spiel-Engine soll mit
-  president geteilt werden (gehört dann nach packages/core).
+- Kein Spiel gegen Bots (play), solange Jan es nicht ausdrücklich sagt.
 
 ## Regeln für dieses Spiel
 - Nur Dateien in games/asshole/ ändern. Fehlt etwas im Core, Jan fragen.
