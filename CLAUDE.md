@@ -59,6 +59,30 @@ Vor jedem Commit: check, build und Tests des betroffenen Spiels.
 7. Melden: neue/aktualisierte Sprachen + unsicher übersetzte Begriffe.
 Gilt genauso für einzelne Sprachen („… Spanisch und Französisch“).
 
+## Parallele Sessions
+Jan lässt oft mehrere Sessions gleichzeitig laufen. Damit es keine
+Merge-Konflikte gibt:
+- Jede Aufgabe auf einem eigenen Branch vom aktuellen main.
+  Ein gemergter Branch ist abgeschlossen: nie darauf weiterarbeiten,
+  für Nachträge neuer Branch von main (vorher `git fetch`).
+- Vor dem Push und vor dem PR: `git fetch origin main` und auf
+  origin/main rebasen; Konflikte selbst lösen, dann check/build/Tests.
+- Nur die Dateien der eigenen Aufgabe ändern. Kein Umformatieren,
+  Umsortieren oder Aufräumen fremder Stellen nebenbei.
+- Hotspots, die viele Aufgaben berühren – hier besonders sparsam ändern:
+  games/<slug>/src/assets/styles.css, tests/site.spec.js,
+  i18n/*.json, base.njk, .github/workflows/ci.yml, package-lock.json.
+- Neue i18n-Keys direkt neben verwandte Keys einfügen, nie ans Dateiende
+  (dort kollidieren parallele Änderungen immer).
+- packages/core, scripts/, .github/ und neue Dependencies betreffen alle
+  Spiele: nur in einer eigenen Aufgabe ändern, nicht nebenbei. Läuft
+  parallel eine andere Session daran, nachfragen.
+- Dateien verschieben, umbenennen oder große Umbauten nur, wenn keine
+  andere Session läuft (Jan fragen).
+- Lokal mehrere Worktrees: jeder mit eigenem Port, z. B.
+  `PORT=8081 npm run start:shithead`, `PORT=8082 npm test -w @hostelgames/shithead`.
+  Sonst testet Playwright gegen den Server eines anderen Worktrees.
+
 ## Arbeitsweise
 - Nur Dateien öffnen, die die Aufgabe braucht.
 - Architektur-Referenz: Projekt-Dokument „hostelgames-architektur“.
