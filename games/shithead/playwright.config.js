@@ -1,7 +1,9 @@
 import { defineConfig, devices } from "@playwright/test";
 import site from "./src/_data/site.js";
 
-const PORT = 8080;
+// Own port per worktree when several sessions test at the same time: PORT=8081 npm test.
+// Important, because a server already running on the port is reused (outside CI).
+const PORT = Number(process.env.PORT ?? 8080);
 
 export default defineConfig({
   testDir: "tests",

@@ -14,6 +14,7 @@
 //     a site's own _includes win if a file has the same name
 //   - the service worker (assets/sw.js) with the list and a hash of all built files,
 //     unless serviceWorker: false
+//   - the dev server port from PORT (default 8080), so parallel worktrees can each run one
 import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, relative } from "node:path";
@@ -46,6 +47,8 @@ export default function hostelgamesCore(eleventyConfig, options = {}) {
   if (!site) throw new Error("@hostelgames/core: pass { site } (from @hostelgames/core/site)");
   const cacheName = options.cacheName ?? site.game?.slug ?? "hostelgames";
 
+  // npm start: PORT=8081 npm start – one dev server per worktree.
+  eleventyConfig.setServerOptions({ port: Number(process.env.PORT ?? 8080) });
   eleventyConfig.addPlugin(HtmlBasePlugin);
 
   // ---------- Assets ----------
