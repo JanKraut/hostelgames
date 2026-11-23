@@ -1,1 +1,593 @@
-/* Cambio: only what this game needs on top of @hostelgames/core (core.css). */
+/* ==========================================================================
+   Cambio – eigene Styles zusätzlich zu @hostelgames/core (core.css).
+   Farben, Grundstil, Karten, Header, Sprachmenü, Hell/Dunkel und Footer kommen
+   aus dem Core. Reihenfolge wie auf der Seite, von oben nach unten.
+
+   Übernommen aus games/shithead/src/assets/styles.css (gehört eigentlich in den
+   Core, weil jede Regelseite es braucht): .fan, .goal, .secnav, ol.steps,
+   .decide/.branches/.br, .specials/.sp/.sp-extra, .dv-note, .variants, .faq
+   und die Hover-Regeln dazu. Nur für Cambio: .grid4vis, .values, .v-pair,
+   .card.joker, .stackvis, .sumvis.
+   ========================================================================== */
+
+/* ---------- Header: Kartenfächer und Ziel (aus Shithead) ---------- */
+
+.fan {
+  position: relative;
+  width: 300px;
+  height: 160px;
+  margin: 1rem auto 1.4rem;
+}
+
+.fan .card {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform-origin: 50% 120%;
+}
+
+.fan .card:nth-child(1) {
+  transform: translateX(-50%) rotate(-27deg);
+}
+
+.fan .card:nth-child(2) {
+  transform: translateX(-50%) rotate(-9deg) translateY(-6px);
+}
+
+.fan .card:nth-child(3) {
+  transform: translateX(-50%) rotate(9deg) translateY(-6px);
+}
+
+.fan .card:nth-child(4) {
+  transform: translateX(-50%) rotate(27deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .fan .card {
+    animation: deal 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  .fan .card:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+
+  .fan .card:nth-child(2) {
+    animation-delay: 0.18s;
+  }
+
+  .fan .card:nth-child(3) {
+    animation-delay: 0.31s;
+  }
+
+  .fan .card:nth-child(4) {
+    animation-delay: 0.5s;
+  }
+
+  @keyframes deal {
+    from {
+      transform: translateX(-50%) translateY(60px) rotate(0);
+      opacity: 0;
+    }
+  }
+}
+
+.goal {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  margin-top: 0.4rem;
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  background: var(--head-well);
+}
+
+.goal-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.goal p {
+  margin: 0;
+  color: var(--felt-text);
+  font-size: 1.05rem;
+}
+
+.goal strong {
+  color: var(--highlight);
+}
+
+/* ---------- Abschnittsnavigation (aus Shithead) ---------- */
+
+.secnav {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 9;
+  background: var(--head-bg);
+  color: var(--felt-text);
+}
+
+.secnav ul {
+  display: flex;
+  gap: 0.25rem;
+  max-width: 40rem;
+  overflow-x: auto;
+  margin: 0 auto;
+  padding: 0.55rem 1rem;
+  list-style: none;
+  scrollbar-width: none;
+}
+
+.secnav ul::-webkit-scrollbar {
+  display: none;
+}
+
+.secnav a {
+  display: block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: var(--head-chip);
+  font-size: 0.92rem;
+  font-weight: 700;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.secnav a:hover {
+  background: var(--head-chip-hover);
+}
+
+/* Abschnitte nicht unter der klebenden Navigation verstecken */
+main section[id] {
+  scroll-margin-top: 3.4rem;
+}
+
+/* ---------- Gelbe Grafik-Fläche und Beschriftungen ---------- */
+
+.grid4vis,
+.stackvis,
+.sumvis {
+  margin: 1.2rem 0;
+  padding: 1.2rem 1rem 1rem;
+  border-radius: 18px;
+  background: var(--felt);
+  color: var(--felt-text);
+}
+
+/* Beschriftung mit fettem Titel und kleiner Zeile darunter (aus Shithead) */
+.dv-note {
+  margin: 0;
+  max-width: 11rem;
+  color: var(--felt-soft);
+  font-size: 0.88rem;
+  line-height: 1.3;
+}
+
+.dv-note b {
+  display: block;
+  color: var(--felt-text);
+  font-size: 1rem;
+}
+
+/* ---------- Aufbau: vier Karten im Quadrat ---------- */
+
+.grid4vis {
+  display: grid;
+  justify-items: center;
+  gap: 0.6rem;
+}
+
+.g4 {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 0.7rem 0.9rem;
+}
+
+.g4-note {
+  margin: 0;
+  color: var(--felt-soft);
+  font-size: 0.88rem;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.g4-note b {
+  color: var(--felt-text);
+  font-size: 1rem;
+}
+
+.g4-note b::after {
+  content: " · ";
+}
+
+/* ---------- Nummerierte Schritte (aus Shithead) ---------- */
+
+ol.steps {
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+ol.steps li {
+  position: relative;
+  padding: 0 0 1.1rem;
+  padding-inline-start: 3.2rem;
+  counter-increment: step;
+}
+
+ol.steps li::before {
+  content: counter(step);
+  position: absolute;
+  inset-inline-start: 0;
+  top: -0.1rem;
+  display: grid;
+  place-items: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 50%;
+  background: var(--felt);
+  color: var(--felt-text);
+  font-family: var(--font-cards);
+  font-weight: var(--font-cards-weight);
+  font-size: 1.05rem;
+}
+
+ol.steps li::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 1.13rem;
+  top: 2.4rem;
+  bottom: 0.2rem;
+  width: 2px;
+  background: var(--line);
+}
+
+ol.steps li:last-child::after {
+  display: none;
+}
+
+ol.steps p {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+}
+
+/* ---------- Kartenwerte ---------- */
+
+.values {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 30rem) {
+  .values {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.values li {
+  display: grid;
+  justify-items: center;
+  gap: 0.15rem;
+  padding: 0.9rem 0.5rem 0.7rem;
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.values li > .card,
+.values .v-pair {
+  margin-bottom: 0.45rem;
+}
+
+.values b {
+  color: var(--ink-strong);
+  font-family: var(--font-cards);
+  font-weight: var(--font-cards-weight);
+  font-size: 1.5rem;
+  line-height: 1.1;
+}
+
+.values span {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* Zwei Karten leicht überlappend */
+.v-pair {
+  display: flex;
+}
+
+.v-pair .card + .card {
+  margin-left: -22px;
+  transform: rotate(6deg);
+}
+
+/* Joker: Stern statt Farbe, in Grün */
+.card.joker {
+  color: var(--card-green);
+}
+
+.card.joker .c {
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: calc(var(--w) * 0.55);
+}
+
+/* ---------- Ein Spielzug: behalten oder abwerfen (aus Shithead) ---------- */
+
+.decide {
+  margin: 1rem 0;
+  padding: 1.2rem 1rem;
+  border-radius: 20px;
+  background: var(--felt);
+  color: var(--felt-text);
+}
+
+.dq {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-weight);
+  font-size: 1.2rem;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.dqs {
+  margin: 0 0 1rem;
+  color: var(--felt-soft);
+  font-size: 0.92rem;
+  text-align: center;
+}
+
+.branches {
+  display: grid;
+  gap: 0.8rem;
+}
+
+@media (min-width: 34rem) {
+  .branches {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.br {
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  background: var(--paper);
+  color: var(--card-ink);
+}
+
+/* Links auf hellem Papier auch im dunklen Design lesbar */
+.br a {
+  color: var(--card-ink);
+}
+
+.bh {
+  margin-bottom: 0.35rem;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-weight);
+  font-size: 1.15rem;
+}
+
+.keep-br .bh {
+  color: var(--card-green);
+}
+
+.drop-br .bh {
+  color: var(--card-red);
+}
+
+.br .bp {
+  margin: 0.35rem 0 0;
+  line-height: 1.45;
+}
+
+.dnext {
+  margin: 1rem 0 0;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ---------- Kartenfähigkeiten (aus Shithead) ---------- */
+
+.specials {
+  display: grid;
+  gap: 0.9rem;
+  margin: 1rem 0;
+}
+
+.sp {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.9rem;
+  border: 2px solid var(--line);
+  border-radius: 16px;
+}
+
+.sp h3 {
+  margin: 0 0 0.2rem;
+  font-size: 1.1rem;
+}
+
+.sp p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.sp .v-pair {
+  min-width: 70px;
+}
+
+.sp .v-pair .card + .card {
+  margin-left: -18px;
+}
+
+.sp-extra {
+  margin: -0.2rem 0.3rem 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ---------- Abwerfen gleicher Karten ---------- */
+
+.stackvis {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.sv-pile {
+  display: grid;
+  justify-items: center;
+  gap: 0.6rem;
+  text-align: center;
+}
+
+.sv-arrow {
+  flex: none;
+  width: 54px;
+  height: 34px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- Punkte: Beispielhand ---------- */
+
+.sumvis {
+  text-align: center;
+}
+
+.sum-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.sum-c {
+  display: grid;
+  justify-items: center;
+  gap: 0.35rem;
+}
+
+.sum-c b,
+.sum-op {
+  font-family: var(--font-cards);
+  font-weight: var(--font-cards-weight);
+  font-size: 1.1rem;
+}
+
+.sum-op {
+  padding-bottom: 1.6rem;
+}
+
+.sum-total {
+  margin: 0.8rem 0 0;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-weight);
+  font-size: 1.4rem;
+}
+
+/* ---------- Varianten und Fälle beim Abwerfen (aus Shithead) ---------- */
+
+.variants {
+  display: grid;
+  gap: 0.6rem;
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.variants li {
+  padding: 0.85rem 1rem;
+  border-inline-start: 5px solid var(--gold);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line) inset;
+}
+
+.variants strong {
+  color: var(--ink-strong);
+}
+
+/* ---------- FAQ: öffnet per Tippen, ohne JavaScript (aus Shithead) ---------- */
+
+.faq {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.faq details {
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line) inset;
+}
+
+.faq summary {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  color: var(--ink-strong);
+  font-weight: 800;
+  line-height: 1.3;
+  list-style: none;
+  cursor: pointer;
+  transition: background-color 0.15s, box-shadow 0.15s;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "+";
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--felt);
+  color: var(--felt-text);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.faq details[open] summary::after {
+  content: "–";
+}
+
+.faq details p {
+  margin: 0;
+  padding: 0 1rem 1rem;
+  color: var(--muted);
+}
+
+/* ---------- Hover nur mit echter Maus (aus Shithead) ---------- */
+
+@media (hover: hover) {
+  p a:hover {
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+  }
+
+  .faq summary:hover {
+    background: var(--summary-hover);
+  }
+}

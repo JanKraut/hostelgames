@@ -12,6 +12,9 @@ const test = base.extend({
   },
 });
 
+// Sections of the rules page in the order of the section navigation (without the share box).
+const SECTIONS = ["setup", "values", "turn", "powers", "stacking", "cambio", "scoring", "variants", "faq"];
+
 const pathOf = (lang) => (lang.path === "/" ? "./" : lang.path.slice(1));
 
 for (const lang of languages) {
@@ -20,7 +23,8 @@ for (const lang of languages) {
     await page.goto(pathOf(lang));
     await expect(page).toHaveTitle(lang.t.seo.rulesT);
     await expect(page.locator("html")).toHaveAttribute("lang", lang.htmlLang);
-    await expect(page.locator(".hero h1")).toHaveText(lang.t.h1);
+    await expect(page.locator(".hero h1")).toContainText(lang.t.h1);
+    await expect(page.locator(".hero h1 .h1-sub")).toHaveText(lang.t.h1sub);
     await expect(page.locator(".langmenu a[aria-current=page]")).toHaveAttribute("data-lang", lang.code);
     await expect(page.locator("link[rel=canonical]")).toHaveAttribute("href", lang.url);
     await expect(page.locator("link[rel=alternate][hreflang]")).toHaveCount(languages.length + 1);
@@ -31,6 +35,38 @@ for (const lang of languages) {
     await expect(page.locator(".qrbtn")).toBeVisible();
     const text = await page.locator("body").innerText();
     expect(text).not.toMatch(/undefined|\[object|\{\{|\{%/);
+  });
+
+  test(`${lang.code}: all rule sections are there, each with its heading`, async ({ page }) => {
+    await page.goto(pathOf(lang));
+    for (const id of SECTIONS) {
+      await expect(page.locator(`main section#${id} h2`).first(), `#${id}`).toBeVisible();
+    }
+    // Card graphics from the core macros.
+    await expect(page.locator(".fan .card")).toHaveCount(4);
+    await expect(page.locator("#setup .g4 .card")).toHaveCount(4);
+    await expect(page.locator("#values .values li")).toHaveCount(6);
+    await expect(page.locator("#powers .sp")).toHaveCount(4);
+    await expect(page.locator("#faq details")).toHaveCount(8);
+    // Rules only: no game against bots, no link to it.
+    await expect(page.locator('a[href*="play"]')).toHaveCount(0);
+  });
+
+  test(`${lang.code}: every #link points to a section on the page`, async ({ page }) => {
+    await page.goto(pathOf(lang));
+    const nav = await page.locator(".secnav a").evaluateAll((links) => links.map((a) => a.getAttribute("href")));
+    expect(nav).toEqual([...SECTIONS, "share"].map((id) => `#${id}`));
+    const targets = await page.locator('a[href^="#"]').evaluateAll((links) => links.map((a) => a.getAttribute("href").slice(1)));
+    for (const id of targets) {
+      await expect(page.locator(`[id="${id}"]`), `#${id}`).toHaveCount(1);
+    }
+  });
+
+  test(`${lang.code}: nothing is wider than the screen`, async ({ page }) => {
+    await page.goto(pathOf(lang));
+    await page.locator("#faq details").evaluateAll((all) => all.forEach((d) => (d.open = true)));
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+    expect(overflow).toBeLessThanOrEqual(0);
   });
 }
 

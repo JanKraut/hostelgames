@@ -10,21 +10,196 @@ eleventyComputed:
   pageTitle: "{{ lang.t.seo.rulesT }}"
   pageDescription: "{{ lang.t.seo.rulesD }}"
 ---
-{#- Rules page, one per language. Draft: only the frame – the content comes next. -#}
+{#- Rules page, one per language. Sections follow the course of a round:
+    setup, card values, one turn, card powers, stacking, calling Cambio, scoring,
+    then variants and FAQ. Texts in src/_data/i18n, styles in src/assets/styles.css. -#}
+{%- from "card.njk" import card, back, stack, cardRow -%}
 {%- set t = lang.t -%}
 <header class="hero">
   <div class="wrap">
     {% include "langmenu.njk" %}
     {% include "pagenav.njk" %}
-    <h1>{{ t.h1 | safe }}</h1>
+    <h1>{{ t.h1 | safe }}<span class="h1-sub"> {{ t.h1sub }}</span></h1>
     <p>{{ t.sub | safe }}</p>
+    {#- Four face-down cards, two of them peeked at: the start of every round. -#}
+    <div class="fan" aria-hidden="true">
+      {{ back("") }}
+      {{ card("K", "♥") }}
+      {{ card("A", "♣") }}
+      {{ back("") }}
+    </div>
+    <div class="goal">
+      <div class="goal-icon" aria-hidden="true">🎯</div>
+      <p>{{ t.goal | safe }}</p>
+    </div>
   </div>
 </header>
 
+<nav class="secnav" aria-label="{{ t.navLabel }}">
+  <ul>
+    <li><a href="#setup">{{ t.nav.setup }}</a></li>
+    <li><a href="#values">{{ t.nav.values }}</a></li>
+    <li><a href="#turn">{{ t.nav.turn }}</a></li>
+    <li><a href="#powers">{{ t.nav.powers }}</a></li>
+    <li><a href="#stacking">{{ t.nav.stacking }}</a></li>
+    <li><a href="#cambio">{{ t.nav.cambio }}</a></li>
+    <li><a href="#scoring">{{ t.nav.scoring }}</a></li>
+    <li><a href="#variants">{{ t.nav.variants }}</a></li>
+    <li><a href="#faq">{{ t.nav.faq }}</a></li>
+    <li><a href="#share">{{ t.nav.share }}</a></li>
+  </ul>
+</nav>
+
 <main class="wrap">
-  <section id="rules">
-    <h2>{{ t.soonH }}</h2>
-    <p class="lead">{{ t.soonP }}</p>
+
+  <section id="setup">
+    <h2>{{ t.setup.h }}</h2>
+    <p class="lead">{{ t.setup.lead | safe }}</p>
+
+    {#- Dealing: four cards face down in a square. Only the two near you are
+        peeked at once (shown face up and outlined). -#}
+    <div class="grid4vis" role="img" aria-label="{{ t.setup.alt }}">
+      <p class="g4-note g4-far">{{ t.setup.far | safe }}</p>
+      <div class="g4">
+        {{ back("sm") }}{{ back("sm") }}
+        {{ card("8", "♠", "sm", "gold") }}{{ card("3", "♦", "sm", "gold") }}
+      </div>
+      <p class="g4-note g4-near">{{ t.setup.near | safe }}</p>
+    </div>
+
+    <ol class="steps">
+      <li><h3>{{ t.setup.s1h }}</h3><p>{{ t.setup.s1p | safe }}</p></li>
+      <li><h3>{{ t.setup.s2h }}</h3><p>{{ t.setup.s2p | safe }}</p></li>
+      <li><h3>{{ t.setup.s3h }}</h3><p>{{ t.setup.s3p | safe }}</p></li>
+    </ol>
+  </section>
+
+  <section id="values">
+    <h2>{{ t.values.h }}</h2>
+    <p class="lead">{{ t.values.lead | safe }}</p>
+    <ul class="values">
+      <li>{{ card("★", "", "sm", "joker", pip=false) }}<b>0</b><span>{{ t.values.joker }}</span></li>
+      <li>{{ card("K", "♥", "sm") }}<b>−1</b><span>{{ t.values.redKing }}</span></li>
+      <li>{{ card("A", "♠", "sm") }}<b>1</b><span>{{ t.values.ace }}</span></li>
+      <li><div class="v-pair">{{ card("2", "♣", "sm") }}{{ card("10", "♦", "sm") }}</div><b>2–10</b><span>{{ t.values.number }}</span></li>
+      <li><div class="v-pair">{{ card("J", "♣", "sm") }}{{ card("Q", "♥", "sm") }}</div><b>10</b><span>{{ t.values.face }}</span></li>
+      <li>{{ card("K", "♠", "sm") }}<b>10</b><span>{{ t.values.blackKing }}</span></li>
+    </ul>
+    <p>{{ t.values.p | safe }}</p>
+  </section>
+
+  <section id="turn">
+    <h2>{{ t.turn.h }}</h2>
+    <h3 class="sub first">{{ t.turn.startH }}</h3>
+    <p>{{ t.turn.startP | safe }}</p>
+
+    <h3 class="sub">{{ t.turn.oneH }}</h3>
+    <div class="decide">
+      <p class="dq">{{ t.turn.dq }}</p>
+      <p class="dqs">{{ t.turn.dqs | safe }}</p>
+      <div class="branches">
+        <div class="br keep-br">
+          <div class="bh">{{ t.turn.keepH }}</div>
+          <p class="bp">{{ t.turn.keepP | safe }}</p>
+        </div>
+        <div class="br drop-br">
+          <div class="bh">{{ t.turn.dropH }}</div>
+          <p class="bp">{{ t.turn.dropP | safe }}</p>
+        </div>
+      </div>
+      <p class="dnext">{{ t.turn.next | safe }}</p>
+    </div>
+    <p>{{ t.turn.memo | safe }}</p>
+  </section>
+
+  <section id="powers">
+    <h2>{{ t.powers.h }}</h2>
+    <p class="lead">{{ t.powers.lead | safe }}</p>
+    <div class="specials">
+      <div class="sp"><div class="v-pair">{{ card("7", "♥", "xs") }}{{ card("8", "♣", "xs") }}</div><div><h3>{{ t.powers.peekH }}</h3><p>{{ t.powers.peekP | safe }}</p></div></div>
+      <div class="sp"><div class="v-pair">{{ card("9", "♠", "xs") }}{{ card("10", "♦", "xs") }}</div><div><h3>{{ t.powers.spyH }}</h3><p>{{ t.powers.spyP | safe }}</p></div></div>
+      <div class="sp"><div class="v-pair">{{ card("J", "♦", "xs") }}{{ card("Q", "♠", "xs") }}</div><div><h3>{{ t.powers.blindH }}</h3><p>{{ t.powers.blindP | safe }}</p></div></div>
+      <div class="sp"><div class="v-pair">{{ card("K", "♣", "xs") }}{{ card("K", "♠", "xs") }}</div><div><h3>{{ t.powers.lookH }}</h3><p>{{ t.powers.lookP | safe }}</p></div></div>
+    </div>
+    <p class="sp-extra">{{ t.powers.note | safe }}</p>
+  </section>
+
+  <section id="stacking">
+    <h2>{{ t.stacking.h }}</h2>
+    <p class="lead">{{ t.stacking.lead | safe }}</p>
+    {#- A 6 lies on the discard pile; a known 6 from a hand goes on top. -#}
+    <div class="stackvis" role="img" aria-label="{{ t.stacking.alt }}">
+      <div class="sv-pile">
+        {{ card("6", "♣", "sm") }}
+        <p class="dv-note">{{ t.stacking.pile | safe }}</p>
+      </div>
+      <svg class="sv-arrow" viewBox="0 0 64 40" aria-hidden="true"><path d="M60 30 C 44 6, 24 4, 8 16"/><path d="M17 10 L7 17 L19 21"/></svg>
+      <div class="sv-pile">
+        {{ card("6", "♥", "sm", "gold") }}
+        <p class="dv-note">{{ t.stacking.mine | safe }}</p>
+      </div>
+    </div>
+    <ul class="variants">
+      <li>{{ t.stacking.own | safe }}</li>
+      <li>{{ t.stacking.other | safe }}</li>
+      <li>{{ t.stacking.wrong | safe }}</li>
+    </ul>
+    <p>{{ t.stacking.p | safe }}</p>
+  </section>
+
+  <section id="cambio">
+    <h2>{{ t.cambio.h }}</h2>
+    <p class="lead">{{ t.cambio.lead | safe }}</p>
+    <ol class="steps">
+      <li><h3>{{ t.cambio.s1h }}</h3><p>{{ t.cambio.s1p | safe }}</p></li>
+      <li><h3>{{ t.cambio.s2h }}</h3><p>{{ t.cambio.s2p | safe }}</p></li>
+      <li><h3>{{ t.cambio.s3h }}</h3><p>{{ t.cambio.s3p | safe }}</p></li>
+    </ol>
+    <h3 class="sub">{{ t.cambio.tieH }}</h3>
+    <p>{{ t.cambio.tieP | safe }}</p>
+    <h3 class="sub">{{ t.cambio.emptyH }}</h3>
+    <p>{{ t.cambio.emptyP | safe }}</p>
+  </section>
+
+  <section id="scoring">
+    <h2>{{ t.scoring.h }}</h2>
+    <p class="lead">{{ t.scoring.lead | safe }}</p>
+    {#- Example hand: A + 3 + red king + 7 = 10 points. -#}
+    <div class="sumvis" role="img" aria-label="{{ t.scoring.alt }}">
+      <div class="sum-cards">
+        <div class="sum-c">{{ card("A", "♦", "xs") }}<b>1</b></div>
+        <span class="sum-op" aria-hidden="true">+</span>
+        <div class="sum-c">{{ card("3", "♠", "xs") }}<b>3</b></div>
+        <span class="sum-op" aria-hidden="true">+</span>
+        <div class="sum-c">{{ card("K", "♥", "xs") }}<b>−1</b></div>
+        <span class="sum-op" aria-hidden="true">+</span>
+        <div class="sum-c">{{ card("7", "♣", "xs") }}<b>7</b></div>
+      </div>
+      <p class="sum-total">= 10 {{ t.scoring.points }}</p>
+    </div>
+    <p>{{ t.scoring.p | safe }}</p>
+  </section>
+
+  <section id="variants">
+    <h2>{{ t.variants.h }}</h2>
+    <p class="lead">{{ t.variants.lead | safe }}</p>
+    <ul class="variants">
+      {%- for i in range(1, 7) %}
+      <li>{{ t.variants["v" ~ i] | safe }}</li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="faq">
+    <h2>{{ t.faq.h }}</h2>
+    <div class="faq">
+      {%- for i in range(1, 9) %}
+      <details>
+        <summary>{{ t.faq["q" ~ i] }}</summary>
+        <p>{{ t.faq["a" ~ i] | safe }}</p>
+      </details>
+      {%- endfor %}
+    </div>
   </section>
 
   {% include "share.njk" %}
