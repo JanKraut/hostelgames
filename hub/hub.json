@@ -1,6 +1,3 @@
 {
-  "domain": "https://hostelgames.com",
-  "deploy": {
-    "ftpDir": "hostelgames"
-  }
+  "domain": "https://hostelgames.com"
 }

@@ -45,8 +45,9 @@ Jede Seite bekommt Adresse und Pfad-Präfix beim Build über Umgebungsvariablen
 | Hauptdomain, später | `https://hostelgames.com` | `/` | `npm run build` |
 | Eigene Domain eines Spiels, später | z. B. `https://shitheadgame.de` | `/` | `npm run build -w @hostelgames/shithead` |
 
-`npm run build` legt die Startseite nach `_site/` und jedes Spiel nach `_site/<slug>/`, mit passendem
-Präfix. Eine Spiel-Domain baut nur dieses Spiel (Ausgabe in `games/<slug>/_site/`); stimmt die Adresse
+`npm run build` legt die Startseite nach `_site/` und jedes Spiel nach `_site/<ordner>/`, mit passendem
+Präfix. Der Ordner ist immer die Domain ohne Endung (shitheadgame.de → `shitheadgame`, ohne Domain der
+`slug`) und wird nicht von Hand gesetzt (`packages/core/lib/games.js`). Eine Spiel-Domain baut nur dieses Spiel (Ausgabe in `games/<slug>/_site/`); stimmt die Adresse
 mit `domain` aus seiner `game.json` überein, kommt seine `.htaccess` dazu.
 Alles auf `github.io` bekommt `noindex` und keine Sitemap.
 
@@ -61,7 +62,7 @@ Alles auf `github.io` bekommt `noindex` und keine Sitemap.
    und `/assets/core/core.js` als Modul. Sprachmenü, Footer, Tracking per `{% include %}` aus dem Core.
 5. `npm install` im Root. Die Startseite listet das Spiel automatisch.
 6. Nichts in `ci.yml` nötig: Tests und Deploy erkennen das Spiel automatisch. Für ein Deploy
-   `domain` und ggf. `deploy.ftpDir` (Unterordner in `hostelgames.com`) in `game.json` setzen.
+   `domain` in `game.json` setzen; der Unterordner in `hostelgames.com` ergibt sich daraus.
 
 ## Deployment
 
@@ -82,21 +83,18 @@ Ein Workflow (`.github/workflows/ci.yml`) testet und deployt:
 
 Die Zugangsdaten im Environment **`hetzner-webhosting`** (Secrets `HETZNER_HOST`, `HETZNER_USER`,
 `HETZNER_PASSWORD`) gelten für den Hauptordner **`hostelgames.com`** auf dem Webspace. Jede Seite
-bekommt darin einen eigenen Unterordner, festgelegt in ihrer Konfiguration:
+bekommt darin einen eigenen Unterordner. Regel: **Ordner = Domain ohne Endung**, er wird aus `domain`
+abgeleitet und kann nicht abweichend eingestellt werden:
 
 | Seite | Konfiguration | Unterordner |
 | --- | --- | --- |
 | Hub (hostelgames.com) | `hub/hub.json` | `hostelgames` |
 | Shithead (shitheadgame.de) | `games/shithead/game.json` | `shitheadgame` |
-| neues Spiel | `games/<slug>/game.json` | Standard: der `slug` |
-
-```json
-"deploy": { "ftpDir": "shitheadgame" }
-```
+| neues Spiel, z. B. kniffelgame.de | `games/<slug>/game.json` | `kniffelgame` |
 
 Die Domain zeigt im Hetzner-Panel auf ihren Unterordner. Fehlt der Ordner, wird er angelegt.
 Ein Spiel kann später ein eigenes Environment mit eigenen Zugangsdaten bekommen:
-`"deploy": { "environment": "kniffel-hetzner", "ftpDir": "…" }`. Zwei Seiten dürfen nie in denselben
+`"deploy": { "environment": "kniffel-hetzner" }`. Zwei Seiten dürfen nie in denselben
 Ordner deployen; `ci-plan.js` bricht dann ab.
 
 ### Tracking

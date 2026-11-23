@@ -2,21 +2,33 @@
 //
 // game.json
 //   slug     short name of the game (folder name, package @hostelgames/<slug>, offline cache)
-//   path     its folder in the URL: hostelgames.com/<path>/ and jankraut.github.io/hostelgames/<path>/
-//            (optional, default: slug)
 //   name     shown on the hub page
 //   tagline  one line for the hub page
 //   domain   the game's own domain, e.g. https://shitheadgame.de (optional, may not exist yet)
+//
+// Its folder (game.path) is not set by hand: it is always the domain without its ending,
+// e.g. https://shitheadgame.de → "shitheadgame" (without a domain: the slug). The same folder is used
+// in the URL (hostelgames.com/<path>/, jankraut.github.io/hostelgames/<path>/) and on the FTP server.
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 
 export const ROOT = new URL("../../../", import.meta.url);
 export const GAMES_DIR = new URL("games/", ROOT);
 
+/** The folder of a site: its domain without the ending ("https://www.shitheadgame.de" → "shitheadgame"). */
+export function folderOf(domain) {
+  const labels = new URL(domain).hostname.replace(/^www\./, "").split(".");
+  if (labels.length < 2) throw new Error(`"${domain}" is not a domain like https://example.com`);
+  return labels.slice(0, -1).join("-");
+}
+
 export function readGame(file) {
   const game = JSON.parse(readFileSync(file, "utf8"));
   if (!/^[a-z0-9-]+$/.test(game.slug ?? "")) throw new Error(`${file}: "slug" must be lowercase letters, digits and dashes`);
-  game.path ??= game.slug;
-  if (!/^[a-z0-9-]+$/.test(game.path)) throw new Error(`${file}: "path" must be lowercase letters, digits and dashes`);
+  if ("path" in game || game.deploy?.ftpDir) {
+    throw new Error(`${file}: no "path" or "deploy.ftpDir" – the folder is always the domain without its ending`);
+  }
+  game.path = game.domain ? folderOf(game.domain) : game.slug;
+  if (!/^[a-z0-9-]+$/.test(game.path)) throw new Error(`${file}: folder "${game.path}" (from domain) must be lowercase letters, digits and dashes`);
   return game;
 }
 

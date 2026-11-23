@@ -1,6 +1,6 @@
 # Shithead
 
-Domain: shitheadgame.de · Slug: shithead · 15 Sprachen
+Domain: shitheadgame.de · Ordner: shitheadgame · Slug: shithead · 15 Sprachen
 Gehört inhaltlich zu mut-im-rucksack.de: beim Design hat Mut im Rucksack
 das letzte Wort.
 

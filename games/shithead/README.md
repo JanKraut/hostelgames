@@ -32,7 +32,7 @@ Beim ersten Mal ggf. den Browser installieren: `npx playwright install chromium`
 | `src/quickstart.njk` | Quickstart: Spickzettel, passt auf einen Handybildschirm (`/quickstart/`, `/de/quickstart/` …) |
 | `src/_includes/pagenav.njk` | Reiter oben zwischen Regeln, Strategie und Quickstart |
 | `src/play.njk` | Spielseite gegen Bots (`/play/`, `/de/play/` …) |
-| `game.json` | Name, Slug (`shithead`, Pfad auf hostelgames.com) und eigene Domain des Spiels |
+| `game.json` | Name, Slug (`shithead`) und eigene Domain des Spiels; daraus der Ordner `shitheadgame` (Pfad auf hostelgames.com, FTP) |
 | `src/_includes/layouts/base.njk` | Rahmen jeder Seite: Kopf, `hreflang`, lädt erst die Core-Styles und -Skripte, dann die eigenen |
 | `src/_includes/card.njk` | Makros für die Spielkarten-Grafiken |
 | `src/_includes/redirect.njk` | Nur englische Seiten: leitet auf die im Menü gewählte Sprache weiter; ohne Wahl bleibt es Englisch, egal welche Browsersprache |
