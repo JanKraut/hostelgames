@@ -1,9 +1,16 @@
 #!/usr/bin/env node
 // Checks a game's translations before its site is built. Exits with 1 on any problem.
+//
+// Strict languages (--strict, default "en,de") must always be complete: a missing or
+// leftover text is an error. They are updated with every text change.
+// All other languages are only translated on demand; for them a missing text (the
+// page then shows the English one) or a leftover text is only a warning, so text
+// changes go through without touching 13 files. Wrong placeholders, broken HTML and
+// dead #links are errors in every language.
 // Part of @hostelgames/core; every game runs it in `npm run check` (also part of its build):
 //
 //   hostelgames-check-i18n --dir src/_data/i18n --languages src/_data/languages.js \
-//                          --templates src/index.njk,src/_includes/quiz.njk [--default en]
+//                          --templates src/index.njk,src/_includes/quiz.njk [--default en] [--strict en,de]
 //
 // Paths are relative to the current folder (the game's folder).
 // For every language it checks that
@@ -26,6 +33,7 @@ const { values: args } = parseArgs({
     languages: { type: "string", default: "src/_data/languages.js" },
     templates: { type: "string", default: "" },
     default: { type: "string", default: "en" },
+    strict: { type: "string", default: "en,de" },
   },
 });
 
@@ -33,6 +41,7 @@ const DIR = pathToFileURL(resolve(args.dir) + "/");
 // Pages and parts they include; #links in texts point to sections there.
 const TEMPLATES = args.templates.split(",").filter(Boolean).map((path) => pathToFileURL(resolve(path)));
 const DEFAULT = args.default;
+const STRICT = new Set([DEFAULT, ...args.strict.split(",").map((code) => code.trim()).filter(Boolean)]);
 
 // Only code and fallback are needed from the languages file.
 let LANGUAGES;
@@ -44,7 +53,11 @@ try {
 }
 
 const problems = [];
-const report = (code, key, message) => problems.push(`${code}${key ? ` › ${key}` : ""}: ${message}`);
+const warnings = [];
+const line = (code, key, message) => `${code}${key ? ` › ${key}` : ""}: ${message}`;
+const report = (code, key, message) => problems.push(line(code, key, message));
+// Incomplete translations: error for strict languages, warning for all others.
+const incomplete = (code, key, message) => (STRICT.has(code) ? problems : warnings).push(line(code, key, message));
 
 const files = readdirSync(DIR).filter((name) => name.endsWith(".json")).map((name) => name.slice(0, -5));
 const load = (code) => JSON.parse(readFileSync(new URL(`${code}.json`, DIR), "utf8"));
@@ -97,14 +110,14 @@ for (const lang of LANGUAGES) {
   const chain = [lang.code, ...(lang.fallback ?? [])].filter((code) => code !== DEFAULT);
 
   for (const key of Object.keys(own)) {
-    if (!(key in english)) report(lang.code, key, `not in ${DEFAULT} (typo or leftover?)`);
+    if (!(key in english)) incomplete(lang.code, key, `not in ${DEFAULT} (typo or leftover?)`);
   }
 
   if (lang.code === DEFAULT) continue;
   for (const [key, en] of Object.entries(english)) {
     const from = chain.find((code) => key in flatten(texts[code] ?? {}));
     if (!from) {
-      report(lang.code, key, `missing, would show the ${DEFAULT} text`);
+      incomplete(lang.code, key, `missing, shows the ${DEFAULT} text`);
       continue;
     }
     if (from !== lang.code) continue; // checked with the fallback language itself
@@ -133,8 +146,15 @@ for (const [code, own] of Object.entries(texts)) {
   }
 }
 
+for (const code of STRICT) if (!codes.includes(code)) report(code, null, `strict language is not listed in ${args.languages}`);
+
+if (warnings.length) {
+  const byLanguage = Object.groupBy(warnings, (warning) => warning.split(" ")[0].replace(":", ""));
+  const summary = Object.entries(byLanguage).map(([code, list]) => `${code} ${list.length}`).join(", ");
+  console.warn(`⚠ ${warnings.length} text(s) still to translate on demand (${summary}):\n  ${warnings.join("\n  ")}`);
+}
 if (problems.length) {
   console.error(`✗ ${problems.length} translation problem(s):\n  ${problems.join("\n  ")}`);
   process.exit(1);
 }
-console.log(`✓ Translations OK: ${codes.length} languages, ${Object.keys(english).length} texts each.`);
+console.log(`✓ Translations OK: ${codes.length} languages, ${Object.keys(english).length} texts each; complete: ${[...STRICT].join(", ")}.`);
