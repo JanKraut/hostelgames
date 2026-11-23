@@ -34,9 +34,21 @@
   display: block;
   width: auto;
   height: 4.2rem;
-  /* The tag hangs slightly from its hole, as if hooked onto something */
-  transform: rotate(5deg);
+  /* Straight at first; once the page is scrolled, the tag swings down a little
+     from its hole, as if hooked onto something (class set in index.njk) */
+  transform: rotate(0deg);
   transform-origin: 9.7% 50%;
+  transition: transform 0.7s cubic-bezier(0.34, 1.8, 0.5, 1);
+}
+
+.is-scrolled .logo {
+  transform: rotate(5deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo {
+    transition: none;
+  }
 }
 
 .logo-tag {
