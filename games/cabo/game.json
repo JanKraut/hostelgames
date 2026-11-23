@@ -1,7 +1,7 @@
 {
   "slug": "cabo",
   "name": "Cabo",
-  "tagline": "Peek, swap and remember – the lowest hand wins",
+  "tagline": "Peek, swap and remember – call Cabo with the lowest hand",
   "domain": "https://cabogame.de",
   "status": "draft",
   "languages": ["en", "de"],
