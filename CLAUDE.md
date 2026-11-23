@@ -25,9 +25,10 @@ Vor jedem Commit: check, build und Tests des betroffenen Spiels.
 
 ## URLs
 - Spiel-Domain, z. B. shitheadgame.de/en/ – indexiert
-- hostelgames.com/<slug>/ – Übersichtsseite, indexiert
-- jankraut.github.io/hostelgames/<slug>/ – Vorschau, immer noindex
-- Pfadname = slug aus game.json, überall gleich. Standardsprache Englisch.
+- hostelgames.com/<ordner>/ – Übersichtsseite, indexiert
+- jankraut.github.io/hostelgames/<ordner>/ – Vorschau, immer noindex
+- Ordner/Pfad = Domain ohne Endung (shitheadgame.de → shitheadgame), überall
+  gleich: Pages, hostelgames.com, FTP. Ohne Domain der slug. Standardsprache Englisch.
 
 ## Feste Entscheidungen
 - Tracking nur per Env: TRACKING_PROVIDER, TRACKING_ID, MATOMO_URL;

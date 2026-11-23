@@ -18,16 +18,17 @@
 //   "domain": "https://…"                 only sites with a domain are deployed
 //   "testShards": 3                       split its browser tests over 3 parallel runners (default 1)
 //   "deploy": {
-//     "ftpDir": "shitheadgame",          subfolder on the FTP login (default: the slug)
 //     "environment": "shithead-hetzner"   optional own GitHub environment with its own FTP secrets
 //                                         (default "hetzner-webhosting", shared by all)
 //   }
+// The FTP subfolder is always the domain without its ending: shitheadgame.de → shitheadgame,
+// hostelgames.com → hostelgames (folderOf in packages/core/lib/games.js).
 // Two sites may never upload into the same folder of the same environment.
 //
 // Writes to $GITHUB_OUTPUT (or prints): games, tests, deploy (JSON), hub (true/false), playwright.
 import { execFileSync } from "node:child_process";
 import { appendFileSync, readFileSync } from "node:fs";
-import games, { ROOT } from "../packages/core/lib/games.js";
+import games, { ROOT, folderOf } from "../packages/core/lib/games.js";
 
 export const DEFAULT_ENVIRONMENT = "hetzner-webhosting";
 const SHARED = [/^packages\//, /^scripts\//, /^\.github\//, /^package(-lock)?\.json$/];
@@ -59,14 +60,14 @@ export function plan({ files, all = false }) {
       workspace: site.workspace,
       domain: site.domain.replace(/\/$/, ""),
       environment: site.deploy?.environment ?? DEFAULT_ENVIRONMENT,
-      ftpDir: (site.deploy?.ftpDir ?? site.slug).replace(/^\/+|\/+$/g, ""),
+      ftpDir: folderOf(site.domain, site.workspace),
     }));
 
   // Safety: with --delete, two sites in one folder would wipe each other.
   const targets = new Map();
   for (const site of sites) {
     if (!/^[A-Za-z0-9._-]+(\/[A-Za-z0-9._-]+)*$/.test(site.ftpDir) || site.ftpDir.split("/").includes("..")) {
-      throw new Error(`${site.slug}: deploy.ftpDir "${site.ftpDir}" must be a subfolder like "shitheadgame"`);
+      throw new Error(`${site.slug}: folder "${site.ftpDir}" must be a plain subfolder like "shitheadgame"`);
     }
     const key = `${site.environment}/${site.ftpDir}`;
     if (targets.has(key)) throw new Error(`${targets.get(key)} and ${site.slug} would deploy into the same folder (${key})`);

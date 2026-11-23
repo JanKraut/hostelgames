@@ -55,15 +55,15 @@ Alles auf `github.io` bekommt `noindex` und keine Sitemap.
 
 1. `games/<slug>/` anlegen, am einfachsten als Kopie der Struktur von `games/shithead/`
    (`package.json` mit Namen `@hostelgames/<slug>`, `eleventy.config.js`, `src/`, `tests/`).
-2. `game.json` mit `slug` (Kurzname, Ordner), `path` (Unterordner in der URL, Standard = `slug`),
-   `name`, `tagline` und, falls schon bekannt, `domain`.
+2. `game.json` mit `slug` (Kurzname, Ordner im Repo), `name`, `tagline` und, falls schon bekannt,
+   `domain`. Der Ordner in den URLs und auf dem Server ist die Domain ohne Endung (ohne Domain: `slug`).
 3. In `eleventy.config.js` das Core-Plugin einbinden:
    `eleventyConfig.addPlugin(hostelgames, { site, cacheName: "<slug>" })`.
 4. Im Layout erst `/assets/core/fonts.css` und `/assets/core/core.css`, dann die eigenen Styles laden,
    und `/assets/core/core.js` als Modul. Sprachmenü, Footer, Tracking per `{% include %}` aus dem Core.
 5. `npm install` im Root. Die Startseite listet das Spiel automatisch.
 6. Nichts in `ci.yml` nötig: Tests und Deploy erkennen das Spiel automatisch. Für ein Deploy
-   `domain` und ggf. `deploy.ftpDir` (Unterordner in `hostelgames.com`) in `game.json` setzen.
+   `domain` in `game.json` setzen – der Ordnername ergibt sich daraus (siehe unten).
 
 ## Deployment
 
@@ -84,22 +84,23 @@ Ein Workflow (`.github/workflows/ci.yml`) testet und deployt:
 
 Die Zugangsdaten im Environment **`hetzner-webhosting`** (Secrets `HETZNER_HOST`, `HETZNER_USER`,
 `HETZNER_PASSWORD`) gelten für den Hauptordner **`hostelgames.com`** auf dem Webspace. Jede Seite
-bekommt darin einen eigenen Unterordner, festgelegt in ihrer Konfiguration:
+bekommt darin einen eigenen Unterordner.
 
-| Seite | Konfiguration | Unterordner |
+**Regel: Der Ordner heißt immer wie die Domain ohne Endung** – überall gleich: als FTP-Unterordner,
+auf hostelgames.com (`hostelgames.com/<ordner>/`) und in der Vorschau
+(`jankraut.github.io/hostelgames/<ordner>/`). Er wird automatisch aus `domain` abgeleitet
+(`folderOf` in `packages/core/lib/games.js`), von Hand gesetzt wird er nicht.
+
+| Seite | Domain | Ordner |
 | --- | --- | --- |
-| Hub (hostelgames.com) | `hub/hub.json` | `hostelgames` |
-| Shithead (shitheadgame.de) | `games/shithead/game.json` | `shitheadgame` |
-| neues Spiel | `games/<slug>/game.json` | Standard: der `slug` |
-
-```json
-"deploy": { "ftpDir": "shitheadgame" }
-```
+| Hub (`hub/hub.json`) | hostelgames.com | `hostelgames` |
+| Shithead (`games/shithead/game.json`) | shitheadgame.de | `shitheadgame` |
+| neues Spiel ohne Domain | – | der `slug` (wird nicht deployt) |
 
 Die Domain zeigt im Hetzner-Panel auf ihren Unterordner. Fehlt der Ordner, wird er angelegt.
 Ein Spiel kann später ein eigenes Environment mit eigenen Zugangsdaten bekommen:
-`"deploy": { "environment": "kniffel-hetzner", "ftpDir": "…" }`. Zwei Seiten dürfen nie in denselben
-Ordner deployen; `ci-plan.js` bricht dann ab.
+`"deploy": { "environment": "kniffel-hetzner" }`. Zwei Seiten dürfen nie in denselben Ordner
+deployen; `ci-plan.js` bricht dann ab.
 
 ### Tracking
 
