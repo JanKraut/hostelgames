@@ -12,13 +12,13 @@
 // The hub (hostelgames.com) changes with hub/ or with any change that changes a game.
 //
 // Hetzner: the FTP login of "hetzner-webhosting" is the main folder "hostelgames.com";
-// every site has its own subfolder in it, e.g. "shitheadgames" or "hostelgames" (hub).
+// every site has its own subfolder in it, e.g. "shitheadgame" or "hostelgames" (hub).
 //
 // Settings in a game's game.json (the hub's in hub/hub.json):
 //   "domain": "https://…"                 only sites with a domain are deployed
 //   "testShards": 3                       split its browser tests over 3 parallel runners (default 1)
 //   "deploy": {
-//     "ftpDir": "shitheadgames",          subfolder on the FTP login (default: the slug)
+//     "ftpDir": "shitheadgame",          subfolder on the FTP login (default: the slug)
 //     "environment": "shithead-hetzner"   optional own GitHub environment with its own FTP secrets
 //                                         (default "hetzner-webhosting", shared by all)
 //   }
@@ -66,7 +66,7 @@ export function plan({ files, all = false }) {
   const targets = new Map();
   for (const site of sites) {
     if (!/^[A-Za-z0-9._-]+(\/[A-Za-z0-9._-]+)*$/.test(site.ftpDir) || site.ftpDir.split("/").includes("..")) {
-      throw new Error(`${site.slug}: deploy.ftpDir "${site.ftpDir}" must be a subfolder like "shitheadgames"`);
+      throw new Error(`${site.slug}: deploy.ftpDir "${site.ftpDir}" must be a subfolder like "shitheadgame"`);
     }
     const key = `${site.environment}/${site.ftpDir}`;
     if (targets.has(key)) throw new Error(`${targets.get(key)} and ${site.slug} would deploy into the same folder (${key})`);
