@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.8rem;
 }
 
 .hubtop .langbar {
@@ -27,7 +27,7 @@
   width: auto;
   height: 4.2rem;
   /* The tag hangs slightly from its hole, as if hooked onto something */
-  transform: rotate(5deg);
+  transform: rotate(8deg);
   transform-origin: 9.7% 50%;
 }
 
@@ -62,6 +62,12 @@
 @media (max-width: 30rem) {
   .logo {
     height: 3.4rem;
+  }
+
+  /* Mobile: buttons (QR, theme, language) on top, the logo below */
+  .hubtop .langbar {
+    order: -1;
+    width: 100%;
   }
 }
 
