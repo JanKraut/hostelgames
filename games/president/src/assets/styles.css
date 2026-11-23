@@ -1,1 +1,496 @@
-/* President: only what this game needs on top of @hostelgames/core (core.css). */
+/* President: only what this game needs on top of @hostelgames/core (core.css).
+   Übernommen aus games/shithead/src/assets/styles.css (gehört eigentlich in den Core):
+   .fan, .goal, .secnav, .ranks/.rankscale, ol.steps, .variants, .faq.
+   Eigene Grafiken von President: .combos, .beat, .ladder, .swapvis. */
+
+/* Fanned cards */
+.fan {
+  position: relative;
+  width: 300px;
+  height: 160px;
+  margin: 1rem auto 1.4rem;
+}
+
+.fan .card {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform-origin: 50% 120%;
+}
+
+.fan .card:nth-child(1) {
+  transform: translateX(-50%) rotate(-27deg);
+}
+
+.fan .card:nth-child(2) {
+  transform: translateX(-50%) rotate(-9deg) translateY(-6px);
+}
+
+.fan .card:nth-child(3) {
+  transform: translateX(-50%) rotate(9deg) translateY(-6px);
+}
+
+.fan .card:nth-child(4) {
+  transform: translateX(-50%) rotate(27deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .fan .card {
+    animation: deal 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  .fan .card:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+
+  .fan .card:nth-child(2) {
+    animation-delay: 0.18s;
+  }
+
+  .fan .card:nth-child(3) {
+    animation-delay: 0.31s;
+  }
+
+  .fan .card:nth-child(4) {
+    animation-delay: 0.5s;
+  }
+
+  @keyframes deal {
+    from {
+      transform: translateX(-50%) translateY(60px) rotate(0);
+      opacity: 0;
+    }
+  }
+}
+
+/* Goal box */
+.goal {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  margin-top: 0.4rem;
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  background: var(--head-well);
+}
+
+.goal-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.goal p {
+  margin: 0;
+  color: var(--felt-text);
+  font-size: 1.05rem;
+}
+
+.goal strong {
+  color: var(--highlight);
+}
+
+/* ---------- Section navigation ---------- */
+
+.secnav {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 9;
+  background: var(--head-bg);
+  color: var(--felt-text);
+}
+
+.secnav ul {
+  display: flex;
+  gap: 0.25rem;
+  max-width: 40rem;
+  overflow-x: auto;
+  margin: 0 auto;
+  padding: 0.55rem 1rem;
+  list-style: none;
+  scrollbar-width: none;
+}
+
+.secnav ul::-webkit-scrollbar {
+  display: none;
+}
+
+.secnav a {
+  display: block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: var(--head-chip);
+  font-size: 0.92rem;
+  font-weight: 700;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.secnav a:hover {
+  background: var(--head-chip-hover);
+}
+
+/* ---------- Setup: card order ---------- */
+
+.ranks {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0.8rem 0 0.35rem;
+  padding: 1.1rem 0.9rem;
+  border-radius: 18px;
+  background: var(--felt);
+}
+
+.ranks .card {
+  --w: 52px;
+  box-shadow: -2px 0 4px rgba(0, 0, 0, 0.18), 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Overlap the 13 cards just enough to fit the width. */
+.ranks .card + .card {
+  margin-left: min(-16px, calc((100% - var(--w)) / 12 - var(--w)));
+}
+
+.rankscale {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+ol.steps {
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+ol.steps li {
+  position: relative;
+  padding: 0 0 1.1rem;
+  padding-inline-start: 3.2rem;
+  counter-increment: step;
+}
+
+/* Numbered circle */
+ol.steps li::before {
+  content: counter(step);
+  position: absolute;
+  inset-inline-start: 0;
+  top: -0.1rem;
+  display: grid;
+  place-items: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 50%;
+  background: var(--felt);
+  color: var(--felt-text);
+  font-family: var(--font-cards);
+  font-weight: var(--font-cards-weight);
+  font-size: 1.05rem;
+}
+
+/* Line connecting the circles */
+ol.steps li::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 1.13rem;
+  top: 2.4rem;
+  bottom: 0.2rem;
+  width: 2px;
+  background: var(--line);
+}
+
+ol.steps li:last-child::after {
+  display: none;
+}
+
+ol.steps p {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+}
+
+/* ---------- House rules ---------- */
+
+.variants {
+  display: grid;
+  gap: 0.6rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.variants li {
+  padding: 0.85rem 1rem;
+  border-inline-start: 5px solid var(--gold);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line) inset;
+}
+
+.variants strong {
+  color: var(--ink-strong);
+}
+
+/* ---------- FAQ: questions open on tap, work without JavaScript ---------- */
+
+.faq {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.faq details {
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line) inset;
+}
+
+.faq summary {
+  border-radius: 14px;
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1rem;
+  color: var(--ink-strong);
+  font-weight: 800;
+  line-height: 1.3;
+  list-style: none;
+  cursor: pointer;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "+";
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--felt);
+  color: var(--felt-text);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.faq details[open] summary::after {
+  content: "–";
+}
+
+.faq details p {
+  margin: 0;
+  padding: 0 1rem 1rem;
+  color: var(--muted);
+}
+
+
+/* ---------- Ab hier nur President ---------- */
+
+ol.steps h3 {
+  font-size: 1.1rem;
+}
+
+/* Was man ausspielen darf: Einzelkarte, Paar, Drilling */
+.combos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin: 1rem 0;
+  padding: 1rem 0.6rem 0.8rem;
+  border-radius: 18px;
+  background: var(--felt);
+  color: var(--felt-text);
+  text-align: center;
+}
+
+.cb-cards,
+.bt-cards,
+.sw-cards {
+  display: flex;
+  justify-content: center;
+}
+
+.cb-cards .card + .card,
+.bt-cards .card.xs + .card,
+.sw-cards .card + .card {
+  margin-left: -22px;
+}
+
+.combos p {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* Beispiel: was darf auf ein Paar 7er? */
+.beat {
+  display: grid;
+  gap: 0.9rem;
+  margin: 0.6rem 0 1rem;
+  padding: 1rem;
+  border: 2px solid var(--line);
+  border-radius: 16px;
+}
+
+.bt-table {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.bt-lbl {
+  margin: 0;
+  font-weight: 800;
+}
+
+.bt-cards .card.sm + .card {
+  margin-left: -26px;
+}
+
+.bt-opts {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bt-opts li {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.bt-opts p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.bt-opts b {
+  font-size: 1.15rem;
+}
+
+.bt-opts .ok b {
+  color: var(--ok);
+}
+
+.bt-opts .ko b {
+  color: var(--red);
+}
+
+/* Ränge von oben nach unten */
+.ladder {
+  display: grid;
+  gap: 0.45rem;
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ladder li {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  padding: 0.6rem 0.9rem;
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line) inset;
+}
+
+/* Treppe: jeder Rang etwas weiter eingerückt */
+.ladder li:nth-child(2) { margin-inline-start: 0.6rem; }
+.ladder li:nth-child(3) { margin-inline-start: 1.2rem; }
+.ladder li:nth-child(4) { margin-inline-start: 1.8rem; }
+.ladder li:nth-child(5) { margin-inline-start: 2.4rem; }
+
+.ld-icon {
+  flex: none;
+  font-family: var(--font-emoji);
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.ladder p {
+  margin: 0;
+}
+
+.ladder strong {
+  color: var(--ink-strong);
+}
+
+/* Kartentausch: Bettler links, Präsident rechts, Karten wandern dazwischen */
+.swapvis {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.6rem;
+  align-items: center;
+  margin: 1rem 0;
+  padding: 1rem 0.8rem;
+  border-radius: 18px;
+  background: var(--felt);
+  color: var(--felt-text);
+}
+
+.sw-who {
+  display: grid;
+  justify-items: center;
+  gap: 0.2rem;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.sw-who span {
+  font-family: var(--font-emoji);
+  font-size: 1.9rem;
+  line-height: 1;
+}
+
+.sw-mid {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.sw-row {
+  display: grid;
+  justify-items: center;
+  gap: 0.25rem;
+}
+
+.sw-row p {
+  margin: 0;
+  color: var(--felt-soft);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.sw-cards .card.gold + .card {
+  margin-left: -8px;
+}
+
+.sw-arrow {
+  width: 60px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (hover: hover) {
+  .faq summary:hover {
+    background: var(--summary-hover);
+  }
+}

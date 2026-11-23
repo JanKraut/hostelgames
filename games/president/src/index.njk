@@ -10,21 +10,169 @@ eleventyComputed:
   pageTitle: "{{ lang.t.seo.rulesT }}"
   pageDescription: "{{ lang.t.seo.rulesD }}"
 ---
-{#- Rules page, one per language. Draft: only the frame – the content comes next. -#}
+{#- Regelseite, einmal pro Sprache. Grundregeln wie international üblich,
+    Hausregeln nur im Abschnitt „variants“. Kein Spiel gegen Bots. -#}
+{%- from "card.njk" import card, back, cardRow -%}
 {%- set t = lang.t -%}
 <header class="hero">
   <div class="wrap">
     {% include "langmenu.njk" %}
     {% include "pagenav.njk" %}
-    <h1>{{ t.h1 | safe }}</h1>
+    <h1>{{ t.h1 }}<span class="h1-sub"> {{ t.h1sub }}</span></h1>
     <p>{{ t.sub | safe }}</p>
+    <div class="fan" aria-hidden="true">
+      {{ card("3", "♣") }}
+      {{ card("9", "♦") }}
+      {{ card("A", "♥") }}
+      {{ card("2", "♠") }}
+    </div>
+    <div class="goal">
+      <div class="goal-icon" aria-hidden="true">🎯</div>
+      <p>{{ t.goal | safe }}</p>
+    </div>
   </div>
 </header>
 
+<nav class="secnav" aria-label="{{ t.navLabel }}">
+  <ul>
+    <li><a href="#setup">{{ t.nSetup }}</a></li>
+    <li><a href="#how-to-play">{{ t.nPlay }}</a></li>
+    <li><a href="#round-end">{{ t.nEnd }}</a></li>
+    <li><a href="#swap">{{ t.nSwap }}</a></li>
+    <li><a href="#variants">{{ t.nVar }}</a></li>
+    <li><a href="#faq">{{ t.nFaq }}</a></li>
+    <li><a href="#share">{{ t.nShare }}</a></li>
+  </ul>
+</nav>
+
 <main class="wrap">
-  <section id="rules">
-    <h2>{{ t.soonH }}</h2>
-    <p class="lead">{{ t.soonP }}</p>
+
+  <section id="setup">
+    <h2>{{ t.setupH }}</h2>
+    <p class="lead">{{ t.setupLead | safe }}</p>
+
+    <h3 class="sub">{{ t.rankH }}</h3>
+    <p>{{ t.rankLead | safe }}</p>
+    <div class="ranks" role="img" aria-label="{{ t.rankAlt }}">
+      {{ cardRow([["3","♣"],["4","♥"],["5","♠"],["6","♦"],["7","♣"],["8","♥"],["9","♠"],["10","♦"],["J","♣"],["Q","♥"],["K","♠"],["A","♦"],["2","♠","gold"]]) }}
+    </div>
+    <div class="rankscale" aria-hidden="true"><span>{{ t.rankLow }}</span><span>{{ t.rankHigh }}</span></div>
+
+    <h3 class="sub">{{ t.dealH }}</h3>
+    <p>{{ t.dealP | safe }}</p>
+  </section>
+
+  <section id="how-to-play">
+    <h2>{{ t.playH }}</h2>
+
+    <h3 class="sub first">{{ t.leadH }}</h3>
+    <p>{{ t.leadP | safe }}</p>
+    {#- Was man ausspielen darf: eine Karte, ein Paar, ein Drilling. -#}
+    <div class="combos" role="img" aria-label="{{ t.comboAlt }}">
+      <div class="cb"><div class="cb-cards">{{ cardRow([["5","♦"]], "xs") }}</div><p>{{ t.cb1 }}</p></div>
+      <div class="cb"><div class="cb-cards">{{ cardRow([["8","♠"],["8","♥"]], "xs") }}</div><p>{{ t.cb2 }}</p></div>
+      <div class="cb"><div class="cb-cards">{{ cardRow([["J","♣"],["J","♦"],["J","♠"]], "xs") }}</div><p>{{ t.cb3 }}</p></div>
+    </div>
+
+    <h3 class="sub">{{ t.beatH }}</h3>
+    <p>{{ t.beatLead | safe }}</p>
+    <ol class="steps">
+      <li><h3>{{ t.s1h }}</h3><p>{{ t.s1p | safe }}</p></li>
+      <li><h3>{{ t.s2h }}</h3><p>{{ t.s2p | safe }}</p></li>
+      <li><h3>{{ t.s3h }}</h3><p>{{ t.s3p | safe }}</p></li>
+    </ol>
+
+    {#- Beispiel: auf dem Tisch liegt ein Paar 7er – was darf drauf? -#}
+    <div class="beat">
+      <div class="bt-table">
+        <p class="bt-lbl">{{ t.btTable }}</p>
+        <div class="bt-cards" role="img" aria-label="{{ t.btTableAlt }}">{{ cardRow([["7","♥"],["7","♣"]], "sm") }}</div>
+      </div>
+      <ul class="bt-opts">
+        <li class="ok">
+          <div class="bt-cards" aria-hidden="true">{{ cardRow([["10","♠"],["10","♦"]], "xs") }}</div>
+          <p><b>✓</b> {{ t.btOk | safe }}</p>
+        </li>
+        <li class="ko">
+          <div class="bt-cards" aria-hidden="true">{{ cardRow([["K","♠"]], "xs") }}</div>
+          <p><b>✗</b> {{ t.btNo1 | safe }}</p>
+        </li>
+        <li class="ko">
+          <div class="bt-cards" aria-hidden="true">{{ cardRow([["5","♥"],["5","♣"]], "xs") }}</div>
+          <p><b>✗</b> {{ t.btNo2 | safe }}</p>
+        </li>
+      </ul>
+    </div>
+
+    <h3 class="sub">{{ t.trickH }}</h3>
+    <p>{{ t.trickP | safe }}</p>
+  </section>
+
+  <section id="round-end">
+    <h2>{{ t.endH }}</h2>
+    <p class="lead">{{ t.endLead | safe }}</p>
+    <ol class="ladder">
+      {%- for r in [["👑", "r1"], ["🎩", "r2"], ["🙂", "r3"], ["😬", "r4"], ["🧹", "r5"]] %}
+      <li><span class="ld-icon" aria-hidden="true">{{ r[0] }}</span><p>{{ t[r[1]] | safe }}</p></li>
+      {%- endfor %}
+    </ol>
+    <p>{{ t.ladderNote | safe }}</p>
+
+    <h3 class="sub">{{ t.seatH }}</h3>
+    <p>{{ t.seatP | safe }}</p>
+  </section>
+
+  <section id="swap">
+    <h2>{{ t.swH }}</h2>
+    <p class="lead">{{ t.swLead | safe }}</p>
+    {#- Tausch: der Bettler gibt seine zwei besten Karten (umrandet) ab,
+        der Präsident gibt zwei beliebige zurück. -#}
+    <div class="swapvis" role="img" aria-label="{{ t.swAlt }}">
+      <div class="sw-who"><span aria-hidden="true">🧹</span>{{ t.swScum }}</div>
+      <div class="sw-mid">
+        <div class="sw-row">
+          <div class="sw-cards">{{ cardRow([["2","♠","gold"],["A","♥","gold"]], "xs") }}</div>
+          <svg class="sw-arrow" viewBox="0 0 60 16" aria-hidden="true"><path d="M2 8 H54"/><path d="M47 2 L56 8 L47 14"/></svg>
+          <p>{{ t.swGive }}</p>
+        </div>
+        <div class="sw-row back">
+          <div class="sw-cards">{{ cardRow([["4","♣"],["6","♦"]], "xs") }}</div>
+          <svg class="sw-arrow" viewBox="0 0 60 16" aria-hidden="true"><path d="M58 8 H6"/><path d="M13 2 L4 8 L13 14"/></svg>
+          <p>{{ t.swBack }}</p>
+        </div>
+      </div>
+      <div class="sw-who"><span aria-hidden="true">👑</span>{{ t.swPres }}</div>
+    </div>
+
+    <ol class="steps">
+      <li><h3>{{ t.w1h }}</h3><p>{{ t.w1p | safe }}</p></li>
+      <li><h3>{{ t.w2h }}</h3><p>{{ t.w2p | safe }}</p></li>
+      <li><h3>{{ t.w3h }}</h3><p>{{ t.w3p | safe }}</p></li>
+      <li><h3>{{ t.w4h }}</h3><p>{{ t.w4p | safe }}</p></li>
+    </ol>
+    <p>{{ t.swWhy | safe }}</p>
+  </section>
+
+  <section id="variants">
+    <h2>{{ t.varH }}</h2>
+    <p class="lead">{{ t.varLead | safe }}</p>
+    <ul class="variants">
+      {%- for i in range(1, 8) %}
+      <li>{{ t["var" ~ i] | safe }}</li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="faq">
+    <h2>{{ t.faqH }}</h2>
+    <div class="faq">
+      {%- for i in range(1, 9) %}
+      <details>
+        <summary>{{ t["faq" ~ i ~ "q"] }}</summary>
+        <p>{{ t["faq" ~ i ~ "a"] | safe }}</p>
+      </details>
+      {%- endfor %}
+    </div>
   </section>
 
   {% include "share.njk" %}
