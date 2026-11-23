@@ -16,7 +16,10 @@ eleventyComputed:
 {%- set t = lang.t -%}
 <header class="hero">
   <div class="wrap">
-    {% include "langmenu.njk" %}
+    <div class="hubtop">
+      <a class="hublogo" href="{{ lang.path }}">{% include "logo.njk" %}</a>
+      {% include "langmenu.njk" %}
+    </div>
     <h1>{{ t.h1 }}</h1>
     <p>{{ t.sub }}</p>
   </div>

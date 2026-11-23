@@ -1,6 +1,67 @@
 /* Hub page (hostelgames.com). Colours, fonts, header and footer come from
    @hostelgames/core (assets/core/core.css). */
 
+/* Header: logo (link to the start page) on the left, language bar on the right */
+.hubtop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.hubtop .langbar {
+  margin-bottom: 0;
+  margin-left: auto;
+}
+
+.hublogo {
+  display: block;
+  flex: none;
+  border-radius: 0.6rem;
+}
+
+.logo {
+  display: block;
+  width: auto;
+  height: 4.2rem;
+}
+
+.logo-tag {
+  fill: var(--head-bg);
+  stroke: var(--head-text);
+  stroke-width: 4;
+  stroke-linejoin: round;
+}
+
+.logo-hole {
+  fill: var(--head-bg);
+  stroke: var(--head-text);
+  stroke-width: 4;
+}
+
+.logo-name {
+  fill: var(--head-text);
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 800;
+}
+
+.logo-sub {
+  fill: var(--head-accent);
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+}
+
+@media (max-width: 30rem) {
+  .logo {
+    height: 3.4rem;
+  }
+}
+
 .hub {
   padding-top: 2rem;
   padding-bottom: 2rem;
