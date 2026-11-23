@@ -1,0 +1,28 @@
+{
+  "seo": {
+    "title": "Hostel Games – Kartenspiele aus allen Hostels der Welt",
+    "description": "Regeln, Strategie, Spickzettel und Spiele gegen Bots für die Kartenspiele, die in Hostels auf der ganzen Welt gespielt werden."
+  },
+  "h1": "Hostel Games",
+  "sub": "Die Kartenspiele, die in Hostels auf der ganzen Welt gespielt werden. Regeln in ein paar Minuten lernen, dann losspielen.",
+  "gamesH": "Spiele",
+  "mLanguages": "{n} Sprachen",
+  "mBots": "gegen Bots spielen",
+  "mPlayers": "{min}–{max} Spieler",
+  "draft": "Entwurf – nur Vorschau",
+  "games": {
+    "asshole": { "name": "Arschloch", "tagline": "Gewinnen und König werden – verlieren und die besten Karten abgeben" },
+    "cabo": { "name": "Cabo", "tagline": "Anschauen, tauschen, merken – sag Cabo mit der niedrigsten Hand" },
+    "cambio": { "name": "Cambio", "tagline": "Vier verdeckte Karten, ein gutes Gedächtnis – die niedrigste Summe gewinnt" },
+    "president": { "name": "President", "tagline": "Als Erster alle Karten loswerden, President werden – und den Bettler seine besten Karten abgeben lassen" },
+    "shithead": { "name": "Shithead", "tagline": "Das Kartenspiel aus allen Hostels der Welt" }
+  },
+  "themeSwitch": "Zwischen hellem und dunklem Design wechseln",
+  "shH": "Seite teilen",
+  "shLead": "Lass die anderen am Tisch den Code scannen. Jeder kann sich dann ein Spiel und seine eigene Sprache aussuchen.",
+  "shBtn": "Teilen",
+  "shCopy": "Link kopieren",
+  "shCopied": "Link kopiert",
+  "shClose": "Schließen",
+  "shAlt": "QR-Code zu dieser Seite"
+}

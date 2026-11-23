@@ -1,3 +1,4 @@
 {
-  "domain": "https://hostelgames.com"
+  "domain": "https://hostelgames.com",
+  "languages": ["en", "de"]
 }

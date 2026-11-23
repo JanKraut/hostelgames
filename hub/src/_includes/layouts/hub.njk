@@ -1,6 +1,7 @@
-{#- Frame of the hub pages. English only for now. -#}
+{#- Frame of the hub pages, one per language (hub/hub.json). Pages set pageTitle,
+    pageDescription and optionally share (true: QR button with popup in the top bar). -#}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ lang.htmlLang }}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -9,8 +10,15 @@
 {%- if not site.indexable %}
 <meta name="robots" content="noindex">
 {%- endif %}
-<link rel="canonical" href="{{ site.origin }}{{ site.pathPrefix }}">
+<link rel="canonical" href="{{ lang.url }}">
+{%- for l in languages %}
+<link rel="alternate" hreflang="{{ l.htmlLang }}" href="{{ l.url }}">
+{%- endfor %}
+<link rel="alternate" hreflang="x-default" href="{{ languages[0].url }}">
 <script>document.documentElement.classList.add("js");try{var th=localStorage.getItem("theme");if(th==="light"||th==="dark")document.documentElement.dataset.theme=th}catch(e){}</script>
+{%- if lang.path == "/" %}
+<script>{% include "redirect.njk" %}</script>
+{%- endif %}
 {%- include "tracking-head.njk" %}
 <meta name="theme-color" content="#f4cf71" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#171a1f" media="(prefers-color-scheme: dark)">
@@ -21,7 +29,13 @@
 <link rel="stylesheet" href="/assets/core/fonts.css?v={{ assetVersion }}">
 <link rel="stylesheet" href="/assets/core/core.css?v={{ assetVersion }}">
 <link rel="stylesheet" href="/assets/hub.css?v={{ assetVersion }}">
+{%- if share %}
+<script src="/assets/core/qrcode.js?v={{ assetVersion }}" defer></script>
+{%- endif %}
 <script type="module" src="/assets/core/core.js?v={{ assetVersion }}"></script>
+{%- if share %}
+<script type="module" src="/assets/core/share.js?v={{ assetVersion }}"></script>
+{%- endif %}
 </head>
 <body>
 {%- include "tracking-body.njk" %}
