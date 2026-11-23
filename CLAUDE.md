@@ -33,7 +33,9 @@ Vor jedem Commit: check, build und Tests des betroffenen Spiels.
 - Tracking nur per Env: TRACKING_PROVIDER, TRACKING_ID, MATOMO_URL;
   ohne Einwilligungsbanner. Nichts fest im Code.
 - Schrift Manrope, selbst gehostet. Keine externen Fonts oder CDNs.
-- Deploy auf Hetzner per Workflow; Zugangsdaten nur als Secrets.
+- Deploy automatisch bei Push auf main (nur geänderte Spiele, nach grünen
+  Tests); Zugangsdaten nur als Secrets, Standard-Environment
+  hetzner-webhosting. Was als geändert gilt: scripts/ci-plan.js.
 
 ## Sprachen
 - Eine JSON-Datei pro Sprache, Englisch ist Referenz.
