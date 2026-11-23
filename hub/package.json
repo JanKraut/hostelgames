@@ -4,8 +4,9 @@
   "description": "Start page of hostelgames.com: lists every game of the monorepo",
   "type": "module",
   "scripts": {
-    "build": "eleventy",
-    "start": "eleventy --serve"
+    "build": "npm run check && eleventy",
+    "start": "eleventy --serve",
+    "check": "hostelgames-check-i18n --dir src/_data/i18n --languages src/_data/languages.js"
   },
   "dependencies": {
     "@hostelgames/core": "*"

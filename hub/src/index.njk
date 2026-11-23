@@ -1,44 +1,65 @@
 ---
+pagination:
+  data: languages
+  size: 1
+  alias: lang
+permalink: "{{ lang.path }}"
 layout: layouts/hub.njk
-pageTitle: Hostel Games – card games from every hostel in the world
-pageDescription: Rules, strategy, cheat sheets and games against bots for the card games people play in hostels all over the world.
-themeSwitchLabel: Switch between light and dark mode
+share: true
+eleventyComputed:
+  pageTitle: "{{ lang.t.seo.title }}"
+  pageDescription: "{{ lang.t.seo.description }}"
 ---
+{#- Start page, one per language (languages in hub/hub.json). Names and taglines of the games
+    come from games.<slug> in the hub's i18n, otherwise from the game's game.json. -#}
+{%- from "sharebox.njk" import sharebox -%}
+{%- set t = lang.t -%}
 <header class="hero">
   <div class="wrap">
-    <div class="langbar">
-      {% include "themeswitch.njk" %}
-    </div>
-    <h1>Hostel Games</h1>
-    <p>The card games people play in hostels all over the world. Learn the rules in minutes, then play.</p>
+    {% include "langmenu.njk" %}
+    <h1>{{ t.h1 }}</h1>
+    <p>{{ t.sub }}</p>
   </div>
 </header>
 
 <main class="wrap hub">
-  <h2>Games</h2>
+  <h2>{{ t.gamesH }}</h2>
   <ul class="games">
     {%- for game in games %}
+    {%- set gt = t.games[game.slug] or {} %}
+    {#- Same language on the game's site, if the game has it. -#}
+    {%- set langPath = lang.path | replace("/", "", 1) if (lang.code in game.languages) else "" %}
     <li>
       {#- Live on hostelgames.com: link to the game's own domain. In the preview (GitHub Pages)
           the games are built next to the hub, under /<path>/. -#}
-      <a class="game" href="{{ game.domain + '/' if (site.indexable and game.domain) else '/' + game.path + '/' }}">
-        <span class="game-name">{{ game.name }}</span>
-        {%- if game.tagline %}
-        <span class="game-tagline">{{ game.tagline }}</span>
+      <a class="game" href="{{ (game.domain + '/' if (site.indexable and game.domain) else '/' + game.path + '/') + langPath }}">
+        <span class="game-name">{{ gt.name or game.name }}</span>
+        {%- if gt.tagline or game.tagline %}
+        <span class="game-tagline">{{ gt.tagline or game.tagline }}</span>
         {%- endif %}
         <span class="game-meta">
-          {{- game.languages.length }} languages
-          {%- if "play" in game.pages %} · play against bots{% endif %}
-          {%- if game.players %} · {{ game.players.min }}–{{ game.players.max }} players{% endif %}
+          {{- t.mLanguages | replace("{n}", game.languages.length) }}
+          {%- if "play" in game.pages %} · {{ t.mBots }}{% endif %}
+          {%- if game.players %} · {{ t.mPlayers | replace("{min}", game.players.min) | replace("{max}", game.players.max) }}{% endif %}
           {%- if game.duration %} · {{ game.duration }}{% endif %}
         </span>
         {%- if game.status == "draft" %}
-        <span class="game-draft">Draft – preview only</span>
+        <span class="game-draft">{{ t.draft }}</span>
         {%- endif %}
       </a>
     </li>
     {%- endfor %}
   </ul>
 </main>
+
+{#- Popup of the QR button in the top bar (langmenu.njk, share.js). -#}
+<dialog class="qrpop" aria-labelledby="qrpop-h">
+  <div class="sharebox">
+    <button type="button" class="qrclose" aria-label="{{ t.shClose }}" title="{{ t.shClose }}">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    {{ sharebox(t, lang.url) }}
+  </div>
+</dialog>
 
 {% include "footer.njk" %}
