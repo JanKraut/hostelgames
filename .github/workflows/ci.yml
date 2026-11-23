@@ -99,8 +99,10 @@ jobs:
             games/${{ matrix.slug }}/test-results/
           retention-days: 14
 
-  # One deployment per changed game, to its own domain. Each game can have its own
-  # environment (deploy.environment in game.json); until then all use "hetzner-webhosting".
+  # One deployment per changed site (each game, the hub) to its own domain. On Hetzner the FTP
+  # login is the folder "hostelgames.com"; each site uploads into its own subfolder
+  # (deploy.ftpDir in game.json / hub/hub.json, e.g. "shitheadgames", "hostelgames").
+  # Each site can get its own environment (deploy.environment); until then all use "hetzner-webhosting".
   deploy:
     name: Deploy ${{ matrix.game.slug }}
     needs: [plan, build, test]
@@ -129,7 +131,7 @@ jobs:
           cache: npm
       - run: npm ci --no-audit --no-fund
       # Built here, not in "build": the tracking settings are variables of the environment.
-      - run: npm run build -w games/${{ matrix.game.slug }}
+      - run: npm run build -w ${{ matrix.game.workspace }}
         env:
           SITE_ORIGIN: ${{ matrix.game.domain }}
           SITE_PATH_PREFIX: /
@@ -145,22 +147,16 @@ jobs:
           FTP_HOST: ${{ secrets.HETZNER_HOST }}
           FTP_USER: ${{ secrets.HETZNER_USER }}
           LFTP_PASSWORD: ${{ secrets.HETZNER_PASSWORD }}
-          FTP_DIR: ${{ vars[matrix.game.ftpDirVar] }}
-          FTP_DIR_VAR: ${{ matrix.game.ftpDirVar }}
-          SITE: games/${{ matrix.game.slug }}/_site/
+          FTP_DIR: ${{ matrix.game.ftpDir }}
+          SITE: ${{ matrix.game.workspace }}/_site/
         run: |
-          if [ -z "$FTP_DIR" ]; then
-            # Only the original variable may mean "the FTP login folder itself".
-            if [ "$FTP_DIR_VAR" = "HETZNER_FTP_DIR" ]; then FTP_DIR=.; else
-              echo "::error::Set the variable $FTP_DIR_VAR (target folder) in environment ${{ matrix.game.environment }}"; exit 1
-            fi
-          fi
           lftp --env-password -u "$FTP_USER" "ftp://$FTP_HOST" <<EOF
           set ftp:ssl-force true
           set ftp:ssl-protect-data true
           set ssl:verify-certificate true
           set net:max-retries 3
           set net:timeout 30
+          mkdir -p -f "$FTP_DIR"
           mirror --reverse --delete --parallel=8 "$SITE" "$FTP_DIR"
           EOF
 
