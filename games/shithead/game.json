@@ -7,6 +7,6 @@
   "languages": 15,
   "testShards": 3,
   "deploy": {
-    "ftpDir": "shitheadgames"
+    "ftpDir": "shitheadgame"
   }
 }

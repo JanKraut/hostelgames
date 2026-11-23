@@ -89,11 +89,11 @@ bekommt darin einen eigenen Unterordner, festgelegt in ihrer Konfiguration:
 | Seite | Konfiguration | Unterordner |
 | --- | --- | --- |
 | Hub (hostelgames.com) | `hub/hub.json` | `hostelgames` |
-| Shithead (shitheadgame.de) | `games/shithead/game.json` | `shitheadgames` |
+| Shithead (shitheadgame.de) | `games/shithead/game.json` | `shitheadgame` |
 | neues Spiel | `games/<slug>/game.json` | Standard: der `slug` |
 
 ```json
-"deploy": { "ftpDir": "shitheadgames" }
+"deploy": { "ftpDir": "shitheadgame" }
 ```
 
 Die Domain zeigt im Hetzner-Panel auf ihren Unterordner. Fehlt der Ordner, wird er angelegt.
