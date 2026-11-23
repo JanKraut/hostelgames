@@ -1,0 +1,33 @@
+---
+pagination:
+  data: languages
+  size: 1
+  alias: lang
+permalink: "{{ lang.path }}"
+layout: game
+share: true
+eleventyComputed:
+  pageTitle: "{{ lang.t.seo.rulesT }}"
+  pageDescription: "{{ lang.t.seo.rulesD }}"
+---
+{#- Rules page, one per language. Draft: only the frame – the content comes next. -#}
+{%- set t = lang.t -%}
+<header class="hero">
+  <div class="wrap">
+    {% include "langmenu.njk" %}
+    {% include "pagenav.njk" %}
+    <h1>{{ t.h1 | safe }}</h1>
+    <p>{{ t.sub | safe }}</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="rules">
+    <h2>{{ t.soonH }}</h2>
+    <p class="lead">{{ t.soonP }}</p>
+  </section>
+
+  {% include "share.njk" %}
+</main>
+
+{% include "footer.njk" %}

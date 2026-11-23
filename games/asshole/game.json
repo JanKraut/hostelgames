@@ -1,0 +1,10 @@
+{
+  "slug": "asshole",
+  "name": "Asshole",
+  "tagline": "Get rid of your cards first – the last one out is the asshole",
+  "domain": "https://assholegame.de",
+  "status": "draft",
+  "languages": ["en", "de"],
+  "pages": ["rules"],
+  "related": ["president"]
+}

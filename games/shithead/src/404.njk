@@ -10,7 +10,8 @@
   eleventyComputed: { lang: (data) => data.languages[0] },
 }
 ---
-{%- from "card.njk" import card, shithead -%}
+{%- from "card.njk" import card -%}
+{%- from "shithead-card.njk" import shithead -%}
 {%- set t = lang.t -%}
 
 <header class="hero notfound">

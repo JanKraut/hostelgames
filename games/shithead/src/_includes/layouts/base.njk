@@ -69,11 +69,17 @@
 {%- for href in styles %}
 <link rel="stylesheet" href="{{ href }}?v={{ assetVersion }}">
 {%- endfor %}
+{%- if share %}
+<script src="/assets/core/qrcode.js?v={{ assetVersion }}" defer></script>
+{%- endif %}
 {%- for src in classicScripts %}
 <script src="{{ src }}?v={{ assetVersion }}" defer></script>
 {%- endfor %}
 <script type="module" src="/assets/core/core.js?v={{ assetVersion }}"></script>
 <script type="module" src="/assets/site.js?v={{ assetVersion }}"></script>
+{%- if share %}
+<script type="module" src="/assets/core/share.js?v={{ assetVersion }}"></script>
+{%- endif %}
 {%- for src in scripts %}
 <script type="module" src="{{ src }}?v={{ assetVersion }}"></script>
 {%- endfor %}

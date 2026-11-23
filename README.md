@@ -71,16 +71,18 @@ Alles auf `github.io` bekommt `noindex` und keine Sitemap.
 
 ## Neues Spiel anlegen
 
-1. `games/<slug>/` anlegen, am einfachsten als Kopie der Struktur von `games/shithead/`
-   (`package.json` mit Namen `@hostelgames/<slug>`, `eleventy.config.js`, `src/`, `tests/`).
+1. `games/<slug>/` anlegen, am einfachsten als Kopie eines Grundgerüsts wie `games/cabo/`
+   (`package.json` mit Namen `@hostelgames/<slug>`, `eleventy.config.js`, `src/`, `tests/`)
+   und darin Namen, Domain und Texte ersetzen.
 2. `game.json` anlegen (Felder siehe unten), zu Beginn mit `"status": "draft"` und
    `"languages": ["en", "de"]`. Der Ordner in den URLs und auf dem Server ist die Domain ohne Endung
    (ohne Domain: `slug`).
-3. In `eleventy.config.js` das Core-Plugin einbinden:
-   `eleventyConfig.addPlugin(hostelgames, { site, cacheName: "<slug>" })`.
-4. Im Layout erst `/assets/core/fonts.css` und `/assets/core/core.css`, dann die eigenen Styles laden,
-   und `/assets/core/core.js` als Modul. Sprachmenü, Footer, Tracking per `{% include %}` aus dem Core.
-5. `npm install` im Root. Die Startseite listet das Spiel automatisch (in der Vorschau auch als Entwurf).
+3. In `eleventy.config.js` das Core-Plugin einbinden: `eleventyConfig.addPlugin(hostelgames, { site })`.
+4. Seiten nutzen das Layout aus dem Core (`layout: game`). Es lädt `core.css` und danach die eigene
+   `src/assets/styles.css`. Sprachmenü, Seitenreiter, Spielkarten (`card.njk`), Teilen-Box
+   (`share.njk`, mit `share: true`), Footer und Tracking kommen per `{% include %}` aus dem Core;
+   `src/_data/languages.js` und `src/sitemap.11ty.js` sind je drei Zeilen (siehe Grundgerüst).
+5. Im Root `build:<slug>` und `start:<slug>` in `package.json` ergänzen und `npm install`. Die Startseite listet das Spiel automatisch (in der Vorschau auch als Entwurf).
 6. Nichts in `ci.yml` nötig: Tests und Deploy erkennen das Spiel automatisch. Für ein Deploy
    `domain` in `game.json` setzen – der Ordnername ergibt sich daraus (siehe unten).
 

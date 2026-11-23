@@ -1,4 +1,5 @@
-// "Share" boxes on the rules, strategy and quick start pages: QR code, copy and share buttons.
+// "Share" boxes (includes/share.njk) of @hostelgames/core: QR code, copy and share buttons.
+// Loaded by pages with `share: true`, together with qrcode.js.
 // There are two: at the bottom of the page and in the QR popup opened from the top bar.
 // The link is readable and clickable without this file.
 

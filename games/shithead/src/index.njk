@@ -9,8 +9,8 @@ subpath: ""
 eleventyComputed:
   pageTitle: "{{ lang.t.seo.rulesT }}"
   pageDescription: "{{ lang.t.seo.rulesD }}"
-classicScripts: ["/assets/qrcode.js"]
-scripts: ["/assets/rules.js", "/assets/share.js"]
+share: true
+scripts: ["/assets/rules.js"]
 ---
 {%- from "card.njk" import card, back, stack, cardRow -%}
 {%- set t = lang.t -%}

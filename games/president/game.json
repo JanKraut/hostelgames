@@ -1,0 +1,10 @@
+{
+  "slug": "president",
+  "name": "President",
+  "tagline": "Get rid of your cards first and rule the next round",
+  "domain": "https://presidentsgame.de",
+  "status": "draft",
+  "languages": ["en", "de"],
+  "pages": ["rules"],
+  "related": ["asshole"]
+}

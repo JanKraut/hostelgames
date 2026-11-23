@@ -9,6 +9,7 @@
     "./site": "./lib/site.js",
     "./games": "./lib/games.js",
     "./languages": "./lib/languages.js",
+    "./sitemap": "./lib/sitemap.js",
     "./data/*": "./data/*",
     "./scripts/*": "./scripts/*"
   },
@@ -18,7 +19,8 @@
   },
   "dependencies": {
     "@11ty/eleventy": "3.1.7",
-    "@fontsource/manrope": "5.3.0"
+    "@fontsource/manrope": "5.3.0",
+    "qrcode-generator": "1.4.4"
   },
   "scripts": {
     "test": "node --test test/*.test.js"
