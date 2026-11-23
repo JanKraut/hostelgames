@@ -26,6 +26,9 @@
   display: block;
   width: auto;
   height: 4.2rem;
+  /* The tag hangs slightly from its hole, as if hooked onto something */
+  transform: rotate(5deg);
+  transform-origin: 9.7% 50%;
 }
 
 .logo-tag {
