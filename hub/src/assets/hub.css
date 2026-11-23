@@ -19,6 +19,7 @@
 .hublogo {
   display: block;
   flex: none;
+  margin-left: 1.5rem;
   border-radius: 0.6rem;
 }
 
@@ -27,7 +28,7 @@
   width: auto;
   height: 4.2rem;
   /* The tag hangs slightly from its hole, as if hooked onto something */
-  transform: rotate(8deg);
+  transform: rotate(5deg);
   transform-origin: 9.7% 50%;
 }
 
@@ -60,11 +61,15 @@
 }
 
 @media (max-width: 30rem) {
-  .logo {
-    height: 3.4rem;
+  .hublogo {
+    margin: 0.4rem auto 0;
   }
 
-  /* Mobile: buttons (QR, theme, language) on top, the logo below */
+  .logo {
+    height: 4.2rem;
+  }
+
+  /* Mobile: buttons (QR, theme, language) on top, the logo centred below */
   .hubtop .langbar {
     order: -1;
     width: 100%;
