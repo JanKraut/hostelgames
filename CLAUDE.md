@@ -34,6 +34,9 @@ Vor jedem Commit: check, build und Tests des betroffenen Spiels.
   gleich: Pages, hostelgames.com, FTP. Ohne Domain der slug. Standardsprache Englisch.
 
 ## Feste Entscheidungen
+- **Kein Spiel gegen Bots (Seite `play`, Spiel-Engine, Bots) bauen, solange
+  Jan es nicht ausdrücklich für dieses Spiel sagt.** Auch nicht als Entwurf,
+  Gerüst oder „schon mal vorbereitet“. Regeln, Strategie, Quickstart: ja.
 - Tracking nur per Env: TRACKING_PROVIDER, TRACKING_ID, MATOMO_URL;
   ohne Einwilligungsbanner. Nichts fest im Code.
 - Schrift Manrope, selbst gehostet. Keine externen Fonts oder CDNs.
