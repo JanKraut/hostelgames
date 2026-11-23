@@ -1,9 +1,9 @@
 // Where a site is published, chosen at build time:
 //
 //   SITE_ORIGIN       e.g. https://shitheadgame.de or https://hostelgames.com
-//   SITE_PATH_PREFIX  e.g. / (own domain), /shithead/ (main domain), /hostelgames/shithead/ (GitHub Pages)
+//   SITE_PATH_PREFIX  e.g. / (own domain), /shitheadgame/ (main domain), /hostelgames/shitheadgame/ (GitHub Pages)
 //
-// Defaults are the GitHub Pages preview of this repo: https://jankraut.github.io/hostelgames/<slug>/.
+// Defaults are the GitHub Pages preview of this repo: https://jankraut.github.io/hostelgames/<path>/.
 // Only the game's own domain and the main domain are indexed by search engines;
 // every github.io build gets noindex and no sitemap.
 import { readGame } from "./games.js";
@@ -17,7 +17,7 @@ export const PAGES_PREFIX = "/hostelgames/";
 export function createSite(gameFile) {
   const game = gameFile ? readGame(gameFile) : null;
   const origin = (process.env.SITE_ORIGIN ?? PAGES_ORIGIN).replace(/\/$/, "");
-  let pathPrefix = process.env.SITE_PATH_PREFIX ?? (game ? `${PAGES_PREFIX}${game.slug}/` : PAGES_PREFIX);
+  let pathPrefix = process.env.SITE_PATH_PREFIX ?? (game ? `${PAGES_PREFIX}${game.path}/` : PAGES_PREFIX);
   if (!pathPrefix.startsWith("/")) pathPrefix = `/${pathPrefix}`;
   if (!pathPrefix.endsWith("/")) pathPrefix += "/";
   return {

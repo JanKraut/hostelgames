@@ -19,7 +19,7 @@ themeSwitchLabel: Switch between light and dark mode
   <ul class="games">
     {%- for game in games %}
     <li>
-      <a class="game" href="/{{ game.slug }}/">
+      <a class="game" href="/{{ game.path }}/">
         <span class="game-name">{{ game.name }}</span>
         {%- if game.tagline %}
         <span class="game-tagline">{{ game.tagline }}</span>
