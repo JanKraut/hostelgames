@@ -1,0 +1,20 @@
+{
+  "name": "@hostelgames/shithead",
+  "private": true,
+  "description": "Shithead in 3 minutes – multilingual rules, strategy, cheat sheet and a game against bots",
+  "type": "module",
+  "scripts": {
+    "build": "npm run check && eleventy",
+    "start": "eleventy --serve",
+    "test": "playwright test",
+    "check": "hostelgames-check-i18n --dir src/_data/i18n --templates src/index.njk,src/_includes/specials.njk,src/_includes/quiz.njk --languages src/_data/languages.js"
+  },
+  "dependencies": {
+    "@hostelgames/core": "*",
+    "qrcode-generator": "1.4.4"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.7",
+    "@playwright/test": "1.63.0"
+  }
+}

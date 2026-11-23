@@ -1,0 +1,27 @@
+# @hostelgames/core
+
+Gemeinsamer Kern aller Seiten im Monorepo (Spiele und Hub). Was hier liegt, sieht und verhält sich in
+jedem Spiel gleich. Ein Spiel kann eine Include-Datei überschreiben, indem es eine gleichnamige in
+seinem eigenen `_includes/` anlegt.
+
+| Pfad | Inhalt |
+| --- | --- |
+| `eleventy.js` | Eleventy-Plugin, bindet alles unten ein (siehe Kommentar oben in der Datei) |
+| `assets/core.css` | Gemeinsames Design: Farben (hell/dunkel), Schrift, Basis, Layout, Spielkarten, Holztisch, Kopfbereich mit Reitern, Sprachmenü mit Flaggen, Hell/Dunkel-Schalter, Footer |
+| `assets/core.js` | Hell/Dunkel-Schalter, Sprachmenü (merkt sich die Sprache), registriert den Service Worker |
+| `assets/sw.js` | Vorlage des Service Workers (offline), wird pro Seite mit Dateiliste und Hash gefüllt |
+| `includes/` | `langmenu.njk`, `themeswitch.njk`, `flags.njk`, `footer.njk`, `tracking-head.njk`, `tracking-body.njk` |
+| `data/fonts.js` | Schrift (Manrope, selbst gehostet), Schnitte und Zeichensätze |
+| `data/tracking.js` | Tracking per Umgebungsvariablen, siehe Root-README |
+| `lib/site.js` | `createSite(game.json)`: Adresse und Pfad-Präfix aus `SITE_ORIGIN` / `SITE_PATH_PREFIX` |
+| `lib/games.js` | Liste aller Spiele aus `games/*/game.json` |
+| `lib/fonts-css.js` | Erzeugt `fonts.css` aus den `@fontsource`-Paketen |
+| `scripts/check-i18n.js` | Befehl `hostelgames-check-i18n`: prüft die Übersetzungen eines Spiels |
+| `scripts/serve.js` | Befehl `hostelgames-serve <ordner> <präfix>`: kleiner Server für Tests und Vorschau |
+
+Veröffentlicht wird alles unter `/assets/core/` jeder Seite (`core.css`, `core.js`, `fonts.css`,
+`fonts/`). Die Texte für Schalter und Menü (`themeSwitch`, `shH`, `foot`) kommen aus den i18n-Dateien
+des jeweiligen Spiels.
+
+Erwartete Daten einer Seite: `site` (aus `lib/site.js`), für Sprachmenü und Footer außerdem `lang`
+(mit `t` = Texte) und `languages`, wie in `games/shithead/src/_data/languages.js`.

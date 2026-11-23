@@ -1,0 +1,22 @@
+{
+  "name": "@hostelgames/core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Shared core of all Hostel Games sites: design, fonts, playing cards, light/dark switch, language menu, tracking, offline, i18n check.",
+  "type": "module",
+  "exports": {
+    "./eleventy": "./eleventy.js",
+    "./site": "./lib/site.js",
+    "./games": "./lib/games.js",
+    "./data/*": "./data/*",
+    "./scripts/*": "./scripts/*"
+  },
+  "bin": {
+    "hostelgames-check-i18n": "scripts/check-i18n.js",
+    "hostelgames-serve": "scripts/serve.js"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "3.1.7",
+    "@fontsource/manrope": "5.3.0"
+  }
+}

@@ -1,0 +1,618 @@
+/* ==========================================================================
+   @hostelgames/core – shared design of every Hostel Games site
+   Colours, light / dark mode, base styles, layout, playing cards, wooden table,
+   header with page tabs, language menu with flags, light / dark switch, footer.
+   Loaded before each game's own stylesheet, which adds everything game-specific.
+   ========================================================================== */
+
+/* ---------- Design tokens ---------- */
+
+:root {
+  /* Colours follow mut-im-rucksack.de: warm amber, cream, slate blue.
+     Light is the default; dark mode below. */
+  --felt: #f4cf71;
+  /* Header, section bar, cheat sheet: own colours, so text and buttons on it
+     can be dark or light, whatever the header colour needs. */
+  --head-bg: #f4cf71;
+  --head-bg-2: #f8dc93;
+  --head-text: #202020;
+  --head-soft: #4a3d22;
+  --head-accent: #8a4b00;
+  --head-chip: rgba(255, 255, 255, 0.45);
+  --head-chip-hover: rgba(255, 255, 255, 0.7);
+  --head-chip-border: rgba(0, 0, 0, 0.15);
+  --head-well: rgba(255, 255, 255, 0.4);
+  --felt-text: #202020;
+  --felt-soft: #4a3d22;
+  --paper: #ffffff;
+  --page: #fdf9ec;
+  --surface: #ffffff;
+  --ink: #202020;
+  /* Headings: same as the surrounding text in light mode */
+  --ink-strong: currentColor;
+  --muted: #666666;
+  --line: #e3d2ad;
+  /* Borders of form controls: at least 3:1 against the page (WCAG 1.4.11) */
+  --control-line: #9a8456;
+  --summary-hover: #fdf3d8;
+  /* Amber: fills (buttons) with dark text … */
+  --gold: #d68400;
+  /* … and lines or symbols on the page background, dark enough to see */
+  --gold-line: #995e00;
+  /* Highlighted text on the blue panels */
+  --highlight: #f4cf71;
+  --red: #c43d2e;
+  --on-red: #ffffff;
+  /* Quiz feedback on the blue panels */
+  --ok: #17613a;
+  --ko: #8f2418;
+  /* Cheat sheet box */
+  /* Buttons on the yellow panels */
+  --felt-btn: #202020;
+  --felt-btn-text: #f4cf71;
+  --felt-chip: rgba(255, 255, 255, 0.45);
+  --felt-chip-hover: rgba(255, 255, 255, 0.75);
+  --cheat-bg: var(--head-bg);
+  --cheat-text: var(--head-text);
+  --cheat-heading: var(--head-text);
+  --cheat-dt: var(--head-accent);
+
+  /* Fixed colours: cards and wood always look the same */
+  --card-ink: #1a1d21;
+  --card-red: #c8243b;
+  --card-red-dark: #a61c30;
+  --card-green: #1f7a4d;
+  --menu-hover: #fff6e3;
+  --menu-current: #fbe7bf;
+  --wood-a: #bc8752;
+  --wood-b: #a46f3c;
+  --wood-edge: #6e4826;
+  --wood-text: #fff4e2;
+  --wood-text-shadow: 0 1px 2px rgba(40, 20, 5, 0.6);
+
+  /* Fonts */
+  --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display-weight: 800;
+  --font-cards: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-cards-weight: 800;
+  --font-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+
+  color-scheme: light;
+}
+
+/* Dark mode: slate background (bucketlistly.blog), light grey text with white
+   headings, slate-blue panels and amber accents (mut-im-rucksack.de).
+   Applies when chosen with the switch, or by the system setting when nothing was
+   chosen. Both blocks must stay identical. */
+:root[data-theme="dark"] {
+    --felt: #f4cf71;
+    --head-bg: #171a1f;
+    --head-bg-2: #262a31;
+    --head-text: #ffffff;
+    --head-soft: #c8ccd4;
+    --head-accent: #f4cf71;
+    --head-chip: rgba(255, 255, 255, 0.12);
+    --head-chip-hover: rgba(255, 255, 255, 0.2);
+    --head-chip-border: rgba(255, 255, 255, 0.28);
+    --head-well: rgba(0, 0, 0, 0.18);
+    --felt-text: #202020;
+    --felt-soft: #4a3d22;
+    --paper: #f4f2ec;
+    --page: #171a1f;
+    --surface: #22262c;
+    --ink: #c3c3c3;
+    --ink-strong: #ffffff;
+    --muted: #9899ab;
+    --line: #3a404c;
+    --control-line: #767d8b;
+    --summary-hover: #2c3139;
+    --gold: #eeab2d;
+    --gold-line: #eeab2d;
+    --highlight: #f4cf71;
+    --red: #c43d2e;
+    --on-red: #ffffff;
+    --ok: #17613a;
+    --ko: #8f2418;
+    --cheat-bg: var(--surface);
+    --cheat-text: var(--ink);
+    --cheat-heading: var(--ink-strong);
+    --cheat-dt: #f4cf71;
+    color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+      --felt: #f4cf71;
+      --head-bg: #171a1f;
+      --head-bg-2: #262a31;
+      --head-text: #ffffff;
+      --head-soft: #c8ccd4;
+      --head-accent: #f4cf71;
+      --head-chip: rgba(255, 255, 255, 0.12);
+      --head-chip-hover: rgba(255, 255, 255, 0.2);
+      --head-chip-border: rgba(255, 255, 255, 0.28);
+      --head-well: rgba(0, 0, 0, 0.18);
+      --felt-text: #202020;
+      --felt-soft: #4a3d22;
+      --paper: #f4f2ec;
+      --page: #171a1f;
+      --surface: #22262c;
+      --ink: #c3c3c3;
+      --ink-strong: #ffffff;
+      --muted: #9899ab;
+      --line: #3a404c;
+    --control-line: #767d8b;
+    --summary-hover: #2c3139;
+      --gold: #eeab2d;
+      --gold-line: #eeab2d;
+      --highlight: #f4cf71;
+      --red: #c43d2e;
+      --on-red: #ffffff;
+      --ok: #17613a;
+      --ko: #8f2418;
+      --cheat-bg: var(--surface);
+      --cheat-text: var(--ink);
+      --cheat-heading: var(--ink-strong);
+      --cheat-dt: #f4cf71;
+      color-scheme: dark;
+}
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 64px);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font: 400 1.0625rem/1.6 var(--font-body);
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Keeps the notch area green while scrolling. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 10;
+  height: env(safe-area-inset-top, 0px);
+  background: var(--head-bg);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-weight);
+  line-height: 1.08;
+  color: var(--ink-strong);
+}
+
+h2 {
+  margin-bottom: 0.6rem;
+  font-size: clamp(1.7rem, 6.5vw, 2.4rem);
+}
+
+h3 {
+  margin-bottom: 0.25rem;
+  font-size: 1.15rem;
+}
+
+p {
+  margin: 0 0 0.9rem;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--gold-line);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Things that need JavaScript stay hidden until it runs. */
+html:not(.js) .js-only {
+  display: none !important;
+}
+
+/* ---------- Layout ---------- */
+
+.wrap {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+section {
+  padding: 2.6rem 0 1rem;
+}
+
+.lead {
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+
+h3.sub {
+  margin: 1.8rem 0 0.4rem;
+  font-size: 1.3rem;
+}
+
+h3.sub.first {
+  margin-top: 0.8rem;
+}
+
+/* ---------- Playing cards ---------- */
+
+.card {
+  --w: 96px;
+  position: relative;
+  flex: none;
+  width: var(--w);
+  height: calc(var(--w) * 1.4);
+  border-radius: calc(var(--w) * 0.1);
+  background: var(--paper);
+  color: var(--card-ink);
+  font-family: var(--font-cards);
+  font-weight: var(--font-cards-weight);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), 0 6px 16px rgba(0, 0, 0, 0.28);
+}
+
+.card.r {
+  color: var(--card-red);
+}
+
+.card.sm {
+  --w: 58px;
+}
+
+.card.xs {
+  --w: 44px;
+}
+
+.card.gold {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.card.back {
+  border: calc(var(--w) * 0.06) solid var(--paper);
+  background: repeating-linear-gradient(45deg, var(--card-red) 0 6px, var(--card-red-dark) 6px 12px);
+}
+
+/* Index corner: rank with the suit below */
+.card .c {
+  position: absolute;
+  top: 6%;
+  left: 9%;
+  font-size: calc(var(--w) * 0.24);
+  line-height: 0.95;
+  text-align: center;
+}
+
+.card .c span {
+  display: block;
+  font-size: 0.8em;
+}
+
+/* Big suit in the middle */
+.card .pip {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: calc(var(--w) * 0.5);
+}
+
+/* A row of cards */
+.row {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Face-down card with a face-up card on top */
+.stack {
+  position: relative;
+  width: 58px;
+  height: 81px;
+}
+
+.stack .card {
+  position: absolute;
+  inset: 0;
+}
+
+.stack .card + .card {
+  transform: translateY(-10px) rotate(-3deg);
+}
+
+/* Wooden table */
+.wood {
+  border-radius: 16px;
+  padding: 1.4rem 1rem 1.1rem;
+  color: var(--wood-text);
+  background:
+    repeating-linear-gradient(0deg, rgba(60, 32, 12, 0.28) 0 1px, transparent 1px 44px),
+    repeating-linear-gradient(0deg, rgba(255, 235, 200, 0.06) 0 2px, rgba(70, 40, 15, 0.07) 2px 4px, transparent 4px 9px, rgba(70, 40, 15, 0.05) 9px 10px, transparent 10px 15px),
+    radial-gradient(ellipse 45% 7% at 28% 30%, rgba(80, 45, 15, 0.32), transparent 70%),
+    radial-gradient(ellipse 35% 5% at 72% 62%, rgba(80, 45, 15, 0.28), transparent 70%),
+    radial-gradient(ellipse 50% 6% at 40% 88%, rgba(80, 45, 15, 0.22), transparent 70%),
+    linear-gradient(180deg, var(--wood-a), var(--wood-b));
+  box-shadow: inset 0 0 0 2px rgba(60, 32, 12, 0.35), 0 5px 0 var(--wood-edge), 0 10px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* ---------- Header ---------- */
+
+.hero {
+  overflow-x: clip;
+  padding: 1rem 0 2.6rem;
+  background: radial-gradient(120% 90% at 50% 0%, var(--head-bg-2) 0%, var(--head-bg) 100%);
+  color: var(--felt-text);
+}
+
+/* Text colours inside the header and the section bar come from --head-*. */
+.hero,
+.secnav {
+  --felt-text: var(--head-text);
+  --felt-soft: var(--head-soft);
+  --highlight: var(--head-accent);
+}
+
+.hero h1 {
+  font-size: clamp(2.6rem, 13vw, 4.6rem);
+  letter-spacing: -0.01em;
+}
+
+/* Rules page: "Shithead card game" big, "rules & how to play" as a smaller second line */
+.hero h1 .h1-sub {
+  display: block;
+  margin: 0.35rem 0 0.5rem;
+  font-size: 0.42em;
+  letter-spacing: 0;
+  line-height: 1.15;
+}
+
+.hero p {
+  max-width: 30rem;
+  color: var(--felt-soft);
+  font-size: 1.15rem;
+}
+
+/* Tabs between the pages: rules, strategy, quick start */
+.pagetabs ul {
+  display: flex;
+  gap: 0.3rem;
+  margin: 0 0 1.4rem;
+  padding: 0.25rem;
+  border-radius: 999px;
+  background: var(--head-well);
+  list-style: none;
+}
+
+.pagetabs li {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.pagetabs a {
+  display: block;
+  overflow: hidden;
+  padding: 0.45rem 0.5rem;
+  border-radius: 999px;
+  color: var(--felt-soft);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pagetabs a:hover {
+  color: var(--felt-text);
+}
+
+.pagetabs a[aria-current="page"] {
+  background: var(--head-text);
+  color: var(--head-bg);
+}
+
+/* Smaller header for the subpages */
+.hero-small {
+  padding-bottom: 1.6rem;
+}
+
+.hero-small h1 {
+  font-size: clamp(2rem, 9vw, 3.2rem);
+}
+
+/* Language menu: a plain <details> with links, works without JavaScript */
+.langbar {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.langmenu {
+  position: relative;
+}
+
+.langmenu summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.8rem 0.55rem 0.7rem;
+  border: 1.5px solid var(--head-chip-border);
+  border-radius: 999px;
+  background: var(--head-chip);
+  color: var(--felt-text);
+  font: 700 0.95rem/1 var(--font-body);
+  list-style: none;
+  cursor: pointer;
+}
+
+.langmenu summary::-webkit-details-marker {
+  display: none;
+}
+
+.langmenu summary:hover {
+  background: var(--head-chip-hover);
+}
+
+/* Chevron on the menu button */
+.langmenu summary > svg {
+  flex: none;
+  transition: transform 0.15s;
+}
+
+.langmenu[open] summary > svg {
+  transform: rotate(180deg);
+}
+
+/* Flags are SVGs (emoji flags don't show on Windows) */
+.langmenu .flag {
+  display: inline-flex;
+  flex: none;
+  line-height: 1;
+}
+
+.flagsvg {
+  display: block;
+  width: 1.5rem;
+  height: 1rem;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18);
+}
+
+.langmenu ul {
+  position: absolute;
+  inset-inline-end: 0;
+  top: calc(100% + 0.4rem);
+  z-index: 20;
+  min-width: 15rem;
+  max-height: min(70vh, 32rem);
+  overflow-y: auto;
+  margin: 0;
+  padding: 0.35rem;
+  border-radius: 14px;
+  background: var(--paper);
+  color: var(--card-ink);
+  list-style: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.langmenu a {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 10px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.langmenu a:hover {
+  background: var(--menu-hover);
+}
+
+.langmenu a[aria-current="page"] {
+  background: var(--menu-current);
+  font-weight: 700;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+  padding: 2rem 1.25rem 3rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  text-align: center;
+}
+
+footer p {
+  margin: 0 auto 0.6rem;
+  max-width: 34rem;
+}
+
+footer .copyright {
+  margin-bottom: 0;
+  font-size: 0.85rem;
+}
+
+footer .copyright a {
+  color: inherit;
+  font-weight: 700;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 0.2em;
+}
+
+footer .heart {
+  width: 0.95em;
+  height: 0.95em;
+  fill: var(--red);
+  vertical-align: -0.12em;
+}
+
+/* ---------- Light / dark switch and QR button (top right, next to the language menu) ---------- */
+
+.themeswitch,
+.topbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  padding: 0;
+  border: 1.5px solid var(--head-chip-border);
+  border-radius: 999px;
+  background: var(--head-chip);
+  color: var(--felt-text);
+  cursor: pointer;
+}
+
+.themeswitch:hover,
+.topbtn:hover {
+  background: var(--head-chip-hover);
+}
+
+/* Shows the mode you switch to: moon in light mode, sun in dark mode. */
+.themeswitch .sun {
+  display: none;
+}
+
+:root[data-theme="dark"] .themeswitch .sun {
+  display: block;
+}
+
+:root[data-theme="dark"] .themeswitch .moon {
+  display: none;
+}
