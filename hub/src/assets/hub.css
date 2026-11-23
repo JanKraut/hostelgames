@@ -11,6 +11,13 @@
   margin-bottom: 1.8rem;
 }
 
+/* The heading is a sentence here, not just the name (the logo shows the name) */
+.hubtop + h1 {
+  max-width: 22ch;
+  font-size: clamp(2rem, 6.5vw, 3.4rem);
+  line-height: 1.08;
+}
+
 .hubtop .langbar {
   margin-bottom: 0;
   margin-left: auto;
