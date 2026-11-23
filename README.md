@@ -4,10 +4,9 @@ Kartenspiele aus jedem Hostel der Welt: Regeln, Strategie, Spickzettel und Spiel
 mehrsprachig und offline-fähig. Ein Monorepo: alle Spiele teilen sich einen Core, damit Design und
 Verhalten überall gleich sind. Pro Spiel gibt es einen Unterordner.
 
-Später: Hauptdomain **hostelgames.com** (Startseite + jedes Spiel unter `/<path>/`) und zusätzlich
-eine eigene Domain pro Spiel (z. B. shitheadgame.de). Bis die Domains bereitstehen, gibt es eine
-Vorschau auf GitHub Pages: `https://jankraut.github.io/hostelgames/`, jedes Spiel in seinem Unterordner,
-z. B. `https://jankraut.github.io/hostelgames/shitheadgame/`.
+Später: Hauptdomain **hostelgames.com** (Startseite + jedes Spiel unter `/<spiel>/`) und zusätzlich
+eine eigene Domain pro Spiel (z. B. shitheadgame.de). Beides steht noch nicht zur Verfügung;
+bis dahin gibt es nur Builds und eine manuelle Vorschau auf GitHub Pages.
 
 ## Aufbau
 
@@ -17,7 +16,8 @@ z. B. `https://jankraut.github.io/hostelgames/shitheadgame/`.
 | `games/<slug>/` | Ein Spiel, eigene Eleventy-Seite mit `game.json`, Texten, Tests. Erstes Spiel: [`games/shithead/`](games/shithead/README.md) |
 | `hub/` | Startseite von hostelgames.com, listet automatisch alle Spiele aus `games/*/game.json` |
 | `scripts/build-all.js` | Baut Hub und alle Spiele in ein gemeinsames `_site/` (Aufbau wie hostelgames.com) |
-| `.github/workflows/ci.yml` | Build und Tests bei jedem Push und Pull Request; bei jedem Push auf `main` automatisches Deployment |
+| `scripts/ci-plan.js` | Bestimmt, welche Spiele getestet und deployt werden (geänderte Dateien) |
+| `.github/workflows/ci.yml` | Build und Tests bei jedem Push und Pull Request; auf `main` danach **automatisches Deployment** |
 
 Die Workspaces (npm) sind `packages/*`, `games/*` und `hub`. Abhängigkeiten werden einmal im Root
 installiert.
@@ -26,7 +26,7 @@ installiert.
 
 ```sh
 npm install              # einmal, im Root
-npm run start:shithead   # Dev-Server eines Spiels: http://localhost:8080/hostelgames/shitheadgame/
+npm run start:shithead   # Dev-Server eines Spiels: http://localhost:8080/hostelgames/shithead/
 npm run start:hub        # Dev-Server der Startseite: http://localhost:8080/hostelgames/
 npm run build            # alles nach _site/ (Hub + alle Spiele)
 npm run serve            # _site/ ansehen: http://localhost:8080/hostelgames/
@@ -45,7 +45,7 @@ Jede Seite bekommt Adresse und Pfad-Präfix beim Build über Umgebungsvariablen
 | Hauptdomain, später | `https://hostelgames.com` | `/` | `npm run build` |
 | Eigene Domain eines Spiels, später | z. B. `https://shitheadgame.de` | `/` | `npm run build -w @hostelgames/shithead` |
 
-`npm run build` legt die Startseite nach `_site/` und jedes Spiel nach `_site/<path>/`, mit passendem
+`npm run build` legt die Startseite nach `_site/` und jedes Spiel nach `_site/<slug>/`, mit passendem
 Präfix. Eine Spiel-Domain baut nur dieses Spiel (Ausgabe in `games/<slug>/_site/`); stimmt die Adresse
 mit `domain` aus seiner `game.json` überein, kommt seine `.htaccess` dazu.
 Alles auf `github.io` bekommt `noindex` und keine Sitemap.
@@ -54,33 +54,44 @@ Alles auf `github.io` bekommt `noindex` und keine Sitemap.
 
 1. `games/<slug>/` anlegen, am einfachsten als Kopie der Struktur von `games/shithead/`
    (`package.json` mit Namen `@hostelgames/<slug>`, `eleventy.config.js`, `src/`, `tests/`).
-2. `game.json` mit `slug` (Kurzname, Ordner), `path` (Unterordner in der URL, Standard = `slug`),
-   `name`, `tagline` und, falls schon bekannt, `domain`.
+2. `game.json` mit `slug`, `name`, `tagline` und, falls schon bekannt, `domain`.
 3. In `eleventy.config.js` das Core-Plugin einbinden:
    `eleventyConfig.addPlugin(hostelgames, { site, cacheName: "<slug>" })`.
 4. Im Layout erst `/assets/core/fonts.css` und `/assets/core/core.css`, dann die eigenen Styles laden,
    und `/assets/core/core.js` als Modul. Sprachmenü, Footer, Tracking per `{% include %}` aus dem Core.
 5. `npm install` im Root. Die Startseite listet das Spiel automatisch.
-6. In `ci.yml` einen Test-Job für das Spiel ergänzen (wie `test-shithead`). Auf GitHub Pages landet
-   es automatisch, für eine eigene Domain einen Deploy-Job wie `deploy-shithead-hetzner` ergänzen.
+6. Nichts in `ci.yml` nötig: Tests und Deploy erkennen das Spiel automatisch. Für ein Deploy
+   `domain` in `game.json` setzen und die Variable `HETZNER_FTP_DIR_<SLUG>` anlegen.
 
 ## Deployment
 
-Bei **jedem Push auf `main`** (auch nach einem Merge) deployt `ci.yml` automatisch; ein manueller Lauf
-(*Actions → Test and deploy → Run workflow* auf `main`) macht dasselbe. Pull Requests bauen und testen nur.
+Ein Workflow (`.github/workflows/ci.yml`) testet und deployt:
 
-- **GitHub Pages** (Vorschau, `noindex`): Startseite und alle Spiele, sofort, ohne auf die Tests zu warten.
-  Startseite unter `https://jankraut.github.io/hostelgames/`, jedes Spiel unter
-  `https://jankraut.github.io/hostelgames/<path>/`, z. B. `…/hostelgames/shitheadgame/`.
-  Einmalig nötig: Repo öffentlich (oder GitHub Pro) und *Settings → Pages → Source: GitHub Actions*.
-- **Shithead auf eigener Domain** (Hetzner, `https://shitheadgame.de/`): erst wenn die Shithead-Tests grün
-  sind, per FTPS (`lftp`). Nötig ist das Environment `hetzner-webhosting` (*Deployment branches*: nur `main`)
-  mit den Secrets `HETZNER_HOST`, `HETZNER_USER`, `HETZNER_PASSWORD` und optional der Variable
-  `HETZNER_FTP_DIR` (Zielverzeichnis relativ zum FTP-Login, Standard `.`). Übertragen werden nur
-  Änderungen; was es im Build nicht mehr gibt, wird auch auf dem Server gelöscht – das Zielverzeichnis
-  gehört also allein dieser Seite.
+- **Jeder Pull Request und Push:** Übersetzungen prüfen und alles bauen; Browser-Tests **nur für
+  Spiele, die sich geändert haben** (`scripts/ci-plan.js`). Änderungen in `packages/`, `scripts/`,
+  `.github/` oder `package*.json` zählen für alle Spiele. Die Tests laufen im Playwright-Container
+  (Chromium vorinstalliert) und verteilt auf mehrere Runner (`testShards` in `game.json`).
+- **Jeder Push auf `main`:** danach automatisch – nur wenn Build und Tests grün sind –
+  - **jedes geänderte Spiel mit `domain`** auf seine eigene Domain (Hetzner, FTPS mit `lftp`;
+    nur geänderte Dateien, was es im Build nicht mehr gibt, wird auch auf dem Server gelöscht),
+  - die **Vorschau** (Hub + alle Spiele) auf GitHub Pages: `https://jankraut.github.io/hostelgames/`,
+    immer noindex. Einmalig nötig: *Settings → Pages → Source: GitHub Actions*.
+- **Von Hand** (*Actions → CI & Deploy → Run workflow*): alles testen und – auf `main` – alles deployen.
 
-Ein Ziel für hostelgames.com kommt dazu, sobald die Domain bereitsteht.
+### Zugangsdaten pro Spiel (optional)
+
+Standardmäßig nutzen alle Spiele das Environment **`hetzner-webhosting`** mit den Secrets
+`HETZNER_HOST`, `HETZNER_USER`, `HETZNER_PASSWORD`. Das Zielverzeichnis steht in einer Variable
+desselben Environments, je Spiel eine eigene: standardmäßig `HETZNER_FTP_DIR_<SLUG>`
+(z. B. `HETZNER_FTP_DIR_KNIFFEL`). Shithead nutzt weiterhin `HETZNER_FTP_DIR` (leer = FTP-Login-Ordner).
+Ein Spiel kann später ein eigenes Environment bekommen, in seiner `game.json`:
+
+```json
+"deploy": { "environment": "kniffel-hetzner", "ftpDirVar": "HETZNER_FTP_DIR" }
+```
+
+Zwei Spiele dürfen nie in dasselbe Verzeichnis deployen; `ci-plan.js` bricht dann ab.
+Ein Ziel für hostelgames.com (Hub) kommt dazu, sobald die Domain bereitsteht.
 
 ### Tracking
 

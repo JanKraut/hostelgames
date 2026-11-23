@@ -1,10 +1,9 @@
-name: Test and deploy
+name: CI & Deploy
 
-# Every pull request and push: build and test.
-# Every push to main (and a manual run on main) also deploys:
-#   - GitHub Pages (preview, noindex): hub and all games, right away, without waiting for the tests
-#     → https://jankraut.github.io/hostelgames/ and …/hostelgames/<path>/
-#   - Shithead on its own domain (Hetzner): only after its tests passed
+# Every pull request and push: build everything, test only the games that changed.
+# Every push to main: afterwards deploy the changed games to their own domains (Hetzner)
+# and the preview (hub + all games) to GitHub Pages – only if build and tests are green.
+# What counts as changed: scripts/ci-plan.js. Run by hand to test and deploy everything.
 
 on:
   pull_request:
@@ -15,9 +14,39 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ci-${{ github.ref }}
+  # Newer pushes to a pull request replace older runs; on main every run finishes.
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
+  plan:
+    name: Plan
+    runs-on: ubuntu-latest
+    outputs:
+      tests: ${{ steps.plan.outputs.tests }}
+      deploy: ${{ steps.plan.outputs.deploy }}
+      hub: ${{ steps.plan.outputs.hub }}
+      playwright: ${{ steps.plan.outputs.playwright }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - id: plan
+        run: node scripts/ci-plan.js
+        env:
+          BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+          HEAD: ${{ github.sha }}
+          ALL: ${{ github.event_name == 'workflow_dispatch' }}
+
+  # Translation check + build of hub and all games (fast, so always everything).
+  # Also the GitHub Pages preview: https://jankraut.github.io/hostelgames/ (noindex).
   build:
-    name: Build all (hub + games)
+    name: Build all
+    needs: plan
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -25,45 +54,126 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - run: npm ci
-      # Everything as on GitHub Pages: hub at /hostelgames/, each game at /hostelgames/<path>/
+      - run: npm ci --no-audit --no-fund
       - run: npm run build
-      - if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+      - if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && needs.plan.outputs.hub == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
 
-  test-shithead:
-    name: Test Shithead
+  # Browser tests of each changed game, split into shards (testShards in game.json).
+  # The Playwright image already contains Chromium and its system libraries.
+  test:
+    name: Test ${{ matrix.slug }} ${{ matrix.shard }}
+    needs: plan
+    if: needs.plan.outputs.tests != '[]'
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v${{ needs.plan.outputs.playwright }}-noble
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.plan.outputs.tests) }}
     defaults:
       run:
-        working-directory: games/shithead
+        working-directory: games/${{ matrix.slug }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('package-lock.json') }}
+      - run: npm ci --no-audit --no-fund
+        working-directory: .
+      - run: npm run build
+      - run: npx playwright test --shard=${{ matrix.shard }}
+        env:
+          HOME: /root
+      - name: Upload test report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-${{ matrix.slug }}-${{ strategy.job-index }}
+          path: |
+            games/${{ matrix.slug }}/playwright-report/
+            games/${{ matrix.slug }}/test-results/
+          retention-days: 14
+
+  # One deployment per changed game, to its own domain. Each game can have its own
+  # environment (deploy.environment in game.json); until then all use "hetzner-webhosting".
+  deploy:
+    name: Deploy ${{ matrix.game.slug }}
+    needs: [plan, build, test]
+    if: >-
+      always() && !cancelled()
+      && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+      && needs.plan.outputs.deploy != '[]'
+      && needs.build.result == 'success'
+      && (needs.test.result == 'success' || needs.test.result == 'skipped')
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        game: ${{ fromJSON(needs.plan.outputs.deploy) }}
+    concurrency:
+      group: deploy-${{ matrix.game.slug }}
+      cancel-in-progress: false
+    environment:
+      name: ${{ matrix.game.environment }}
+      url: ${{ matrix.game.domain }}/
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-      - run: npm ci
-        working-directory: .
-      - run: npm run build
-      - run: npx playwright install --with-deps chromium
-      - run: npm test
-      - name: Upload test report
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: playwright-report-shithead
-          path: |
-            games/shithead/playwright-report/
-            games/shithead/test-results/
-          retention-days: 14
+      - run: npm ci --no-audit --no-fund
+      # Built here, not in "build": the tracking settings are variables of the environment.
+      - run: npm run build -w games/${{ matrix.game.slug }}
+        env:
+          SITE_ORIGIN: ${{ matrix.game.domain }}
+          SITE_PATH_PREFIX: /
+          TRACKING_PROVIDER: ${{ vars.TRACKING_PROVIDER }}
+          TRACKING_ID: ${{ vars.TRACKING_ID }}
+          MATOMO_URL: ${{ vars.MATOMO_URL }}
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends lftp
+      # Only changed files are sent; files no longer in the build are removed on the
+      # server, so the target folder must belong to this game alone. The password goes
+      # in via the environment and never appears on a command line or in the log.
+      - name: Upload to Hetzner (FTPS)
+        env:
+          FTP_HOST: ${{ secrets.HETZNER_HOST }}
+          FTP_USER: ${{ secrets.HETZNER_USER }}
+          LFTP_PASSWORD: ${{ secrets.HETZNER_PASSWORD }}
+          FTP_DIR: ${{ vars[matrix.game.ftpDirVar] }}
+          FTP_DIR_VAR: ${{ matrix.game.ftpDirVar }}
+          SITE: games/${{ matrix.game.slug }}/_site/
+        run: |
+          if [ -z "$FTP_DIR" ]; then
+            # Only the original variable may mean "the FTP login folder itself".
+            if [ "$FTP_DIR_VAR" = "HETZNER_FTP_DIR" ]; then FTP_DIR=.; else
+              echo "::error::Set the variable $FTP_DIR_VAR (target folder) in environment ${{ matrix.game.environment }}"; exit 1
+            fi
+          fi
+          lftp --env-password -u "$FTP_USER" "ftp://$FTP_HOST" <<EOF
+          set ftp:ssl-force true
+          set ftp:ssl-protect-data true
+          set ssl:verify-certificate true
+          set net:max-retries 3
+          set net:timeout 30
+          mirror --reverse --delete --parallel=8 "$SITE" "$FTP_DIR"
+          EOF
 
-  deploy-pages:
+  # Preview of hub + all games: https://jankraut.github.io/hostelgames/<slug>/ (always noindex).
+  pages:
     name: Deploy GitHub Pages
-    needs: build
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: [plan, build, test]
+    if: >-
+      always() && !cancelled()
+      && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+      && needs.plan.outputs.hub == 'true'
+      && needs.build.result == 'success'
+      && (needs.test.result == 'success' || needs.test.result == 'skipped')
     runs-on: ubuntu-latest
     permissions:
       pages: write
@@ -75,54 +185,5 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/configure-pages@v5
       - id: deployment
         uses: actions/deploy-pages@v4
-
-  # Shithead on its own domain (Hetzner webspace). Credentials live in the secrets of
-  # the "hetzner-webhosting" environment, never in the repo.
-  deploy-shithead-hetzner:
-    name: Deploy Shithead (shitheadgame.de)
-    needs: test-shithead
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    concurrency:
-      group: hetzner
-      cancel-in-progress: false
-    environment:
-      name: hetzner-webhosting
-      url: https://shitheadgame.de/
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npm run build -w @hostelgames/shithead
-        env:
-          SITE_ORIGIN: https://shitheadgame.de
-          SITE_PATH_PREFIX: /
-          # Web analytics, set as variables of the environment (see README)
-          TRACKING_PROVIDER: ${{ vars.TRACKING_PROVIDER }}
-          TRACKING_ID: ${{ vars.TRACKING_ID }}
-          MATOMO_URL: ${{ vars.MATOMO_URL }}
-      # Upload with lftp: only changed files, files removed from the site are
-      # removed on the server too. The password goes in via the environment,
-      # so it never appears on a command line or in the log.
-      - run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
-      - name: Upload to Hetzner (FTPS)
-        env:
-          FTP_HOST: ${{ secrets.HETZNER_HOST }}
-          FTP_USER: ${{ secrets.HETZNER_USER }}
-          LFTP_PASSWORD: ${{ secrets.HETZNER_PASSWORD }}
-          FTP_DIR: ${{ vars.HETZNER_FTP_DIR || '.' }}
-        run: |
-          lftp --env-password -u "$FTP_USER" "ftp://$FTP_HOST" <<EOF
-          set ftp:ssl-force true
-          set ftp:ssl-protect-data true
-          set ssl:verify-certificate true
-          set net:max-retries 3
-          set net:timeout 30
-          mirror --reverse --delete --parallel=4 --verbose games/shithead/_site/ "$FTP_DIR"
-          EOF
