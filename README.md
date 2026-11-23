@@ -26,13 +26,31 @@ installiert.
 
 ```sh
 npm install              # einmal, im Root
-npm run start:shithead   # Dev-Server eines Spiels: http://localhost:8080/hostelgames/shithead/
+npm run start:shithead   # Dev-Server eines Spiels: http://localhost:8080/hostelgames/shitheadgame/
 npm run start:hub        # Dev-Server der Startseite: http://localhost:8080/hostelgames/
 npm run build            # alles nach _site/ (Hub + alle Spiele)
 npm run serve            # _site/ ansehen: http://localhost:8080/hostelgames/
 npm run check            # Übersetzungen aller Spiele prüfen
 npm test                 # Tests aller Spiele (vorher je Spiel bauen, siehe dort)
 ```
+
+### Mehrere Sessions gleichzeitig
+
+Jede Aufgabe bekommt einen eigenen Branch, lokal am besten in einem eigenen Worktree mit eigenem Port
+(Dev-Server und Tests lesen `PORT`, Standard 8080):
+
+```sh
+git fetch origin
+git worktree add ../hg-quickstart -b claude/quickstart-farben origin/main
+cd ../hg-quickstart && npm install
+PORT=8081 npm run start:shithead
+PORT=8082 npm run build:shithead && PORT=8082 npm test -w @hostelgames/shithead
+git worktree remove ../hg-quickstart   # wenn der PR gemergt ist
+```
+
+Ohne eigenen Port würde Playwright den laufenden Server eines anderen Worktrees mitbenutzen und
+dessen Stand testen. Die Regeln für Agenten (eigener Branch, Hotspot-Dateien, Core) stehen in
+[`CLAUDE.md`](CLAUDE.md).
 
 ## Adressen und Builds
 

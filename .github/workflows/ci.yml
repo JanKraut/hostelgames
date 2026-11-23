@@ -183,3 +183,20 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # One fixed check for branch protection ("Require status checks to pass" → "CI ok"):
+  # the test jobs above are created per game and shard, so their names change.
+  ci-ok:
+    name: CI ok
+    needs: [plan, build, test]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build and tests green
+        env:
+          PLAN: ${{ needs.plan.result }}
+          BUILD: ${{ needs.build.result }}
+          TEST: ${{ needs.test.result }}
+        run: |
+          echo "plan=$PLAN build=$BUILD test=$TEST"
+          [ "$PLAN" = success ] && [ "$BUILD" = success ] && { [ "$TEST" = success ] || [ "$TEST" = skipped ]; }
