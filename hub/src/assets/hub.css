@@ -4,7 +4,9 @@
 /* Header: logo (link to the start page) on the left, language bar on the right */
 .hubtop {
   display: flex;
-  flex-wrap: wrap;
+  /* Logo and buttons share one row. If it gets too tight, the logo moves to a
+     second row below the buttons (wrap-reverse puts the wrapped line on top). */
+  flex-wrap: wrap-reverse;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
@@ -77,22 +79,6 @@
   font-size: 15px;
   font-weight: 700;
   letter-spacing: 2.4px;
-}
-
-@media (max-width: 30rem) {
-  .hublogo {
-    margin: 0.4rem auto 0;
-  }
-
-  .logo {
-    height: 4.2rem;
-  }
-
-  /* Mobile: buttons (QR, theme, language) on top, the logo centred below */
-  .hubtop .langbar {
-    order: -1;
-    width: 100%;
-  }
 }
 
 .hub {
