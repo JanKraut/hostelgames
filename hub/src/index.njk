@@ -26,8 +26,14 @@ themeSwitchLabel: Switch between light and dark mode
         {%- if game.tagline %}
         <span class="game-tagline">{{ game.tagline }}</span>
         {%- endif %}
-        {%- if game.languages %}
-        <span class="game-meta">{{ game.languages }} languages</span>
+        <span class="game-meta">
+          {{- game.languages.length }} languages
+          {%- if "play" in game.pages %} · play against bots{% endif %}
+          {%- if game.players %} · {{ game.players.min }}–{{ game.players.max }} players{% endif %}
+          {%- if game.duration %} · {{ game.duration }}{% endif %}
+        </span>
+        {%- if game.status == "draft" %}
+        <span class="game-draft">Draft – preview only</span>
         {%- endif %}
       </a>
     </li>

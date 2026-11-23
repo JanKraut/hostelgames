@@ -73,15 +73,36 @@ Alles auf `github.io` bekommt `noindex` und keine Sitemap.
 
 1. `games/<slug>/` anlegen, am einfachsten als Kopie der Struktur von `games/shithead/`
    (`package.json` mit Namen `@hostelgames/<slug>`, `eleventy.config.js`, `src/`, `tests/`).
-2. `game.json` mit `slug` (Kurzname, Ordner im Repo), `name`, `tagline` und, falls schon bekannt,
-   `domain`. Der Ordner in den URLs und auf dem Server ist die Domain ohne Endung (ohne Domain: `slug`).
+2. `game.json` anlegen (Felder siehe unten), zu Beginn mit `"status": "draft"` und
+   `"languages": ["en", "de"]`. Der Ordner in den URLs und auf dem Server ist die Domain ohne Endung
+   (ohne Domain: `slug`).
 3. In `eleventy.config.js` das Core-Plugin einbinden:
    `eleventyConfig.addPlugin(hostelgames, { site, cacheName: "<slug>" })`.
 4. Im Layout erst `/assets/core/fonts.css` und `/assets/core/core.css`, dann die eigenen Styles laden,
    und `/assets/core/core.js` als Modul. Sprachmenü, Footer, Tracking per `{% include %}` aus dem Core.
-5. `npm install` im Root. Die Startseite listet das Spiel automatisch.
+5. `npm install` im Root. Die Startseite listet das Spiel automatisch (in der Vorschau auch als Entwurf).
 6. Nichts in `ci.yml` nötig: Tests und Deploy erkennen das Spiel automatisch. Für ein Deploy
    `domain` in `game.json` setzen – der Ordnername ergibt sich daraus (siehe unten).
+
+### `game.json`
+
+Beschreibt das Spiel und ist die einzige Stelle für diese Angaben. Geprüft wird sie bei jedem Build
+(`packages/core/lib/games.js`); ein Fehler nennt Datei und Feld.
+
+| Feld | Beispiel | Bedeutung |
+| --- | --- | --- |
+| `slug` | `"shithead"` | Kurzname: Ordner im Repo, Paket `@hostelgames/<slug>`, Offline-Cache |
+| `name`, `tagline` | `"Shithead"` | Name und eine Zeile für die Startseite |
+| `domain` | `"https://shitheadgame.de"` | eigene Domain (optional); daraus der Ordner `shitheadgame` |
+| `status` | `"draft"` / `"live"` | `draft`: nur in der Vorschau (GitHub Pages, mit Hinweis), nicht auf hostelgames.com, kein Deploy auf die eigene Domain |
+| `languages` | `["en", "de", "fr"]` | angebotene Sprachen, `en` und `de` immer. Flagge, Name, Fallback und Reihenfolge im Menü: `packages/core/lib/languages.js` |
+| `pages` | `["rules", "strategy", "quickstart", "play"]` | vorhandene Seiten, `rules` immer, `play` = Spiel gegen Bots. Muss zu den Dateien in `src/` passen (`index.njk`, `strategy.njk`, `quickstart.njk`, `play.njk`) |
+| `related` | `["president"]` | ähnliche Spiele (Slugs), optional |
+| `players`, `duration` | `{ "min": 3, "max": 6 }`, `"20–30 min"` | optional, für die Startseite |
+| `testShards`, `deploy.environment` | `3` | nur für die CI, siehe unten |
+
+Eine neue Sprache, die noch kein Spiel hat, kommt zuerst nach `packages/core/lib/languages.js`
+(und ihre Flagge nach `packages/core/includes/flags.njk`), dann in `languages` des Spiels.
 
 ## Deployment
 
