@@ -101,7 +101,7 @@ jobs:
 
   # One deployment per changed site (each game, the hub) to its own domain. On Hetzner the FTP
   # login is the folder "hostelgames.com"; each site uploads into its own subfolder
-  # (deploy.ftpDir in game.json / hub/hub.json, e.g. "shitheadgames", "hostelgames").
+  # (deploy.ftpDir in game.json / hub/hub.json, e.g. "shitheadgame", "hostelgames").
   # Each site can get its own environment (deploy.environment); until then all use "hetzner-webhosting".
   deploy:
     name: Deploy ${{ matrix.game.slug }}
