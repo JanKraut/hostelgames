@@ -11,16 +11,18 @@
 // (packages/, scripts/, .github/, package.json, package-lock.json) counts for every game.
 // The hub (hostelgames.com) changes with hub/ or with any change that changes a game.
 //
-// Optional settings in a game's game.json:
-//   "testShards": 3                      split its browser tests over 3 parallel runners (default 1)
+// Hetzner: the FTP login of "hetzner-webhosting" is the main folder "hostelgames.com";
+// every site has its own subfolder in it, e.g. "shitheadgames" or "hostelgames" (hub).
+//
+// Settings in a game's game.json (the hub's in hub/hub.json):
+//   "domain": "https://…"                 only sites with a domain are deployed
+//   "testShards": 3                       split its browser tests over 3 parallel runners (default 1)
 //   "deploy": {
-//     "environment": "shithead-hetzner", GitHub environment with the FTP secrets
-//                                        (default "hetzner-webhosting", shared by all games)
-//     "ftpDirVar": "HETZNER_FTP_DIR"     environment variable with the target folder
-//                                        (default HETZNER_FTP_DIR_<SLUG>, e.g. HETZNER_FTP_DIR_SHITHEAD)
+//     "ftpDir": "shitheadgames",          subfolder on the FTP login (default: the slug)
+//     "environment": "shithead-hetzner"   optional own GitHub environment with its own FTP secrets
+//                                         (default "hetzner-webhosting", shared by all)
 //   }
-// Only games with a "domain" are deployed. Two games may never upload into the same folder
-// variable of the same environment.
+// Two sites may never upload into the same folder of the same environment.
 //
 // Writes to $GITHUB_OUTPUT (or prints): games, tests, deploy (JSON), hub (true/false), playwright.
 import { execFileSync } from "node:child_process";
@@ -46,22 +48,31 @@ export function plan({ files, all = false }) {
   const list = games();
   const changed = list.filter((game) => everything || files.some((file) => file.startsWith(`games/${game.slug}/`)));
 
-  const deploy = changed
-    .filter((game) => game.domain)
-    .map((game) => ({
-      slug: game.slug,
-      domain: game.domain.replace(/\/$/, ""),
-      environment: game.deploy?.environment ?? DEFAULT_ENVIRONMENT,
-      ftpDirVar: game.deploy?.ftpDirVar ?? `HETZNER_FTP_DIR_${game.slug.toUpperCase().replace(/-/g, "_")}`,
+  const hubChanged = everything || changed.length > 0 || files.some((file) => file.startsWith("hub/"));
+  const hub = { ...JSON.parse(readFileSync(new URL("hub/hub.json", ROOT), "utf8")), slug: "hub" };
+
+  // Every site with a domain, as the deploy job needs it.
+  const sites = [...list.map((game) => ({ ...game, workspace: `games/${game.slug}` })), { ...hub, workspace: "hub" }]
+    .filter((site) => site.domain)
+    .map((site) => ({
+      slug: site.slug,
+      workspace: site.workspace,
+      domain: site.domain.replace(/\/$/, ""),
+      environment: site.deploy?.environment ?? DEFAULT_ENVIRONMENT,
+      ftpDir: (site.deploy?.ftpDir ?? site.slug).replace(/^\/+|\/+$/g, ""),
     }));
 
-  // Safety: with --delete, two games in one folder would wipe each other.
+  // Safety: with --delete, two sites in one folder would wipe each other.
   const targets = new Map();
-  for (const game of list.filter((g) => g.domain)) {
-    const key = `${game.deploy?.environment ?? DEFAULT_ENVIRONMENT}/${game.deploy?.ftpDirVar ?? `HETZNER_FTP_DIR_${game.slug.toUpperCase().replace(/-/g, "_")}`}`;
-    if (targets.has(key)) throw new Error(`games ${targets.get(key)} and ${game.slug} would deploy into the same folder (${key})`);
-    targets.set(key, game.slug);
+  for (const site of sites) {
+    if (!/^[A-Za-z0-9._-]+(\/[A-Za-z0-9._-]+)*$/.test(site.ftpDir) || site.ftpDir.split("/").includes("..")) {
+      throw new Error(`${site.slug}: deploy.ftpDir "${site.ftpDir}" must be a subfolder like "shitheadgames"`);
+    }
+    const key = `${site.environment}/${site.ftpDir}`;
+    if (targets.has(key)) throw new Error(`${targets.get(key)} and ${site.slug} would deploy into the same folder (${key})`);
+    targets.set(key, site.slug);
   }
+  const deploy = sites.filter((site) => (site.slug === "hub" ? hubChanged : changed.some((game) => game.slug === site.slug)));
 
   const tests = changed.flatMap((game) => {
     const total = Math.max(1, Number(game.testShards ?? 1));
@@ -72,7 +83,7 @@ export function plan({ files, all = false }) {
     games: changed.map((game) => game.slug),
     tests,
     deploy,
-    hub: everything || changed.length > 0 || files.some((file) => file.startsWith("hub/")),
+    hub: hubChanged,
   };
 }
 

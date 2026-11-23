@@ -63,7 +63,7 @@ Alles auf `github.io` bekommt `noindex` und keine Sitemap.
    und `/assets/core/core.js` als Modul. Sprachmenü, Footer, Tracking per `{% include %}` aus dem Core.
 5. `npm install` im Root. Die Startseite listet das Spiel automatisch.
 6. Nichts in `ci.yml` nötig: Tests und Deploy erkennen das Spiel automatisch. Für ein Deploy
-   `domain` in `game.json` setzen und die Variable `HETZNER_FTP_DIR_<SLUG>` anlegen.
+   `domain` und ggf. `deploy.ftpDir` (Unterordner in `hostelgames.com`) in `game.json` setzen.
 
 ## Deployment
 
@@ -74,26 +74,32 @@ Ein Workflow (`.github/workflows/ci.yml`) testet und deployt:
   `.github/` oder `package*.json` zählen für alle Spiele. Die Tests laufen im Playwright-Container
   (Chromium vorinstalliert) und verteilt auf mehrere Runner (`testShards` in `game.json`).
 - **Jeder Push auf `main`:** danach automatisch – nur wenn Build und Tests grün sind –
-  - **jedes geänderte Spiel mit `domain`** auf seine eigene Domain (Hetzner, FTPS mit `lftp`;
+  - **jedes geänderte Spiel mit `domain`** und den **Hub** (hostelgames.com) auf ihre Domains (Hetzner, FTPS mit `lftp`;
     nur geänderte Dateien, was es im Build nicht mehr gibt, wird auch auf dem Server gelöscht),
   - die **Vorschau** (Hub + alle Spiele) auf GitHub Pages: `https://jankraut.github.io/hostelgames/`,
     immer noindex. Einmalig nötig: *Settings → Pages → Source: GitHub Actions*.
 - **Von Hand** (*Actions → CI & Deploy → Run workflow*): alles testen und – auf `main` – alles deployen.
 
-### Zugangsdaten pro Spiel (optional)
+### Ordner und Zugangsdaten
 
-Standardmäßig nutzen alle Spiele das Environment **`hetzner-webhosting`** mit den Secrets
-`HETZNER_HOST`, `HETZNER_USER`, `HETZNER_PASSWORD`. Das Zielverzeichnis steht in einer Variable
-desselben Environments, je Spiel eine eigene: standardmäßig `HETZNER_FTP_DIR_<SLUG>`
-(z. B. `HETZNER_FTP_DIR_KNIFFEL`). Shithead nutzt weiterhin `HETZNER_FTP_DIR` (leer = FTP-Login-Ordner).
-Ein Spiel kann später ein eigenes Environment bekommen, in seiner `game.json`:
+Die Zugangsdaten im Environment **`hetzner-webhosting`** (Secrets `HETZNER_HOST`, `HETZNER_USER`,
+`HETZNER_PASSWORD`) gelten für den Hauptordner **`hostelgames.com`** auf dem Webspace. Jede Seite
+bekommt darin einen eigenen Unterordner, festgelegt in ihrer Konfiguration:
+
+| Seite | Konfiguration | Unterordner |
+| --- | --- | --- |
+| Hub (hostelgames.com) | `hub/hub.json` | `hostelgames` |
+| Shithead (shitheadgame.de) | `games/shithead/game.json` | `shitheadgames` |
+| neues Spiel | `games/<slug>/game.json` | Standard: der `slug` |
 
 ```json
-"deploy": { "environment": "kniffel-hetzner", "ftpDirVar": "HETZNER_FTP_DIR" }
+"deploy": { "ftpDir": "shitheadgames" }
 ```
 
-Zwei Spiele dürfen nie in dasselbe Verzeichnis deployen; `ci-plan.js` bricht dann ab.
-Ein Ziel für hostelgames.com (Hub) kommt dazu, sobald die Domain bereitsteht.
+Die Domain zeigt im Hetzner-Panel auf ihren Unterordner. Fehlt der Ordner, wird er angelegt.
+Ein Spiel kann später ein eigenes Environment mit eigenen Zugangsdaten bekommen:
+`"deploy": { "environment": "kniffel-hetzner", "ftpDir": "…" }`. Zwei Seiten dürfen nie in denselben
+Ordner deployen; `ci-plan.js` bricht dann ab.
 
 ### Tracking
 
