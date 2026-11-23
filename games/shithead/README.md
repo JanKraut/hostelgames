@@ -32,11 +32,11 @@ Beim ersten Mal ggf. den Browser installieren: `npx playwright install chromium`
 | `src/quickstart.njk` | Quickstart: Spickzettel, passt auf einen Handybildschirm (`/quickstart/`, `/de/quickstart/` …) |
 | `src/_includes/pagenav.njk` | Reiter oben zwischen Regeln, Strategie und Quickstart |
 | `src/play.njk` | Spielseite gegen Bots (`/play/`, `/de/play/` …) |
-| `game.json` | Name, Slug (`shithead`, Pfad auf hostelgames.com) und eigene Domain des Spiels |
+| `game.json` | Name, Slug, Domain (daraus der Ordner `shitheadgame`), Status, Sprachen und Seiten, siehe Root-README |
 | `src/_includes/layouts/base.njk` | Rahmen jeder Seite: Kopf, `hreflang`, lädt erst die Core-Styles und -Skripte, dann die eigenen |
 | `src/_includes/card.njk` | Makros für die Spielkarten-Grafiken |
 | `src/_includes/redirect.njk` | Nur englische Seiten: leitet auf die im Menü gewählte Sprache weiter; ohne Wahl bleibt es Englisch, egal welche Browsersprache |
-| `src/_data/languages.js` | Liste der Sprachen (Reihenfolge im Menü, Flagge, Fallback-Kette) |
+| `src/_data/languages.js` | Sprachen der Seiten: Codes aus `game.json`, Flagge, Name und Fallbacks aus `@hostelgames/core/languages` |
 | `src/_data/i18n/*.json` | Texte pro Sprache, inklusive Quiztexte unter `quiz` |
 | `src/_data/site.js` | Öffentliche URL und Pfad-Präfix (über `@hostelgames/core/site`) |
 | `src/assets/` | Eigenes Stylesheet (nur Shithead-Teile), JavaScript und Icons, werden unverändert kopiert |

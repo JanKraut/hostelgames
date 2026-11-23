@@ -3,6 +3,9 @@
   "name": "Shithead",
   "tagline": "The card game from every hostel in the world",
   "domain": "https://shitheadgame.de",
-  "languages": 15,
+  "status": "live",
+  "languages": ["en", "cs", "da", "de", "es", "es-419", "fr", "it", "nl", "nb", "pl", "pt", "pt-br", "fi", "sv"],
+  "pages": ["rules", "strategy", "quickstart", "play"],
+  "related": [],
   "testShards": 3
 }

@@ -52,9 +52,10 @@ export function plan({ files, all = false }) {
   const hubChanged = everything || changed.length > 0 || files.some((file) => file.startsWith("hub/"));
   const hub = { ...JSON.parse(readFileSync(new URL("hub/hub.json", ROOT), "utf8")), slug: "hub" };
 
-  // Every site with a domain, as the deploy job needs it.
+  // Every site with a domain, as the deploy job needs it. Games with status "draft" are only in
+  // the preview (GitHub Pages) and never deployed to their own domain.
   const sites = [...list.map((game) => ({ ...game, workspace: `games/${game.slug}` })), { ...hub, workspace: "hub" }]
-    .filter((site) => site.domain)
+    .filter((site) => site.domain && site.status !== "draft")
     .map((site) => ({
       slug: site.slug,
       workspace: site.workspace,

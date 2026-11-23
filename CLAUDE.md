@@ -10,6 +10,9 @@ Eleventy 3 + Nunjucks, npm-Workspaces, Node 22.
 - hub/             hostelgames.com: Startseite + Übersicht pro Spiel,
                    automatisch aus games/*/game.json
 - games/<slug>/    ein Spiel: game.json, src/, tests/, eigene CLAUDE.md
+                   game.json ist die Quelle für status, languages, pages
+                   (play = Spiel gegen Bots), related – Felder: README.
+                   Neue Spiele mit status "draft", bis Jan sie freigibt.
 - scripts/build-all.js   baut Hub + alle Spiele nach _site/
 
 Gemeinsames gehört nach packages/core, nicht ins Spiel. Ein Spiel überschreibt
@@ -54,7 +57,9 @@ Vor jedem Commit: check, build und Tests des betroffenen Spiels.
    (Warnungen von `npm run check`).
 3. Aus Englisch übersetzen, Deutsch als Abgleich für Sinn und Ton.
 4. Feste Begriffe aus der CLAUDE.md des Spiels beibehalten.
-5. Neue Sprachen in languages.js (und game.json) eintragen.
+5. Neue Sprachcodes in `languages` der game.json eintragen. Eine Sprache, die
+   es noch in keinem Spiel gibt, zuerst in packages/core/lib/languages.js
+   (Flagge in packages/core/includes/flags.njk).
 6. check (jetzt ohne Warnungen), build, Tests – dann committen.
 7. Melden: neue/aktualisierte Sprachen + unsicher übersetzte Begriffe.
 Gilt genauso für einzelne Sprachen („… Spanisch und Französisch“).

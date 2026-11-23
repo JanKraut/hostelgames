@@ -55,6 +55,8 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci --no-audit --no-fund
+      # game.json checks and languages (no browser, a few seconds)
+      - run: npm test -w @hostelgames/core
       - run: npm run build
       - if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && needs.plan.outputs.hub == 'true'
         uses: actions/upload-pages-artifact@v3

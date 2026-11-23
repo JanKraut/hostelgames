@@ -16,8 +16,9 @@ das letzte Wort.
 - „Four of a Kind Burn“, nicht „Vierling“ – in allen Sprachen
 
 ## Texte
-- src/_data/i18n/<lang>.json, Referenz en.json; Sprachliste und
-  Fallbacks (es-419 → es, pt-br → pt) in src/_data/languages.js
+- src/_data/i18n/<lang>.json, Referenz en.json; Sprachcodes in game.json
+  (`languages`), Flagge/Name/Fallbacks (es-419 → es, pt-br → pt) im Core
+  (packages/core/lib/languages.js)
 - check-i18n prüft auch index.njk, specials.njk, quiz.njk
 - Jan liefert neue Texte meist auf Deutsch, einen nach dem anderen
   → de + en anpassen, die übrigen 13 Sprachen nicht
