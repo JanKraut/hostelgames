@@ -6,6 +6,6 @@
   "languages": 15,
   "testShards": 3,
   "deploy": {
-    "ftpDirVar": "HETZNER_FTP_DIR"
+    "ftpDir": "shitheadgames"
   }
 }

@@ -19,7 +19,9 @@ themeSwitchLabel: Switch between light and dark mode
   <ul class="games">
     {%- for game in games %}
     <li>
-      <a class="game" href="/{{ game.slug }}/">
+      {#- Live on hostelgames.com: link to the game's own domain. In the preview (GitHub Pages)
+          the games are built next to the hub, under /<slug>/. -#}
+      <a class="game" href="{{ game.domain + '/' if (site.indexable and game.domain) else '/' + game.slug + '/' }}">
         <span class="game-name">{{ game.name }}</span>
         {%- if game.tagline %}
         <span class="game-tagline">{{ game.tagline }}</span>
