@@ -10,13 +10,16 @@
 //     fonts.css and the self-hosted font files listed in data/fonts.js
 //   - global data: tracking (data/tracking.js), fonts, coreFonts (files to preload),
 //     assetVersion (appended as ?v=… to CSS and JS, changes with every change of a file)
-//   - the shared includes in includes/ (language menu, flags, footer, tracking);
+//   - assets/core/share.js and qrcode.js for the share box (pages with `share: true`)
+//   - the shared includes in includes/ (language menu, flags, footer, tracking, playing cards,
+//     page tabs, share box, language redirect, layouts/game.njk);
 //     a site's own _includes win if a file has the same name
 //   - the service worker (assets/sw.js) with the list and a hash of all built files,
 //     unless serviceWorker: false
 //   - the dev server port from PORT (default 8080), so parallel worktrees can each run one
 import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { createRequire } from "node:module";
 import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { HtmlBasePlugin } from "@11ty/eleventy";
@@ -27,8 +30,9 @@ import { fontFiles, fontsCss } from "./lib/fonts-css.js";
 const CORE = dirname(fileURLToPath(import.meta.url));
 const CORE_ASSETS = join(CORE, "assets");
 const INCLUDES = join(CORE, "includes");
+const require = createRequire(import.meta.url);
 // Files of assets/ that are published as they are; sw.js is a template.
-const PUBLISHED = ["core.css", "core.js"];
+const PUBLISHED = ["core.css", "core.js", "share.js"];
 
 /** Hash over the contents of every file in the given folders. */
 function hashFiles(dirs) {
@@ -43,7 +47,7 @@ function hashFiles(dirs) {
 }
 
 export default function hostelgamesCore(eleventyConfig, options = {}) {
-  const { site, assets = "src/assets", serviceWorker = true } = options;
+  const { site, assets = "src/assets", includes = "src/_includes", serviceWorker = true } = options;
   if (!site) throw new Error("@hostelgames/core: pass { site } (from @hostelgames/core/site)");
   const cacheName = options.cacheName ?? site.game?.slug ?? "hostelgames";
 
@@ -55,6 +59,8 @@ export default function hostelgamesCore(eleventyConfig, options = {}) {
   for (const file of PUBLISHED) {
     eleventyConfig.addPassthroughCopy({ [relative(process.cwd(), join(CORE_ASSETS, file))]: `assets/core/${file}` });
   }
+  // QR code library (MIT) for the share box → /assets/core/qrcode.js
+  eleventyConfig.addPassthroughCopy({ [relative(process.cwd(), require.resolve("qrcode-generator/qrcode.js"))]: "assets/core/qrcode.js" });
   for (const [file, source] of fontFiles(fonts)) {
     eleventyConfig.addPassthroughCopy({ [relative(process.cwd(), source)]: `assets/core/fonts/${file}` });
   }
@@ -75,6 +81,10 @@ export default function hostelgamesCore(eleventyConfig, options = {}) {
       if (Array.isArray(loader.searchPaths) && !loader.searchPaths.includes(INCLUDES)) loader.searchPaths.push(INCLUDES);
     }
   });
+
+  // Page frame for games: `layout: game` (includes/layouts/game.njk). Eleventy looks for layouts
+  // in the site's own _includes, so the alias points from there to the core file.
+  eleventyConfig.addLayoutAlias("game", relative(join(process.cwd(), includes), join(INCLUDES, "layouts/game.njk")));
 
   // ---------- After the build ----------
   eleventyConfig.on("eleventy.after", ({ directories }) => {

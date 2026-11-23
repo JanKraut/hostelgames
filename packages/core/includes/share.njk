@@ -1,6 +1,8 @@
 {#- "Share the guide" box with QR code. Points to the page it is on.
-    Pages that include it also load /assets/qrcode.js and /assets/share.js;
-    the same box opens as a popup from the QR button at the top (langmenu.njk). -#}
+    Pages that include it set `share: true` in their front matter; the layout then loads
+    /assets/core/qrcode.js and /assets/core/share.js, and the language bar gets a QR button
+    that opens the same box as a popup (langmenu.njk).
+    Texts from the game's i18n: shH, shLead, shAlt, shBtn, shCopy, shCopied, shClose. -#}
 {%- from "sharebox.njk" import sharebox -%}
 {%- set t = lang.t -%}
 <section id="share">

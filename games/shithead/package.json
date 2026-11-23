@@ -10,8 +10,7 @@
     "check": "hostelgames-check-i18n --dir src/_data/i18n --templates src/index.njk,src/_includes/specials.njk,src/_includes/quiz.njk --languages src/_data/languages.js"
   },
   "dependencies": {
-    "@hostelgames/core": "*",
-    "qrcode-generator": "1.4.4"
+    "@hostelgames/core": "*"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.7",

@@ -30,19 +30,17 @@ Beim ersten Mal ggf. den Browser installieren: `npx playwright install chromium`
 | `src/index.njk` | Regelseite, wird einmal pro Sprache gerendert |
 | `src/strategy.njk` | Strategieseite (`/strategy/`, `/de/strategy/` …) |
 | `src/quickstart.njk` | Quickstart: Spickzettel, passt auf einen Handybildschirm (`/quickstart/`, `/de/quickstart/` …) |
-| `src/_includes/pagenav.njk` | Reiter oben zwischen Regeln, Strategie und Quickstart |
 | `src/play.njk` | Spielseite gegen Bots (`/play/`, `/de/play/` …) |
 | `game.json` | Name, Slug, Domain (daraus der Ordner `shitheadgame`), Status, Sprachen und Seiten, siehe Root-README |
+| Aus dem Core | Seitenreiter, Weiterleitung nach Sprache, Teilen-Box (`share: true`), Sitemap – siehe `packages/core/README.md` |
 | `src/_includes/layouts/base.njk` | Rahmen jeder Seite: Kopf, `hreflang`, lädt erst die Core-Styles und -Skripte, dann die eigenen |
-| `src/_includes/card.njk` | Makros für die Spielkarten-Grafiken |
-| `src/_includes/redirect.njk` | Nur englische Seiten: leitet auf die im Menü gewählte Sprache weiter; ohne Wahl bleibt es Englisch, egal welche Browsersprache |
+| `src/_includes/shithead-card.njk` | Die Shithead-Karte (Haufen statt Wert und Farbe); die übrigen Spielkarten-Makros kommen aus dem Core (`card.njk`) |
 | `src/_data/languages.js` | Sprachen der Seiten: Codes aus `game.json`, Flagge, Name und Fallbacks aus `@hostelgames/core/languages` |
 | `src/_data/i18n/*.json` | Texte pro Sprache, inklusive Quiztexte unter `quiz` |
 | `src/_data/site.js` | Öffentliche URL und Pfad-Präfix (über `@hostelgames/core/site`) |
 | `src/assets/` | Eigenes Stylesheet (nur Shithead-Teile), JavaScript und Icons, werden unverändert kopiert |
 | `src/assets/site.js` | Auf jeder Seite: alte deutsche Abschnitts-Links umleiten |
 | `src/assets/rules.js` | Regelseite: Quiz |
-| `src/assets/share.js` | Teilen-Box unten auf der Seite und QR-Popup oben: QR-Code, Link kopieren, Teilen |
 | `src/assets/game/` | Spiel: `engine.js` (Regeln), `bots.js` (Computergegner), `ui.js` (Oberfläche), `fx.js` (Animationen), `game.css` |
 | `src/manifest.webmanifest` | Web-App-Manifest, macht die Seite installierbar |
 | `tests/site.spec.js` | Playwright-Tests: alle Sprachseiten, Weiterleitung, ohne JavaScript, Quiz, Teilen, Offline |

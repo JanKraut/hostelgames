@@ -1,0 +1,10 @@
+{
+  "slug": "cabo",
+  "name": "Cabo",
+  "tagline": "Peek, swap and remember – the lowest hand wins",
+  "domain": "https://cabogame.de",
+  "status": "draft",
+  "languages": ["en", "de"],
+  "pages": ["rules"],
+  "related": ["cambio"]
+}

@@ -616,3 +616,157 @@ footer .heart {
 :root[data-theme="dark"] .themeswitch .moon {
   display: none;
 }
+
+/* ---------- Share box (includes/share.njk) ---------- */
+
+.sharebox {
+  padding: 1.5rem 1.2rem;
+  border-radius: 20px;
+  background: var(--felt);
+  color: var(--felt-text);
+  text-align: center;
+}
+
+.sharebox h2 {
+  color: var(--felt-text);
+}
+
+.shlead {
+  max-width: 26rem;
+  margin: 0 auto 1.2rem;
+  color: var(--felt-soft);
+}
+
+.qr {
+  width: min(240px, 72vw);
+  margin: 0 auto 0.9rem;
+  padding: 10px;
+  border-radius: 16px;
+  background: #fff;
+  line-height: 0;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.qr:empty {
+  display: none;
+}
+
+.qr svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.shurl {
+  max-width: 22rem;
+  margin: 0 auto 1.1rem;
+  color: var(--felt-soft);
+  font-size: 0.88rem;
+  word-break: break-all;
+}
+
+.shurl a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.shbtns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+.shbtn {
+  padding: 0.9rem 1.4rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--felt-chip);
+  color: var(--felt-text);
+  font: 700 1.05rem/1 var(--font-body);
+  cursor: pointer;
+}
+
+.shbtn.primary {
+  background: var(--felt-btn);
+  color: var(--felt-btn-text);
+}
+
+/* QR popup, opened from the QR button next to the light / dark switch */
+.qrpop {
+  width: min(26rem, calc(100vw - 2rem));
+  max-height: calc(100dvh - 2rem);
+  padding: 0;
+  border: 0;
+  border-radius: 20px;
+  background: transparent;
+  overflow: auto;
+}
+
+.qrpop::backdrop {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.qrpop .sharebox {
+  position: relative;
+  padding-top: 1.8rem;
+}
+
+.qrclose {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--felt-chip);
+  color: var(--felt-text);
+  cursor: pointer;
+}
+
+/* ---------- Call to action: box and round button (e.g. "play against bots") ---------- */
+
+.cta {
+  padding: 1.4rem 1.2rem;
+  border: 2px solid var(--gold-line);
+  border-radius: 20px;
+  text-align: center;
+}
+
+.cta p {
+  color: var(--muted);
+}
+
+.ctabtn {
+  display: inline-block;
+  padding: 0.95rem 1.6rem;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--card-ink);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.ctabtn,
+.shbtn {
+  transition: background-color 0.15s, box-shadow 0.15s;
+}
+
+@media (hover: hover) {
+  .ctabtn:hover {
+    box-shadow: inset 0 0 0 100vmax rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .shbtn.primary:hover {
+    box-shadow: inset 0 0 0 100vmax rgba(255, 255, 255, 0.14), 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .shbtn:not(.primary):hover {
+    background: var(--felt-chip-hover);
+  }
+}
