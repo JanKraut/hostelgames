@@ -1,0 +1,48 @@
+/* Hub page (hostelgames.com). Colours, fonts, header and footer come from
+   @hostelgames/core (assets/core/core.css). */
+
+.hub {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.games {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.game {
+  display: grid;
+  gap: 0.35rem;
+  height: 100%;
+  padding: 1.2rem 1.3rem;
+  border: 1.5px solid var(--line);
+  border-radius: 1rem;
+  background: var(--surface);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.game:hover {
+  border-color: var(--gold-line);
+}
+
+.game-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: var(--font-display-weight);
+}
+
+.game-tagline {
+  color: var(--muted);
+}
+
+.game-meta {
+  color: var(--gold-line);
+  font-size: 0.9rem;
+  font-weight: 700;
+}

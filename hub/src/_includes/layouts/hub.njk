@@ -1,0 +1,30 @@
+{#- Frame of the hub pages. English only for now. -#}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{ pageTitle }}</title>
+<meta name="description" content="{{ pageDescription }}">
+{%- if not site.indexable %}
+<meta name="robots" content="noindex">
+{%- endif %}
+<link rel="canonical" href="{{ site.origin }}{{ site.pathPrefix }}">
+<script>document.documentElement.classList.add("js");try{var th=localStorage.getItem("theme");if(th==="light"||th==="dark")document.documentElement.dataset.theme=th}catch(e){}</script>
+{%- include "tracking-head.njk" %}
+<meta name="theme-color" content="#f4cf71" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#171a1f" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+{%- for file in coreFonts %}
+<link rel="preload" href="/assets/core/fonts/{{ file }}" as="font" type="font/woff2" crossorigin>
+{%- endfor %}
+<link rel="stylesheet" href="/assets/core/fonts.css?v={{ assetVersion }}">
+<link rel="stylesheet" href="/assets/core/core.css?v={{ assetVersion }}">
+<link rel="stylesheet" href="/assets/hub.css?v={{ assetVersion }}">
+<script type="module" src="/assets/core/core.js?v={{ assetVersion }}"></script>
+</head>
+<body>
+{%- include "tracking-body.njk" %}
+{{ content | safe }}
+</body>
+</html>

@@ -1,4 +1,7 @@
-name: Test and deploy
+name: Test
+
+# Builds and tests on every pull request and push. Deploys nothing:
+# deployments only run by hand, see deploy.yml.
 
 on:
   pull_request:
@@ -10,7 +13,8 @@ permissions:
   contents: read
 
 jobs:
-  test:
+  build:
+    name: Build all (hub + games)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,6 +23,23 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # Everything as on the main domain: hub at /, each game at /<slug>/
+      - run: npm run build
+
+  test-shithead:
+    name: Test Shithead
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: games/shithead
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+        working-directory: .
       - run: npm run build
       - run: npx playwright install --with-deps chromium
       - run: npm test
@@ -26,91 +47,8 @@ jobs:
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-report
+          name: playwright-report-shithead
           path: |
-            playwright-report/
-            test-results/
+            games/shithead/playwright-report/
+            games/shithead/test-results/
           retention-days: 14
-
-  # GitHub Pages (preview copy, noindex): built and deployed straight from main,
-  # without waiting for the tests. The tests above still run alongside.
-  build-pages:
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npm run build
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
-
-  deploy:
-    needs: build-pages
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    concurrency:
-      group: pages
-      cancel-in-progress: false
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - uses: actions/configure-pages@v5
-      - id: deployment
-        uses: actions/deploy-pages@v4
-
-  # Hetzner webspace (shitheadgame.de): every push to main, but only after the
-  # tests passed. Credentials live in the secrets of the "hetzner-webhosting"
-  # environment, never in the repo.
-  deploy-hetzner:
-    needs: test
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    concurrency:
-      group: hetzner
-      cancel-in-progress: false
-    environment:
-      name: hetzner-webhosting
-      url: https://shitheadgame.de/
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npm run build
-        env:
-          SITE_ORIGIN: https://shitheadgame.de
-          SITE_PATH_PREFIX: /
-          # Web analytics, set as variables of the environment (see README)
-          TRACKING_PROVIDER: ${{ vars.TRACKING_PROVIDER }}
-          TRACKING_ID: ${{ vars.TRACKING_ID }}
-          MATOMO_URL: ${{ vars.MATOMO_URL }}
-      # Upload with lftp: only changed files, files removed from the site are
-      # removed on the server too. The password goes in via the environment,
-      # so it never appears on a command line or in the log.
-      - run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
-      - name: Upload to Hetzner (FTPS)
-        env:
-          FTP_HOST: ${{ secrets.HETZNER_HOST }}
-          FTP_USER: ${{ secrets.HETZNER_USER }}
-          LFTP_PASSWORD: ${{ secrets.HETZNER_PASSWORD }}
-          FTP_DIR: ${{ vars.HETZNER_FTP_DIR || '.' }}
-        run: |
-          lftp --env-password -u "$FTP_USER" "ftp://$FTP_HOST" <<EOF
-          set ftp:ssl-force true
-          set ftp:ssl-protect-data true
-          set ssl:verify-certificate true
-          set net:max-retries 3
-          set net:timeout 30
-          mirror --reverse --delete --parallel=4 --verbose _site/ "$FTP_DIR"
-          EOF

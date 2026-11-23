@@ -1,154 +1,89 @@
-# shithead-rules
+# Hostel Games
 
-**Shithead in 3 minutes** – eine mehrsprachige Kurzanleitung für das Kartenspiel Shithead.
-Statische Seiten, gebaut mit [Eleventy](https://www.11ty.dev/): Jede Sprache ist eine eigene, fertig
-gerenderte Seite (`/`, `/de/`, `/es/`, …), die Regeln sind also auch ohne JavaScript lesbar.
-JavaScript ergänzt nur das Übungsquiz, QR-Code und Teilen-Buttons und merkt sich die gewählte Sprache.
+Kartenspiele aus jedem Hostel der Welt: Regeln, Strategie, Spickzettel und Spiele gegen Bots,
+mehrsprachig und offline-fähig. Ein Monorepo: alle Spiele teilen sich einen Core, damit Design und
+Verhalten überall gleich sind. Pro Spiel gibt es einen Unterordner.
 
-## Entwickeln
-
-```sh
-npm install
-npm start        # Dev-Server mit Live-Reload: http://localhost:8080/shitheadgame/
-npm run check    # prüft die Übersetzungen (läuft auch bei jedem Build)
-npm run build    # schreibt die Seite nach _site/
-npm test         # Playwright-Tests gegen das gebaute _site/ (vorher npm run build)
-```
-
-Beim ersten Mal ggf. den Browser installieren: `npx playwright install chromium`.
+Später: Hauptdomain **hostelgames.com** (Startseite + jedes Spiel unter `/<spiel>/`) und zusätzlich
+eine eigene Domain pro Spiel (z. B. shitheadgame.de). Beides steht noch nicht zur Verfügung;
+bis dahin gibt es nur Builds und eine manuelle Vorschau auf GitHub Pages.
 
 ## Aufbau
 
 | Pfad | Inhalt |
 | --- | --- |
-| `src/index.njk` | Regelseite, wird einmal pro Sprache gerendert |
-| `src/strategy.njk` | Strategieseite (`/strategy/`, `/de/strategy/` …) |
-| `src/quickstart.njk` | Quickstart: Spickzettel, passt auf einen Handybildschirm (`/quickstart/`, `/de/quickstart/` …) |
-| `src/_includes/pagenav.njk` | Reiter oben zwischen Regeln, Strategie und Quickstart |
-| `src/play.njk` | Spielseite gegen Bots (`/play/`, `/de/play/` …) |
-| `src/_includes/layouts/base.njk` | Gemeinsamer Rahmen: Kopf, `hreflang`, Skripte |
-| `src/_includes/langmenu.njk` | Sprachmenü, verlinkt auf dieselbe Seite in jeder Sprache |
-| `src/_includes/card.njk` | Makros für die Spielkarten-Grafiken |
-| `src/_includes/redirect.njk` | Nur englische Seiten: leitet auf die im Menü gewählte Sprache weiter; ohne Wahl bleibt es Englisch, egal welche Browsersprache |
-| `src/_data/languages.js` | Liste der Sprachen (Reihenfolge im Menü, Flagge, Fallback-Kette) |
-| `src/_data/i18n/*.json` | Texte pro Sprache, inklusive Quiztexte unter `quiz` |
-| `src/_data/site.js` | Öffentliche URL und Pfad-Präfix |
-| `src/_data/fonts.js` | Welche Schriften, Schnitte und Zeichensätze ausgeliefert werden |
-| `src/fonts.11ty.js` | Erzeugt `/assets/fonts.css` aus den `@fontsource`-Paketen |
-| `src/assets/` | Stylesheet, JavaScript und Icons, werden unverändert kopiert |
-| `src/assets/site.js` | Auf jeder Seite: Sprachmenü, Service Worker |
-| `src/assets/rules.js` | Regelseite: Quiz |
-| `src/assets/share.js` | Teilen-Box unten auf der Seite und QR-Popup oben: QR-Code, Link kopieren, Teilen |
-| `src/assets/game/` | Spiel: `engine.js` (Regeln), `bots.js` (Computergegner), `ui.js` (Oberfläche), `fx.js` (Animationen), `game.css` |
-| `src/sw.js` | Service Worker (Vorlage), siehe „Offline“ |
-| `src/manifest.webmanifest` | Web-App-Manifest, macht die Seite installierbar |
-| `scripts/check-i18n.js` | Prüft die Übersetzungen, siehe unten |
-| `tests/site.spec.js` | Playwright-Tests: alle Sprachseiten, Weiterleitung, ohne JavaScript, Quiz, Teilen, Offline |
-| `tests/play.spec.js` | Spielseite in allen Sprachen, komplette Partien über die Oberfläche |
-| `tests/engine.spec.js` | Spielregeln und Bots ohne Browser, inklusive Tausender simulierter Partien |
-| `tests/serve.js` | Kleiner Server, der `_site/` unter dem Pages-Pfad ausliefert |
+| `packages/core/` | **`@hostelgames/core`**: gemeinsamer Kern aller Seiten, siehe [README](packages/core/README.md) |
+| `games/<slug>/` | Ein Spiel, eigene Eleventy-Seite mit `game.json`, Texten, Tests. Erstes Spiel: [`games/shithead/`](games/shithead/README.md) |
+| `hub/` | Startseite von hostelgames.com, listet automatisch alle Spiele aus `games/*/game.json` |
+| `scripts/build-all.js` | Baut Hub und alle Spiele in ein gemeinsames `_site/` (Aufbau wie hostelgames.com) |
+| `.github/workflows/ci.yml` | Build und Tests bei jedem Push und Pull Request, **ohne Deployment** |
+| `.github/workflows/deploy.yml` | Deployment, **nur manuell** (Actions → „Deploy (manual)“) |
 
-## Gegen Bots spielen
+Die Workspaces (npm) sind `packages/*`, `games/*` und `hub`. Abhängigkeiten werden einmal im Root
+installiert.
 
-Die Spielseite läuft komplett im Browser, ohne Server, auch offline.
+## Entwickeln
 
-- `engine.js` enthält nur die Regeln, genau wie auf der Regelseite, ohne Oberfläche. Dadurch lässt sie
-  sich in Node testen und simulieren.
-- `bots.js`: **Leicht** legt eine zufällige passende Karte. **Normal** spielt die Strategien von der
-  Regelseite: starke Karten offen hinlegen, kleine Karten zuerst, Sonderkarten sparen, große Stapel mit
-  der 10 verbrennen, Vierlinge vollmachen, die 7 gezielt einsetzen. Im Endspiel legt er seine höchste
-  Karte auf einen freien Stapel.
-- **Namen:** Du kannst deinen eigenen Namen eingeben (wird mit den Einstellungen gespeichert). Die Bots
-  heißen wie in der Sprache üblich: `game.botNames` in den i18n-Dateien enthält vier Paare
-  `Name/Ersatzname`, z. B. `Lukas/Jonas`. Heißt du wie ein Bot (Groß-/Kleinschreibung und Akzente egal),
-  spielt sein Ersatzname mit.
-- **Statistik:** Spiele, Siege und Shithead-Runden pro Schwierigkeit stehen nur im `localStorage`
-  des Geräts (`game-stats`), nichts verlässt das Gerät. Sie lässt sich im Spiel zurücksetzen.
-- **Animationen** (`fx.js`): Gelegte Karten fliegen vom Spieler auf den Stapel, ein aufgenommener
-  Stapel rutscht zu dem, der ihn nimmt, ein verbrannter Stapel flackert mit 🔥 weg, wer aussetzt,
-  wackelt kurz mit ⏭. Bewegt werden nur Kopien über dem Tisch, das Layout bleibt fest. Mit
-  „Bewegung reduzieren“ im System gibt es keine Animationen (so laufen auch die meisten Tests).
-- **Layout:** Während einer Partie füllt der Tisch genau einen Bildschirm (`100dvh`). Jeder Bereich hat
-  eine feste Höhe, die Kartengröße richtet sich nach der Bildschirmhöhe, Buttons werden nur unsichtbar
-  statt entfernt, und viele Handkarten überlappen in einer Reihe. So verschiebt sich zwischen den
-  Zügen nichts. Ein Test prüft das auf dem kleinsten Handy (320 × 568) und einem Tablet.
-- **Endlosschleifen:** In seltenen Endspielen ist jeder Zug erzwungen und dieselben Karten wandern ewig
-  im Kreis (gefunden per Simulation, etwa 1 von 3.000 Partien). Kommt dieselbe Stellung zum 10. Mal vor,
-  endet die Partie unentschieden. Bots weichen wiederholten Stellungen aus, wo sie eine Wahl haben.
+```sh
+npm install              # einmal, im Root
+npm run start:shithead   # Dev-Server eines Spiels: http://localhost:8080/hostelgames/shithead/
+npm run start:hub        # Dev-Server der Startseite: http://localhost:8080/hostelgames/
+npm run build            # alles nach _site/ (Hub + alle Spiele)
+npm run serve            # _site/ ansehen: http://localhost:8080/hostelgames/
+npm run check            # Übersetzungen aller Spiele prüfen
+npm test                 # Tests aller Spiele (vorher je Spiel bauen, siehe dort)
+```
 
-## Keine externen Ressourcen
+## Adressen und Builds
 
-Die Seite lädt nichts von fremden Servern (kein Google Fonts, kein CDN):
+Jede Seite bekommt Adresse und Pfad-Präfix beim Build über Umgebungsvariablen
+(`packages/core/lib/site.js`):
 
-- **Schriften** kommen aus dem npm-Paket `@fontsource/manrope` (SIL Open Font License 1.1). Ausgeliefert werden nur die in
-  `src/_data/fonts.js` gelisteten Schnitte und Zeichensätze. Dank `unicode-range` lädt der Browser
-  nur, was eine Sprache wirklich braucht.
-- **QR-Code** erzeugt `qrcode-generator` (MIT), kopiert nach `/assets/qrcode.js`.
+| Ziel | `SITE_ORIGIN` | `SITE_PATH_PREFIX` | Befehl |
+| --- | --- | --- | --- |
+| Vorschau GitHub Pages (Standard, `noindex`) | `https://jankraut.github.io` | `/hostelgames/` | `npm run build` |
+| Hauptdomain, später | `https://hostelgames.com` | `/` | `npm run build` |
+| Eigene Domain eines Spiels, später | z. B. `https://shitheadgame.de` | `/` | `npm run build -w @hostelgames/shithead` |
 
-Ein Test stellt sicher, dass das so bleibt. Einzige Ausnahme ist ein Tracking, falls es beim Build
-eingeschaltet wird (siehe „Tracking“).
+`npm run build` legt die Startseite nach `_site/` und jedes Spiel nach `_site/<slug>/`, mit passendem
+Präfix. Eine Spiel-Domain baut nur dieses Spiel (Ausgabe in `games/<slug>/_site/`); stimmt die Adresse
+mit `domain` aus seiner `game.json` überein, kommt seine `.htaccess` dazu.
+Alles auf `github.io` bekommt `noindex` und keine Sitemap.
 
-## Offline
+## Neues Spiel anlegen
 
-Nach dem ersten Besuch funktioniert die ganze Seite ohne Netz, inklusive aller Sprachen, Quiz und
-QR-Code. Dafür speichert ein Service Worker alle Dateien der Seite (unter 1 MB):
-
-- `eleventy.config.js` schreibt nach jedem Build `_site/sw.js` aus der Vorlage `src/sw.js` und
-  trägt die Liste aller Dateien und einen Hash über ihren Inhalt ein. Ändert sich etwas, bekommt
-  der nächste Besuch eine neue Version und der alte Speicher wird gelöscht.
-- Seiten kommen zuerst aus dem Netz (Updates sind sofort da), nur offline aus dem Speicher.
-  CSS, JavaScript, Schriften und Icons kommen aus dem Speicher.
-- Über das Manifest lässt sich die Seite auf den Homescreen legen.
-
-Beim Entwickeln mit `npm start` ist der Service Worker auch aktiv: Geänderte CSS- oder JS-Dateien
-erscheinen deshalb erst nach einem zweiten Neuladen (oder in den DevTools „Update on reload“ aktivieren).
-
-## Sprachen und Fallbacks
-
-Englisch ist Standard und liegt unter `/`, jede andere Sprache unter `/<code>/`.
-Eine Sprache muss nur die Texte enthalten, die sie wirklich braucht: Fehlende Texte kommen der Reihe
-nach aus ihren `fallback`-Sprachen und zuletzt aus Englisch. `es-419` (Lateinamerika) enthält zum
-Beispiel nur die wenigen Texte, die von `es` abweichen.
-
-**Neue Sprache:** `src/_data/i18n/<code>.json` anlegen und eine Zeile in `src/_data/languages.js` ergänzen.
-
-**Prüfung:** `npm run check` (Teil von `npm run build`) bricht mit einer Liste der Probleme ab, wenn
-- ein Text fehlt, also weder in der Sprache selbst noch in einer ihrer Fallback-Sprachen steht und deshalb auf Englisch erscheinen würde,
-- ein Text leer ist oder nicht in Englisch vorkommt (Tippfehler, Überbleibsel),
-- Platzhalter wie `{mine}` oder `{top}` oder die HTML-Tags von Englisch abweichen oder Tags nicht geschlossen sind,
-- ein Link auf einen `#abschnitt` zeigt, den es auf der Seite nicht gibt,
-- `languages.js` und die JSON-Dateien nicht zusammenpassen.
+1. `games/<slug>/` anlegen, am einfachsten als Kopie der Struktur von `games/shithead/`
+   (`package.json` mit Namen `@hostelgames/<slug>`, `eleventy.config.js`, `src/`, `tests/`).
+2. `game.json` mit `slug`, `name`, `tagline` und, falls schon bekannt, `domain`.
+3. In `eleventy.config.js` das Core-Plugin einbinden:
+   `eleventyConfig.addPlugin(hostelgames, { site, cacheName: "<slug>" })`.
+4. Im Layout erst `/assets/core/fonts.css` und `/assets/core/core.css`, dann die eigenen Styles laden,
+   und `/assets/core/core.js` als Modul. Sprachmenü, Footer, Tracking per `{% include %}` aus dem Core.
+5. `npm install` im Root. Die Startseite listet das Spiel automatisch.
+6. In `ci.yml` einen Test-Job für das Spiel ergänzen (wie `test-shithead`).
 
 ## Deployment
 
-`.github/workflows/ci.yml` baut die Seite und führt die Tests bei jedem Pull Request und Push aus.
-Auf GitHub Pages (Vorschau, `noindex`) wird bei jedem Push auf `main` direkt veröffentlicht, ohne auf
-die Tests zu warten; die Tests laufen parallel trotzdem mit. Schlägt ein
-Test fehl, liegen Report und Screenshots als Artefakt `playwright-report` am Workflow-Lauf. Einmalig nötig: *Settings → Pages → Build and deployment → Source:
-GitHub Actions*. Adresse und Pfad-Präfix stehen in `src/_data/site.js` und lassen sich beim Build über
-`SITE_ORIGIN` und `SITE_PATH_PREFIX` überschreiben.
+**Es wird nichts automatisch deployt.** `ci.yml` baut und testet nur. Deployments laufen ausschließlich
+von Hand über *Actions → Deploy (manual) → Run workflow* mit einem Ziel:
 
-### Hetzner (shitheadgame.de)
+- `shithead-hetzner`: baut Shithead für `https://shitheadgame.de/` und lädt es per FTPS (`lftp`) auf den
+  Hetzner-Webspace. Nötig ist das Environment `hetzner-webhosting` mit den Secrets `HETZNER_HOST`,
+  `HETZNER_USER`, `HETZNER_PASSWORD` und optional der Variable `HETZNER_FTP_DIR` (Zielverzeichnis relativ
+  zum FTP-Login, Standard `.`). Übertragen werden nur Änderungen; was es im Build nicht mehr gibt,
+  wird auch auf dem Server gelöscht – das Zielverzeichnis gehört also allein dieser Seite.
+- `github-pages`: baut alles (Hub + Spiele) und veröffentlicht es als Vorschau unter
+  `https://jankraut.github.io/hostelgames/`. Einmalig nötig: *Settings → Pages → Source: GitHub Actions*
+  (bei privaten Repos nur mit passendem GitHub-Plan).
 
-Jeder Push auf `main` baut die Seite zusätzlich für `https://shitheadgame.de/` (ohne Pfad-Präfix,
-mit `src/.htaccess` für HTTPS-Weiterleitung und Caching) und lädt sie nach grünen Tests per FTPS
-(`lftp`) auf den Hetzner-Webspace. GitHub Pages wird parallel aus demselben Stand aktualisiert.
-
-Einmalig nötig unter *Settings → Environments → New environment* `hetzner-webhosting`:
-
-- *Deployment branches*: nur `main`
-- *Secrets*: `HETZNER_HOST` (z. B. `wwwXXX.your-server.de`), `HETZNER_USER`, `HETZNER_PASSWORD`
-  – am besten ein zusätzlicher FTP-Benutzer aus konsoleH, der nur `public_html` (bzw. das Verzeichnis der Domain) sieht
-- *Variable* (optional): `HETZNER_FTP_DIR`, Zielverzeichnis relativ zum FTP-Login, Standard `.`
-
-Übertragen werden nur geänderte Dateien. Was es in `_site/` nicht mehr gibt, wird auch im Zielverzeichnis
-gelöscht – das Zielverzeichnis gehört also allein dieser Seite.
+Ein Ziel für hostelgames.com kommt dazu, sobald die Domain bereitsteht. Automatisch deployen heißt
+später: in `deploy.yml` einen `push`-Trigger ergänzen.
 
 ### Tracking
 
-Web-Analyse wird beim Build über Umgebungsvariablen eingeschaltet (`src/_data/tracking.js`,
-Code in `src/_includes/tracking-head.njk` und `tracking-body.njk`). Ohne Variablen – lokal, in den Tests
-und auf GitHub Pages – steht kein Tracking-Code in den Seiten.
+Web-Analyse wird beim Build über Umgebungsvariablen eingeschaltet (`packages/core/data/tracking.js`,
+Code in `packages/core/includes/tracking-*.njk`). Ohne Variablen – lokal, in den Tests und auf GitHub
+Pages – steht kein Tracking-Code in den Seiten.
 
 | Variable | Werte |
 | --- | --- |

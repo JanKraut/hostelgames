@@ -1,18 +1,20 @@
 {
-  "name": "shithead-rules",
+  "name": "hostelgames",
   "private": true,
-  "description": "Shithead in 3 minutes – multilingual rules page",
+  "description": "Hostel Games – card games from every hostel in the world. Monorepo: shared core, one folder per game.",
   "type": "module",
+  "workspaces": [
+    "packages/*",
+    "games/*",
+    "hub"
+  ],
   "scripts": {
-    "build": "npm run check && eleventy",
-    "start": "eleventy --serve",
-    "test": "playwright test",
-    "check": "node scripts/check-i18n.js"
-  },
-  "devDependencies": {
-    "@11ty/eleventy": "3.1.7",
-    "@fontsource/manrope": "5.3.0",
-    "@playwright/test": "1.63.0",
-    "qrcode-generator": "1.4.4"
+    "build": "node scripts/build-all.js",
+    "build:shithead": "npm run build -w @hostelgames/shithead",
+    "start:shithead": "npm start -w @hostelgames/shithead",
+    "start:hub": "npm start -w @hostelgames/hub",
+    "check": "npm run check --workspaces --if-present",
+    "test": "npm test --workspaces --if-present",
+    "serve": "node packages/core/scripts/serve.js _site /hostelgames/"
   }
 }
