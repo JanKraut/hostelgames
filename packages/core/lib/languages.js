@@ -50,6 +50,25 @@ function merge(a, b) {
 }
 
 /**
+ * Language metadata (without texts) in menu order, for a base URL ending in "/".
+ * @param {string[]} codes   language codes, e.g. ["en", "de"]
+ * @param {string} baseUrl   full base URL ending in "/", e.g. "https://hostelgames.com/kniffel/"
+ */
+export function languageList(codes, baseUrl) {
+  return LANGUAGES.filter((lang) => codes.includes(lang.code)).map((lang) => {
+    const path = lang.code === DEFAULT_LANGUAGE ? "/" : `/${lang.code}/`;
+    return {
+      ...lang,
+      fallback: (lang.fallback ?? []).filter((code) => codes.includes(code)),
+      // BCP 47 tag for <html lang> and hreflang, e.g. pt-BR
+      htmlLang: lang.code.replace(/-([a-z]{2})$/, (_, region) => `-${region.toUpperCase()}`),
+      path,
+      url: baseUrl + path.slice(1),
+    };
+  });
+}
+
+/**
  * The languages of a site, in menu order, each with its texts (English <- fallbacks <- own).
  * @param {object} site      from createSite(); site.game.languages are the codes
  * @param {URL} i18nDir      folder with one <code>.json per language
@@ -58,18 +77,12 @@ export function createLanguages(site, i18nDir) {
   const codes = site.game?.languages ?? [DEFAULT_LANGUAGE];
   const load = (code) => JSON.parse(readFileSync(new URL(`${code}.json`, i18nDir), "utf8"));
 
-  return LANGUAGES.filter((lang) => codes.includes(lang.code)).map((lang) => {
+  return languageList(codes, site.origin + site.pathPrefix).map((lang) => {
     // A fallback the site doesn't offer is skipped: English then fills the gap.
-    const chain = [DEFAULT_LANGUAGE, ...(lang.fallback ?? []).filter((code) => codes.includes(code)), lang.code]
+    const chain = [DEFAULT_LANGUAGE, ...lang.fallback, lang.code]
       .filter((code, i, all) => all.indexOf(code) === i);
-    const path = lang.code === DEFAULT_LANGUAGE ? "/" : `/${lang.code}/`;
     return {
       ...lang,
-      fallback: (lang.fallback ?? []).filter((code) => codes.includes(code)),
-      // BCP 47 tag for <html lang> and hreflang, e.g. pt-BR
-      htmlLang: lang.code.replace(/-([a-z]{2})$/, (_, region) => `-${region.toUpperCase()}`),
-      path,
-      url: site.origin + site.pathPrefix + path.slice(1),
       t: chain.map(load).reduce(merge),
     };
   });
