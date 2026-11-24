@@ -13,6 +13,7 @@ const BASE = {
   slug: "kniffel",
   name: "Kniffel",
   tagline: "Test",
+  category: "dice",
   status: "draft",
   languages: ["en", "de"],
   pages: ["rules"],
@@ -39,7 +40,9 @@ test("folder = domain without its ending", () => {
 });
 
 for (const [what, change, message] of [
-  ["status missing", { status: undefined }, /"status"/],
+  ["category missing", { category: undefined }, /"category"/],
+  ["unknown category", { category: "board" }, /"category" must be one of cards, drinking, dice/],
+  ["status missing",{ status: undefined }, /"status"/],
   ["unknown status", { status: "beta" }, /"status"/],
   ["languages as a number", { languages: 15 }, /"languages" must be a list/],
   ["unknown language", { languages: ["en", "de", "xx"] }, /unknown language "xx"/],

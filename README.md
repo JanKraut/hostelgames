@@ -96,7 +96,7 @@ Beschreibt das Spiel und ist die einzige Stelle für diese Angaben. Geprüft wir
 | `slug` | `"shithead"` | Kurzname: Ordner im Repo, Paket `@hostelgames/<slug>`, Offline-Cache |
 | `name`, `tagline` | `"Shithead"` | Name und eine Zeile für die Startseite |
 | `domain` | `"https://shitheadgame.de"` | eigene Domain (optional); daraus der Ordner `shitheadgame` |
-| `category` | `"cards"` / `"drinking"` / `"dice"` | Abschnitt auf der Startseite (Kartenspiele, Trinkspiele, Würfelspiele); Liste und Reihenfolge in `hub/hub.json` |
+| `category` | `"cards"` / `"drinking"` / `"dice"` | Abschnitt auf der Startseite (Kartenspiele, Trinkspiele, Würfelspiele); Liste und Reihenfolge: `CATEGORIES` in `packages/core/lib/games.js` |
 | `status` | `"draft"` / `"live"` | `draft`: nur in der Vorschau (GitHub Pages, mit Hinweis), nicht auf hostelgames.com, kein Deploy auf die eigene Domain |
 | `languages` | `["en", "de", "fr"]` | angebotene Sprachen, `en` und `de` immer. Flagge, Name, Fallback und Reihenfolge im Menü: `packages/core/lib/languages.js` |
 | `pages` | `["rules", "strategy", "quickstart", "play"]` | vorhandene Seiten, `rules` immer, `play` = Spiel gegen Bots. Muss zu den Dateien in `src/` passen (`index.njk`, `strategy.njk`, `quickstart.njk`, `play.njk`) |

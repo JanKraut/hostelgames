@@ -1,5 +1,4 @@
 {
   "domain": "https://hostelgames.com",
-  "languages": ["en", "de"],
-  "categories": ["cards", "drinking", "dice"]
+  "languages": ["en", "de"]
 }
