@@ -68,7 +68,7 @@
   "exR1": "1st roll",
   "exR2": "2nd roll",
   "exR3": "3rd roll",
-  "exP": "Mia keeps her three 5s and rolls the other two dice twice. In the end she has four 5s and a 2. Now she can choose: <strong>Fives</strong> for 20 points, or <strong>Four of a kind</strong> for 22. A box once filled can’t be used again.",
+  "exP": "Mia keeps her three 5s and rolls the other two dice twice. In the end she has <strong>four 5s</strong> and a <strong>2</strong>. Now she can choose: <strong>Fives</strong> for 20 points, or <strong>Four of a kind</strong> for 22. A box once filled can’t be used again.",
   "strikeH": "Nothing fits? Strike a box",
   "strikeP": "You must write something down every turn. If no box fits your roll, enter 0 in a box of your choice – that box is “struck” for the rest of the game. Good boxes to sacrifice are Ones or Kniffel when time is running out.",
   "upH": "Upper section",
