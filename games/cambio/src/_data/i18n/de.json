@@ -40,7 +40,7 @@
     "joker": "Joker",
     "redKing": "roter König",
     "ace": "Ass",
-    "number": "Augenzahl",
+    "number": "Zahlenwert",
     "face": "Bube, Dame",
     "blackKing": "schwarzer König",
     "p": "Der rote König ist also die beste Karte im Spiel, danach kommt der Joker. Schwarze Könige, Damen und Buben willst du so schnell wie möglich loswerden."
@@ -81,7 +81,7 @@
     "own": "<strong>Eigene Karte:</strong> Sie kommt auf den Stapel und du hast eine Karte weniger. Weniger Karten, weniger Punkte.",
     "other": "<strong>Fremde Karte:</strong> Weißt du, dass eine Karte eines anderen passt, wirf sie ab. Dann gibst du ihm eine deiner Karten verdeckt und ohne hinzuschauen in die Lücke.",
     "wrong": "<strong>Falsche Karte:</strong> Sie kommt zurück an ihren Platz, und du ziehst eine Strafkarte verdeckt vom Nachziehstapel zu deinen Karten.",
-    "p": "Es zählt nur der Wert: Jede 6 passt auf jede 6. Nur wer zuerst abwirft, bekommt den Vorteil; immer nur eine Karte und mit einer Hand. Sobald der Nächste zieht, ist die Gelegenheit vorbei."
+    "p": "Es zählt nur der Wert: Jede 6 passt auf jede 6. Nur wer zuerst abwirft, bekommt den Vorteil; immer nur eine Karte auf einmal, und Karten dürfen grundsätzlich nur mit einer Hand angefasst werden. Abgeworfene Karten lösen nie eine Fähigkeit aus. Sobald der Nächste zieht, ist die Gelegenheit vorbei."
   },
   "cambio": {
     "h": "„Cambio“ ansagen",
