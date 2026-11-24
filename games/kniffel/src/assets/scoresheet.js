@@ -12,7 +12,8 @@ const MAX_GAMES = 20;
 
 // ---------- Regeln ----------
 
-// kind: "count" (Anzahl × Augenzahl), "sum" (Augensumme 5–30), "fixed" (feste Punkte oder 0)
+// kind: "count" (Anzahl × Augenzahl), "sum" (Augensumme 5–30), "quad" (vier gleiche + fünfter Würfel),
+// "fixed" (feste Punkte oder 0). hint: kurzer Hinweis unter dem Feldnamen (Text sheet.<hint>).
 const FIELDS = [
   { id: "ones", part: "upper", kind: "count", n: 1 },
   { id: "twos", part: "upper", kind: "count", n: 2 },
@@ -21,12 +22,12 @@ const FIELDS = [
   { id: "fives", part: "upper", kind: "count", n: 5 },
   { id: "sixes", part: "upper", kind: "count", n: 6 },
   { id: "three", part: "lower", kind: "sum" },
-  { id: "four", part: "lower", kind: "sum" },
-  { id: "full", part: "lower", kind: "fixed", points: 25 },
-  { id: "small", part: "lower", kind: "fixed", points: 30 },
-  { id: "large", part: "lower", kind: "fixed", points: 40 },
-  { id: "kniffel", part: "lower", kind: "fixed", points: 50 },
-  { id: "chance", part: "lower", kind: "sum" },
+  { id: "four", part: "lower", kind: "quad" },
+  { id: "full", part: "lower", kind: "fixed", points: 25, hint: "hintFull" },
+  { id: "small", part: "lower", kind: "fixed", points: 30, hint: "hintSmall" },
+  { id: "large", part: "lower", kind: "fixed", points: 40, hint: "hintLarge" },
+  { id: "kniffel", part: "lower", kind: "fixed", points: 50, hint: "hintKniffel" },
+  { id: "chance", part: "lower", kind: "sum", hint: "hintChance" },
 ];
 const BONUS_FROM = 63;
 const BONUS = 35;
@@ -245,7 +246,7 @@ function renderGame() {
   const section = (label) => el("tr", { class: "sheet-section" }, el("th", { colspan: String(cols + 1), scope: "colgroup" }, label));
   const fieldRow = (field) =>
     el("tr", {},
-      el("th", { scope: "row", class: "sheet-label" }, LABELS[field.id]),
+      el("th", { scope: "row", class: "sheet-label" }, LABELS[field.id], field.hint && el("small", {}, t[field.hint])),
       ...g.players.map((name, i) => {
         const value = g.scores[i][field.id];
         const filled = typeof value === "number";
@@ -376,12 +377,58 @@ function ask(player, field) {
     body.replaceChildren(
       el("div", { class: "sheet-choices" },
         [0, 1, 2, 3, 4, 5].map((k) =>
-          el("button", { type: "button", class: `sheet-choice${has && value === k * field.n ? " picked" : ""}`, onclick: choose(k * field.n) },
-            el("b", {}, String(k * field.n)),
-            el("span", {}, k === 0 ? t.none : `${k} ×`),
+          el("button", {
+            type: "button", class: `sheet-choice${has && value === k * field.n ? " picked" : ""}`, onclick: choose(k * field.n),
+            "aria-label": fill(t.countPoints, { k, points: k * field.n }),
+          },
+            el("b", {}, `${k} ×`),
+            el("span", {}, fill(t.points, { n: k * field.n })),
           ),
         ),
       ),
+    );
+  } else if (field.kind === "quad") {
+    // Viererpasch: welche Zahl viermal, dazu der fünfte Würfel → Summe 4 × a + b
+    $("sheet-dialog-q").textContent = t.quadQ;
+    let four = null;
+    let fifth = null;
+    const total = el("p", { class: "sheet-quad-total", "aria-live": "polite" });
+    const row = (pick) =>
+      el("div", { class: "sheet-choices sheet-dice" },
+        [1, 2, 3, 4, 5, 6].map((n) =>
+          el("button", { type: "button", class: "sheet-choice", "aria-pressed": "false", onclick: (event) => pick(n, event.currentTarget) },
+            el("b", {}, String(n)),
+          ),
+        ),
+      );
+    const mark = (button) => {
+      for (const b of button.parentElement.children) {
+        b.classList.toggle("picked", b === button);
+        b.setAttribute("aria-pressed", String(b === button));
+      }
+      total.textContent = four && fifth ? fill(t.quadTotal, { four, fifth, n: 4 * four + fifth }) : "";
+      $("sheet-dialog-error").textContent = "";
+    };
+    body.replaceChildren(
+      el("p", { class: "sheet-dialog-sub" }, t.quadFour),
+      row((n, b) => { four = n; mark(b); }),
+      el("p", { class: "sheet-dialog-sub" }, t.quadFifth),
+      row((n, b) => { fifth = n; mark(b); }),
+      total,
+    );
+    actions.push(
+      el("button", { type: "button", class: "sheet-btn", onclick: choose(0) }, t.strike),
+      el("button", {
+        type: "submit", class: "ctabtn sheet-primary",
+        onclick: (event) => {
+          event.preventDefault();
+          if (!four || !fifth) {
+            $("sheet-dialog-error").textContent = t.quadMissing;
+            return;
+          }
+          choose(4 * four + fifth)();
+        },
+      }, t.enter),
     );
   } else if (field.kind === "sum") {
     $("sheet-dialog-q").textContent = t.sumQ;

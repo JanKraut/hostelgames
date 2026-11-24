@@ -15,7 +15,7 @@ const test = base.extend({
 const pathOf = (lang) => `${lang.path === "/" ? "" : lang.path.slice(1)}scoresheet/`;
 // Zeilen im tbody: 0 Abschnitt oben, 1–6 Einser–Sechser, 7 Summe oben, 8 Bonus,
 // 9 Abschnitt unten, 10–16 Dreierpasch–Chance, 17 Summe unten, 18 Gesamt
-const ROW = { ones: 1, threes: 3, fours: 4, fives: 5, sixes: 6, upperSum: 7, bonus: 8, three: 10, full: 12, kniffel: 15, chance: 16, lowerSum: 17, total: 18 };
+const ROW = { ones: 1, twos: 2, threes: 3, fours: 4, fives: 5, sixes: 6, upperSum: 7, bonus: 8, three: 10, four: 11, full: 12, small: 13, kniffel: 15, chance: 16, lowerSum: 17, total: 18 };
 const cell = (page, row, player) => page.locator("#sheet-table tbody tr").nth(row).locator("td").nth(player);
 
 async function startGame(page, lang, names) {
@@ -75,17 +75,17 @@ test("totals, bonus, strike and undo", async ({ page }) => {
   await expect(page.locator("#sheet-table thead th.turn")).toContainText("Jan");
 
   // Jan: 3 × 3, 3 × 5, 4 × 6 → 9 + 15 + 24 = 48, noch 15 bis zum Bonus
-  await enter(page, ROW.threes, 0, "9");
-  await enter(page, ROW.fives, 0, "15");
-  await enter(page, ROW.sixes, 0, "24");
+  await enter(page, ROW.threes, 0, "3 ×");
+  await enter(page, ROW.fives, 0, "3 ×");
+  await enter(page, ROW.sixes, 0, "4 ×");
   await expect(cell(page, ROW.upperSum, 0)).toHaveText("48");
   await expect(cell(page, ROW.bonus, 0)).toHaveText(s.bonusLeft.replace("{n}", "15"));
   // Lea ist dran, sobald Jan mehr Felder hat
   await expect(page.locator("#sheet-table thead th.turn")).toContainText("Lea");
 
   // 63 erreicht: Bonus 35
-  await enter(page, ROW.ones, 0, "3");
-  await enter(page, ROW.fours, 0, "12");
+  await enter(page, ROW.ones, 0, "3 ×");
+  await enter(page, ROW.fours, 0, "3 ×");
   await expect(cell(page, ROW.upperSum, 0)).toHaveText("63");
   await expect(cell(page, ROW.bonus, 0)).toHaveText("35");
 
@@ -110,9 +110,41 @@ test("totals, bonus, strike and undo", async ({ page }) => {
   await expect(cell(page, ROW.total, 0)).toHaveText(String(63 + 35 + 47));
 });
 
+test("upper section: the number of dice is multiplied by the face", async ({ page }) => {
+  await startGame(page, en, ["Jan"]);
+  // 4 × Zweier = 8 Punkte (nicht 4)
+  await enter(page, ROW.twos, 0, "4 ×");
+  await expect(cell(page, ROW.twos, 0)).toHaveText("8");
+  await expect(cell(page, ROW.upperSum, 0)).toHaveText("8");
+});
+
+test("four of a kind: pick the number and the fifth die", async ({ page }) => {
+  await startGame(page, en, ["Jan"]);
+  await cell(page, ROW.four, 0).locator("button").click();
+  const dialog = page.locator("#sheet-dialog");
+  // Ohne Auswahl kein Eintrag
+  await dialog.locator("button[type=submit]").click();
+  await expect(page.locator("#sheet-dialog-error")).toHaveText(s.quadMissing);
+  await dialog.locator(".sheet-dice").nth(0).getByRole("button", { name: "5", exact: true }).click();
+  await dialog.locator(".sheet-dice").nth(1).getByRole("button", { name: "2", exact: true }).click();
+  await expect(dialog.locator(".sheet-quad-total")).toHaveText(s.quadTotal.replace("{four}", "5").replace("{fifth}", "2").replace("{n}", "22"));
+  await dialog.locator("button[type=submit]").click();
+  await expect(cell(page, ROW.four, 0)).toHaveText("22");
+});
+
+test("short hints under the lower boxes, not under the two of-a-kind boxes", async ({ page }) => {
+  await startGame(page, en, ["Jan"]);
+  const label = (row) => page.locator("#sheet-table tbody tr").nth(row).locator("th small");
+  await expect(label(ROW.small)).toHaveText(s.hintSmall);
+  await expect(label(ROW.full)).toHaveText(s.hintFull);
+  await expect(label(ROW.chance)).toHaveText(s.hintChance);
+  await expect(label(ROW.three)).toHaveCount(0);
+  await expect(label(ROW.four)).toHaveCount(0);
+});
+
 test("the game is kept in the browser and can be resumed", async ({ page }) => {
   await startGame(page, en, ["Jan", "Lea", "Tom"]);
-  await enter(page, ROW.sixes, 2, "18");
+  await enter(page, ROW.sixes, 2, "3 ×");
   await page.reload();
   await expect(page.locator("#sheet-game")).toBeVisible();
   await expect(cell(page, ROW.sixes, 2)).toHaveText("18");

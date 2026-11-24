@@ -1355,11 +1355,15 @@ ol.steps p {
   font-weight: 800;
 }
 
-.sheet-bonus small {
+/* Kurzer Hinweis unter dem Feldnamen (Bonus, Full House, Straßen, Kniffel, Chance) */
+.sheet-label small {
   display: block;
+  margin-bottom: 0.15rem;
   color: var(--muted);
   font-size: 0.7rem;
   font-weight: 600;
+  line-height: 1.25;
+  white-space: normal;
 }
 
 .sheet-chip {
@@ -1574,6 +1578,30 @@ ol.steps p {
   color: var(--muted);
   font-size: 0.75rem;
   font-weight: 600;
+}
+
+/* Viererpasch: zwei Reihen mit je sechs Würfelzahlen */
+.sheet-dice {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+
+.sheet-dice .sheet-choice {
+  min-height: 3rem;
+  align-items: center;
+}
+
+.sheet-dialog-sub {
+  margin: 0.3rem 0 0;
+  font-weight: 700;
+}
+
+.sheet-quad-total {
+  min-height: 1.4em;
+  margin: 0.2rem 0 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-align: center;
 }
 
 .sheet-choice.picked {
