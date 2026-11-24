@@ -136,7 +136,8 @@
    size follows the screen height.
    ========================================================================== */
 
-html.playing footer {
+html.playing footer,
+html.playing .poweredby {
   display: none;
 }
 
