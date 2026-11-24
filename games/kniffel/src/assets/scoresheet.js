@@ -21,7 +21,7 @@ const FIELDS = [
   { id: "fours", part: "upper", kind: "count", n: 4 },
   { id: "fives", part: "upper", kind: "count", n: 5 },
   { id: "sixes", part: "upper", kind: "count", n: 6 },
-  { id: "three", part: "lower", kind: "sum" },
+  { id: "three", part: "lower", kind: "sum", q: "tripleQ" },
   { id: "four", part: "lower", kind: "quad" },
   { id: "full", part: "lower", kind: "fixed", points: 25, hint: "hintFull" },
   { id: "small", part: "lower", kind: "fixed", points: 30, hint: "hintSmall" },
@@ -431,10 +431,10 @@ function ask(player, field) {
       }, t.enter),
     );
   } else if (field.kind === "sum") {
-    $("sheet-dialog-q").textContent = t.sumQ;
+    $("sheet-dialog-q").textContent = t[field.q ?? "sumQ"];
     const input = el("input", {
       type: "number", inputmode: "numeric", min: "5", max: "30", step: "1", id: "sheet-sum",
-      value: has && value > 0 ? String(value) : "", "aria-label": t.sumQ,
+      value: has && value > 0 ? String(value) : "", "aria-label": LABELS[field.id],
     });
     body.replaceChildren(el("div", { class: "sheet-sum-input" }, input));
     actions.push(
