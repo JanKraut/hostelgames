@@ -76,10 +76,13 @@ test("page tabs: order from game.json, full names, current tab in view on a narr
     // No tab is cut off; the bar scrolls instead.
     const cut = await tabs.evaluateAll((all) => all.filter((a) => a.scrollWidth > a.clientWidth).map((a) => a.textContent));
     expect(cut, lang.code).toEqual([]);
-    // The current tab (strategy, the last one) is scrolled into view.
-    const box = await page.locator(".pagetabs a[aria-current=page]").boundingBox();
-    expect(box.x, lang.code).toBeGreaterThanOrEqual(0);
-    expect(box.x + box.width, lang.code).toBeLessThanOrEqual(320);
+    // The current tab (strategy, the last one) is scrolled into view – also after the web font has loaded.
+    await page.evaluate(() => document.fonts.ready);
+    const inView = async () => {
+      const box = await page.locator(".pagetabs a[aria-current=page]").boundingBox();
+      return box.x >= 0 && box.x + box.width <= 320;
+    };
+    await expect.poll(inView, { message: lang.code }).toBe(true);
   }
 });
 

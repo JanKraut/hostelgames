@@ -85,14 +85,23 @@ if (menu) {
 
 // ---------- Page tabs ----------
 // If the tabs don't fit (narrow phone, many pages), the bar scrolls sideways;
-// show the current tab without moving the page itself.
+// show the current tab without moving the page itself. Again whenever the tab changes
+// size, e.g. once the web font has loaded and made the tabs wider.
 
 const tabBar = document.querySelector(".pagetabs ul");
 const currentTab = tabBar?.querySelector("[aria-current=page]");
-if (tabBar && currentTab && tabBar.scrollWidth > tabBar.clientWidth) {
-  const tab = currentTab.parentElement;
-  const rtl = getComputedStyle(tabBar).direction === "rtl";
-  const start = rtl ? tabBar.clientWidth - tab.offsetLeft - tab.offsetWidth : tab.offsetLeft;
-  const left = start - (tabBar.clientWidth - tab.offsetWidth) / 2;
-  tabBar.scrollLeft = rtl ? -left : left;
+
+function showCurrentTab() {
+  if (tabBar.scrollWidth <= tabBar.clientWidth) return;
+  // Centre the tab in the bar; the browser stops at either end. Measured on screen,
+  // so it works the same for right-to-left languages.
+  const bar = tabBar.getBoundingClientRect();
+  const tab = currentTab.getBoundingClientRect();
+  tabBar.scrollLeft += tab.left + tab.width / 2 - (bar.left + bar.width / 2);
+}
+
+if (tabBar && currentTab) {
+  showCurrentTab();
+  if ("ResizeObserver" in window) new ResizeObserver(showCurrentTab).observe(currentTab, { box: "border-box" });
+  else document.fonts?.ready.then(showCurrentTab);
 }
