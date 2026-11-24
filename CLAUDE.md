@@ -1,96 +1,33 @@
 # Hostelgames
 
-Monorepo für Kartenspiel-Webseiten. Hauptname „hostelgames“, Hauptdomain
-hostelgames.com (Hub), jedes Spiel auf eigener Domain.
-Eleventy 3 + Nunjucks, npm-Workspaces, Node 22.
+Monorepo für Kartenspiel-Webseiten (Eleventy 3, Nunjucks, npm-Workspaces, Node 22).
+Hub hostelgames.com, jedes Spiel auf eigener Domain. Details: README.md.
 
-## Struktur
-- packages/core/   gemeinsames Design (core.css), Includes, Fonts, Tracking,
-                   Service Worker, check-i18n – siehe packages/core/README.md
-- hub/             hostelgames.com: Startseite + Übersicht pro Spiel,
-                   automatisch aus games/*/game.json
-- games/<slug>/    ein Spiel: game.json, src/, tests/, eigene CLAUDE.md
-                   game.json ist die Quelle für status, languages, pages
-                   (play = Spiel gegen Bots), related – Felder: README.
-                   Neue Spiele mit status "draft", bis Jan sie freigibt.
-- scripts/build-all.js   baut Hub + alle Spiele nach _site/
+- `packages/core/` Gemeinsames (Design, Includes, Layout, Tracking, check-i18n).
+  Gemeinsames gehört hierher, nicht ins Spiel.
+- `hub/` hostelgames.com, listet `games/*/game.json`.
+- `games/<slug>/` ein Spiel mit eigener CLAUDE.md. `game.json` ist die Quelle für
+  status, languages, pages, related. Neue Spiele `draft`, bis Jan sie freigibt.
+- Ordner = Domain ohne Endung (shitheadgame.de → shitheadgame), überall gleich.
 
-Gemeinsames gehört nach packages/core, nicht ins Spiel. Ein Spiel überschreibt
-ein Core-Include nur mit einer gleichnamigen Datei in seinem _includes/.
+Vor jedem Commit: `npm run check`, `npm run build:<slug>`, Tests des Spiels.
 
-## Befehle
-- npm run build              alles bauen (Hub + alle Spiele)
-- npm run build:<slug>       ein Spiel bauen
-- npm run start:<slug>       Spiel lokal mit Live-Reload
-- npm run check / npm test   Übersetzungen prüfen / Tests
-
-Vor jedem Commit: check, build und Tests des betroffenen Spiels.
-
-## URLs
-- Spiel-Domain, z. B. shitheadgame.de/en/ – indexiert
-- hostelgames.com/<ordner>/ – Übersichtsseite, indexiert
-- jankraut.github.io/hostelgames/<ordner>/ – Vorschau, immer noindex
-- Ordner/Pfad = Domain ohne Endung (shitheadgame.de → shitheadgame), überall
-  gleich: Pages, hostelgames.com, FTP. Ohne Domain der slug. Standardsprache Englisch.
-
-## Feste Entscheidungen
-- **Kein Spiel gegen Bots (Seite `play`, Spiel-Engine, Bots) bauen, solange
-  Jan es nicht ausdrücklich für dieses Spiel sagt.** Auch nicht als Entwurf,
-  Gerüst oder „schon mal vorbereitet“. Regeln, Strategie, Quickstart: ja.
-- Tracking nur per Env: TRACKING_PROVIDER, TRACKING_ID, MATOMO_URL;
-  ohne Einwilligungsbanner. Nichts fest im Code.
-- Schrift Manrope, selbst gehostet. Keine externen Fonts oder CDNs.
-- Deploy automatisch bei Push auf main (nur geänderte Spiele, nach grünen
-  Tests); Zugangsdaten nur als Secrets, Standard-Environment
-  hetzner-webhosting. Was als geändert gilt: scripts/ci-plan.js.
+## Feste Regeln
+- **Kein Spiel gegen Bots (`play`, Engine, Bots), solange Jan es nicht
+  ausdrücklich für dieses Spiel sagt** – auch nicht als Entwurf oder Vorbereitung.
+- Tracking nur per Env (TRACKING_PROVIDER, TRACKING_ID, MATOMO_URL), kein Banner.
+- Schrift Manrope selbst gehostet, keine externen Fonts/CDNs.
+- Zugangsdaten nur als GitHub-Secrets. Deploy macht die CI (scripts/ci-plan.js).
 
 ## Sprachen
-- Eine JSON-Datei pro Sprache, Englisch ist Referenz.
-- Neue Spiele: nur de + en.
-- Jede Textänderung: de UND en immer beide anpassen.
-- Alle anderen Sprachen nur, wenn Jan es sagt. Bis dahin zeigt die Seite
-  für fehlende Texte automatisch Englisch.
-- check-i18n: streng für en/de (Fehler), andere Sprachen nur Warnung.
-  Platzhalter, HTML und #Links sind in allen Sprachen Fehler.
-- Bei normalen Textänderungen nur de.json und en.json öffnen.
-
-### „Erstelle mir jetzt zu dem Spiel alle Sprachen“
-1. Spiel bestimmen (genannt oder aktuelles; sonst nachfragen).
-2. Fehlende Sprachen und fehlende/veraltete Texte ermitteln
-   (Warnungen von `npm run check`).
-3. Aus Englisch übersetzen, Deutsch als Abgleich für Sinn und Ton.
-4. Feste Begriffe aus der CLAUDE.md des Spiels beibehalten.
-5. Neue Sprachcodes in `languages` der game.json eintragen. Eine Sprache, die
-   es noch in keinem Spiel gibt, zuerst in packages/core/lib/languages.js
-   (Flagge in packages/core/includes/flags.njk).
-6. check (jetzt ohne Warnungen), build, Tests – dann committen.
-7. Melden: neue/aktualisierte Sprachen + unsicher übersetzte Begriffe.
-Gilt genauso für einzelne Sprachen („… Spanisch und Französisch“).
+- Englisch ist Referenz. Jede Textänderung: de UND en, nur diese zwei öffnen.
+- Andere Sprachen nur, wenn Jan es sagt (Ablauf: docs/alle-sprachen.md).
 
 ## Parallele Sessions
-Jan lässt oft mehrere Sessions gleichzeitig laufen. Damit es keine
-Merge-Konflikte gibt:
-- Jede Aufgabe auf einem eigenen Branch vom aktuellen main.
-  Ein gemergter Branch ist abgeschlossen: nie darauf weiterarbeiten,
-  für Nachträge neuer Branch von main (vorher `git fetch`).
-- Vor dem Push und vor dem PR: `git fetch origin main` und auf
-  origin/main rebasen; Konflikte selbst lösen, dann check/build/Tests.
-- Nur die Dateien der eigenen Aufgabe ändern. Kein Umformatieren,
-  Umsortieren oder Aufräumen fremder Stellen nebenbei.
-- Hotspots, die viele Aufgaben berühren – hier besonders sparsam ändern:
-  games/<slug>/src/assets/styles.css, tests/site.spec.js,
-  i18n/*.json, base.njk, .github/workflows/ci.yml, package-lock.json.
-- Neue i18n-Keys direkt neben verwandte Keys einfügen, nie ans Dateiende
-  (dort kollidieren parallele Änderungen immer).
-- packages/core, scripts/, .github/ und neue Dependencies betreffen alle
-  Spiele: nur in einer eigenen Aufgabe ändern, nicht nebenbei. Läuft
-  parallel eine andere Session daran, nachfragen.
-- Dateien verschieben, umbenennen oder große Umbauten nur, wenn keine
-  andere Session läuft (Jan fragen).
-- Lokal mehrere Worktrees: jeder mit eigenem Port, z. B.
-  `PORT=8081 npm run start:shithead`, `PORT=8082 npm test -w @hostelgames/shithead`.
-  Sonst testet Playwright gegen den Server eines anderen Worktrees.
-
-## Arbeitsweise
-- Nur Dateien öffnen, die die Aufgabe braucht.
-- Architektur-Referenz: Projekt-Dokument „hostelgames-architektur“.
+- Eigener Branch vom aktuellen main; nie auf einem gemergten Branch weiter.
+  Vor dem PR auf origin/main rebasen, dann check/build/Tests.
+- Nur Dateien der eigenen Aufgabe ändern, nichts nebenbei umformatieren.
+- Neue i18n-Keys neben verwandte Keys, nie ans Dateiende.
+- packages/core, scripts/, .github/, Dependencies: nur als eigene Aufgabe.
+  Verschieben/große Umbauten nur, wenn keine andere Session läuft.
+- Lokal mehrere Worktrees: eigener PORT pro Worktree (`PORT=8081 npm test -w …`).
