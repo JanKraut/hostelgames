@@ -1,7 +1,7 @@
 {#- Language menu: plain links to the same page in every language, next to the
     light / dark switch. Texts used from the game's i18n: themeSwitch, and shH for the QR button.
     Pages with the share box (`share: true`) also get a QR button; its popup is in share.njk.
-    On game pages the game's logo (gamelogo.njk, link to the hub) sits on the left of the same row. -#}
+    On game pages the game's name and logo (gamelogo.njk, link to the hub) come first, on the left of the same row. -#}
 {%- from "flags.njk" import flag -%}
 {%- set hasShare = share -%}
 {%- if site.game %}

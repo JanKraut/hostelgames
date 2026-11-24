@@ -1,11 +1,12 @@
-{#- Top left of every game page: the game's name, then the hostelgames logo (the hub's luggage
-    tag, without its second line) on the same line, vertically centred on the name. A small
-    "by" sticks on the tag's top-left edge, half over the outline. The logo links to the hub
+{#- Top left of every game page: the game's name first (as written in game.json, so with a
+    capital letter), then the hostelgames logo (the hub's luggage tag, without its second line)
+    on the same line, hanging on a string from the top edge of the page. A small "by" sticks
+    on the tag's top-left edge, half over the outline. The logo links to the hub
     start page (hostelgames.com, in the page's language if the hub has it). The name links to
     the game's own start page. Colours follow the header (light / dark).
     Included by langmenu.njk on every game page. -#}
 <div class="gamebrand">
-  <a class="gamename" href="{{ lang.path }}">{{ site.game.name | lower }}</a>
+  <a class="gamename" href="{{ lang.path }}">{{ site.game.name }}</a>
   <a class="gamelogo" href="{{ site.hubUrl(lang.code) }}" aria-label="by hostelgames">
     <svg class="logo" viewBox="0 5 306 80" aria-hidden="true">
       <path class="logo-tag" d="M40 8h250a10 10 0 0 1 10 10v54a10 10 0 0 1-10 10H40L8 45z"/>
