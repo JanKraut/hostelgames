@@ -5,7 +5,13 @@
   },
   "h1": "Die Kartenspiele aus den Hostels der Welt",
   "sub": "Regeln in ein paar Minuten lernen, dann losspielen.",
-  "gamesH": "Spiele",
+  "catsNav": "Kategorien",
+  "categories": {
+    "cards": { "name": "Kartenspiele", "lead": "Ein Kartenspiel, ein paar Regeln – und der Abend ist gerettet." },
+    "drinking": { "name": "Trinkspiele", "lead": "Für den Gemeinschaftsraum und die Bar, mit allem, was im Glas ist." },
+    "dice": { "name": "Würfelspiele", "lead": "Eine Handvoll Würfel, etwas Glück und viel Geschrei." }
+  },
+  "catSoon": "Kommt bald.",
   "mLanguages": "{n} Sprachen",
   "mBots": "gegen Bots spielen",
   "mPlayers": "{min}–{max} Spieler",
