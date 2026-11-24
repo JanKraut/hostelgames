@@ -1,7 +1,7 @@
 // @hostelgames/core – loaded on every page of every game. Progressive enhancement:
 // everything works without it. Light / dark switch, language menu (remembers the
-// chosen language, closes on outside click or Escape) and the service worker that
-// makes the site work offline.
+// chosen language, closes on outside click or Escape), page tabs and the service worker
+// that makes the site work offline.
 
 // ---------- Offline ----------
 
@@ -81,4 +81,27 @@ if (menu) {
       menu.querySelector("summary").focus();
     }
   });
+}
+
+// ---------- Page tabs ----------
+// If the tabs don't fit (narrow phone, many pages), the bar scrolls sideways;
+// show the current tab without moving the page itself. Again whenever the tab changes
+// size, e.g. once the web font has loaded and made the tabs wider.
+
+const tabBar = document.querySelector(".pagetabs ul");
+const currentTab = tabBar?.querySelector("[aria-current=page]");
+
+function showCurrentTab() {
+  if (tabBar.scrollWidth <= tabBar.clientWidth) return;
+  // Centre the tab in the bar; the browser stops at either end. Measured on screen,
+  // so it works the same for right-to-left languages.
+  const bar = tabBar.getBoundingClientRect();
+  const tab = currentTab.getBoundingClientRect();
+  tabBar.scrollLeft += tab.left + tab.width / 2 - (bar.left + bar.width / 2);
+}
+
+if (tabBar && currentTab) {
+  showCurrentTab();
+  if ("ResizeObserver" in window) new ResizeObserver(showCurrentTab).observe(currentTab, { box: "border-box" });
+  else document.fonts?.ready.then(showCurrentTab);
 }

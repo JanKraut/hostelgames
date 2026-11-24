@@ -13,7 +13,10 @@ Würfelspiel (`category: dice`) · Domain: noch keine · Ordner: kniffel · Slug
   1–8 Spieler auf einem Gerät, gespeichert nur in localStorage (`hostelgames:kniffel:scoresheet`),
   kein Server, kein Teilen. Konzept: Projekt-Doku „kniffel-block-konzept.md“. Styles am Ende von
   styles.css (nur Core-Farben). Beim zweiten Block-Spiel Logik und Styles in den Core verschieben.
-- Nächste Schritte: ggf. Strategie / Quickstart / Spielblock zum Ausdrucken
+- Strategie (src/strategy.njk, Texte unter `strategy`) und Quickstart (src/quickstart.njk,
+  Texte unter `quick`). Kopfbereich für Regeln/Strategie/Quickstart: src/_includes/hero.njk.
+  Die Wahrscheinlichkeiten in der Chancen-Tabelle sind exakt gerechnet – bei Änderungen neu rechnen.
+- Nächste Schritte: ggf. Spielblock zum Ausdrucken
   (Datei anlegen UND in `pages` der game.json eintragen, sonst bricht der Build ab).
 - Domain festlegen, dann `domain` in game.json setzen (Ordner = Domain ohne Endung).
 - Kein Spiel gegen Bots (play), solange Jan es nicht ausdrücklich sagt.

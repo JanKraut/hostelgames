@@ -5,7 +5,7 @@
   "category": "dice",
   "status": "draft",
   "languages": ["en", "de"],
-  "pages": ["rules", "scoresheet"],
+  "pages": ["rules", "quickstart", "scoresheet", "strategy"],
   "related": [],
   "players": { "min": 1, "max": 6 },
   "duration": "20–40 min"
