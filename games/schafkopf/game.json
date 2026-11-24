@@ -1,0 +1,12 @@
+{
+  "slug": "schafkopf",
+  "name": "Schafkopf",
+  "tagline": "Bavaria’s classic: four players, Ober and Unter as trumps, 61 points to win",
+  "category": "cards",
+  "status": "draft",
+  "languages": ["en", "de"],
+  "pages": ["rules"],
+  "related": [],
+  "players": { "min": 4, "max": 4 },
+  "duration": "60–120 min"
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "jule",
+  "name": "Jule",
+  "tagline": "One die, six numbers in a row – and all the way back",
+  "category": "dice",
+  "status": "draft",
+  "languages": ["en", "de"],
+  "pages": ["rules"],
+  "related": [],
+  "players": { "min": 2, "max": 10 },
+  "duration": "10–20 min"
+}

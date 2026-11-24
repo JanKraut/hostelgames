@@ -1,0 +1,211 @@
+---
+pagination:
+  data: languages
+  size: 1
+  alias: lang
+permalink: "{{ lang.path }}"
+layout: game
+share: true
+eleventyComputed:
+  pageTitle: "{{ lang.t.seo.rulesT }}"
+  pageDescription: "{{ lang.t.seo.rulesD }}"
+---
+{#- Regelseite, eine pro Sprache. Abschnitte von oben nach unten: Aufbau, Trümpfe, Augen,
+    Spielarten, Spielablauf, Abrechnung, Varianten, FAQ, Teilen.
+    Texte in src/_data/i18n/*.json (unter "rules"). Karten aus card.njk im Core, mit
+    französischen Farben (♣ Eichel, ♠ Gras, ♥ Herz, ♦ Schellen) und den Rang-Buchstaben aus
+    rules.rO / rU / rK / rA (de: O, U, K, A – en: Q, J, K, A). -#}
+{%- from "card.njk" import card, cardRow -%}
+{%- set t = lang.t -%}
+{%- set r = t.rules -%}
+{%- set O = r.rO -%}{%- set U = r.rU -%}{%- set K = r.rK -%}{%- set A = r.rA -%}
+<header class="hero">
+  <div class="wrap">
+    {% include "langmenu.njk" %}
+    {% include "pagenav.njk" %}
+    <h1>{{ r.h1 }}<span class="h1-sub"> {{ r.h1sub }}</span></h1>
+    <p>{{ t.sub | safe }}</p>
+    {#- Die vier Ober, die höchsten Trümpfe. -#}
+    <div class="fan" aria-hidden="true">
+      {{ card(O, "♦") }}
+      {{ card(O, "♥") }}
+      {{ card(O, "♠") }}
+      {{ card(O, "♣") }}
+    </div>
+    <div class="goal">
+      <div class="goal-icon" aria-hidden="true">🎯</div>
+      <p>{{ r.goal | safe }}</p>
+    </div>
+    {% include "factsheet.njk" %}
+  </div>
+</header>
+
+<nav class="secnav" aria-label="{{ r.navLabel }}">
+  <ul>
+    <li><a href="#setup">{{ r.nSetup }}</a></li>
+    <li><a href="#trumps">{{ r.nTrumps }}</a></li>
+    <li><a href="#points">{{ r.nPoints }}</a></li>
+    <li><a href="#games">{{ r.nGames }}</a></li>
+    <li><a href="#how-to-play">{{ r.nPlay }}</a></li>
+    <li><a href="#scoring">{{ r.nScore }}</a></li>
+    <li><a href="#variants">{{ r.nVar }}</a></li>
+    <li><a href="#faq">{{ r.nFaq }}</a></li>
+    <li><a href="#share">{{ r.nShare }}</a></li>
+  </ul>
+</nav>
+
+<main class="wrap">
+
+  <section id="setup">
+    <h2>{{ r.setupH }}</h2>
+    <p class="lead">{{ r.setupLead | safe }}</p>
+    {#- Bayerische Farben und ihre französischen Gegenstücke, von hoch nach niedrig. -#}
+    <ul class="suits">
+      {%- for s in [["♣", "sEichel"], ["♠", "sGras"], ["♥", "sHerz"], ["♦", "sSchellen"]] %}
+      <li>
+        <span class="suit{% if s[0] == '♥' or s[0] == '♦' %} r{% endif %}" aria-hidden="true">{{ s[0] }}</span>
+        <b>{{ r[s[1]] }}</b>
+        <span>{{ r[s[1] ~ "F"] }}</span>
+      </li>
+      {%- endfor %}
+    </ul>
+    <p>{{ r.setupP | safe }}</p>
+
+    <h3 class="sub">{{ r.dealH }}</h3>
+    <p>{{ r.dealP | safe }}</p>
+  </section>
+
+  <section id="trumps">
+    <h2>{{ r.trH }}</h2>
+    <p class="lead">{{ r.trLead | safe }}</p>
+    {#- Die 14 Trümpfe im Sauspiel, von oben nach unten. -#}
+    <div class="trumps" role="img" aria-label="{{ r.trAlt }}">
+      <div class="tp-row">
+        <p class="tp-label">{{ r.trOber }}</p>
+        <div class="tp-cards">{{ cardRow([[O, "♣"], [O, "♠"], [O, "♥"], [O, "♦"]], "sm") }}</div>
+      </div>
+      <div class="tp-row">
+        <p class="tp-label">{{ r.trUnter }}</p>
+        <div class="tp-cards">{{ cardRow([[U, "♣"], [U, "♠"], [U, "♥"], [U, "♦"]], "sm") }}</div>
+      </div>
+      <div class="tp-row">
+        <p class="tp-label">{{ r.trHerz }}</p>
+        <div class="tp-cards">{{ cardRow([[A, "♥"], ["10", "♥"], [K, "♥"], ["9", "♥"], ["8", "♥"], ["7", "♥"]], "sm") }}</div>
+      </div>
+    </div>
+    <div class="rankscale" aria-hidden="true"><span>{{ r.trHigh }}</span><span>{{ r.trLow }}</span></div>
+    <p>{{ r.trP | safe }}</p>
+
+    <h3 class="sub">{{ r.suitH }}</h3>
+    <p>{{ r.suitP | safe }}</p>
+    <div class="ranks" role="img" aria-label="{{ r.suitAlt }}">
+      {{ cardRow([[A, "♠"], ["10", "♠"], [K, "♠"], ["9", "♠"], ["8", "♠"], ["7", "♠"]]) }}
+    </div>
+    <div class="rankscale" aria-hidden="true"><span>{{ r.trHigh }}</span><span>{{ r.trLow }}</span></div>
+  </section>
+
+  <section id="points">
+    <h2>{{ r.ptH }}</h2>
+    <p class="lead">{{ r.ptLead | safe }}</p>
+    <ul class="points">
+      {%- for p in [[A, "♣", "11"], ["10", "♠", "10"], [K, "♥", "4"], [O, "♦", "3"], [U, "♣", "2"], ["9", "♠", "0"], ["8", "♥", "0"], ["7", "♦", "0"]] %}
+      <li>{{ card(p[0], p[1], "xs", pip=false) }}<b>{{ p[2] }}</b></li>
+      {%- endfor %}
+    </ul>
+    <p>{{ r.ptP | safe }}</p>
+  </section>
+
+  <section id="games">
+    <h2>{{ r.gmH }}</h2>
+    <p class="lead">{{ r.gmLead | safe }}</p>
+    <div class="rulecards">
+      {%- for g in [["sau", A, "♠"], ["wenz", U, "♣"], ["solo", A, "♣"]] %}
+      <div class="rulecard">
+        {{ card(g[1], g[2], "sm") }}
+        <div>
+          <h3>{{ r["gm_" ~ g[0] ~ "H"] }}</h3>
+          <p>{{ r["gm_" ~ g[0] ~ "P"] | safe }}</p>
+        </div>
+      </div>
+      {%- endfor %}
+    </div>
+
+    <h3 class="sub">{{ r.bidH }}</h3>
+    <ol class="steps">
+      <li><h3>{{ r.b1h }}</h3><p>{{ r.b1p | safe }}</p></li>
+      <li><h3>{{ r.b2h }}</h3><p>{{ r.b2p | safe }}</p></li>
+      <li><h3>{{ r.b3h }}</h3><p>{{ r.b3p | safe }}</p></li>
+    </ol>
+  </section>
+
+  <section id="how-to-play">
+    <h2>{{ r.playH }}</h2>
+    <p class="lead">{{ r.playLead | safe }}</p>
+    <ol class="steps">
+      <li><h3>{{ r.t1h }}</h3><p>{{ r.t1p | safe }}</p></li>
+      <li><h3>{{ r.t2h }}</h3><p>{{ r.t2p | safe }}</p></li>
+      <li><h3>{{ r.t3h }}</h3><p>{{ r.t3p | safe }}</p></li>
+    </ol>
+
+    {#- Ein Stich im Sauspiel: Gras wird angespielt, Cem sticht mit Herz 7, Dana übersticht mit
+        dem Schellen-Unter und gewinnt. -#}
+    <h3 class="sub">{{ r.trickH }}</h3>
+    <ol class="trick" aria-label="{{ r.trickAlt }}">
+      {%- for m in [[r.pA, K, "♠", r.trick1], [r.pB, "9", "♠", r.trick2], [r.pC, "7", "♥", r.trick3], [r.pD, U, "♦", r.trick4]] %}
+      <li class="{{ 'tr-win' if loop.last }}">
+        <span class="tr-who">{{ m[0] }}</span>
+        <span class="tr-cards" aria-hidden="true">{{ card(m[1], m[2], "xs", pip=false) }}</span>
+        <span class="tr-say">{{ m[3] }}</span>
+      </li>
+      {%- endfor %}
+    </ol>
+    <p class="tr-note">{{ r.trickNote | safe }}</p>
+
+    <h3 class="sub">{{ r.calledH }}</h3>
+    <p>{{ r.calledP | safe }}</p>
+  </section>
+
+  <section id="scoring">
+    <h2>{{ r.scH }}</h2>
+    <p class="lead">{{ r.scLead | safe }}</p>
+    <table class="tariff">
+      <thead>
+        <tr><th scope="col">{{ r.scWhat }}</th><th scope="col">{{ r.scPts }}</th></tr>
+      </thead>
+      <tbody>
+        {%- for i in range(1, 6) %}
+        <tr><th scope="row">{{ r["sc" ~ i] | safe }}</th><td>{{ r["sc" ~ i ~ "v"] }}</td></tr>
+        {%- endfor %}
+      </tbody>
+    </table>
+    <p>{{ r.scP | safe }}</p>
+    <h3 class="sub">{{ r.payH }}</h3>
+    <p>{{ r.payP | safe }}</p>
+  </section>
+
+  <section id="variants">
+    <h2>{{ r.varH }}</h2>
+    <p class="lead">{{ r.varLead | safe }}</p>
+    <ul class="variants">
+      {%- for i in range(1, 10) %}
+      <li>{{ r["var" ~ i] | safe }}</li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="faq">
+    <h2>{{ r.faqH }}</h2>
+    <div class="faq">
+      {%- for i in range(1, 9) %}
+      <details>
+        <summary>{{ r["faq" ~ i ~ "q"] }}</summary>
+        <p>{{ r["faq" ~ i ~ "a"] | safe }}</p>
+      </details>
+      {%- endfor %}
+    </div>
+  </section>
+
+  {% include "share.njk" %}
+</main>
+
+{% include "footer.njk" %}
