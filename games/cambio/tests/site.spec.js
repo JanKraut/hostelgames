@@ -55,7 +55,7 @@ for (const lang of languages) {
   test(`${lang.code}: every #link points to a section on the page`, async ({ page }) => {
     await page.goto(pathOf(lang));
     const nav = await page.locator(".secnav a").evaluateAll((links) => links.map((a) => a.getAttribute("href")));
-    expect(nav).toEqual([...SECTIONS, "share"].map((id) => `#${id}`));
+    expect(nav).toEqual(SECTIONS.map((id) => `#${id}`));
     const targets = await page.locator('a[href^="#"]').evaluateAll((links) => links.map((a) => a.getAttribute("href").slice(1)));
     for (const id of targets) {
       await expect(page.locator(`[id="${id}"]`), `#${id}`).toHaveCount(1);

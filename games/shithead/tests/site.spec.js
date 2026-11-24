@@ -208,7 +208,7 @@ test("strategy guide: sections, swap example and boxes at the end", async ({ pag
   for (const href of await page.locator(".secnav a[href^='#']").evaluateAll((links) => links.map((a) => a.getAttribute("href")))) {
     await expect(page.locator(href)).toHaveCount(1);
   }
-  await expect(page.locator(".secnav a")).toHaveCount(s.phases.length + 6);
+  await expect(page.locator(".secnav a")).toHaveCount(s.phases.length + 5);
   await page.locator("#next-steps a", { hasText: s.ctaRulesBtn }).click();
   await expect(page).toHaveURL(/\/de\/$/);
 
@@ -218,7 +218,7 @@ test("strategy guide: sections, swap example and boxes at the end", async ({ pag
   await page.goto("fr/strategy/");
   await expect(page.locator("#principle h2")).toHaveText(fr.principleH);
   await expect(page.locator(".swapex .sx-panel")).toHaveCount(2);
-  await expect(page.locator(".secnav a")).toHaveCount(fr.phases.length + 6);
+  await expect(page.locator(".secnav a")).toHaveCount(fr.phases.length + 5);
 });
 
 test("404 page: the three cards sit side by side on small and large screens", async ({ page }) => {

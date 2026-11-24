@@ -30,7 +30,7 @@ for (const lang of languages) {
     await expect(page.locator(".pagetabs a[aria-current=page]")).toHaveText(lang.t.n6);
     await expect(page.locator("#factsheet")).toHaveCount(0);
     const targets = await page.locator(".secnav a").evaluateAll((links) => links.map((a) => a.getAttribute("href")));
-    expect(targets).toEqual(STRATEGY.map((id) => `#${id}`));
+    expect(targets).toEqual(STRATEGY.filter((id) => id !== "share").map((id) => `#${id}`));
     for (const id of STRATEGY) await expect(page.locator(`section#${id}`)).toHaveCount(1);
     // Plus-minus example and odds table.
     await expect(page.locator(".par-rows li")).toHaveCount(6);
