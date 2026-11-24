@@ -1,11 +1,12 @@
 {#- Tabs between the main pages of a game: rules, strategy, quick start – only those in
     "pages" of its game.json (the game against bots is not a tab), shown only with more than one. The current one is marked
-    via `subpath`. Texts from the game's i18n: pgLabel, pgRules, n6 (strategy), pgQuick. -#}
+    via `subpath`. Texts from the game's i18n: pgLabel, pgRules, n6 (strategy), pgQuick,
+    pgSheet (online score sheet). -#}
 {%- set here = subpath or "" -%}
 {%- set t = lang.t -%}
 {%- set gamePages = site.game.pages if (site.game and site.game.pages) else ["rules", "strategy", "quickstart"] -%}
 {%- set tabs = [] -%}
-{%- for p in [["rules", "", t.pgRules], ["strategy", "strategy/", t.n6], ["quickstart", "quickstart/", t.pgQuick]] -%}
+{%- for p in [["rules", "", t.pgRules], ["strategy", "strategy/", t.n6], ["quickstart", "quickstart/", t.pgQuick], ["scoresheet", "scoresheet/", t.pgSheet]] -%}
 {%- if p[0] in gamePages %}{% set tabs = (tabs.push(p), tabs) %}{% endif -%}
 {%- endfor -%}
 {#- A single page needs no tabs. -#}

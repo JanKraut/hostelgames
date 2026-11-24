@@ -15,6 +15,8 @@
   "mLanguages": "{n} Sprachen",
   "mBots": "gegen Bots spielen",
   "mPlayers": "{min}–{max} Spieler",
+  "mSheet": "mit Online-Block",
+  "sheetOpen": "Online-Block öffnen →",
   "draft": "Entwurf – nur Vorschau",
   "games": {
     "asshole": { "name": "Arschloch", "tagline": "Gewinnen und König werden – verlieren und die besten Karten abgeben" },

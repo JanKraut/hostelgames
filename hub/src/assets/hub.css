@@ -169,6 +169,30 @@
   font-weight: 700;
 }
 
+/* Game with an online score sheet ("scoresheet" in pages): badge in the card, link below it */
+.games li:has(.game-extra) {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 0.4rem;
+}
+
+.game-sheet {
+  justify-self: start;
+  border-radius: 999px;
+  padding: 0.15rem 0.65rem;
+  background: var(--felt);
+  color: var(--felt-text);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.game-extra {
+  justify-self: start;
+  padding: 0.5rem 0.2rem;
+  color: var(--gold-line);
+  font-weight: 800;
+}
+
 /* Only in the preview: a game that is not live yet */
 .game-draft {
   justify-self: start;

@@ -15,7 +15,8 @@
 //   languages  codes of the languages it offers, e.g. ["en", "de"]; en and de always.
 //              Flag, name and fallback of each language: lib/languages.js
 //   pages      the pages it has, e.g. ["rules", "strategy", "quickstart", "play"];
-//              "play" = a game against bots. Must match the files in src/ (see PAGES).
+//              "play" = a game against bots, "scoresheet" = an online score sheet (e.g. Kniffel).
+//              Must match the files in src/ (see PAGES).
 //   related    slugs of similar games, e.g. ["president"] for Arschloch (optional)
 //   players    { "min": 3, "max": 6 } (optional)
 //   duration   e.g. "20–30 min" (optional)
@@ -51,6 +52,7 @@ export const PAGES = {
   strategy: "strategy.njk",
   quickstart: "quickstart.njk",
   play: "play.njk",
+  scoresheet: "scoresheet.njk",
 };
 export const STATUSES = ["draft", "live"];
 // Sections of the hub page, in this order. Names and intros: categories.<key> in the hub's i18n.

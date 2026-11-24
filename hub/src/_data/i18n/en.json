@@ -15,6 +15,8 @@
   "mLanguages": "{n} languages",
   "mBots": "play against bots",
   "mPlayers": "{min}–{max} players",
+  "mSheet": "with online score sheet",
+  "sheetOpen": "Open the score sheet →",
   "draft": "Draft – preview only",
   "games": {
     "asshole": { "name": "Asshole", "tagline": "Win and become king – lose and hand over your best cards" },

@@ -9,6 +9,10 @@ Würfelspiel (`category: dice`) · Domain: noch keine · Ordner: kniffel · Slug
 - Würfel kommen aus src/_includes/dice.njk (`die(n, size, extra)`, `dice([...])`),
   Styles in src/assets/styles.css. Kein Core-Include, weil bisher nur Kniffel würfelt;
   beim zweiten Würfelspiel in den Core verschieben.
+- Online-Block (src/scoresheet.njk, src/assets/scoresheet.js, Seite `scoresheet` in game.json):
+  1–8 Spieler auf einem Gerät, gespeichert nur in localStorage (`hostelgames:kniffel:scoresheet`),
+  kein Server, kein Teilen. Konzept: Projekt-Doku „kniffel-block-konzept.md“. Styles am Ende von
+  styles.css (nur Core-Farben). Beim zweiten Block-Spiel Logik und Styles in den Core verschieben.
 - Nächste Schritte: ggf. Strategie / Quickstart / Spielblock zum Ausdrucken
   (Datei anlegen UND in `pages` der game.json eintragen, sonst bricht der Build ab).
 - Domain festlegen, dann `domain` in game.json setzen (Ordner = Domain ohne Endung).

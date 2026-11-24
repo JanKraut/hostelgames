@@ -56,6 +56,11 @@ eleventyComputed:
       <li>{{ t.setup3 | safe }}</li>
     </ul>
     <p>{{ t.setupP | safe }}</p>
+    {#- Hinweis auf den Online-Block (scoresheet/) -#}
+    <div class="cta sheet-cta">
+      <p>{{ t.setupCta }}</p>
+      <a class="ctabtn" href="{{ lang.path }}scoresheet/">{{ t.setupCtaBtn }}</a>
+    </div>
   </section>
 
   <section id="turn">
