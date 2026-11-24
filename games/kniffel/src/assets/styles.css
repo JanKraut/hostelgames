@@ -788,7 +788,7 @@ ol.steps p {
   color: var(--ink-strong);
 }
 
-@media (max-width: 22rem) {
+@media (max-width: 26rem) {
   .odds li {
     grid-template-columns: 1fr auto;
   }

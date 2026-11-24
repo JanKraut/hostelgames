@@ -86,15 +86,15 @@ test("page tabs: order from game.json, full names, current tab in view on a narr
   }
 });
 
-test("strategy and quick start: no horizontal overflow on narrow phones", async ({ page }) => {
-  for (const width of [320, 390]) {
-    await page.setViewportSize({ width, height: 700 });
+for (const sub of ["strategy/", "quickstart/"]) {
+  test(`${sub} no horizontal overflow on narrow phones`, async ({ page }) => {
     for (const lang of languages) {
-      for (const sub of ["strategy/", "quickstart/"]) {
-        await open(page, lang, sub);
+      await open(page, lang, sub);
+      for (const width of [320, 390]) {
+        await page.setViewportSize({ width, height: 700 });
         const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
         expect(overflow, `${lang.code} ${sub} at ${width}px`).toBeLessThanOrEqual(0);
       }
     }
-  }
-});
+  });
+}

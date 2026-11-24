@@ -1,0 +1,85 @@
+{
+  "sub": "Cinco dados, tres tiradas por turno y trece casillas en la hoja de puntaje: el clásico de dados para 1 a 6 jugadores. Léelo una vez, tira y listo.",
+  "seo": {
+    "rulesD": "Kniffel explicado: tirar y apartar dados, las 13 casillas de la hoja de puntaje, el bonus de 35 puntos, tachar una casilla, puntaje y variantes.",
+    "sheetT": "Hoja de puntaje de Kniffel online – Gratis, hasta 8 jugadores",
+    "sheetD": "La hoja de puntaje de Kniffel en tu navegador: toca para anotar tus puntos, los totales y el bonus de 35 puntos se suman solos. Sin registro, guardado en tu dispositivo.",
+    "quickT": "Reglas rápidas de Kniffel – Acordeón para el celular",
+    "quickD": "Kniffel de un vistazo: cómo funciona un turno, las 13 casillas con sus puntos, el bonus a partir de 63 y tachar una casilla – cabe en una pantalla de celular."
+  },
+  "goal": "<strong>El objetivo:</strong> Llenar las 13 casillas de tu hoja de puntaje con las mejores tiradas posibles y terminar la partida con más puntos que nadie.",
+  "info": {
+    "gearN": "5 dados, hoja y lápiz",
+    "gearAlt": "Cinco dados, una hoja de puntaje y un lápiz",
+    "intro": "Kniffel se explica en cinco minutos y divierte a todo el mundo, desde niños hasta abuelos. La suerte decide cada tirada, pero si apartas los dados adecuados y eliges bien tus casillas, ganarás más seguido. Solo necesitan cinco dados y una hoja de papel."
+  },
+  "nScoring": "Puntaje",
+  "setup2": "<strong>Una hoja de puntaje por jugador</strong> con las 13 casillas de esta página (sirve cualquier papel) y un lápiz.",
+  "setup3": "<strong>De 1 a 6 jugadores</strong>. Si juegas solo, juegas a superar tu récord.",
+  "setupP": "Todos tiran una vez los cinco dados: empieza quien saque la suma más alta. Se juega en sentido horario y la partida dura exactamente <strong>13 rondas</strong>, una por cada casilla.",
+  "setupCta": "¿No tienes hoja de puntaje a mano? Usa la hoja online: suma todo por ti.",
+  "setupCtaBtn": "Abrir hoja de puntaje",
+  "turnLead": "En tu turno puedes tirar hasta tres veces. Después tienes que anotar un puntaje en una casilla.",
+  "s3h": "Anota un puntaje",
+  "s3p": "Como máximo tras la tercera tirada, elige <strong>una casilla libre</strong> y anota los puntos. También puedes parar antes.",
+  "exP": "Mía aparta sus tres 5 y vuelve a tirar los otros dos dados dos veces. Al final tiene <strong>cuatro 5</strong> y un <strong>2</strong>. Ahora puede elegir: <strong>Cincos</strong> por 20 puntos, o <strong>Póker</strong> por 22. Una casilla llena ya no se puede volver a usar.",
+  "scoreH": "Puntaje y fin de la partida",
+  "scoreLead": "Cuando las 13 casillas estén llenas, suma tu hoja de puntaje:",
+  "endP": "Tras 13 rondas todos llenaron todas las casillas. Gana quien tenga el total final más alto. ¿Empate? Compartan la victoria o jueguen un desempate rápido: una tirada cada uno y gana la suma más alta.",
+  "varLead": "Kniffel se juega un poco distinto en cada mesa. Acuerden antes de la primera tirada cuáles de estas reglas usan:",
+  "var3": "<strong>De arriba abajo:</strong> Se llenan las casillas estrictamente en orden, de Unos a Suerte. Mucha más suerte y mucha menos planificación.",
+  "faq1a": "No. Puedes parar tras la primera o la segunda tirada y anotar tus puntos enseguida.",
+  "faq2q": "¿Puedo volver a tomar dados que ya había apartado?",
+  "faq6q": "¿Cuál es el puntaje máximo posible?",
+  "faq8a": "Busca pronto el bonus de 63: tres 5 o tres 6 en la parte superior valen mucho. Guarda Suerte todo lo que puedas para una emergencia y tacha Unos antes que una casilla valiosa. Más en la <a href=\"strategy/\">guía de estrategia</a>.",
+  "pgSheet": "Hoja de puntaje",
+  "strategy": {
+    "sub": "La suerte decide cada tirada, pero no lo que haces con ella. Con estos consejos conseguirás el bonus más seguido, elegirás mejores casillas y desperdiciarás menos puntos.",
+    "keepItems": [
+      "<strong>Tres o cuatro iguales:</strong> apártalos. Sirven para la parte superior, Trío o Póker y Kniffel.",
+      "<strong>Cuatro seguidos (2-3-4-5 o 3-4-5-6):</strong> apártalos y busca la Escalera grande: la pequeña ya la tienes asegurada.",
+      "<strong>Dos parejas:</strong> aparta ambas si el Full sigue libre. Si no, quédate con la pareja más alta.",
+      "<strong>Una pareja:</strong> apártala si su casilla superior sigue libre. Mejor sacrificar una pareja de 1 por un 5 o un 6.",
+      "<strong>Nada útil:</strong> aparta los 5 y los 6 y vuelve a tirar: así mantienes abiertas Seises, Trío y Suerte."
+    ],
+    "boxes": [
+      "<strong>Toma los puntos fijos cuando salgan.</strong> Full, escaleras y Kniffel siempre valen lo mismo, sean cuales sean los números.",
+      "<strong>Tiradas altas a Trío, bajas arriba.</strong> Tres 6 valen mucho en Trío; tres 2 casi no dan puntos ahí, pero en Doses son justo el objetivo.",
+      "<strong>¿Póker con números bajos?</strong> Cuatro 2 van en Doses (+2 sobre el objetivo), no en Póker.",
+      "<strong>Suerte solo a partir de unos 22 puntos.</strong> Por debajo es demasiado valiosa: guárdala para un turno que no encaje en ningún otro sitio.",
+      "<strong>¿Un Kniffel temprano de 1?</strong> Anótalo igual como Kniffel: 50 puntos superan cualquier casilla superior."
+    ],
+    "end": [
+      "<strong>Cuenta las casillas libres.</strong> Si en las últimas rondas aún te faltan Full y Escalera grande, busca primero la más difícil.",
+      "<strong>Calcula el bonus.</strong> Si solo te faltan unos pocos puntos para llegar a 63, busca a propósito la última casilla superior.",
+      "<strong>¿Vas perdiendo? Arriesga.</strong> Un Kniffel o una Escalera grande pueden dar vuelta la partida; unos pocos puntos seguros, no.",
+      "<strong>¿Vas ganando? Juega seguro.</strong> Asegura puntos fijos y deja Suerte libre hasta el final."
+    ],
+    "mistakes": [
+      "<strong>Gastar Suerte en el primer turno</strong>: luego te quedas sin red de seguridad.",
+      "<strong>Anotar dos 6 en Seises</strong>: ya son 6 puntos por debajo del objetivo.",
+      "<strong>Anotar Trío con números bajos</strong> cuando su casilla superior sigue libre.",
+      "<strong>Perseguir el Kniffel a toda costa</strong> cuando ya casi tienes un Full o una escalera.",
+      "<strong>No hacer cuentas</strong>: saber si el bonus aún es posible decide qué casilla tachas."
+    ],
+    "ctaSheetP": "La hoja de puntaje online te muestra cuánto te falta para el bonus.",
+    "ctaSheetBtn": "Abrir hoja de puntaje"
+  },
+  "quick": {
+    "rule": "Hasta <strong>3 tiradas</strong> por turno, aparta los dados que quieras. Luego llena <strong>una casilla</strong>. <strong>13 rondas</strong>, gana quien tenga más puntos.",
+    "ctaSheetH": "¿Sin hoja de puntaje?",
+    "ctaSheetP": "La hoja de puntaje online suma todo por ti."
+  },
+  "sheet": {
+    "h1": "Hoja de puntaje online",
+    "sub": "La hoja de puntaje de Kniffel en tu navegador, para 1 a 8 jugadores. Calcula los totales y el bonus por ti.",
+    "noJs": "La hoja de puntaje necesita JavaScript.",
+    "add": "Agregar jugador",
+    "finish": "Puntaje final",
+    "finishOpen": "Aún quedan {n} casillas vacías. ¿Terminar de todos modos?",
+    "tripleQ": "Al menos tres dados muestran el mismo número. Ingresa la suma de los cinco dados.",
+    "sumQ": "Cuenta cualquier tirada. Ingresa la suma de los cinco dados.",
+    "sumInvalid": "Ingresa un número del 5 al 30.",
+    "resultH": "Puntaje final"
+  }
+}

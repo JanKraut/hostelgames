@@ -4,7 +4,7 @@
   "tagline": "Five dice, three rolls, thirteen boxes – chase the Kniffel",
   "category": "dice",
   "status": "live",
-  "languages": ["en", "de"],
+  "languages": ["en", "cs", "da", "de", "es", "es-419", "fr", "it", "nl", "nb", "pl", "pt", "pt-br", "fi", "sv"],
   "pages": ["rules", "quickstart", "scoresheet", "strategy"],
   "related": [],
   "players": { "min": 1, "max": 6 },

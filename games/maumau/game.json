@@ -4,7 +4,7 @@
   "tagline": "Match the suit or the rank, shout “Mau” – first to empty their hand wins",
   "category": "cards",
   "status": "draft",
-  "languages": ["en", "de"],
+  "languages": ["en", "cs", "da", "de", "es", "es-419", "fr", "it", "nl", "nb", "pl", "pt", "pt-br", "fi", "sv"],
   "pages": ["rules"],
   "related": [],
   "players": { "min": 2, "max": 6 },

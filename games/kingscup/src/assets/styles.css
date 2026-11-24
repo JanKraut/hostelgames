@@ -538,6 +538,11 @@ ol.steps p {
 }
 
 @media (max-width: 24rem) {
+  .kings {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.9rem 0.5rem;
+  }
+
   .kings .card.sm {
     --w: 46px;
   }
