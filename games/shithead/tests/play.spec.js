@@ -126,11 +126,12 @@ for (const [bots, level, code] of [
 
     await expect(page.locator("#over")).toBeVisible();
     await expect(page.locator("#over h2")).toHaveText(lang.t.game.overH);
+    // In a draw (endless loop) only players who got out are ranked, maybe not you.
+    const draw = (await page.locator("#over-text").textContent()) === lang.t.game.stalemate;
     // Your name appears as plain text, never as HTML.
-    await expect(page.locator("#ranking li.you")).toContainText(PLAYER);
+    if (!draw) await expect(page.locator("#ranking li.you")).toContainText(PLAYER);
     await expect(page.locator("#ranking b")).toHaveCount(0);
     const ranking = await page.locator("#ranking li").count();
-    const draw = (await page.locator("#over-text").textContent()) === lang.t.game.stalemate;
     if (!draw) expect(ranking).toBe(bots + 1);
 
     // The game counts in the statistics: one game at this level and in total.
