@@ -1,0 +1,19 @@
+{#- Ring of face-down cards around the King's Cup (styles in assets/styles.css).
+    cup(): the cup in the middle. ring(n): n card backs in a circle, the cup in the centre. -#}
+{% macro cup(extra="") -%}
+<svg class="cup{% if extra %} {{ extra }}{% endif %}" viewBox="0 0 64 72" aria-hidden="true">
+  <path class="cup-drink" d="M13 22h38l-4.6 40.5a6 6 0 0 1-6 5.5H23.6a6 6 0 0 1-6-5.5z"/>
+  <path class="cup-foam" d="M11 22c0-6 5-9 9-8 2-5 9-7 13-3 4-3 11-1 12 4 5 0 8 3 8 7z"/>
+  <path class="cup-glass" d="M10 14h44l-6 49a7 7 0 0 1-7 6H23a7 7 0 0 1-7-6z"/>
+  <path class="cup-shine" d="M19 28l3 30"/>
+</svg>
+{%- endmacro %}
+
+{% macro ring(n=14) -%}
+<div class="ring" style="--n: {{ n }}">
+  {%- for i in range(n) %}
+  <div class="ring-card" style="--i: {{ i }}"><div class="card xs back"></div></div>
+  {%- endfor %}
+  {{ cup("ring-cup") }}
+</div>
+{%- endmacro %}

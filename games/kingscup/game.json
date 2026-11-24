@@ -1,0 +1,12 @@
+{
+  "slug": "kingscup",
+  "name": "King’s Cup",
+  "tagline": "One deck, one cup, thirteen rules – don’t break the ring",
+  "category": "drinking",
+  "status": "draft",
+  "languages": ["en", "de"],
+  "pages": ["rules"],
+  "related": [],
+  "players": { "min": 3, "max": 12 },
+  "duration": "30–60 min"
+}
