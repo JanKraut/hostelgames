@@ -1,0 +1,12 @@
+{
+  "slug": "kniffel",
+  "name": "Kniffel",
+  "tagline": "Five dice, three rolls, thirteen boxes – chase the Kniffel",
+  "category": "dice",
+  "status": "draft",
+  "languages": ["en", "de"],
+  "pages": ["rules"],
+  "related": [],
+  "players": { "min": 1, "max": 6 },
+  "duration": "20–40 min"
+}
