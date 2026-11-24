@@ -1,6 +1,6 @@
 # Kniffel
 
-Würfelspiel (`category: dice`) · Domain: noch keine · Ordner: kniffel · Slug: kniffel · Status: draft
+Würfelspiel (`category: dice`) · Domain: noch keine · Ordner: kniffel · Slug: kniffel · Status: live
 
 ## Stand
 - Regelseite (src/index.njk) mit Texten de + en.

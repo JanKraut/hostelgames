@@ -7,6 +7,9 @@
 //   SITE_ORIGIN       default https://jankraut.github.io (GitHub Pages preview, noindex)
 //   SITE_PATH_PREFIX  default /hostelgames/ – for hostelgames.com use SITE_ORIGIN=https://hostelgames.com SITE_PATH_PREFIX=/
 //
+// The preview gets every game. hostelgames.com only gets the live games without a domain of
+// their own (e.g. hostelgames.com/kniffel/); the hub links every other live game to its domain.
+//
 // A game on its own domain is built on its own instead, e.g.
 //   SITE_ORIGIN=https://shitheadgame.de SITE_PATH_PREFIX=/ npm run build -w @hostelgames/shithead
 import { spawnSync } from "node:child_process";
@@ -14,7 +17,7 @@ import { rmSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { join } from "node:path";
 import games, { ROOT } from "../packages/core/lib/games.js";
-import { PAGES_PREFIX } from "../packages/core/lib/site.js";
+import { PAGES_PREFIX, PAGES_ORIGIN } from "../packages/core/lib/site.js";
 
 const root = fileURLToPath(ROOT);
 // Eleventy is installed once for all workspaces, in the root node_modules.
@@ -34,15 +37,18 @@ function run(label, cwd, args, env = {}) {
   }
 }
 
+const indexable = !(process.env.SITE_ORIGIN ?? PAGES_ORIGIN).includes("github.io");
+const built = games().filter((game) => !indexable || (game.status === "live" && !game.domain));
+
 rmSync(OUT, { recursive: true, force: true });
 
 run(`hub → ${prefix}`, join(root, "hub"), [process.execPath, ELEVENTY, "--quiet", `--output=${OUT}`], { SITE_PATH_PREFIX: prefix });
 
-for (const game of games()) {
+for (const game of built) {
   const dir = fileURLToPath(game.dir);
   const gamePrefix = `${prefix}${game.path}/`;
   run(`${game.slug}: check`, dir, ["npm", "run", "--silent", "check"]);
   run(`${game.slug} → ${gamePrefix}`, dir, [process.execPath, ELEVENTY, "--quiet", `--output=${join(OUT, game.path)}`], { SITE_PATH_PREFIX: gamePrefix });
 }
 
-console.log(`\n✓ Built ${games().length} game(s) and the hub into _site/ (path prefix ${prefix})`);
+console.log(`\n✓ Built ${built.length} game(s) and the hub into _site/ (path prefix ${prefix})`);

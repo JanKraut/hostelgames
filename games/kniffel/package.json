@@ -1,7 +1,7 @@
 {
   "name": "@hostelgames/kniffel",
   "private": true,
-  "description": "Kniffel – rules of the dice game and an online score sheet (draft)",
+  "description": "Kniffel – rules of the dice game and an online score sheet",
   "type": "module",
   "scripts": {
     "build": "npm run check && eleventy",

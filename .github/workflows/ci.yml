@@ -135,7 +135,7 @@ jobs:
           cache: npm
       - run: npm ci --no-audit --no-fund
       # Built here, not in "build": the tracking settings are variables of the environment.
-      - run: npm run build -w ${{ matrix.game.workspace }}
+      - run: ${{ matrix.game.build }}
         env:
           SITE_ORIGIN: ${{ matrix.game.domain }}
           SITE_PATH_PREFIX: /
@@ -152,7 +152,7 @@ jobs:
           FTP_USER: ${{ secrets.HETZNER_USER }}
           LFTP_PASSWORD: ${{ secrets.HETZNER_PASSWORD }}
           FTP_DIR: ${{ matrix.game.ftpDir }}
-          SITE: ${{ matrix.game.workspace }}/_site/
+          SITE: ${{ matrix.game.out }}
         run: |
           lftp --env-password -u "$FTP_USER" "ftp://$FTP_HOST" <<EOF
           set ftp:ssl-force true

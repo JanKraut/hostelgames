@@ -3,7 +3,7 @@
   "name": "Kniffel",
   "tagline": "Five dice, three rolls, thirteen boxes – chase the Kniffel",
   "category": "dice",
-  "status": "draft",
+  "status": "live",
   "languages": ["en", "de"],
   "pages": ["rules", "quickstart", "scoresheet", "strategy"],
   "related": [],

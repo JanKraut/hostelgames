@@ -2,6 +2,8 @@
 // be indexed: the GitHub Pages preview has noindex and gets neither.
 // The pages come from "pages" in game.json, each in every language with all its alternates.
 // The hub (site.game is null) has only its start page, in every language of hub/hub.json.
+// robots.txt only at the root of a domain; `sitemaps` (full URLs) are listed there as well,
+// e.g. the sitemaps of the games below hostelgames.com/<path>/.
 //
 // A game's src/sitemap.11ty.js:
 //
@@ -15,7 +17,7 @@ export const SUBPATHS = { rules: "", strategy: "strategy/", quickstart: "quickst
 
 const escape = (text) => text.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 
-export function createSitemap(site, languages) {
+export function createSitemap(site, languages, { sitemaps = [] } = {}) {
   const subpaths = Object.entries(SUBPATHS)
     .filter(([page]) => (site.game?.pages ?? ["rules"]).includes(page))
     .map(([, sub]) => sub);
@@ -24,7 +26,7 @@ export function createSitemap(site, languages) {
     data() {
       return {
         pagination: { data: "files", size: 1, alias: "file" },
-        files: site.indexable ? ["sitemap.xml", "robots.txt"] : [],
+        files: site.indexable ? ["sitemap.xml", ...(site.pathPrefix === "/" ? ["robots.txt"] : [])] : [],
         permalink: (data) => `/${data.file}`,
         eleventyExcludeFromCollections: true,
       };
@@ -32,7 +34,9 @@ export function createSitemap(site, languages) {
 
     render({ file }) {
       const root = site.origin + site.pathPrefix;
-      if (file === "robots.txt") return `User-agent: *\nAllow: /\n\nSitemap: ${root}sitemap.xml\n`;
+      if (file === "robots.txt") {
+        return `User-agent: *\nAllow: /\n\n${[`${root}sitemap.xml`, ...sitemaps].map((url) => `Sitemap: ${url}\n`).join("")}`;
+      }
 
       const urls = subpaths.flatMap((sub) => {
         const alternates = [

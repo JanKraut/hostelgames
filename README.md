@@ -139,7 +139,8 @@ auf hostelgames.com (`hostelgames.com/<ordner>/`) und in der Vorschau
 | --- | --- | --- |
 | Hub (`hub/hub.json`) | hostelgames.com | `hostelgames` |
 | Shithead (`games/shithead/game.json`) | shitheadgame.de | `shitheadgame` |
-| neues Spiel ohne Domain | – | der `slug` (wird nicht deployt) |
+| Spiel ohne Domain, `live` (z. B. Kniffel) | hostelgames.com/`<slug>`/ | `hostelgames/<slug>` (mit dem Hub) |
+| Spiel ohne Domain, `draft` | – | der `slug` (wird nicht deployt) |
 
 Die Domain zeigt im Hetzner-Panel auf ihren Unterordner. Fehlt der Ordner, wird er angelegt.
 Ein Spiel kann später ein eigenes Environment mit eigenen Zugangsdaten bekommen:
