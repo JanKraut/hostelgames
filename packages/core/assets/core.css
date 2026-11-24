@@ -466,11 +466,12 @@ h3.sub.first {
   margin-bottom: 1rem;
 }
 
-/* Game pages: game name + hostelgames logo on the left, language bar on the right. If it
-   gets too tight, they move to a second row below the buttons (wrap-reverse). */
+/* Game pages: game name first, top left, with the hostelgames tag hanging next to it; the
+   language bar on the right. If it gets too tight, the language bar moves to a second row
+   below, so the name always stays at the very top and the tag's string never crosses a button. */
 .gametop {
   display: flex;
-  flex-wrap: wrap-reverse;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem 1rem;
@@ -486,10 +487,10 @@ h3.sub.first {
   display: flex;
   flex: none;
   align-items: center;
-  gap: 0.6rem;
+  gap: 1.1rem;
 }
 
-/* Name and logo share one line, both centred on it. Name is the main thing, logo is small. */
+/* Name and tag share one line, both centred on it. */
 .gamename {
   color: var(--head-text);
   font-family: var(--font-display);
@@ -500,18 +501,49 @@ h3.sub.first {
   text-decoration: none;
 }
 
+/* The hub's luggage tag (without its second line), hanging on a string from the top edge
+   of the page and tipped slightly, as if hooked up there. Everything is sized in em of the
+   tag's height (font-size), so "by" and the string scale with it. The tag turns around its
+   hole (x 36 of 306, y 45 of 5–85 in the SVG); the string is drawn straight up from the hole. */
 .gamelogo {
+  --tag-h: 1.85rem;
+  --tag-tilt: 6deg;
   position: relative;
   display: flex;
   align-items: center;
   border-radius: 0.4rem;
+  font-size: var(--tag-h);
+  transform: rotate(var(--tag-tilt));
+  transform-origin: 11.76% 50%;
+  filter: drop-shadow(0 3px 3px rgba(60, 40, 0, 0.18));
+}
+
+.gamelogo::before {
+  content: "";
+  position: absolute;
+  left: calc(11.76% - 1px);
+  bottom: 60%;
+  width: 2px;
+  /* long enough to reach above the top edge of the page */
+  height: 8rem;
+  border-radius: 1px;
+  background: var(--head-text);
+  /* turned back, so the string hangs straight down */
+  transform: rotate(calc(-1 * var(--tag-tilt)));
+  transform-origin: 50% 100%;
+  pointer-events: none;
 }
 
 .gamelogo .logo {
   display: block;
   width: auto;
-  /* clearly smaller than the name: about two thirds of its font size */
-  height: 1.05rem;
+  height: 1em;
+}
+
+@media (max-width: 30rem) {
+  .gamelogo {
+    --tag-h: 1.35rem;
+  }
 }
 
 .gamelogo .logo-tag,
@@ -522,16 +554,17 @@ h3.sub.first {
   stroke-linejoin: round;
 }
 
-/* "by" on the tag's top-left edge: half over the outline, background = header colour */
+/* "by" on the tag's top edge, right of the string: half over the outline, background =
+   header colour. Its em is its own font size (0.4 of the tag's height). */
 .gameby {
   position: absolute;
-  left: 0.8rem;
-  top: -0.6rem;
-  padding: 0 0.2rem;
+  left: 1.75em;
+  top: -0.8em;
+  padding: 0 0.3em;
   background: var(--head-bg);
   color: var(--head-accent);
   font-family: var(--font-display);
-  font-size: 0.6rem;
+  font-size: 0.4em;
   font-weight: 800;
   line-height: 1.2;
   transform: rotate(-8deg);

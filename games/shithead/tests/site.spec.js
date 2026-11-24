@@ -463,7 +463,7 @@ test.describe("footer", () => {
   test("logo and powered by line link to the hostelgames start page", async ({ page }) => {
     await openLanguage(page, byCode.de);
     const hub = /^https:\/\/(hostelgames\.com|jankraut\.github\.io\/hostelgames)\/de\/$/;
-    await expect(page.locator(".hero .gamename")).toHaveText("shithead");
+    await expect(page.locator(".hero .gamename")).toHaveText("Shithead");
     const logo = page.locator(".hero .gamelogo");
     await expect(logo).toBeVisible();
     await expect(logo).toHaveAttribute("href", hub);
