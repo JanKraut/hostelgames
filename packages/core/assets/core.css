@@ -245,7 +245,7 @@ html:not(.js) .js-only {
 /* ---------- Layout ---------- */
 
 .wrap {
-  max-width: 44rem;
+  max-width: 45rem;
   margin: 0 auto;
   padding: 0 1.25rem;
 }
@@ -407,32 +407,36 @@ h3.sub.first {
 }
 
 /* Tabs between the pages: rules, strategy, quick start */
+/* Equal widths while they fit; otherwise every tab keeps its full name and the bar
+   scrolls sideways (no scrollbar; core.js scrolls the current tab into view). */
 .pagetabs ul {
-  display: flex;
+  display: grid;
+  grid-auto-columns: minmax(max-content, 1fr);
+  grid-auto-flow: column;
   gap: 0.3rem;
   margin: 0 0 1.4rem;
   padding: 0.25rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
   border-radius: 999px;
   background: var(--head-well);
   list-style: none;
+  scrollbar-width: none;
 }
 
-.pagetabs li {
-  flex: 1 1 0;
-  min-width: 0;
+.pagetabs ul::-webkit-scrollbar {
+  display: none;
 }
 
 .pagetabs a {
   display: block;
-  overflow: hidden;
-  padding: 0.45rem 0.5rem;
+  padding: 0.45rem 0.8rem;
   border-radius: 999px;
   color: var(--felt-soft);
   font-size: 0.92rem;
   font-weight: 700;
   text-align: center;
   text-decoration: none;
-  text-overflow: ellipsis;
   white-space: nowrap;
 }
 

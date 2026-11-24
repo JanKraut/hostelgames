@@ -1,7 +1,7 @@
 // @hostelgames/core – loaded on every page of every game. Progressive enhancement:
 // everything works without it. Light / dark switch, language menu (remembers the
-// chosen language, closes on outside click or Escape) and the service worker that
-// makes the site work offline.
+// chosen language, closes on outside click or Escape), page tabs and the service worker
+// that makes the site work offline.
 
 // ---------- Offline ----------
 
@@ -81,4 +81,18 @@ if (menu) {
       menu.querySelector("summary").focus();
     }
   });
+}
+
+// ---------- Page tabs ----------
+// If the tabs don't fit (narrow phone, many pages), the bar scrolls sideways;
+// show the current tab without moving the page itself.
+
+const tabBar = document.querySelector(".pagetabs ul");
+const currentTab = tabBar?.querySelector("[aria-current=page]");
+if (tabBar && currentTab && tabBar.scrollWidth > tabBar.clientWidth) {
+  const tab = currentTab.parentElement;
+  const rtl = getComputedStyle(tabBar).direction === "rtl";
+  const start = rtl ? tabBar.clientWidth - tab.offsetLeft - tab.offsetWidth : tab.offsetLeft;
+  const left = start - (tabBar.clientWidth - tab.offsetWidth) / 2;
+  tabBar.scrollLeft = rtl ? -left : left;
 }

@@ -99,7 +99,7 @@ Beschreibt das Spiel und ist die einzige Stelle für diese Angaben. Geprüft wir
 | `category` | `"cards"` / `"dice"` / `"drinking"` | Abschnitt auf der Startseite (Kartenspiele, Würfelspiele, Trinkspiele); Liste und Reihenfolge: `CATEGORIES` in `packages/core/lib/games.js` |
 | `status` | `"draft"` / `"live"` | `draft`: nur in der Vorschau (GitHub Pages, mit Hinweis), nicht auf hostelgames.com, kein Deploy auf die eigene Domain |
 | `languages` | `["en", "de", "fr"]` | angebotene Sprachen, `en` und `de` immer. Flagge, Name, Fallback und Reihenfolge im Menü: `packages/core/lib/languages.js` |
-| `pages` | `["rules", "strategy", "quickstart", "play"]` | vorhandene Seiten, `rules` immer, `play` = Spiel gegen Bots. Muss zu den Dateien in `src/` passen (`index.njk`, `strategy.njk`, `quickstart.njk`, `play.njk`) |
+| `pages` | `["rules", "strategy", "quickstart", "play"]` | vorhandene Seiten, `rules` immer, `play` = Spiel gegen Bots. Die Reihenfolge ist auch die der Reiter oben auf der Seite. Muss zu den Dateien in `src/` passen (`index.njk`, `strategy.njk`, `quickstart.njk`, `play.njk`) |
 | `related` | `["president"]` | ähnliche Spiele (Slugs), optional |
 | `players`, `duration` | `{ "min": 3, "max": 6 }`, `"20–30 min"` | optional, für die Startseite |
 | `testShards`, `deploy.environment` | `3` | nur für die CI, siehe unten |

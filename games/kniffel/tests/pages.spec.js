@@ -66,6 +66,23 @@ for (const lang of languages) {
   });
 }
 
+test("page tabs: order from game.json, full names, current tab in view on a narrow phone", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 700 });
+  for (const lang of languages) {
+    const t = lang.t;
+    await open(page, lang, "strategy/");
+    const tabs = page.locator(".pagetabs a");
+    await expect(tabs).toHaveText([t.pgRules, t.pgQuick, t.pgSheet, t.n6]);
+    // No tab is cut off; the bar scrolls instead.
+    const cut = await tabs.evaluateAll((all) => all.filter((a) => a.scrollWidth > a.clientWidth).map((a) => a.textContent));
+    expect(cut, lang.code).toEqual([]);
+    // The current tab (strategy, the last one) is scrolled into view.
+    const box = await page.locator(".pagetabs a[aria-current=page]").boundingBox();
+    expect(box.x, lang.code).toBeGreaterThanOrEqual(0);
+    expect(box.x + box.width, lang.code).toBeLessThanOrEqual(320);
+  }
+});
+
 test("strategy and quick start: no horizontal overflow on narrow phones", async ({ page }) => {
   for (const width of [320, 390]) {
     await page.setViewportSize({ width, height: 700 });
