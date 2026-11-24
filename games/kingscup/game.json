@@ -4,7 +4,7 @@
   "tagline": "One deck, one cup, thirteen rules – don’t break the ring",
   "category": "drinking",
   "status": "draft",
-  "languages": ["en", "de"],
+  "languages": ["en", "cs", "da", "de", "es", "es-419", "fr", "it", "nl", "nb", "pl", "pt", "pt-br", "fi", "sv"],
   "pages": ["rules"],
   "related": [],
   "players": { "min": 3, "max": 12 },
