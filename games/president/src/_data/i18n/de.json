@@ -5,7 +5,9 @@
   "sub": "Der Hostel-Klassiker: Werde deine Karten schnell los, steig ganz nach oben – und lass den Bettler seine besten Karten abgeben.",
   "seo": {
     "rulesT": "President – Kartenspiel-Regeln und Anleitung",
-    "rulesD": "So spielt man President (Scum): Austeilen, Einzelkarten und Paare, die Ränge vom Präsidenten bis zum Bettler, der Kartentausch und beliebte Hausregeln."
+    "rulesD": "So spielt man President (Scum): Austeilen, Einzelkarten und Paare, die Ränge vom Präsidenten bis zum Bettler, der Kartentausch und beliebte Hausregeln.",
+    "strategyT": "President Strategie: Tipps, um Präsident zu werden",
+    "strategyD": "Der President-Strategie-Guide: richtig tauschen, das Ausspiel kontrollieren, Paare und 2er klug einsetzen und aus dem Bettler-Rang aufsteigen."
   },
   "goal": "<strong>Ziel:</strong> Spiel als Erster alle deine Karten aus. Wer zuerst fertig ist, wird in der nächsten Runde Präsident – wer zuletzt noch Karten hat, wird Bettler.",
   "navLabel": "Abschnitte",
@@ -99,6 +101,123 @@
   "faq7a": "Wann ihr wollt – ihr spielt einfach neue Runden. Wer einen Sieger braucht: 2 Punkte für den Präsidenten, 1 für den Vizepräsidenten, wer zuerst 11 Punkte hat, gewinnt.",
   "faq8q": "Ist President dasselbe wie Arschloch?",
   "faq8a": "Mehr oder weniger: Beide gehören zur selben Spielfamilie, und viele Runden meinen mit beiden Namen dasselbe. Ränge und Hausregeln heißen nur von Ort zu Ort anders.",
+  "strategy": {
+    "h1": "Präsident werden – und bleiben",
+    "sub": "Der President-Strategie-Guide. Die Regeln sitzen in zwei Minuten, aber wann du passt, was du tauschst und wie du das Ausspiel hältst, macht den ganzen Unterschied.",
+    "principleH": "Das Grundprinzip",
+    "principle": "Bei President dreht sich alles um <strong>Kontrolle</strong>. Hohe Karten schlagen nicht nur einen Stich – sie kaufen dir das Ausspiel, und nur mit dem Ausspiel wirst du schwache Karten sicher los. Zähl mit, heb deine höchsten Karten für entscheidende Momente auf und lass dich am Ende nicht von einzelnen niedrigen Karten ausbremsen.",
+    "principleNav": "Grundprinzip",
+    "swapH": "Vor der Runde: Der Kartentausch",
+    "swapLead": "Der Bettler hat keine Wahl und muss seine zwei höchsten Karten abgeben. Als Präsident oder Vizepräsident ist die Wahl deiner Rückgabe dagegen die wichtigste Entscheidung, noch bevor die erste Karte fällt.",
+    "swapNav": "Kartentausch",
+    "giveH": "Das gibst du dem Bettler zurück:",
+    "give": [
+      "<strong>Niedrige Einzelkarten zuerst (3, 4, 5, 6).</strong> Einzelne niedrige Karten wirst du später am schwersten los, weil du dafür das Ausspiel brauchst. Eine einzelne 5 und 7 zurückzugeben räumt deine Hand sofort auf.",
+      "<strong>Paare zusammenhalten.</strong> Reiß niemals ein 4er-Paar auseinander, nur um eine niedrigere Karte loszuwerden. Ein niedriges Paar verschwindet in einem einzigen Ausspiel – zwei verschiedene Einzelkarten kosten dich zwei getrennte Züge.",
+      "<strong>Zwei verschiedene Werte abgeben.</strong> Gib nach Möglichkeit keine zwei gleichen Karten zurück. Schenkst du dem Bettler ein Paar 4er, schenkst du ihm eine fertige Kombination für einen einzigen Zug.",
+      "<strong>Erst die neuen Kombinationen prüfen.</strong> Schau dir zuerst an, welche Karten du vom Bettler bekommst. Ergänzt sein Ass dein eigenes Ass zum Paar, behalte dieses Paar und gib lieber lose niedrige Einzelkarten ab.",
+      "<strong>Als Vizepräsident (eine Karte):</strong> Dasselbe Prinzip – gib deine niedrigste einzelne Karte zurück, nicht die Hälfte eines Paares."
+    ],
+    "notGive": "<strong>Das gibst du nicht zurück:</strong> ein fertiges Paar (wie zwei 4er) oder eine hohe Karte, die eine starke Kombination sprengt. Dem Bettler Paare zu schenken spart ihm Züge – und dich selbst mit losen Einzelkarten sitzenzulassen schadet mehr als ein niedriges Paar.",
+    "exH": "Beispiel-Tausch",
+    "exBefore": "Hand des Präsidenten",
+    "exHand": "Nach 2 & Ass vom Bettler",
+    "exAfter": "Nach dem Tausch",
+    "exKeep": "Du behältst",
+    "exGive": "An den Bettler",
+    "exAlt": "Beispiel-Tausch. Hand des Präsidenten: ein Paar 4er, eine einzelne 5, eine einzelne 7, ein Ass und eine 2. Nach dem Tausch: Du behältst das Paar 4er, das Ass und die 2 und gibst die einzelnen 5 und 7 an den Bettler.",
+    "exWhy": "<strong>Warum?</strong> Statt das 4er-Paar aufzubrechen – oder dem Bettler beide 4er als fertiges Paar zu schenken – gibst du die zwei unverbundenen Einzelkarten (5 und 7) zurück. Dein 4er-Paar geht in einem Zug raus, während der Bettler zwei lose niedrige Karten bekommt.",
+    "exVariant": "<strong>1-Karten-Tausch (Vizepräsident):</strong> Darfst du nur eine Karte zurückgeben, wähl die einzelne 5 und lass das 4er-Paar zusammen.",
+    "exVariantAlt": "1-Karten-Tausch: das Paar 4er behalten und die einzelne 5 abgeben",
+    "phases": [
+      {
+        "id": "early-game",
+        "h": "Frühes Spiel",
+        "items": [
+          "<strong>Erst die Form deiner Hand lesen.</strong> Schau vor dem ersten Zug, ob deine Hand eher aus Paaren und Drillingen oder aus Einzelkarten besteht. Versuch, Stiche in das Format zu lenken, das deine Hand am schnellsten leert.",
+          "<strong>Niedrig ausspielen, nicht hoch.</strong> Hast du früh das Ausspiel, eröffne mit deiner niedrigsten Einzelkarte oder deinem niedrigsten Paar. Wird sie geschlagen, umso besser – du bist Ballast losgeworden, ohne eine hohe Karte zu verbrauchen.",
+          "<strong>Freiwillig passen – Passen kostet nichts.</strong> Passen sperrt dich im Stich nicht aus (außer mit der Hausregel „Passen ist endgültig“). Lass die anderen früh ihre Könige und Asse verpulvern, während du auf eine günstigere Gelegenheit wartest.",
+          "<strong>Paare und Drillinge zusammenhalten.</strong> Ein Paar 9er aufzuteilen, nur um eine einzelne 7 zu schlagen, schwächt deine Hand. Kombinationen räumen zwei oder drei Karten auf einmal ab und sind viel schwerer zu schlagen.",
+          "<strong>Von unten spielen (als Bettler):</strong> Leg dich in den ersten Stichen nicht direkt mit dem Präsidenten an. Pass auf hohe Ausspiele, schieb deine mittleren Karten rein, wenn der Tisch niedrig bleibt, und warte ab, bis die oberen Ränge ihre 2er und Asse gegeneinander aufbrauchen."
+        ]
+      },
+      {
+        "id": "middle-game",
+        "h": "Mittleres Spiel",
+        "items": [
+          "<strong>2er und Asse mitzählen.</strong> Im Deck gibt es nur vier 2er und vier Asse. Sind alle vier 2er weg, garantiert dir ein Ass das Ausspiel; sind auch die Asse raus, wird der König unschlagbar.",
+          "<strong>Hohe Paare im Blick behalten.</strong> Merk dir, welche hohen Paare (Damen, Könige, Asse, 2er) schon gespielt wurden. In der zweiten Rundenhälfte gewinnt oft schon ein Paar Buben oder Damen den Stich direkt.",
+          "<strong>Den Rhythmus des Führenden brechen.</strong> Spielt jemand ständig Paare aus und holt sich den Stich immer wieder zurück, investiere einmal ein starkes Paar fürs Ausspiel – und wechsle dann auf Einzelkarten oder Drillinge.",
+          "<strong>Die 2 für echten Gewinn aufheben.</strong> Wirf keine 2 auf eine einzelne 6, wenn du danach nichts Schwaches auszuspielen hast. Am wertvollsten ist die 2, wenn du mit dem neuen Ausspiel niedrige Karten abwerfen oder das Format wechseln kannst.",
+          "<strong>Kartenanzahl der anderen beobachten.</strong> Behalte im Blick, wer kaum noch Karten hat. Hat die Person links von dir nur noch zwei oder drei Karten, überleg dir gut, ob du genau das Format anspielst, mit dem sie bisher gewonnen hat."
+        ]
+      },
+      {
+        "id": "endgame",
+        "h": "Endspiel",
+        "items": [
+          "<strong>Die letzten zwei Züge zusammen planen.</strong> Bevor du dir mit einer 2 oder einem Ass das Ausspiel holst, prüf, wie du rausgehst. Der sauberste Abschluss: mit der höchsten Karte den Stich holen und sofort das letzte Paar oder die letzte niedrige Karte ablegen, bevor jemand reagieren kann.",
+          "<strong>Mit der schwächsten Karte rausgehen, nicht mit der stärksten.</strong> Du hast noch eine 2 und eine einzelne 4? Hol dir mit der 2 das Ausspiel und geh mit der 4 raus – beim eigenen Ausspiel kann dich niemand mehr stoppen. Gefährlich ist die 4 am Ende nur, wenn du das Ausspiel vorher verlierst.",
+          "<strong>Ein Paar fürs Finale aufheben.</strong> Die Runde nach einem gewonnenen Stich mit einem Paar (etwa zwei 6ern) zu beenden, räumt zwei Karten in einem Zug ab und verhindert, dass du auf einer einzelnen niedrigen Karte sitzenbleibst.",
+          "<strong>Um jeden Rang kämpfen.</strong> Selbst wenn jemand anderes sicher Erster wird: Bleib konzentriert. Der zweite Platz (Vizepräsident) bringt dir im nächsten Tausch eine starke Karte, statt eine zu verlieren – und nicht Bettler zu werden lohnt sich immer.",
+          "<strong>Hausregeln im Blick behalten.</strong> Spielt ihr mit „Nicht mit einer 2 rausgehen“, muss deine 2 den vorletzten Stich holen und darf niemals deine allerletzte Karte sein."
+        ]
+      }
+    ],
+    "cardsH": "Schlüsselkarten & Kombinationen",
+    "cardsLead": "Im Grundspiel hat keine Karte eine Sonderfunktion – trotzdem entscheiden bestimmte Werte und Kombinationen fast jede Runde. Wer weiß, wann man sie hält und wann man sie spielt, landet oben statt beim Bettler.",
+    "cardsNav": "Schlüsselkarten",
+    "cards": [
+      {
+        "kind": "two",
+        "h": "2 – Dein Ticket fürs Ausspiel",
+        "p": "Die höchste Karte im Deck. Bei Einzelkarten ist eine 2 unschlagbar und sichert dir das nächste Ausspiel.",
+        "items": [
+          "Heb sie dir auf, um genau dann die Kontrolle zu übernehmen, wenn du niedrige Einzelkarten abwerfen oder die Runde beenden willst.",
+          "Zwei 2er auf der Hand? Ein Paar 2er schlägt jedes Paar – reiß es nicht auseinander, außer eine einzelne 2 bringt dir sofort den Sieg.",
+          "Mit der Hausregel „Eine 2 räumt ab“ schlägt schon eine einzelne 2 auch Paare und Drillinge – dann ist sie noch wertvoller."
+        ]
+      },
+      {
+        "kind": "ace",
+        "h": "Ass – Der Boss im späten Spiel",
+        "p": "Zweithöchster Wert und unschlagbar, sobald alle 2er gespielt sind. Mit einzelnen Assen lockst du fremde 2er heraus, und ein Paar Asse beherrscht fast jeden Paar-Stich."
+      },
+      {
+        "kind": "pair",
+        "h": "Paare – Tempo und Kontrolle",
+        "p": "Ein Paar räumt zwei Karten in einem Zug ab. Selbst niedrige Paare (wie zwei 4er) sind viel leichter spielbar als lose Einzelkarten, und hohe Paare (Damen, Könige, Asse) gewinnen den Stich oft sofort."
+      },
+      {
+        "kind": "triple",
+        "h": "Drillinge – Stich-Abräumer",
+        "p": "Drillinge sind kaum zu schlagen – selbst drei 5er räumen den Tisch oft komplett ab und bringen dir sofort wieder das Ausspiel. Zerreiß einen Drilling nur im absoluten Notfall."
+      },
+      {
+        "kind": "low",
+        "h": "Niedrige Karten (3, 4, 5) – Früh abwerfen",
+        "p": "Die Kreuz 3 eröffnet die erste Runde – die perfekte Gelegenheit, gleich alle deine 3er zusammen loszuwerden. Nutze jedes frühe Ausspiel, um einzelne 3er, 4er und 5er vor dem Endspiel abzulegen."
+      },
+      {
+        "kind": "four",
+        "h": "Vier Gleiche (und Revolution)",
+        "p": "Räumt vier Karten auf einen Schlag ab und wird nur von höheren vier Gleichen geschlagen. Spielt ihr mit der Hausregel <strong>Revolution</strong>? Dann drehen vier Gleiche die Reihenfolge um und 3er werden am stärksten – heb sie auf, wenn deine niedrigen Karten bereitliegen."
+      }
+    ],
+    "mistakesH": "Häufige Fehler",
+    "mistakesNav": "Fehler",
+    "mistakes": [
+      "<strong>Dem Bettler im Tausch ein Paar schenken.</strong> Zwei 4er statt einer 4 und einer 6 abzugeben spart dem Bettler einen ganzen Zug. Gib nach Möglichkeit immer zwei verschiedene Einzelkarten zurück.",
+      "<strong>Paare für kleine Stiche auseinanderreißen.</strong> Ein Paar 10er zu teilen, nur um eine einzelne 8 zu schlagen, lässt dich mit einer losen Karte zurück und verschenkt ein starkes Paar für später.",
+      "<strong>2er und Asse zu früh verschwenden.</strong> Deine 2 im ersten Stich für ein unnötiges Ausspiel zu verbrauchen lässt dich im Endspiel hilflos zurück, wenn es um die Ränge geht.",
+      "<strong>Niemals passen.</strong> Nur weil du überbieten kannst, heißt das nicht, dass du es solltest. Passen ist kostenlos und lässt die anderen ihre hohen Karten gegenseitig aufbrauchen.",
+      "<strong>2er und Asse nicht mitzählen.</strong> Wenn du nicht merkst, dass alle vier 2er schon weg sind, hältst du dein Ass zu vorsichtig zurück, statt im perfekten Moment das Ausspiel zu übernehmen.",
+      "<strong>Am Ende auf einer niedrigen Einzelkarte sitzenbleiben.</strong> Wer zuerst seine hohen Karten spielt und am Schluss eine einzelne 3 oder 4 behält, muss zusehen, wie alle anderen rausgehen – werde schwache Karten immer los, solange du noch eine hohe Karte fürs Ausspiel hast."
+    ],
+    "ctaRulesH": "Neu im Spiel?",
+    "ctaRulesP": "Lies zuerst die Regeln.",
+    "ctaRulesBtn": "Zu den Regeln"
+  },
   "themeSwitch": "Zwischen hellem und dunklem Design wechseln",
   "pgLabel": "Seiten",
   "pgRules": "Regeln",

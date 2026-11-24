@@ -1,0 +1,161 @@
+---
+pagination:
+  data: languages
+  size: 1
+  alias: lang
+permalink: "{{ lang.path }}strategy/"
+layout: game
+subpath: "strategy/"
+share: true
+eleventyComputed:
+  pageTitle: "{{ lang.t.seo.strategyT }}"
+  pageDescription: "{{ lang.t.seo.strategyD }}"
+---
+{#- Strategieseite, einmal pro Sprache. Kein Spiel gegen Bots. -#}
+{%- from "card.njk" import card, cardRow -%}
+{%- set t = lang.t -%}
+{%- set s = t.strategy -%}
+
+{% include "hero.njk" %}
+
+<nav class="secnav" aria-label="{{ t.navLabel }}">
+  <ul>
+    <li><a href="#principle">{{ s.principleNav }}</a></li>
+    <li><a href="#swap">{{ s.swapNav }}</a></li>
+    {%- for phase in s.phases %}
+    <li><a href="#{{ phase.id }}">{{ phase.h }}</a></li>
+    {%- endfor %}
+    <li><a href="#key-cards">{{ s.cardsNav }}</a></li>
+    <li><a href="#mistakes">{{ s.mistakesNav }}</a></li>
+    <li><a href="#share">{{ t.nShare }}</a></li>
+  </ul>
+</nav>
+
+<main class="wrap">
+  <section id="principle">
+    <h2>{{ s.principleH }}</h2>
+    <p class="lead">{{ s.principle | safe }}</p>
+  </section>
+
+  <section id="swap">
+    <h2>{{ s.swapH }}</h2>
+    <p class="lead">{{ s.swapLead | safe }}</p>
+    <h3 class="sub first">{{ s.giveH }}</h3>
+    <ul class="strats">
+      {%- for item in s.give %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+    <p class="notup">{{ s.notGive | safe }}</p>
+
+    {#- Tausch-Beispiel: der Präsident behält das 4er-Paar und gibt die zwei
+        einzelnen Karten 5 und 7 (umrandet) an den Bettler zurück. -#}
+    <figure class="swapex">
+      <figcaption>{{ s.exH }}</figcaption>
+      <div class="sx-pair" role="img" aria-label="{{ s.exAlt }}">
+        <div class="sx-panel">
+          <p class="sx-title">{{ s.exBefore }}</p>
+          <p class="sx-label">{{ s.exHand }}</p>
+          <div class="sx-hand">
+            <div class="sx-hand-row">
+              <div class="sx-set">{{ cardRow([["4", "♣"], ["4", "♦"]], "xs") }}</div>
+              {{ card("5", "♥", "xs", "gold") }}
+            </div>
+            <div class="sx-hand-row">
+              {{ card("7", "♣", "xs", "gold") }}
+              <div class="sx-set">{{ cardRow([["A", "♥"], ["2", "♠"]], "xs") }}</div>
+            </div>
+          </div>
+        </div>
+        <svg class="sx-arrow" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 24 H38"/><path d="M28 13 L40 24 L28 35"/></svg>
+        <div class="sx-panel">
+          <p class="sx-title">{{ s.exAfter }}</p>
+          <p class="sx-label">{{ s.exKeep }}</p>
+          <div class="sx-groups">
+            <div class="sx-set">{{ cardRow([["4", "♣"], ["4", "♦"]], "xs") }}</div>
+            <div class="sx-set">{{ cardRow([["A", "♥"], ["2", "♠"]], "xs") }}</div>
+          </div>
+          <p class="sx-label">{{ s.exGive }}</p>
+          <div class="sx-give">{{ card("5", "♥", "xs", "gold") }}{{ card("7", "♣", "xs", "gold") }}</div>
+        </div>
+      </div>
+      <p>{{ s.exWhy | safe }}</p>
+      <div class="sx-variant">
+        <div class="sx-mini" role="img" aria-label="{{ s.exVariantAlt }}">{{ card("4", "♣", "xs") }}{{ card("4", "♦", "xs") }}{{ card("5", "♥", "xs", "gold") }}</div>
+        <p>{{ s.exVariant | safe }}</p>
+      </div>
+    </figure>
+  </section>
+
+  {%- for phase in s.phases %}
+
+  <section id="{{ phase.id }}">
+    <h2>{{ phase.h }}</h2>
+    <ul class="strats">
+      {%- for item in phase.items %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endfor %}
+
+  <section id="key-cards">
+    <h2>{{ s.cardsH }}</h2>
+    <p class="lead">{{ s.cardsLead | safe }}</p>
+    <div class="specials">
+      {%- for sp in s.cards %}
+      <div class="sp">
+        {%- if sp.kind == "two" %}
+        {{ card("2", "♠", "sm", "gold") }}
+        {%- elif sp.kind == "ace" %}
+        {{ card("A", "♥", "sm") }}
+        {%- elif sp.kind == "pair" %}
+        <div class="sp-cards">{{ cardRow([["K", "♣"], ["K", "♦"]], "xs") }}</div>
+        {%- elif sp.kind == "triple" %}
+        <div class="sp-cards sp-triple">{{ cardRow([["J", "♠"], ["J", "♥"], ["J", "♦"]], "xs") }}</div>
+        {%- elif sp.kind == "low" %}
+        <div class="sp-cards">{{ cardRow([["3", "♣"], ["4", "♦"]], "xs") }}</div>
+        {%- elif sp.kind == "four" %}
+        <div class="four">
+          {%- for suit in ["♠", "♥", "♣", "♦"] %}
+          {{ card("9", suit, "xs") }}
+          {%- endfor %}
+        </div>
+        {%- endif %}
+        <div>
+          <h3>{{ sp.h }}</h3>
+          <p>{{ sp.p | safe }}</p>
+          {%- if sp.items %}
+          <ul class="sp-list">
+            {%- for item in sp.items %}
+            <li>{{ item | safe }}</li>
+            {%- endfor %}
+          </ul>
+          {%- endif %}
+        </div>
+      </div>
+      {%- endfor %}
+    </div>
+  </section>
+
+  <section id="mistakes">
+    <h2>{{ s.mistakesH }}</h2>
+    <ul class="variants">
+      {%- for item in s.mistakes %}
+      <li>{{ item | safe }}</li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="next-steps">
+    <div class="cta">
+      <h2>{{ s.ctaRulesH }}</h2>
+      <p>{{ s.ctaRulesP }}</p>
+      <a class="ctabtn" href="{{ lang.path }}">{{ s.ctaRulesBtn }} →</a>
+    </div>
+  </section>
+
+  {% include "share.njk" %}
+</main>
+
+{% include "footer.njk" %}
