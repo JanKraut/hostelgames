@@ -3,6 +3,7 @@
   "name": "Cambio",
   "tagline": "Four hidden cards, a good memory – the lowest total wins",
   "domain": "https://cambiogame.de",
+  "category": "cards",
   "status": "draft",
   "languages": ["en", "de"],
   "pages": ["rules"],

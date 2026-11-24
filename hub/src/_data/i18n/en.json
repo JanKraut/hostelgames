@@ -5,7 +5,13 @@
   },
   "h1": "Card games from hostels around the world",
   "sub": "Learn the rules in minutes, then play.",
-  "gamesH": "Games",
+  "catsNav": "Categories",
+  "categories": {
+    "cards": { "name": "Card games", "lead": "One deck, a few rules – and the evening is sorted." },
+    "drinking": { "name": "Drinking games", "lead": "For the common room and the bar, with whatever is in your glass." },
+    "dice": { "name": "Dice games", "lead": "A handful of dice, a bit of luck and a lot of shouting." }
+  },
+  "catSoon": "Coming soon.",
   "mLanguages": "{n} languages",
   "mBots": "play against bots",
   "mPlayers": "{min}–{max} players",

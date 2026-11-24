@@ -9,6 +9,7 @@
 //   name       shown on the hub page
 //   tagline    one line for the hub page
 //   domain     the game's own domain, e.g. https://shitheadgame.de (optional, may not exist yet)
+//   category   its section on the hub page: "cards", "drinking" or "dice" (see CATEGORIES)
 //   status     "draft" while the game is being built: only in the preview (GitHub Pages),
 //              not listed on hostelgames.com, not deployed to its own domain. "live" otherwise.
 //   languages  codes of the languages it offers, e.g. ["en", "de"]; en and de always.
@@ -52,6 +53,8 @@ export const PAGES = {
   play: "play.njk",
 };
 export const STATUSES = ["draft", "live"];
+// Sections of the hub page, in this order. Names and intros: categories.<key> in the hub's i18n.
+export const CATEGORIES = ["cards", "drinking", "dice"];
 // Always complete in every game (see the rules in CLAUDE.md and check-i18n --strict).
 const REQUIRED_LANGUAGES = ["en", "de"];
 
@@ -67,6 +70,7 @@ export function readGame(file) {
   if ("path" in game) fail(`remove "path" – the folder is always the domain without its ending`);
   game.path = folderOf(game.domain, file) ?? game.slug;
 
+  if (!CATEGORIES.includes(game.category)) fail(`"category" must be one of ${CATEGORIES.join(", ")}`);
   if (!STATUSES.includes(game.status)) fail(`"status" must be one of ${STATUSES.join(", ")}`);
 
   if (!list(game.languages)) fail(`"languages" must be a list of language codes, e.g. ["en", "de"]`);

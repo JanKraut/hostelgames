@@ -3,6 +3,7 @@
   "name": "President",
   "tagline": "Shed your cards first, become President – and make the Scum hand over their best cards",
   "domain": "https://presidentsgame.de",
+  "category": "cards",
   "status": "draft",
   "languages": ["en", "de"],
   "pages": ["rules", "strategy"],

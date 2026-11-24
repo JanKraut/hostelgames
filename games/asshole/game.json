@@ -3,6 +3,7 @@
   "name": "Asshole",
   "tagline": "Win and become king – lose and hand over your best cards",
   "domain": "https://assholegame.de",
+  "category": "cards",
   "status": "draft",
   "languages": ["en", "de"],
   "pages": ["rules"],

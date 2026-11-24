@@ -33,9 +33,24 @@ eleventyComputed:
 </header>
 
 <main class="wrap hub">
-  <h2>{{ t.gamesH }}</h2>
+  {#- One section per category (src/_data/categories.js: order from CATEGORIES in core,
+      games by "category" in their game.json).
+      A category without games yet still shows, with a short "coming soon" line. -#}
+  <nav class="cats" aria-label="{{ t.catsNav }}">
+    {%- for cat in categories %}
+    <a href="#{{ cat.key }}">{{ t.categories[cat.key].name }}</a>
+    {%- endfor %}
+  </nav>
+  {%- for cat in categories %}
+  {%- set ct = t.categories[cat.key] %}
+  <section class="cat" id="{{ cat.key }}" aria-labelledby="{{ cat.key }}-h">
+  <h2 id="{{ cat.key }}-h">{{ ct.name }}</h2>
+  <p class="cat-lead">{{ ct.lead }}</p>
+  {%- if not cat.games.length %}
+  <p class="cat-soon">{{ t.catSoon }}</p>
+  {%- else %}
   <ul class="games">
-    {%- for game in games %}
+    {%- for game in cat.games %}
     {%- set gt = t.games[game.slug] or {} %}
     {#- Same language on the game's site, if the game has it. -#}
     {%- set langPath = lang.path | replace("/", "", 1) if (lang.code in game.languages) else "" %}
@@ -60,6 +75,9 @@ eleventyComputed:
     </li>
     {%- endfor %}
   </ul>
+  {%- endif %}
+  </section>
+  {%- endfor %}
 </main>
 
 {#- Popup of the QR button in the top bar (langmenu.njk, share.js). -#}

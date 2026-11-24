@@ -3,6 +3,7 @@
   "name": "Cabo",
   "tagline": "Peek, swap and remember – call Cabo with the lowest hand",
   "domain": "https://cabogame.de",
+  "category": "cards",
   "status": "draft",
   "languages": ["en", "de"],
   "pages": ["rules"],
