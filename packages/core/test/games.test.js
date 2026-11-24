@@ -41,7 +41,7 @@ test("folder = domain without its ending", () => {
 
 for (const [what, change, message] of [
   ["category missing", { category: undefined }, /"category"/],
-  ["unknown category", { category: "board" }, /"category" must be one of cards, drinking, dice/],
+  ["unknown category", { category: "board" }, /"category" must be one of cards, dice, drinking/],
   ["status missing",{ status: undefined }, /"status"/],
   ["unknown status", { status: "beta" }, /"status"/],
   ["languages as a number", { languages: 15 }, /"languages" must be a list/],

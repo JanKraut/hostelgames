@@ -9,7 +9,7 @@
 //   name       shown on the hub page
 //   tagline    one line for the hub page
 //   domain     the game's own domain, e.g. https://shitheadgame.de (optional, may not exist yet)
-//   category   its section on the hub page: "cards", "drinking" or "dice" (see CATEGORIES)
+//   category   its section on the hub page: "cards", "dice" or "drinking" (see CATEGORIES)
 //   status     "draft" while the game is being built: only in the preview (GitHub Pages),
 //              not listed on hostelgames.com, not deployed to its own domain. "live" otherwise.
 //   languages  codes of the languages it offers, e.g. ["en", "de"]; en and de always.
@@ -54,7 +54,7 @@ export const PAGES = {
 };
 export const STATUSES = ["draft", "live"];
 // Sections of the hub page, in this order. Names and intros: categories.<key> in the hub's i18n.
-export const CATEGORIES = ["cards", "drinking", "dice"];
+export const CATEGORIES = ["cards", "dice", "drinking"];
 // Always complete in every game (see the rules in CLAUDE.md and check-i18n --strict).
 const REQUIRED_LANGUAGES = ["en", "de"];
 
