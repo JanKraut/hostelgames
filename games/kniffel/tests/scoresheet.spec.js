@@ -55,6 +55,16 @@ for (const lang of languages) {
     await expect(page.locator(".pagetabs a[aria-current=page]")).toHaveText(lang.t.pgSheet);
     await expect(page.locator("link[rel=canonical]")).toHaveAttribute("href", `${lang.url}scoresheet/`);
     await expect(page.locator("#sheet-players input")).toHaveCount(2);
+    // QR-Button im Kopf öffnet das Teilen-Popup mit QR-Code zur Block-Seite.
+    await expect(page.locator(".qrbtn")).toBeVisible();
+    const popup = page.locator(".qrpop");
+    await expect(popup).toBeHidden();
+    await page.locator(".qrbtn").click();
+    await expect(popup).toBeVisible();
+    await expect(popup.locator(".qr svg")).toBeVisible();
+    await expect(popup.locator(".shurl a")).toHaveAttribute("href", `${lang.url}scoresheet/`);
+    await popup.locator(".qrclose").click();
+    await expect(popup).toBeHidden();
     const text = await page.locator("body").innerText();
     expect(text).not.toMatch(/undefined|\[object|\{\{|\{%|\{n\}/);
   });
