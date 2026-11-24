@@ -31,7 +31,7 @@
     "intro": "Mit Mau-Mau ist in Deutschland, Österreich und der Schweiz fast jeder aufgewachsen. Wer Uno oder Crazy Eights kennt, kann schon die Hälfte – der Rest ist in zwei Minuten erklärt. Ihr braucht nur ein kleines Kartenspiel."
   },
   "rules": {
-    "h1": "Mau-Mau Kartenspiel",
+    "h1": "Mau-Mau-Kartenspiel",
     "h1sub": "Regeln & Spielablauf",
     "goal": "<strong>Das Ziel:</strong> Werde als Erste oder Erster alle Karten los. Vor deiner letzten Karte sagst du „Mau“ – und „Mau-Mau“, wenn du sie ablegst.",
     "navLabel": "Abschnitte",
@@ -94,13 +94,13 @@
     "varLead": "Mau-Mau hat unzählige Hausregeln – von Region zu Region und von Tisch zu Tisch. Einigt euch vor der ersten Karte. Die häufigsten:",
     "var1": "<strong>Ass statt 8:</strong> Vielerorts ist das Ass die Aussetz-Karte und die 8 eine normale Karte.",
     "var2": "<strong>9 dreht:</strong> Eine 9 kehrt die Spielrichtung um.",
-    "var3": "<strong>Bube auf Bube:</strong> In vielen Runden verboten („Bube auf Bube, das stinkt“), in anderen erlaubt.",
-    "var4": "<strong>Kein Bube zum Schluss:</strong> Mit einem Buben darfst du nicht ausgehen. Wer es versucht, zieht eine Strafkarte.",
+    "var3": "<strong>Bube auf Bube:</strong> In vielen Runden verboten („Bube auf Bube stinkt“), in anderen erlaubt.",
+    "var4": "<strong>Kein Bube zum Schluss:</strong> Mit einem Buben darfst du nicht rausgehen. Wer es versucht, zieht eine Strafkarte.",
     "var5": "<strong>Ass noch mal:</strong> Nach einem Ass legt dieselbe Person gleich noch eine Karte.",
     "var6": "<strong>Ziehen, bis es passt:</strong> Statt einer Karte ziehst du so lange, bis du legen kannst.",
     "var7": "<strong>10 mit Zusatz:</strong> Nach einer 10 muss der Nächste die gleiche Farbe oder eine 10 legen – kein Bube.",
     "var8": "<strong>6 Karten:</strong> Jeder bekommt 6 statt 5 Karten, die Runde dauert länger.",
-    "var9": "<strong>7er weitergeben:</strong> Wer für eine 7 ziehen müsste, darf auch eine 8 legen und gibt die Karten damit an den Nächsten weiter.",
+    "var9": "<strong>7er weitergeben:</strong> Wer für eine 7 ziehen müsste, darf auch eine 8 legen (meist in derselben Farbe) und gibt die Karten damit an den Nächsten weiter.",
     "faqH": "FAQ",
     "faq1q": "Darf ich ziehen, obwohl ich legen könnte?",
     "faq1a": "Ja, in den meisten Runden schon. Manchmal ist es klug, einen Buben oder eine 7 für später aufzuheben.",
@@ -115,7 +115,7 @@
     "faq6q": "Wie heißt das Spiel noch?",
     "faq6a": "In der Schweiz <strong>Tschau Sepp</strong>, im englischen Sprachraum <strong>Crazy Eights</strong> (dort ist die 8 die Wunschkarte), in den Niederlanden <strong>Pesten</strong>.",
     "faq7q": "Kann ich Mau-Mau mit 52 Karten spielen?",
-    "faq7a": "Ja. Die Regeln bleiben gleich, die Karten von 2 bis 6 haben einfach keine Sonderwirkung. Mit 52 Karten können bis zu 8 Leute mitspielen."
+    "faq7a": "Ja. Die Regeln bleiben gleich, die Karten von 2 bis 6 haben einfach keine Sonderwirkung und zählen beim Punktezählen ihren Zahlenwert. Mit 52 Karten können bis zu 8 Leute mitspielen."
   },
   "themeSwitch": "Zwischen hellem und dunklem Design wechseln",
   "pgLabel": "Seiten",

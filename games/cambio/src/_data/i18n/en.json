@@ -81,7 +81,7 @@
     "own": "<strong>Your own card:</strong> it goes on the pile and you have one card fewer. Fewer cards, fewer points.",
     "other": "<strong>Someone else's card:</strong> if you know another player's card matches, throw it on the pile. Then give them one of your cards, face down and without looking, into the empty spot.",
     "wrong": "<strong>Wrong card:</strong> it goes back where it was, and you draw a penalty card face down from the draw pile and add it to your cards.",
-    "p": "Only the rank counts: any 6 matches any 6. Only the first player to stack on a card gets it; one card at a time, and with one hand. Once the next player draws, the chance is gone."
+    "p": "Only the rank counts: any 6 matches any 6. Only the first player to stack on a card gets it; always one card at a time, and you may only touch cards with one hand. Stacked cards never trigger a power. Once the next player draws, the chance is gone."
   },
   "cambio": {
     "h": "Calling “Cambio”",

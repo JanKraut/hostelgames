@@ -185,7 +185,7 @@ eleventyComputed:
     <h2>{{ r.varH }}</h2>
     <p class="lead">{{ r.varLead | safe }}</p>
     <ul class="variants">
-      {%- for i in range(1, 11) %}
+      {%- for i in range(1, 12) %}
       <li>{{ r["var" ~ i] | safe }}</li>
       {%- endfor %}
     </ul>
