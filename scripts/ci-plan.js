@@ -9,6 +9,9 @@
 //
 // A game counts as changed if a file in games/<slug>/ changed. A change in shared code
 // (packages/, scripts/, .github/, package.json, package-lock.json) counts for every game.
+// Exception: if package.json / package-lock.json only changed in the parts of one game
+// (scripts build:<slug> / start:<slug>, workspace entries games/<slug>), only that game counts –
+// so adding a new game doesn't test all the others (rootJsonSlugs).
 // The hub (hostelgames.com) changes with hub/ or with any change that changes a game.
 //
 // Hetzner: the FTP login of "hetzner-webhosting" is the main folder "hostelgames.com";
@@ -36,12 +39,66 @@ const SHARED = [/^packages\//, /^scripts\//, /^\.github\//, /^package(-lock)?\.j
 function changedFiles(base, head) {
   if (!base || /^0+$/.test(base)) return null; // unknown: everything
   try {
-    return execFileSync("git", ["diff", "--name-only", base, head || "HEAD"], { cwd: new URL(ROOT), encoding: "utf8" })
+    const files = execFileSync("git", ["diff", "--name-only", base, head || "HEAD"], { cwd: new URL(ROOT), encoding: "utf8" })
       .split("\n")
       .filter(Boolean);
+    return files.flatMap((file) => {
+      if (!ROOT_JSON.includes(file)) return [file];
+      const slugs = rootJsonSlugs(file, gitJson(base, file), gitJson(head || "HEAD", file));
+      return slugs === null ? [file] : slugs.map((slug) => (slug === "hub" ? "hub/" : `games/${slug}/`));
+    });
   } catch {
     return null; // base not in history (e.g. force push): everything
   }
+}
+
+const ROOT_JSON = ["package.json", "package-lock.json"];
+
+/** A file's JSON at a commit, or null if it doesn't exist there. */
+function gitJson(commit, file) {
+  try {
+    return JSON.parse(execFileSync("git", ["show", `${commit}:${file}`], { cwd: new URL(ROOT), encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }));
+  } catch {
+    return null;
+  }
+}
+
+/** JSON with sorted keys, so key order doesn't count as a change. */
+function canonical(value) {
+  if (Array.isArray(value)) return `[${value.map(canonical).join(",")}]`;
+  if (value && typeof value === "object") {
+    return `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${canonical(value[key])}`).join(",")}}`;
+  }
+  return JSON.stringify(value);
+}
+
+/**
+ * Which sites a change of package.json or package-lock.json belongs to: a list of slugs
+ * ("hub" for the hub) if only the parts of single sites changed, null if anything else changed
+ * (then it counts for every game). Parts of a site:
+ *   package.json        scripts "build:<slug>" and "start:<slug>"
+ *   package-lock.json   packages "games/<slug>", "hub" and "node_modules/@hostelgames/<slug>"
+ */
+export function rootJsonSlugs(file, before, after) {
+  const PARTS = {
+    "package.json": ["scripts", (key) => key.match(/^(?:build|start):([a-z0-9-]+)$/)?.[1]],
+    "package-lock.json": ["packages", (key) => (key === "hub" ? "hub" : key.match(/^(?:games\/|node_modules\/@hostelgames\/)([a-z0-9-]+)$/)?.[1])],
+  };
+  if (!before || !after || !PARTS[file]) return null;
+  const [section, match] = PARTS[file];
+  // @hostelgames/core is shared by every game.
+  const slugOf = (key) => (match(key) === "core" ? undefined : match(key));
+
+  const withoutSites = (json) => {
+    const entries = Object.entries(json[section] ?? {}).filter(([key]) => !slugOf(key));
+    return canonical({ ...json, [section]: Object.fromEntries(entries) });
+  };
+  if (withoutSites(before) !== withoutSites(after)) return null;
+
+  const a = before[section] ?? {};
+  const b = after[section] ?? {};
+  const keys = new Set([...Object.keys(a), ...Object.keys(b)]);
+  return [...new Set([...keys].filter((key) => slugOf(key) && canonical(a[key]) !== canonical(b[key])).map(slugOf))];
 }
 
 export function plan({ files, all = false }) {

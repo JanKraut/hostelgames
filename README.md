@@ -113,7 +113,9 @@ Ein Workflow (`.github/workflows/ci.yml`) testet und deployt:
 
 - **Jeder Pull Request und Push:** Übersetzungen prüfen und alles bauen; Browser-Tests **nur für
   Spiele, die sich geändert haben** (`scripts/ci-plan.js`). Änderungen in `packages/`, `scripts/`,
-  `.github/` oder `package*.json` zählen für alle Spiele. Die Tests laufen im Playwright-Container
+  `.github/` oder `package*.json` zählen für alle Spiele – außer `package*.json` ändert sich nur bei
+  einem Spiel (Scripts `build:<slug>` / `start:<slug>`, Workspace `games/<slug>`, z. B. beim Anlegen
+  eines neuen Spiels): dann zählt nur dieses. Die Tests laufen im Playwright-Container
   (Chromium vorinstalliert) und verteilt auf mehrere Runner (`testShards` in `game.json`).
 - **Jeder Push auf `main`:** danach automatisch – nur wenn Build und Tests grün sind –
   - **jedes geänderte Spiel mit `domain`** und den **Hub** (hostelgames.com) auf ihre Domains (Hetzner, FTPS mit `lftp`;
