@@ -7,7 +7,11 @@
     "rulesT": "Kniffel Regeln – So geht das Würfelspiel",
     "rulesD": "Kniffel erklärt: Würfeln und Würfel liegen lassen, alle 13 Felder des Spielblocks, der Bonus von 35 Punkten, Streichen, Wertung und Varianten.",
     "sheetT": "Kniffel-Block online – kostenlos, für bis zu 8 Spieler",
-    "sheetD": "Der Kniffel-Block im Browser: Punkte antippen, Summen und 35er-Bonus werden automatisch gerechnet. Ohne Anmeldung, gespeichert auf deinem Gerät."
+    "sheetD": "Der Kniffel-Block im Browser: Punkte antippen, Summen und 35er-Bonus werden automatisch gerechnet. Ohne Anmeldung, gespeichert auf deinem Gerät.",
+    "strategyT": "Kniffel Strategie – Tipps für mehr Punkte",
+    "strategyD": "Kniffel-Strategie: so holst du den Bonus, welche Würfel du liegen lässt, welches Feld du wählst und streichst – mit Wahrscheinlichkeiten.",
+    "quickT": "Kniffel Kurzregeln – Spickzettel fürs Handy",
+    "quickD": "Kniffel auf einen Blick: Ablauf, alle 13 Felder mit Punkten, Bonus ab 63 und Streichen – passt auf einen Handybildschirm."
   },
   "goal": "<strong>Das Ziel:</strong> Alle 13 Felder deines Spielblocks mit möglichst guten Würfen füllen und am Ende die meisten Punkte haben.",
   "info": {
@@ -131,13 +135,112 @@
   "faq7q": "Ist Kniffel dasselbe wie Yahtzee?",
   "faq7a": "Fast. Yahtzee ist der amerikanische Name, Yatzy der skandinavische; die Felder sind im Kern gleich, aber Bonus und Straßen unterscheiden sich etwas (siehe <a href=\"#variants\">Varianten</a>). Kniffel und Yahtzee sind außerdem Marken kommerzieller Würfelspiele; diese Seite erklärt das Spiel mit fünf normalen Würfeln.",
   "faq8q": "Wie werde ich besser im Kniffel?",
-  "faq8a": "Spiel früh auf den Bonus von 63: drei Fünfen oder Sechsen oben sind viel wert. Heb dir die Chance so lange wie möglich als Notlösung auf, und streich lieber die Einser als ein teures Feld.",
+  "faq8a": "Spiel früh auf den Bonus von 63: drei Fünfen oder Sechsen oben sind viel wert. Heb dir die Chance so lange wie möglich als Notlösung auf, und streich lieber die Einser als ein teures Feld. Mehr dazu in der <a href=\"strategy/\">Strategie</a>.",
   "themeSwitch": "Zwischen hellem und dunklem Design wechseln",
   "pgLabel": "Seiten",
   "pgRules": "Regeln",
   "n6": "Strategie",
   "pgQuick": "Quickstart",
   "pgSheet": "Online-Block",
+  "strategy": {
+    "h1": "Kniffel-Strategie",
+    "sub": "Glück entscheidet jeden Wurf – aber nicht, was du daraus machst. Mit diesen Tipps holst du öfter den Bonus, triffst die besseren Felder und verschenkst weniger Punkte.",
+    "principleNav": "Grundprinzip",
+    "bonusNav": "Bonus",
+    "keepNav": "Liegen lassen",
+    "boxesNav": "Felder wählen",
+    "strikeNav": "Streichen",
+    "endNav": "Endspiel",
+    "mistakesNav": "Fehler",
+    "principleH": "Das Grundprinzip",
+    "principle": "Du hast 13 Züge für 13 Felder. Jeder Wurf ist eine Frage: <strong>Wofür ist dieser Wurf am meisten wert – jetzt und für den Rest der Partie?</strong>",
+    "principleItems": [
+      "<strong>Der Bonus entscheidet die meisten Partien.</strong> 35 Punkte gibt es für einen ganz normalen oberen Block – mehr als für ein Full House.",
+      "<strong>Flexibel bleiben.</strong> Lass nach dem ersten Wurf Würfel liegen, die für mehrere Felder taugen: drei Sechsen helfen bei den Sechsern, beim Dreier- und Viererpasch und beim Kniffel.",
+      "<strong>Die Chance ist dein Rettungsnetz.</strong> Wer sie früh verbraucht, muss später ein gutes Feld streichen."
+    ],
+    "bonusH": "Den Bonus holen",
+    "bonusLead": "Für 63 Punkte oben brauchst du von jeder Zahl drei Würfel. Rechne nicht die Summe mit, sondern nur, wie weit du <strong>über oder unter dem Soll</strong> liegst.",
+    "parH": "Beispiel: Plus-Minus-Rechnung",
+    "parSum": "Oberer Block",
+    "parP": "Vier Fünfen und vier Sechsen gleichen die schwachen Vierer und Einser mehr als aus: <strong>+6 bedeutet Bonus sicher.</strong> Wer bei den Sechsern nur zwei hat (−6), muss das woanders wieder reinholen.",
+    "bonusItems": [
+      "<strong>Hohe Zahlen zählen am meisten.</strong> Eine Sechs über dem Soll wiegt so viel wie sechs Einser. Spiel deshalb früh auf die Fünfer und Sechser oben.",
+      "<strong>Drei sind genug, vier sind besser.</strong> Mit drei gleichen Zahlen im oberen Feld eintragen ist nie ein Fehler; mit zwei nur, wenn es die Einser oder Zweier sind.",
+      "<strong>Einser und Zweier sind die Puffer.</strong> Dort zu wenig zu haben kostet höchstens 3 bzw. 6 Punkte vom Soll."
+    ],
+    "keepH": "Welche Würfel liegen lassen?",
+    "keepLead": "Nach dem ersten Wurf entscheidest du, worauf du spielst. Faustregeln, von oben nach unten:",
+    "keepItems": [
+      "<strong>Drei oder vier Gleiche:</strong> liegen lassen. Sie passen oben, beim Pasch und beim Kniffel.",
+      "<strong>Vier in Folge (2-3-4-5 oder 3-4-5-6):</strong> liegen lassen und auf die Große Straße spielen – die Kleine hast du schon sicher.",
+      "<strong>Zwei Paare:</strong> beide liegen lassen, wenn das Full House noch frei ist. Sonst das höhere Paar.",
+      "<strong>Ein Paar:</strong> liegen lassen, wenn das passende obere Feld noch frei ist. Ein Paar Einser opferst du lieber für eine Fünf oder Sechs.",
+      "<strong>Nichts Passendes:</strong> Fünfen und Sechsen liegen lassen und neu würfeln – das hält Sechser, Pasch und Chance offen."
+    ],
+    "oddsH": "Deine Chancen mit zwei Würfen",
+    "odds": [
+      "Kniffel",
+      "Kniffel",
+      "Full House",
+      "Große Straße",
+      "Große Straße",
+      "Kleine Straße"
+    ],
+    "oddsNote": "Gold: liegen lassen, gestrichelt: noch zweimal würfeln. Ein Kniffel aus dem Nichts gelingt in einem ganzen Zug nur in knapp 5 % der Fälle – rechne nicht damit, aber nimm ihn mit.",
+    "boxesH": "Das richtige Feld wählen",
+    "boxesLead": "Am Ende des Zugs passt ein Wurf oft in mehrere Felder. So entscheidest du:",
+    "boxes": [
+      "<strong>Feste Punkte nimmst du, wenn sie kommen.</strong> Full House, Straßen und Kniffel bringen immer gleich viel – egal, mit welchen Zahlen.",
+      "<strong>Hohe Würfe in den Pasch, niedrige nach oben.</strong> Drei Sechsen sind im Dreierpasch viel wert; drei Zweier bringen dort kaum Punkte, bei den Zweiern sind sie genau das Soll.",
+      "<strong>Viererpasch mit niedrigen Zahlen?</strong> Vier Zweier gehören zu den Zweiern (+2 aufs Soll), nicht in den Viererpasch.",
+      "<strong>Die Chance erst ab etwa 22 Punkten.</strong> Darunter ist sie zu wertvoll – heb sie für einen Zug auf, der sonst nirgends passt.",
+      "<strong>Ein früher Kniffel aus Einsern?</strong> Trotzdem als Kniffel eintragen: 50 Punkte schlagen jedes obere Feld."
+    ],
+    "strikeH": "Welches Feld streichen?",
+    "strikeLead": "Musst du eine 0 eintragen, dann in das Feld, das dich am wenigsten kostet. Gute Opfer, ungefähr in dieser Reihenfolge:",
+    "strike": [
+      "<strong>Einser</strong> – höchstens 5 Punkte, und vom Soll für den Bonus fehlen nur 3.",
+      "<strong>Kniffel</strong> – wenn nur noch wenige Runden bleiben, ist die Chance darauf gering.",
+      "<strong>Große Straße</strong> – wenn die Kleine schon belegt ist und die Würfel nicht passen.",
+      "<strong>Zweier</strong> – solange der Bonus trotzdem noch erreichbar ist."
+    ],
+    "strikeNever": "<strong>Nie früh streichen:</strong> Fünfer, Sechser und die Chance. Sie bringen die meisten Punkte – und der Bonus hängt an den hohen Zahlen.",
+    "endH": "Das Endspiel",
+    "end": [
+      "<strong>Zähl die offenen Felder.</strong> Wer in den letzten Runden noch Full House und Große Straße braucht, sollte das schwierigere zuerst angehen.",
+      "<strong>Rechne den Bonus aus.</strong> Fehlen dir nur noch wenige Punkte bis 63, spiel gezielt auf das letzte obere Feld.",
+      "<strong>Liegst du hinten, geh ins Risiko.</strong> Ein Kniffel oder eine Große Straße kann die Partie drehen – sichere kleine Punkte nicht.",
+      "<strong>Liegst du vorn, spiel sicher.</strong> Nimm feste Punkte mit und lass die Chance bis zum Schluss offen."
+    ],
+    "mistakesH": "Typische Fehler",
+    "mistakes": [
+      "<strong>Die Chance im ersten Zug verbrauchen</strong> – danach fehlt das Rettungsnetz.",
+      "<strong>Bei den Sechsern zwei Sechsen eintragen</strong> – das sind schon 6 Punkte unter dem Soll.",
+      "<strong>Einen Pasch aus niedrigen Zahlen nehmen</strong>, obwohl das obere Feld noch frei ist.",
+      "<strong>Stur auf den Kniffel spielen</strong>, obwohl ein Full House oder eine Straße schon fast liegt.",
+      "<strong>Nicht nachrechnen</strong> – ob der Bonus noch klappt, entscheidet, was du streichst."
+    ],
+    "ctaSheetH": "Ausprobieren",
+    "ctaSheetP": "Der Online-Block zeigt dir, wie viel bis zum Bonus fehlt.",
+    "ctaSheetBtn": "Zum Online-Block",
+    "ctaRulesH": "Regeln nachlesen",
+    "ctaRulesP": "Alle Felder, Punkte und Varianten noch einmal im Detail.",
+    "ctaRulesBtn": "Zu den Regeln"
+  },
+  "quick": {
+    "h": "Kniffel auf einen Blick",
+    "ruleH": "Ablauf",
+    "rule": "Bis zu <strong>3 Würfe</strong> pro Zug, Würfel beliebig liegen lassen. Dann <strong>ein Feld</strong> eintragen. <strong>13 Runden</strong>, die meisten Punkte gewinnen.",
+    "upper": "Nur die passenden Augen zählen. Ab <strong>63</strong> oben gibt es <strong>+35</strong> Bonus.",
+    "sigma": "Σ = Summe aller fünf Würfel",
+    "strike": "Passt nichts, trägst du in ein freies Feld eine 0 ein.",
+    "ctaSheetH": "Kein Block zur Hand?",
+    "ctaSheetP": "Der Online-Block rechnet alles für dich zusammen.",
+    "ctaStratH": "Besser spielen",
+    "ctaStratP": "Bonus holen, richtig liegen lassen, klug streichen.",
+    "ctaStratBtn": "Zur Strategie"
+  },
   "sheet": {
     "h1": "Online-Block",
     "sub": "Der Kniffel-Block im Browser, für 1 bis 8 Spieler. Summen und Bonus rechnet er für dich aus.",

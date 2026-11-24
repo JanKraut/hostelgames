@@ -7,7 +7,11 @@
     "rulesT": "Kniffel Rules – How to Play the Dice Game",
     "rulesD": "Kniffel explained: rolling and keeping dice, all 13 boxes of the score sheet, the 35-point bonus, striking a box, scoring and variants.",
     "sheetT": "Kniffel Score Sheet Online – Free, for up to 8 Players",
-    "sheetD": "The Kniffel score sheet in your browser: tap to enter your scores, totals and the 35-point bonus are added up automatically. No sign-up, saved on your device."
+    "sheetD": "The Kniffel score sheet in your browser: tap to enter your scores, totals and the 35-point bonus are added up automatically. No sign-up, saved on your device.",
+    "strategyT": "Kniffel Strategy – Tips for a Higher Score",
+    "strategyD": "Kniffel strategy: how to get the bonus, which dice to keep, which box to choose and which to strike – with probabilities.",
+    "quickT": "Kniffel Quick Rules – Cheat Sheet for Your Phone",
+    "quickD": "Kniffel at a glance: how a turn works, all 13 boxes with points, the bonus from 63 and striking a box – fits on one phone screen."
   },
   "goal": "<strong>The goal:</strong> Fill all 13 boxes of your score sheet with the best possible rolls and end the game with the most points.",
   "info": {
@@ -131,13 +135,112 @@
   "faq7q": "Is Kniffel the same as Yahtzee?",
   "faq7a": "Almost. Yahtzee is the American name, Yatzy the Scandinavian one; the boxes are basically the same, but bonuses and straights differ a little (see <a href=\"#variants\">Variants</a>). Kniffel and Yahtzee are also trademarks of commercial dice games; this page explains how to play with five ordinary dice.",
   "faq8q": "How do I get better at Kniffel?",
-  "faq8a": "Aim for the 63 bonus early: three 5s or 6s in the upper section are worth a lot. Keep Chance as long as possible for an emergency, and strike Ones rather than an expensive box.",
+  "faq8a": "Aim for the 63 bonus early: three 5s or 6s in the upper section are worth a lot. Keep Chance as long as possible for an emergency, and strike Ones rather than an expensive box. More in the <a href=\"strategy/\">strategy guide</a>.",
   "themeSwitch": "Switch between light and dark mode",
   "pgLabel": "Pages",
   "pgRules": "Rules",
   "n6": "Strategy",
   "pgQuick": "Quick start",
   "pgSheet": "Score sheet",
+  "strategy": {
+    "h1": "Kniffel strategy",
+    "sub": "Luck decides every roll – but not what you make of it. With these tips you’ll get the bonus more often, pick better boxes and waste fewer points.",
+    "principleNav": "Principle",
+    "bonusNav": "Bonus",
+    "keepNav": "Keeping dice",
+    "boxesNav": "Choosing boxes",
+    "strikeNav": "Striking",
+    "endNav": "Endgame",
+    "mistakesNav": "Mistakes",
+    "principleH": "The basic principle",
+    "principle": "You have 13 turns for 13 boxes. Every roll asks one question: <strong>Where is this roll worth the most – now and for the rest of the game?</strong>",
+    "principleItems": [
+      "<strong>The bonus decides most games.</strong> You get 35 points for a perfectly ordinary upper section – more than for a Full house.",
+      "<strong>Stay flexible.</strong> After the first roll, keep dice that work for several boxes: three 6s help with Sixes, Three and Four of a kind, and Kniffel.",
+      "<strong>Chance is your safety net.</strong> Use it up early and you’ll have to strike a good box later."
+    ],
+    "bonusH": "Getting the bonus",
+    "bonusLead": "For 63 points in the upper section you need three dice of every number. Don’t track the total – just how far you are <strong>above or below par</strong>.",
+    "parH": "Example: plus-minus count",
+    "parSum": "Upper section",
+    "parP": "Four 5s and four 6s more than make up for the weak Fours and Ones: <strong>+6 means the bonus is safe.</strong> Only two 6s (−6) and you have to win those points back elsewhere.",
+    "bonusItems": [
+      "<strong>High numbers count the most.</strong> One 6 above par is worth as much as six 1s. So go for Fives and Sixes in the upper section early.",
+      "<strong>Three is enough, four is better.</strong> Entering three of a number in the upper section is never a mistake; two only for Ones or Twos.",
+      "<strong>Ones and Twos are your buffer.</strong> Falling short there costs at most 3 or 6 points against par."
+    ],
+    "keepH": "Which dice to keep?",
+    "keepLead": "After the first roll you decide what you’re going for. Rules of thumb, from top to bottom:",
+    "keepItems": [
+      "<strong>Three or four of a kind:</strong> keep them. They fit the upper section, Three or Four of a kind and Kniffel.",
+      "<strong>Four in a row (2-3-4-5 or 3-4-5-6):</strong> keep them and go for the Large straight – you already have the Small one.",
+      "<strong>Two pairs:</strong> keep both if Full house is still open. Otherwise keep the higher pair.",
+      "<strong>One pair:</strong> keep it if the matching upper box is still open. Rather give up a pair of 1s for a 5 or 6.",
+      "<strong>Nothing useful:</strong> keep 5s and 6s and roll again – that keeps Sixes, Three of a kind and Chance open."
+    ],
+    "oddsH": "Your chances with two rolls left",
+    "odds": [
+      "Kniffel",
+      "Kniffel",
+      "Full house",
+      "Large straight",
+      "Large straight",
+      "Small straight"
+    ],
+    "oddsNote": "Gold: keep, dashed: roll twice more. A Kniffel from scratch happens in barely 5 % of whole turns – don’t count on it, but take it when it comes.",
+    "boxesH": "Choosing the right box",
+    "boxesLead": "At the end of a turn a roll often fits several boxes. Here’s how to decide:",
+    "boxes": [
+      "<strong>Take fixed points when they come.</strong> Full house, straights and Kniffel always score the same – whatever the numbers.",
+      "<strong>High rolls into Three of a kind, low ones up top.</strong> Three 6s are worth a lot in Three of a kind; three 2s score hardly anything there, but under Twos they’re exactly par.",
+      "<strong>Four of a kind with low numbers?</strong> Four 2s belong under Twos (+2 on par), not in Four of a kind.",
+      "<strong>Chance only from about 22 points.</strong> Below that it’s too valuable – save it for a turn that fits nowhere else.",
+      "<strong>An early Kniffel of 1s?</strong> Enter it as Kniffel anyway: 50 points beat any upper box."
+    ],
+    "strikeH": "Which box to strike?",
+    "strikeLead": "If you have to enter a 0, put it where it costs you least. Good sacrifices, roughly in this order:",
+    "strike": [
+      "<strong>Ones</strong> – 5 points at most, and you only fall 3 short of par for the bonus.",
+      "<strong>Kniffel</strong> – when only a few rounds are left, the chance of rolling one is small.",
+      "<strong>Large straight</strong> – if the Small straight is already filled and the dice don’t fit.",
+      "<strong>Twos</strong> – as long as the bonus is still within reach."
+    ],
+    "strikeNever": "<strong>Never strike early:</strong> Fives, Sixes and Chance. They score the most – and the bonus depends on the high numbers.",
+    "endH": "The endgame",
+    "end": [
+      "<strong>Count the open boxes.</strong> If you still need Full house and Large straight in the last rounds, go for the harder one first.",
+      "<strong>Work out the bonus.</strong> If you’re only a few points short of 63, aim for the last upper box on purpose.",
+      "<strong>Behind? Take risks.</strong> A Kniffel or a Large straight can turn the game around – small safe points can’t.",
+      "<strong>Ahead? Play it safe.</strong> Take fixed points and keep Chance open until the end."
+    ],
+    "mistakesH": "Common mistakes",
+    "mistakes": [
+      "<strong>Using Chance on the first turn</strong> – then your safety net is gone.",
+      "<strong>Entering two 6s under Sixes</strong> – that’s already 6 points below par.",
+      "<strong>Taking Three of a kind with low numbers</strong> while the upper box is still open.",
+      "<strong>Chasing the Kniffel stubbornly</strong> when a Full house or straight is almost there.",
+      "<strong>Not doing the maths</strong> – whether the bonus is still possible decides what you strike."
+    ],
+    "ctaSheetH": "Try it out",
+    "ctaSheetP": "The online score sheet shows how far you are from the bonus.",
+    "ctaSheetBtn": "Open the score sheet",
+    "ctaRulesH": "Read the rules",
+    "ctaRulesP": "All boxes, points and variants in detail.",
+    "ctaRulesBtn": "Go to the rules"
+  },
+  "quick": {
+    "h": "Kniffel at a glance",
+    "ruleH": "How it works",
+    "rule": "Up to <strong>3 rolls</strong> per turn, keep any dice you like. Then fill in <strong>one box</strong>. <strong>13 rounds</strong>, most points wins.",
+    "upper": "Only the matching dice count. <strong>63</strong> or more up top gives a <strong>+35</strong> bonus.",
+    "sigma": "Σ = total of all five dice",
+    "strike": "If nothing fits, enter a 0 in any free box.",
+    "ctaSheetH": "No score sheet?",
+    "ctaSheetP": "The online score sheet adds everything up for you.",
+    "ctaStratH": "Play better",
+    "ctaStratP": "Get the bonus, keep the right dice, strike wisely.",
+    "ctaStratBtn": "Go to the strategy"
+  },
   "sheet": {
     "h1": "Online score sheet",
     "sub": "The Kniffel score sheet in your browser, for 1 to 8 players. Totals and the bonus are worked out for you.",

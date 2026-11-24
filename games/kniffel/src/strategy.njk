@@ -1,0 +1,159 @@
+---
+pagination:
+  data: languages
+  size: 1
+  alias: lang
+permalink: "{{ lang.path }}strategy/"
+layout: game
+subpath: "strategy/"
+share: true
+eleventyComputed:
+  pageTitle: "{{ lang.t.seo.strategyT }}"
+  pageDescription: "{{ lang.t.seo.strategyD }}"
+---
+{#- Strategie, eine pro Sprache. Abschnitte: Grundprinzip, Bonus (Plus-Minus-Rechnung),
+    Liegen lassen (mit Chancen-Tabelle), Felder wählen, Streichen, Endspiel, Fehler, Weiter, Teilen.
+    Texte unter `strategy` im i18n; Würfel aus dice.njk (gold = liegen lassen, 0 = noch zu werfen). -#}
+{%- from "dice.njk" import die, dice -%}
+{%- set t = lang.t -%}
+{%- set s = t.strategy -%}
+{% include "hero.njk" %}
+
+<nav class="secnav" aria-label="{{ t.navLabel }}">
+  <ul>
+    <li><a href="#principle">{{ s.principleNav }}</a></li>
+    <li><a href="#bonus">{{ s.bonusNav }}</a></li>
+    <li><a href="#keep">{{ s.keepNav }}</a></li>
+    <li><a href="#boxes">{{ s.boxesNav }}</a></li>
+    <li><a href="#strike">{{ s.strikeNav }}</a></li>
+    <li><a href="#endgame">{{ s.endNav }}</a></li>
+    <li><a href="#mistakes">{{ s.mistakesNav }}</a></li>
+    <li><a href="#share">{{ t.nShare }}</a></li>
+  </ul>
+</nav>
+
+<main class="wrap">
+  <section id="principle">
+    <h2>{{ s.principleH }}</h2>
+    <p class="lead">{{ s.principle | safe }}</p>
+    <ul class="strats">
+      {%- for item in s.principleItems %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="bonus">
+    <h2>{{ s.bonusH }}</h2>
+    <p class="lead">{{ s.bonusLead | safe }}</p>
+    {#- Plus-Minus-Rechnung: Soll ist dreimal jede Zahl. Beispiel-Block mit Ergebnis je Feld. -#}
+    <figure class="par">
+      <figcaption>{{ s.parH }}</figcaption>
+      <ol class="par-rows" role="list">
+        {%- for row in [[1, 2], [2, 3], [3, 3], [4, 2], [5, 4], [6, 4]] %}
+        {%- set diff = (row[1] - 3) * row[0] %}
+        <li>
+          {{ die(row[0], "xs") }}
+          <b>{{ t["up" ~ row[0]] }}</b>
+          <span class="par-got">{{ row[1] }} × {{ row[0] }} = {{ row[1] * row[0] }}</span>
+          <span class="par-diff{% if diff > 0 %} plus{% elif diff < 0 %} minus{% endif %}">{% if diff > 0 %}+{% elif diff < 0 %}−{% else %}±{% endif %}{{ diff | abs }}</span>
+        </li>
+        {%- endfor %}
+      </ol>
+      <p class="par-sum"><span>{{ s.parSum }}</span><b>69 · +6</b></p>
+    </figure>
+    <p>{{ s.parP | safe }}</p>
+    <ul class="strats">
+      {%- for item in s.bonusItems %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="keep">
+    <h2>{{ s.keepH }}</h2>
+    <p class="lead">{{ s.keepLead | safe }}</p>
+    <ul class="strats">
+      {%- for item in s.keepItems %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+
+    {#- Chancen mit zwei Würfen: gold = liegen lassen, gestrichelt = noch zu werfen.
+        Werte exakt gerechnet (bei der Kleinen Straße: beide Würfel jedes Mal neu). -#}
+    <h3 class="sub">{{ s.oddsH }}</h3>
+    <ul class="odds" role="list">
+      {%- for o in [
+        [[[6, "held"], [6, "held"], [6, "held"], [6, "held"], 0], "31 %"],
+        [[[6, "held"], [6, "held"], [6, "held"], 0, 0], "9 %"],
+        [[[3, "held"], [3, "held"], [5, "held"], [5, "held"], 0], "56 %"],
+        [[[2, "held"], [3, "held"], [4, "held"], [5, "held"], 0], "56 %"],
+        [[[1, "held"], [2, "held"], [3, "held"], [4, "held"], 0], "31 %"],
+        [[[3, "held"], [4, "held"], [5, "held"], 0, 0], "80 %"]
+      ] %}
+      <li>
+        {{ dice(o[0], "xs") }}
+        <span class="odds-goal">{{ s.odds[loop.index0] }}</span>
+        <b class="odds-pct">{{ o[1] }}</b>
+      </li>
+      {%- endfor %}
+    </ul>
+    <p class="note">{{ s.oddsNote | safe }}</p>
+  </section>
+
+  <section id="boxes">
+    <h2>{{ s.boxesH }}</h2>
+    <p class="lead">{{ s.boxesLead | safe }}</p>
+    <ul class="strats">
+      {%- for item in s.boxes %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="strike">
+    <h2>{{ s.strikeH }}</h2>
+    <p class="lead">{{ s.strikeLead | safe }}</p>
+    <ol class="strike-order">
+      {%- for item in s.strike %}
+      <li>{{ item | safe }}</li>
+      {%- endfor %}
+    </ol>
+    <p class="notup">{{ s.strikeNever | safe }}</p>
+  </section>
+
+  <section id="endgame">
+    <h2>{{ s.endH }}</h2>
+    <ul class="strats">
+      {%- for item in s.end %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="mistakes">
+    <h2>{{ s.mistakesH }}</h2>
+    <ul class="variants">
+      {%- for item in s.mistakes %}
+      <li>{{ item | safe }}</li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="next-steps" class="ctas">
+    <div class="cta">
+      <h2>{{ s.ctaSheetH }}</h2>
+      <p>{{ s.ctaSheetP }}</p>
+      <a class="ctabtn" href="{{ lang.path }}scoresheet/">{{ s.ctaSheetBtn }} →</a>
+    </div>
+    <div class="cta">
+      <h2>{{ s.ctaRulesH }}</h2>
+      <p>{{ s.ctaRulesP }}</p>
+      <a class="ctabtn" href="{{ lang.path }}">{{ s.ctaRulesBtn }} →</a>
+    </div>
+  </section>
+
+  {% include "share.njk" %}
+</main>
+
+{% include "footer.njk" %}

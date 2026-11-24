@@ -14,23 +14,7 @@ eleventyComputed:
     Oberer Block, Unterer Block, Punkte & Ende, Varianten, FAQ, Teilen. -#}
 {%- from "dice.njk" import die, dice -%}
 {%- set t = lang.t -%}
-<header class="hero">
-  <div class="wrap">
-    {% include "langmenu.njk" %}
-    {% include "pagenav.njk" %}
-    <h1>{{ t.h1 | safe }}<span class="h1-sub"> {{ t.h1sub }}</span></h1>
-    <p>{{ t.sub | safe }}</p>
-    {#- Fünf Würfel, frisch geworfen: ein Kniffel aus Sechsen. -#}
-    <div class="throw" aria-hidden="true">
-      {%- for i in range(5) %}{{ die(6) }}{% endfor -%}
-    </div>
-    <div class="goal">
-      <div class="goal-icon" aria-hidden="true">🎯</div>
-      <p>{{ t.goal | safe }}</p>
-    </div>
-    {% include "factsheet.njk" %}
-  </div>
-</header>
+{% include "hero.njk" %}
 
 <nav class="secnav" aria-label="{{ t.navLabel }}">
   <ul>
