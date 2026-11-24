@@ -13,7 +13,7 @@ seinem eigenen `_includes/` anlegt.
 | `includes/` | `langmenu.njk`, `themeswitch.njk`, `flags.njk`, `footer.njk` (mit Impressum/Datenschutz), `tracking-head.njk`, `tracking-body.njk` (Einwilligungsbanner), dazu für die Spiele: `card.njk` (Spielkarten-Makros), `pagenav.njk` (Reiter aus `pages` der game.json, ab zwei Seiten), `share.njk` + `sharebox.njk` (Teilen-Box mit QR-Code, Seiten mit `share: true`), `redirect.njk` (englische Startseite → gespeicherte Sprache) |
 | `includes/layouts/game.njk` | Seitenrahmen für Spiele, `layout: game` (Shithead hat noch seinen eigenen `base.njk`) |
 | `assets/share.js` | Teilen-Box: QR-Code (mit `qrcode-generator`, veröffentlicht als `assets/core/qrcode.js`), Link kopieren, Teilen |
-| `lib/sitemap.js` | `createSitemap(site, languages)`: `sitemap.xml` und `robots.txt` aus `pages` der game.json |
+| `lib/sitemap.js` | `createSitemap(site, languages, { games })`: `sitemap.xml` und `robots.txt` nur für den Hub (inkl. Live-Spiele ohne eigene Domain) und Live-Spiele mit eigener Domain |
 | `data/fonts.js` | Schrift (Manrope, selbst gehostet), Schnitte und Zeichensätze |
 | `data/tracking.js` | Tracking per Umgebungsvariablen, siehe Root-README |
 | `data/legal.js` | Links zu Impressum und Datenschutz (mut-im-rucksack.de), Texte des Einwilligungsbanners |
