@@ -1,6 +1,7 @@
 // sitemap.xml and robots.txt for search engines, for every game. Only built where the site may
 // be indexed: the GitHub Pages preview has noindex and gets neither.
 // The pages come from "pages" in game.json, each in every language with all its alternates.
+// The hub (site.game is null) has only its start page, in every language of hub/hub.json.
 //
 // A game's src/sitemap.11ty.js:
 //
