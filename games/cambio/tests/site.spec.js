@@ -49,7 +49,7 @@ for (const lang of languages) {
     await expect(page.locator("#powers .sp")).toHaveCount(4);
     await expect(page.locator("#faq details")).toHaveCount(8);
     // Rules only: no game against bots, no link to it.
-    await expect(page.locator('a[href*="play"]')).toHaveCount(0);
+    await expect(page.locator('a[href*="play"]:not(.navpanel a)')).toHaveCount(0);
   });
 
   test(`${lang.code}: every #link points to a section on the page`, async ({ page }) => {

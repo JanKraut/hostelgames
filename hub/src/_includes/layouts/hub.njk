@@ -1,5 +1,5 @@
 {#- Frame of the hub pages, one per language (hub/hub.json). Pages set pageTitle,
-    pageDescription and optionally share (true: QR button with popup in the top bar). -#}
+    pageDescription. share.js runs on every page: the QR button at the top (sitehead.njk). -#}
 <!DOCTYPE html>
 <html lang="{{ lang.htmlLang }}">
 <head>
@@ -35,9 +35,7 @@
 <script src="/assets/core/qrcode.js?v={{ assetVersion }}" defer></script>
 {%- endif %}
 <script type="module" src="/assets/core/core.js?v={{ assetVersion }}"></script>
-{%- if share %}
 <script type="module" src="/assets/core/share.js?v={{ assetVersion }}"></script>
-{%- endif %}
 </head>
 <body>
 {%- include "tracking-body.njk" %}

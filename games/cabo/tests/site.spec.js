@@ -53,7 +53,7 @@ for (const lang of languages) {
       await expect(page.locator(`[id="${id}"]`), `#${id}`).toHaveCount(1);
     }
     // Rules page only: no game against bots, no quiz.
-    await expect(page.locator('a[href*="play"]')).toHaveCount(0);
+    await expect(page.locator('a[href*="play"]:not(.navpanel a)')).toHaveCount(0);
     await expect(page.locator("#practice, #play-bots")).toHaveCount(0);
   });
 

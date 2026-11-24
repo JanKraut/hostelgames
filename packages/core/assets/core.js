@@ -1,7 +1,7 @@
 // @hostelgames/core – loaded on every page of every game. Progressive enhancement:
-// everything works without it. Light / dark switch, language menu (remembers the
-// chosen language, closes on outside click or Escape), consent banner, page tabs and the service worker
-// that makes the site work offline.
+// everything works without it. Light / dark switch, the menus of the top row ("All games" and
+// the language menu: close on outside click or Escape, the language is remembered), consent banner,
+// page links and the service worker that makes the site work offline.
 
 // ---------- Offline ----------
 
@@ -30,8 +30,9 @@ function showTheme() {
   }
 }
 
-const themeSwitch = document.querySelector(".themeswitch");
-if (themeSwitch) {
+// Game pages have two switches: in the top row (wide screens) and in the menu (phones).
+const themeSwitches = document.querySelectorAll(".themeswitch");
+if (themeSwitches.length) {
   const saved = (() => {
     try {
       return localStorage.getItem("theme");
@@ -47,39 +48,61 @@ if (themeSwitch) {
     });
   }
   showTheme();
-  themeSwitch.addEventListener("click", () => {
-    const next = isDark() ? "light" : "dark";
-    root.dataset.theme = next;
-    try {
-      localStorage.setItem("theme", next);
-    } catch {}
-    showTheme();
+  for (const themeSwitch of themeSwitches) {
+    themeSwitch.addEventListener("click", () => {
+      const next = isDark() ? "light" : "dark";
+      root.dataset.theme = next;
+      try {
+        localStorage.setItem("theme", next);
+      } catch {}
+      showTheme();
+    });
+  }
+}
+
+// ---------- Menus in the top row: "All games" and the language menu ----------
+// Both are <details>, so they work without JavaScript. Here: only one open at a time,
+// closed on outside click or Escape. The language menu remembers the chosen language.
+
+const menus = [...document.querySelectorAll(".sitehead details")];
+
+for (const menu of menus) {
+  menu.addEventListener("toggle", () => {
+    if (menu.open) for (const other of menus) if (other !== menu) other.open = false;
   });
 }
 
-// ---------- Language menu ----------
-
-const menu = document.querySelector(".langmenu");
-
-// Pages without a language menu (e.g. the hub) simply skip this.
-if (menu) {
-  menu.addEventListener("click", (event) => {
-    const link = event.target.closest("a[data-lang]");
-    if (!link) return;
-    try {
-      localStorage.setItem("lang", link.dataset.lang);
-    } catch {}
-  });
-
-  // Close the menu on outside click or Escape.
-  document.addEventListener("click", (event) => {
-    if (menu.open && !menu.contains(event.target)) menu.open = false;
-  });
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && menu.open) {
+document.addEventListener("click", (event) => {
+  for (const menu of menus) if (menu.open && !menu.contains(event.target)) menu.open = false;
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+  for (const menu of menus) {
+    if (menu.open) {
       menu.open = false;
       menu.querySelector("summary").focus();
     }
+  }
+});
+
+document.querySelector(".langmenu")?.addEventListener("click", (event) => {
+  const link = event.target.closest("a[data-lang]");
+  if (!link) return;
+  try {
+    localStorage.setItem("lang", link.dataset.lang);
+  } catch {}
+});
+
+// "Random game": one of the other games (list in data-games); without JavaScript the hub.
+for (const link of document.querySelectorAll(".js-random")) {
+  link.addEventListener("click", (event) => {
+    let games = [];
+    try {
+      games = JSON.parse(link.dataset.games);
+    } catch {}
+    if (!games.length) return;
+    event.preventDefault();
+    location.href = games[Math.floor(Math.random() * games.length)];
   });
 }
 
@@ -129,8 +152,8 @@ if (consent) {
   }
 }
 
-// ---------- Page tabs ----------
-// If the tabs don't fit (narrow phone, many pages), the bar scrolls sideways;
+// ---------- Page links (header of a game) ----------
+// If the links don't fit (narrow phone, many pages), the bar scrolls sideways;
 // show the current tab without moving the page itself. Again whenever the tab changes
 // size, e.g. once the web font has loaded and made the tabs wider.
 

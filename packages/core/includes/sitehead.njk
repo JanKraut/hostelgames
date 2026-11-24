@@ -1,0 +1,130 @@
+{#- Top of every page (games and hub), inside <header class="hero"><div class="wrap">.
+    First row, on the right: menu "All games" (games only), search (built in, switched on with
+    SEARCH in lib/nav.js), QR button, light / dark switch, language menu.
+    Games add a second row: their name with the hostelgames tag hanging next to it, and on the
+    right the links to their pages (from "pages" in game.json; "play" as "Play online").
+    On phones the tag moves to the top left, the name and the page links get their own rows,
+    and the menu becomes a burger button; the light / dark switch is then inside the menu.
+    Texts: header and menu from @hostelgames/core (i18n/, nav.t), page names, share and switch
+    texts from the site's own i18n (pgLabel, pgRules, n6, pgQuick, pgSheet, shH, themeSwitch).
+    Links of the menu: lib/nav.js. -#}
+{%- from "flags.njk" import flag -%}
+{%- from "sharebox.njk" import sharebox -%}
+{%- set t = lang.t -%}
+{%- set nt = nav.t(lang.code) -%}
+{%- set game = site.game -%}
+{%- set here = subpath or "" -%}
+{%- set chevron -%}
+<svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+{%- endset -%}
+<div class="sitehead{% if game %} sitehead-game{% endif %}">
+  {%- if game %}
+  {% include "gamelogo.njk" %}
+  <a class="gamename" href="{{ lang.path }}">{{ game.name }}</a>
+  {#- Links to the pages of the game, in the order of "pages" in game.json; the game against
+      bots last, as "Play online". Only with more than one page. -#}
+  {%- set known = { "rules": ["", t.pgRules], "strategy": ["strategy/", t.n6], "quickstart": ["quickstart/", t.pgQuick], "scoresheet": ["scoresheet/", t.pgSheet] } -%}
+  {%- set tabs = [] -%}
+  {%- for name in game.pages -%}
+  {%- if known[name] %}{% set tabs = (tabs.push(known[name]), tabs) %}{% endif -%}
+  {%- endfor -%}
+  {%- if "play" in game.pages %}{% set tabs = (tabs.push(["play/", nt.navPlay, true]), tabs) %}{% endif -%}
+  {%- if tabs.length > 1 %}
+  <nav class="pagetabs" aria-label="{{ t.pgLabel }}">
+    <ul>
+      {%- for p in tabs %}
+      <li><a href="{{ lang.path }}{{ p[0] }}"{% if p[0] == here %} aria-current="page"{% endif %}{% if p[2] %} class="tab-play"{% endif %}>
+        {%- if p[2] %}<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5Z"/></svg>{% endif %}{{ p[1] }}</a></li>
+      {%- endfor %}
+    </ul>
+  </nav>
+  {%- endif %}
+  {%- endif %}
+
+  <div class="sitetools">
+    {%- if game %}
+    {%- set links = nav.links(lang.code) %}
+    {#- Menu "All games": a dropdown on wide screens, the burger menu on phones. -#}
+    <details class="navmenu">
+      <summary aria-label="{{ nt.navAll }}">
+        <span class="navmenu-label">{{ nt.navAll }}</span>{{ chevron | safe }}
+        <svg class="burger" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path class="b-open" d="M4 6h16M4 12h16M4 18h16"/><path class="b-close" d="M6 6l12 12M18 6 6 18"/></svg>
+      </summary>
+      <div class="navpanel">
+        <form class="navsearch" role="search" action="{{ links.hub }}"{% if not nav.search %} hidden{% endif %}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="search" name="q" placeholder="{{ nt.navSearchPh }}" aria-label="{{ nt.navSearch }}" autocomplete="off">
+        </form>
+        <div class="navcols">
+          <div class="navcol">
+            <div class="navcap">{{ nt.navGames }}</div>
+            <ul>
+              <li><a href="{{ links.az }}">{{ nt.navAZ }}</a></li>
+              <li><a href="{{ links.find }}">{{ nt.navFind }}</a></li>
+              <li><a href="{{ links.players }}">{{ nt.navPlayers }}</a></li>
+              <li><a href="{{ links.hub }}" class="js-random" data-games='{{ links.random | dump | safe }}'>{{ nt.navRandom }}</a></li>
+            </ul>
+          </div>
+          <div class="navcol">
+            <div class="navcap">{{ nt.navCats }}</div>
+            {%- set catNames = { "cards": ["🃏", nt.navCards], "dice": ["🎲", nt.navDice], "drinking": ["🍻", nt.navDrinking] } %}
+            <ul>
+              {%- for cat in links.categories %}
+              <li><a href="{{ cat.href }}"><span class="navemoji" aria-hidden="true">{{ catNames[cat.key][0] }}</span>{{ catNames[cat.key][1] }}</a></li>
+              {%- endfor %}
+              <li class="navsep" aria-hidden="true"></li>
+              <li><a href="{{ links.noGear }}">{{ nt.navNoGear }}</a></li>
+            </ul>
+          </div>
+          {%- if links.play or links.sheets %}
+          <div class="navcol">
+            <div class="navcap">{{ nt.navExtras }}</div>
+            <ul>
+              {%- if links.play %}
+              <li><a href="{{ links.play }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5Z"/></svg>{{ nt.navPlay }}</a></li>
+              {%- endif %}
+              {%- if links.sheets %}
+              <li><a href="{{ links.sheets }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>{{ nt.navSheets }}</a></li>
+              {%- endif %}
+            </ul>
+          </div>
+          {%- endif %}
+          {%- if links.popular.length %}
+          <div class="navcol">
+            <div class="navcap">{{ nt.navPopular }}</div>
+            <ul>
+              {%- for g in links.popular %}
+              <li><a href="{{ g.href }}"{% if g.current %} aria-current="true"{% endif %}>{{ g.name }}</a></li>
+              {%- endfor %}
+            </ul>
+          </div>
+          {%- endif %}
+        </div>
+        <div class="navfoot">
+          <a class="navhub" href="{{ links.hub }}">{{ nt.navHub }} →</a>
+          <span class="navtheme">{% include "themeswitch.njk" %}</span>
+        </div>
+      </div>
+    </details>
+    <span class="toolsep" aria-hidden="true"></span>
+    {%- endif %}
+    <button type="button" class="topbtn searchbtn"{% if not nav.search %} hidden{% endif %} aria-label="{{ nt.navSearch }}" title="{{ nt.navSearch }}">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    </button>
+    <button type="button" class="topbtn qrbtn js-only" aria-label="{{ t.shH }}" title="{{ t.shH }}" aria-haspopup="dialog">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM18 18h3v3h-3zM14 20v1M20 14h1" stroke-linecap="round"/></svg>
+    </button>
+    <span class="toptheme">{% include "themeswitch.njk" %}</span>
+    {% include "langmenu.njk" %}
+  </div>
+</div>
+
+{#- Popup of the QR button: share this page with a QR code (share.js). -#}
+<dialog class="qrpop" aria-labelledby="qrpop-h">
+  <div class="sharebox">
+    <button type="button" class="qrclose" aria-label="{{ t.shClose }}" title="{{ t.shClose }}">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    {{ sharebox(t, lang.url + (subpath or "")) }}
+  </div>
+</dialog>

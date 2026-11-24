@@ -1,35 +1,19 @@
 /* Hub page (hostelgames.com). Colours, fonts, header and footer come from
    @hostelgames/core (assets/core/core.css). */
 
-/* Header: logo (link to the start page) on the left, language bar on the right */
-.hubtop {
-  display: flex;
-  /* Logo and buttons share one row. If it gets too tight, the logo moves to a
-     second row below the buttons (wrap-reverse puts the wrapped line on top). */
-  flex-wrap: wrap-reverse;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.8rem;
+/* Header: the top row (sitehead.njk, from core) with QR button, light / dark switch and
+   language menu; below it the big logo (link to the start page), then the heading. */
+.hublogo {
+  display: inline-block;
+  margin: 0 0 1.8rem 1.5rem;
+  border-radius: 0.6rem;
 }
 
 /* The heading is a sentence here, not just the name (the logo shows the name) */
-.hubtop + h1 {
+.hublogo ~ h1 {
   max-width: 22ch;
   font-size: clamp(2rem, 6.5vw, 3.4rem);
   line-height: 1.08;
-}
-
-.hubtop .langbar {
-  margin-bottom: 0;
-  margin-left: auto;
-}
-
-.hublogo {
-  display: block;
-  flex: none;
-  margin-left: 1.5rem;
-  border-radius: 0.6rem;
 }
 
 .logo {

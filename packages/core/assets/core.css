@@ -18,6 +18,8 @@
   --head-text: #202020;
   --head-soft: #4a3d22;
   --head-accent: #8a4b00;
+  /* Underline of the current page link in the header */
+  --head-tabline: #202020;
   --head-chip: rgba(255, 255, 255, 0.45);
   --head-chip-hover: rgba(255, 255, 255, 0.7);
   --head-chip-border: rgba(0, 0, 0, 0.15);
@@ -64,6 +66,9 @@
   --card-green: #1f7a4d;
   --menu-hover: #fff6e3;
   --menu-current: #fbe7bf;
+  /* Headings, links and lines in the menus (always light, also in dark mode) */
+  --menu-accent: #8a4b00;
+  --menu-line: #e3d2ad;
   --wood-a: #bc8752;
   --wood-b: #a46f3c;
   --wood-edge: #6e4826;
@@ -92,6 +97,7 @@
     --head-text: #ffffff;
     --head-soft: #c8ccd4;
     --head-accent: #f4cf71;
+    --head-tabline: #f4cf71;
     --head-chip: rgba(255, 255, 255, 0.12);
     --head-chip-hover: rgba(255, 255, 255, 0.2);
     --head-chip-border: rgba(255, 255, 255, 0.28);
@@ -129,6 +135,8 @@
       --head-text: #ffffff;
       --head-soft: #c8ccd4;
       --head-accent: #f4cf71;
+      --head-tabline: #f4cf71;
+    --head-tabline: #f4cf71;
       --head-chip: rgba(255, 255, 255, 0.12);
       --head-chip-hover: rgba(255, 255, 255, 0.2);
       --head-chip-border: rgba(255, 255, 255, 0.28);
@@ -406,49 +414,6 @@ h3.sub.first {
   font-size: 1.15rem;
 }
 
-/* Tabs between the pages: rules, strategy, quick start */
-/* Equal widths while they fit; otherwise every tab keeps its full name and the bar
-   scrolls sideways (no scrollbar; core.js scrolls the current tab into view). */
-.pagetabs ul {
-  display: grid;
-  grid-auto-columns: minmax(max-content, 1fr);
-  grid-auto-flow: column;
-  gap: 0.3rem;
-  margin: 0 0 1.4rem;
-  padding: 0.25rem;
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  border-radius: 999px;
-  background: var(--head-well);
-  list-style: none;
-  scrollbar-width: none;
-}
-
-.pagetabs ul::-webkit-scrollbar {
-  display: none;
-}
-
-.pagetabs a {
-  display: block;
-  padding: 0.45rem 0.8rem;
-  border-radius: 999px;
-  color: var(--felt-soft);
-  font-size: 0.92rem;
-  font-weight: 700;
-  text-align: center;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.pagetabs a:hover {
-  color: var(--felt-text);
-}
-
-.pagetabs a[aria-current="page"] {
-  background: var(--head-text);
-  color: var(--head-bg);
-}
-
 /* Smaller header for the subpages */
 .hero-small {
   padding-bottom: 1.6rem;
@@ -458,39 +423,57 @@ h3.sub.first {
   font-size: clamp(2rem, 9vw, 3.2rem);
 }
 
-/* Language menu: a plain <details> with links, works without JavaScript */
-.langbar {
+/* ---------- Top of every page (includes/sitehead.njk) ----------
+   First row on the right: menu "All games", QR button, light / dark switch, language menu.
+   Game pages add a second row: name and hostelgames tag on the left, links to the game's
+   pages on the right. On phones (below 40rem) the tag moves to the top
+   left, name and page links get a row each, and the menu becomes a burger button. */
+
+.sitehead {
+  position: relative;
   display: flex;
-  gap: 0.5rem;
   justify-content: flex-end;
   margin-bottom: 1rem;
 }
 
-/* Game pages: game name first, top left, with the hostelgames tag hanging next to it; the
-   language bar on the right. If it gets too tight, the language bar moves to a second row
-   below, so the name always stays at the very top and the tag's string never crosses a button. */
-.gametop {
-  display: flex;
-  flex-wrap: wrap;
+.sitehead-game {
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr);
+  grid-template-areas:
+    "tools tools tools"
+    "name logo tabs";
   align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem 1rem;
-  margin-bottom: 1rem;
+  column-gap: 1.1rem;
+  row-gap: 0.8rem;
+  margin-bottom: 1.6rem;
 }
 
-.gametop .langbar {
-  margin-bottom: 0;
-  margin-left: auto;
+.sitehead-game .gamelogo {
+  grid-area: logo;
+  justify-self: start;
 }
 
-.gamebrand {
+.sitehead-game .gamename {
+  grid-area: name;
+}
+
+.sitehead-game .pagetabs {
+  grid-area: tabs;
+  min-width: 0;
+}
+
+.sitehead-game .sitetools {
+  grid-area: tools;
+  justify-self: end;
+}
+
+.sitetools {
   display: flex;
-  flex: none;
   align-items: center;
-  gap: 1.1rem;
+  gap: 0.25rem;
 }
 
-/* Name and tag share one line, both centred on it. */
+/* The game's name; the hostelgames tag hangs next to it (below). */
 .gamename {
   color: var(--head-text);
   font-family: var(--font-display);
@@ -499,6 +482,342 @@ h3.sub.first {
   letter-spacing: -0.01em;
   line-height: 1;
   text-decoration: none;
+}
+
+/* Links to the pages of a game: plain words, the current one underlined. If they don't fit,
+   the row scrolls sideways (no scrollbar; core.js scrolls the current link into view). */
+.pagetabs ul {
+  display: flex;
+  gap: 1.15rem;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  list-style: none;
+  scrollbar-width: none;
+}
+
+.pagetabs ul::-webkit-scrollbar {
+  display: none;
+}
+
+/* Right-aligned while they fit, without cutting off the first link when they don't. */
+.pagetabs li:first-child {
+  margin-left: auto;
+}
+
+.pagetabs a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0 0.4rem;
+  color: var(--felt-soft);
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.pagetabs a:hover {
+  color: var(--felt-text);
+}
+
+.pagetabs a[aria-current="page"] {
+  color: var(--felt-text);
+  box-shadow: inset 0 -3px 0 var(--head-tabline);
+}
+
+.pagetabs .tab-play {
+  color: var(--felt-text);
+}
+
+/* Buttons of the first row: icons without a frame */
+.themeswitch,
+.topbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 2.1rem;
+  height: 2.1rem;
+  padding: 0;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--felt-text);
+  cursor: pointer;
+}
+
+.themeswitch svg,
+.topbtn svg {
+  width: 19px;
+  height: 19px;
+}
+
+.themeswitch:hover,
+.topbtn:hover {
+  background: var(--head-chip);
+}
+
+.topbtn[hidden] {
+  display: none;
+}
+
+.toptheme,
+.navtheme {
+  display: inline-flex;
+}
+
+.toolsep {
+  width: 1.5px;
+  height: 1.1rem;
+  margin: 0 0.35rem;
+  background: var(--head-chip-border);
+}
+
+/* Menu "All games": a <details>, works without JavaScript (core.js closes it on outside
+   click or Escape). Wide screens: a dropdown with four columns; phones: the burger menu. */
+.navmenu summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  box-sizing: border-box;
+  height: 2.1rem;
+  padding: 0 0.5rem;
+  border-radius: 7px;
+  color: var(--felt-text);
+  font: 800 0.9rem/1 var(--font-body);
+  list-style: none;
+  cursor: pointer;
+}
+
+.navmenu summary::-webkit-details-marker {
+  display: none;
+}
+
+.navmenu summary:hover {
+  background: var(--head-chip);
+}
+
+.navmenu[open] summary {
+  color: var(--head-accent);
+}
+
+.navmenu .chev {
+  transition: transform 0.15s;
+}
+
+.navmenu[open] .chev {
+  transform: rotate(180deg);
+}
+
+.navmenu .burger,
+.navmenu .b-close,
+.navmenu[open] .b-open {
+  display: none;
+}
+
+.navmenu[open] .b-close {
+  display: inline;
+}
+
+.navpanel {
+  position: absolute;
+  top: 2.6rem;
+  right: 0;
+  z-index: 30;
+  box-sizing: border-box;
+  width: max-content;
+  max-width: calc(100vw - 2.5rem);
+  padding: 0.6rem 0.6rem 0.9rem;
+  border-radius: 7px;
+  background: var(--paper);
+  color: var(--card-ink);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  text-align: start;
+}
+
+/* One column per group, as wide as its longest entry */
+.navcols {
+  display: grid;
+  grid-auto-columns: max-content;
+  grid-auto-flow: column;
+  gap: 0.2rem 0.6rem;
+}
+
+.navcap {
+  margin: 0.45rem 0.6rem 0.3rem;
+  color: var(--menu-accent);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.navcol ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navcol a {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.42rem 0.6rem;
+  border-radius: 5px;
+  color: var(--card-ink);
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+.navcol a:hover {
+  background: var(--menu-hover);
+}
+
+.navcol a[aria-current] {
+  background: var(--menu-current);
+  font-weight: 800;
+}
+
+.navcol svg {
+  flex: none;
+  color: var(--menu-accent);
+}
+
+.navemoji {
+  font-family: var(--font-emoji);
+}
+
+.navsep {
+  height: 1px;
+  margin: 0.3rem 0.6rem;
+  background: var(--menu-line);
+}
+
+.navfoot {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.6rem 0.6rem 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--menu-line);
+}
+
+.navhub {
+  color: var(--menu-accent);
+  font-size: 0.92rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.navhub:hover {
+  text-decoration: underline;
+}
+
+/* The light / dark switch inside the menu (phones only) sits on the light menu. */
+.navtheme {
+  display: none;
+  margin-left: auto;
+}
+
+.navtheme .themeswitch {
+  color: var(--card-ink);
+}
+
+.navtheme .themeswitch:hover {
+  background: var(--menu-hover);
+}
+
+/* Search: built in, shown once it works (SEARCH in lib/nav.js). */
+.navsearch {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.2rem 0.4rem 0.4rem;
+  padding: 0 0.75rem;
+  border: 1.5px solid var(--control-line);
+  border-radius: 7px;
+  background: #fff;
+  color: var(--muted);
+}
+
+.navsearch[hidden] {
+  display: none;
+}
+
+.navsearch input {
+  flex: 1;
+  min-width: 0;
+  height: 2.4rem;
+  border: 0;
+  background: transparent;
+  color: var(--card-ink);
+  font: inherit;
+  outline: none;
+}
+
+@media (max-width: 40rem) {
+  .sitehead-game {
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      "logo tools"
+      "name name"
+      "tabs tabs";
+    row-gap: 0.7rem;
+  }
+
+  .sitehead-game .pagetabs li:first-child {
+    margin-left: 0;
+  }
+
+  .pagetabs ul {
+    gap: 0.8rem;
+  }
+
+  .pagetabs a {
+    font-size: 0.9rem;
+  }
+
+  /* Order on phones: QR, language, burger; the light / dark switch is inside the menu. */
+  .sitehead-game .toptheme,
+  .sitehead-game .toolsep {
+    display: none;
+  }
+
+  .sitehead-game .navtheme {
+    display: inline-flex;
+  }
+
+  .navmenu {
+    order: 9;
+  }
+
+  .navmenu summary {
+    padding: 0 0.3rem;
+  }
+
+  .navmenu-label,
+  .navmenu .chev {
+    display: none;
+  }
+
+  .navmenu .burger {
+    display: block;
+  }
+
+  .navpanel {
+    top: 3rem;
+    left: 0;
+    width: auto;
+  }
+
+  .navcols {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: row;
+  }
 }
 
 /* The hub's luggage tag (without its second line), hanging on a string from the top edge
@@ -587,13 +906,11 @@ h3.sub.first {
   align-items: center;
   gap: 0.4rem;
   box-sizing: border-box;
-  height: 2rem;
-  padding: 0 0.6rem 0 0.55rem;
-  border: 1.5px solid var(--head-chip-border);
-  border-radius: 999px;
-  background: var(--head-chip);
+  height: 2.1rem;
+  padding: 0 0.45rem;
+  border-radius: 7px;
   color: var(--felt-text);
-  font: 700 0.85rem/1 var(--font-body);
+  font: 800 0.88rem/1 var(--font-body);
   list-style: none;
   cursor: pointer;
 }
@@ -603,7 +920,7 @@ h3.sub.first {
 }
 
 .langmenu summary:hover {
-  background: var(--head-chip-hover);
+  background: var(--head-chip);
 }
 
 /* Chevron on the menu button */
@@ -653,7 +970,7 @@ h3.sub.first {
   overflow-y: auto;
   margin: 0;
   padding: 0.35rem;
-  border-radius: 14px;
+  border-radius: 7px;
   background: var(--paper);
   color: var(--card-ink);
   font-size: 0.85rem;
@@ -667,7 +984,7 @@ h3.sub.first {
   align-items: center;
   gap: 0.5rem;
   padding: 0.45rem 0.7rem 0.45rem 0.55rem;
-  border-radius: 10px;
+  border-radius: 5px;
   font-weight: 400;
   white-space: nowrap;
   text-decoration: none;
@@ -917,34 +1234,7 @@ footer .heart {
   }
 }
 
-/* ---------- Light / dark switch and QR button (top right, next to the language menu) ---------- */
-
-.themeswitch,
-.topbtn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  width: 2rem;
-  height: 2rem;
-  padding: 0;
-  border: 1.5px solid var(--head-chip-border);
-  border-radius: 999px;
-  background: var(--head-chip);
-  color: var(--felt-text);
-  cursor: pointer;
-}
-
-.themeswitch svg,
-.topbtn svg {
-  width: 15px;
-  height: 15px;
-}
-
-.themeswitch:hover,
-.topbtn:hover {
-  background: var(--head-chip-hover);
-}
+/* ---------- Light / dark switch: shows the icon of the mode it switches to ---------- */
 
 /* Shows the mode you switch to: moon in light mode, sun in dark mode. */
 .themeswitch .sun {

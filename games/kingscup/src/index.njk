@@ -23,8 +23,7 @@ eleventyComputed:
 ] -%}
 <header class="hero">
   <div class="wrap">
-    {% include "langmenu.njk" %}
-    {% include "pagenav.njk" %}
+    {% include "sitehead.njk" %}
     <h1>{{ t.h1 | safe }}<span class="h1-sub"> {{ t.h1sub }}</span></h1>
     <p>{{ t.sub | safe }}</p>
     {#- Der Kartenring mit dem King's Cup in der Mitte. -#}

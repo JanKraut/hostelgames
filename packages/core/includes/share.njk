@@ -1,7 +1,7 @@
 {#- "Share the guide" box with QR code. Points to the page it is on.
     Pages that include it set `share: true` in their front matter; the layout then loads
-    /assets/core/qrcode.js and /assets/core/share.js, and the language bar gets a QR button
-    that opens the same box as a popup (langmenu.njk).
+    /assets/core/qrcode.js right away. The QR button at the top of every page opens the same
+    box as a popup (sitehead.njk).
     Texts from the game's i18n: shH, shLead, shAlt, shBtn, shCopy, shCopied, shClose. -#}
 {%- from "sharebox.njk" import sharebox -%}
 {%- set t = lang.t -%}
@@ -11,12 +11,3 @@
   </div>
 </section>
 
-{#- The same box as a popup, opened by the QR button next to the light / dark switch. -#}
-<dialog class="qrpop" aria-labelledby="qrpop-h">
-  <div class="sharebox">
-    <button type="button" class="qrclose" aria-label="{{ t.shClose }}" title="{{ t.shClose }}">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
-    </button>
-    {{ sharebox(t, lang.url + (subpath or "")) }}
-  </div>
-</dialog>

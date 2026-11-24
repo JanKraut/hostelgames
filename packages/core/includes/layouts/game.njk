@@ -1,7 +1,7 @@
 {#- Frame for every page of a game, from @hostelgames/core. Shithead still has its own
     (games/shithead/src/_includes/layouts/base.njk); new games use this one: `layout: game` (alias set by the core plugin)
     Pages set: subpath ("" or "strategy/" …), pageTitle, pageDescription, and optionally
-    share (true: share box with QR code), styles, classicScripts and scripts (ES modules) as
+    share (true: share box with QR code at the bottom, loads qrcode.js right away), styles, classicScripts and scripts (ES modules) as
     lists of /assets/… paths, notFound (404 page).
     The game's own /assets/styles.css is always loaded after core.css. Name, languages and pages
     come from game.json (site.game); og:image only if the game has ogImage in its data. -#}
@@ -70,9 +70,7 @@
 <script src="{{ src }}?v={{ assetVersion }}" defer></script>
 {%- endfor %}
 <script type="module" src="/assets/core/core.js?v={{ assetVersion }}"></script>
-{%- if share %}
 <script type="module" src="/assets/core/share.js?v={{ assetVersion }}"></script>
-{%- endif %}
 {%- for src in scripts %}
 <script type="module" src="{{ src }}?v={{ assetVersion }}"></script>
 {%- endfor %}

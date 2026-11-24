@@ -8,12 +8,13 @@
 //   - root-relative links (/de/, /assets/…) prefixed with site.pathPrefix (HtmlBasePlugin)
 //   - assets/core/: core.css (shared design), core.js (light / dark, language menu, offline),
 //     fonts.css and the self-hosted font files listed in data/fonts.js
-//   - global data: tracking (data/tracking.js), legal (data/legal.js: privacy policy,
+//   - global data: nav (lib/nav.js: texts and links of the header, sitehead.njk),
+//     tracking (data/tracking.js), legal (data/legal.js: privacy policy,
 //     legal notice, consent banner texts), fonts, coreFonts (files to preload),
 //     assetVersion (appended as ?v=… to CSS and JS, changes with every change of a file)
-//   - assets/core/share.js and qrcode.js for the share box (pages with `share: true`)
-//   - the shared includes in includes/ (language menu, flags, footer, tracking, playing cards,
-//     page tabs, share box, language redirect, layouts/game.njk);
+//   - assets/core/share.js (QR button at the top of every page, share box) and qrcode.js
+//   - the shared includes in includes/ (header with menu, language menu, flags, footer,
+//     tracking, playing cards, share box, language redirect, layouts/game.njk);
 //     a site's own _includes win if a file has the same name
 //   - the service worker (assets/sw.js) with the list and a hash of all built files,
 //     unless serviceWorker: false
@@ -27,6 +28,7 @@ import { HtmlBasePlugin } from "@11ty/eleventy";
 import fonts from "./data/fonts.js";
 import legal from "./data/legal.js";
 import tracking from "./data/tracking.js";
+import { createNav } from "./lib/nav.js";
 import { fontFiles, fontsCss } from "./lib/fonts-css.js";
 
 const CORE = dirname(fileURLToPath(import.meta.url));
@@ -70,6 +72,7 @@ export default function hostelgamesCore(eleventyConfig, options = {}) {
   eleventyConfig.addWatchTarget(INCLUDES);
 
   // ---------- Global data ----------
+  eleventyConfig.addGlobalData("nav", createNav(site));
   eleventyConfig.addGlobalData("tracking", tracking);
   eleventyConfig.addGlobalData("legal", legal);
   eleventyConfig.addGlobalData("fonts", fonts);

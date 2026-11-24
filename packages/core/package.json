@@ -9,6 +9,7 @@
     "./site": "./lib/site.js",
     "./games": "./lib/games.js",
     "./languages": "./lib/languages.js",
+    "./nav": "./lib/nav.js",
     "./sitemap": "./lib/sitemap.js",
     "./data/*": "./data/*",
     "./scripts/*": "./scripts/*"

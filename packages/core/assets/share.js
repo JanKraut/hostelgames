@@ -1,21 +1,40 @@
-// "Share" boxes (includes/share.njk) of @hostelgames/core: QR code, copy and share buttons.
-// Loaded by pages with `share: true`, together with qrcode.js.
-// There are two: at the bottom of the page and in the QR popup opened from the top bar.
+// "Share" boxes of @hostelgames/core: QR code, copy and share buttons.
+// Loaded on every page: the QR button at the top (sitehead.njk) opens a box as a popup.
+// Pages with `share: true` also have one at the bottom (share.njk) and load qrcode.js right
+// away; on all others qrcode.js is fetched when the popup is first opened.
 // The link is readable and clickable without this file.
 
 const policy = document.permissionsPolicy || document.featurePolicy;
 const canShare = !!navigator.share && !(policy?.allowsFeature && !policy.allowsFeature("web-share"));
 
+function drawQr(box) {
+  const target = box.querySelector(".qr");
+  if (!window.qrcode || target.firstChild) return;
+  const qr = qrcode(0, "M");
+  qr.addData(box.querySelector(".shurl a").href);
+  qr.make();
+  target.innerHTML = qr.createSvgTag(5, 2);
+}
+
+// qrcode.js (published next to this file), loaded once when needed.
+let qrLoading;
+function loadQr() {
+  if (window.qrcode) return Promise.resolve();
+  qrLoading ??= new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = new URL("qrcode.js", import.meta.url).href;
+    script.onload = resolve;
+    script.onerror = reject;
+    document.head.append(script);
+  });
+  return qrLoading;
+}
+
 function setUp(box) {
   const link = box.querySelector(".shurl a");
   const shareUrl = link.href;
 
-  if (window.qrcode) {
-    const qr = qrcode(0, "M");
-    qr.addData(shareUrl);
-    qr.make();
-    box.querySelector(".qr").innerHTML = qr.createSvgTag(5, 2);
-  }
+  drawQr(box);
 
   const copyButton = box.querySelector(".shcopy");
   const copyLabel = copyButton.textContent;
@@ -60,13 +79,17 @@ function setUp(box) {
 
 document.querySelectorAll(".sharebox").forEach(setUp);
 
-// ---------- QR popup (button next to the light / dark switch) ----------
+// ---------- QR popup (button in the top row) ----------
 
 const popup = document.querySelector(".qrpop");
 const qrButton = document.querySelector(".qrbtn");
 
 if (popup && qrButton) {
-  qrButton.addEventListener("click", () => popup.showModal());
+  qrButton.addEventListener("click", () => {
+    popup.showModal();
+    const box = popup.querySelector(".sharebox");
+    loadQr().then(() => drawQr(box), () => {});
+  });
   popup.querySelector(".qrclose").addEventListener("click", () => popup.close());
   // A click on the dark area around the box closes it; Escape closes it natively.
   popup.addEventListener("click", (event) => {
