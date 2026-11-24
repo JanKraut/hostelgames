@@ -1,0 +1,19 @@
+{
+  "name": "@hostelgames/kingscup",
+  "private": true,
+  "description": "King’s Cup (Ring of Fire, Circle of Death) – rules of the drinking game (draft)",
+  "type": "module",
+  "scripts": {
+    "build": "npm run check && eleventy",
+    "start": "eleventy --serve",
+    "test": "playwright test",
+    "check": "hostelgames-check-i18n --dir src/_data/i18n --templates src/index.njk --languages src/_data/languages.js"
+  },
+  "dependencies": {
+    "@hostelgames/core": "*"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.7",
+    "@playwright/test": "1.63.0"
+  }
+}
