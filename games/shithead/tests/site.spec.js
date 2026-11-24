@@ -468,7 +468,7 @@ test.describe("footer", () => {
     await expect(logo).toBeVisible();
     await expect(logo).toHaveAttribute("href", hub);
     const powered = page.locator(".poweredby a");
-    await expect(powered).toContainText("powered by hostelgames");
+    await expect(powered).toContainText("powered by Hostelgames.com");
     await expect(powered).toHaveAttribute("href", hub);
   });
 });
