@@ -46,7 +46,7 @@ for (const lang of languages) {
       await expect(page.locator(`main section#${id} h2`)).toBeVisible();
     }
     const targets = await page.locator(".secnav a").evaluateAll((links) => links.map((a) => a.getAttribute("href")));
-    expect(targets).toEqual(SECTIONS.map((id) => `#${id}`));
+    expect(targets).toEqual(SECTIONS.filter((id) => id !== "share").map((id) => `#${id}`));
     // Every #link on the page (navigation and texts) leads to an existing element.
     const anchors = await page.locator('a[href^="#"]').evaluateAll((links) => links.map((a) => a.getAttribute("href").slice(1)));
     for (const id of anchors) {

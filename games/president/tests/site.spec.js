@@ -64,7 +64,7 @@ for (const lang of languages) {
     }
     // Die Abschnittsnavigation enthält jeden Abschnitt.
     const nav = await page.locator(".secnav a").evaluateAll((links) => links.map((a) => a.getAttribute("href")));
-    expect(nav).toEqual(SECTIONS.map((id) => `#${id}`));
+    expect(nav).toEqual(SECTIONS.filter((id) => id !== "share").map((id) => `#${id}`));
   });
 }
 
@@ -103,7 +103,7 @@ for (const lang of languages) {
     await expect(page.locator("#mistakes .variants li")).toHaveCount(s.mistakes.length);
     await expect(page.locator("#next-steps .cta a")).toHaveText(`${s.ctaRulesBtn} →`);
 
-    const expectedNav = ["#principle", "#swap", ...s.phases.map((p) => `#${p.id}`), "#key-cards", "#mistakes", "#share"];
+    const expectedNav = ["#principle", "#swap", ...s.phases.map((p) => `#${p.id}`), "#key-cards", "#mistakes"];
     const nav = await page.locator(".secnav a").evaluateAll((links) => links.map((a) => a.getAttribute("href")));
     expect(nav).toEqual(expectedNav);
     for (const href of nav) {

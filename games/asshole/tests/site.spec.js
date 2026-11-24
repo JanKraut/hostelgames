@@ -46,7 +46,7 @@ for (const lang of languages) {
     await expect(page.locator("#setup h2")).toHaveText(lang.t.rules.setupH);
     await expect(page.locator("#swap h2")).toHaveText(lang.t.rules.swH);
     const targets = await page.locator(".secnav a").evaluateAll((links) => links.map((a) => a.getAttribute("href")));
-    expect(targets).toEqual(sections.map((id) => `#${id}`));
+    expect(targets).toEqual(sections.filter((id) => id !== "share").map((id) => `#${id}`));
     // Links inside the texts (e.g. in the FAQ) only point to existing sections too.
     const anchors = await page.locator("main a[href^='#']").evaluateAll((links) => links.map((a) => a.getAttribute("href").slice(1)));
     for (const id of anchors) await expect(page.locator(`[id="${id}"]`)).toHaveCount(1);
