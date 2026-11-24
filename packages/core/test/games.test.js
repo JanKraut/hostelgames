@@ -62,6 +62,7 @@ test("pages and templates must agree, both ways", () => {
   assert.throws(() => readGame(gameDir({ ...BASE, pages: ["rules", "play"] })), /src\/play\.njk is missing/);
   assert.throws(() => readGame(gameDir(BASE, ["index.njk", "play.njk"])), /"pages" must contain "play"/);
   assert.ok(readGame(gameDir({ ...BASE, pages: ["rules", "play"] }, ["index.njk", "play.njk"])));
+  assert.ok(readGame(gameDir({ ...BASE, pages: ["rules", "scoresheet"] }, ["index.njk", "scoresheet.njk"])));
 });
 
 test("languages: codes from game.json, menu order and flags from the core, texts with fallback", () => {

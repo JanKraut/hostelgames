@@ -10,7 +10,7 @@
 //   export default createSitemap(site, languages);
 
 /** Folder of each page below a language folder, as in the templates' `subpath`. */
-export const SUBPATHS = { rules: "", strategy: "strategy/", quickstart: "quickstart/", play: "play/" };
+export const SUBPATHS = { rules: "", strategy: "strategy/", quickstart: "quickstart/", play: "play/", scoresheet: "scoresheet/" };
 
 const escape = (text) => text.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 

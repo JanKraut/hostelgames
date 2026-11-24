@@ -68,10 +68,17 @@ eleventyComputed:
           {%- if game.players %} · {{ t.mPlayers | replace("{min}", game.players.min) | replace("{max}", game.players.max) }}{% endif %}
           {%- if game.duration %} · {{ game.duration }}{% endif %}
         </span>
+        {%- if "scoresheet" in game.pages %}
+        <span class="game-sheet">{{ t.mSheet }}</span>
+        {%- endif %}
         {%- if game.status == "draft" %}
         <span class="game-draft">{{ t.draft }}</span>
         {%- endif %}
       </a>
+      {#- Online-Block (page "scoresheet" in game.json): extra link straight to it. -#}
+      {%- if "scoresheet" in game.pages %}
+      <a class="game-extra" href="{{ (game.domain + '/' if (site.indexable and game.domain) else '/' + game.path + '/') + langPath }}scoresheet/">{{ t.sheetOpen }}</a>
+      {%- endif %}
     </li>
     {%- endfor %}
   </ul>
