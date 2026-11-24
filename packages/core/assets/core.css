@@ -462,6 +462,85 @@ h3.sub.first {
   margin-bottom: 1rem;
 }
 
+/* Game pages: game name + hostelgames logo on the left, language bar on the right. If it
+   gets too tight, they move to a second row below the buttons (wrap-reverse). */
+.gametop {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.gametop .langbar {
+  margin-bottom: 0;
+  margin-left: auto;
+}
+
+.gamebrand {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Name and logo share one line, both centred on it. Name is the main thing, logo is small. */
+.gamename {
+  color: var(--head-text);
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.gamelogo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 0.4rem;
+}
+
+.gamelogo .logo {
+  display: block;
+  width: auto;
+  /* clearly smaller than the name: about two thirds of its font size */
+  height: 1.05rem;
+}
+
+.gamelogo .logo-tag,
+.gamelogo .logo-hole {
+  fill: var(--head-bg);
+  stroke: var(--head-text);
+  stroke-width: 3.5;
+  stroke-linejoin: round;
+}
+
+/* "by" on the tag's top-left edge: half over the outline, background = header colour */
+.gameby {
+  position: absolute;
+  left: 0.8rem;
+  top: -0.6rem;
+  padding: 0 0.2rem;
+  background: var(--head-bg);
+  color: var(--head-accent);
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  font-weight: 800;
+  line-height: 1.2;
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+
+.gamelogo .logo-name {
+  fill: var(--head-text);
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 800;
+}
+
 .langmenu {
   position: relative;
 }
@@ -550,6 +629,53 @@ h3.sub.first {
 }
 
 /* ---------- Footer ---------- */
+
+/* "powered by hostelgames" above the footer of every game page, links to the hub */
+.poweredby {
+  margin: 2rem auto 0;
+  padding: 1.2rem 1.25rem 0;
+  max-width: 34rem;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+.poweredby a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.poweredby a:hover b {
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 0.2em;
+}
+
+.poweredby b {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.poweredby svg {
+  width: 1.4em;
+  height: 0.85em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+}
+
+.poweredby svg circle {
+  fill: currentColor;
+  stroke: none;
+}
+
+.poweredby + footer {
+  padding-top: 1rem;
+}
 
 footer {
   padding: 2rem 1.25rem 3rem;

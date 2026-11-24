@@ -459,6 +459,18 @@ test.describe("footer", () => {
       await expect(footer.locator("svg.heart")).toBeVisible();
     });
   }
+
+  test("logo and powered by line link to the hostelgames start page", async ({ page }) => {
+    await openLanguage(page, byCode.de);
+    const hub = /^https:\/\/(hostelgames\.com|jankraut\.github\.io\/hostelgames)\/de\/$/;
+    await expect(page.locator(".hero .gamename")).toHaveText("shithead");
+    const logo = page.locator(".hero .gamelogo");
+    await expect(logo).toBeVisible();
+    await expect(logo).toHaveAttribute("href", hub);
+    const powered = page.locator(".poweredby a");
+    await expect(powered).toContainText("powered by hostelgames");
+    await expect(powered).toHaveAttribute("href", hub);
+  });
 });
 
 test.describe("self-contained", () => {

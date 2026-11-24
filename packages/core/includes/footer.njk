@@ -1,5 +1,9 @@
 {#- Footer on every page. The copyright line is the same in every language;
-    the line above it is the game's own text `foot`, if it has one. -#}
+    the line above it is the game's own text `foot`, if it has one.
+    Game pages get a "powered by hostelgames" line above it, linking to the hub start page. -#}
+{%- if site.game %}
+<p class="poweredby"><a href="{{ site.hubUrl(lang.code) }}"><svg viewBox="0 0 40 24" aria-hidden="true"><path d="M10 2h26a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H10L2 12z"/><circle cx="10" cy="12" r="2.5"/></svg>powered by <b>hostelgames</b></a></p>
+{%- endif %}
 <footer>
   {%- if lang.t.foot %}
   <p>{{ lang.t.foot | safe }}</p>
