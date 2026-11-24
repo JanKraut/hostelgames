@@ -8,7 +8,8 @@
 //   - root-relative links (/de/, /assets/…) prefixed with site.pathPrefix (HtmlBasePlugin)
 //   - assets/core/: core.css (shared design), core.js (light / dark, language menu, offline),
 //     fonts.css and the self-hosted font files listed in data/fonts.js
-//   - global data: tracking (data/tracking.js), fonts, coreFonts (files to preload),
+//   - global data: tracking (data/tracking.js), legal (data/legal.js: privacy policy,
+//     legal notice, consent banner texts), fonts, coreFonts (files to preload),
 //     assetVersion (appended as ?v=… to CSS and JS, changes with every change of a file)
 //   - assets/core/share.js and qrcode.js for the share box (pages with `share: true`)
 //   - the shared includes in includes/ (language menu, flags, footer, tracking, playing cards,
@@ -24,6 +25,7 @@ import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { HtmlBasePlugin } from "@11ty/eleventy";
 import fonts from "./data/fonts.js";
+import legal from "./data/legal.js";
 import tracking from "./data/tracking.js";
 import { fontFiles, fontsCss } from "./lib/fonts-css.js";
 
@@ -69,6 +71,7 @@ export default function hostelgamesCore(eleventyConfig, options = {}) {
 
   // ---------- Global data ----------
   eleventyConfig.addGlobalData("tracking", tracking);
+  eleventyConfig.addGlobalData("legal", legal);
   eleventyConfig.addGlobalData("fonts", fonts);
   // The two files every page needs first (body text and headings), fetched right away.
   eleventyConfig.addGlobalData("coreFonts", ["manrope-latin-400-normal.woff2", "manrope-latin-800-normal.woff2"]);

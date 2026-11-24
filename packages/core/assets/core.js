@@ -1,6 +1,6 @@
 // @hostelgames/core – loaded on every page of every game. Progressive enhancement:
 // everything works without it. Light / dark switch, language menu (remembers the
-// chosen language, closes on outside click or Escape), page tabs and the service worker
+// chosen language, closes on outside click or Escape), consent banner, page tabs and the service worker
 // that makes the site work offline.
 
 // ---------- Offline ----------
@@ -81,6 +81,52 @@ if (menu) {
       menu.querySelector("summary").focus();
     }
   });
+}
+
+// ---------- Consent banner ----------
+// Only on sites with tracking (includes/tracking-body.njk). Shown until the visitor
+// accepts or declines; the choice is kept for data-days days in localStorage "consent".
+// "Accept" loads the tracking (window.hgTracking from tracking-head.njk). Escape only
+// closes the banner for this page, like on mut-im-rucksack.de.
+
+const consent = document.querySelector(".consent");
+
+if (consent) {
+  const stored = (() => {
+    try {
+      const choice = JSON.parse(localStorage.getItem("consent"));
+      return choice && choice.until > Date.now() ? choice.value : null;
+    } catch {
+      return null;
+    }
+  })();
+
+  const close = () => {
+    consent.classList.remove("consent-in");
+    document.removeEventListener("keydown", onKey);
+    setTimeout(() => consent.remove(), 300);
+  };
+  const onKey = (event) => {
+    if (event.key === "Escape") close();
+  };
+
+  if (!stored) {
+    consent.hidden = false;
+    requestAnimationFrame(() => requestAnimationFrame(() => consent.classList.add("consent-in")));
+    document.addEventListener("keydown", onKey);
+    consent.addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-consent]");
+      if (!button) return;
+      const value = button.dataset.consent;
+      try {
+        localStorage.setItem("consent", JSON.stringify({ value, until: Date.now() + Number(consent.dataset.days) * 864e5 }));
+      } catch {}
+      if (value === "yes") window.hgTracking?.();
+      close();
+    });
+  } else {
+    consent.remove();
+  }
 }
 
 // ---------- Page tabs ----------

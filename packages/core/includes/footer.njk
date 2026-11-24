@@ -1,5 +1,6 @@
 {#- Footer on every page. The copyright line is the same in every language;
-    the line above it is the game's own text `foot`, if it has one.
+    the line above it is the game's own text `foot`, if it has one. Between them the links to
+    legal notice and privacy policy of mut-im-rucksack.de (data/legal.js).
     Game pages get a "powered by hostelgames" line above it, linking to the hub start page. -#}
 {%- if site.game %}
 <p class="poweredby"><a href="{{ site.hubUrl(lang.code) }}"><svg viewBox="0 0 40 24" aria-hidden="true"><path d="M10 2h26a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H10L2 12z"/><circle cx="10" cy="12" r="2.5"/></svg>powered by <b>Hostelgames.com</b></a></p>
@@ -8,5 +9,7 @@
   {%- if lang.t.foot %}
   <p>{{ lang.t.foot | safe }}</p>
   {%- endif %}
+  {%- set lt = legal.texts[lang.code] or legal.texts.en %}
+  <p class="legal"><a href="{{ legal.imprintUrl }}" target="_blank" rel="noopener">{{ lt.imprint }}</a> · <a href="{{ legal.privacyUrl }}" target="_blank" rel="noopener">{{ lt.privacy }}</a></p>
   <p class="copyright">Copyright © 2026 – <a href="https://mut-im-rucksack.de/" target="_blank" rel="noopener">Mut im Rucksack</a> · Made with <svg class="heart" viewBox="0 0 24 24" role="img" aria-label="love"><path d="M12 21s-7.5-4.6-9.5-9.3C1.1 8.4 3 5 6.5 5c2.1 0 3.6 1.2 4.5 2.6h2C13.9 6.2 15.4 5 17.5 5 21 5 22.9 8.4 21.5 11.7 19.5 16.4 12 21 12 21Z"/></svg> by Jan Kraut</p>
 </footer>

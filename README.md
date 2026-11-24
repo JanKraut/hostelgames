@@ -161,4 +161,11 @@ Pages – steht kein Tracking-Code in den Seiten.
 
 Für Hetzner trägt man sie unter *Settings → Environments → `hetzner-webhosting` → Environment variables*
 ein (Variablen, keine Secrets – die IDs stehen ohnehin in jeder Seite). Eine falsche ID bricht den Build ab.
-Das Tracking lädt ohne Einwilligungsbanner direkt beim Seitenaufruf.
+Ist Tracking an, zeigt jede Seite unten links den Einwilligungsbanner von mut-im-rucksack.de
+(„Akzeptieren“ / „Ablehnen“, Text und Links in `packages/core/data/legal.js`). Das Tracking lädt erst
+nach „Akzeptieren“; die Wahl gilt 31 Tage (localStorage `consent`). Ohne Tracking gibt es keinen Banner.
+
+### Impressum und Datenschutz
+
+Der Footer jeder Seite verlinkt Impressum und Datenschutzerklärung von mut-im-rucksack.de
+(`packages/core/data/legal.js`, Texte de/en, alle anderen Sprachen zeigen Englisch).
