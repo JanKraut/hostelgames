@@ -245,7 +245,7 @@ html:not(.js) .js-only {
 /* ---------- Layout ---------- */
 
 .wrap {
-  max-width: 40rem;
+  max-width: 44rem;
   margin: 0 auto;
   padding: 0 1.25rem;
 }
