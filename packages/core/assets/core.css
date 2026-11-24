@@ -755,11 +755,166 @@ footer .copyright a {
   text-underline-offset: 0.2em;
 }
 
+footer .legal {
+  font-size: 0.85rem;
+}
+
+footer .legal a {
+  color: inherit;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 0.2em;
+}
+
 footer .heart {
   width: 0.95em;
   height: 0.95em;
   fill: var(--red);
   vertical-align: -0.12em;
+}
+
+/* ---------- Consent banner (only with tracking, see includes/tracking-body.njk) ---------- */
+/* Taken from the cookie notice of mut-im-rucksack.de (Blocksy, type 1): white card at the
+   bottom left, max. 400px, full-width bar on phones. Dark mode uses the dark surface. */
+
+.consent {
+  --consent-bg: var(--surface);
+  --consent-accept-bg: #d68400;
+  --consent-accept-text: #ffffff;
+  --consent-decline-bg: #fff6e3;
+  --consent-decline-text: #d68400;
+  position: fixed;
+  inset-inline-start: 0;
+  bottom: 0;
+  z-index: 999999;
+  color: var(--ink);
+  opacity: 0;
+  transform: translate3d(0, 15px, 0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+:root[data-theme="dark"] .consent {
+  --consent-accept-bg: #eeab2d;
+  --consent-accept-text: #202020;
+  --consent-decline-bg: transparent;
+  --consent-decline-text: #eeab2d;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .consent {
+    --consent-accept-bg: #eeab2d;
+    --consent-accept-text: #202020;
+    --consent-decline-bg: transparent;
+    --consent-decline-text: #eeab2d;
+  }
+}
+
+.consent.consent-in {
+  opacity: 1;
+  transform: none;
+}
+
+.consent-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.consent-text,
+.consent-links {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.consent-links {
+  margin-top: -10px;
+}
+
+.consent-links a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 0.2em;
+}
+
+.consent-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.consent-buttons button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 35px;
+  padding: 0 20px;
+  border: 1.6px solid var(--consent-accept-bg);
+  border-radius: 3px;
+  font: 500 13px/1.65 var(--font-body);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.consent-accept {
+  background: var(--consent-accept-bg);
+  color: var(--consent-accept-text);
+}
+
+.consent-decline {
+  background: var(--consent-decline-bg);
+  color: var(--consent-decline-text);
+}
+
+.consent-buttons button:focus-visible {
+  outline: 2px solid var(--gold-line);
+  outline-offset: 2px;
+}
+
+@media (hover: hover) {
+  .consent-accept:hover {
+    background: var(--consent-decline-bg);
+    color: var(--consent-decline-text);
+  }
+
+  .consent-decline:hover {
+    color: var(--ink);
+  }
+}
+
+@media (max-width: 689.98px) {
+  .consent {
+    inset-inline-end: 0;
+    background: var(--consent-bg);
+    box-shadow: 0 -5px 30px -5px rgba(34, 56, 101, 0.15);
+  }
+
+  .consent-box {
+    align-items: center;
+    width: 88%;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+@media (min-width: 690px) {
+  .consent {
+    padding: 0 25px 25px;
+  }
+
+  .consent-box {
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 3px;
+    background: var(--consent-bg);
+    box-shadow: 0 5px 30px -5px rgba(34, 56, 101, 0.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .consent {
+    transition: none;
+  }
 }
 
 /* ---------- Light / dark switch and QR button (top right, next to the language menu) ---------- */

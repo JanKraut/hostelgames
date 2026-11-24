@@ -1,4 +1,17 @@
-{#- Google Tag Manager's fallback for visitors without JavaScript, first thing in <body>. -#}
-{%- if tracking.provider == "gtm" %}
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ tracking.id }}" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+{#- Consent banner, first thing in <body>, only when tracking is on (data/tracking.js).
+    Same text, buttons and look as the cookie notice of mut-im-rucksack.de; links to its
+    privacy policy and legal notice (data/legal.js). Hidden until core.js shows it, so
+    without JavaScript there is neither a banner nor tracking. -#}
+{%- if tracking.provider %}
+{%- set lt = legal.texts[lang.code] or legal.texts.en %}
+<div class="consent" role="dialog" aria-label="{{ lt.consentLabel }}" data-days="{{ legal.consentDays }}" hidden>
+  <div class="consent-box">
+    <p class="consent-text">{{ lt.consent }}</p>
+    <p class="consent-links"><a href="{{ legal.privacyUrl }}" target="_blank" rel="noopener">{{ lt.privacy }}</a> · <a href="{{ legal.imprintUrl }}" target="_blank" rel="noopener">{{ lt.imprint }}</a></p>
+    <div class="consent-buttons">
+      <button type="button" class="consent-accept" data-consent="yes">{{ lt.accept }}</button>
+      <button type="button" class="consent-decline" data-consent="no">{{ lt.decline }}</button>
+    </div>
+  </div>
+</div>
 {%- endif %}

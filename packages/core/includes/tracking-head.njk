@@ -1,10 +1,15 @@
-{#- Web analytics in <head>, configured in src/_data/tracking.js. Empty when tracking is off. -#}
+{#- Web analytics in <head>, configured in data/tracking.js. Empty when tracking is off.
+    Nothing is loaded before the visitor accepts in the consent banner (tracking-body.njk):
+    window.hgTracking() loads it, right away if "yes" was chosen within the last
+    legal.consentDays days (localStorage "consent"), otherwise from core.js on "Accept". -#}
+{%- if tracking.provider %}
+<script>window.hgTracking=function(){if(window.hgTracking.done)return;window.hgTracking.done=true;
 {%- if tracking.provider == "gtm" %}
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}dataLayer.push({"gtm.start":new Date().getTime(),event:"gtm.js"});</script>
-<script async src="https://www.googletagmanager.com/gtm.js?id={{ tracking.id }}"></script>
+window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};dataLayer.push({"gtm.start":new Date().getTime(),event:"gtm.js"});var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtm.js?id={{ tracking.id }}";document.head.appendChild(s);
 {%- elif tracking.provider == "ga4" %}
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ tracking.id }}"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","{{ tracking.id }}");</script>
+window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag("js",new Date());gtag("config","{{ tracking.id }}");var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id={{ tracking.id }}";document.head.appendChild(s);
 {%- elif tracking.provider == "matomo" %}
-<script>var _paq=window._paq=window._paq||[];_paq.push(["trackPageView"]);_paq.push(["enableLinkTracking"]);(function(){var u="{{ tracking.matomoUrl }}";_paq.push(["setTrackerUrl",u+"matomo.php"]);_paq.push(["setSiteId","{{ tracking.id }}"]);var g=document.createElement("script");g.async=true;g.src=u+"matomo.js";document.head.appendChild(g)})();</script>
+var _paq=window._paq=window._paq||[];_paq.push(["trackPageView"]);_paq.push(["enableLinkTracking"]);var u="{{ tracking.matomoUrl }}";_paq.push(["setTrackerUrl",u+"matomo.php"]);_paq.push(["setSiteId","{{ tracking.id }}"]);var s=document.createElement("script");s.async=true;s.src=u+"matomo.js";document.head.appendChild(s);
+{%- endif %}
+};try{var c=JSON.parse(localStorage.getItem("consent"));if(c&&c.value==="yes"&&c.until>Date.now())hgTracking()}catch(e){}</script>
 {%- endif %}

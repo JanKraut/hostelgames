@@ -10,12 +10,13 @@ seinem eigenen `_includes/` anlegt.
 | `assets/core.css` | Gemeinsames Design: Farben (hell/dunkel), Schrift, Basis, Layout, Spielkarten, Holztisch, Kopfbereich mit Reitern, Sprachmenü mit Flaggen, Hell/Dunkel-Schalter, Footer |
 | `assets/core.js` | Hell/Dunkel-Schalter, Sprachmenü (merkt sich die Sprache), registriert den Service Worker |
 | `assets/sw.js` | Vorlage des Service Workers (offline), wird pro Seite mit Dateiliste und Hash gefüllt |
-| `includes/` | `langmenu.njk`, `themeswitch.njk`, `flags.njk`, `footer.njk`, `tracking-head.njk`, `tracking-body.njk`, dazu für die Spiele: `card.njk` (Spielkarten-Makros), `pagenav.njk` (Reiter aus `pages` der game.json, ab zwei Seiten), `share.njk` + `sharebox.njk` (Teilen-Box mit QR-Code, Seiten mit `share: true`), `redirect.njk` (englische Startseite → gespeicherte Sprache) |
+| `includes/` | `langmenu.njk`, `themeswitch.njk`, `flags.njk`, `footer.njk` (mit Impressum/Datenschutz), `tracking-head.njk`, `tracking-body.njk` (Einwilligungsbanner), dazu für die Spiele: `card.njk` (Spielkarten-Makros), `pagenav.njk` (Reiter aus `pages` der game.json, ab zwei Seiten), `share.njk` + `sharebox.njk` (Teilen-Box mit QR-Code, Seiten mit `share: true`), `redirect.njk` (englische Startseite → gespeicherte Sprache) |
 | `includes/layouts/game.njk` | Seitenrahmen für Spiele, `layout: game` (Shithead hat noch seinen eigenen `base.njk`) |
 | `assets/share.js` | Teilen-Box: QR-Code (mit `qrcode-generator`, veröffentlicht als `assets/core/qrcode.js`), Link kopieren, Teilen |
 | `lib/sitemap.js` | `createSitemap(site, languages)`: `sitemap.xml` und `robots.txt` aus `pages` der game.json |
 | `data/fonts.js` | Schrift (Manrope, selbst gehostet), Schnitte und Zeichensätze |
 | `data/tracking.js` | Tracking per Umgebungsvariablen, siehe Root-README |
+| `data/legal.js` | Links zu Impressum und Datenschutz (mut-im-rucksack.de), Texte des Einwilligungsbanners |
 | `lib/site.js` | `createSite(game.json)`: Adresse und Pfad-Präfix aus `SITE_ORIGIN` / `SITE_PATH_PREFIX` |
 | `lib/games.js` | Liste aller Spiele aus `games/*/game.json`, prüft jede `game.json` (Felder: Root-README), `visibleGames(site)` blendet Entwürfe live aus |
 | `lib/languages.js` | Alle Sprachen (Flagge, Name, Fallback, Menü-Reihenfolge); `createLanguages(site, i18nDir)` baut daraus die Sprachen eines Spiels |
