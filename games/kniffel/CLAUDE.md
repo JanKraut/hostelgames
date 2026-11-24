@@ -4,6 +4,8 @@ Würfelspiel (`category: dice`) · Domain: noch keine · Ordner: kniffel · Slug
 
 ## Stand
 - Regelseite (src/index.njk) mit Texten de + en.
+- Steckbrief im Kopfbereich (src/_includes/factsheet.njk, Texte unter `info`): gleicher Aufbau
+  wie bei Shithead, mit Würfeln statt Karten. Styles als Core-Kandidat markiert.
 - Würfel kommen aus src/_includes/dice.njk (`die(n, size, extra)`, `dice([...])`),
   Styles in src/assets/styles.css. Kein Core-Include, weil bisher nur Kniffel würfelt;
   beim zweiten Würfelspiel in den Core verschieben.
