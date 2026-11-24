@@ -1,0 +1,165 @@
+---
+pagination:
+  data: languages
+  size: 1
+  alias: lang
+permalink: "{{ lang.path }}"
+layout: game
+share: true
+eleventyComputed:
+  pageTitle: "{{ lang.t.seo.rulesT }}"
+  pageDescription: "{{ lang.t.seo.rulesD }}"
+---
+{#- Regelseite, eine pro Sprache. Abschnitte von oben nach unten: Aufbau, Dein Zug,
+    Oberer Block, Unterer Block, Punkte & Ende, Varianten, FAQ, Teilen. -#}
+{%- from "dice.njk" import die, dice -%}
+{%- set t = lang.t -%}
+<header class="hero">
+  <div class="wrap">
+    {% include "langmenu.njk" %}
+    {% include "pagenav.njk" %}
+    <h1>{{ t.h1 | safe }}<span class="h1-sub"> {{ t.h1sub }}</span></h1>
+    <p>{{ t.sub | safe }}</p>
+    {#- Fünf Würfel, frisch geworfen: ein Kniffel aus Sechsen. -#}
+    <div class="throw" aria-hidden="true">
+      {%- for i in range(5) %}{{ die(6) }}{% endfor -%}
+    </div>
+    <div class="goal">
+      <div class="goal-icon" aria-hidden="true">🎯</div>
+      <p>{{ t.goal | safe }}</p>
+    </div>
+  </div>
+</header>
+
+<nav class="secnav" aria-label="{{ t.navLabel }}">
+  <ul>
+    <li><a href="#setup">{{ t.nSetup }}</a></li>
+    <li><a href="#turn">{{ t.nTurn }}</a></li>
+    <li><a href="#upper">{{ t.nUpper }}</a></li>
+    <li><a href="#lower">{{ t.nLower }}</a></li>
+    <li><a href="#scoring">{{ t.nScoring }}</a></li>
+    <li><a href="#variants">{{ t.nVariants }}</a></li>
+    <li><a href="#faq">{{ t.nFaq }}</a></li>
+    <li><a href="#share">{{ t.nShare }}</a></li>
+  </ul>
+</nav>
+
+<main class="wrap">
+
+  <section id="setup">
+    <h2>{{ t.setupH }}</h2>
+    <p class="lead">{{ t.setupLead | safe }}</p>
+    <ul class="rules">
+      <li>{{ t.setup1 | safe }}</li>
+      <li>{{ t.setup2 | safe }}</li>
+      <li>{{ t.setup3 | safe }}</li>
+    </ul>
+    <p>{{ t.setupP | safe }}</p>
+  </section>
+
+  <section id="turn">
+    <h2>{{ t.turnH }}</h2>
+    <p class="lead">{{ t.turnLead | safe }}</p>
+    <ol class="steps">
+      <li><h3>{{ t.s1h }}</h3><p>{{ t.s1p | safe }}</p></li>
+      <li><h3>{{ t.s2h }}</h3><p>{{ t.s2p | safe }}</p></li>
+      <li><h3>{{ t.s3h }}</h3><p>{{ t.s3p | safe }}</p></li>
+    </ol>
+
+    {#- Beispielzug: Fünfen sammeln. Gold = beiseitegelegt. -#}
+    <h3 class="sub">{{ t.exH }}</h3>
+    <div class="rolls" role="img" aria-label="{{ t.exAlt }}">
+      <div class="roll"><p class="roll-n">{{ t.exR1 }}</p>{{ dice([2, [5, "held"], [5, "held"], 1, [5, "held"]], "sm") }}</div>
+      <div class="roll"><p class="roll-n">{{ t.exR2 }}</p>{{ dice([[5, "held"], [5, "held"], [5, "held"], 3, 6], "sm") }}</div>
+      <div class="roll"><p class="roll-n">{{ t.exR3 }}</p>{{ dice([[5, "held"], [5, "held"], [5, "held"], [5, "held"], 2], "sm") }}</div>
+    </div>
+    <p>{{ t.exP | safe }}</p>
+
+    <h3 class="sub">{{ t.strikeH }}</h3>
+    <p>{{ t.strikeP | safe }}</p>
+  </section>
+
+  <section id="upper">
+    <h2>{{ t.upH }}</h2>
+    <p class="lead">{{ t.upLead | safe }}</p>
+    <ul class="upper" role="list">
+      {%- for n in range(1, 7) %}
+      <li>
+        {{ die(n, "xs") }}
+        <b>{{ t["up" ~ n] }}</b>
+        <span class="up-goal">3 × {{ n }} = {{ 3 * n }}</span>
+      </li>
+      {%- endfor %}
+    </ul>
+    <p>{{ t.upP | safe }}</p>
+    <div class="bonus">
+      <div class="bonus-n">+35</div>
+      <p>{{ t.bonusP | safe }}</p>
+    </div>
+  </section>
+
+  <section id="lower">
+    <h2>{{ t.lowH }}</h2>
+    <p class="lead">{{ t.lowLead | safe }}</p>
+    {#- Name, Bedingung, Beispielwurf (gold = zählt), Punkte. -#}
+    <div class="boxes">
+      {%- for b in [
+        ["three", [[4, "held"], [4, "held"], [4, "held"], 2, 6], "t"],
+        ["four", [[6, "held"], [6, "held"], [6, "held"], [6, "held"], 1], "t"],
+        ["full", [[3, "held"], [3, "held"], [3, "held"], [5, "held"], [5, "held"]], "25"],
+        ["small", [[1, "held"], [2, "held"], [3, "held"], [4, "held"], 4], "30"],
+        ["large", [[2, "held"], [3, "held"], [4, "held"], [5, "held"], [6, "held"]], "40"],
+        ["kniffel", [[2, "held"], [2, "held"], [2, "held"], [2, "held"], [2, "held"]], "50"],
+        ["chance", [6, 5, 3, 3, 1], "t"]
+      ] %}
+      <div class="box">
+        <div class="box-head">
+          <h3>{{ t["lb_" ~ b[0] ~ "H"] }}</h3>
+          <span class="box-pts">{% if b[2] == "t" %}{{ t.ptsTotal }}{% else %}{{ b[2] }}{% endif %}</span>
+        </div>
+        <p>{{ t["lb_" ~ b[0] ~ "P"] | safe }}</p>
+        {{ dice(b[1], "xs") }}
+      </div>
+      {%- endfor %}
+    </div>
+  </section>
+
+  <section id="scoring">
+    <h2>{{ t.scoreH }}</h2>
+    <p class="lead">{{ t.scoreLead | safe }}</p>
+    <ol class="sum">
+      <li><span>{{ t.sum1 }}</span><b>{{ t.sum1v }}</b></li>
+      <li><span>{{ t.sum2 }}</span><b>{{ t.sum2v }}</b></li>
+      <li><span>{{ t.sum3 }}</span><b>{{ t.sum3v }}</b></li>
+      <li class="total"><span>{{ t.sum4 }}</span><b>{{ t.sum4v }}</b></li>
+    </ol>
+    <h3 class="sub">{{ t.endH }}</h3>
+    <p>{{ t.endP | safe }}</p>
+  </section>
+
+  <section id="variants">
+    <h2>{{ t.varH }}</h2>
+    <p class="lead">{{ t.varLead | safe }}</p>
+    <ul class="variants">
+      {%- for i in range(1, 8) %}
+      <li>{{ t["var" ~ i] | safe }}</li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="faq">
+    <h2>{{ t.faqH }}</h2>
+    <div class="faq">
+      {%- for i in range(1, 9) %}
+      <details>
+        <summary>{{ t["faq" ~ i ~ "q"] }}</summary>
+        <p>{{ t["faq" ~ i ~ "a"] | safe }}</p>
+      </details>
+      {%- endfor %}
+    </div>
+  </section>
+
+  {% include "share.njk" %}
+</main>
+
+{% include "footer.njk" %}
