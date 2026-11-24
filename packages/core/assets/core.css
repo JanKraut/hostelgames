@@ -585,13 +585,15 @@ h3.sub.first {
 .langmenu summary {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.55rem 0.8rem 0.55rem 0.7rem;
+  gap: 0.4rem;
+  box-sizing: border-box;
+  height: 2rem;
+  padding: 0 0.6rem 0 0.55rem;
   border: 1.5px solid var(--head-chip-border);
   border-radius: 999px;
   background: var(--head-chip);
   color: var(--felt-text);
-  font: 700 0.95rem/1 var(--font-body);
+  font: 700 0.85rem/1 var(--font-body);
   list-style: none;
   cursor: pointer;
 }
@@ -612,6 +614,17 @@ h3.sub.first {
 
 .langmenu[open] summary > svg {
   transform: rotate(180deg);
+}
+
+/* Smaller flag and chevron in the compact menu button */
+.langmenu summary .flagsvg {
+  width: 1.2rem;
+  height: 0.8rem;
+}
+
+.langmenu summary > svg {
+  width: 12px;
+  height: 12px;
 }
 
 /* Flags are SVGs (emoji flags don't show on Windows) */
@@ -752,14 +765,21 @@ footer .heart {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.6rem;
-  height: 2.6rem;
+  box-sizing: border-box;
+  width: 2rem;
+  height: 2rem;
   padding: 0;
   border: 1.5px solid var(--head-chip-border);
   border-radius: 999px;
   background: var(--head-chip);
   color: var(--felt-text);
   cursor: pointer;
+}
+
+.themeswitch svg,
+.topbtn svg {
+  width: 15px;
+  height: 15px;
 }
 
 .themeswitch:hover,
