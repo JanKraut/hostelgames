@@ -123,6 +123,227 @@
   color: var(--highlight);
 }
 
+/* ---------- Kopfbereich: Steckbrief (Core-Kandidat, wie bei Shithead; dort mit Karten statt Würfeln) ---------- */
+.factsheet {
+  margin-top: 0.7rem;
+  padding: 0;
+}
+
+.fs-grid {
+  display: grid;
+  gap: 0.7rem;
+}
+
+@media (min-width: 34rem) {
+  .fs-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.fs-box {
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  background: var(--head-well);
+}
+
+.fs-box h2 {
+  margin: 0 0 0.6rem;
+  color: var(--head-accent);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Scales: luck – skill and so on */
+.fs-scales {
+  display: grid;
+  grid-template-columns: max-content minmax(3rem, 1fr) max-content;
+  gap: 0.55rem 0.7rem;
+  align-content: center;
+}
+
+/* Each row spans the box and shares its three columns, so the bars line up. */
+.fs-scale {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.fs-scale span:last-child {
+  text-align: end;
+}
+
+.fs-bar {
+  position: relative;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(to right, var(--head-accent) var(--v), var(--head-chip-border) var(--v));
+}
+
+.fs-bar::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  inset-inline-start: var(--v);
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--head-text);
+  translate: -50% -50%;
+}
+
+/* Spieler: allein / gegeneinander */
+.fs-players {
+  display: flex;
+  justify-content: space-around;
+  gap: 0.8rem;
+}
+
+.fs-group {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.fs-group + .fs-group {
+  padding-inline-start: 0.8rem;
+  border-inline-start: 1px solid var(--head-chip-border);
+}
+
+.fs-who {
+  display: grid;
+  line-height: 1.2;
+}
+
+.fs-who b {
+  font-size: 1.05rem;
+}
+
+.fs-who span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.fs-people {
+  width: 30px;
+  height: 23px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+/* Time and similar games */
+.fs-pair {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.2rem;
+}
+
+.fs-clock {
+  display: grid;
+  place-content: center;
+  width: 58px;
+  height: 58px;
+  border: 2.5px solid currentColor;
+  border-radius: 50%;
+  line-height: 1;
+  text-align: center;
+}
+
+.fs-clock b {
+  font-size: 1.15rem;
+}
+
+.fs-clock small {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.fs-similar {
+  margin: 0;
+  padding: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.5;
+  list-style: none;
+  text-transform: uppercase;
+}
+
+/* Was ihr braucht: fünf Würfel, Block und Stift */
+.fs-gear {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.7rem;
+  align-items: center;
+}
+
+.fs-dice {
+  display: flex;
+  gap: 4px;
+}
+
+.die.fs {
+  --d: 24px;
+  padding: 3px;
+  border-radius: 6px;
+  box-shadow: 0 0 0 2px var(--card-ink) inset;
+}
+
+.fs-sheet {
+  width: 34px;
+  height: 38px;
+  fill: var(--paper);
+  stroke: var(--card-ink);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.fs-sheet path {
+  fill: none;
+}
+
+.fs-sheet .fs-pen {
+  fill: var(--red);
+}
+
+.fs-count {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.fs-intro {
+  margin-top: 0.7rem;
+  padding: 1rem 1.1rem 1.1rem;
+  border-radius: 14px;
+  background: var(--head-well);
+  text-align: center;
+}
+
+.fs-intro h2 {
+  margin: 0 0 0.4rem;
+  color: var(--head-accent);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero .fs-intro p {
+  max-width: 32rem;
+  margin: 0 auto;
+  color: var(--felt-text);
+  font-size: 1rem;
+}
+
 /* ---------- Abschnittsnavigation (Core-Kandidat) ---------- */
 
 .secnav {

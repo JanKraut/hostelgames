@@ -57,6 +57,18 @@ for (const lang of languages) {
     await expect(page.locator("#practice, #play-bots")).toHaveCount(0);
   });
 
+  test(`${lang.code}: fact sheet in the header`, async ({ page }) => {
+    await page.addInitScript((code) => localStorage.setItem("lang", code), lang.code);
+    await page.goto(pathOf(lang));
+    const sheet = page.locator(".hero #factsheet");
+    await expect(sheet).toBeVisible();
+    await expect(sheet.locator(".fs-scale")).toHaveCount(3);
+    await expect(sheet.locator(".fs-group")).toHaveCount(2);
+    await expect(sheet.locator(".fs-similar li")).toHaveCount(lang.t.info.similar.split(", ").length);
+    await expect(sheet.locator(".fs-dice .die")).toHaveCount(5);
+    await expect(sheet.locator(".fs-intro p")).toHaveText(lang.t.info.intro);
+  });
+
   test(`${lang.code}: dice show the right number of pips`, async ({ page }) => {
     await page.addInitScript((code) => localStorage.setItem("lang", code), lang.code);
     await page.goto(pathOf(lang));
