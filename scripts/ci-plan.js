@@ -119,6 +119,11 @@ export function plan({ files, all = false }) {
       domain: site.domain.replace(/\/$/, ""),
       environment: site.deploy?.environment ?? DEFAULT_ENVIRONMENT,
       ftpDir: folderOf(site.domain, site.workspace),
+      // The hub is built with the live games that have no domain of their own, which then
+      // live at hostelgames.com/<path>/ (scripts/build-all.js).
+      // A game with its own domain is built on its own.
+      build: site.slug === "hub" ? "npm run build" : `npm run build -w ${site.workspace}`,
+      out: site.slug === "hub" ? "_site/" : `${site.workspace}/_site/`,
     }));
 
   // Safety: with --delete, two sites in one folder would wipe each other.
