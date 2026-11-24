@@ -1,0 +1,190 @@
+---
+pagination:
+  data: languages
+  size: 1
+  alias: lang
+permalink: "{{ lang.path }}"
+layout: game
+share: true
+eleventyComputed:
+  pageTitle: "{{ lang.t.seo.rulesT }}"
+  pageDescription: "{{ lang.t.seo.rulesD }}"
+---
+{#- Regelseite, eine pro Sprache. Abschnitte von oben nach unten: Aufbau, Spielablauf,
+    Sonderkarten, Mau und Mau-Mau, Punkte, Varianten, FAQ, Teilen.
+    Texte in src/_data/i18n/*.json (unter "rules"), Karten aus card.njk im Core. -#}
+{%- from "card.njk" import card, back, cardRow -%}
+{%- set t = lang.t -%}
+{%- set r = t.rules -%}
+<header class="hero">
+  <div class="wrap">
+    {% include "langmenu.njk" %}
+    {% include "pagenav.njk" %}
+    <h1>{{ r.h1 }}<span class="h1-sub"> {{ r.h1sub }}</span></h1>
+    <p>{{ t.sub | safe }}</p>
+    {#- Die drei Sonderkarten plus ein Ass. -#}
+    <div class="fan" aria-hidden="true">
+      {{ card("7", "♥") }}
+      {{ card("8", "♠") }}
+      {{ card("J", "♣") }}
+      {{ card("A", "♦") }}
+    </div>
+    <div class="goal">
+      <div class="goal-icon" aria-hidden="true">🎯</div>
+      <p>{{ r.goal | safe }}</p>
+    </div>
+    {% include "factsheet.njk" %}
+  </div>
+</header>
+
+<nav class="secnav" aria-label="{{ r.navLabel }}">
+  <ul>
+    <li><a href="#setup">{{ r.nSetup }}</a></li>
+    <li><a href="#how-to-play">{{ r.nPlay }}</a></li>
+    <li><a href="#special">{{ r.nSpecial }}</a></li>
+    <li><a href="#mau">{{ r.nMau }}</a></li>
+    <li><a href="#scoring">{{ r.nScore }}</a></li>
+    <li><a href="#variants">{{ r.nVar }}</a></li>
+    <li><a href="#faq">{{ r.nFaq }}</a></li>
+    <li><a href="#share">{{ r.nShare }}</a></li>
+  </ul>
+</nav>
+
+<main class="wrap">
+
+  <section id="setup">
+    <h2>{{ r.setupH }}</h2>
+    <p class="lead">{{ r.setupLead | safe }}</p>
+    <ul class="decks">
+      <li><b>{{ r.deck1n }}</b><span>{{ r.deck1 | safe }}</span></li>
+      <li><b>{{ r.deck2n }}</b><span>{{ r.deck2 | safe }}</span></li>
+    </ul>
+
+    <h3 class="sub">{{ r.dealH }}</h3>
+    <p>{{ r.dealP | safe }}</p>
+    {#- Ziehstapel verdeckt, daneben die erste offene Karte. -#}
+    <div class="table" role="img" aria-label="{{ r.tableAlt }}">
+      <div class="tb">
+        <div class="tb-pile">{{ back() }}{{ back() }}{{ back() }}</div>
+        <p>{{ r.tableDraw }}</p>
+      </div>
+      <div class="tb">
+        <div class="tb-pile">{{ card("9", "♠", "sm") }}</div>
+        <p>{{ r.tableOpen }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-to-play">
+    <h2>{{ r.playH }}</h2>
+    <p class="lead">{{ r.playLead | safe }}</p>
+    <ol class="steps">
+      <li><h3>{{ r.t1h }}</h3><p>{{ r.t1p | safe }}</p></li>
+      <li><h3>{{ r.t2h }}</h3><p>{{ r.t2p | safe }}</p></li>
+      <li><h3>{{ r.t3h }}</h3><p>{{ r.t3p | safe }}</p></li>
+    </ol>
+
+    {#- Was darf auf die Pik 9? Gleiche Farbe, gleicher Wert, ein Bube – aber nicht das Karo-Ass. -#}
+    <div class="check">
+      <p class="ck-q">{{ r.ckQ | safe }}</p>
+      <div class="ck-row">
+        <div class="ck ck-top">
+          <div class="ck-cards" aria-hidden="true">{{ card("9", "♠", "xs", pip=false) }}</div>
+          <p>{{ r.ckTop }}</p>
+        </div>
+        <div class="ck ck-yes">
+          <div class="ck-cards" aria-hidden="true">{{ card("K", "♠", "xs", pip=false) }}</div>
+          <p><b>✓</b> {{ r.ckYes1 }}</p>
+        </div>
+        <div class="ck ck-yes">
+          <div class="ck-cards" aria-hidden="true">{{ card("9", "♥", "xs", pip=false) }}</div>
+          <p><b>✓</b> {{ r.ckYes2 }}</p>
+        </div>
+        <div class="ck ck-yes">
+          <div class="ck-cards" aria-hidden="true">{{ card("J", "♦", "xs", pip=false) }}</div>
+          <p><b>✓</b> {{ r.ckYes3 }}</p>
+        </div>
+        <div class="ck ck-no">
+          <div class="ck-cards" aria-hidden="true">{{ card("A", "♦", "xs", pip=false) }}</div>
+          <p><b>✗</b> {{ r.ckNo }}</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub">{{ r.pileH }}</h3>
+    <p>{{ r.pileP | safe }}</p>
+  </section>
+
+  <section id="special">
+    <h2>{{ r.spH }}</h2>
+    <p class="lead">{{ r.spLead | safe }}</p>
+    <div class="rulecards">
+      {%- for c in [["7", "♥", "7"], ["8", "♠", "8"], ["J", "♣", "j"]] %}
+      <div class="rulecard" id="card-{{ c[2] }}">
+        {{ card(c[0], c[1], "sm") }}
+        <div>
+          <h3>{{ r["sp" ~ c[2] ~ "H"] }}</h3>
+          <p>{{ r["sp" ~ c[2] ~ "P"] | safe }}</p>
+        </div>
+      </div>
+      {%- endfor %}
+    </div>
+    <p class="note">{{ r.spNote | safe }}</p>
+  </section>
+
+  <section id="mau">
+    <h2>{{ r.mauH }}</h2>
+    <p class="lead">{{ r.mauLead | safe }}</p>
+    {#- Zwei Karten → „Mau“, letzte Karte → „Mau-Mau“. -#}
+    <div class="calls" role="img" aria-label="{{ r.mauAlt }}">
+      <div class="call">
+        <div class="call-cards">{{ back() }}</div>
+        <p class="call-word">{{ r.mauWord1 }}</p>
+        <p>{{ r.mauWhen1 }}</p>
+      </div>
+      <div class="call">
+        <div class="call-cards">{{ card("Q", "♥", "sm") }}</div>
+        <p class="call-word">{{ r.mauWord2 }}</p>
+        <p>{{ r.mauWhen2 }}</p>
+      </div>
+    </div>
+    <p>{{ r.mauP | safe }}</p>
+  </section>
+
+  <section id="scoring">
+    <h2>{{ r.scH }}</h2>
+    <p class="lead">{{ r.scLead | safe }}</p>
+    <ul class="points">
+      {%- for p in [["J", "♣", "20"], ["A", "♥", "11"], ["10", "♠", "10"], ["K", "♦", "4"], ["Q", "♣", "3"], ["9", "♥", "9"], ["8", "♠", "8"], ["7", "♦", "7"]] %}
+      <li>{{ card(p[0], p[1], "xs", pip=false) }}<b>{{ p[2] }}</b></li>
+      {%- endfor %}
+    </ul>
+    <p>{{ r.scP | safe }}</p>
+  </section>
+
+  <section id="variants">
+    <h2>{{ r.varH }}</h2>
+    <p class="lead">{{ r.varLead | safe }}</p>
+    <ul class="variants">
+      {%- for i in range(1, 10) %}
+      <li>{{ r["var" ~ i] | safe }}</li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="faq">
+    <h2>{{ r.faqH }}</h2>
+    <div class="faq">
+      {%- for i in range(1, 8) %}
+      <details>
+        <summary>{{ r["faq" ~ i ~ "q"] }}</summary>
+        <p>{{ r["faq" ~ i ~ "a"] | safe }}</p>
+      </details>
+      {%- endfor %}
+    </div>
+  </section>
+
+  {% include "share.njk" %}
+</main>
+
+{% include "footer.njk" %}

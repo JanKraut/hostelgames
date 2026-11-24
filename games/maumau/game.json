@@ -1,0 +1,12 @@
+{
+  "slug": "maumau",
+  "name": "Mau-Mau",
+  "tagline": "Match the suit or the rank, shout “Mau” – first to empty their hand wins",
+  "category": "cards",
+  "status": "draft",
+  "languages": ["en", "de"],
+  "pages": ["rules"],
+  "related": [],
+  "players": { "min": 2, "max": 6 },
+  "duration": "10–20 min"
+}
