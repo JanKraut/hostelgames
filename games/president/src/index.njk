@@ -14,24 +14,7 @@ eleventyComputed:
     Hausregeln nur im Abschnitt „variants“. Kein Spiel gegen Bots. -#}
 {%- from "card.njk" import card, back, cardRow -%}
 {%- set t = lang.t -%}
-<header class="hero">
-  <div class="wrap">
-    {% include "langmenu.njk" %}
-    {% include "pagenav.njk" %}
-    <h1>{{ t.h1 }}<span class="h1-sub"> {{ t.h1sub }}</span></h1>
-    <p>{{ t.sub | safe }}</p>
-    <div class="fan" aria-hidden="true">
-      {{ card("3", "♣") }}
-      {{ card("9", "♦") }}
-      {{ card("A", "♥") }}
-      {{ card("2", "♠") }}
-    </div>
-    <div class="goal">
-      <div class="goal-icon" aria-hidden="true">🎯</div>
-      <p>{{ t.goal | safe }}</p>
-    </div>
-  </div>
-</header>
+{% include "hero.njk" %}
 
 <nav class="secnav" aria-label="{{ t.navLabel }}">
   <ul>

@@ -5,6 +5,6 @@
   "domain": "https://presidentsgame.de",
   "status": "draft",
   "languages": ["en", "de"],
-  "pages": ["rules"],
+  "pages": ["rules", "strategy"],
   "related": ["asshole"]
 }

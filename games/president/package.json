@@ -7,7 +7,7 @@
     "build": "npm run check && eleventy",
     "start": "eleventy --serve",
     "test": "playwright test",
-    "check": "hostelgames-check-i18n --dir src/_data/i18n --templates src/index.njk --languages src/_data/languages.js"
+    "check": "hostelgames-check-i18n --dir src/_data/i18n --templates src/index.njk,src/strategy.njk --languages src/_data/languages.js"
   },
   "dependencies": {
     "@hostelgames/core": "*"
