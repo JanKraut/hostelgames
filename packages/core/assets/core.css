@@ -616,8 +616,9 @@ h3.sub.first {
   transform: rotate(180deg);
 }
 
-/* Smaller flag and chevron in the compact menu button */
-.langmenu summary .flagsvg {
+/* Smaller flag and chevron in the compact menu button; the list uses the same flag size */
+.langmenu summary .flagsvg,
+.langmenu ul .flagsvg {
   width: 1.2rem;
   height: 0.8rem;
 }
@@ -647,7 +648,7 @@ h3.sub.first {
   inset-inline-end: 0;
   top: calc(100% + 0.4rem);
   z-index: 20;
-  min-width: 15rem;
+  width: max-content;
   max-height: min(70vh, 32rem);
   overflow-y: auto;
   margin: 0;
@@ -655,6 +656,8 @@ h3.sub.first {
   border-radius: 14px;
   background: var(--paper);
   color: var(--card-ink);
+  font-size: 0.85rem;
+  line-height: 1.2;
   list-style: none;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
@@ -662,10 +665,11 @@ h3.sub.first {
 .langmenu a {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
-  padding: 0.6rem 0.75rem;
+  gap: 0.5rem;
+  padding: 0.45rem 0.7rem 0.45rem 0.55rem;
   border-radius: 10px;
   font-weight: 400;
+  white-space: nowrap;
   text-decoration: none;
 }
 
