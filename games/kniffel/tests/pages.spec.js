@@ -1,16 +1,6 @@
 // Strategy and quick start of Kniffel: own titles, sections, dice, links, no overflow.
-import { test as base, expect } from "@playwright/test";
+import { test, expect } from "@hostelgames/core/testing";
 import languages from "../src/_data/languages.js";
-
-// Every test fails if the page throws a JavaScript error.
-const test = base.extend({
-  page: async ({ page }, use) => {
-    const errors = [];
-    page.on("pageerror", (error) => errors.push(error.message));
-    await use(page);
-    expect(errors, "JavaScript errors on the page").toEqual([]);
-  },
-});
 
 const pathOf = (lang, sub) => (lang.path === "/" ? "./" : lang.path.slice(1)) + sub;
 const open = async (page, lang, sub) => {

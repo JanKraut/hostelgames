@@ -12,6 +12,7 @@ eleventyComputed:
 share: true
 scripts: ["/assets/rules.js"]
 ---
+{%- from "blocks.njk" import steps, faq, variants -%}
 {%- from "card.njk" import card, back, stack, cardRow -%}
 {%- set t = lang.t -%}
 
@@ -76,15 +77,7 @@ scripts: ["/assets/rules.js"]
     <p>{{ t.setupP | safe }}</p>
   </section>
 
-  <section id="variants">
-    <h2>{{ t.rules.varH }}</h2>
-    <p class="lead">{{ t.rules.varLead | safe }}</p>
-    <ul class="variants">
-      {%- for i in [1, 2, 3] %}
-      <li>{{ t.rules["var" ~ i] | safe }}</li>
-      {%- endfor %}
-    </ul>
-  </section>
+  {{ variants(t.rules) }}
 
   <section id="swap">
     <h2>{{ t.swH }}</h2>
@@ -114,11 +107,7 @@ scripts: ["/assets/rules.js"]
       </div>
     </div>
 
-    <ol class="steps">
-      <li><h3>{{ t.w1h }}</h3><p>{{ t.w1p | safe }}</p></li>
-      <li><h3>{{ t.w2h }}</h3><p>{{ t.w2p | safe }}</p></li>
-      <li><h3>{{ t.w3h }}</h3><p>{{ t.w3p | safe }}</p></li>
-    </ol>
+    {{ steps(t, "w") }}
     <p>{{ t.swWhy | safe }}</p>
   </section>
 
@@ -193,17 +182,7 @@ scripts: ["/assets/rules.js"]
     <p>{{ t.e5p | safe }}</p>
   </section>
 
-  <section id="faq">
-    <h2>{{ t.rules.faqH }}</h2>
-    <div class="faq">
-      {%- for i in range(1, 9) %}
-      <details>
-        <summary>{{ t.rules["faq" ~ i ~ "q"] }}</summary>
-        <p>{{ t.rules["faq" ~ i ~ "a"] | safe }}</p>
-      </details>
-      {%- endfor %}
-    </div>
-  </section>
+  {{ faq(t.rules) }}
 
   {% include "quiz.njk" %}
 

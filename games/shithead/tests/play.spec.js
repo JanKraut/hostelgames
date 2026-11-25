@@ -1,15 +1,6 @@
 // The game page: every language, without JavaScript, and complete games through the UI.
-import { test as base, expect } from "@playwright/test";
+import { test, expect } from "@hostelgames/core/testing";
 import languages from "../src/_data/languages.js";
-
-const test = base.extend({
-  page: async ({ page }, use) => {
-    const errors = [];
-    page.on("pageerror", (error) => errors.push(error.message));
-    await use(page);
-    expect(errors, "JavaScript errors on the page").toEqual([]);
-  },
-});
 
 const byCode = Object.fromEntries(languages.map((lang) => [lang.code, lang]));
 const playPath = (lang) => (lang.path === "/" ? "play/" : `${lang.code}/play/`);

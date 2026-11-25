@@ -86,6 +86,10 @@ Alles auf `github.io` bekommt `noindex` und keine Sitemap.
    `rules.h1sub` – leer = keine zweite Zeile –, `sub`, `goal`; Kurzanleitung `h1`; andere Seiten
    `<seite>.h1`, `<seite>.sub`). Das Bild darin kommt aus `src/_includes/hero-art.njk` des Spiels.
    Die 404-Seite kommt ebenfalls aus dem Core, das Spiel ändert nur die Texte (`nf…`).
+   Abschnittsnavigation, Schritte, Varianten und FAQ: Makros aus `blocks.njk`
+   (`{{ faq(t) }}` zeigt `faqH`, `faq1q`/`faq1a` … bis zum letzten vorhandenen Text).
+   Tests: `import { test, expect, siteTests } from "@hostelgames/core/testing"` und
+   `siteTests({ languages, site })` für Sprach-Weiterleitung und 404.
    Standardtexte (Teilen-Box, Seitennamen, 404, Hell/Dunkel, Steckbrief-Beschriftungen) kommen aus
    `packages/core/i18n/standard/`; in die Texte des Spiels gehört nur, was es anders sagt.
 5. Im Root `build:<slug>` und `start:<slug>` in `package.json` ergänzen und `npm install`. Die Startseite listet das Spiel automatisch (in der Vorschau auch als Entwurf).

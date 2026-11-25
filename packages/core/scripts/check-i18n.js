@@ -91,8 +91,15 @@ function unbalanced(text) {
   return open.length ? `<${open.join(">, <")}> not closed` : null;
 }
 
+// Sections: <section id="…"> and the section macros of blocks.njk, {{ faq(t) }} / {{ variants(t, "id") }}.
 const sectionIds = new Set(
-  TEMPLATES.flatMap((file) => [...readFileSync(file, "utf8").matchAll(/<section id="([^"]+)"/g)].map((m) => m[1])),
+  TEMPLATES.flatMap((file) => {
+    const text = readFileSync(file, "utf8");
+    return [
+      ...[...text.matchAll(/<section id="([^"]+)"/g)].map((m) => m[1]),
+      ...[...text.matchAll(/\{\{\s*(faq|variants)\(\s*[\w.]+\s*(?:,\s*"([^"]+)")?\s*\)/g)].map((m) => m[2] ?? m[1]),
+    ];
+  }),
 );
 
 // ---------- languages file and JSON files match ----------

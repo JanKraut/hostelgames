@@ -10,6 +10,7 @@ eleventyComputed:
   pageTitle: "{{ lang.t.seo.rulesT }}"
   pageDescription: "{{ lang.t.seo.rulesD }}"
 ---
+{%- from "blocks.njk" import secnav, steps, variants, faq -%}
 {#- Rules page, one per language. Sections follow the course of a round:
     setup, card values, one turn, card powers, stacking, calling Cambio, scoring,
     then variants and FAQ. Texts in src/_data/i18n, styles in src/assets/styles.css. -#}
@@ -17,19 +18,17 @@ eleventyComputed:
 {%- set t = lang.t -%}
 {% include "hero.njk" %}
 
-<nav class="secnav" aria-label="{{ t.navLabel }}">
-  <ul>
-    <li><a href="#setup">{{ t.nav.setup }}</a></li>
-    <li><a href="#values">{{ t.nav.values }}</a></li>
-    <li><a href="#turn">{{ t.nav.turn }}</a></li>
-    <li><a href="#powers">{{ t.nav.powers }}</a></li>
-    <li><a href="#stacking">{{ t.nav.stacking }}</a></li>
-    <li><a href="#cambio">{{ t.nav.cambio }}</a></li>
-    <li><a href="#scoring">{{ t.nav.scoring }}</a></li>
-    <li><a href="#variants">{{ t.nav.variants }}</a></li>
-    <li><a href="#faq">{{ t.nav.faq }}</a></li>
-  </ul>
-</nav>
+{{ secnav(t.navLabel, [
+  ["setup", t.nav.setup],
+  ["values", t.nav.values],
+  ["turn", t.nav.turn],
+  ["powers", t.nav.powers],
+  ["stacking", t.nav.stacking],
+  ["cambio", t.nav.cambio],
+  ["scoring", t.nav.scoring],
+  ["variants", t.nav.variants],
+  ["faq", t.nav.faq]
+]) }}
 
 <main class="wrap">
 
@@ -48,11 +47,7 @@ eleventyComputed:
       <p class="g4-note g4-near">{{ t.setup.near | safe }}</p>
     </div>
 
-    <ol class="steps">
-      <li><h3>{{ t.setup.s1h }}</h3><p>{{ t.setup.s1p | safe }}</p></li>
-      <li><h3>{{ t.setup.s2h }}</h3><p>{{ t.setup.s2p | safe }}</p></li>
-      <li><h3>{{ t.setup.s3h }}</h3><p>{{ t.setup.s3p | safe }}</p></li>
-    </ol>
+    {{ steps(t.setup, "s") }}
   </section>
 
   <section id="values">
@@ -131,11 +126,7 @@ eleventyComputed:
   <section id="cambio">
     <h2>{{ t.cambio.h }}</h2>
     <p class="lead">{{ t.cambio.lead | safe }}</p>
-    <ol class="steps">
-      <li><h3>{{ t.cambio.s1h }}</h3><p>{{ t.cambio.s1p | safe }}</p></li>
-      <li><h3>{{ t.cambio.s2h }}</h3><p>{{ t.cambio.s2p | safe }}</p></li>
-      <li><h3>{{ t.cambio.s3h }}</h3><p>{{ t.cambio.s3p | safe }}</p></li>
-    </ol>
+    {{ steps(t.cambio, "s") }}
     <h3 class="sub">{{ t.cambio.tieH }}</h3>
     <p>{{ t.cambio.tieP | safe }}</p>
     <h3 class="sub">{{ t.cambio.emptyH }}</h3>
@@ -161,27 +152,9 @@ eleventyComputed:
     <p>{{ t.scoring.p | safe }}</p>
   </section>
 
-  <section id="variants">
-    <h2>{{ t.variants.h }}</h2>
-    <p class="lead">{{ t.variants.lead | safe }}</p>
-    <ul class="variants">
-      {%- for i in range(1, 7) %}
-      <li>{{ t.variants["v" ~ i] | safe }}</li>
-      {%- endfor %}
-    </ul>
-  </section>
+  {{ variants(t) }}
 
-  <section id="faq">
-    <h2>{{ t.faq.h }}</h2>
-    <div class="faq">
-      {%- for i in range(1, 9) %}
-      <details>
-        <summary>{{ t.faq["q" ~ i] }}</summary>
-        <p>{{ t.faq["a" ~ i] | safe }}</p>
-      </details>
-      {%- endfor %}
-    </div>
-  </section>
+  {{ faq(t) }}
 
   {% include "share.njk" %}
 </main>

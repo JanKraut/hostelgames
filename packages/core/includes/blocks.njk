@@ -1,0 +1,54 @@
+{#- Building blocks of the game pages (styles in core.css). Import what a page needs:
+      {%- from "blocks.njk" import secnav, steps, variants, faq -%}
+    The lists end with the last text that exists: one more FAQ, variant or step is only a
+    new text in the game's i18n (faq9q + faq9a, var12, s5h + s5p …), no change to the page. -#}
+
+{#- Section navigation below the header. items: [["setup", t.nSetup], ["faq", t.nFaq], …] -#}
+{% macro secnav(label, items) -%}
+<nav class="secnav" aria-label="{{ label }}">
+  <ul>
+    {%- for item in items %}
+    <li><a href="#{{ item[0] }}">{{ item[1] }}</a></li>
+    {%- endfor %}
+  </ul>
+</nav>
+{%- endmacro %}
+
+{#- Numbered steps: texts[prefix + n + "h"] (heading) and texts[prefix + n + "p"] (text), n = 1, 2, … -#}
+{% macro steps(texts, prefix) -%}
+<ol class="steps">
+  {%- for n in range(1, 40) %}{% if texts[prefix ~ n ~ "h"] %}
+  <li><h3>{{ texts[prefix ~ n ~ "h"] }}</h3><p>{{ texts[prefix ~ n ~ "p"] | safe }}</p></li>
+  {%- endif %}{% endfor %}
+</ol>
+{%- endmacro %}
+
+{#- Section "Variants": texts.varH, texts.varLead (optional), texts.var1, var2, … -#}
+{% macro variants(texts, id="variants") -%}
+<section id="{{ id }}">
+  <h2>{{ texts.varH }}</h2>
+  {%- if texts.varLead %}
+  <p class="lead">{{ texts.varLead | safe }}</p>
+  {%- endif %}
+  <ul class="variants">
+    {%- for n in range(1, 40) %}{% if texts["var" ~ n] %}
+    <li>{{ texts["var" ~ n] | safe }}</li>
+    {%- endif %}{% endfor %}
+  </ul>
+</section>
+{%- endmacro %}
+
+{#- Section "FAQ": texts.faqH, texts.faq1q + faq1a, faq2q + faq2a, … (answers open on tap, no JavaScript) -#}
+{% macro faq(texts, id="faq") -%}
+<section id="{{ id }}">
+  <h2>{{ texts.faqH }}</h2>
+  <div class="faq">
+    {%- for n in range(1, 40) %}{% if texts["faq" ~ n ~ "q"] %}
+    <details>
+      <summary>{{ texts["faq" ~ n ~ "q"] }}</summary>
+      <p>{{ texts["faq" ~ n ~ "a"] | safe }}</p>
+    </details>
+    {%- endif %}{% endfor %}
+  </div>
+</section>
+{%- endmacro %}
