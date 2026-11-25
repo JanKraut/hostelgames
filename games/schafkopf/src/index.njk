@@ -21,8 +21,7 @@ eleventyComputed:
 {%- set O = r.rO -%}{%- set U = r.rU -%}{%- set K = r.rK -%}{%- set A = r.rA -%}
 <header class="hero">
   <div class="wrap">
-    {% include "langmenu.njk" %}
-    {% include "pagenav.njk" %}
+    {% include "sitehead.njk" %}
     <h1>{{ r.h1 }}<span class="h1-sub"> {{ r.h1sub }}</span></h1>
     <p>{{ t.sub | safe }}</p>
     {#- Die vier Ober, die höchsten Trümpfe. -#}

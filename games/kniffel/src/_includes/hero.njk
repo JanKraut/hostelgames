@@ -4,8 +4,7 @@
 {%- set t = lang.t -%}
 <header class="hero">
   <div class="wrap">
-    {% include "langmenu.njk" %}
-    {% include "pagenav.njk" %}
+    {% include "sitehead.njk" %}
     {%- if subpath == "strategy/" %}
     <h1>{{ t.strategy.h1 | safe }}</h1>
     <p>{{ t.strategy.sub | safe }}</p>

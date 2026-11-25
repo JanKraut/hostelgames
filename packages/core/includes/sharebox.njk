@@ -1,6 +1,6 @@
 {#- Contents of a "share the guide" box: QR code, link, copy and share buttons.
     Used at the bottom of the page (share.njk, with ids) and in the QR popup at the top
-    (langmenu.njk). share.js fills every .sharebox. -#}
+    (sitehead.njk). share.js fills every .sharebox. -#}
 {% macro sharebox(t, url, ids=false) -%}
 <h2{% if not ids %} id="qrpop-h"{% endif %}>{{ t.shH }}</h2>
 <p class="shlead">{{ t.shLead | safe }}</p>

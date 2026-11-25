@@ -6,8 +6,7 @@
 {%- set t = lang.t -%}
 <header class="hero">
   <div class="wrap">
-    {% include "langmenu.njk" %}
-    {% include "pagenav.njk" %}
+    {% include "sitehead.njk" %}
     {%- set strat = subpath == "strategy/" %}
     {#- The rules page gets a descriptive title for search engines; the quick start keeps the short one. -#}
     {%- if not subpath and t.rules.h1 %}

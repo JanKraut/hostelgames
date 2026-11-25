@@ -433,15 +433,63 @@ test.describe("share", () => {
     await page.locator(".qrbtn").click();
     await popup.locator(".qrclose").click();
     expect(await theme()).toBe(before);
-    await page.locator(".themeswitch").click();
+    // Wide screens: the switch is in the top row; phones: inside the menu.
+    if (await page.locator(".toptheme .themeswitch").isHidden()) await page.locator(".navmenu summary").click();
+    await page.locator(".themeswitch:visible").click();
     expect(await theme()).not.toBe(before);
     await expect(popup).toBeHidden();
   });
 
-  test("the game page has no QR button", async ({ page }) => {
+  test("the game page has the QR button too, its popup shows the code", async ({ page }) => {
     await openLanguage(page, byCode.de);
     await page.goto(pathOf(byCode.de) + "play/");
-    await expect(page.locator(".qrbtn")).toHaveCount(0);
+    await page.locator(".qrbtn").click();
+    const popup = page.locator(".qrpop");
+    await expect(popup.locator(".qr svg")).toBeVisible();
+    await expect(popup.locator(".shurl a")).toHaveAttribute("href", byCode.de.url + "play/");
+  });
+});
+
+test.describe("header menu", () => {
+  test("“All games” opens the menu: four groups, Shithead marked, link to the hub", async ({ page }, info) => {
+    await openLanguage(page, byCode.de);
+    const menu = page.locator(".navmenu");
+    const panel = menu.locator(".navpanel");
+    await expect(panel).toBeHidden();
+    await menu.locator("summary").click();
+    await expect(panel).toBeVisible();
+    await expect(panel.locator(".navcap")).toHaveText(["Spiele", "Kategorien", "Extras", "Beliebt"]);
+    await expect(panel.locator("a[aria-current]")).toHaveText("Shithead");
+    await expect(panel.locator(".navhub")).toHaveAttribute("href", /^https:\/\/(hostelgames\.com|jankraut\.github\.io\/hostelgames)\/de\/$/);
+    await expect(panel.locator('a[href$="#dice"]')).toHaveText(/Würfelspiele/);
+    // The search is built in but not switched on yet.
+    await expect(panel.locator(".navsearch")).toBeHidden();
+    await expect(page.locator(".searchbtn")).toBeHidden();
+    // Phones: the light / dark switch is inside the menu, on wide screens in the top row.
+    const inMenu = info.project.name === "mobile";
+    await expect(panel.locator(".themeswitch")).toBeVisible({ visible: inMenu });
+    await expect(page.locator(".toptheme .themeswitch")).toBeVisible({ visible: !inMenu });
+    await page.keyboard.press("Escape");
+    await expect(panel).toBeHidden();
+  });
+
+  test("only one menu is open at a time, an outside click closes it", async ({ page }) => {
+    await openLanguage(page, byCode.de);
+    await page.locator(".navmenu summary").click();
+    await page.locator(".langmenu summary").click();
+    await expect(page.locator(".langmenu ul")).toBeVisible();
+    await expect(page.locator(".navpanel")).toBeHidden();
+    // A click on the header background, top left (the language list may cover the heading).
+    await page.mouse.click(2, 2);
+    await expect(page.locator(".langmenu ul")).toBeHidden();
+  });
+
+  test("random game leads to another game", async ({ page }) => {
+    await openLanguage(page, byCode.de);
+    const random = page.locator(".js-random");
+    const games = JSON.parse(await random.getAttribute("data-games"));
+    expect(games.length).toBeGreaterThan(0);
+    expect(games.some((url) => url.includes("shitheadgame"))).toBe(false);
   });
 });
 

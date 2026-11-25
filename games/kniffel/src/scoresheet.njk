@@ -6,7 +6,6 @@ pagination:
 permalink: "{{ lang.path }}scoresheet/"
 layout: game
 subpath: "scoresheet/"
-share: true
 scripts: ["/assets/scoresheet.js"]
 eleventyComputed:
   pageTitle: "{{ lang.t.seo.sheetT }}"
@@ -16,13 +15,11 @@ eleventyComputed:
     Drei Ansichten, von scoresheet.js umgeschaltet: Neues Spiel (#sheet-setup), Block (#sheet-game),
     Abrechnung (#sheet-result). Tabelle, Listen und Eingabe-Dialog baut das Skript; Texte und
     Feldnamen kommen aus dem JSON unten (sheet.*, up1–up6, lb_*H). -#}
-{%- from "sharebox.njk" import sharebox -%}
 {%- set t = lang.t -%}
 {%- set s = t.sheet -%}
 <header class="hero hero-small">
   <div class="wrap">
-    {% include "langmenu.njk" %}
-    {% include "pagenav.njk" %}
+    {% include "sitehead.njk" %}
     <h1>{{ s.h1 }}</h1>
     <p>{{ s.sub }}</p>
   </div>
@@ -99,15 +96,5 @@ eleventyComputed:
   large: t.lb_largeH, kniffel: t.lb_kniffelH, chance: t.lb_chanceH
 } %}
 <script type="application/json" id="sheet-texts">{{ { lang: lang.code, t: s, fields: labels } | dump | safe }}</script>
-
-{#- Popup of the QR button in the top bar (langmenu.njk, share.js). -#}
-<dialog class="qrpop" aria-labelledby="qrpop-h">
-  <div class="sharebox">
-    <button type="button" class="qrclose" aria-label="{{ t.shClose }}" title="{{ t.shClose }}">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
-    </button>
-    {{ sharebox(t, lang.url + (subpath or "")) }}
-  </div>
-</dialog>
 
 {% include "footer.njk" %}

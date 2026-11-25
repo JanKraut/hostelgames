@@ -5,21 +5,19 @@ pagination:
   alias: lang
 permalink: "{{ lang.path }}"
 layout: layouts/hub.njk
-share: true
 eleventyComputed:
   pageTitle: "{{ lang.t.seo.title }}"
   pageDescription: "{{ lang.t.seo.description }}"
 ---
 {#- Start page, one per language (languages in hub/hub.json). Names and taglines of the games
     come from games.<slug> in the hub's i18n, otherwise from the game's game.json. -#}
-{%- from "sharebox.njk" import sharebox -%}
 {%- set t = lang.t -%}
 <header class="hero">
   <div class="wrap">
-    <div class="hubtop">
-      <a class="hublogo" href="{{ lang.path }}">{% include "logo.njk" %}</a>
-      {% include "langmenu.njk" %}
-    </div>
+    {#- Top row as on every game page (sitehead.njk), without the menu "All games":
+        the hub gets its own menu later. The big logo below it. -#}
+    {% include "sitehead.njk" %}
+    <a class="hublogo" href="{{ lang.path }}">{% include "logo.njk" %}</a>
     {#- Logo swings down a little once the page is scrolled (see .is-scrolled in hub.css) -#}
     <script type="module">
       const root = document.documentElement;
@@ -86,15 +84,5 @@ eleventyComputed:
   </section>
   {%- endfor %}
 </main>
-
-{#- Popup of the QR button in the top bar (langmenu.njk, share.js). -#}
-<dialog class="qrpop" aria-labelledby="qrpop-h">
-  <div class="sharebox">
-    <button type="button" class="qrclose" aria-label="{{ t.shClose }}" title="{{ t.shClose }}">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
-    </button>
-    {{ sharebox(t, lang.url) }}
-  </div>
-</dialog>
 
 {% include "footer.njk" %}

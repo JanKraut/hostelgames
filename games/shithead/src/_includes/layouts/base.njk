@@ -77,9 +77,7 @@
 {%- endfor %}
 <script type="module" src="/assets/core/core.js?v={{ assetVersion }}"></script>
 <script type="module" src="/assets/site.js?v={{ assetVersion }}"></script>
-{%- if share %}
 <script type="module" src="/assets/core/share.js?v={{ assetVersion }}"></script>
-{%- endif %}
 {%- for src in scripts %}
 <script type="module" src="{{ src }}?v={{ assetVersion }}"></script>
 {%- endfor %}

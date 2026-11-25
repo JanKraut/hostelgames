@@ -17,8 +17,7 @@ eleventyComputed:
 {%- set r = t.rules -%}
 <header class="hero">
   <div class="wrap">
-    {% include "langmenu.njk" %}
-    {% include "pagenav.njk" %}
+    {% include "sitehead.njk" %}
     <h1>{{ r.h1 }}<span class="h1-sub"> {{ r.h1sub }}</span></h1>
     <p>{{ t.sub | safe }}</p>
     <div class="fan" aria-hidden="true">
