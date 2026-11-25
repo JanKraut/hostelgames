@@ -52,7 +52,7 @@ for (const lang of languages) {
     await expect(page.locator(".variants li")).toHaveCount(7);
     await expect(page.locator(".faq details")).toHaveCount(8);
     // Kein Spiel gegen Bots: kein Link auf play/.
-    await expect(page.locator('a[href*="play/"]:not(.navpanel a)')).toHaveCount(0);
+    await expect(page.locator('a[href*="play/"]')).toHaveCount(0);
   });
 
   test(`${lang.code}: every #link points to an existing section`, async ({ page }) => {
@@ -111,7 +111,7 @@ for (const lang of languages) {
     }
 
     // Kein Spiel gegen Bots: kein Link auf play/.
-    await expect(page.locator('a[href*="play/"]:not(.navpanel a)')).toHaveCount(0);
+    await expect(page.locator('a[href*="play/"]')).toHaveCount(0);
 
     const text = await page.locator("body").innerText();
     expect(text).not.toMatch(/undefined|\[object|\{\{|\{%/);

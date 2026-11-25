@@ -76,19 +76,13 @@
               <li><a href="{{ links.noGear }}">{{ nt.navNoGear }}</a></li>
             </ul>
           </div>
-          {%- if links.play or links.sheets %}
           <div class="navcol">
             <div class="navcap">{{ nt.navExtras }}</div>
             <ul>
-              {%- if links.play %}
               <li><a href="{{ links.play }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5Z"/></svg>{{ nt.navPlay }}</a></li>
-              {%- endif %}
-              {%- if links.sheets %}
               <li><a href="{{ links.sheets }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>{{ nt.navSheets }}</a></li>
-              {%- endif %}
             </ul>
           </div>
-          {%- endif %}
           {%- if links.popular.length %}
           <div class="navcol">
             <div class="navcap">{{ nt.navPopular }}</div>

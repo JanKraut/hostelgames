@@ -59,7 +59,7 @@ for (const lang of languages) {
     await expect(page.locator(".points li")).toHaveCount(8);
     await expect(page.locator("#faq details")).toHaveCount(7);
     // No game against bots on this site.
-    await expect(page.locator("a[href*='play/']:not(.navpanel a)")).toHaveCount(0);
+    await expect(page.locator("a[href*='play/']")).toHaveCount(0);
   });
 
   test(`${lang.code}: fact sheet in the header`, async ({ page }) => {

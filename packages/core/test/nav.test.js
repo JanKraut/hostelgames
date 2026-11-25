@@ -50,9 +50,9 @@ test("own domain: links to other live games and to hostelgames.com, drafts left 
   const links = createNav(site, all).links("de");
   assert.equal(links.hub, "https://hostelgames.com/de/");
   assert.equal(links.categories[1].href, "https://hostelgames.com/de/#dice");
-  // One game each with a game against bots / a score sheet: straight there.
-  assert.equal(links.play, "https://shitheadgame.de/de/play/");
-  assert.equal(links.sheets, "https://hostelgames.com/kniffel/de/scoresheet/");
+  // Overview pages come later: for now the hub.
+  assert.equal(links.play, "https://hostelgames.com/de/");
+  assert.equal(links.sheets, "https://hostelgames.com/de/");
   // Cabo has no German page: its English one.
   assert.deepEqual(links.popular, [
     { name: "Shithead", href: "https://shitheadgame.de/de/", current: true },
@@ -67,7 +67,7 @@ test("live: only games with status live are linked", () => {
   for (const { name } of createNav(site).links("en").popular) assert.ok(live.includes(name), name);
 });
 
-test("preview: every game, on GitHub Pages; several games with a page lead to the hub", () => {
+test("preview: every game, on GitHub Pages", () => {
   const site = withEnv({ SITE_ORIGIN: undefined, SITE_PATH_PREFIX: undefined }, () => createSite(KNIFFEL));
   const all = [
     { slug: "a", name: "A", path: "a", languages: ["en"], pages: ["rules", "play"] },
@@ -75,6 +75,5 @@ test("preview: every game, on GitHub Pages; several games with a page lead to th
   ];
   const links = createNav(site, all).links("en");
   assert.equal(links.play, "https://jankraut.github.io/hostelgames/");
-  assert.equal(links.sheets, null);
   assert.deepEqual(links.random, ["https://jankraut.github.io/hostelgames/a/", "https://jankraut.github.io/hostelgames/b/"]);
 });

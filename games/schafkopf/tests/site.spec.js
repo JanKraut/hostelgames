@@ -54,7 +54,7 @@ for (const lang of languages) {
     for (const id of anchors) await expect(page.locator(`[id="${id}"]`)).toHaveCount(1);
     await expect(page.locator("#faq details")).toHaveCount(8);
     // No game against bots on this site.
-    await expect(page.locator("a[href*='play/']:not(.navpanel a)")).toHaveCount(0);
+    await expect(page.locator("a[href*='play/']")).toHaveCount(0);
   });
 
   test(`${lang.code}: four suits, the 14 trumps in order, card points add up to 120`, async ({ page }) => {

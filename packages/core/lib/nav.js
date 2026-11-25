@@ -5,8 +5,8 @@
 //                    doesn't have comes from its fallback, e.g. es for es-419, then English)
 //   nav.links("de")  where each menu entry points, for a page in that language
 //
-// Pages that don't exist yet point to the hub start page (or its category section) for now.
-// Links to other games only name games the site may show: in the preview (GitHub Pages)
+// Every entry gets its own overview page on hostelgames.com later; until then they point to the
+// hub start page (categories to its sections). Links to other games only name games the site may show: in the preview (GitHub Pages)
 // all of them, live only those with status "live" (see visibleGames).
 import { readFileSync } from "node:fs";
 import { CATEGORIES, visibleGames } from "./games.js";
@@ -51,13 +51,6 @@ export function createNav(site, all = visibleGames(site)) {
     return code && code !== DEFAULT_LANGUAGE && game.languages.includes(code) ? `${base}${code}/` : base;
   }
 
-  /** One game with this page: straight to it; several: the hub; none: null (entry left out). */
-  function pageLink(page, code, hub) {
-    const withPage = all.filter((game) => game.pages.includes(page));
-    if (withPage.length === 0) return null;
-    return withPage.length === 1 ? `${gameUrl(withPage[0], code)}${page}/` : hub;
-  }
-
   return {
     search: SEARCH,
     t: navTexts,
@@ -73,8 +66,8 @@ export function createNav(site, all = visibleGames(site)) {
         random: others.map((game) => gameUrl(game, code)),
         categories: CATEGORIES.map((key) => ({ key, href: `${hub}#${key}` })),
         noGear: hub,
-        play: pageLink("play", code, hub),
-        sheets: pageLink("scoresheet", code, hub),
+        play: hub,
+        sheets: hub,
         popular: POPULAR.map((slug) => all.find((game) => game.slug === slug))
           .filter(Boolean)
           .map((game) => ({ name: game.name, href: gameUrl(game, code), current: game.slug === site.game?.slug })),
