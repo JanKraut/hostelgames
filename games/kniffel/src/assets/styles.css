@@ -1,8 +1,9 @@
 /* ==========================================================================
    Kniffel: nur, was dieses Spiel zusätzlich zu @hostelgames/core (core.css) braucht.
    Abschnitte folgen der Seite von oben nach unten.
-   Mit „Core-Kandidat“ markierte Blöcke sind gleich wie bei Cabo / Shithead
-   und gehören später in den Core.
+   Gemeinsame Bausteine (Kartenfächer, Ziel, Abschnittsnavigation, Schritte, Varianten,
+   FAQ, Steckbrief …) stehen in core.css; hier steht nur, was dieses Spiel anders macht.
+   „Core-Kandidat“: ähnlich wie bei Shithead, aber noch nicht gleich.
    ========================================================================== */
 
 /* ---------- Würfel (Makros in _includes/dice.njk) ---------- */
@@ -96,185 +97,19 @@
   }
 }
 
-/* ---------- Kopfbereich: Ziel-Box (Core-Kandidat) ---------- */
-
-.goal {
-  display: flex;
-  gap: 0.9rem;
-  align-items: flex-start;
-  margin-top: 0.4rem;
-  padding: 1rem 1.1rem;
-  border-radius: 14px;
-  background: var(--head-well);
-}
-
-.goal-icon {
-  font-size: 1.8rem;
-  line-height: 1;
-}
-
-.goal p {
-  margin: 0;
-  color: var(--felt-text);
-  font-size: 1.05rem;
-}
-
-.goal strong {
-  color: var(--highlight);
-}
-
-/* ---------- Kopfbereich: Steckbrief (Core-Kandidat, wie bei Shithead; dort mit Karten statt Würfeln) ---------- */
-.factsheet {
-  margin-top: 0.7rem;
-  padding: 0;
-}
-
-.fs-grid {
-  display: grid;
-  gap: 0.7rem;
-}
-
-@media (min-width: 34rem) {
-  .fs-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.fs-box {
-  padding: 0.9rem 1rem;
-  border-radius: 14px;
-  background: var(--head-well);
-}
-
-.fs-box h2 {
-  margin: 0 0 0.6rem;
-  color: var(--head-accent);
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-/* Scales: luck – skill and so on */
-.fs-scales {
-  display: grid;
-  grid-template-columns: max-content minmax(3rem, 1fr) max-content;
-  gap: 0.55rem 0.7rem;
-  align-content: center;
-}
-
-/* Each row spans the box and shares its three columns, so the bars line up. */
-.fs-scale {
-  display: grid;
-  grid-column: 1 / -1;
-  grid-template-columns: subgrid;
-  align-items: center;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.fs-scale span:last-child {
-  text-align: end;
-}
-
-.fs-bar {
-  position: relative;
-  height: 4px;
-  border-radius: 2px;
-  background: linear-gradient(to right, var(--head-accent) var(--v), var(--head-chip-border) var(--v));
-}
-
-.fs-bar::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  inset-inline-start: var(--v);
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: var(--head-text);
-  translate: -50% -50%;
-}
+/* ---------- Kopfbereich: Steckbrief (nur Abweichungen vom Core) ---------- */
 
 /* Spieler: allein / gegeneinander */
-.fs-players {
-  display: flex;
-  justify-content: space-around;
-  gap: 0.8rem;
-}
-
-.fs-group {
-  display: flex;
-  gap: 0.7rem;
-  align-items: center;
-}
-
-.fs-group + .fs-group {
-  padding-inline-start: 0.8rem;
-  border-inline-start: 1px solid var(--head-chip-border);
-}
 
 .fs-who {
   display: grid;
   line-height: 1.2;
 }
 
-.fs-who b {
-  font-size: 1.05rem;
-}
-
 .fs-who span {
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.fs-people {
-  width: 30px;
-  height: 23px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-}
-
-/* Time and similar games */
-.fs-pair {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1.2rem;
-}
-
-.fs-clock {
-  display: grid;
-  place-content: center;
-  width: 58px;
-  height: 58px;
-  border: 2.5px solid currentColor;
-  border-radius: 50%;
-  line-height: 1;
-  text-align: center;
-}
-
-.fs-clock b {
-  font-size: 1.15rem;
-}
-
-.fs-clock small {
-  font-size: 0.65rem;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.fs-similar {
-  margin: 0;
-  padding: 0;
-  font-size: 0.85rem;
-  font-weight: 700;
-  line-height: 1.5;
-  list-style: none;
   text-transform: uppercase;
 }
 
@@ -321,130 +156,19 @@
   font-weight: 700;
 }
 
-.fs-intro {
-  margin-top: 0.7rem;
-  padding: 1rem 1.1rem 1.1rem;
-  border-radius: 14px;
-  background: var(--head-well);
-  text-align: center;
-}
-
-.fs-intro h2 {
-  margin: 0 0 0.4rem;
-  color: var(--head-accent);
-  font-size: 0.95rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.hero .fs-intro p {
-  max-width: 32rem;
-  margin: 0 auto;
-  color: var(--felt-text);
-  font-size: 1rem;
-}
-
-/* ---------- Abschnittsnavigation (Core-Kandidat) ---------- */
-
-.secnav {
-  position: sticky;
-  top: env(safe-area-inset-top, 0px);
-  z-index: 9;
-  background: var(--head-bg);
-  color: var(--felt-text);
-}
-
-.secnav ul {
-  display: flex;
-  gap: 0.25rem;
-  max-width: 45rem;
-  overflow-x: auto;
-  margin: 0 auto;
-  padding: 0.55rem 1rem;
-  list-style: none;
-  scrollbar-width: none;
-}
-
-.secnav ul::-webkit-scrollbar {
-  display: none;
-}
-
-.secnav a {
-  display: block;
-  padding: 0.4rem 0.8rem;
-  border-radius: 999px;
-  background: var(--head-chip);
-  font-size: 0.92rem;
-  font-weight: 700;
-  white-space: nowrap;
-  text-decoration: none;
-}
-
-.secnav a:hover {
-  background: var(--head-chip-hover);
-}
+/* ---------- Abschnittsnavigation (nur Abweichungen vom Core) ---------- */
 
 /* Abschnitte nicht unter der klebenden Navigation verstecken */
 main section[id] {
   scroll-margin-top: 3.2rem;
 }
 
-/* ---------- Dein Zug: nummerierte Schritte (Core-Kandidat, wie ol.steps bei Shithead) ---------- */
-
-ol.steps {
-  margin: 1rem 0;
-  padding: 0;
-  list-style: none;
-  counter-reset: step;
-}
-
-ol.steps li {
-  position: relative;
-  padding: 0 0 1.1rem;
-  padding-inline-start: 3.2rem;
-  counter-increment: step;
-}
-
-/* Nummer im Kreis */
-ol.steps li::before {
-  content: counter(step);
-  position: absolute;
-  inset-inline-start: 0;
-  top: -0.1rem;
-  display: grid;
-  place-items: center;
-  width: 2.3rem;
-  height: 2.3rem;
-  border-radius: 50%;
-  background: var(--felt);
-  color: var(--felt-text);
-  font-family: var(--font-cards);
-  font-weight: var(--font-cards-weight);
-  font-size: 1.05rem;
-}
+/* ---------- Dein Zug: nummerierte Schritte (nur Abweichungen vom Core) ---------- */
 
 /* Linie zwischen den Kreisen */
-ol.steps li::after {
-  content: "";
-  position: absolute;
-  inset-inline-start: 1.13rem;
-  top: 2.4rem;
-  bottom: 0.2rem;
-  width: 2px;
-  background: var(--line);
-}
-
-ol.steps li:last-child::after {
-  display: none;
-}
 
 ol.steps h3 {
   margin: 0;
-}
-
-ol.steps p {
-  margin: 0.2rem 0 0;
-  color: var(--muted);
 }
 
 /* ---------- Dein Zug: Beispiel mit drei Würfen ---------- */
@@ -640,27 +364,7 @@ ol.steps p {
   opacity: 0.55;
 }
 
-/* ---------- Strategie: Tipps-Listen (Core-Kandidat, wie .strats bei Shithead) ---------- */
-
-.strats {
-  margin: 1rem 0;
-  padding: 0;
-  list-style: none;
-}
-
-.strats li {
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.strats li:last-child {
-  border-bottom: 0;
-}
-
-.strats p {
-  margin: 0.2rem 0 0;
-  color: var(--muted);
-}
+/* ---------- Strategie: Tipps-Listen (nur Abweichungen vom Core) ---------- */
 
 .strats strong,
 .notup strong {
@@ -964,19 +668,7 @@ ol.steps p {
   }
 }
 
-/* ---------- FAQ: Fragen öffnen sich per Tippen, ohne JavaScript (Core-Kandidat) ---------- */
-
-.faq {
-  display: grid;
-  gap: 0.6rem;
-  margin-top: 1rem;
-}
-
-.faq details {
-  border-radius: 14px;
-  background: var(--surface);
-  box-shadow: 0 0 0 1px var(--line) inset;
-}
+/* ---------- FAQ: Fragen öffnen sich per Tippen, ohne JavaScript (nur Abweichungen vom Core) ---------- */
 
 .faq summary {
   display: flex;
@@ -991,40 +683,6 @@ ol.steps p {
   list-style: none;
   cursor: pointer;
   transition: background-color 0.15s;
-}
-
-.faq summary::-webkit-details-marker {
-  display: none;
-}
-
-.faq summary::after {
-  content: "+";
-  flex: none;
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: var(--felt);
-  color: var(--felt-text);
-  font-size: 1.2rem;
-  line-height: 1;
-}
-
-.faq details[open] summary::after {
-  content: "–";
-}
-
-.faq details p {
-  margin: 0;
-  padding: 0 1rem 1rem;
-  color: var(--muted);
-}
-
-@media (hover: hover) {
-  .faq summary:hover {
-    background: var(--summary-hover);
-  }
 }
 
 /* ==========================================================================

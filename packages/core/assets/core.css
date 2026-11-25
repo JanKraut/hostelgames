@@ -1402,3 +1402,489 @@ footer .heart {
     background: var(--felt-chip-hover);
   }
 }
+
+/* ==========================================================================
+   Bausteine der Spielseiten, früher in jedem Spiel kopiert: Kartenfächer und Ziel im
+   Kopf, Abschnittsnavigation, Schritte, FAQ, Varianten, Steckbrief …
+   Ein Spiel ändert sie in seiner eigenen styles.css (wird nach core.css geladen).
+   ========================================================================== */
+
+/* Quick start: fact sheet (players, time, cards) */
+.factsheet {
+  margin-top: 0.7rem;
+  padding: 0;
+}
+
+.fs-grid {
+  display: grid;
+  gap: 0.7rem;
+}
+
+@media (min-width: 34rem) {
+  .fs-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.fs-box {
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  background: var(--head-well);
+}
+
+.fs-box h2 {
+  margin: 0 0 0.6rem;
+  color: var(--head-accent);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Scales: luck – skill and so on */
+.fs-scales {
+  display: grid;
+  grid-template-columns: max-content minmax(3rem, 1fr) max-content;
+  gap: 0.55rem 0.7rem;
+  align-content: center;
+}
+
+/* Each row spans the box and shares its three columns, so the bars line up. */
+.fs-scale {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.fs-scale span:last-child {
+  text-align: end;
+}
+
+.fs-bar {
+  position: relative;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(to right, var(--head-accent) var(--v), var(--head-chip-border) var(--v));
+}
+
+.fs-bar::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  inset-inline-start: var(--v);
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--head-text);
+  translate: -50% -50%;
+}
+
+/* Players and decks */
+.fs-players {
+  display: flex;
+  justify-content: space-around;
+  gap: 0.8rem;
+}
+
+.fs-group {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.fs-group + .fs-group {
+  padding-inline-start: 0.8rem;
+  border-inline-start: 1px solid var(--head-chip-border);
+}
+
+.fs-who b {
+  font-size: 1.05rem;
+}
+
+.fs-people {
+  width: 30px;
+  height: 23px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+/* Time and similar games */
+.fs-pair {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.2rem;
+}
+
+.fs-clock {
+  display: grid;
+  place-content: center;
+  width: 58px;
+  height: 58px;
+  border: 2.5px solid currentColor;
+  border-radius: 50%;
+  line-height: 1;
+  text-align: center;
+}
+
+.fs-clock b {
+  font-size: 1.15rem;
+}
+
+.fs-clock small {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.fs-similar {
+  margin: 0;
+  padding: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.5;
+  list-style: none;
+  text-transform: uppercase;
+}
+
+.fs-cards .card.xs {
+  --w: 30px;
+  box-shadow: 0 0 0 1.5px var(--card-ink) inset;
+}
+
+.fs-cards .card + .card {
+  margin-inline-start: -10px;
+  rotate: 10deg;
+}
+
+.fs-cards .card:first-child {
+  rotate: -6deg;
+}
+
+.fs-cards .pip {
+  display: none;
+}
+
+.fs-intro {
+  margin-top: 0.7rem;
+  padding: 1rem 1.1rem 1.1rem;
+  border-radius: 14px;
+  background: var(--head-well);
+  text-align: center;
+}
+
+.fs-intro h2 {
+  margin: 0 0 0.4rem;
+  color: var(--head-accent);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero .fs-intro p {
+  max-width: 32rem;
+  margin: 0 auto;
+  color: var(--felt-text);
+  font-size: 1rem;
+}
+
+.fan .card {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform-origin: 50% 120%;
+}
+
+.fan .card:nth-child(1) {
+  transform: translateX(-50%) rotate(-27deg);
+}
+
+.fan .card:nth-child(2) {
+  transform: translateX(-50%) rotate(-9deg) translateY(-6px);
+}
+
+.fan .card:nth-child(3) {
+  transform: translateX(-50%) rotate(9deg) translateY(-6px);
+}
+
+.fan .card:nth-child(4) {
+  transform: translateX(-50%) rotate(27deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .fan .card {
+    animation: deal 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  @keyframes deal {
+    from {
+      transform: translateX(-50%) translateY(60px) rotate(0);
+      opacity: 0;
+    }
+  }
+}
+
+/* Goal box */
+.goal {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  margin-top: 0.4rem;
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  background: var(--head-well);
+}
+
+.goal-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.goal p {
+  margin: 0;
+  color: var(--felt-text);
+  font-size: 1.05rem;
+}
+
+.goal strong {
+  color: var(--highlight);
+}
+
+.secnav {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 9;
+  background: var(--head-bg);
+  color: var(--felt-text);
+}
+
+.secnav ul {
+  display: flex;
+  gap: 0.25rem;
+  max-width: 45rem;
+  overflow-x: auto;
+  margin: 0 auto;
+  padding: 0.55rem 1rem;
+  list-style: none;
+  scrollbar-width: none;
+}
+
+.secnav ul::-webkit-scrollbar {
+  display: none;
+}
+
+.secnav a {
+  display: block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: var(--head-chip);
+  font-size: 0.92rem;
+  font-weight: 700;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.secnav a:hover {
+  background: var(--head-chip-hover);
+}
+
+.ranks {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0.8rem 0 0.35rem;
+  padding: 1.1rem 0.9rem;
+  border-radius: 18px;
+  background: var(--felt);
+}
+
+.rankscale {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.rulecards {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.rulecard h3 {
+  margin: 0.1rem 0 0.2rem;
+}
+
+.rulecard p {
+  margin: 0;
+  color: var(--muted);
+}
+
+ol.steps {
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+ol.steps li {
+  position: relative;
+  padding: 0 0 1.1rem;
+  padding-inline-start: 3.2rem;
+  counter-increment: step;
+}
+
+/* Numbered circle */
+ol.steps li::before {
+  content: counter(step);
+  position: absolute;
+  inset-inline-start: 0;
+  top: -0.1rem;
+  display: grid;
+  place-items: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 50%;
+  background: var(--felt);
+  color: var(--felt-text);
+  font-family: var(--font-cards);
+  font-weight: var(--font-cards-weight);
+  font-size: 1.05rem;
+}
+
+/* Line connecting the circles */
+ol.steps li::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 1.13rem;
+  top: 2.4rem;
+  bottom: 0.2rem;
+  width: 2px;
+  background: var(--line);
+}
+
+ol.steps li:last-child::after {
+  display: none;
+}
+
+ol.steps p {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+}
+
+.decide {
+  margin: 1rem 0;
+  padding: 1.2rem 1rem;
+  border-radius: 20px;
+  background: var(--felt);
+  color: var(--felt-text);
+}
+
+.branches {
+  display: grid;
+  gap: 0.8rem;
+}
+
+@media (min-width: 34rem) {
+  .branches {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.br {
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  background: var(--paper);
+  color: var(--card-ink);
+}
+
+.bh {
+  margin-bottom: 0.35rem;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-weight);
+  font-size: 1.15rem;
+}
+
+.br .bp {
+  margin: 0.35rem 0 0;
+  line-height: 1.45;
+}
+
+.dnext {
+  margin: 1rem 0 0;
+  font-weight: 700;
+  text-align: center;
+}
+
+.strats {
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.strats li {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.strats li:last-child {
+  border-bottom: 0;
+}
+
+.strats p {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+}
+
+.faq {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.faq details {
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line) inset;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "+";
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--felt);
+  color: var(--felt-text);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.faq details[open] summary::after {
+  content: "–";
+}
+
+.faq details p {
+  margin: 0;
+  padding: 0 1rem 1rem;
+  color: var(--muted);
+}
+
+@media (hover: hover) {
+  .faq summary:hover {
+    background: var(--summary-hover);
+  }
+}
