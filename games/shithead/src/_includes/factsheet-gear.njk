@@ -1,0 +1,10 @@
+{#- Fact sheet (core includes/factsheet.njk): Shithead shows the cards of one deck, with jokers. -#}
+{%- set i = lang.t.info -%}
+    <div class="fs-box">
+      <h2>{{ i.cardsH }}</h2>
+      <div class="fs-cards" role="img" aria-label="{{ i.cardsAlt }}">
+        <span class="fs-mini">A</span><span class="fs-arrow" aria-hidden="true">→</span><span class="fs-mini">K</span>
+        <span class="fs-mini fs-joker">{{ i.joker }}</span>
+        <span class="fs-count">{{ i.cardsN }}</span>
+      </div>
+    </div>

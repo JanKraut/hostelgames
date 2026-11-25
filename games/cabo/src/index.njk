@@ -14,24 +14,7 @@ eleventyComputed:
     Spielzug, Fähigkeiten, „Cabo“ ansagen, Punkte, Varianten, FAQ, Teilen. -#}
 {%- from "card.njk" import card, back, cardRow -%}
 {%- set t = lang.t -%}
-<header class="hero">
-  <div class="wrap">
-    {% include "sitehead.njk" %}
-    <h1>{{ t.h1 | safe }}<span class="h1-sub"> {{ t.h1sub }}</span></h1>
-    <p>{{ t.sub | safe }}</p>
-    {#- Vier Karten im Fächer: zwei bekannte, zwei unbekannte, dazu der rote König (0 Punkte). -#}
-    <div class="fan" aria-hidden="true">
-      {{ card("A", "♠") }}
-      {{ back("") }}
-      {{ back("") }}
-      {{ card("K", "♥") }}
-    </div>
-    <div class="goal">
-      <div class="goal-icon" aria-hidden="true">🎯</div>
-      <p>{{ t.goal | safe }}</p>
-    </div>
-  </div>
-</header>
+{% include "hero.njk" %}
 
 <nav class="secnav" aria-label="{{ t.navLabel }}">
   <ul>

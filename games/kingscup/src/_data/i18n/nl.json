@@ -1,7 +1,10 @@
 {
   "title": "King’s Cup – regels",
   "h1": "King’s Cup",
-  "h1sub": "Drankspel regels & alle kaartbetekenissen",
+  "rules": {
+    "h1": "King’s Cup",
+    "h1sub": "Drankspel regels & alle kaartbetekenissen"
+  },
   "sub": "Ook bekend als <strong>Ring of Fire</strong> of <strong>Circle of Death</strong>: een spel kaarten in een cirkel, een beker in het midden en een regel voor elke kaart. Eén keer lezen, trekken, klaar.",
   "seo": {
     "rulesT": "King’s Cup regels – het drankspel Ring of Fire uitgelegd",

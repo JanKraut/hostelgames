@@ -2,6 +2,7 @@
   "title": "Mau-Mau – pravidla",
   "h1": "Mau-Mau",
   "sub": "Oblíbená německá odhazovací karetní hra: přikládej podle barvy nebo hodnoty, zahraj proti ostatním 7, 8 a kluka – a nezapomeň říct „Mau“.",
+  "goal": "<strong>Cíl hry:</strong> zbav se všech svých karet jako první. Před poslední kartou řekni „Mau“ – a „Mau-Mau“, když ji vyložíš.",
   "seo": {
     "rulesT": "Mau-Mau pravidla – karetní hra jednoduše",
     "rulesD": "Jak se hraje Mau-Mau: rozdávání, přikládání podle barvy nebo hodnoty, speciální karty 7, 8 a kluk, hlášení Mau a Mau-Mau, bodování, varianty a FAQ."
@@ -20,7 +21,6 @@
   "rules": {
     "h1": "Karetní hra Mau-Mau",
     "h1sub": "Pravidla a návod",
-    "goal": "<strong>Cíl hry:</strong> zbav se všech svých karet jako první. Před poslední kartou řekni „Mau“ – a „Mau-Mau“, když ji vyložíš.",
     "navLabel": "Sekce",
     "nSetup": "Příprava",
     "nPlay": "Průběh hry",

@@ -1,7 +1,10 @@
 {
   "title": "Cambio – rules",
   "h1": "Cambio",
-  "h1sub": "card game rules & how to play",
+  "rules": {
+    "h1": "Cambio",
+    "h1sub": "card game rules & how to play"
+  },
   "sub": "Four cards face down, one quick peek, and from then on it's all memory. A hostel favourite that takes two minutes to learn.",
   "goal": "<strong>The goal:</strong> have the lowest total in your cards when the round ends. You hardly ever see them, so remember what you peeked at, swap out high cards and keep an eye on everyone else.",
   "seo": {

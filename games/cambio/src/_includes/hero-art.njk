@@ -1,0 +1,9 @@
+{#- Picture in the big header (core includes/hero.njk), between the intro and the goal. -#}
+{%- from "card.njk" import card, back -%}
+{#- Four face-down cards, two of them peeked at: the start of every round. -#}
+<div class="fan" aria-hidden="true">
+  {{ back("") }}
+  {{ card("K", "♥") }}
+  {{ card("A", "♣") }}
+  {{ back("") }}
+</div>

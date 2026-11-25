@@ -2,6 +2,7 @@
   "title": "Schafkopf – Regeln",
   "h1": "Schafkopf",
   "sub": "Das bayerische Nationalkartenspiel: vier Leute, 32 Karten und eine Trumpfreihe wie in keinem anderen Spiel – Ober und Unter stechen immer. Zwei gegen zwei oder einer gegen alle.",
+  "goal": "<strong>Das Ziel:</strong> Mit deinem Partner – oder allein im Solo – Stiche mit mindestens <strong>61 der 120 Augen</strong> holen.",
   "seo": {
     "rulesT": "Schafkopf Regeln – das bayerische Kartenspiel erklärt",
     "rulesD": "So geht Schafkopf: Austeilen, die 14 Trümpfe, Augen zählen, Sauspiel, Wenz und Solo, Ansagen, Stiche, Abrechnung mit Schneider und Laufenden, Varianten und FAQ."
@@ -20,7 +21,6 @@
   "rules": {
     "h1": "Schafkopf-Kartenspiel",
     "h1sub": "Regeln & Spielablauf",
-    "goal": "<strong>Das Ziel:</strong> Mit deinem Partner – oder allein im Solo – Stiche mit mindestens <strong>61 der 120 Augen</strong> holen.",
     "rO": "O",
     "rU": "U",
     "rK": "K",

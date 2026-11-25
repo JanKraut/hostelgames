@@ -1,7 +1,10 @@
 {
   "title": "King’s Cup – regler",
   "h1": "King’s Cup",
-  "h1sub": "Drukspil – regler & alle kortbetydninger",
+  "rules": {
+    "h1": "King’s Cup",
+    "h1sub": "Drukspil – regler & alle kortbetydninger"
+  },
   "sub": "Også kendt som <strong>Ring of Fire</strong> eller <strong>Circle of Death</strong>: et spil kort i en cirkel, et bæger i midten og en regel til hvert kort. Læs én gang, træk, færdig.",
   "seo": {
     "rulesT": "King’s Cup regler – drukspillet Ring of Fire forklaret",

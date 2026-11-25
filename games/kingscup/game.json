@@ -8,5 +8,6 @@
   "pages": ["rules"],
   "related": [],
   "players": { "min": 3, "max": 12 },
-  "duration": "30–60 min"
+  "duration": "30–60 min",
+  "factsheet": { "scales": [["luck", "skill", 15], ["easy", "complex", 15], ["chill", "party", 85]], "people": [2, 3] }
 }

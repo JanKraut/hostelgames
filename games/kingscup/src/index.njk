@@ -21,20 +21,7 @@ eleventyComputed:
   ["6", "6", "♥"], ["7", "7", "♣"], ["8", "8", "♦"], ["9", "9", "♠"], ["10", "10", "♥"],
   ["J", "j", "♣"], ["Q", "q", "♦"], ["K", "k", "♥"]
 ] -%}
-<header class="hero">
-  <div class="wrap">
-    {% include "sitehead.njk" %}
-    <h1>{{ t.h1 | safe }}<span class="h1-sub"> {{ t.h1sub }}</span></h1>
-    <p>{{ t.sub | safe }}</p>
-    {#- Der Kartenring mit dem King's Cup in der Mitte. -#}
-    <div class="hero-ring" aria-hidden="true">{{ ring(14) }}</div>
-    <div class="goal">
-      <div class="goal-icon" aria-hidden="true">👑</div>
-      <p>{{ t.goal | safe }}</p>
-    </div>
-    {% include "factsheet.njk" %}
-  </div>
-</header>
+{% include "hero.njk" %}
 
 <nav class="secnav" aria-label="{{ t.navLabel }}">
   <ul>

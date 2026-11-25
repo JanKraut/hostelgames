@@ -1,0 +1,36 @@
+{#- Big header of every page of a game: header row, title, intro, the game's picture, goal and,
+    on the rules page, the fact sheet. Pages include it: {% include "hero.njk" %} (subpath decides
+    which texts it shows).
+    Texts (game's i18n, as in Shithead):
+      rules page        rules.h1 + rules.h1sub, sub
+      quick start       h1 (short title, never a second line), sub
+      other pages       <page>.h1 + <page>.h1sub, <page>.sub (e.g. strategy.h1)
+      every page        goal
+    The second line (h1sub) only shows when its text is not empty ("" = no second line).
+    Picture: the game's own _includes/hero-art.njk (core default: none).
+    Fact sheet: only on the rules page, when game.json has "factsheet" (includes/factsheet.njk). -#}
+{%- set t = lang.t -%}
+{%- set here = subpath or "" -%}
+{%- if here == "" -%}
+  {%- set heading = t.rules.h1 -%}{%- set second = t.rules.h1sub -%}{%- set intro = t.sub -%}
+{%- elif here == "quickstart/" -%}
+  {%- set heading = t.h1 -%}{%- set second = "" -%}{%- set intro = t.sub -%}
+{%- else -%}
+  {%- set texts = t[here | replace("/", "")] -%}
+  {%- set heading = texts.h1 -%}{%- set second = texts.h1sub -%}{%- set intro = texts.sub -%}
+{%- endif -%}
+<header class="hero">
+  <div class="wrap">
+    {% include "sitehead.njk" %}
+    <h1>{{ heading | safe }}{% if second %}<span class="h1-sub"> {{ second }}</span>{% endif %}</h1>
+    <p>{{ intro | safe }}</p>
+    {% include "hero-art.njk" %}
+    <div class="goal">
+      <div class="goal-icon" aria-hidden="true">🎯</div>
+      <p>{{ t.goal | safe }}</p>
+    </div>
+    {%- if not here and site.game.factsheet %}
+    {% include "factsheet.njk" %}
+    {%- endif %}
+  </div>
+</header>

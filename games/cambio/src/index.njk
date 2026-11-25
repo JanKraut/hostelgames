@@ -15,24 +15,7 @@ eleventyComputed:
     then variants and FAQ. Texts in src/_data/i18n, styles in src/assets/styles.css. -#}
 {%- from "card.njk" import card, back, stack, cardRow -%}
 {%- set t = lang.t -%}
-<header class="hero">
-  <div class="wrap">
-    {% include "sitehead.njk" %}
-    <h1>{{ t.h1 | safe }}<span class="h1-sub"> {{ t.h1sub }}</span></h1>
-    <p>{{ t.sub | safe }}</p>
-    {#- Four face-down cards, two of them peeked at: the start of every round. -#}
-    <div class="fan" aria-hidden="true">
-      {{ back("") }}
-      {{ card("K", "♥") }}
-      {{ card("A", "♣") }}
-      {{ back("") }}
-    </div>
-    <div class="goal">
-      <div class="goal-icon" aria-hidden="true">🎯</div>
-      <p>{{ t.goal | safe }}</p>
-    </div>
-  </div>
-</header>
+{% include "hero.njk" %}
 
 <nav class="secnav" aria-label="{{ t.navLabel }}">
   <ul>

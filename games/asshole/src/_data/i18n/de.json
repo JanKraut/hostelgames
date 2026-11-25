@@ -2,6 +2,7 @@
   "title": "Arschloch – Regeln",
   "h1": "Arschloch",
   "sub": "Das Kartenspiel, bei dem der Gewinner König wird und der Verlierer dienen muss. In fünf Minuten gelernt, den ganzen Abend gespielt.",
+  "goal": "<strong>Das Ziel:</strong> Werde deine Karten so schnell wie möglich los. Wer am Ende noch Karten auf der Hand hat, ist das Arschloch – und muss in der nächsten Runde seine besten Karten an den König abgeben.",
   "seo": {
     "rulesT": "Arschloch Regeln – Kartenspiel einfach erklärt",
     "rulesD": "So spielst du Arschloch: Austeilen, Überbieten, Ränge vom König bis zum Arschloch, Kartentausch zwischen den Runden, beliebte Varianten und FAQ."
@@ -9,7 +10,6 @@
   "rules": {
     "h1": "Arschloch-Kartenspiel",
     "h1sub": "Regeln & Anleitung",
-    "goal": "<strong>Das Ziel:</strong> Werde deine Karten so schnell wie möglich los. Wer am Ende noch Karten auf der Hand hat, ist das Arschloch – und muss in der nächsten Runde seine besten Karten an den König abgeben.",
     "navLabel": "Abschnitte",
     "nSetup": "Aufbau",
     "nPlay": "Spielen",

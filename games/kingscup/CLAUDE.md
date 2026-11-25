@@ -4,8 +4,8 @@ Trinkspiel (`category: drinking`) · Domain: noch keine · Ordner: kingscup · S
 
 ## Stand
 - Regelseite (src/index.njk) mit Texten de + en, aufgebaut wie Kniffel.
-- Steckbrief im Kopfbereich (src/_includes/factsheet.njk, Texte unter `info`), mit Karten
-  und Becher statt Würfeln. Styles wie bei Kniffel, als Core-Kandidat markiert.
+- Steckbrief im Kopfbereich aus dem Core (`factsheet` in game.json, Texte unter `info`); das Bild
+  mit Karten und Becher steht in src/_includes/factsheet-art.njk, der Kartenring im Kopf in hero-art.njk.
 - Karten kommen aus dem Core (`card.njk`); Kartenring und Becher (`ring.njk`) nur hier.
 - Abschnitt „Verantwortungsvoll spielen“ (#safe) bleibt immer drin.
 - Nächste Schritte: ggf. Quickstart (Spickzettel A–K fürs Handy); Datei anlegen UND in

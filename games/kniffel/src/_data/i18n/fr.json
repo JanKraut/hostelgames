@@ -1,7 +1,10 @@
 {
   "title": "Kniffel – règles",
   "h1": "Kniffel",
-  "h1sub": "Règles du jeu de dés et explications",
+  "rules": {
+    "h1": "Kniffel",
+    "h1sub": "Règles du jeu de dés et explications"
+  },
   "sub": "Cinq dés, trois lancers par tour, treize cases sur la feuille de score : le classique des jeux de dés pour 1 à 6 joueurs. Une lecture, on lance les dés, et c’est parti.",
   "seo": {
     "rulesT": "Règles du Kniffel – comment jouer au jeu de dés",

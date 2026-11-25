@@ -8,5 +8,6 @@
   "languages": ["en", "cs", "da", "de", "es", "es-419", "fr", "it", "nl", "nb", "pl", "pt", "pt-br", "fi", "sv"],
   "pages": ["rules", "strategy", "quickstart", "play"],
   "related": [],
-  "testShards": 3
+  "testShards": 3,
+  "factsheet": { "id": "steckbrief", "scales": [["luck", "skill", 55], ["easy", "complex", 25], ["kids", "adults", 25]], "people": [2, 2] }
 }

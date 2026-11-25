@@ -1,7 +1,10 @@
 {
   "title": "Kniffel – säännöt",
   "h1": "Kniffel",
-  "h1sub": "Noppapelin säännöt & peliohjeet",
+  "rules": {
+    "h1": "Kniffel",
+    "h1sub": "Noppapelin säännöt & peliohjeet"
+  },
   "sub": "Viisi noppaa, kolme heittoa vuorossa, kolmetoista ruutua pistelapulla: noppaklassikko 1–6 pelaajalle. Lue kerran, heitä, valmis.",
   "seo": {
     "rulesT": "Kniffel säännöt – näin pelaat noppapeliä",

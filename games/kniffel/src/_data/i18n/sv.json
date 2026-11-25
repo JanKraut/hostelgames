@@ -1,7 +1,10 @@
 {
   "title": "Kniffel – regler",
   "h1": "Kniffel",
-  "h1sub": "Tärningsspel – regler & instruktioner",
+  "rules": {
+    "h1": "Kniffel",
+    "h1sub": "Tärningsspel – regler & instruktioner"
+  },
   "sub": "Fem tärningar, tre kast per tur, tretton rutor i poängblocket: tärningsklassikern för 1 till 6 spelare. Läs en gång, kasta, klart.",
   "seo": {
     "rulesT": "Kniffel regler – så spelar du tärningsspelet",

@@ -1,0 +1,6 @@
+{#- Picture in the big header (core includes/hero.njk), between the intro and the goal. -#}
+{%- from "dice.njk" import die -%}
+{#- Die sechs Zahlen des Hinwegs, eine nach der anderen. -#}
+<div class="throw" aria-hidden="true">
+  {%- for n in range(1, 7) %}{{ die(n) }}{% endfor -%}
+</div>

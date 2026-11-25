@@ -1,7 +1,10 @@
 {
   "title": "Cabo – rules",
   "h1": "Cabo",
-  "h1sub": "Card game rules & how to play",
+  "rules": {
+    "h1": "Cabo",
+    "h1sub": "Card game rules & how to play"
+  },
   "sub": "Peek, swap and remember: a quick memory card game for 2 to 5 players with a standard deck. Read it once, play a round, done.",
   "seo": {
     "rulesT": "Cabo Rules – How to Play the Card Game",

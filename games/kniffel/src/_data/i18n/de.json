@@ -1,7 +1,10 @@
 {
   "title": "Kniffel – Regeln",
   "h1": "Kniffel",
-  "h1sub": "Würfelspiel-Regeln & Anleitung",
+  "rules": {
+    "h1": "Kniffel",
+    "h1sub": "Würfelspiel-Regeln & Anleitung"
+  },
   "sub": "Fünf Würfel, drei Würfe pro Zug, dreizehn Felder auf dem Block: der Würfelklassiker für 1 bis 6 Leute. Einmal lesen, würfeln, fertig.",
   "seo": {
     "rulesT": "Kniffel Regeln – So geht das Würfelspiel",

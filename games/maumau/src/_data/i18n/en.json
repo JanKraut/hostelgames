@@ -2,6 +2,7 @@
   "title": "Mau-Mau – rules",
   "h1": "Mau-Mau",
   "sub": "Germany's favourite shedding game: match the suit or the rank, use the 7, the 8 and the jack against the others – and don't forget to say “Mau”.",
+  "goal": "<strong>The goal:</strong> be the first to get rid of all your cards. Say “Mau” before your last card – and “Mau-Mau” when you play it.",
   "seo": {
     "rulesT": "Mau-Mau card game rules – simply explained",
     "rulesD": "How to play Mau-Mau: dealing, matching suit or rank, the special cards 7, 8 and jack, saying Mau and Mau-Mau, scoring, variants and FAQ."
@@ -20,7 +21,6 @@
   "rules": {
     "h1": "Mau-Mau Card Game",
     "h1sub": "Rules & how to play",
-    "goal": "<strong>The goal:</strong> be the first to get rid of all your cards. Say “Mau” before your last card – and “Mau-Mau” when you play it.",
     "navLabel": "Sections",
     "nSetup": "Setup",
     "nPlay": "Playing",

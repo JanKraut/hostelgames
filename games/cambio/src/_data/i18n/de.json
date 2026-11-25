@@ -1,7 +1,10 @@
 {
   "title": "Cambio – Regeln",
   "h1": "Cambio",
-  "h1sub": "Kartenspiel: Regeln & Anleitung",
+  "rules": {
+    "h1": "Cambio",
+    "h1sub": "Kartenspiel: Regeln & Anleitung"
+  },
   "sub": "Vier Karten verdeckt, ein kurzer Blick, danach zählt nur dein Gedächtnis. Ein Hostel-Klassiker, den du in zwei Minuten lernst.",
   "goal": "<strong>Das Ziel:</strong> Am Ende der Runde die niedrigste Summe in deinen Karten haben. Du siehst sie fast nie – also merk dir, was du angeschaut hast, tausch hohe Karten aus und behalte die anderen im Blick.",
   "seo": {

@@ -2,6 +2,7 @@
   "title": "Mau-Mau – säännöt",
   "h1": "Mau-Mau",
   "sub": "Saksan suosituin poistokorttipeli: pelaa samaa maata tai arvoa, käytä seiskaa, kasia ja jätkää muita vastaan – äläkä unohda sanoa ”Mau”.",
+  "goal": "<strong>Tavoite:</strong> Pääse ensimmäisenä eroon kaikista korteistasi. Sano ”Mau” ennen viimeistä korttiasi – ja ”Mau-Mau”, kun pelaat sen.",
   "seo": {
     "rulesT": "Mau-Mau-korttipelin säännöt – selkeästi selitettynä",
     "rulesD": "Näin pelaat Mau-Mauta: jakaminen, maan tai arvon seuraaminen, erikoiskortit 7, 8 ja jätkä, Mau- ja Mau-Mau-huudot, pistelasku, muunnelmat ja UKK."
@@ -20,7 +21,6 @@
   "rules": {
     "h1": "Mau-Mau-korttipeli",
     "h1sub": "Säännöt & pelin kulku",
-    "goal": "<strong>Tavoite:</strong> Pääse ensimmäisenä eroon kaikista korteistasi. Sano ”Mau” ennen viimeistä korttiasi – ja ”Mau-Mau”, kun pelaat sen.",
     "navLabel": "Osiot",
     "nSetup": "Valmistelu",
     "nPlay": "Pelaaminen",

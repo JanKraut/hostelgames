@@ -2,6 +2,7 @@
   "title": "Mau-Mau – regole",
   "h1": "Mau-Mau",
   "sub": "Il gioco di scarto più amato in Germania: segui il seme o il valore, usa il 7, l’8 e il fante contro gli altri – e non dimenticare di dire “Mau”.",
+  "goal": "<strong>L’obiettivo:</strong> liberarti per primo di tutte le tue carte. Di’ “Mau” prima dell’ultima carta – e “Mau-Mau” quando la giochi.",
   "seo": {
     "rulesT": "Regole di Mau-Mau – il gioco di carte spiegato semplice",
     "rulesD": "Come giocare a Mau-Mau: distribuzione, seguire il seme o il valore, le carte speciali 7, 8 e fante, dire Mau e Mau-Mau, punteggio, varianti e FAQ."
@@ -20,7 +21,6 @@
   "rules": {
     "h1": "Gioco di carte Mau-Mau",
     "h1sub": "Regole e svolgimento",
-    "goal": "<strong>L’obiettivo:</strong> liberarti per primo di tutte le tue carte. Di’ “Mau” prima dell’ultima carta – e “Mau-Mau” quando la giochi.",
     "navLabel": "Sezioni",
     "nSetup": "Preparazione",
     "nPlay": "Giocare",

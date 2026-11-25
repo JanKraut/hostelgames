@@ -19,25 +19,7 @@ eleventyComputed:
 {%- set t = lang.t -%}
 {%- set r = t.rules -%}
 {%- set O = r.rO -%}{%- set U = r.rU -%}{%- set K = r.rK -%}{%- set A = r.rA -%}
-<header class="hero">
-  <div class="wrap">
-    {% include "sitehead.njk" %}
-    <h1>{{ r.h1 }}<span class="h1-sub"> {{ r.h1sub }}</span></h1>
-    <p>{{ t.sub | safe }}</p>
-    {#- Die vier Ober, die höchsten Trümpfe. -#}
-    <div class="fan" aria-hidden="true">
-      {{ card(O, "♦") }}
-      {{ card(O, "♥") }}
-      {{ card(O, "♠") }}
-      {{ card(O, "♣") }}
-    </div>
-    <div class="goal">
-      <div class="goal-icon" aria-hidden="true">🎯</div>
-      <p>{{ r.goal | safe }}</p>
-    </div>
-    {% include "factsheet.njk" %}
-  </div>
-</header>
+{% include "hero.njk" %}
 
 <nav class="secnav" aria-label="{{ r.navLabel }}">
   <ul>

@@ -1,0 +1,6 @@
+{#- Picture in the big header (core includes/hero.njk), between the intro and the goal. -#}
+{%- from "dice.njk" import die -%}
+{#- Fünf Würfel, frisch geworfen: ein Kniffel aus Sechsen. -#}
+<div class="throw" aria-hidden="true">
+  {%- for i in range(5) %}{{ die(6) }}{% endfor -%}
+</div>

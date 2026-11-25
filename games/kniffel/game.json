@@ -8,5 +8,6 @@
   "pages": ["rules", "quickstart", "scoresheet", "strategy"],
   "related": [],
   "players": { "min": 1, "max": 6 },
-  "duration": "20–40 min"
+  "duration": "20–40 min",
+  "factsheet": { "scales": [["luck", "skill", 35], ["easy", "complex", 20], ["kids", "adults", 15]], "people": [1, 2] }
 }

@@ -2,6 +2,7 @@
   "title": "Asshole – rules",
   "h1": "Asshole",
   "sub": "The card game where the winner becomes king and the loser has to serve. Learn it in five minutes, play it all night.",
+  "goal": "<strong>The goal:</strong> get rid of all your cards as fast as you can. Whoever is left holding cards at the end is the asshole – and has to hand their best cards to the king in the next round.",
   "seo": {
     "rulesT": "Asshole card game rules – simply explained",
     "rulesD": "How to play Asshole: dealing, beating cards, ranks from king to asshole, the card swap between rounds, popular variants and FAQ."
@@ -9,7 +10,6 @@
   "rules": {
     "h1": "Asshole Card Game",
     "h1sub": "Rules & how to play",
-    "goal": "<strong>The goal:</strong> get rid of all your cards as fast as you can. Whoever is left holding cards at the end is the asshole – and has to hand their best cards to the king in the next round.",
     "navLabel": "Sections",
     "nSetup": "Setup",
     "nPlay": "Playing",

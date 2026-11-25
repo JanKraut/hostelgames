@@ -1,0 +1,16 @@
+{#- Fact sheet (factsheet.njk): the two player groups. Icon with as many people as
+    game.json factsheet.people says (1–3), the number of players and what the game is like then. -#}
+{%- set i = lang.t.info -%}
+{#- icons[n]: n people -#}
+{%- set icons = [
+  '',
+  '<svg class="fs-people" viewBox="0 0 32 24" aria-hidden="true"><circle cx="16" cy="7" r="4"/><path d="M8 21c0-4.5 3.6-7 8-7s8 2.5 8 7"/></svg>',
+  '<svg class="fs-people" viewBox="0 0 32 24" aria-hidden="true"><circle cx="11" cy="7" r="4"/><path d="M3 21c0-4.5 3.6-7 8-7s8 2.5 8 7"/><circle cx="21" cy="6" r="3.5"/><path d="M19 13.2c.6-.1 1.3-.2 2-.2 4.4 0 8 2.5 8 7"/></svg>',
+  '<svg class="fs-people" viewBox="0 0 32 24" aria-hidden="true"><circle cx="6" cy="8" r="3.2"/><path d="M0.5 21c0-3.8 2.5-6 5.5-6s5.5 2.2 5.5 6"/><circle cx="16" cy="6" r="3.8"/><path d="M9.5 21c0-4.3 2.9-7 6.5-7s6.5 2.7 6.5 7"/><circle cx="26" cy="8" r="3.2"/><path d="M20.5 21c0-3.8 2.5-6 5.5-6s5.5 2.2 5.5 6"/></svg>'
+] -%}
+{%- for n in [1, 2] %}
+        <div class="fs-group" role="img" aria-label="{{ i['players' + n] }}: {{ i['mode' + n] }}">
+          {{ icons[site.game.factsheet.people[loop.index0]] | safe }}
+          <div class="fs-who"><b>{{ i['players' + n] }}</b><span>{{ i['mode' + n] }}</span></div>
+        </div>
+{%- endfor %}

@@ -1,7 +1,10 @@
 {
   "title": "Kniffel – regels",
   "h1": "Kniffel",
-  "h1sub": "Dobbelspel regels & uitleg",
+  "rules": {
+    "h1": "Kniffel",
+    "h1sub": "Dobbelspel regels & uitleg"
+  },
   "sub": "Vijf dobbelstenen, drie worpen per beurt, dertien vakjes op het scoreblok: de dobbelklassieker voor 1 tot 6 spelers. Eén keer lezen, gooien, klaar.",
   "seo": {
     "rulesT": "Kniffel regels – zo speel je het dobbelspel",

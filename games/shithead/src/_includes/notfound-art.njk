@@ -1,0 +1,8 @@
+{#- Picture on the 404 page (core pages/404.njk): the Shithead between two fours. -#}
+{%- from "card.njk" import card -%}
+{%- from "shithead-card.njk" import shithead -%}
+    <div class="nf-cards" aria-hidden="true">
+      {{ card("4", "♠") }}
+      {{ shithead() }}
+      {{ card("4", "♥") }}
+    </div>

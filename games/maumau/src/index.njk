@@ -16,25 +16,7 @@ eleventyComputed:
 {%- from "card.njk" import card, back, cardRow -%}
 {%- set t = lang.t -%}
 {%- set r = t.rules -%}
-<header class="hero">
-  <div class="wrap">
-    {% include "sitehead.njk" %}
-    <h1>{{ r.h1 }}<span class="h1-sub"> {{ r.h1sub }}</span></h1>
-    <p>{{ t.sub | safe }}</p>
-    {#- Die drei Sonderkarten plus ein Ass. -#}
-    <div class="fan" aria-hidden="true">
-      {{ card("7", "♥") }}
-      {{ card("8", "♠") }}
-      {{ card("J", "♣") }}
-      {{ card("A", "♦") }}
-    </div>
-    <div class="goal">
-      <div class="goal-icon" aria-hidden="true">🎯</div>
-      <p>{{ r.goal | safe }}</p>
-    </div>
-    {% include "factsheet.njk" %}
-  </div>
-</header>
+{% include "hero.njk" %}
 
 <nav class="secnav" aria-label="{{ r.navLabel }}">
   <ul>

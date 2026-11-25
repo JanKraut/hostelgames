@@ -20,8 +20,8 @@ for (const lang of languages) {
     await page.goto(pathOf(lang));
     await expect(page).toHaveTitle(lang.t.seo.rulesT);
     await expect(page.locator("html")).toHaveAttribute("lang", lang.htmlLang);
-    await expect(page.locator(".hero h1")).toContainText(lang.t.h1);
-    await expect(page.locator(".hero h1 .h1-sub")).toHaveText(lang.t.h1sub);
+    await expect(page.locator(".hero h1")).toContainText(lang.t.rules.h1);
+    await expect(page.locator(".hero h1 .h1-sub")).toHaveText(lang.t.rules.h1sub);
     await expect(page.locator(".langmenu a[aria-current=page]")).toHaveAttribute("data-lang", lang.code);
     await expect(page.locator("link[rel=canonical]")).toHaveAttribute("href", lang.url);
     await expect(page.locator("link[rel=alternate][hreflang]")).toHaveCount(languages.length + 1);

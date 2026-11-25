@@ -5,54 +5,6 @@
    sind von Kniffel übernommen (Core-Kandidaten).
    ========================================================================== */
 
-/* ---------- Würfel (Makros in _includes/dice.njk) ---------- */
-
-.die {
-  --d: 52px;
-  display: inline-grid;
-  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-  flex: none;
-  width: var(--d);
-  height: var(--d);
-  padding: calc(var(--d) * 0.14);
-  border-radius: calc(var(--d) * 0.2);
-  background: var(--paper);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), 0 5px 12px rgba(0, 0, 0, 0.25);
-}
-
-.die i {
-  display: block;
-  place-self: center;
-  width: 72%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-}
-
-.die i.p {
-  background: var(--card-ink);
-}
-
-.die.sm {
-  --d: 40px;
-}
-
-.die.xs {
-  --d: 30px;
-}
-
-/* Beiseitegelegt bzw. zählt für das Feld */
-.die.held {
-  outline: 3px solid var(--gold);
-  outline-offset: 2px;
-}
-
-.dicerow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-  padding: 5px;
-}
-
 /* ---------- Kopfbereich: fünf geworfene Würfel ---------- */
 
 .throw {

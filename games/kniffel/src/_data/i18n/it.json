@@ -1,7 +1,10 @@
 {
   "title": "Kniffel – regole",
   "h1": "Kniffel",
-  "h1sub": "Regole e istruzioni del gioco di dadi",
+  "rules": {
+    "h1": "Kniffel",
+    "h1sub": "Regole e istruzioni del gioco di dadi"
+  },
   "sub": "Cinque dadi, tre lanci a turno, tredici caselle sul foglio segnapunti: il grande classico dei dadi per 1–6 giocatori. Leggi una volta, tira i dadi, fatto.",
   "seo": {
     "rulesT": "Regole di Kniffel – come giocare al gioco di dadi",

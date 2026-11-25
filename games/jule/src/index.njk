@@ -14,22 +14,7 @@ eleventyComputed:
     Rückweg, Gewinnen, Stumme Jule, Varianten, FAQ, Teilen. Texte in src/_data/i18n/*.json. -#}
 {%- from "dice.njk" import die, dice -%}
 {%- set t = lang.t -%}
-<header class="hero">
-  <div class="wrap">
-    {% include "sitehead.njk" %}
-    <h1>{{ t.h1 }}<span class="h1-sub"> {{ t.h1sub }}</span></h1>
-    <p>{{ t.sub | safe }}</p>
-    {#- Die sechs Zahlen des Hinwegs, eine nach der anderen. -#}
-    <div class="throw" aria-hidden="true">
-      {%- for n in range(1, 7) %}{{ die(n) }}{% endfor -%}
-    </div>
-    <div class="goal">
-      <div class="goal-icon" aria-hidden="true">🎯</div>
-      <p>{{ t.goal | safe }}</p>
-    </div>
-    {% include "factsheet.njk" %}
-  </div>
-</header>
+{% include "hero.njk" %}
 
 <nav class="secnav" aria-label="{{ t.navLabel }}">
   <ul>

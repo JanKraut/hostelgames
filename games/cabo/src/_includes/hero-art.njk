@@ -1,0 +1,9 @@
+{#- Picture in the big header (core includes/hero.njk), between the intro and the goal. -#}
+{%- from "card.njk" import card, back -%}
+{#- Vier Karten im Fächer: zwei bekannte, zwei unbekannte, dazu der rote König (0 Punkte). -#}
+<div class="fan" aria-hidden="true">
+  {{ card("A", "♠") }}
+  {{ back("") }}
+  {{ back("") }}
+  {{ card("K", "♥") }}
+</div>

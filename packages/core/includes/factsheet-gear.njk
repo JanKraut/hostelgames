@@ -1,0 +1,9 @@
+{#- Fact sheet (factsheet.njk): the box "What you need" with the game's picture (factsheet-art.njk). -#}
+{%- set i = lang.t.info -%}
+    <div class="fs-box">
+      <h2>{{ i.gearH }}</h2>
+      <div class="fs-gear" role="img" aria-label="{{ i.gearAlt }}">
+        {% include "factsheet-art.njk" %}
+        <span class="fs-count">{{ i.gearN }}</span>
+      </div>
+    </div>

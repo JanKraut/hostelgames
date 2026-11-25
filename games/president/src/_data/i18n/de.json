@@ -1,7 +1,10 @@
 {
   "title": "President – Regeln",
   "h1": "President",
-  "h1sub": "Kartenspiel: Regeln & Anleitung",
+  "rules": {
+    "h1": "President",
+    "h1sub": "Kartenspiel: Regeln & Anleitung"
+  },
   "sub": "Der Hostel-Klassiker: Werde deine Karten schnell los, steig ganz nach oben – und lass den Bettler seine besten Karten abgeben.",
   "seo": {
     "rulesT": "President – Kartenspiel-Regeln und Anleitung",

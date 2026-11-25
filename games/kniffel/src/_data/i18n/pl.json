@@ -1,7 +1,10 @@
 {
   "title": "Kniffel – zasady",
   "h1": "Kniffel",
-  "h1sub": "Zasady i instrukcja gry w kości",
+  "rules": {
+    "h1": "Kniffel",
+    "h1sub": "Zasady i instrukcja gry w kości"
+  },
   "sub": "Pięć kostek, trzy rzuty w kolejce, trzynaście pól w tabeli: klasyczna gra w kości dla 1 do 6 osób. Raz przeczytać, rzucić i gotowe.",
   "seo": {
     "rulesT": "Zasady Kniffel – jak grać w grę w kości",

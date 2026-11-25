@@ -2,6 +2,7 @@
   "title": "Mau-Mau – regler",
   "h1": "Mau-Mau",
   "sub": "Tysklands yndlings-afkastspil: match kulør eller værdi, brug 7’eren, 8’eren og knægten mod de andre – og glem ikke at sige “Mau”.",
+  "goal": "<strong>Målet:</strong> Bliv den første til at slippe af med alle dine kort. Sig “Mau” før dit sidste kort – og “Mau-Mau”, når du lægger det.",
   "seo": {
     "rulesT": "Mau-Mau kortspil – regler nemt forklaret",
     "rulesD": "Sådan spiller du Mau-Mau: uddeling, kulør eller værdi, specialkortene 7, 8 og knægt, at sige Mau og Mau-Mau, optælling, varianter og FAQ."
@@ -20,7 +21,6 @@
   "rules": {
     "h1": "Kortspillet Mau-Mau",
     "h1sub": "Regler & spilforløb",
-    "goal": "<strong>Målet:</strong> Bliv den første til at slippe af med alle dine kort. Sig “Mau” før dit sidste kort – og “Mau-Mau”, når du lægger det.",
     "navLabel": "Afsnit",
     "nSetup": "Opstilling",
     "nPlay": "Spilforløb",

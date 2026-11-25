@@ -82,6 +82,10 @@ Alles auf `github.io` bekommt `noindex` und keine Sitemap.
    `src/assets/styles.css`. Sprachmenü, Seitenreiter, Spielkarten (`card.njk`), Teilen-Box
    (`share.njk`, mit `share: true`), Footer und Tracking kommen per `{% include %}` aus dem Core;
    `src/_data/languages.js` und `src/sitemap.11ty.js` sind je drei Zeilen (siehe Grundgerüst).
+   Den Kopf baut der Core: `{% include "hero.njk" %}` (Texte wie bei Shithead: `rules.h1`,
+   `rules.h1sub` – leer = keine zweite Zeile –, `sub`, `goal`; Kurzanleitung `h1`; andere Seiten
+   `<seite>.h1`, `<seite>.sub`). Das Bild darin kommt aus `src/_includes/hero-art.njk` des Spiels.
+   Die 404-Seite kommt ebenfalls aus dem Core, das Spiel ändert nur die Texte (`nf…`).
    Standardtexte (Teilen-Box, Seitennamen, 404, Hell/Dunkel, Steckbrief-Beschriftungen) kommen aus
    `packages/core/i18n/standard/`; in die Texte des Spiels gehört nur, was es anders sagt.
 5. Im Root `build:<slug>` und `start:<slug>` in `package.json` ergänzen und `npm install`. Die Startseite listet das Spiel automatisch (in der Vorschau auch als Entwurf).
@@ -104,6 +108,7 @@ Beschreibt das Spiel und ist die einzige Stelle für diese Angaben. Geprüft wir
 | `pages` | `["rules", "strategy", "quickstart", "play"]` | vorhandene Seiten, `rules` immer, `play` = Spiel gegen Bots. Die Reihenfolge ist auch die der Reiter oben auf der Seite. Muss zu den Dateien in `src/` passen (`index.njk`, `strategy.njk`, `quickstart.njk`, `play.njk`) |
 | `related` | `["president"]` | ähnliche Spiele (Slugs), optional |
 | `players`, `duration` | `{ "min": 3, "max": 6 }`, `"20–30 min"` | optional, für die Startseite |
+| `factsheet` | `{ "scales": [["luck", "skill", 35], ["easy", "complex", 20], ["kids", "adults", 15]], "people": [2, 3] }` | optional: Steckbrief im Kopf der Regelseite (`packages/core/includes/factsheet.njk`). `scales`: zwei Texte aus `info` und ein Wert 0–100; `people`: Personen im Symbol der beiden Spielergruppen (1–3); `id`: Anker (Standard `factsheet`) |
 | `testShards`, `deploy.environment` | `3` | nur für die CI, siehe unten |
 
 Eine neue Sprache, die noch kein Spiel hat, kommt zuerst nach `packages/core/lib/languages.js`

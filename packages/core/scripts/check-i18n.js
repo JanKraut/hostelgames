@@ -21,6 +21,8 @@
 //     languages, so nothing silently shows up in the default language;
 //   - there are no texts that the default language doesn't have (typos, leftovers);
 //   - placeholders like {mine} and {top} match the default language;
+//   - a text may only be empty ("") if it is empty in the default language too (e.g. rules.h1sub:
+//     no second line under the heading);
 //   - HTML tags are balanced and the same tags as in the default language are used;
 //   - links to #sections point to sections that exist in one of the --templates.
 // It also checks that the languages file and the JSON files match.
@@ -106,6 +108,9 @@ for (const lang of LANGUAGES) {
 
 // ---------- texts ----------
 
+// Texts of the 404 page (nf…): the page is English only, so other languages don't need them.
+const englishOnly = (key) => /^nf[A-Z]/.test(key);
+
 const english = { ...flatten(standardTexts(DEFAULT)), ...flatten(texts[DEFAULT] ?? {}) };
 const standard = Object.fromEntries(codes.map((code) => [code, flatten(standardTexts(code))]));
 
@@ -122,12 +127,13 @@ for (const lang of LANGUAGES) {
   for (const [key, en] of Object.entries(english)) {
     const from = chain.find((code) => key in flatten(texts[code] ?? {}) || key in (standard[code] ?? {}));
     if (!from) {
+      if (englishOnly(key)) continue;
       incomplete(lang.code, key, `missing, shows the ${DEFAULT} text`);
       continue;
     }
     if (from !== lang.code || !(key in own)) continue; // checked with the fallback language or in the core
     const text = own[key];
-    if (typeof text !== "string" || !text.trim()) {
+    if (typeof text !== "string" || (!text.trim() && en.trim())) {
       report(lang.code, key, "empty");
       continue;
     }
