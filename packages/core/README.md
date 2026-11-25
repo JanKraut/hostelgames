@@ -18,7 +18,8 @@ seinem eigenen `_includes/` anlegt.
 | `data/tracking.js` | Tracking per Umgebungsvariablen, siehe Root-README |
 | `data/legal.js` | Links zu Impressum und Datenschutz (mut-im-rucksack.de), Texte des Einwilligungsbanners |
 | `lib/nav.js` | Texte (`i18n/<sprache>.json`, Rest Englisch) und Ziele des Menüs „Alle Spiele“; `POPULAR` (Liste „Beliebt“), `SEARCH` (Suche ein-/ausschalten, Grundgerüst ist da) |
-| `i18n/` | Texte des Kopfes und Menüs, eine Datei pro Sprache (es-419 und pt-br nur Abweichungen) |
+| `i18n/` | Texte des Kopfes und Menüs, eine Datei pro Sprache (es-419 und pt-br nur Abweichungen), in allen Sprachen vollständig |
+| `i18n/standard/` | Standardtexte aller Seiten: Teilen-Box (`sh…`), Seitennamen (`pgLabel`, `pgRules`, `n6`, `pgQuick`, `pgSheet`), `navLabel`, Hell/Dunkel (`themeSwitch`), 404 (`nf…`), Beschriftungen des Steckbriefs (`info.…`). `createLanguages` legt sie unter die Texte der Seite, die Seite gewinnt. de und en vollständig, andere Sprachen bei Bedarf (sonst Englisch) |
 | `lib/site.js` | `createSite(game.json)`: Adresse und Pfad-Präfix aus `SITE_ORIGIN` / `SITE_PATH_PREFIX` |
 | `lib/games.js` | Liste aller Spiele aus `games/*/game.json`, prüft jede `game.json` (Felder: Root-README), `visibleGames(site)` blendet Entwürfe live aus |
 | `lib/languages.js` | Alle Sprachen (Flagge, Name, Fallback, Menü-Reihenfolge); `createLanguages(site, i18nDir)` baut daraus die Sprachen eines Spiels |
@@ -28,8 +29,9 @@ seinem eigenen `_includes/` anlegt.
 | `scripts/serve.js` | Befehl `hostelgames-serve <ordner> <präfix>`: kleiner Server für Tests und Vorschau |
 
 Veröffentlicht wird alles unter `/assets/core/` jeder Seite (`core.css`, `core.js`, `share.js`,
-`qrcode.js`, `fonts.css`, `fonts/`). Die Texte für Schalter und Menü (`themeSwitch`, `shH`, `foot`) kommen aus den i18n-Dateien
-des jeweiligen Spiels.
+`qrcode.js`, `fonts.css`, `fonts/`). Die Texte für Schalter, Teilen-Box und Seitenreiter kommen aus
+`i18n/standard/`; ein Spiel kann jeden davon in seinen eigenen i18n-Dateien überschreiben (z. B. `shH`).
+`foot` (Zeile über dem Footer) hat nur ein Spiel, das eine eigene will.
 
 Erwartete Daten einer Seite: `site` (aus `lib/site.js`), für Sprachmenü und Footer außerdem `lang`
 (mit `t` = Texte) und `languages`, wie in `games/shithead/src/_data/languages.js`.

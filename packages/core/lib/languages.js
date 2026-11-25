@@ -9,11 +9,17 @@
 // `fallback` is tried in order for every text a language does not define itself;
 // English is always the last resort. Example: es-419 only stores what differs from es.
 //
+// Texts: the standard texts every site shares (share box, page names, 404, fact sheet
+// labels) live once in i18n/standard/<code>.json; a site only stores its own texts and
+// whatever it says differently. For every language in the chain the core text comes first,
+// then the site's, so the site wins and a language never falls back to English while the
+// core has the text in that language.
+//
 // A game's src/_data/languages.js turns its codes into the data the pages need:
 //
 //   import { createLanguages } from "@hostelgames/core/languages";
 //   export default createLanguages(site, new URL("./i18n/", import.meta.url));
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 
 export const DEFAULT_LANGUAGE = "en";
 
@@ -37,6 +43,15 @@ export const LANGUAGES = [
 ];
 
 export const LANGUAGE_CODES = LANGUAGES.map((lang) => lang.code);
+
+/** Folder of the standard texts, one <code>.json per language (only en and de must be complete). */
+export const STANDARD_TEXTS = new URL("../i18n/standard/", import.meta.url);
+
+/** Standard texts of one language as stored (no fallback), {} if there are none. */
+export function standardTexts(code) {
+  const file = new URL(`${code}.json`, STANDARD_TEXTS);
+  return existsSync(file) ? JSON.parse(readFileSync(file, "utf8")) : {};
+}
 
 // Merges b into a; sections like `quiz` or `game` are merged text by text.
 // Lists (e.g. the strategy tips) are taken whole, so they stay lists.
@@ -69,7 +84,8 @@ export function languageList(codes, baseUrl) {
 }
 
 /**
- * The languages of a site, in menu order, each with its texts (English <- fallbacks <- own).
+ * The languages of a site, in menu order, each with its texts: for English, then each
+ * fallback, then the language itself, first the standard texts, then the site's own.
  * @param {object} site      from createSite(); site.game.languages are the codes
  * @param {URL} i18nDir      folder with one <code>.json per language
  */
@@ -83,7 +99,7 @@ export function createLanguages(site, i18nDir) {
       .filter((code, i, all) => all.indexOf(code) === i);
     return {
       ...lang,
-      t: chain.map(load).reduce(merge),
+      t: chain.flatMap((code) => [standardTexts(code), load(code)]).reduce(merge, {}),
     };
   });
 }

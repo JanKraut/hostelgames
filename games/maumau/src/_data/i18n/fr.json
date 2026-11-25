@@ -7,27 +7,14 @@
     "rulesD": "Comment jouer au Mau-Mau : distribution, suivre la couleur ou la valeur, les cartes spéciales 7, 8 et valet, dire Mau et Mau-Mau, décompte des points, variantes et FAQ."
   },
   "info": {
-    "label": "Fiche",
-    "luck": "Chance",
-    "skill": "Habileté",
-    "easy": "Facile",
-    "complex": "Complexe",
-    "kids": "Enfants",
-    "adults": "Adultes",
-    "playersH": "Joueurs",
     "players1": "2–3",
     "mode1": "duel rapide",
     "players2": "4–6",
     "mode2": "le plus fun",
-    "timeH": "Durée",
     "timeN": "15",
-    "timeU": "min",
-    "similarH": "Jeux similaires",
     "similar": "Uno, Crazy Eights, Tschau Sepp",
-    "gearH": "Ce qu’il faut",
     "gearN": "32 cartes (du 7 à l’as)",
     "gearAlt": "Un paquet de 32 cartes à jouer",
-    "introH": "Introduction",
     "intro": "En Allemagne, en Autriche et en Suisse, presque tout le monde a grandi avec le Mau-Mau. Si tu connais le Uno ou le 8 américain (Crazy Eights), tu connais déjà la moitié des règles – le reste s’explique en deux minutes. Un simple petit jeu de cartes suffit."
   },
   "rules": {
@@ -116,20 +103,5 @@
     "faq6a": "En Suisse <strong>Tschau Sepp</strong>, dans les pays anglophones <strong>Crazy Eights</strong> (avec le 8 comme carte joker, connu en français sous le nom de 8 américain), aux Pays-Bas <strong>Pesten</strong>.",
     "faq7q": "Peut-on jouer au Mau-Mau avec 52 cartes ?",
     "faq7a": "Oui. Les règles restent les mêmes, les cartes du 2 au 6 n’ont simplement aucun effet spécial. Avec 52 cartes, on peut jouer jusqu’à 8 joueurs."
-  },
-  "themeSwitch": "Basculer entre mode clair et sombre",
-  "pgLabel": "Pages",
-  "pgRules": "Règles",
-  "n6": "Stratégie",
-  "pgQuick": "Démarrage rapide",
-  "shH": "Partager ce guide",
-  "shLead": "Fais scanner le code aux autres à table. Chacun peut ensuite choisir sa langue.",
-  "shBtn": "Partager",
-  "shCopy": "Copier le lien",
-  "shCopied": "Lien copié",
-  "shClose": "Fermer",
-  "shAlt": "Code QR de cette page",
-  "nfT": "Page introuvable",
-  "nfH": "Cette page n’existe pas.",
-  "nfBtn": "Vers les règles"
+  }
 }

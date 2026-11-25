@@ -82,6 +82,8 @@ Alles auf `github.io` bekommt `noindex` und keine Sitemap.
    `src/assets/styles.css`. Sprachmenü, Seitenreiter, Spielkarten (`card.njk`), Teilen-Box
    (`share.njk`, mit `share: true`), Footer und Tracking kommen per `{% include %}` aus dem Core;
    `src/_data/languages.js` und `src/sitemap.11ty.js` sind je drei Zeilen (siehe Grundgerüst).
+   Standardtexte (Teilen-Box, Seitennamen, 404, Hell/Dunkel, Steckbrief-Beschriftungen) kommen aus
+   `packages/core/i18n/standard/`; in die Texte des Spiels gehört nur, was es anders sagt.
 5. Im Root `build:<slug>` und `start:<slug>` in `package.json` ergänzen und `npm install`. Die Startseite listet das Spiel automatisch (in der Vorschau auch als Entwurf).
 6. Nichts in `ci.yml` nötig: Tests und Deploy erkennen das Spiel automatisch. Für ein Deploy
    `domain` in `game.json` setzen – der Ordnername ergibt sich daraus (siehe unten).

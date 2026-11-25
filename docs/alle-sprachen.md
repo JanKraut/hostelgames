@@ -13,5 +13,8 @@ Gilt genauso für einzelne Sprachen („… Spanisch und Französisch“).
 6. check (jetzt ohne Warnungen), build, Tests – dann committen.
 7. Melden: neue/aktualisierte Sprachen + unsicher übersetzte Begriffe.
 
+Standardtexte im Core (`packages/core/i18n/standard/<sprache>.json`) gehören dazu:
+fehlt dort eine Sprache, sie mit anlegen bzw. ergänzen (gilt dann für alle Spiele).
+
 check-i18n: streng für en/de (Fehler), andere Sprachen nur Warnung.
 Platzhalter, HTML und #Links sind in allen Sprachen Fehler.

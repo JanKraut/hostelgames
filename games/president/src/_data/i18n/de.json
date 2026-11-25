@@ -10,7 +10,6 @@
     "strategyD": "Der President-Strategie-Guide: richtig tauschen, das Ausspiel kontrollieren, Paare und 2er klug einsetzen und aus dem Bettler-Rang aufsteigen."
   },
   "goal": "<strong>Ziel:</strong> Spiel als Erster alle deine Karten aus. Wer zuerst fertig ist, wird in der nächsten Runde Präsident – wer zuletzt noch Karten hat, wird Bettler.",
-  "navLabel": "Abschnitte",
   "nSetup": "Aufbau",
   "nPlay": "Spielablauf",
   "nEnd": "Rundenende",
@@ -217,20 +216,5 @@
     "ctaRulesH": "Neu im Spiel?",
     "ctaRulesP": "Lies zuerst die Regeln.",
     "ctaRulesBtn": "Zu den Regeln"
-  },
-  "themeSwitch": "Zwischen hellem und dunklem Design wechseln",
-  "pgLabel": "Seiten",
-  "pgRules": "Regeln",
-  "n6": "Strategie",
-  "pgQuick": "Quickstart",
-  "shH": "Anleitung teilen",
-  "shLead": "Lass die anderen am Tisch den Code scannen. Jeder kann sich dann seine eigene Sprache aussuchen.",
-  "shBtn": "Teilen",
-  "shCopy": "Link kopieren",
-  "shCopied": "Link kopiert",
-  "shClose": "Schließen",
-  "shAlt": "QR-Code zu dieser Seite",
-  "nfT": "Seite nicht gefunden",
-  "nfH": "Diese Seite gibt es nicht.",
-  "nfBtn": "Zu den Regeln"
+  }
 }

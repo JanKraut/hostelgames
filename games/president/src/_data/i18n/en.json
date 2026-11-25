@@ -10,7 +10,6 @@
     "strategyD": "The President card game strategy guide: swap smart, control the lead, play pairs and 2s at the right moment and climb out of Scum."
   },
   "goal": "<strong>Goal:</strong> be the first to play all your cards. Whoever goes out first is President in the next round – whoever is left holding cards becomes the Scum.",
-  "navLabel": "Sections",
   "nSetup": "Setup",
   "nPlay": "How to play",
   "nEnd": "End of round",
@@ -217,20 +216,5 @@
     "ctaRulesH": "New to the game?",
     "ctaRulesP": "Read the rules first.",
     "ctaRulesBtn": "Go to the rules"
-  },
-  "themeSwitch": "Switch between light and dark mode",
-  "pgLabel": "Pages",
-  "pgRules": "Rules",
-  "n6": "Strategy",
-  "pgQuick": "Quick start",
-  "shH": "Share the guide",
-  "shLead": "Let the others at the table scan the code. Everyone can then pick their own language.",
-  "shBtn": "Share",
-  "shCopy": "Copy link",
-  "shCopied": "Link copied",
-  "shClose": "Close",
-  "shAlt": "QR code for this page",
-  "nfT": "Page not found",
-  "nfH": "This page doesn't exist.",
-  "nfBtn": "Go to the rules"
+  }
 }

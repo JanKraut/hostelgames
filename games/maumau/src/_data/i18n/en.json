@@ -7,27 +7,14 @@
     "rulesD": "How to play Mau-Mau: dealing, matching suit or rank, the special cards 7, 8 and jack, saying Mau and Mau-Mau, scoring, variants and FAQ."
   },
   "info": {
-    "label": "Fact sheet",
-    "luck": "Luck",
-    "skill": "Skill",
-    "easy": "Easy",
-    "complex": "Complex",
-    "kids": "Kids",
-    "adults": "Adults",
-    "playersH": "Players",
     "players1": "2–3",
     "mode1": "quick duel",
     "players2": "4–6",
     "mode2": "best fun",
-    "timeH": "Playing time",
     "timeN": "15",
-    "timeU": "min",
-    "similarH": "Similar games",
     "similar": "Uno, Crazy Eights, Tschau Sepp",
-    "gearH": "What you need",
     "gearN": "32 cards (Skat pack)",
     "gearAlt": "A pack of 32 playing cards",
-    "introH": "Introduction",
     "intro": "Almost everyone in Germany, Austria and Switzerland grew up with Mau-Mau. If you know Uno or Crazy Eights, you already know half the rules – and the rest is explained in two minutes. One small pack of cards is all you need."
   },
   "rules": {
@@ -116,20 +103,5 @@
     "faq6a": "In Switzerland <strong>Tschau Sepp</strong>, in English-speaking countries <strong>Crazy Eights</strong> (with the 8 as the wish card), in the Netherlands <strong>Pesten</strong>.",
     "faq7q": "Can I play Mau-Mau with 52 cards?",
     "faq7a": "Yes. The rules stay the same, the cards from 2 to 6 simply have no special effect and count their face value when scoring. With 52 cards up to 8 players can join in."
-  },
-  "themeSwitch": "Switch between light and dark mode",
-  "pgLabel": "Pages",
-  "pgRules": "Rules",
-  "n6": "Strategy",
-  "pgQuick": "Quick start",
-  "shH": "Share the guide",
-  "shLead": "Let the others at the table scan the code. Everyone can then pick their own language.",
-  "shBtn": "Share",
-  "shCopy": "Copy link",
-  "shCopied": "Link copied",
-  "shClose": "Close",
-  "shAlt": "QR code for this page",
-  "nfT": "Page not found",
-  "nfH": "This page doesn't exist.",
-  "nfBtn": "Go to the rules"
+  }
 }

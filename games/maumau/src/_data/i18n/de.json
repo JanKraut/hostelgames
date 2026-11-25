@@ -7,27 +7,14 @@
     "rulesD": "So geht Mau-Mau: Austeilen, Farbe oder Wert bedienen, die Sonderkarten 7, 8 und Bube, Mau und Mau-Mau sagen, Punkte zählen, Varianten und FAQ."
   },
   "info": {
-    "label": "Steckbrief",
-    "luck": "Glück",
-    "skill": "Können",
-    "easy": "Einfach",
-    "complex": "Komplex",
-    "kids": "Kinder",
-    "adults": "Erwachsene",
-    "playersH": "Spieler",
     "players1": "2–3",
     "mode1": "schnelles Duell",
     "players2": "4–6",
     "mode2": "am lustigsten",
-    "timeH": "Spieldauer",
     "timeN": "15",
-    "timeU": "Min.",
-    "similarH": "Ähnliche Spiele",
     "similar": "Uno, Crazy Eights, Tschau Sepp",
-    "gearH": "Was ihr braucht",
     "gearN": "32 Karten (Skatblatt)",
     "gearAlt": "Ein Kartenspiel mit 32 Karten",
-    "introH": "Einführung",
     "intro": "Mit Mau-Mau ist in Deutschland, Österreich und der Schweiz fast jeder aufgewachsen. Wer Uno oder Crazy Eights kennt, kann schon die Hälfte – der Rest ist in zwei Minuten erklärt. Ihr braucht nur ein kleines Kartenspiel."
   },
   "rules": {
@@ -116,20 +103,5 @@
     "faq6a": "In der Schweiz <strong>Tschau Sepp</strong>, im englischen Sprachraum <strong>Crazy Eights</strong> (dort ist die 8 die Wunschkarte), in den Niederlanden <strong>Pesten</strong>.",
     "faq7q": "Kann ich Mau-Mau mit 52 Karten spielen?",
     "faq7a": "Ja. Die Regeln bleiben gleich, die Karten von 2 bis 6 haben einfach keine Sonderwirkung und zählen beim Punktezählen ihren Zahlenwert. Mit 52 Karten können bis zu 8 Leute mitspielen."
-  },
-  "themeSwitch": "Zwischen hellem und dunklem Design wechseln",
-  "pgLabel": "Seiten",
-  "pgRules": "Regeln",
-  "n6": "Strategie",
-  "pgQuick": "Quickstart",
-  "shH": "Anleitung teilen",
-  "shLead": "Lass die anderen am Tisch den Code scannen. Jeder kann sich dann seine eigene Sprache aussuchen.",
-  "shBtn": "Teilen",
-  "shCopy": "Link kopieren",
-  "shCopied": "Link kopiert",
-  "shClose": "Schließen",
-  "shAlt": "QR-Code zu dieser Seite",
-  "nfT": "Seite nicht gefunden",
-  "nfH": "Diese Seite gibt es nicht.",
-  "nfBtn": "Zu den Regeln"
+  }
 }

@@ -7,27 +7,14 @@
     "rulesD": "Sådan spiller du Mau-Mau: uddeling, kulør eller værdi, specialkortene 7, 8 og knægt, at sige Mau og Mau-Mau, optælling, varianter og FAQ."
   },
   "info": {
-    "label": "Fakta",
-    "luck": "Held",
-    "skill": "Evner",
-    "easy": "Let",
-    "complex": "Kompleks",
-    "kids": "Børn",
-    "adults": "Voksne",
-    "playersH": "Spillere",
     "players1": "2–3",
     "mode1": "hurtig duel",
     "players2": "4–6",
     "mode2": "sjovest",
-    "timeH": "Spilletid",
     "timeN": "15",
-    "timeU": "min.",
-    "similarH": "Lignende spil",
     "similar": "Uno, Crazy Eights, Tschau Sepp",
-    "gearH": "Det skal du bruge",
     "gearN": "32 kort (skat-spil)",
     "gearAlt": "Et kortspil med 32 kort",
-    "introH": "Introduktion",
     "intro": "Næsten alle i Tyskland, Østrig og Schweiz er vokset op med Mau-Mau. Kender du Uno eller Crazy Eights, kan du allerede halvdelen af reglerne – og resten er forklaret på to minutter. Et lille spil kort er alt, I skal bruge."
   },
   "rules": {
@@ -116,20 +103,5 @@
     "faq6a": "I Schweiz <strong>Tschau Sepp</strong>, i engelsktalende lande <strong>Crazy Eights</strong> (med 8’eren som ønskekort), i Holland <strong>Pesten</strong>.",
     "faq7q": "Kan jeg spille Mau-Mau med 52 kort?",
     "faq7a": "Ja. Reglerne forbliver de samme, kortene fra 2 til 6 har bare ingen særlig effekt. Med 52 kort kan op til 8 spillere være med."
-  },
-  "themeSwitch": "Skift mellem lyst og mørkt tema",
-  "pgLabel": "Sider",
-  "pgRules": "Regler",
-  "n6": "Strategi",
-  "pgQuick": "Hurtigstart",
-  "shH": "Del denne guide",
-  "shLead": "Lad de andre ved bordet scanne koden. Så kan alle vælge deres eget sprog.",
-  "shBtn": "Del",
-  "shCopy": "Kopiér link",
-  "shCopied": "Link kopieret",
-  "shClose": "Luk",
-  "shAlt": "QR-kode til denne side",
-  "nfT": "Siden blev ikke fundet",
-  "nfH": "Denne side findes ikke.",
-  "nfBtn": "Til reglerne"
+  }
 }

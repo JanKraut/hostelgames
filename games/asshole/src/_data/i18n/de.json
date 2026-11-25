@@ -117,20 +117,5 @@
     "faq6a": "Neben <strong>President</strong> heißt es auch <strong>Scum</strong>, <strong>Bum</strong>, <strong>Rich Man Poor Man</strong> oder in Frankreich <strong>Trou du cul</strong>. Eine Kaufversion ist zum Beispiel <strong>Der große Dalmuti</strong>.",
     "faq7q": "Wie viele Leute brauche ich?",
     "faq7a": "Mindestens 3, am besten 4 bis 6. Ab 6 Leuten nehmt ihr 52 Karten, damit jeder genug auf die Hand bekommt."
-  },
-  "themeSwitch": "Zwischen hellem und dunklem Design wechseln",
-  "pgLabel": "Seiten",
-  "pgRules": "Regeln",
-  "n6": "Strategie",
-  "pgQuick": "Quickstart",
-  "shH": "Anleitung teilen",
-  "shLead": "Lass die anderen am Tisch den Code scannen. Jeder kann sich dann seine eigene Sprache aussuchen.",
-  "shBtn": "Teilen",
-  "shCopy": "Link kopieren",
-  "shCopied": "Link kopiert",
-  "shClose": "Schließen",
-  "shAlt": "QR-Code zu dieser Seite",
-  "nfT": "Seite nicht gefunden",
-  "nfH": "Diese Seite gibt es nicht.",
-  "nfBtn": "Zu den Regeln"
+  }
 }

@@ -7,27 +7,14 @@
     "rulesD": "Jak se hraje Mau-Mau: rozdávání, přikládání podle barvy nebo hodnoty, speciální karty 7, 8 a kluk, hlášení Mau a Mau-Mau, bodování, varianty a FAQ."
   },
   "info": {
-    "label": "Profil hry",
-    "luck": "Štěstí",
-    "skill": "Dovednost",
-    "easy": "Snadná",
-    "complex": "Složitá",
-    "kids": "Děti",
-    "adults": "Dospělí",
-    "playersH": "Hráči",
     "players1": "2–3",
     "mode1": "rychlý duel",
     "players2": "4–6",
     "mode2": "nejvíc zábavy",
-    "timeH": "Délka hry",
     "timeN": "15",
-    "timeU": "min",
-    "similarH": "Podobné hry",
     "similar": "Uno, Crazy Eights, Tschau Sepp",
-    "gearH": "Co potřebuješ",
     "gearN": "32 karet (balíček 7–A)",
     "gearAlt": "Balíček 32 hracích karet",
-    "introH": "Úvod",
     "intro": "S Mau-Mau vyrostl v Německu, Rakousku a Švýcarsku skoro každý. Pokud znáš Uno nebo Crazy Eights, půlku pravidel už umíš – a zbytek vysvětlíš za dvě minuty. Stačí ti jeden malý balíček karet."
   },
   "rules": {
@@ -116,20 +103,5 @@
     "faq6a": "Ve Švýcarsku <strong>Tschau Sepp</strong>, v anglicky mluvících zemích <strong>Crazy Eights</strong> (tam mění barvu osmička), v Nizozemsku <strong>Pesten</strong>.",
     "faq7q": "Dá se Mau-Mau hrát s 52 kartami?",
     "faq7a": "Ano. Pravidla zůstávají stejná, karty od 2 do 6 jen nemají žádný zvláštní účinek. S 52 kartami může hrát až 8 lidí."
-  },
-  "themeSwitch": "Přepnout mezi světlým a tmavým režimem",
-  "pgLabel": "Stránky",
-  "pgRules": "Pravidla",
-  "n6": "Strategie",
-  "pgQuick": "Rychlý start",
-  "shH": "Sdílej tento návod",
-  "shLead": "Ať ostatní u stolu naskenují kód. Pak si každý může vybrat svůj jazyk.",
-  "shBtn": "Sdílet",
-  "shCopy": "Kopírovat odkaz",
-  "shCopied": "Odkaz zkopírován",
-  "shClose": "Zavřít",
-  "shAlt": "QR kód této stránky",
-  "nfT": "Stránka nenalezena",
-  "nfH": "Tato stránka neexistuje.",
-  "nfBtn": "K pravidlům"
+  }
 }
