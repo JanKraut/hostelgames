@@ -100,6 +100,13 @@ export function readGame(file) {
     if (!Number.isInteger(min) || !Number.isInteger(max) || min < 1 || max < min) fail(`"players" must be { "min": 2, "max": 6 }`);
   }
   if (game.duration !== undefined && typeof game.duration !== "string") fail(`"duration" must be text, e.g. "20–30 min"`);
+  if (game.factsheet !== undefined) {
+    const { scales, people, id } = game.factsheet;
+    const scale = (s) => Array.isArray(s) && s.length === 3 && typeof s[0] === "string" && typeof s[1] === "string" && Number.isFinite(s[2]) && s[2] >= 0 && s[2] <= 100;
+    if (!Array.isArray(scales) || !scales.length || !scales.every(scale)) fail(`"factsheet.scales" must be a list like [["luck", "skill", 35], …] (two info texts, 0–100)`);
+    if (!Array.isArray(people) || people.length !== 2 || !people.every((n) => [1, 2, 3].includes(n))) fail(`"factsheet.people" must be two numbers 1–3, e.g. [2, 3]`);
+    if (id !== undefined && !/^[a-z][a-z0-9-]*$/.test(id)) fail(`"factsheet.id" must be lowercase letters, digits and dashes`);
+  }
   return game;
 }
 

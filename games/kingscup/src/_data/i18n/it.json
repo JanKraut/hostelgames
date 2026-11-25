@@ -1,7 +1,10 @@
 {
   "title": "King’s Cup – regole",
   "h1": "King’s Cup",
-  "h1sub": "Regole del gioco alcolico e significato di tutte le carte",
+  "rules": {
+    "h1": "King’s Cup",
+    "h1sub": "Regole del gioco alcolico e significato di tutte le carte"
+  },
   "sub": "Conosciuto anche come <strong>Ring of Fire</strong> o <strong>Circle of Death</strong>: un mazzo di carte in cerchio, un bicchiere al centro e una regola per ogni carta. Leggi una volta, pesca, fatto.",
   "seo": {
     "rulesT": "Regole di King’s Cup – il gioco alcolico Ring of Fire",

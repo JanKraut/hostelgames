@@ -2,6 +2,7 @@
   "title": "Schafkopf – rules",
   "h1": "Schafkopf",
   "sub": "Bavaria's national card game: four players, 32 cards and a set of trumps unlike any other – the Ober and Unter always win. Two against two, or one against all.",
+  "goal": "<strong>The goal:</strong> together with your partner – or alone in a Solo – take tricks worth at least <strong>61 of the 120 card points</strong>.",
   "seo": {
     "rulesT": "Schafkopf rules – the Bavarian card game explained",
     "rulesD": "How to play Schafkopf: dealing, the 14 trumps, card points, Sauspiel, Wenz and Solo, announcing, tricks, scoring with Schneider and Laufende, variants and FAQ."
@@ -20,7 +21,6 @@
   "rules": {
     "h1": "Schafkopf Card Game",
     "h1sub": "Rules & how to play",
-    "goal": "<strong>The goal:</strong> together with your partner – or alone in a Solo – take tricks worth at least <strong>61 of the 120 card points</strong>.",
     "rO": "Q",
     "rU": "J",
     "rK": "K",

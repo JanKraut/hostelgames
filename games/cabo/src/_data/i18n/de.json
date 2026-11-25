@@ -1,7 +1,10 @@
 {
   "title": "Cabo – Regeln",
   "h1": "Cabo",
-  "h1sub": "Kartenspiel-Regeln & Anleitung",
+  "rules": {
+    "h1": "Cabo",
+    "h1sub": "Kartenspiel-Regeln & Anleitung"
+  },
   "sub": "Anschauen, tauschen, merken: ein schnelles Gedächtnis-Kartenspiel für 2 bis 5 Leute mit normalen Spielkarten. Einmal lesen, eine Runde spielen, fertig.",
   "seo": {
     "rulesT": "Cabo Regeln – So geht das Kartenspiel",

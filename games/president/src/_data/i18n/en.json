@@ -1,7 +1,10 @@
 {
   "title": "President – rules",
   "h1": "President",
-  "h1sub": "card game: rules & how to play",
+  "rules": {
+    "h1": "President",
+    "h1sub": "card game: rules & how to play"
+  },
   "sub": "The hostel classic: get rid of your cards fast, climb to the top – and make the Scum hand over their best cards.",
   "seo": {
     "rulesT": "President card game rules – how to play",

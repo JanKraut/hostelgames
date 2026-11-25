@@ -12,7 +12,8 @@
     "./nav": "./lib/nav.js",
     "./sitemap": "./lib/sitemap.js",
     "./data/*": "./data/*",
-    "./scripts/*": "./scripts/*"
+    "./scripts/*": "./scripts/*",
+    "./testing": "./testing/playwright.js"
   },
   "bin": {
     "hostelgames-check-i18n": "scripts/check-i18n.js",

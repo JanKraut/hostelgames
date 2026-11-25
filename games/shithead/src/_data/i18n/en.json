@@ -93,6 +93,12 @@
   "stH": "Strategies",
   "chH": "Cheat sheet",
   "foot": "Have fun at the table. And remember: you’re only the Shithead if you can’t laugh about it.",
+  "nfCode": "Error 404",
+  "nfH": "This page doesn’t exist.",
+  "nfP": "Maybe someone played a 10 and burned it. Or it’s already out, like everyone who has no cards left. Except you.",
+  "nfPunch": "Well. You’re the shithead.",
+  "nfBtn": "Pick up the pile and read the rules",
+  "nfBtnQuick": "Go to the cheat sheet",
   "quiz": {
     "always2": "A 2 can always be played – it resets the pile.",
     "always3": "A 3 can always be played – it’s invisible.",

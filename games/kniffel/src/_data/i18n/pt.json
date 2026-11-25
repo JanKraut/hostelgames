@@ -1,7 +1,10 @@
 {
   "title": "Kniffel – regras",
   "h1": "Kniffel",
-  "h1sub": "Regras do jogo de dados e como jogar",
+  "rules": {
+    "h1": "Kniffel",
+    "h1sub": "Regras do jogo de dados e como jogar"
+  },
   "sub": "Cinco dados, três lançamentos por jogada, treze casas na folha de pontuação: o clássico de dados para 1 a 6 jogadores. Lês uma vez, lanças e pronto.",
   "seo": {
     "rulesT": "Regras do Kniffel – Como jogar o jogo de dados",

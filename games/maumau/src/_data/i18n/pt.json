@@ -2,6 +2,7 @@
   "title": "Mau-Mau – regras",
   "h1": "Mau-Mau",
   "sub": "O jogo de descarte favorito da Alemanha: segue o naipe ou o valor, usa o 7, o 8 e o valete contra os outros – e não te esqueças de dizer “Mau”.",
+  "goal": "<strong>O objetivo:</strong> ser o primeiro a livrar-te de todas as cartas. Diz “Mau” antes da tua última carta – e “Mau-Mau” quando a jogares.",
   "seo": {
     "rulesT": "Regras do jogo de cartas Mau-Mau – explicado de forma simples",
     "rulesD": "Como jogar Mau-Mau: dar as cartas, seguir naipe ou valor, as cartas especiais 7, 8 e valete, dizer Mau e Mau-Mau, pontuação, variantes e FAQ."
@@ -20,7 +21,6 @@
   "rules": {
     "h1": "Jogo de cartas Mau-Mau",
     "h1sub": "Regras e instruções",
-    "goal": "<strong>O objetivo:</strong> ser o primeiro a livrar-te de todas as cartas. Diz “Mau” antes da tua última carta – e “Mau-Mau” quando a jogares.",
     "navLabel": "Secções",
     "nSetup": "Preparação",
     "nPlay": "Jogar",

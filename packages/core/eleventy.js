@@ -16,6 +16,8 @@
 //   - the shared includes in includes/ (header with menu, language menu, flags, footer,
 //     tracking, playing cards, share box, language redirect, layouts/game.njk);
 //     a site's own _includes win if a file has the same name
+//   - for games: the 404 page (pages/404.njk, texts nf… from the game's i18n), with the layout
+//     given as notFoundLayout (default "game")
 //   - the service worker (assets/sw.js) with the list and a hash of all built files,
 //     unless serviceWorker: false
 //   - the dev server port from PORT (default 8080), so parallel worktrees can each run one
@@ -51,7 +53,7 @@ function hashFiles(dirs) {
 }
 
 export default function hostelgamesCore(eleventyConfig, options = {}) {
-  const { site, assets = "src/assets", includes = "src/_includes", serviceWorker = true } = options;
+  const { site, assets = "src/assets", includes = "src/_includes", serviceWorker = true, notFoundLayout = "game" } = options;
   if (!site) throw new Error("@hostelgames/core: pass { site } (from @hostelgames/core/site)");
   const cacheName = options.cacheName ?? site.game?.slug ?? "hostelgames";
 
@@ -91,6 +93,21 @@ export default function hostelgamesCore(eleventyConfig, options = {}) {
   // Page frame for games: `layout: game` (includes/layouts/game.njk). Eleventy looks for layouts
   // in the site's own _includes, so the alias points from there to the core file.
   eleventyConfig.addLayoutAlias("game", relative(join(process.cwd(), includes), join(INCLUDES, "layouts/game.njk")));
+
+  // ---------- 404 page of a game ----------
+  if (site.game) {
+    eleventyConfig.addTemplate("404.njk", readFileSync(join(CORE, "pages/404.njk"), "utf8"), {
+      permalink: "/404.html",
+      layout: notFoundLayout,
+      notFound: true,
+      eleventyExcludeFromCollections: true,
+      eleventyComputed: {
+        lang: (data) => data.languages[0],
+        pageTitle: (data) => `${data.languages[0].t.nfT} · ${data.site.game.name}`,
+        pageDescription: (data) => data.languages[0].t.nfH,
+      },
+    });
+  }
 
   // ---------- After the build ----------
   eleventyConfig.on("eleventy.after", ({ directories }) => {

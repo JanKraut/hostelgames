@@ -10,43 +10,24 @@ eleventyComputed:
   pageTitle: "{{ lang.t.seo.rulesT }}"
   pageDescription: "{{ lang.t.seo.rulesD }}"
 ---
+{%- from "blocks.njk" import secnav, steps, variants, faq -%}
 {#- Regelseite, eine pro Sprache. Abschnitte von oben nach unten: Aufbau, Spielablauf,
     Sonderkarten, Mau und Mau-Mau, Punkte, Varianten, FAQ, Teilen.
     Texte in src/_data/i18n/*.json (unter "rules"), Karten aus card.njk im Core. -#}
 {%- from "card.njk" import card, back, cardRow -%}
 {%- set t = lang.t -%}
 {%- set r = t.rules -%}
-<header class="hero">
-  <div class="wrap">
-    {% include "sitehead.njk" %}
-    <h1>{{ r.h1 }}<span class="h1-sub"> {{ r.h1sub }}</span></h1>
-    <p>{{ t.sub | safe }}</p>
-    {#- Die drei Sonderkarten plus ein Ass. -#}
-    <div class="fan" aria-hidden="true">
-      {{ card("7", "♥") }}
-      {{ card("8", "♠") }}
-      {{ card("J", "♣") }}
-      {{ card("A", "♦") }}
-    </div>
-    <div class="goal">
-      <div class="goal-icon" aria-hidden="true">🎯</div>
-      <p>{{ r.goal | safe }}</p>
-    </div>
-    {% include "factsheet.njk" %}
-  </div>
-</header>
+{% include "hero.njk" %}
 
-<nav class="secnav" aria-label="{{ r.navLabel }}">
-  <ul>
-    <li><a href="#setup">{{ r.nSetup }}</a></li>
-    <li><a href="#how-to-play">{{ r.nPlay }}</a></li>
-    <li><a href="#special">{{ r.nSpecial }}</a></li>
-    <li><a href="#mau">{{ r.nMau }}</a></li>
-    <li><a href="#scoring">{{ r.nScore }}</a></li>
-    <li><a href="#variants">{{ r.nVar }}</a></li>
-    <li><a href="#faq">{{ r.nFaq }}</a></li>
-  </ul>
-</nav>
+{{ secnav(r.navLabel, [
+  ["setup", r.nSetup],
+  ["how-to-play", r.nPlay],
+  ["special", r.nSpecial],
+  ["mau", r.nMau],
+  ["scoring", r.nScore],
+  ["variants", r.nVar],
+  ["faq", r.nFaq]
+]) }}
 
 <main class="wrap">
 
@@ -76,11 +57,7 @@ eleventyComputed:
   <section id="how-to-play">
     <h2>{{ r.playH }}</h2>
     <p class="lead">{{ r.playLead | safe }}</p>
-    <ol class="steps">
-      <li><h3>{{ r.t1h }}</h3><p>{{ r.t1p | safe }}</p></li>
-      <li><h3>{{ r.t2h }}</h3><p>{{ r.t2p | safe }}</p></li>
-      <li><h3>{{ r.t3h }}</h3><p>{{ r.t3p | safe }}</p></li>
-    </ol>
+    {{ steps(r, "t") }}
 
     {#- Was darf auf die Pik 9? Gleiche Farbe, gleicher Wert, ein Bube – aber nicht das Karo-Ass. -#}
     <div class="check">
@@ -160,27 +137,9 @@ eleventyComputed:
     <p>{{ r.scP | safe }}</p>
   </section>
 
-  <section id="variants">
-    <h2>{{ r.varH }}</h2>
-    <p class="lead">{{ r.varLead | safe }}</p>
-    <ul class="variants">
-      {%- for i in range(1, 10) %}
-      <li>{{ r["var" ~ i] | safe }}</li>
-      {%- endfor %}
-    </ul>
-  </section>
+  {{ variants(r) }}
 
-  <section id="faq">
-    <h2>{{ r.faqH }}</h2>
-    <div class="faq">
-      {%- for i in range(1, 8) %}
-      <details>
-        <summary>{{ r["faq" ~ i ~ "q"] }}</summary>
-        <p>{{ r["faq" ~ i ~ "a"] | safe }}</p>
-      </details>
-      {%- endfor %}
-    </div>
-  </section>
+  {{ faq(r) }}
 
   {% include "share.njk" %}
 </main>

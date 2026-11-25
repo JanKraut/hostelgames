@@ -65,6 +65,15 @@ test("pages and templates must agree, both ways", () => {
   assert.ok(readGame(gameDir({ ...BASE, pages: ["rules", "scoresheet"] }, ["index.njk", "scoresheet.njk"])));
 });
 
+test("factsheet: scales with two info texts and 0–100, two groups of 1–3 people", () => {
+  const ok = { scales: [["luck", "skill", 35], ["easy", "complex", 0]], people: [1, 3] };
+  assert.ok(readGame(gameDir({ ...BASE, factsheet: ok })));
+  assert.ok(readGame(gameDir({ ...BASE, factsheet: { ...ok, id: "steckbrief" } })));
+  assert.throws(() => readGame(gameDir({ ...BASE, factsheet: { ...ok, scales: [["luck", "skill", 120]] } })), /factsheet\.scales/);
+  assert.throws(() => readGame(gameDir({ ...BASE, factsheet: { ...ok, people: [2] } })), /factsheet\.people/);
+  assert.throws(() => readGame(gameDir({ ...BASE, factsheet: { ...ok, id: "Fact Sheet" } })), /factsheet\.id/);
+});
+
 test("languages: codes from game.json, menu order and flags from the core, texts with fallback", () => {
   const file = gameDir({ ...BASE, languages: ["de", "en", "es-419"] }, ["index.njk"], {
     en: { title: "Rules", more: "More" },

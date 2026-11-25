@@ -2,6 +2,7 @@
   "title": "Mau-Mau – regels",
   "h1": "Mau-Mau",
   "sub": "Het favoriete aflegspel van Duitsland: leg op kleur of waarde, zet de 7, de 8 en de boer in tegen de anderen – en vergeet niet om “Mau” te zeggen.",
+  "goal": "<strong>Het doel:</strong> raak als eerste al je kaarten kwijt. Zeg “Mau” voor je laatste kaart – en “Mau-Mau” als je hem weglegt.",
   "seo": {
     "rulesT": "Mau-Mau kaartspel regels – simpel uitgelegd",
     "rulesD": "Zo speel je Mau-Mau: delen, kleur of waarde volgen, de speciale kaarten 7, 8 en boer, Mau en Mau-Mau zeggen, puntentelling, varianten en FAQ."
@@ -20,7 +21,6 @@
   "rules": {
     "h1": "Kaartspel Mau-Mau",
     "h1sub": "Regels & uitleg",
-    "goal": "<strong>Het doel:</strong> raak als eerste al je kaarten kwijt. Zeg “Mau” voor je laatste kaart – en “Mau-Mau” als je hem weglegt.",
     "navLabel": "Onderdelen",
     "nSetup": "Opzet",
     "nPlay": "Spelen",

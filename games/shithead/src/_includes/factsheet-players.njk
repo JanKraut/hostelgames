@@ -1,0 +1,13 @@
+{#- Fact sheet (core includes/factsheet.njk): Shithead shows the decks you need instead of a text. -#}
+{%- set i = lang.t.info -%}
+{%- set people -%}
+<svg class="fs-people" viewBox="0 0 32 24" aria-hidden="true"><circle cx="11" cy="7" r="4"/><path d="M3 21c0-4.5 3.6-7 8-7s8 2.5 8 7"/><circle cx="21" cy="6" r="3.5"/><path d="M19 13.2c.6-.1 1.3-.2 2-.2 4.4 0 8 2.5 8 7"/></svg>
+{%- endset %}
+        <div class="fs-group" role="img" aria-label="{{ i.players1 }}: {{ i.decks1 }}">
+          <div class="fs-who">{{ people | safe }}<span>{{ i.players1 }}</span></div>
+          <div class="fs-decks"><span class="fs-deck"></span></div>
+        </div>
+        <div class="fs-group" role="img" aria-label="{{ i.players2 }}: {{ i.decks2 }}">
+          <div class="fs-who">{{ people | safe }}<span>{{ i.players2 }}</span></div>
+          <div class="fs-decks"><span class="fs-deck"></span><span class="fs-deck alt"></span></div>
+        </div>

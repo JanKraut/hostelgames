@@ -1,7 +1,10 @@
 {
   "title": "Kniffel – rules",
   "h1": "Kniffel",
-  "h1sub": "Dice game rules & how to play",
+  "rules": {
+    "h1": "Kniffel",
+    "h1sub": "Dice game rules & how to play"
+  },
   "sub": "Five dice, three rolls per turn, thirteen boxes on the score sheet: the dice classic for 1 to 6 players. Read it once, roll, done.",
   "seo": {
     "rulesT": "Kniffel Rules – How to Play the Dice Game",

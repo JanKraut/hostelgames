@@ -1,7 +1,10 @@
 {
   "title": "King’s Cup – zasady",
   "h1": "King’s Cup",
-  "h1sub": "Zasady gry imprezowej i znaczenia kart",
+  "rules": {
+    "h1": "King’s Cup",
+    "h1sub": "Zasady gry imprezowej i znaczenia kart"
+  },
   "sub": "Znana także jako <strong>Ring of Fire</strong> lub <strong>Circle of Death</strong>: talia kart ułożona w krąg, kubek na środku i zasada dla każdej karty. Raz przeczytać, ciągnąć i gotowe.",
   "seo": {
     "rulesT": "Zasady King’s Cup – gra imprezowa Ring of Fire",

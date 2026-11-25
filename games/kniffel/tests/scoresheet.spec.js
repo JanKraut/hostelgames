@@ -1,17 +1,8 @@
-import { test as base, expect } from "@playwright/test";
+import { test, expect } from "@hostelgames/core/testing";
 import languages from "../src/_data/languages.js";
 
 // Online-Block (scoresheet/): Spieler anlegen, eintragen, Summen und Bonus, Rückgängig,
-// Speichern im Browser, Abrechnung. Jeder Test scheitert bei einem JavaScript-Fehler.
-const test = base.extend({
-  page: async ({ page }, use) => {
-    const errors = [];
-    page.on("pageerror", (error) => errors.push(error.message));
-    await use(page);
-    expect(errors, "JavaScript errors on the page").toEqual([]);
-  },
-});
-
+// Speichern im Browser, Abrechnung.
 const pathOf = (lang) => `${lang.path === "/" ? "" : lang.path.slice(1)}scoresheet/`;
 // Zeilen im tbody: 0 Abschnitt oben, 1–6 Einser–Sechser, 7 Summe oben, 8 Bonus,
 // 9 Abschnitt unten, 10–16 Dreierpasch–Chance, 17 Summe unten, 18 Gesamt

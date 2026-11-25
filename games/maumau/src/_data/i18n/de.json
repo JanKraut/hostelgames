@@ -2,6 +2,7 @@
   "title": "Mau-Mau – Regeln",
   "h1": "Mau-Mau",
   "sub": "Das Lieblings-Ablegespiel der Deutschen: Farbe oder Wert bedienen, die 7, die 8 und den Buben gegen die anderen einsetzen – und nicht vergessen, „Mau“ zu sagen.",
+  "goal": "<strong>Das Ziel:</strong> Werde als Erste oder Erster alle Karten los. Vor deiner letzten Karte sagst du „Mau“ – und „Mau-Mau“, wenn du sie ablegst.",
   "seo": {
     "rulesT": "Mau-Mau Regeln – Kartenspiel einfach erklärt",
     "rulesD": "So geht Mau-Mau: Austeilen, Farbe oder Wert bedienen, die Sonderkarten 7, 8 und Bube, Mau und Mau-Mau sagen, Punkte zählen, Varianten und FAQ."
@@ -20,7 +21,6 @@
   "rules": {
     "h1": "Mau-Mau-Kartenspiel",
     "h1sub": "Regeln & Spielablauf",
-    "goal": "<strong>Das Ziel:</strong> Werde als Erste oder Erster alle Karten los. Vor deiner letzten Karte sagst du „Mau“ – und „Mau-Mau“, wenn du sie ablegst.",
     "navLabel": "Abschnitte",
     "nSetup": "Aufbau",
     "nPlay": "Spielablauf",

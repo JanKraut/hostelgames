@@ -2,6 +2,7 @@
   "title": "Mau-Mau – regler",
   "h1": "Mau-Mau",
   "sub": "Tysklands favorit bland vändåttaspel: matcha färg eller valör, använd 7:an, 8:an och knekten mot de andra – och glöm inte att säga ”Mau”.",
+  "goal": "<strong>Målet:</strong> Bli först med att bli av med alla dina kort. Säg ”Mau” före ditt sista kort – och ”Mau-Mau” när du lägger det.",
   "seo": {
     "rulesT": "Mau-Mau kortspel – regler enkelt förklarat",
     "rulesD": "Så spelar du Mau-Mau: utdelning, matcha färg eller valör, specialkorten 7, 8 och knekt, säga Mau och Mau-Mau, poängräkning, varianter och FAQ."
@@ -20,7 +21,6 @@
   "rules": {
     "h1": "Kortspelet Mau-Mau",
     "h1sub": "Regler & spelgång",
-    "goal": "<strong>Målet:</strong> Bli först med att bli av med alla dina kort. Säg ”Mau” före ditt sista kort – och ”Mau-Mau” när du lägger det.",
     "navLabel": "Avsnitt",
     "nSetup": "Förberedelse",
     "nPlay": "Spela",

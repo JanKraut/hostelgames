@@ -1,18 +1,5 @@
-import { test as base, expect } from "@playwright/test";
+import { test, expect, pathOf } from "@hostelgames/core/testing";
 import languages from "../src/_data/languages.js";
-
-// Every test fails if the page throws a JavaScript error.
-const test = base.extend({
-  page: async ({ page }, use) => {
-    const errors = [];
-    page.on("pageerror", (error) => errors.push(error.message));
-    await use(page);
-    expect(errors, "JavaScript errors on the page").toEqual([]);
-  },
-});
-
-// Relative to baseURL, e.g. "./" for English and "de/" for German.
-const pathOf = (lang) => (lang.path === "/" ? "./" : lang.path.slice(1));
 const byCode = Object.fromEntries(languages.map((lang) => [lang.code, lang]));
 
 /** Opens a language page without being redirected by the start page. */

@@ -1,0 +1,10 @@
+{#- Picture in the big header (core includes/hero.njk), between the intro and the goal. -#}
+{%- from "card.njk" import card -%}
+{%- set O = lang.t.rules.rO -%}
+{#- Die vier Ober, die höchsten Trümpfe. -#}
+<div class="fan" aria-hidden="true">
+  {{ card(O, "♦") }}
+  {{ card(O, "♥") }}
+  {{ card(O, "♠") }}
+  {{ card(O, "♣") }}
+</div>

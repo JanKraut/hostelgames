@@ -1,7 +1,10 @@
 {
   "title": "Kniffel – regler",
   "h1": "Kniffel",
-  "h1sub": "Terningespil – regler & vejledning",
+  "rules": {
+    "h1": "Kniffel",
+    "h1sub": "Terningespil – regler & vejledning"
+  },
   "sub": "Fem terninger, tre kast per tur, tretten felter på pointblokken: terningeklassikeren for 1 til 6 spillere. Læs én gang, slå, færdig.",
   "seo": {
     "rulesT": "Kniffel regler – sådan spiller du terningespillet",

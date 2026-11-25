@@ -1,7 +1,10 @@
 {
   "title": "King’s Cup – regler",
   "h1": "King’s Cup",
-  "h1sub": "Drickspel – regler & alla kortbetydelser",
+  "rules": {
+    "h1": "King’s Cup",
+    "h1sub": "Drickspel – regler & alla kortbetydelser"
+  },
   "sub": "Även känt som <strong>Ring of Fire</strong> eller <strong>Circle of Death</strong>: en kortlek i en cirkel, en bägare i mitten och en regel för varje kort. Läs en gång, dra, klart.",
   "seo": {
     "rulesT": "King’s Cup regler – drickspelet Ring of Fire förklarat",

@@ -1,7 +1,10 @@
 {
   "title": "Kniffel – pravidla",
   "h1": "Kniffel",
-  "h1sub": "Pravidla a návod kostkové hry",
+  "rules": {
+    "h1": "Kniffel",
+    "h1sub": "Pravidla a návod kostkové hry"
+  },
   "sub": "Pět kostek, tři hody na tah, třináct polí v tabulce: klasická kostková hra pro 1 až 6 hráčů. Jednou přečíst, hodit a hotovo.",
   "seo": {
     "rulesT": "Kniffel pravidla – jak hrát kostkovou hru",

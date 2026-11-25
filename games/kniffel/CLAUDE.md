@@ -4,17 +4,15 @@ Würfelspiel (`category: dice`) · Domain: noch keine · Ordner: kniffel · Slug
 
 ## Stand
 - Regelseite (src/index.njk) mit Texten de + en.
-- Steckbrief im Kopfbereich (src/_includes/factsheet.njk, Texte unter `info`): gleicher Aufbau
-  wie bei Shithead, mit Würfeln statt Karten. Styles als Core-Kandidat markiert.
-- Würfel kommen aus src/_includes/dice.njk (`die(n, size, extra)`, `dice([...])`),
-  Styles in src/assets/styles.css. Kein Core-Include, weil bisher nur Kniffel würfelt;
-  beim zweiten Würfelspiel in den Core verschieben.
+- Steckbrief im Kopfbereich aus dem Core (`factsheet` in game.json, Texte unter `info`); das Bild
+  mit Würfeln und Block steht in src/_includes/factsheet-art.njk.
+- Würfel kommen aus dem Core (`dice.njk`: `die(n, size, extra)`, `dice([...])`, Styles in core.css).
 - Online-Block (src/scoresheet.njk, src/assets/scoresheet.js, Seite `scoresheet` in game.json):
   1–8 Spieler auf einem Gerät, gespeichert nur in localStorage (`hostelgames:kniffel:scoresheet`),
   kein Server, kein Teilen. Konzept: Projekt-Doku „kniffel-block-konzept.md“. Styles am Ende von
   styles.css (nur Core-Farben). Beim zweiten Block-Spiel Logik und Styles in den Core verschieben.
 - Strategie (src/strategy.njk, Texte unter `strategy`) und Quickstart (src/quickstart.njk,
-  Texte unter `quick`). Kopfbereich für Regeln/Strategie/Quickstart: src/_includes/hero.njk.
+  Texte unter `quick`). Kopfbereich: `hero.njk` aus dem Core, die fünf Würfel darin in src/_includes/hero-art.njk.
   Die Wahrscheinlichkeiten in der Chancen-Tabelle sind exakt gerechnet – bei Änderungen neu rechnen.
 - Nächste Schritte: ggf. Spielblock zum Ausdrucken
   (Datei anlegen UND in `pages` der game.json eintragen, sonst bricht der Build ab).

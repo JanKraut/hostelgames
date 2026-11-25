@@ -10,38 +10,22 @@ eleventyComputed:
   pageTitle: "{{ lang.t.seo.rulesT }}"
   pageDescription: "{{ lang.t.seo.rulesD }}"
 ---
+{%- from "blocks.njk" import secnav, steps, variants, faq -%}
 {#- Regelseite, eine pro Sprache. Abschnitte von oben nach unten: Aufbau, Dein Zug,
     Rückweg, Gewinnen, Stumme Jule, Varianten, FAQ, Teilen. Texte in src/_data/i18n/*.json. -#}
 {%- from "dice.njk" import die, dice -%}
 {%- set t = lang.t -%}
-<header class="hero">
-  <div class="wrap">
-    {% include "sitehead.njk" %}
-    <h1>{{ t.h1 }}<span class="h1-sub"> {{ t.h1sub }}</span></h1>
-    <p>{{ t.sub | safe }}</p>
-    {#- Die sechs Zahlen des Hinwegs, eine nach der anderen. -#}
-    <div class="throw" aria-hidden="true">
-      {%- for n in range(1, 7) %}{{ die(n) }}{% endfor -%}
-    </div>
-    <div class="goal">
-      <div class="goal-icon" aria-hidden="true">🎯</div>
-      <p>{{ t.goal | safe }}</p>
-    </div>
-    {% include "factsheet.njk" %}
-  </div>
-</header>
+{% include "hero.njk" %}
 
-<nav class="secnav" aria-label="{{ t.navLabel }}">
-  <ul>
-    <li><a href="#setup">{{ t.nSetup }}</a></li>
-    <li><a href="#turn">{{ t.nTurn }}</a></li>
-    <li><a href="#back">{{ t.nBack }}</a></li>
-    <li><a href="#winning">{{ t.nWin }}</a></li>
-    <li><a href="#silent">{{ t.nSilent }}</a></li>
-    <li><a href="#variants">{{ t.nVariants }}</a></li>
-    <li><a href="#faq">{{ t.nFaq }}</a></li>
-  </ul>
-</nav>
+{{ secnav(t.navLabel, [
+  ["setup", t.nSetup],
+  ["turn", t.nTurn],
+  ["back", t.nBack],
+  ["winning", t.nWin],
+  ["silent", t.nSilent],
+  ["variants", t.nVariants],
+  ["faq", t.nFaq]
+]) }}
 
 <main class="wrap">
 
@@ -59,11 +43,7 @@ eleventyComputed:
   <section id="turn">
     <h2>{{ t.turnH }}</h2>
     <p class="lead">{{ t.turnLead | safe }}</p>
-    <ol class="steps">
-      <li><h3>{{ t.s1h }}</h3><p>{{ t.s1p | safe }}</p></li>
-      <li><h3>{{ t.s2h }}</h3><p>{{ t.s2p | safe }}</p></li>
-      <li><h3>{{ t.s3h }}</h3><p>{{ t.s3p | safe }}</p></li>
-    </ol>
+    {{ steps(t, "s") }}
 
     {#- Beispielrunde: Anna braucht die 3, Ben die 1, Cem die 5. Gold = Treffer, wird notiert. -#}
     <h3 class="sub">{{ t.exH }}</h3>
@@ -128,27 +108,9 @@ eleventyComputed:
     <p>{{ t.silentP | safe }}</p>
   </section>
 
-  <section id="variants">
-    <h2>{{ t.varH }}</h2>
-    <p class="lead">{{ t.varLead | safe }}</p>
-    <ul class="variants">
-      {%- for i in range(1, 7) %}
-      <li>{{ t["var" ~ i] | safe }}</li>
-      {%- endfor %}
-    </ul>
-  </section>
+  {{ variants(t) }}
 
-  <section id="faq">
-    <h2>{{ t.faqH }}</h2>
-    <div class="faq">
-      {%- for i in range(1, 7) %}
-      <details>
-        <summary>{{ t["faq" ~ i ~ "q"] }}</summary>
-        <p>{{ t["faq" ~ i ~ "a"] | safe }}</p>
-      </details>
-      {%- endfor %}
-    </div>
-  </section>
+  {{ faq(t) }}
 
   {% include "share.njk" %}
 </main>

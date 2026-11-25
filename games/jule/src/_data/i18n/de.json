@@ -1,7 +1,10 @@
 {
   "title": "Jule – Regeln",
   "h1": "Jule",
-  "h1sub": "Würfelspiel-Regeln & Stumme Jule",
+  "rules": {
+    "h1": "Jule",
+    "h1sub": "Würfelspiel-Regeln & Stumme Jule"
+  },
   "sub": "Ein Würfel, Zettel und Stift: Würfle die Zahlen <strong>1 bis 6 der Reihe nach</strong> und streiche sie danach von 6 bis 1 wieder weg. Die leise Fassung, die <strong>Stumme Jule</strong>, geht genauso – nur wer einen Ton von sich gibt, fängt von vorn an.",
   "seo": {
     "rulesT": "Jule Würfelspiel Regeln – auch Stumme Jule",

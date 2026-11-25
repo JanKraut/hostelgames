@@ -2,6 +2,7 @@
   "title": "Mau-Mau – reglas",
   "h1": "Mau-Mau",
   "sub": "El juego de cartas favorito de Alemania para quedarse sin cartas: sigue el palo o el valor, usa el 7, el 8 y la jota contra los demás – y no olvides decir «Mau».",
+  "goal": "<strong>El objetivo:</strong> ser el primero en deshacerte de todas tus cartas. Di «Mau» antes de tu última carta y «Mau-Mau» al jugarla.",
   "seo": {
     "rulesT": "Reglas del juego de cartas Mau-Mau – explicado fácil",
     "rulesD": "Cómo jugar a Mau-Mau: repartir, seguir palo o valor, las cartas especiales 7, 8 y jota, decir Mau y Mau-Mau, puntuación, variantes y FAQ."
@@ -20,7 +21,6 @@
   "rules": {
     "h1": "Juego de cartas Mau-Mau",
     "h1sub": "Reglas y cómo jugar",
-    "goal": "<strong>El objetivo:</strong> ser el primero en deshacerte de todas tus cartas. Di «Mau» antes de tu última carta y «Mau-Mau» al jugarla.",
     "navLabel": "Secciones",
     "nSetup": "Preparación",
     "nPlay": "Jugar",

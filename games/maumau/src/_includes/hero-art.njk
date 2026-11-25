@@ -1,0 +1,9 @@
+{#- Picture in the big header (core includes/hero.njk), between the intro and the goal. -#}
+{%- from "card.njk" import card -%}
+{#- Die drei Sonderkarten plus ein Ass. -#}
+<div class="fan" aria-hidden="true">
+  {{ card("7", "♥") }}
+  {{ card("8", "♠") }}
+  {{ card("J", "♣") }}
+  {{ card("A", "♦") }}
+</div>

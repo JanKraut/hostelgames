@@ -1,7 +1,10 @@
 {
   "title": "Kniffel – reglas",
   "h1": "Kniffel",
-  "h1sub": "Reglas del juego de dados y cómo jugar",
+  "rules": {
+    "h1": "Kniffel",
+    "h1sub": "Reglas del juego de dados y cómo jugar"
+  },
   "sub": "Cinco dados, tres tiradas por turno y trece casillas en la hoja de puntuación: el clásico de dados para 1 a 6 jugadores. Léelo una vez, tira y listo.",
   "seo": {
     "rulesT": "Reglas de Kniffel – Cómo jugar al juego de dados",

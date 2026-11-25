@@ -1,7 +1,10 @@
 {
   "title": "King’s Cup – règles",
   "h1": "King’s Cup",
-  "h1sub": "Règles du jeu à boire et signification de chaque carte",
+  "rules": {
+    "h1": "King’s Cup",
+    "h1sub": "Règles du jeu à boire et signification de chaque carte"
+  },
   "sub": "Aussi connu sous le nom de <strong>Ring of Fire</strong> ou <strong>Circle of Death</strong> : un jeu de cartes en cercle, un gobelet au milieu et une règle pour chaque carte. Une lecture, on pioche, et c’est parti.",
   "seo": {
     "rulesT": "Règles du King’s Cup – le jeu à boire Ring of Fire",

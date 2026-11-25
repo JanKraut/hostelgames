@@ -2,6 +2,7 @@
   "title": "Mau-Mau – zasady",
   "h1": "Mau-Mau",
   "sub": "Ulubiona niemiecka gra w pozbywanie się kart: dokładaj do koloru lub figury, wykorzystuj 7, 8 i waleta przeciwko innym – i nie zapomnij powiedzieć „Mau”.",
+  "goal": "<strong>Cel gry:</strong> pozbądź się wszystkich swoich kart jako pierwszy. Przed ostatnią kartą powiedz „Mau” – a gdy ją zagrywasz, „Mau-Mau”.",
   "seo": {
     "rulesT": "Zasady gry karcianej Mau-Mau – prosto wyjaśnione",
     "rulesD": "Jak grać w Mau-Mau: rozdawanie, dokładanie do koloru lub wartości, karty specjalne 7, 8 i walet, wołanie Mau i Mau-Mau, punktacja, warianty i FAQ."
@@ -20,7 +21,6 @@
   "rules": {
     "h1": "Gra karciana Mau-Mau",
     "h1sub": "Zasady i instrukcja",
-    "goal": "<strong>Cel gry:</strong> pozbądź się wszystkich swoich kart jako pierwszy. Przed ostatnią kartą powiedz „Mau” – a gdy ją zagrywasz, „Mau-Mau”.",
     "navLabel": "Sekcje",
     "nSetup": "Przygotowanie",
     "nPlay": "Przebieg",

@@ -11,6 +11,7 @@ eleventyComputed:
   pageTitle: "{{ lang.t.seo.strategyT }}"
   pageDescription: "{{ lang.t.seo.strategyD }}"
 ---
+{%- from "blocks.njk" import secnav -%}
 {#- Strategie, eine pro Sprache. Abschnitte: Grundprinzip, Bonus (Plus-Minus-Rechnung),
     Liegen lassen (mit Chancen-Tabelle), Felder wählen, Streichen, Endspiel, Fehler, Weiter, Teilen.
     Texte unter `strategy` im i18n; Würfel aus dice.njk (gold = liegen lassen, 0 = noch zu werfen). -#}
@@ -19,17 +20,15 @@ eleventyComputed:
 {%- set s = t.strategy -%}
 {% include "hero.njk" %}
 
-<nav class="secnav" aria-label="{{ t.navLabel }}">
-  <ul>
-    <li><a href="#principle">{{ s.principleNav }}</a></li>
-    <li><a href="#bonus">{{ s.bonusNav }}</a></li>
-    <li><a href="#keep">{{ s.keepNav }}</a></li>
-    <li><a href="#boxes">{{ s.boxesNav }}</a></li>
-    <li><a href="#strike">{{ s.strikeNav }}</a></li>
-    <li><a href="#endgame">{{ s.endNav }}</a></li>
-    <li><a href="#mistakes">{{ s.mistakesNav }}</a></li>
-  </ul>
-</nav>
+{{ secnav(t.navLabel, [
+  ["principle", s.principleNav],
+  ["bonus", s.bonusNav],
+  ["keep", s.keepNav],
+  ["boxes", s.boxesNav],
+  ["strike", s.strikeNav],
+  ["endgame", s.endNav],
+  ["mistakes", s.mistakesNav]
+]) }}
 
 <main class="wrap">
   <section id="principle">

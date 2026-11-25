@@ -1,5 +1,7 @@
 {
-  "h1sub": "Reglas del juego de tomar y significado de cada carta",
+  "rules": {
+    "h1sub": "Reglas del juego de tomar y significado de cada carta"
+  },
   "sub": "También conocido como <strong>Ring of Fire</strong> o <strong>Circle of Death</strong>: una baraja en círculo, un vaso en el centro y una regla para cada carta. Léelo una vez, toma una carta y listo.",
   "seo": {
     "rulesT": "Reglas de King’s Cup – El juego de tomar Ring of Fire"

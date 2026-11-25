@@ -1,7 +1,10 @@
 {
   "title": "Cambio – Regeln",
   "h1": "Cambio",
-  "h1sub": "Kartenspiel: Regeln & Anleitung",
+  "rules": {
+    "h1": "Cambio",
+    "h1sub": "Kartenspiel: Regeln & Anleitung"
+  },
   "sub": "Vier Karten verdeckt, ein kurzer Blick, danach zählt nur dein Gedächtnis. Ein Hostel-Klassiker, den du in zwei Minuten lernst.",
   "goal": "<strong>Das Ziel:</strong> Am Ende der Runde die niedrigste Summe in deinen Karten haben. Du siehst sie fast nie – also merk dir, was du angeschaut hast, tausch hohe Karten aus und behalte die anderen im Blick.",
   "seo": {
@@ -103,33 +106,29 @@
     "points": "Punkte",
     "p": "Spielt so viele Runden, wie ihr wollt, oder bis jemand über 100 Punkte kommt. Dann gewinnt, wer insgesamt die wenigsten Punkte hat. Für ein kurzes Spiel reicht eine einzige Runde."
   },
-  "variants": {
-    "h": "Varianten",
-    "lead": "Cambio wird mündlich weitergegeben, deshalb spielt es jeder Tisch ein bisschen anders. Sprecht diese Punkte vor dem Start ab:",
-    "v1": "<strong>Vom Ablagestapel nehmen:</strong> Manche Gruppen erlauben, statt zu ziehen die oberste offene Karte zu nehmen. Die musst du dann in dein Quadrat tauschen, und sie hat nie eine Fähigkeit.",
-    "v2": "<strong>Andere Fähigkeiten:</strong> Manchmal tauscht nur der Bube blind und die Dame darf vorher anschauen, oder jeder König ist „anschauen und tauschen“. Manche spielen Bube und Dame ganz ohne Fähigkeit.",
-    "v3": "<strong>Roter König:</strong> In manchen Gruppen zählt er −2, in anderen nur 1 Punkt wie ein Ass. Manche spielen ohne Joker.",
-    "v4": "<strong>Strafe für falsches Ansagen:</strong> Hat der Ansager nicht die niedrigste Summe, bekommt er Strafpunkte, oft +10 oder +25. Dafür bekommt der Rundensieger manchmal 0 Punkte.",
-    "v5": "<strong>Abwerfen:</strong> Manche Tische erlauben nur das Abwerfen eigener Karten oder lassen es ganz weg. Dann wird das Spiel ruhiger und dreht sich mehr ums Merken.",
-    "v6": "<strong>Sechs Karten:</strong> Zu zweit oder für eine längere Runde gibt es 6 Karten in zwei Reihen à drei, und du schaust dir drei davon an."
-  },
-  "faq": {
-    "h": "Häufige Fragen",
-    "q1": "Darf ich meine Karten später nochmal anschauen?",
-    "a1": "Nur mit einer Fähigkeit: Eine 7 oder 8, die du ziehst und abwirfst, erlaubt dir einen Blick auf eine eigene Karte. Sonst musst du dich erinnern.",
-    "q2": "Zählt die Fähigkeit, wenn ich die Karte austausche?",
-    "a2": "Nein. Nur eine Karte, die direkt vom Nachziehstapel auf den Ablagestapel kommt, hat eine Fähigkeit. Eine 7, die du aus deinem Quadrat tauschst, bewirkt nichts.",
-    "q3": "Darf ich abwerfen, wenn ich nicht dran bin?",
-    "a3": "Ja, jederzeit, solange die passende Karte oben auf dem Ablagestapel liegt. Du darfst eigene und fremde Karten abwerfen.",
-    "q4": "Was, wenn zwei gleichzeitig abwerfen?",
-    "a4": "Es zählt nur der Schnellere. Der Langsamere nimmt seine Karte zurück. Strenge Runden geben ihm zusätzlich eine Strafkarte.",
-    "q5": "Darf ich meine Karten umlegen?",
-    "a5": "Nein. Jede Karte behält ihren Platz, sonst verliert jeder den Überblick. Wer seine Karten verschiebt, zieht eine Strafkarte.",
-    "q6": "Was passiert, wenn ich keine Karten mehr habe?",
-    "a6": "Du bleibst mit 0 Punkten in der Runde und darfst weiter fremde Karten abwerfen – du hast nur nichts, was du dafür hergeben kannst.",
-    "q7": "Darf ich gleich am Anfang „Cambio“ sagen?",
-    "a7": "Ja, zu Beginn jedes deiner Züge. Frühes Ansagen ist mutig, denn du kennst nur zwei deiner Karten.",
-    "q8": "Was ist der Unterschied zwischen Cambio und Cabo?",
-    "a8": "Die beiden sind eng verwandt. Cabo gibt es mit eigenen Karten von 0 bis 13 zu kaufen; Cambio spielt man mit einem normalen Kartenspiel, mit dem roten König als bester Karte und meist mit Abwerfen."
-  }
+  "varH": "Varianten",
+  "varLead": "Cambio wird mündlich weitergegeben, deshalb spielt es jeder Tisch ein bisschen anders. Sprecht diese Punkte vor dem Start ab:",
+  "var1": "<strong>Vom Ablagestapel nehmen:</strong> Manche Gruppen erlauben, statt zu ziehen die oberste offene Karte zu nehmen. Die musst du dann in dein Quadrat tauschen, und sie hat nie eine Fähigkeit.",
+  "var2": "<strong>Andere Fähigkeiten:</strong> Manchmal tauscht nur der Bube blind und die Dame darf vorher anschauen, oder jeder König ist „anschauen und tauschen“. Manche spielen Bube und Dame ganz ohne Fähigkeit.",
+  "var3": "<strong>Roter König:</strong> In manchen Gruppen zählt er −2, in anderen nur 1 Punkt wie ein Ass. Manche spielen ohne Joker.",
+  "var4": "<strong>Strafe für falsches Ansagen:</strong> Hat der Ansager nicht die niedrigste Summe, bekommt er Strafpunkte, oft +10 oder +25. Dafür bekommt der Rundensieger manchmal 0 Punkte.",
+  "var5": "<strong>Abwerfen:</strong> Manche Tische erlauben nur das Abwerfen eigener Karten oder lassen es ganz weg. Dann wird das Spiel ruhiger und dreht sich mehr ums Merken.",
+  "var6": "<strong>Sechs Karten:</strong> Zu zweit oder für eine längere Runde gibt es 6 Karten in zwei Reihen à drei, und du schaust dir drei davon an.",
+  "faqH": "Häufige Fragen",
+  "faq1q": "Darf ich meine Karten später nochmal anschauen?",
+  "faq1a": "Nur mit einer Fähigkeit: Eine 7 oder 8, die du ziehst und abwirfst, erlaubt dir einen Blick auf eine eigene Karte. Sonst musst du dich erinnern.",
+  "faq2q": "Zählt die Fähigkeit, wenn ich die Karte austausche?",
+  "faq2a": "Nein. Nur eine Karte, die direkt vom Nachziehstapel auf den Ablagestapel kommt, hat eine Fähigkeit. Eine 7, die du aus deinem Quadrat tauschst, bewirkt nichts.",
+  "faq3q": "Darf ich abwerfen, wenn ich nicht dran bin?",
+  "faq3a": "Ja, jederzeit, solange die passende Karte oben auf dem Ablagestapel liegt. Du darfst eigene und fremde Karten abwerfen.",
+  "faq4q": "Was, wenn zwei gleichzeitig abwerfen?",
+  "faq4a": "Es zählt nur der Schnellere. Der Langsamere nimmt seine Karte zurück. Strenge Runden geben ihm zusätzlich eine Strafkarte.",
+  "faq5q": "Darf ich meine Karten umlegen?",
+  "faq5a": "Nein. Jede Karte behält ihren Platz, sonst verliert jeder den Überblick. Wer seine Karten verschiebt, zieht eine Strafkarte.",
+  "faq6q": "Was passiert, wenn ich keine Karten mehr habe?",
+  "faq6a": "Du bleibst mit 0 Punkten in der Runde und darfst weiter fremde Karten abwerfen – du hast nur nichts, was du dafür hergeben kannst.",
+  "faq7q": "Darf ich gleich am Anfang „Cambio“ sagen?",
+  "faq7a": "Ja, zu Beginn jedes deiner Züge. Frühes Ansagen ist mutig, denn du kennst nur zwei deiner Karten.",
+  "faq8q": "Was ist der Unterschied zwischen Cambio und Cabo?",
+  "faq8a": "Die beiden sind eng verwandt. Cabo gibt es mit eigenen Karten von 0 bis 13 zu kaufen; Cambio spielt man mit einem normalen Kartenspiel, mit dem roten König als bester Karte und meist mit Abwerfen."
 }

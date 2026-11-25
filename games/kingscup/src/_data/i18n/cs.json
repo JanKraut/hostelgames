@@ -1,7 +1,10 @@
 {
   "title": "King’s Cup – pravidla",
   "h1": "King’s Cup",
-  "h1sub": "Pravidla pitné hry a význam všech karet",
+  "rules": {
+    "h1": "King’s Cup",
+    "h1sub": "Pravidla pitné hry a význam všech karet"
+  },
   "sub": "Známý také jako <strong>Ring of Fire</strong> nebo <strong>Circle of Death</strong>: balíček karet do kruhu, kelímek doprostřed a pravidlo ke každé kartě. Jednou přečíst, táhnout a hotovo.",
   "seo": {
     "rulesT": "King’s Cup pravidla – pitná hra Ring of Fire",

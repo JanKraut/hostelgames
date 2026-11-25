@@ -1,7 +1,10 @@
 {
   "title": "King’s Cup – säännöt",
   "h1": "King’s Cup",
-  "h1sub": "Juomapelin säännöt & kaikkien korttien merkitykset",
+  "rules": {
+    "h1": "King’s Cup",
+    "h1sub": "Juomapelin säännöt & kaikkien korttien merkitykset"
+  },
   "sub": "Tunnetaan myös nimillä <strong>Ring of Fire</strong> ja <strong>Circle of Death</strong>: korttipakka kehässä, muki keskellä ja oma sääntö jokaiselle kortille. Lue kerran, nosta kortti, valmis.",
   "seo": {
     "rulesT": "King’s Cup säännöt – Ring of Fire -juomapeli selitettynä",

@@ -2,6 +2,7 @@
   "title": "Mau-Mau – règles",
   "h1": "Mau-Mau",
   "sub": "Le jeu de défausse préféré des Allemands : suis la couleur ou la valeur, utilise le 7, le 8 et le valet contre les autres – et n’oublie pas de dire « Mau ».",
+  "goal": "<strong>Le but :</strong> être le premier à te débarrasser de toutes tes cartes. Dis « Mau » avant ta dernière carte – et « Mau-Mau » quand tu la poses.",
   "seo": {
     "rulesT": "Règles du Mau-Mau – le jeu de cartes expliqué simplement",
     "rulesD": "Comment jouer au Mau-Mau : distribution, suivre la couleur ou la valeur, les cartes spéciales 7, 8 et valet, dire Mau et Mau-Mau, décompte des points, variantes et FAQ."
@@ -20,7 +21,6 @@
   "rules": {
     "h1": "Jeu de cartes Mau-Mau",
     "h1sub": "Règles et déroulement",
-    "goal": "<strong>Le but :</strong> être le premier à te débarrasser de toutes tes cartes. Dis « Mau » avant ta dernière carte – et « Mau-Mau » quand tu la poses.",
     "navLabel": "Sections",
     "nSetup": "Mise en place",
     "nPlay": "Jouer",

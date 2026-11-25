@@ -2,6 +2,7 @@
   "title": "Mau-Mau – regler",
   "h1": "Mau-Mau",
   "sub": "Tysklands favoritt blant avleggingsspill: match farge eller verdi, bruk 7-eren, 8-eren og knekten mot de andre – og ikke glem å si «Mau».",
+  "goal": "<strong>Målet:</strong> Bli den første til å bli kvitt alle kortene dine. Si «Mau» før ditt siste kort – og «Mau-Mau» når du legger det.",
   "seo": {
     "rulesT": "Mau-Mau kortspill – regler enkelt forklart",
     "rulesD": "Slik spiller du Mau-Mau: utdeling, matche farge eller verdi, spesialkortene 7, 8 og knekt, si Mau og Mau-Mau, poengtelling, varianter og FAQ."
@@ -20,7 +21,6 @@
   "rules": {
     "h1": "Kortspillet Mau-Mau",
     "h1sub": "Regler & spillforløp",
-    "goal": "<strong>Målet:</strong> Bli den første til å bli kvitt alle kortene dine. Si «Mau» før ditt siste kort – og «Mau-Mau» når du legger det.",
     "navLabel": "Deler",
     "nSetup": "Oppsett",
     "nPlay": "Spille",

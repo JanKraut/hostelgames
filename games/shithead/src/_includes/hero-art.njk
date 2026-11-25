@@ -1,0 +1,9 @@
+{#- Picture in the big header (core includes/hero.njk), between the intro and the goal. -#}
+{%- from "card.njk" import card -%}
+{%- from "shithead-card.njk" import shithead -%}
+<div class="fan" aria-hidden="true">
+  {{ card("2", "♣") }}
+  {{ card("10", "♥") }}
+  {{ card("7", "♠") }}
+  {{ shithead() }}
+</div>

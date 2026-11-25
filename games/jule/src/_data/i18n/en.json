@@ -1,7 +1,10 @@
 {
   "title": "Jule – rules",
   "h1": "Jule",
-  "h1sub": "Dice game rules & Silent Jule",
+  "rules": {
+    "h1": "Jule",
+    "h1sub": "Dice game rules & Silent Jule"
+  },
   "sub": "One die, paper and pen: roll the numbers <strong>1 to 6 in order</strong> and then strike them off again from 6 to 1. The quiet version, <strong>Silent Jule</strong>, is the same – but whoever makes a sound starts again.",
   "seo": {
     "rulesT": "Jule Dice Game Rules – also Silent Jule",

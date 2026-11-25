@@ -1,0 +1,32 @@
+{#- Error page for unknown addresses of every game, English only on purpose. Added by the core plugin
+    (eleventy.js) as /404.html; a game only changes the texts in its i18n:
+      nfT (title), nfH (heading), nfBtn (button to the rules); optional nfCode (small line above),
+      nfP (paragraph), nfPunch (last line), nfBtnQuick (second button, to the quick start).
+    Picture above the text: the game's own _includes/notfound-art.njk (core default: none). -#}
+{%- set t = lang.t -%}
+<header class="hero notfound">
+  <div class="wrap">
+    {% include "sitehead.njk" %}
+    <div class="nf-body">
+    {%- include "notfound-art.njk" %}
+    {%- if t.nfCode %}
+    <p class="nf-code">{{ t.nfCode }}</p>
+    {%- endif %}
+    <h1>{{ t.nfH }}</h1>
+    {%- if t.nfP %}
+    <p>{{ t.nfP | safe }}</p>
+    {%- endif %}
+    {%- if t.nfPunch %}
+    <p class="nf-punch">{{ t.nfPunch }}</p>
+    {%- endif %}
+    <p class="nf-btns">
+      <a class="ctabtn" href="/">{{ t.nfBtn }}</a>
+      {%- if t.nfBtnQuick and "quickstart" in site.game.pages %}
+      <a class="ctabtn alt" href="/quickstart/">{{ t.nfBtnQuick }}</a>
+      {%- endif %}
+    </p>
+    </div>
+  </div>
+</header>
+
+{% include "footer.njk" %}

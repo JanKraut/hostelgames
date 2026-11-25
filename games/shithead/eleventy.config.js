@@ -3,7 +3,7 @@ import site from "./src/_data/site.js";
 
 export default function (eleventyConfig) {
   // Shared core: design, fonts, light / dark, language menu, tracking, offline (service worker).
-  eleventyConfig.addPlugin(hostelgames, { site, cacheName: "shithead" });
+  eleventyConfig.addPlugin(hostelgames, { site, cacheName: "shithead", notFoundLayout: "layouts/base.njk" });
 
   eleventyConfig.addPassthroughCopy("src/assets");
 
