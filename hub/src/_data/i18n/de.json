@@ -25,12 +25,6 @@
     "president": { "name": "President", "tagline": "Als Erster alle Karten loswerden, President werden – und den Bettler seine besten Karten abgeben lassen" },
     "shithead": { "name": "Shithead", "tagline": "Das Kartenspiel aus allen Hostels der Welt" }
   },
-  "themeSwitch": "Zwischen hellem und dunklem Design wechseln",
   "shH": "Seite teilen",
-  "shLead": "Lass die anderen am Tisch den Code scannen. Jeder kann sich dann ein Spiel und seine eigene Sprache aussuchen.",
-  "shBtn": "Teilen",
-  "shCopy": "Link kopieren",
-  "shCopied": "Link kopiert",
-  "shClose": "Schließen",
-  "shAlt": "QR-Code zu dieser Seite"
+  "shLead": "Lass die anderen am Tisch den Code scannen. Jeder kann sich dann ein Spiel und seine eigene Sprache aussuchen."
 }

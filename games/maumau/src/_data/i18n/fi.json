@@ -7,27 +7,14 @@
     "rulesD": "Näin pelaat Mau-Mauta: jakaminen, maan tai arvon seuraaminen, erikoiskortit 7, 8 ja jätkä, Mau- ja Mau-Mau-huudot, pistelasku, muunnelmat ja UKK."
   },
   "info": {
-    "label": "Tietokortti",
-    "luck": "Tuuri",
-    "skill": "Taito",
-    "easy": "Helppo",
-    "complex": "Monimutkainen",
-    "kids": "Lapset",
-    "adults": "Aikuiset",
-    "playersH": "Pelaajat",
     "players1": "2–3",
     "mode1": "nopea erä",
     "players2": "4–6",
     "mode2": "hauskinta",
-    "timeH": "Peliaika",
     "timeN": "15",
-    "timeU": "min",
-    "similarH": "Samankaltaiset pelit",
     "similar": "Uno, Crazy Eights, Tschau Sepp",
-    "gearH": "Mitä tarvitaan",
     "gearN": "32 korttia (skat-pakka)",
     "gearAlt": "32 pelikortin pakka",
-    "introH": "Johdanto",
     "intro": "Lähes kaikki Saksassa, Itävallassa ja Sveitsissä ovat kasvaneet Mau-Maun parissa. Jos tunnet Unon tai Crazy Eightsin, osaat jo puolet säännöistä – ja loput selittää kahdessa minuutissa. Yksi pieni korttipakka riittää."
   },
   "rules": {
@@ -116,20 +103,5 @@
     "faq6a": "Sveitsissä <strong>Tschau Sepp</strong>, englanninkielisissä maissa <strong>Crazy Eights</strong> (jossa kasi on toivomiskortti) ja Alankomaissa <strong>Pesten</strong>.",
     "faq7q": "Voiko Mau-Mauta pelata 52 kortilla?",
     "faq7a": "Kyllä. Säännöt pysyvät samoina, kortit 2–6 ovat vain tavallisia kortteja ilman erikoisvaikutusta. 52 kortilla mukaan mahtuu jopa 8 pelaajaa."
-  },
-  "themeSwitch": "Vaihda vaalean ja tumman tilan välillä",
-  "pgLabel": "Sivut",
-  "pgRules": "Säännöt",
-  "n6": "Strategia",
-  "pgQuick": "Pikaopas",
-  "shH": "Jaa tämä opas",
-  "shLead": "Anna muiden pöydän ääressä skannata koodi. Jokainen voi sitten valita oman kielensä.",
-  "shBtn": "Jaa",
-  "shCopy": "Kopioi linkki",
-  "shCopied": "Linkki kopioitu",
-  "shClose": "Sulje",
-  "shAlt": "Tämän sivun QR-koodi",
-  "nfT": "Sivua ei löytynyt",
-  "nfH": "Tätä sivua ei ole olemassa.",
-  "nfBtn": "Siirry sääntöihin"
+  }
 }

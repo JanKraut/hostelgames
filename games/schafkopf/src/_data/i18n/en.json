@@ -7,27 +7,14 @@
     "rulesD": "How to play Schafkopf: dealing, the 14 trumps, card points, Sauspiel, Wenz and Solo, announcing, tricks, scoring with Schneider and Laufende, variants and FAQ."
   },
   "info": {
-    "label": "Fact sheet",
-    "luck": "Luck",
-    "skill": "Skill",
-    "easy": "Easy",
-    "complex": "Complex",
-    "kids": "Kids",
-    "adults": "Adults",
-    "playersH": "Players",
     "players1": "4",
     "mode1": "the classic table",
     "players2": "5",
     "mode2": "dealer sits out",
-    "timeH": "Playing time",
     "timeN": "90",
-    "timeU": "min",
-    "similarH": "Similar games",
     "similar": "Doppelkopf, Skat, Watten",
-    "gearH": "What you need",
     "gearN": "32 cards, paper & pen",
     "gearAlt": "A pack of 32 playing cards",
-    "introH": "Introduction",
     "intro": "In Bavarian pubs Schafkopf is as much part of the table as the beer. It takes an evening to learn and a lifetime to master. This page explains the standard rules – and you can play with an ordinary French-suited Skat pack if you don't have Bavarian cards."
   },
   "rules": {
@@ -157,20 +144,5 @@
     "faq7a": "Yes. Use a 32-card Skat pack: clubs for Eichel, spades for Gras, hearts for Herz and diamonds for Schellen, the queens as Ober and the jacks as Unter – see <a href=\"#setup\">Setup</a>.",
     "faq8q": "Can three people play?",
     "faq8a": "Real Schafkopf needs four. With three, try <strong>Skat</strong>, a close cousin with the same 32 cards. With five, the <a href=\"#variants\">dealer sits out</a>."
-  },
-  "themeSwitch": "Switch between light and dark mode",
-  "pgLabel": "Pages",
-  "pgRules": "Rules",
-  "n6": "Strategy",
-  "pgQuick": "Quick start",
-  "shH": "Share the guide",
-  "shLead": "Let the others at the table scan the code. Everyone can then pick their own language.",
-  "shBtn": "Share",
-  "shCopy": "Copy link",
-  "shCopied": "Link copied",
-  "shClose": "Close",
-  "shAlt": "QR code for this page",
-  "nfT": "Page not found",
-  "nfH": "This page doesn't exist.",
-  "nfBtn": "Go to the rules"
+  }
 }

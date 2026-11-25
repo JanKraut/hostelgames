@@ -8,7 +8,6 @@
     "rulesD": "Cabo mit normalen Spielkarten erklärt: Austeilen, Kartenwerte, Anschauen, Spionieren und Tauschen, „Cabo“ ansagen, Punkte und Varianten."
   },
   "goal": "<strong>Das Ziel:</strong> Am Ende jeder Runde möglichst wenige Punkte vor dir liegen haben. Der Haken: Deine vier Karten liegen verdeckt, und du kennst sie nur, wenn du sie dir merkst.",
-  "navLabel": "Abschnitte",
   "nSetup": "Aufbau",
   "nValues": "Kartenwerte",
   "nTurn": "Dein Zug",
@@ -106,20 +105,5 @@
   "faq6q": "Ist Cabo dasselbe wie Cambio?",
   "faq6a": "Die beiden sind eng verwandt. Die Idee ist dieselbe, bekannt ist das Spiel auch als <strong>Pablo</strong> oder <strong>Cactus</strong>. Die Details unterscheiden sich von Tisch zu Tisch – bei Cambio darf zum Beispiel meist jeder jederzeit passende Karten auf den Ablagestapel werfen (siehe <a href=\"#variants\">Varianten</a>).",
   "faq7q": "Kann man Cabo kaufen?",
-  "faq7a": "Ja, Cabo gibt es auch als Kartenspiel im Handel mit eigenem Deck, erfunden 2010 von Melissa Limes und Mandy Henning. Diese Seite erklärt, wie man es mit normalen Spielkarten spielt.",
-  "themeSwitch": "Zwischen hellem und dunklem Design wechseln",
-  "pgLabel": "Seiten",
-  "pgRules": "Regeln",
-  "n6": "Strategie",
-  "pgQuick": "Quickstart",
-  "shH": "Anleitung teilen",
-  "shLead": "Lass die anderen am Tisch den Code scannen. Jeder kann sich dann seine eigene Sprache aussuchen.",
-  "shBtn": "Teilen",
-  "shCopy": "Link kopieren",
-  "shCopied": "Link kopiert",
-  "shClose": "Schließen",
-  "shAlt": "QR-Code zu dieser Seite",
-  "nfT": "Seite nicht gefunden",
-  "nfH": "Diese Seite gibt es nicht.",
-  "nfBtn": "Zu den Regeln"
+  "faq7a": "Ja, Cabo gibt es auch als Kartenspiel im Handel mit eigenem Deck, erfunden 2010 von Melissa Limes und Mandy Henning. Diese Seite erklärt, wie man es mit normalen Spielkarten spielt."
 }

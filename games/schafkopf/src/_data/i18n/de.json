@@ -7,27 +7,14 @@
     "rulesD": "So geht Schafkopf: Austeilen, die 14 Trümpfe, Augen zählen, Sauspiel, Wenz und Solo, Ansagen, Stiche, Abrechnung mit Schneider und Laufenden, Varianten und FAQ."
   },
   "info": {
-    "label": "Steckbrief",
-    "luck": "Glück",
-    "skill": "Können",
-    "easy": "Einfach",
-    "complex": "Komplex",
-    "kids": "Kinder",
-    "adults": "Erwachsene",
-    "playersH": "Spieler",
     "players1": "4",
     "mode1": "der klassische Tisch",
     "players2": "5",
     "mode2": "Geber setzt aus",
-    "timeH": "Spieldauer",
     "timeN": "90",
-    "timeU": "Min.",
-    "similarH": "Ähnliche Spiele",
     "similar": "Doppelkopf, Skat, Watten",
-    "gearH": "Was ihr braucht",
     "gearN": "32 Karten, Zettel & Stift",
     "gearAlt": "Ein Kartenspiel mit 32 Karten",
-    "introH": "Einführung",
     "intro": "Im bayerischen Wirtshaus gehört der Schafkopf auf den Tisch wie das Bier. Lernen dauert einen Abend, beherrschen ein Leben lang. Hier stehen die Grundregeln – und wer keine bayerischen Karten hat, spielt einfach mit einem französischen Skatblatt."
   },
   "rules": {
@@ -157,20 +144,5 @@
     "faq7a": "Ja. Nehmt ein Skatblatt mit 32 Karten: Kreuz für Eichel, Pik für Gras, Herz für Herz und Karo für Schellen, die Damen als Ober und die Buben als Unter – siehe <a href=\"#setup\">Aufbau</a>.",
     "faq8q": "Können auch drei spielen?",
     "faq8a": "Richtiger Schafkopf braucht vier. Zu dritt probiert ihr am besten <strong>Skat</strong>, einen nahen Verwandten mit denselben 32 Karten. Zu fünft <a href=\"#variants\">setzt der Geber aus</a>."
-  },
-  "themeSwitch": "Zwischen hellem und dunklem Design wechseln",
-  "pgLabel": "Seiten",
-  "pgRules": "Regeln",
-  "n6": "Strategie",
-  "pgQuick": "Quickstart",
-  "shH": "Anleitung teilen",
-  "shLead": "Lass die anderen am Tisch den Code scannen. Jeder kann sich dann seine eigene Sprache aussuchen.",
-  "shBtn": "Teilen",
-  "shCopy": "Link kopieren",
-  "shCopied": "Link kopiert",
-  "shClose": "Schließen",
-  "shAlt": "QR-Code zu dieser Seite",
-  "nfT": "Seite nicht gefunden",
-  "nfH": "Diese Seite gibt es nicht.",
-  "nfBtn": "Zu den Regeln"
+  }
 }

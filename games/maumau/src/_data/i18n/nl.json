@@ -7,27 +7,14 @@
     "rulesD": "Zo speel je Mau-Mau: delen, kleur of waarde volgen, de speciale kaarten 7, 8 en boer, Mau en Mau-Mau zeggen, puntentelling, varianten en FAQ."
   },
   "info": {
-    "label": "Spelinfo",
-    "luck": "Geluk",
-    "skill": "Vaardigheid",
-    "easy": "Makkelijk",
-    "complex": "Complex",
-    "kids": "Kinderen",
-    "adults": "Volwassenen",
-    "playersH": "Spelers",
     "players1": "2–3",
     "mode1": "snel duel",
     "players2": "4–6",
     "mode2": "het leukst",
-    "timeH": "Speelduur",
     "timeN": "15",
-    "timeU": "min.",
-    "similarH": "Vergelijkbare spellen",
     "similar": "Uno, Crazy Eights, Tschau Sepp",
-    "gearH": "Wat je nodig hebt",
     "gearN": "32 kaarten (piketspel)",
     "gearAlt": "Een spel van 32 speelkaarten",
-    "introH": "Introductie",
     "intro": "Bijna iedereen in Duitsland, Oostenrijk en Zwitserland is opgegroeid met Mau-Mau. Ken je Uno of Crazy Eights, dan ken je de helft van de regels al – en de rest is in twee minuten uitgelegd. Eén klein kaartspel is alles wat je nodig hebt."
   },
   "rules": {
@@ -116,20 +103,5 @@
     "faq6a": "In Zwitserland <strong>Tschau Sepp</strong>, in Engelstalige landen <strong>Crazy Eights</strong> (met de 8 als keuzekaart), en in Nederland <strong>Pesten</strong>.",
     "faq7q": "Kan ik Mau-Mau ook met 52 kaarten spelen?",
     "faq7a": "Ja. De regels blijven hetzelfde, de kaarten van 2 tot en met 6 hebben gewoon geen speciaal effect. Met 52 kaarten kun je met maximaal 8 spelers meedoen."
-  },
-  "themeSwitch": "Wissel tussen licht en donker thema",
-  "pgLabel": "Pagina's",
-  "pgRules": "Regels",
-  "n6": "Strategie",
-  "pgQuick": "Snelstart",
-  "shH": "Deel deze uitleg",
-  "shLead": "Laat de anderen aan tafel de code scannen. Daarna kiest iedereen zijn eigen taal.",
-  "shBtn": "Delen",
-  "shCopy": "Link kopiëren",
-  "shCopied": "Link gekopieerd",
-  "shClose": "Sluiten",
-  "shAlt": "QR-code van deze pagina",
-  "nfT": "Pagina niet gevonden",
-  "nfH": "Deze pagina bestaat niet.",
-  "nfBtn": "Naar de regels"
+  }
 }

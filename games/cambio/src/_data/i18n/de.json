@@ -8,7 +8,6 @@
     "rulesT": "Cambio – Kartenspiel-Regeln",
     "rulesD": "So spielst du Cambio mit einem normalen Kartenspiel: Austeilen, Kartenwerte, Fähigkeiten, Abwerfen gleicher Karten, „Cambio“ ansagen und Punkte – kurz und klar."
   },
-  "navLabel": "Abschnitte",
   "nav": {
     "setup": "Aufbau",
     "values": "Kartenwerte",
@@ -132,20 +131,5 @@
     "a7": "Ja, zu Beginn jedes deiner Züge. Frühes Ansagen ist mutig, denn du kennst nur zwei deiner Karten.",
     "q8": "Was ist der Unterschied zwischen Cambio und Cabo?",
     "a8": "Die beiden sind eng verwandt. Cabo gibt es mit eigenen Karten von 0 bis 13 zu kaufen; Cambio spielt man mit einem normalen Kartenspiel, mit dem roten König als bester Karte und meist mit Abwerfen."
-  },
-  "themeSwitch": "Zwischen hellem und dunklem Design wechseln",
-  "pgLabel": "Seiten",
-  "pgRules": "Regeln",
-  "n6": "Strategie",
-  "pgQuick": "Quickstart",
-  "shH": "Anleitung teilen",
-  "shLead": "Lass die anderen am Tisch den Code scannen. Jeder kann sich dann seine eigene Sprache aussuchen.",
-  "shBtn": "Teilen",
-  "shCopy": "Link kopieren",
-  "shCopied": "Link kopiert",
-  "shClose": "Schließen",
-  "shAlt": "QR-Code zu dieser Seite",
-  "nfT": "Seite nicht gefunden",
-  "nfH": "Diese Seite gibt es nicht.",
-  "nfBtn": "Zu den Regeln"
+  }
 }

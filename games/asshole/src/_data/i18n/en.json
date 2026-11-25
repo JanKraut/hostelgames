@@ -117,20 +117,5 @@
     "faq6a": "Besides <strong>President</strong> it is known as <strong>Scum</strong>, <strong>Bum</strong>, <strong>Rich Man Poor Man</strong> or <strong>Trou du cul</strong> in France. Commercial versions include <strong>The Great Dalmuti</strong>.",
     "faq7q": "How many players do I need?",
     "faq7a": "At least 3, best 4 to 6. With more than 5 players, use a 52-card pack so that everyone gets enough cards."
-  },
-  "themeSwitch": "Switch between light and dark mode",
-  "pgLabel": "Pages",
-  "pgRules": "Rules",
-  "n6": "Strategy",
-  "pgQuick": "Quick start",
-  "shH": "Share the guide",
-  "shLead": "Let the others at the table scan the code. Everyone can then pick their own language.",
-  "shBtn": "Share",
-  "shCopy": "Copy link",
-  "shCopied": "Link copied",
-  "shClose": "Close",
-  "shAlt": "QR code for this page",
-  "nfT": "Page not found",
-  "nfH": "This page doesn't exist.",
-  "nfBtn": "Go to the rules"
+  }
 }

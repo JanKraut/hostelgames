@@ -7,27 +7,14 @@
     "rulesD": "Como jogar Mau-Mau: dar as cartas, combinar naipe ou valor, as cartas especiais 7, 8 e valete, dizer Mau e Mau-Mau, pontuação, variantes e FAQ."
   },
   "info": {
-    "label": "Ficha",
-    "luck": "Sorte",
-    "skill": "Habilidade",
-    "easy": "Fácil",
-    "complex": "Complexo",
-    "kids": "Crianças",
-    "adults": "Adultos",
-    "playersH": "Jogadores",
     "players1": "2–3",
     "mode1": "duelo rápido",
     "players2": "4–6",
     "mode2": "mais divertido",
-    "timeH": "Duração",
     "timeN": "15",
-    "timeU": "min",
-    "similarH": "Jogos parecidos",
     "similar": "Uno, Crazy Eights, Tschau Sepp",
-    "gearH": "O que você precisa",
     "gearN": "32 cartas (baralho de Skat)",
     "gearAlt": "Um baralho de 32 cartas",
-    "introH": "Introdução",
     "intro": "Quase todo mundo na Alemanha, na Áustria e na Suíça cresceu jogando Mau-Mau. Se você conhece Uno ou Crazy Eights, já sabe metade das regras – e o resto se explica em dois minutos. Só precisa de um baralho pequeno."
   },
   "rules": {
@@ -116,20 +103,5 @@
     "faq6a": "Na Suíça <strong>Tschau Sepp</strong>, nos países de língua inglesa <strong>Crazy Eights</strong> (com o 8 como carta para escolher naipe) e na Holanda <strong>Pesten</strong>.",
     "faq7q": "Posso jogar Mau-Mau com 52 cartas?",
     "faq7a": "Sim. As regras continuam iguais; as cartas de 2 a 6 simplesmente não têm efeito especial. Com 52 cartas podem jogar até 8 pessoas."
-  },
-  "themeSwitch": "Alternar entre modo claro e escuro",
-  "pgLabel": "Páginas",
-  "pgRules": "Regras",
-  "n6": "Estratégia",
-  "pgQuick": "Guia rápido",
-  "shH": "Compartilhar este guia",
-  "shLead": "Deixe o pessoal da mesa escanear o código. Depois cada um escolhe o próprio idioma.",
-  "shBtn": "Compartilhar",
-  "shCopy": "Copiar link",
-  "shCopied": "Link copiado",
-  "shClose": "Fechar",
-  "shAlt": "QR code desta página",
-  "nfT": "Página não encontrada",
-  "nfH": "Esta página não existe.",
-  "nfBtn": "Ir para as regras"
+  }
 }

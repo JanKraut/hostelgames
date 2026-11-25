@@ -25,12 +25,6 @@
     "president": { "name": "President", "tagline": "Shed your cards first, become President – and make the Scum hand over their best cards" },
     "shithead": { "name": "Shithead", "tagline": "The card game from every hostel in the world" }
   },
-  "themeSwitch": "Switch between light and dark mode",
   "shH": "Share this page",
-  "shLead": "Let the others at the table scan the code. Everyone can then pick a game and their own language.",
-  "shBtn": "Share",
-  "shCopy": "Copy link",
-  "shCopied": "Link copied",
-  "shClose": "Close",
-  "shAlt": "QR code for this page"
+  "shLead": "Let the others at the table scan the code. Everyone can then pick a game and their own language."
 }

@@ -13,6 +13,9 @@
 //                          --templates src/index.njk,src/_includes/quiz.njk [--default en] [--strict en,de]
 //
 // Paths are relative to the current folder (the game's folder).
+// The standard texts of the core (i18n/standard/, see lib/languages.js) count as the
+// game's own: a game only stores what it says differently. They are checked in the
+// core's tests, here only the game's files.
 // For every language it checks that
 //   - every text exists, either in the language itself or in one of its fallback
 //     languages, so nothing silently shows up in the default language;
@@ -26,6 +29,7 @@ import { readFileSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { parseArgs } from "node:util";
+import { standardTexts } from "../lib/languages.js";
 
 const { values: args } = parseArgs({
   options: {
@@ -102,7 +106,8 @@ for (const lang of LANGUAGES) {
 
 // ---------- texts ----------
 
-const english = flatten(texts[DEFAULT] ?? {});
+const english = { ...flatten(standardTexts(DEFAULT)), ...flatten(texts[DEFAULT] ?? {}) };
+const standard = Object.fromEntries(codes.map((code) => [code, flatten(standardTexts(code))]));
 
 for (const lang of LANGUAGES) {
   if (!texts[lang.code]) continue;
@@ -115,12 +120,12 @@ for (const lang of LANGUAGES) {
 
   if (lang.code === DEFAULT) continue;
   for (const [key, en] of Object.entries(english)) {
-    const from = chain.find((code) => key in flatten(texts[code] ?? {}));
+    const from = chain.find((code) => key in flatten(texts[code] ?? {}) || key in (standard[code] ?? {}));
     if (!from) {
       incomplete(lang.code, key, `missing, shows the ${DEFAULT} text`);
       continue;
     }
-    if (from !== lang.code) continue; // checked with the fallback language itself
+    if (from !== lang.code || !(key in own)) continue; // checked with the fallback language or in the core
     const text = own[key];
     if (typeof text !== "string" || !text.trim()) {
       report(lang.code, key, "empty");
