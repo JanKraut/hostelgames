@@ -364,7 +364,7 @@ h3.sub.first {
 
 /* Wooden table */
 .wood {
-  border-radius: 16px;
+  border-radius: 8px;
   padding: 1.4rem 1rem 1.1rem;
   color: var(--wood-text);
   background:
@@ -1313,7 +1313,7 @@ footer .heart {
   width: min(240px, 72vw);
   margin: 0 auto 0.9rem;
   padding: 10px;
-  border-radius: 16px;
+  border-radius: 8px;
   background: #fff;
   line-height: 0;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
@@ -1352,7 +1352,7 @@ footer .heart {
 .shbtn {
   padding: 0.9rem 1.4rem;
   border: 0;
-  border-radius: 999px;
+  border-radius: 6px;
   background: var(--felt-chip);
   color: var(--felt-text);
   font: 700 1.05rem/1 var(--font-body);
@@ -1386,6 +1386,15 @@ footer .heart {
 .qrpop .sharebox {
   position: relative;
   padding-top: 1.8rem;
+  border-radius: 20px;
+}
+
+.qrpop .qr {
+  border-radius: 16px;
+}
+
+.qrpop .shbtn {
+  border-radius: 999px;
 }
 
 .qrclose {
@@ -1909,7 +1918,7 @@ ol.steps p {
 
 .br {
   padding: 0.9rem 1rem;
-  border-radius: 14px;
+  border-radius: 8px;
   background: var(--paper);
   color: var(--card-ink);
 }
@@ -2099,7 +2108,7 @@ ol.steps p {
 .trainer {
   margin: 1rem 0;
   padding: 1.3rem 1rem 1.2rem;
-  border-radius: 20px;
+  border-radius: 8px;
   background: var(--felt);
   color: var(--felt-text);
   text-align: center;
@@ -2136,7 +2145,7 @@ ol.steps p {
   min-width: 7rem;
   padding: 0.95rem 1.6rem;
   border: 0;
-  border-radius: 999px;
+  border-radius: 6px;
   font: 700 1.1rem/1 var(--font-body);
   cursor: pointer;
 }

@@ -54,7 +54,7 @@
 .variants li {
   padding: 0.85rem 1rem;
   border-inline-start: 5px solid var(--gold);
-  border-radius: 12px;
+  border-radius: 8px;
   background: var(--surface);
   box-shadow: 0 0 0 1px var(--line) inset;
 }
@@ -92,7 +92,7 @@ ol.steps h3 {
   gap: 0.5rem;
   margin: 1rem 0;
   padding: 1rem 0.6rem 0.8rem;
-  border-radius: 18px;
+  border-radius: 8px;
   background: var(--felt);
   color: var(--felt-text);
   text-align: center;
@@ -124,7 +124,7 @@ ol.steps h3 {
   margin: 0.6rem 0 1rem;
   padding: 1rem;
   border: 2px solid var(--line);
-  border-radius: 16px;
+  border-radius: 8px;
 }
 
 .bt-table {
@@ -191,7 +191,7 @@ ol.steps h3 {
   gap: 0.8rem;
   align-items: center;
   padding: 0.6rem 0.9rem;
-  border-radius: 12px;
+  border-radius: 8px;
   background: var(--surface);
   box-shadow: 0 0 0 1px var(--line) inset;
 }
@@ -225,7 +225,7 @@ ol.steps h3 {
   align-items: center;
   margin: 1rem 0;
   padding: 1rem 0.8rem;
-  border-radius: 18px;
+  border-radius: 8px;
   background: var(--felt);
   color: var(--felt-text);
 }
@@ -288,7 +288,7 @@ ol.steps h3 {
   margin: 0.2rem 0 0;
   padding: 0.85rem 1rem;
   border-inline-start: 5px solid var(--red);
-  border-radius: 12px;
+  border-radius: 8px;
   background: var(--surface);
   box-shadow: 0 0 0 1px var(--line) inset;
 }
@@ -297,7 +297,7 @@ ol.steps h3 {
 .swapex {
   margin: 1.4rem 0 0;
   padding: 1.1rem 1rem 0.4rem;
-  border-radius: 18px;
+  border-radius: 8px;
   background: var(--felt);
   color: var(--felt-text);
 }
@@ -331,7 +331,7 @@ ol.steps h3 {
   justify-items: center;
   width: 100%;
   padding: 0.7rem 0.6rem 1rem;
-  border-radius: 14px;
+  border-radius: 8px;
   background: rgba(255, 255, 255, 0.35);
 }
 
@@ -446,7 +446,7 @@ ol.steps h3 {
   align-items: center;
   padding: 0.9rem;
   border: 2px solid var(--line);
-  border-radius: 16px;
+  border-radius: 8px;
 }
 
 .sp > :first-child {

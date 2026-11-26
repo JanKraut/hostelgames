@@ -84,7 +84,7 @@
   align-items: center;
   padding: 0.7rem 0.9rem;
   border: 2px solid var(--line);
-  border-radius: 14px;
+  border-radius: 8px;
 }
 
 .suits .suit {
@@ -110,7 +110,7 @@
   gap: 0.7rem;
   margin: 0.8rem 0 0.35rem;
   padding: 1rem 0.9rem;
-  border-radius: 18px;
+  border-radius: 8px;
   background: var(--felt);
   color: var(--felt-text);
 }
@@ -179,7 +179,7 @@
   gap: 0.3rem;
   padding: 0.6rem 0.3rem;
   border: 2px solid var(--line);
-  border-radius: 14px;
+  border-radius: 8px;
 }
 
 .points b {
@@ -194,7 +194,7 @@
   align-items: flex-start;
   padding: 0.8rem 0.9rem;
   border: 2px solid var(--line);
-  border-radius: 16px;
+  border-radius: 8px;
 }
 
 .rulecard .card {
@@ -217,7 +217,7 @@
   align-items: center;
   min-height: 3rem;
   padding: 0.35rem 0.9rem;
-  border-radius: 12px;
+  border-radius: 8px;
   background: var(--surface);
   box-shadow: 0 0 0 1px var(--line) inset;
 }
@@ -307,7 +307,7 @@
 .variants li {
   padding: 0.85rem 1rem;
   border-inline-start: 5px solid var(--gold);
-  border-radius: 12px;
+  border-radius: 8px;
   background: var(--surface);
   box-shadow: 0 0 0 1px var(--line) inset;
 }

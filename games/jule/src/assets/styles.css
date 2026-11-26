@@ -133,7 +133,7 @@ ol.steps h3 {
   gap: 0.8rem;
   margin: 0.8rem 0 1rem;
   padding: 1rem;
-  border-radius: 18px;
+  border-radius: 8px;
   background: var(--felt);
   color: var(--felt-text);
 }
@@ -315,7 +315,7 @@ ol.steps h3 {
   margin: 1rem 0;
   padding: 1rem 1.1rem;
   border: 2px solid var(--line);
-  border-radius: 16px;
+  border-radius: 8px;
 }
 
 .silent-icon {
@@ -339,7 +339,7 @@ ol.steps h3 {
   margin: 0.8rem 0 0;
   padding: 0.85rem 1rem;
   border-inline-start: 5px solid var(--red);
-  border-radius: 0 12px 12px 0;
+  border-radius: 0 8px 8px 0;
   background: var(--surface);
 }
 
@@ -363,7 +363,7 @@ ol.steps h3 {
   align-items: center;
   padding: 0.6rem 0.8rem;
   border: 2px solid var(--line);
-  border-radius: 14px;
+  border-radius: 8px;
 }
 
 .odds .dicerow {

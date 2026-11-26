@@ -91,7 +91,7 @@ ol.steps h3 {
   width: 100%;
   max-width: 9rem;
   padding: 0.5rem 0.45rem;
-  border-radius: 12px;
+  border-radius: 8px;
   background: var(--paper);
   color: var(--card-ink);
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.24);
@@ -172,7 +172,7 @@ ol.steps h3 {
   align-items: center;
   padding: 0.7rem 0.85rem;
   border: 2px solid var(--line);
-  border-radius: 14px;
+  border-radius: 8px;
   background: var(--surface);
 }
 
@@ -186,7 +186,7 @@ ol.steps h3 {
   place-items: center;
   width: 2.3rem;
   height: 2.3rem;
-  border-radius: 9px;
+  border-radius: 8px;
   background: var(--paper);
   color: var(--card-ink);
   font-size: 1.45rem;
@@ -221,7 +221,7 @@ ol.steps h3 {
 .auction-wrap {
   margin: 0.8rem 0 0.5rem;
   padding: 0.85rem 0.75rem;
-  border-radius: 18px;
+  border-radius: 8px;
   background: var(--felt);
   color: var(--felt-text);
 }
@@ -291,7 +291,7 @@ ol.steps h3 {
   align-items: center;
   min-height: 3rem;
   padding: 0.35rem 0.9rem;
-  border-radius: 12px;
+  border-radius: 8px;
   background: var(--surface);
   box-shadow: 0 0 0 1px var(--line) inset;
 }
@@ -400,7 +400,7 @@ ol.steps h3 {
   gap: 0.35rem;
   padding: 0.65rem 0.3rem;
   border: 2px solid var(--line);
-  border-radius: 14px;
+  border-radius: 8px;
   background: var(--surface);
 }
 
@@ -418,7 +418,7 @@ ol.steps h3 {
 .ladder {
   margin: 1rem 0;
   padding: 1rem;
-  border-radius: 18px;
+  border-radius: 8px;
   background: var(--felt);
   color: var(--felt-text);
 }
@@ -442,7 +442,7 @@ ol.steps h3 {
   gap: 0.65rem;
   align-items: baseline;
   padding: 0.45rem 0.65rem;
-  border-radius: 10px;
+  border-radius: 8px;
   background: rgba(255, 255, 255, 0.45);
 }
 
@@ -467,7 +467,7 @@ ol.steps h3 {
 .handex {
   margin: 1.2rem 0 0;
   padding: 1rem;
-  border-radius: 18px;
+  border-radius: 8px;
   background: var(--felt);
   color: var(--felt-text);
 }
@@ -491,7 +491,7 @@ ol.steps h3 {
   gap: 0.6rem;
   align-items: center;
   padding: 0.45rem 0.7rem;
-  border-radius: 10px;
+  border-radius: 8px;
   background: var(--paper);
   color: var(--card-ink);
 }
@@ -558,7 +558,7 @@ ol.steps h3 {
 .finesse {
   margin: 1.2rem 0 0;
   padding: 1rem;
-  border-radius: 18px;
+  border-radius: 8px;
   background: var(--felt);
   color: var(--felt-text);
 }
@@ -576,7 +576,7 @@ ol.steps h3 {
   align-content: start;
   gap: 0.45rem;
   padding: 0.7rem 0.5rem;
-  border-radius: 14px;
+  border-radius: 8px;
   background: rgba(255, 255, 255, 0.45);
   text-align: center;
 }
@@ -830,7 +830,7 @@ ol.steps h3 {
 .variants li {
   padding: 0.85rem 1rem;
   border-inline-start: 5px solid var(--gold);
-  border-radius: 12px;
+  border-radius: 8px;
   background: var(--surface);
   box-shadow: 0 0 0 1px var(--line) inset;
 }

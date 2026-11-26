@@ -52,7 +52,7 @@ main section[id] {
 .sumvis {
   margin: 1.2rem 0;
   padding: 1.2rem 1rem 1rem;
-  border-radius: 18px;
+  border-radius: 8px;
   background: var(--felt);
   color: var(--felt-text);
 }
@@ -126,7 +126,7 @@ main section[id] {
   gap: 0.15rem;
   padding: 0.9rem 0.5rem 0.7rem;
   border: 2px solid var(--line);
-  border-radius: 16px;
+  border-radius: 8px;
   text-align: center;
 }
 
@@ -216,7 +216,7 @@ main section[id] {
   align-items: center;
   padding: 0.9rem;
   border: 2px solid var(--line);
-  border-radius: 16px;
+  border-radius: 8px;
 }
 
 .sp h3 {
@@ -321,7 +321,7 @@ main section[id] {
 .variants li {
   padding: 0.85rem 1rem;
   border-inline-start: 5px solid var(--gold);
-  border-radius: 12px;
+  border-radius: 8px;
   background: var(--surface);
   box-shadow: 0 0 0 1px var(--line) inset;
 }
@@ -367,7 +367,7 @@ main section[id] {
   margin: 0.8rem 0 0;
   padding: 0.85rem 1rem;
   border-inline-start: 5px solid var(--red);
-  border-radius: 12px;
+  border-radius: 8px;
   background: var(--surface);
   box-shadow: 0 0 0 1px var(--line) inset;
 }
@@ -375,7 +375,7 @@ main section[id] {
 .crossvis {
   margin: 1rem 0;
   padding: 1.1rem 1rem 0.5rem;
-  border-radius: 18px;
+  border-radius: 8px;
   background: var(--felt);
   color: var(--felt-text);
 }
@@ -421,7 +421,7 @@ main section[id] {
   gap: 0.45rem;
   width: 100%;
   padding: 0.7rem 0.5rem;
-  border-radius: 14px;
+  border-radius: 8px;
   background: rgba(255, 255, 255, 0.35);
   text-align: center;
 }
