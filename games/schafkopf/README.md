@@ -14,8 +14,8 @@ npm test -w @hostelgames/schafkopf        # Tests (vorher bauen)
 | --- | --- |
 | `game.json` | Name, Kategorie, Status, Sprachen, Seiten (Felder: Root-README) |
 | `src/index.njk` | Regelseite, einmal pro Sprache |
-| `src/_includes/factsheet.njk` | Steckbrief im Kopfbereich |
-| `src/404.njk` | Fehlerseite |
+| `src/_includes/hero-art.njk` | Kartenfächer im Kopfbereich |
+| `src/_includes/factsheet-art.njk` | Kartenbild im Steckbrief |
 | `src/_data/i18n/*.json` | Texte, Referenz `en.json` |
 | `src/assets/styles.css` | eigene Styles zusätzlich zu `core.css` |
 | `tests/site.spec.js` | Playwright-Tests |

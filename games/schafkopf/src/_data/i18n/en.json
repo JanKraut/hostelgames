@@ -1,5 +1,4 @@
 {
-  "title": "Schafkopf – rules",
   "h1": "Schafkopf",
   "sub": "Bavaria's national card game: four players, 32 cards and a set of trumps unlike any other – the Ober and Unter always win. Two against two, or one against all.",
   "goal": "<strong>The goal:</strong> together with your partner – or alone in a Solo – take tricks worth at least <strong>61 of the 120 card points</strong>.",
@@ -25,7 +24,6 @@
     "rU": "J",
     "rK": "K",
     "rA": "A",
-    "navLabel": "Sections",
     "nSetup": "Setup",
     "nTrumps": "Trumps",
     "nPoints": "Card points",
@@ -34,7 +32,6 @@
     "nScore": "Scoring",
     "nVar": "Variants",
     "nFaq": "FAQ",
-    "nShare": "Share",
     "setupH": "Setup",
     "setupLead": "Schafkopf is played by <strong>exactly four players</strong> with 32 cards: 7, 8, 9, 10, Unter, Ober, King and Ace (called the <strong>Sau</strong>) in four suits. The Bavarian pack has its own suits – with a French pack you simply translate:",
     "sEichel": "Eichel",

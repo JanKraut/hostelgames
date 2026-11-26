@@ -1,5 +1,4 @@
 {
-  "title": "Jule – rules",
   "h1": "Jule",
   "rules": {
     "h1": "Jule",
@@ -29,7 +28,6 @@
   "nSilent": "Silent Jule",
   "nVariants": "Variants",
   "nFaq": "FAQ",
-  "nShare": "Share",
   "setupH": "Setup",
   "setupLead": "Jule works with any number of players from two upwards. All you need:",
   "setup1": "<strong>One die</strong> – a dice cup is nice but not required.",

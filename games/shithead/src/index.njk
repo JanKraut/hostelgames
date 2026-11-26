@@ -4,33 +4,30 @@ pagination:
   size: 1
   alias: lang
 permalink: "{{ lang.path }}"
-layout: layouts/base.njk
-subpath: ""
+layout: game
+share: true
+scripts: ["/assets/rules.js"]
 eleventyComputed:
   pageTitle: "{{ lang.t.seo.rulesT }}"
   pageDescription: "{{ lang.t.seo.rulesD }}"
-share: true
-scripts: ["/assets/rules.js"]
 ---
-{%- from "blocks.njk" import steps, faq, variants -%}
+{%- from "blocks.njk" import secnav, steps, faq, variants -%}
 {%- from "card.njk" import card, back, stack, cardRow -%}
 {%- set t = lang.t -%}
 
 {% include "hero.njk" %}
 
-<nav class="secnav" aria-label="{{ t.navLabel }}">
-  <ul>
-    <li><a href="#setup">{{ t.n1 }}</a></li>
-    <li><a href="#variants">{{ t.rules.varNav }}</a></li>
-    <li><a href="#swap">{{ t.n1b }}</a></li>
-    <li><a href="#how-to-play">{{ t.n2 }}</a></li>
-    <li><a href="#special-cards">{{ t.n3 }}</a></li>
-    <li><a href="#endgame">{{ t.n4 }}</a></li>
-    <li><a href="#faq">{{ t.rules.faqNav }}</a></li>
-    <li class="js-only"><a href="#practice">{{ t.n5 }}</a></li>
-    <li><a href="{{ lang.path }}play/">{{ t.game.ctaBtn }}</a></li>
-  </ul>
-</nav>
+{{ secnav(t.navLabel, [
+  ["setup", t.n1],
+  ["variants", t.rules.varNav],
+  ["swap", t.n1b],
+  ["how-to-play", t.n2],
+  ["special-cards", t.n3],
+  ["endgame", t.n4],
+  ["faq", t.rules.faqNav],
+  ["practice", t.n5, "js-only"],
+  [lang.path + "play/", t.game.ctaBtn]
+]) }}
 
 <main class="wrap">
 

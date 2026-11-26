@@ -1,5 +1,4 @@
 {
-  "title": "Kniffel – regler",
   "h1": "Kniffel",
   "rules": {
     "h1": "Kniffel",
@@ -35,7 +34,6 @@
   "nScoring": "Poeng",
   "nVariants": "Varianter",
   "nFaq": "FAQ",
-  "nShare": "Del",
   "setupH": "Oppsett",
   "setupLead": "Dere trenger ikke mye, og en runde med venner tar omtrent en halvtime.",
   "setup1": "<strong>5 terninger</strong> – gjerne med et raflebeger.",

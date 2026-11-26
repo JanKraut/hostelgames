@@ -54,6 +54,18 @@ for (const lang of languages) {
     const nav = await page.locator(".secnav a").evaluateAll((links) => links.map((a) => a.getAttribute("href")));
     expect(nav).toEqual(SECTIONS.filter((id) => id !== "share").map((id) => `#${id}`));
   });
+
+  test(`${lang.code}: fact sheet in the header`, async ({ page }) => {
+    await page.addInitScript((code) => localStorage.setItem("lang", code), lang.code);
+    await page.goto(pathOf(lang));
+    const sheet = page.locator(".hero #factsheet");
+    await expect(sheet).toBeVisible();
+    await expect(sheet.locator(".fs-scale")).toHaveCount(3);
+    await expect(sheet.locator(".fs-group")).toHaveCount(2);
+    await expect(sheet.locator(".fs-similar li")).toHaveCount(lang.t.info.similar.split(", ").length);
+    await expect(sheet.locator(".fs-cards .card")).toHaveCount(2);
+    await expect(sheet.locator(".fs-intro p")).toHaveText(lang.t.info.intro);
+  });
 }
 
 // Strategieseite: pro Sprache, über die Reiter im Kopf erreichbar.
@@ -69,6 +81,7 @@ for (const lang of languages) {
     await expect(page.locator(".hero > .wrap > p").first()).toHaveText(s.sub);
     await expect(page.locator(".hero .fan .card")).toHaveCount(4);
     await expect(page.locator(".hero .goal")).toBeVisible();
+    await expect(page.locator("#factsheet")).toHaveCount(0);
     await expect(page.locator(".pagetabs a[aria-current=page]")).toHaveText(lang.t.n6);
     await expect(page.locator(`.langmenu a[data-lang="${lang.code}"]`)).toHaveAttribute("href", /strategy\/$/);
     await expect(page.locator("link[rel=canonical]")).toHaveAttribute("href", lang.url + "strategy/");
@@ -115,13 +128,16 @@ test("the tabs link rules and strategy pages", async ({ page }) => {
   await expect(page).toHaveURL(/\/de\/$/);
 });
 
-test("no horizontal overflow, light and dark", async ({ page }) => {
-  for (const sub of ["./", "strategy/"]) {
-    for (const theme of ["light", "dark"]) {
-      await page.addInitScript((th) => localStorage.setItem("theme", th), theme);
-      await page.goto(sub);
-      const [scroll, width] = await page.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]);
-      expect(scroll, `${sub} (${theme}): page wider than the screen`).toBeLessThanOrEqual(width);
+test("no horizontal overflow, light and dark, even on a very narrow phone", async ({ page }) => {
+  for (const width of [320, 390]) {
+    await page.setViewportSize({ width, height: 700 });
+    for (const sub of ["./", "strategy/"]) {
+      for (const theme of ["light", "dark"]) {
+        await page.addInitScript((th) => localStorage.setItem("theme", th), theme);
+        await page.goto(sub);
+        const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+        expect(overflow, `${sub} (${theme}) at ${width}px`).toBeLessThanOrEqual(0);
+      }
     }
   }
 });

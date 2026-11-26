@@ -1,5 +1,4 @@
 {
-  "title": "Cabo – Regeln",
   "h1": "Cabo",
   "rules": {
     "h1": "Cabo",
@@ -10,6 +9,17 @@
     "rulesT": "Cabo Regeln – So geht das Kartenspiel",
     "rulesD": "Cabo mit normalen Spielkarten erklärt: Austeilen, Kartenwerte, Anschauen, Spionieren und Tauschen, „Cabo“ ansagen, Punkte und Varianten."
   },
+  "info": {
+    "players1": "2–3",
+    "mode1": "knappes Duell",
+    "players2": "4–5",
+    "mode2": "wildes Tauschen",
+    "timeN": "20",
+    "similar": "Cambio, Golf, Skyjo",
+    "gearN": "52 Karten (ohne Joker)",
+    "gearAlt": "Ein normales Kartenspiel mit 52 Karten",
+    "intro": "Cabo ist ein flottes Gedächtnis-Kartenspiel, bei dem deine vier Karten verdeckt liegen und du sie nur kurz siehst. Tausche klug, behalte den Tisch im Blick und sag Cabo an, bevor jemand weniger Punkte hat – einfach mit einem normalen Kartenspiel."
+  },
   "goal": "<strong>Das Ziel:</strong> Am Ende jeder Runde möglichst wenige Punkte vor dir liegen haben. Der Haken: Deine vier Karten liegen verdeckt, und du kennst sie nur, wenn du sie dir merkst.",
   "nSetup": "Aufbau",
   "nValues": "Kartenwerte",
@@ -19,7 +29,6 @@
   "nScoring": "Punkte",
   "nVariants": "Varianten",
   "nFaq": "FAQ",
-  "nShare": "Teilen",
   "setupH": "Aufbau",
   "setupLead": "Ihr braucht ein normales Kartenspiel mit 52 Karten ohne Joker und 2 bis 5 Leute. Eine Runde dauert nur ein paar Minuten.",
   "dealH": "Austeilen",

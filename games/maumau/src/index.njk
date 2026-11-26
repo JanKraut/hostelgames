@@ -19,7 +19,7 @@ eleventyComputed:
 {%- set r = t.rules -%}
 {% include "hero.njk" %}
 
-{{ secnav(r.navLabel, [
+{{ secnav(t.navLabel, [
   ["setup", r.nSetup],
   ["how-to-play", r.nPlay],
   ["special", r.nSpecial],

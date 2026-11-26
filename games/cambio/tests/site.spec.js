@@ -51,11 +51,27 @@ for (const lang of languages) {
     }
   });
 
-  test(`${lang.code}: nothing is wider than the screen`, async ({ page }) => {
+  test(`${lang.code}: fact sheet in the header`, async ({ page }) => {
+    await page.addInitScript((code) => localStorage.setItem("lang", code), lang.code);
     await page.goto(pathOf(lang));
-    await page.locator("#faq details").evaluateAll((all) => all.forEach((d) => (d.open = true)));
-    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
-    expect(overflow).toBeLessThanOrEqual(0);
+    const sheet = page.locator(".hero #factsheet");
+    await expect(sheet).toBeVisible();
+    await expect(sheet.locator(".fs-scale")).toHaveCount(3);
+    await expect(sheet.locator(".fs-group")).toHaveCount(2);
+    await expect(sheet.locator(".fs-similar li")).toHaveCount(lang.t.info.similar.split(", ").length);
+    await expect(sheet.locator(".fs-cards .card")).toHaveCount(2);
+    await expect(sheet.locator(".fs-intro p")).toHaveText(lang.t.info.intro);
+  });
+
+  test(`${lang.code}: nothing is wider than the screen, even on a very narrow phone`, async ({ page }) => {
+    await page.addInitScript((code) => localStorage.setItem("lang", code), lang.code);
+    for (const width of [320, 390]) {
+      await page.setViewportSize({ width, height: 700 });
+      await page.goto(pathOf(lang));
+      await page.locator("#faq details").evaluateAll((all) => all.forEach((d) => (d.open = true)));
+      const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+      expect(overflow, `${lang.code} at ${width}px`).toBeLessThanOrEqual(0);
+    }
   });
 }
 

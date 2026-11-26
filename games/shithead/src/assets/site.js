@@ -6,6 +6,7 @@
 // land on the right section.
 
 const OLD_ANCHORS = {
+  steckbrief: "factsheet",
   aufbau: "setup",
   varianten: "variants",
   tauschen: "swap",

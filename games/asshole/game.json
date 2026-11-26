@@ -7,5 +7,8 @@
   "status": "draft",
   "languages": ["en", "de"],
   "pages": ["rules"],
-  "related": ["president"]
+  "related": ["president"],
+  "players": { "min": 3, "max": 8 },
+  "duration": "15–30 min",
+  "factsheet": { "scales": [["luck", "skill", 45], ["easy", "complex", 20], ["kids", "adults", 35]], "people": [2, 3] }
 }

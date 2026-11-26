@@ -1,5 +1,4 @@
 {
-  "title": "Mau-Mau – regels",
   "h1": "Mau-Mau",
   "sub": "Het favoriete aflegspel van Duitsland: leg op kleur of waarde, zet de 7, de 8 en de boer in tegen de anderen – en vergeet niet om “Mau” te zeggen.",
   "goal": "<strong>Het doel:</strong> raak als eerste al je kaarten kwijt. Zeg “Mau” voor je laatste kaart – en “Mau-Mau” als je hem weglegt.",
@@ -21,7 +20,6 @@
   "rules": {
     "h1": "Kaartspel Mau-Mau",
     "h1sub": "Regels & uitleg",
-    "navLabel": "Onderdelen",
     "nSetup": "Opzet",
     "nPlay": "Spelen",
     "nSpecial": "Speciale kaarten",
@@ -29,7 +27,6 @@
     "nScore": "Telling",
     "nVar": "Varianten",
     "nFaq": "FAQ",
-    "nShare": "Delen",
     "setupH": "Opzet",
     "setupLead": "Mau-Mau speel je meestal met een piketspel (Skat-spel) van 32 kaarten (7 t/m aas in vier kleuren) en 2 tot 6 spelers. Waardes verslaan elkaar niet – het draait alleen om of een kaart <strong>past</strong>.",
     "deck1n": "2–5 spelers",

@@ -1,5 +1,4 @@
 {
-  "title": "King’s Cup – pravidla",
   "h1": "King’s Cup",
   "rules": {
     "h1": "King’s Cup",
@@ -31,7 +30,6 @@
   "nSafe": "Hraj s mírou",
   "nVariants": "Varianty",
   "nFaq": "FAQ",
-  "nShare": "Sdílet",
   "setupH": "Příprava",
   "setupLead": "Dvě minuty a můžete začít.",
   "setup1": "<strong>Jeden běžný balíček</strong> 52 karet bez žolíků.",

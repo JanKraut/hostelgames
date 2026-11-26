@@ -1,5 +1,4 @@
 {
-  "title": "Kniffel – säännöt",
   "h1": "Kniffel",
   "rules": {
     "h1": "Kniffel",
@@ -35,7 +34,6 @@
   "nScoring": "Pistelasku",
   "nVariants": "Muunnelmat",
   "nFaq": "UKK",
-  "nShare": "Jaa",
   "setupH": "Valmistelu",
   "setupLead": "Et tarvitse paljoa, ja yksi peli kavereiden kanssa kestää noin puoli tuntia.",
   "setup1": "<strong>5 noppaa</strong> – mieluiten noppakupin kanssa.",

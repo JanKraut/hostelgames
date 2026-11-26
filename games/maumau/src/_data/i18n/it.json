@@ -1,5 +1,4 @@
 {
-  "title": "Mau-Mau – regole",
   "h1": "Mau-Mau",
   "sub": "Il gioco di scarto più amato in Germania: segui il seme o il valore, usa il 7, l’8 e il fante contro gli altri – e non dimenticare di dire “Mau”.",
   "goal": "<strong>L’obiettivo:</strong> liberarti per primo di tutte le tue carte. Di’ “Mau” prima dell’ultima carta – e “Mau-Mau” quando la giochi.",
@@ -21,7 +20,6 @@
   "rules": {
     "h1": "Gioco di carte Mau-Mau",
     "h1sub": "Regole e svolgimento",
-    "navLabel": "Sezioni",
     "nSetup": "Preparazione",
     "nPlay": "Giocare",
     "nSpecial": "Carte speciali",
@@ -29,7 +27,6 @@
     "nScore": "Punteggio",
     "nVar": "Varianti",
     "nFaq": "FAQ",
-    "nShare": "Condividi",
     "setupH": "Preparazione",
     "setupLead": "Mau-Mau si gioca di solito con un mazzo da 32 carte (dal 7 all’asso nei quattro semi) per 2–6 giocatori. Nessun valore batte gli altri: conta solo se una carta <strong>va bene</strong>.",
     "deck1n": "2–5 giocatori",

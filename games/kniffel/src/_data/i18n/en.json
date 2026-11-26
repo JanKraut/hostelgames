@@ -1,5 +1,4 @@
 {
-  "title": "Kniffel – rules",
   "h1": "Kniffel",
   "rules": {
     "h1": "Kniffel",
@@ -35,7 +34,6 @@
   "nScoring": "Scoring",
   "nVariants": "Variants",
   "nFaq": "FAQ",
-  "nShare": "Share",
   "setupH": "Setup",
   "setupLead": "You don’t need much, and a round with friends takes about half an hour.",
   "setup1": "<strong>5 dice</strong> – ideally with a dice cup.",

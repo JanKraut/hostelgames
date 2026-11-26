@@ -1,5 +1,4 @@
 {
-  "title": "Kniffel – pravidla",
   "h1": "Kniffel",
   "rules": {
     "h1": "Kniffel",
@@ -35,7 +34,6 @@
   "nScoring": "Bodování",
   "nVariants": "Varianty",
   "nFaq": "FAQ",
-  "nShare": "Sdílet",
   "setupH": "Příprava",
   "setupLead": "Moc toho nepotřebuješ a jedna hra s přáteli zabere zhruba půl hodiny.",
   "setup1": "<strong>5 kostek</strong> – ideálně s kelímkem.",

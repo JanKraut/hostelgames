@@ -1596,6 +1596,22 @@ footer .heart {
   text-transform: uppercase;
 }
 
+.fs-gear {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.8rem;
+  align-items: center;
+}
+
+.fs-cards {
+  display: flex;
+}
+
+.fs-count {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
 .fs-cards .card.xs {
   --w: 30px;
   box-shadow: 0 0 0 1.5px var(--card-ink) inset;
