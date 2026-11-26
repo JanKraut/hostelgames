@@ -7,6 +7,8 @@
   "exports": {
     "./eleventy": "./eleventy.js",
     "./site": "./lib/site.js",
+    "./game": "./lib/game.js",
+    "./config/*": "./config/*.js",
     "./games": "./lib/games.js",
     "./languages": "./lib/languages.js",
     "./nav": "./lib/nav.js",

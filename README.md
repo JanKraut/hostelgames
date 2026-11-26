@@ -54,29 +54,30 @@ Alles auf `github.io` bekommt `noindex` und keine Sitemap.
 ## Neues Spiel anlegen
 
 1. `games/<slug>/` anlegen, am einfachsten als Kopie eines Grundgerüsts wie `games/cabo/`
-   (`package.json` mit Namen `@hostelgames/<slug>`, `eleventy.config.js`, `src/`, `tests/`)
-   und darin Namen, Domain und Texte ersetzen.
+   (`package.json` mit Namen `@hostelgames/<slug>`, `eleventy.config.js`, `playwright.config.js`,
+   `src/`, `tests/`) und darin Namen, Domain und Texte ersetzen. `eleventy.config.js` und
+   `playwright.config.js` sind je eine Zeile, die die Konfiguration aus dem Core übernimmt.
+   Adresse (`site`), Sprachen (`languages`), Sitemap und `robots.txt` erzeugt der Core aus der
+   `game.json`; in `src/_data/` liegen nur die Texte (`i18n/`).
 2. `game.json` anlegen (Felder siehe unten), zu Beginn mit `"status": "draft"` und
    `"languages": ["en", "de"]`. Der Ordner in den URLs und auf dem Server ist die Domain ohne Endung
    (ohne Domain: `slug`).
-3. In `eleventy.config.js` das Core-Plugin einbinden: `eleventyConfig.addPlugin(hostelgames, { site })`.
-4. Seiten nutzen das Layout aus dem Core (`layout: game`). Es lädt `core.css` und danach die eigene
+3. Seiten nutzen das Layout aus dem Core (`layout: game`). Es lädt `core.css` und danach die eigene
    `src/assets/styles.css`. Sprachmenü, Seitenreiter, Spielkarten (`card.njk`), Teilen-Box
-   (`share.njk`, mit `share: true`), Footer und Tracking kommen per `{% include %}` aus dem Core;
-   `src/_data/languages.js` und `src/sitemap.11ty.js` sind je drei Zeilen (siehe Grundgerüst).
+   (`share.njk`, mit `share: true`), Footer und Tracking kommen per `{% include %}` aus dem Core.
    Den Kopf baut der Core: `{% include "hero.njk" %}` (Texte wie bei Shithead: `rules.h1`,
    `rules.h1sub` – leer = keine zweite Zeile –, `sub`, `goal`; Kurzanleitung `h1`; andere Seiten
    `<seite>.h1`, `<seite>.sub`). Das Bild darin kommt aus `src/_includes/hero-art.njk` des Spiels.
    Die 404-Seite kommt ebenfalls aus dem Core, das Spiel ändert nur die Texte (`nf…`).
    Abschnittsnavigation, Schritte, Varianten und FAQ: Makros aus `blocks.njk`
    (`{{ faq(t) }}` zeigt `faqH`, `faq1q`/`faq1a` … bis zum letzten vorhandenen Text).
-   Tests: `import { test, expect, siteTests } from "@hostelgames/core/testing"` und
-   `siteTests({ languages, site })` für alles, was jedes Spiel braucht (mit Quiz:
+   Tests: `import { test, expect, siteTests } from "@hostelgames/core/testing"`,
+   `import { languages, site } from "@hostelgames/core/game"` und `siteTests({ languages, site })` für alles, was jedes Spiel braucht (mit Quiz:
    `quiz: ["rules", "quickstart"]`); die eigene Spec testet nur, was das Spiel besonders macht.
    Standardtexte (Teilen-Box, Seitennamen, 404, Hell/Dunkel, Steckbrief-Beschriftungen) kommen aus
    `packages/core/i18n/standard/`; in die Texte des Spiels gehört nur, was es anders sagt.
-5. Im Root `build:<slug>` und `start:<slug>` in `package.json` ergänzen und `npm install`. Die Startseite listet das Spiel automatisch (in der Vorschau auch als Entwurf).
-6. Nichts in `ci.yml` nötig: Tests und Deploy erkennen das Spiel automatisch. Für ein Deploy
+4. Im Root `build:<slug>` und `start:<slug>` in `package.json` ergänzen und `npm install`. Die Startseite listet das Spiel automatisch (in der Vorschau auch als Entwurf).
+5. Nichts in `ci.yml` nötig: Tests und Deploy erkennen das Spiel automatisch. Für ein Deploy
    `domain` in `game.json` setzen – der Ordnername ergibt sich daraus (siehe unten).
 
 ### `game.json`

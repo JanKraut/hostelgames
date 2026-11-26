@@ -9,10 +9,12 @@
 // dead #links are errors in every language.
 // Part of @hostelgames/core; every game runs it in `npm run check` (also part of its build):
 //
-//   hostelgames-check-i18n --dir src/_data/i18n --languages src/_data/languages.js \
-//                          --templates src/index.njk,src/_includes/quiz.njk [--default en] [--strict en,de]
+//   hostelgames-check-i18n [--dir src/_data/i18n] [--languages <file>] [--templates a.njk,b.njk]
+//                          [--default en] [--strict en,de]
 //
-// Paths are relative to the current folder (the game's folder).
+// Paths are relative to the current folder (the game's folder). Without --languages the
+// languages of the game come from its game.json (@hostelgames/core/game); without --templates
+// every .njk in src/ and in the core's includes counts.
 // The standard texts of the core (i18n/standard/, see lib/languages.js) count as the
 // game's own: a game only stores what it says differently. They are checked in the
 // core's tests, here only the game's files.
@@ -27,8 +29,8 @@
 //   - links to #sections point to sections that exist in one of the --templates.
 // It also checks that the languages file and the JSON files match.
 
-import { readFileSync, readdirSync } from "node:fs";
-import { resolve } from "node:path";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
+import { join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { parseArgs } from "node:util";
 import { standardTexts } from "../lib/languages.js";
@@ -36,7 +38,7 @@ import { standardTexts } from "../lib/languages.js";
 const { values: args } = parseArgs({
   options: {
     dir: { type: "string", default: "src/_data/i18n" },
-    languages: { type: "string", default: "src/_data/languages.js" },
+    languages: { type: "string" },
     templates: { type: "string", default: "" },
     default: { type: "string", default: "en" },
     strict: { type: "string", default: "en,de" },
@@ -45,16 +47,26 @@ const { values: args } = parseArgs({
 
 const DIR = pathToFileURL(resolve(args.dir) + "/");
 // Pages and parts they include; #links in texts point to sections there.
-const TEMPLATES = args.templates.split(",").filter(Boolean).map((path) => pathToFileURL(resolve(path)));
+const njkFiles = (dir) =>
+  existsSync(dir)
+    ? readdirSync(dir, { recursive: true, withFileTypes: true })
+        .filter((e) => e.isFile() && e.name.endsWith(".njk"))
+        .map((e) => join(e.parentPath, e.name))
+    : [];
+const templatePaths = args.templates
+  ? args.templates.split(",").filter(Boolean).map((path) => resolve(path))
+  : [...njkFiles(resolve("src")), ...njkFiles(new URL("../includes", import.meta.url).pathname)];
+const TEMPLATES = templatePaths.map((path) => pathToFileURL(path));
 const DEFAULT = args.default;
 const STRICT = new Set([DEFAULT, ...args.strict.split(",").map((code) => code.trim()).filter(Boolean)]);
 
 // Only code and fallback are needed from the languages file.
 let LANGUAGES;
 try {
-  ({ default: LANGUAGES } = await import(pathToFileURL(resolve(args.languages))));
+  if (args.languages) ({ default: LANGUAGES } = await import(pathToFileURL(resolve(args.languages))));
+  else ({ languages: LANGUAGES } = await import("../lib/game.js"));
 } catch (error) {
-  console.error(`✗ ${args.languages} could not be loaded: ${error.message}`);
+  console.error(`✗ ${args.languages ?? "game.json"}: languages could not be loaded: ${error.message}`);
   process.exit(1);
 }
 
@@ -105,8 +117,8 @@ const sectionIds = new Set(
 // ---------- languages file and JSON files match ----------
 
 const codes = LANGUAGES.map((lang) => lang.code);
-for (const code of codes) if (!texts[code]) report(code, null, `listed in ${args.languages} but ${code}.json is missing in ${args.dir}`);
-for (const code of files) if (!codes.includes(code)) report(code, null, `${args.dir}/${code}.json is not listed in ${args.languages}`);
+for (const code of codes) if (!texts[code]) report(code, null, `listed in ${args.languages ?? "game.json"} but ${code}.json is missing in ${args.dir}`);
+for (const code of files) if (!codes.includes(code)) report(code, null, `${args.dir}/${code}.json is not listed in ${args.languages ?? "game.json"}`);
 for (const lang of LANGUAGES) {
   for (const fallback of lang.fallback ?? []) {
     if (!codes.includes(fallback)) report(lang.code, null, `fallback "${fallback}" is not a language`);
@@ -164,7 +176,7 @@ for (const [code, own] of Object.entries(texts)) {
   }
 }
 
-for (const code of STRICT) if (!codes.includes(code)) report(code, null, `strict language is not listed in ${args.languages}`);
+for (const code of STRICT) if (!codes.includes(code)) report(code, null, `strict language is not listed in ${args.languages ?? "game.json"}`);
 
 if (warnings.length) {
   const byLanguage = Object.groupBy(warnings, (warning) => warning.split(" ")[0].replace(":", ""));

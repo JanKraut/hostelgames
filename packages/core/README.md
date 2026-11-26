@@ -15,7 +15,9 @@ seinem eigenen `_includes/` anlegt.
 | `includes/layouts/game.njk` | Seitenrahmen für alle Spiele (`layout: game`); erkennt optionale Dateien automatisch (`favicon.ico`, `apple-touch-icon.png`, `manifest.webmanifest`, `og-image.png`, `site.js`, `.htaccess`) |
 | `assets/quiz.js` | Ablauf des Übungsquiz (veröffentlicht als `assets/core/quiz.js`): Buttons, Rückmeldung, nächste Frage, Punktestand, dazu `cardHTML`, `pick`, `fill`, `RANKS`, `SUITS`. Das Spiel liefert in seinem `assets/quiz.js` nur `deal` (neue Frage) und `judge` (richtig?) und ruft `startQuiz({ deal, judge })` auf, Beispiel: Shithead |
 | `assets/share.js` | Auf jeder Seite: QR-Popup oben, Teilen-Box: QR-Code (mit `qrcode-generator`, veröffentlicht als `assets/core/qrcode.js`), Link kopieren, Teilen |
-| `lib/sitemap.js` | `createSitemap(site, languages, { games })`: `sitemap.xml` und `robots.txt` nur für den Hub (inkl. Live-Spiele ohne eigene Domain) und Live-Spiele mit eigener Domain |
+| `lib/sitemap.js` | `sitemap.xml` und `robots.txt` nur für den Hub (inkl. Live-Spiele ohne eigene Domain, `createSitemap` in `hub/src/sitemap.11ty.js`) und Live-Spiele mit eigener Domain (fügt das Plugin selbst hinzu) |
+| `lib/game.js` | `@hostelgames/core/game`: `site` und `languages` des Spiels im aktuellen Ordner (aus `game.json` und `src/_data/i18n/`), für Konfiguration, check-i18n und Tests |
+| `config/eleventy.js`, `config/playwright.js` | Konfiguration jedes Spiels; `eleventy.config.js` und `playwright.config.js` eines Spiels sind je eine Zeile (`export … from "@hostelgames/core/config/…"`). Braucht ein Spiel mehr, schreibt es eine eigene und ruft `gameConfig` auf |
 | `data/fonts.js` | Schrift (Manrope, selbst gehostet), Schnitte und Zeichensätze |
 | `data/tracking.js` | Tracking per Umgebungsvariablen, siehe Root-README |
 | `data/legal.js` | Links zu Impressum und Datenschutz (mut-im-rucksack.de), Texte des Einwilligungsbanners |
@@ -37,4 +39,4 @@ Veröffentlicht wird alles unter `/assets/core/` jeder Seite (`core.css`, `core.
 `foot` (Zeile über dem Footer) hat nur ein Spiel, das eine eigene will.
 
 Erwartete Daten einer Seite: `site` (aus `lib/site.js`), für Sprachmenü und Footer außerdem `lang`
-(mit `t` = Texte) und `languages`, wie in `games/shithead/src/_data/languages.js`.
+(mit `t` = Texte) und `languages`; bei Spielen setzt das Plugin `site` und `languages` als globale Daten (aus `lib/game.js`).

@@ -4,12 +4,8 @@
 // - live games on their own domain (e.g. shitheadgame.de): their pages from game.json in every language.
 // Games without a domain of their own and the GitHub Pages preview get neither file.
 //
-// A game's src/sitemap.11ty.js:
-//
-//   import { createSitemap } from "@hostelgames/core/sitemap";
-//   import site from "./_data/site.js";
-//   import languages from "./_data/languages.js";
-//   export default createSitemap(site, languages);
+// Games get both files from the core plugin (eleventy.js, sitemapFiles); the hub uses
+// createSitemap in hub/src/sitemap.11ty.js, with its hosted games.
 import { languageList } from "./languages.js";
 
 /** Folder of each page below a language folder, as in the templates' `subpath`. */
@@ -32,34 +28,41 @@ function urlEntries(pages, languages) {
   });
 }
 
-export function createSitemap(site, languages, { games = [] } = {}) {
-  const enabled = site.indexable && (site.game ? site.ownDomain && site.game.status === "live" : site.pathPrefix === "/");
+/** Whether a site gets sitemap.xml and robots.txt (see top of this file). */
+export const hasSitemap = (site) => site.indexable && (site.game ? site.ownDomain && site.game.status === "live" : site.pathPrefix === "/");
 
+/** { "sitemap.xml": …, "robots.txt": … } of a site, or {} if it gets none. */
+export function sitemapFiles(site, languages, { games = [] } = {}) {
+  if (!hasSitemap(site)) return {};
+  const root = site.origin + site.pathPrefix;
+  const urls = [
+    ...urlEntries(site.game?.pages ?? ["rules"], languages),
+    ...games.flatMap((game) => urlEntries(game.pages, languageList(game.languages, `${root}${game.path}/`))),
+  ];
+  return {
+    "sitemap.xml": `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${urls.join("\n")}
+</urlset>
+`,
+    "robots.txt": `User-agent: *\nAllow: /\n\nSitemap: ${root}sitemap.xml\n`,
+  };
+}
+
+/** Eleventy template (src/sitemap.11ty.js) writing the files of sitemapFiles. */
+export function createSitemap(site, languages, options = {}) {
   return class Sitemap {
     data() {
       return {
         pagination: { data: "files", size: 1, alias: "file" },
-        files: enabled ? ["sitemap.xml", "robots.txt"] : [],
+        files: Object.keys(sitemapFiles(site, languages, options)),
         permalink: (data) => `/${data.file}`,
         eleventyExcludeFromCollections: true,
       };
     }
 
     render({ file }) {
-      const root = site.origin + site.pathPrefix;
-      if (file === "robots.txt") {
-        return `User-agent: *\nAllow: /\n\nSitemap: ${root}sitemap.xml\n`;
-      }
-
-      const urls = [
-        ...urlEntries(site.game?.pages ?? ["rules"], languages),
-        ...games.flatMap((game) => urlEntries(game.pages, languageList(game.languages, `${root}${game.path}/`))),
-      ];
-      return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${urls.join("\n")}
-</urlset>
-`;
+      return sitemapFiles(site, languages, options)[file];
     }
   };
 }

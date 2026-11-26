@@ -1,13 +1,13 @@
 {
   "name": "@hostelgames/cambio",
   "private": true,
-  "description": "Cambio \u2013 rules of the card game (draft)",
+  "description": "Cambio – rules of the card game (draft)",
   "type": "module",
   "scripts": {
     "build": "npm run check && eleventy",
     "start": "eleventy --serve",
     "test": "playwright test",
-    "check": "hostelgames-check-i18n --dir src/_data/i18n --templates src/index.njk,src/strategy.njk,src/quickstart.njk --languages src/_data/languages.js"
+    "check": "hostelgames-check-i18n"
   },
   "dependencies": {
     "@hostelgames/core": "*"

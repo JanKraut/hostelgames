@@ -1,8 +1,7 @@
 // Strategy and quick start of Bridge: sections, visuals, links. Titles, tabs, share box and
 // narrow phones are tested for every game in @hostelgames/core/testing (site.spec.js).
 import { test, expect, open } from "@hostelgames/core/testing";
-import languages from "../src/_data/languages.js";
-import site from "../src/_data/site.js";
+import { languages, site } from "@hostelgames/core/game";
 
 const hrefOf = (lang, sub = "") => site.pathPrefix + (lang.path === "/" ? "" : lang.path.slice(1)) + sub;
 
