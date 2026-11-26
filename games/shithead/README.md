@@ -5,10 +5,9 @@ Webseite zum Kartenspiel Shithead (**Shithead in 3 minutes**), erstes Spiel im M
 **Live** (`status: live`): eigene Domain https://shitheadgame.de (zusätzlich unter
 https://hostelgames.com/shitheadgame/).
 
-Design, Schrift, Layout (`layout: game`), Kopf/Footer, Sprachmenü, Teilen-Box, Steckbrief,
-Quiz-Rahmen, 404-Seite, Sitemap, Offline-Service-Worker, Konfiguration (`eleventy.config.js`,
-`playwright.config.js`), Übersetzungsprüfung (`check-i18n`) und Basis-Tests kommen aus
-[`@hostelgames/core`](../../packages/core/README.md).
+Standard-Aufbau und gemeinsame Teile siehe [Aufbau eines Spiels](../../README.md#aufbau-eines-spiels)
+und [`@hostelgames/core`](../../packages/core/README.md); aktive Seiten, Sprachen und Status stehen
+in [`game.json`](game.json).
 
 ```sh
 npm run start:shithead                   # Dev-Server: http://localhost:8080/hostelgames/shitheadgame/
@@ -19,31 +18,18 @@ npm test -w @hostelgames/shithead        # Playwright-Tests (vorher bauen)
 SITE_ORIGIN=https://shitheadgame.de SITE_PATH_PREFIX=/ npm run build:shithead
 ```
 
+## Besonderheiten
+
 | Pfad | Inhalt |
 | --- | --- |
-| `game.json` | Name, Kategorie, Domain (Ordner `shitheadgame`), Status, Sprachen, Seiten, Steckbrief (Felder: [Root-README](../../README.md#gamejson)) |
-| `src/index.njk` | Regelseite (`/`, `/de/` …) |
-| `src/strategy.njk` | Strategieseite (`/strategy/`, `/de/strategy/` …) |
-| `src/quickstart.njk` | Quickstart: Spickzettel, passt auf einen Handybildschirm (`/quickstart/`, `/de/quickstart/` …) |
-| `src/play.njk` | Spielseite gegen Bots (`/play/`, `/de/play/` …) |
-| `src/_includes/hero-art.njk` | Kartenfächer im Kopfbereich |
-| `src/_includes/factsheet-players.njk`, `factsheet-gear.njk` | Shithead-Steckbrief-Overrides (Decks statt Text, Karten mit Joker) |
-| `src/_includes/notfound-art.njk` | Grafik auf der 404-Seite |
-| `src/_includes/shithead-card.njk` | Die Shithead-Karte (Haufen statt Wert und Farbe) |
-| `src/_includes/specials.njk` | Sonderkarten-Abschnitt (Regelseite und Quickstart) |
-| `src/_data/i18n/*.json` | Texte (15 Sprachen, inkl. Quiz-Erklärungen unter `quiz`, Referenz `en.json`) |
-| `src/favicon.ico`, `src/manifest.webmanifest`, `src/.htaccess` | Root-Dateien (klassisches Favicon, Web-App-Manifest, Apache-Konfiguration nur für eigene Domain) |
-| `src/assets/favicon.svg`, `apple-touch-icon.png`, `icon-*.png`, `og-image.png` | Icons und Social-Vorschaubild |
-| `src/assets/styles.css` | eigene Styles zusätzlich zu `core.css` |
+| `src/play.njk`, `src/assets/game/` | Spiel gegen Bots (`engine.js`, `bots.js`, `ui.js`, `fx.js`, `game.css`) |
+| `src/assets/quiz.js` | Shithead-Regel (`deal`, `judge`) für das Übungsquiz aus dem Core |
 | `src/assets/site.js` | Weiterleitung alter deutscher `#abschnitt`-Links auf jeder Seite |
-| `src/assets/quiz.js` | Regel des Übungsquiz (`deal`, `judge`); Rahmen, Ablauf und Standardtexte aus dem Core |
-| `src/assets/game/` | Spiel gegen Bots: `engine.js` (Regeln), `bots.js`, `ui.js`, `fx.js`, `game.css` |
-| `tests/site.spec.js`, `tests/play.spec.js`, `tests/engine.spec.js` | Playwright-Tests (`siteTests` aus dem Core, Bot-Spiel-UI, Engine-/Bot-Simulationen) |
-| Aus dem Core | Seitenrahmen, Seitenreiter, Weiterleitung, Teilen-Box, Quiz-Engine, 404-Seite, Sitemap, `eleventy.config.js`, `playwright.config.js`, Adresse und Sprachen – siehe [`packages/core/README.md`](../../packages/core/README.md) |
-
-Allgemeines zu Offline-Betrieb, fehlenden externen Ressourcen sowie Sprachen und Fallbacks steht in
-[`packages/core/README.md`](../../packages/core/README.md), zu Deployment und Tracking im
-[Root-README](../../README.md#deployment).
+| `src/_includes/factsheet-players.njk`, `factsheet-gear.njk` | Shithead-Steckbrief-Overrides (Decks statt Text, Karten mit Joker) |
+| `src/_includes/notfound-art.njk`, `shithead-card.njk`, `specials.njk` | 404-Grafik, Shithead-Karte (Haufen statt Wert/Farbe), Sonderkarten-Abschnitt |
+| `src/favicon.ico`, `src/manifest.webmanifest`, `src/.htaccess` | Root-Dateien (klassisches Favicon, Web-App-Manifest, Apache-Konfiguration nur für eigene Domain) |
+| `src/assets/apple-touch-icon.png`, `icon-*.png`, `og-image.png` | PWA-Icons und Social-Vorschaubild |
+| `tests/play.spec.js`, `tests/engine.spec.js` | Bot-Spiel-UI-Tests und Engine-/Bot-Simulationen |
 
 ## Gegen Bots spielen
 

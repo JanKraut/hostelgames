@@ -1,30 +1,15 @@
 # Cambio
 
 Webseite zum Kartenspiel Cambio, Teil des Monorepos [hostelgames](../../README.md).
-**Entwurf** (`status: draft`): nur in der Vorschau unter
-https://jankraut.github.io/hostelgames/cambiogame/, noch nicht auf cambiogame.de.
+**Entwurf** (`status: draft`): Vorschau unter https://jankraut.github.io/hostelgames/cambiogame/
+(Domain `cambiogame.de` noch nicht aktiv).
 
-Design, Schrift, Layout (`layout: game`), Kopf/Footer, Sprachmenü, Teilen-Box, Steckbrief,
-404-Seite, Sitemap, Offline-Service-Worker, Konfiguration (`eleventy.config.js`,
-`playwright.config.js`), Übersetzungsprüfung (`check-i18n`) und Basis-Tests kommen aus
-[`@hostelgames/core`](../../packages/core/README.md).
+Standard-Aufbau und gemeinsame Teile siehe [Aufbau eines Spiels](../../README.md#aufbau-eines-spiels)
+und [`@hostelgames/core`](../../packages/core/README.md); aktive Seiten, Sprachen und Status stehen
+in [`game.json`](game.json).
 
 ```sh
 npm run start:cambio                     # Dev-Server: http://localhost:8080/hostelgames/cambiogame/
 npm run build:cambio                     # prüft Texte und baut nach games/cambio/_site/
 npm test -w @hostelgames/cambio          # Playwright-Tests (vorher bauen)
 ```
-
-| Pfad | Inhalt |
-| --- | --- |
-| `game.json` | Name, Kategorie, Domain, Status, Sprachen, Seiten, Steckbrief, ähnliche Spiele (Felder: [Root-README](../../README.md#gamejson)) |
-| `src/index.njk` | Regelseite (`/`, `/de/` …) |
-| `src/strategy.njk` | Strategieseite (`/strategy/`, `/de/strategy/` …) |
-| `src/quickstart.njk` | Quickstart: Spickzettel für den Tisch (`/quickstart/`, `/de/quickstart/` …) |
-| `src/_includes/hero-art.njk` | Kartenfächer im Kopfbereich |
-| `src/_includes/factsheet-art.njk` | Kartenbild im Steckbrief |
-| `src/_data/i18n/*.json` | Texte (`en` + `de`, Referenz `en.json`) |
-| `src/assets/favicon.svg` | Favicon |
-| `src/assets/styles.css` | eigene Styles zusätzlich zu `core.css` |
-| `tests/site.spec.js` | Playwright-Tests (`siteTests` aus dem Core + spielspezifische Checks) |
-| Aus dem Core | Seitenrahmen, Seitenreiter, Weiterleitung, Teilen-Box, 404-Seite, Sitemap, `eleventy.config.js`, `playwright.config.js`, Adresse und Sprachen – siehe [`packages/core/README.md`](../../packages/core/README.md) |
