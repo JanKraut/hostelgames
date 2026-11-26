@@ -1,3 +1,6 @@
+// What is special about Shithead. Head, menus, links, share box, narrow phones, tabs, fact sheet,
+// FAQ, language redirect, 404 and the practice quiz (answer, feedback, score) are tested for
+// every game in @hostelgames/core/testing.
 import { test, expect, pathOf, siteTests } from "@hostelgames/core/testing";
 import languages from "../src/_data/languages.js";
 import site from "../src/_data/site.js";
@@ -14,27 +17,14 @@ test.describe("every language page", () => {
     test(`${lang.code} renders its own texts`, async ({ page }) => {
       await openLanguage(page, lang);
 
-      await expect(page).toHaveTitle(lang.t.seo.rulesT);
-      await expect(page.locator("html")).toHaveAttribute("lang", lang.htmlLang);
       await expect(page.locator("main h2").first()).toHaveText(lang.t.setupH);
       await expect(page.locator(".hero h1")).toHaveText(`${lang.t.rules.h1} ${lang.t.rules.h1sub}`);
       await expect(page.locator("#cheat-sheet")).toHaveCount(0);
       await expect(page.locator(".pagetabs a[aria-current=page]")).toHaveText(lang.t.pgRules);
-      await expect(page.locator(".langmenu a[aria-current=page]")).toHaveAttribute("data-lang", lang.code);
 
-      // One hreflang link per language plus x-default, and a canonical URL.
-      await expect(page.locator('link[rel=alternate][hreflang]')).toHaveCount(languages.length + 1);
-      await expect(page.locator("link[rel=canonical]")).toHaveAttribute("href", lang.url);
-
-      // No template leftovers or missing texts.
+      // Placeholders of the quiz texts are filled in.
       const text = await page.locator("body").innerText();
-      expect(text).not.toMatch(/undefined|\[object|\{\{|\{%|\{(mine|top|right|total)\}/);
-    });
-
-    test(`${lang.code} fits the screen width`, async ({ page }) => {
-      await openLanguage(page, lang);
-      const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
-      expect(overflow).toBeLessThanOrEqual(0);
+      expect(text).not.toMatch(/\{(mine|top|right|total)\}/);
     });
   }
 });
@@ -42,41 +32,21 @@ test.describe("every language page", () => {
 // Strategy and quick start: one page each per language, linked by the tabs at the top.
 const SUBPAGES = [
   // Languages with the new strategy guide show it, the others the short list.
-  { sub: "strategy/", tab: (t) => t.n6, title: (t) => t.seo.strategyT, check: () => "#swap .swapex" },
-  { sub: "quickstart/", tab: (t) => t.pgQuick, title: (t) => t.seo.quickT, check: () => "#cheat-sheet h2" },
+  { sub: "strategy/", tab: (t) => t.n6, check: () => "#swap .swapex" },
+  { sub: "quickstart/", tab: (t) => t.pgQuick, check: () => "#cheat-sheet h2" },
 ];
 
 test.describe("strategy and quick start pages", () => {
   for (const lang of languages) {
-    for (const { sub, tab, title, check } of SUBPAGES) {
-      test(`${lang.code} ${sub} renders its own texts and fits the screen`, async ({ page }) => {
+    for (const { sub, tab, check } of SUBPAGES) {
+      test(`${lang.code} ${sub} shows its own content`, async ({ page }) => {
         await page.addInitScript((code) => localStorage.setItem("lang", code), lang.code);
         await page.goto(pathOf(lang) + sub);
-
-        await expect(page).toHaveTitle(title(lang.t));
-        await expect(page.locator("html")).toHaveAttribute("lang", lang.htmlLang);
         await expect(page.locator(check(lang.t)).first()).toBeVisible();
         await expect(page.locator(".pagetabs a[aria-current=page]")).toHaveText(tab(lang.t));
-        await expect(page.locator("link[rel=canonical]")).toHaveAttribute("href", lang.url + sub);
-        await expect(page.locator(`.langmenu a[data-lang="${lang.code}"]`)).toHaveAttribute("href", new RegExp(`${sub}$`));
-
-        const text = await page.locator("body").innerText();
-        expect(text).not.toMatch(/undefined|\[object|\{\{|\{%/);
-        const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
-        expect(overflow).toBeLessThanOrEqual(0);
       });
     }
   }
-
-  test("the tabs link the three pages", async ({ page }) => {
-    await openLanguage(page, byCode.de);
-    await page.locator(".pagetabs a", { hasText: byCode.de.t.n6 }).click();
-    await expect(page).toHaveURL(/\/de\/strategy\/$/);
-    await page.locator(".pagetabs a", { hasText: byCode.de.t.pgQuick }).click();
-    await expect(page).toHaveURL(/\/de\/quickstart\/$/);
-    await page.locator(".pagetabs a", { hasText: byCode.de.t.pgRules }).click();
-    await expect(page).toHaveURL(/\/de\/$/);
-  });
 
   test("fact sheet in the rules header and new cheat sheet: only where translated", async ({ page }) => {
     await openLanguage(page, byCode.de);
@@ -126,14 +96,10 @@ test("swap graphic: same style, ace and 4 marked", async ({ page }) => {
   await expect(vis.locator(".dv-swap")).toBeVisible();
 });
 
-test("variants and FAQ: in every language, FAQ opens on tap", async ({ page }) => {
+test("variants and FAQ: in every language", async ({ page }) => {
   await openLanguage(page, byCode.de);
   await expect(page.locator("#variants .variants li")).toHaveCount(3);
   await expect(page.locator('.secnav a[href="#faq"]')).toBeVisible();
-  const first = page.locator("#faq details").first();
-  await expect(first.locator("p")).toBeHidden();
-  await first.locator("summary").click();
-  await expect(first.locator("p")).toBeVisible();
 
   await openLanguage(page, byCode.en);
   await expect(page.locator("#faq details")).toHaveCount(8);
@@ -217,17 +183,16 @@ test("404 page: the three cards sit side by side on small and large screens", as
   }
 });
 
-test("quick start has the practice quiz with its own heading", async ({ page }) => {
+test("quiz: own heading on the quick start, both cards dealt", async ({ page }) => {
   for (const code of ["de", "fr"]) {
     const lang = byCode[code];
     await openLanguage(page, lang);
+    await expect(page.locator("#practice h2")).toHaveText(lang.t.qH);
     await page.goto(pathOf(lang) + "quickstart/");
     const quiz = page.locator("#practice");
     await expect(quiz.locator("h2")).toHaveText(lang.t.quick.tryH);
     await expect(quiz.locator("#topCard .card")).toBeVisible();
-    await quiz.locator(".yes").click();
-    await expect(quiz.locator("#fb")).not.toBeEmpty();
-    await expect(quiz.locator("#next")).toBeVisible();
+    await expect(quiz.locator("#myCard .card")).toBeVisible();
   }
 });
 
@@ -379,17 +344,6 @@ test.describe("practice quiz", () => {
 });
 
 test.describe("share", () => {
-  for (const sub of ["", "strategy/", "quickstart/"]) {
-    test(`QR code and link point to the page itself (${sub || "rules"})`, async ({ page }) => {
-      const lang = byCode.de;
-      await openLanguage(page, lang);
-      await page.goto(pathOf(lang) + sub);
-      await expect(page.locator("#shurl")).toHaveAttribute("href", lang.url + sub);
-      await expect(page.locator("#qr svg")).toBeVisible();
-      await expect(page.locator("#shCopy")).toBeVisible();
-    });
-  }
-
   test("QR button at the top opens the same box as a popup", async ({ page }) => {
     const lang = byCode.de;
     await openLanguage(page, lang);
@@ -644,5 +598,5 @@ test("structured data: one WebSite block, only on the English start page", async
   await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(0);
 });
 
-// Language redirect (on all English entry pages) and 404 page (@hostelgames/core/testing).
-siteTests({ languages, site, redirects: ["./", "strategy/", "quickstart/", "play/"] });
+// Tests every game needs; Shithead has the practice quiz on the rules page and the quick start.
+siteTests({ languages, site, quiz: ["rules", "quickstart"] });

@@ -1,53 +1,31 @@
-import { test, expect, pathOf, siteTests } from "@hostelgames/core/testing";
+// What is special about Schafkopf. Head, menus, links, share box, narrow phones, fact sheet,
+// FAQ, language redirect and 404 are tested for every game in @hostelgames/core/testing.
+import { test, expect, open, siteTests } from "@hostelgames/core/testing";
 import languages from "../src/_data/languages.js";
 import site from "../src/_data/site.js";
 
-for (const lang of languages) {
-  test(`${lang.code}: rules page with its own texts`, async ({ page }) => {
-    await page.addInitScript((code) => localStorage.setItem("lang", code), lang.code);
-    await page.goto(pathOf(lang));
-    await expect(page).toHaveTitle(lang.t.seo.rulesT);
-    await expect(page.locator("html")).toHaveAttribute("lang", lang.htmlLang);
-    await expect(page.locator(".hero h1")).toHaveText(`${lang.t.rules.h1} ${lang.t.rules.h1sub}`);
-    await expect(page.locator(".langmenu a[aria-current=page]")).toHaveAttribute("data-lang", lang.code);
-    await expect(page.locator("link[rel=canonical]")).toHaveAttribute("href", lang.url);
-    await expect(page.locator("link[rel=alternate][hreflang]")).toHaveCount(languages.length + 1);
-    // Draft and preview: never indexed.
-    await expect(page.locator('meta[name=robots][content=noindex]')).toHaveCount(1);
-    // Share box with QR code, and the QR button at the top.
-    await expect(page.locator("#share .qr svg")).toBeVisible();
-    await expect(page.locator(".qrbtn")).toBeVisible();
-    const text = await page.locator("body").innerText();
-    expect(text).not.toMatch(/undefined|\[object|\{\{|\{%/);
-  });
-}
+siteTests({ languages, site });
 
-// The rules page: every section in every language, a section bar that points only
-// to sections that exist, no game against bots.
-const sections = ["setup", "trumps", "points", "games", "how-to-play", "scoring", "variants", "faq", "share"];
+// The rules page: every section in every language, in the order of the section bar.
+const SECTIONS = ["setup", "trumps", "points", "games", "how-to-play", "scoring", "variants", "faq"];
 
 for (const lang of languages) {
   const r = lang.t.rules;
 
-  test(`${lang.code}: all rule sections, section bar points to them`, async ({ page }) => {
-    await page.addInitScript((code) => localStorage.setItem("lang", code), lang.code);
-    await page.goto(pathOf(lang));
-    for (const id of sections) await expect(page.locator(`section#${id}`)).toHaveCount(1);
+  test(`${lang.code}: rules page with its header and all sections`, async ({ page }) => {
+    await open(page, lang);
+    await expect(page.locator(".hero h1")).toHaveText(`${r.h1} ${r.h1sub}`);
+    for (const id of SECTIONS) await expect(page.locator(`section#${id}`)).toHaveCount(1);
     await expect(page.locator("#setup h2")).toHaveText(r.setupH);
     await expect(page.locator("#trumps h2")).toHaveText(r.trH);
-    const targets = await page.locator(".secnav a").evaluateAll((links) => links.map((a) => a.getAttribute("href")));
-    expect(targets).toEqual(sections.filter((id) => id !== "share").map((id) => `#${id}`));
-    // Links inside the texts (e.g. in the FAQ) only point to existing elements too.
-    const anchors = await page.locator("main a[href^='#']").evaluateAll((links) => links.map((a) => a.getAttribute("href").slice(1)));
-    for (const id of anchors) await expect(page.locator(`[id="${id}"]`)).toHaveCount(1);
+    const nav = await page.locator(".secnav a").evaluateAll((links) => links.map((a) => a.getAttribute("href")));
+    expect(nav).toEqual(SECTIONS.map((id) => `#${id}`));
     await expect(page.locator("#faq details")).toHaveCount(8);
-    // No game against bots on this site.
-    await expect(page.locator("a[href*='play/']")).toHaveCount(0);
+    await expect(page.locator(".hero #factsheet .fs-cards .card")).toHaveCount(2);
   });
 
   test(`${lang.code}: four suits, the 14 trumps in order, card points add up to 120`, async ({ page }) => {
-    await page.addInitScript((code) => localStorage.setItem("lang", code), lang.code);
-    await page.goto(pathOf(lang));
+    await open(page, lang);
     await expect(page.locator(".suits li")).toHaveCount(4);
     const trumps = await page.locator(".trumps .card .c").evaluateAll((all) => all.map((c) => c.textContent));
     expect(trumps).toEqual([
@@ -65,39 +43,4 @@ for (const lang of languages) {
     await expect(page.locator(".trick li.tr-win .tr-who")).toHaveText(r.pD);
     await expect(page.locator(".tariff tbody tr")).toHaveCount(5);
   });
-
-  test(`${lang.code}: fact sheet in the header`, async ({ page }) => {
-    await page.addInitScript((code) => localStorage.setItem("lang", code), lang.code);
-    await page.goto(pathOf(lang));
-    const sheet = page.locator(".hero #factsheet");
-    await expect(sheet).toBeVisible();
-    await expect(sheet.locator(".fs-scale")).toHaveCount(3);
-    await expect(sheet.locator(".fs-group")).toHaveCount(2);
-    await expect(sheet.locator(".fs-similar li")).toHaveCount(lang.t.info.similar.split(", ").length);
-    await expect(sheet.locator(".fs-cards .card")).toHaveCount(2);
-    await expect(sheet.locator(".fs-intro p")).toHaveText(lang.t.info.intro);
-  });
 }
-
-test("FAQ answers open on tap", async ({ page }) => {
-  await page.goto("./");
-  const first = page.locator("#faq details").first();
-  await expect(first.locator("p")).toBeHidden();
-  await first.locator("summary").click();
-  await expect(first.locator("p")).toBeVisible();
-});
-
-test("no horizontal overflow, even on a very narrow phone", async ({ page }) => {
-  for (const width of [320, 390]) {
-    await page.setViewportSize({ width, height: 700 });
-    for (const lang of languages) {
-      await page.addInitScript((code) => localStorage.setItem("lang", code), lang.code);
-      await page.goto(pathOf(lang));
-      const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
-      expect(overflow, `${lang.code} at ${width}px`).toBeLessThanOrEqual(0);
-    }
-  }
-});
-
-// Language redirect and 404 page, the same in every game (@hostelgames/core/testing).
-siteTests({ languages, site });
