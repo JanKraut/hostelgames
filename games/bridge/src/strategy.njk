@@ -1,0 +1,157 @@
+---
+pagination:
+  data: languages
+  size: 1
+  alias: lang
+permalink: "{{ lang.path }}strategy/"
+layout: game
+subpath: "strategy/"
+share: true
+eleventyComputed:
+  pageTitle: "{{ lang.t.seo.strategyT }}"
+  pageDescription: "{{ lang.t.seo.strategyD }}"
+---
+{%- from "blocks.njk" import secnav -%}
+{%- from "card.njk" import card, cardRow -%}
+{#- Strategieseite, eine pro Sprache. Abschnitte: Grundprinzip, Hand bewerten (FP & Fit),
+    Reizen, Alleinspiel (mit Schnitt-Grafik), Gegenspiel, typische Fehler, Weiter, Teilen.
+    Texte unter `strategy` im i18n. -#}
+{%- set t = lang.t -%}
+{%- set s = t.strategy -%}
+{% include "hero.njk" %}
+
+{{ secnav(t.navLabel, [
+  ["principle", s.principleNav],
+  ["hand-eval", s.evalNav],
+  ["bidding-basics", s.biddingNav],
+  ["declarer-play", s.declarerNav],
+  ["defense", s.defenseNav],
+  ["mistakes", s.mistakesNav]
+]) }}
+
+<main class="wrap">
+  <section id="principle">
+    <h2>{{ s.principleH }}</h2>
+    <p class="lead">{{ s.principle | safe }}</p>
+    <ul class="strats">
+      {%- for item in s.principleItems %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="hand-eval">
+    <h2>{{ s.evalH }}</h2>
+    <p class="lead">{{ s.evalLead | safe }}</p>
+
+    {#- Figurenpunkte (HCP): Ass 4, König 3, Dame 2, Bube 1 = 10 pro Farbe, 40 im ganzen Deck. -#}
+    <ul class="points">
+      {%- for p in [["A", "♠", "4"], ["K", "♥", "3"], ["Q", "♦", "2"], ["J", "♣", "1"]] %}
+      <li>{{ card(p[0], p[1], "sm") }}<b>{{ p[2] }}</b></li>
+      {%- endfor %}
+    </ul>
+    <p>{{ s.evalP | safe }}</p>
+
+    {#- Punkteskala für gemeinsame Hände: Eröffnung bis Großschlemm. -#}
+    <figure class="ladder">
+      <figcaption>{{ s.ladderH }}</figcaption>
+      <ul class="ladder-rows">
+        {%- for row in s.ladder %}
+        <li><b>{{ row.pts }}</b><span>{{ row.label | safe }}</span></li>
+        {%- endfor %}
+      </ul>
+    </figure>
+    <p>{{ s.fitP | safe }}</p>
+  </section>
+
+  <section id="bidding-basics">
+    <h2>{{ s.bidH }}</h2>
+    <p class="lead">{{ s.bidLead | safe }}</p>
+    <ul class="strats">
+      {%- for item in s.bidItems %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+
+    {#- Beispielhand: ♠ A K 10 8 4 (7), ♥ Q 6 3 (2), ♦ K J 2 (4), ♣ 7 5 (0) = 13 FP + 5er-Pik → 1♠. -#}
+    <figure class="handex">
+      <figcaption>{{ s.exH }}</figcaption>
+      <div class="hx-suits" role="img" aria-label="{{ s.exAlt }}">
+        <div class="hx-row"><span class="hx-suit">♠</span><span class="hx-cards">A K 10 8 4</span><b class="hx-pts">7</b></div>
+        <div class="hx-row"><span class="hx-suit r">♥</span><span class="hx-cards">Q 6 3</span><b class="hx-pts">2</b></div>
+        <div class="hx-row"><span class="hx-suit r">♦</span><span class="hx-cards">K J 2</span><b class="hx-pts">4</b></div>
+        <div class="hx-row"><span class="hx-suit">♣</span><span class="hx-cards">7 5</span><b class="hx-pts">0</b></div>
+      </div>
+      <p class="hx-sum"><span>{{ s.exBreakdown }}</span><b>{{ s.exBid }}</b></p>
+      <p class="hx-why">{{ s.exWhy | safe }}</p>
+    </figure>
+  </section>
+
+  <section id="declarer-play">
+    <h2>{{ s.decH }}</h2>
+    <p class="lead">{{ s.decLead | safe }}</p>
+    <ul class="strats">
+      {%- for item in s.decItems %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+
+    {#- Schnitt-Beispiel (Finesse): Dummy spielt 4♠ an, Ost legt 7♠, Alleinspieler schneidet mit Q♠. -#}
+    <figure class="finesse">
+      <figcaption>{{ s.finH }}</figcaption>
+      <div class="fn-board" role="img" aria-label="{{ s.finAlt }}">
+        <div class="fn-pos fn-dummy">
+          <span class="fn-lbl">{{ s.finDummy }}</span>
+          <div class="fn-cards">{{ card("4", "♠", "xs", "gold") }}{{ card("2", "♠", "xs") }}</div>
+          <span class="fn-step">{{ s.finStep1 }}</span>
+        </div>
+        <div class="fn-pos fn-opp">
+          <span class="fn-lbl">{{ s.finOpp }}</span>
+          <div class="fn-cards">{{ card("7", "♠", "xs") }}</div>
+        </div>
+        <div class="fn-pos fn-you">
+          <span class="fn-lbl">{{ s.finYou }}</span>
+          <div class="fn-cards">{{ card("A", "♠", "xs") }}{{ card("Q", "♠", "xs", "gold") }}</div>
+          <span class="fn-step">{{ s.finStep2 }}</span>
+        </div>
+      </div>
+      <p class="fn-why">{{ s.finWhy | safe }}</p>
+    </figure>
+  </section>
+
+  <section id="defense">
+    <h2>{{ s.defH }}</h2>
+    <p class="lead">{{ s.defLead | safe }}</p>
+    <ul class="strats">
+      {%- for item in s.defItems %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="mistakes">
+    <h2>{{ s.mistakesH }}</h2>
+    <ul class="variants">
+      {%- for item in s.mistakes %}
+      <li>{{ item | safe }}</li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="next-steps" class="ctas">
+    <div class="cta">
+      <h2>{{ s.ctaQuickH }}</h2>
+      <p>{{ s.ctaQuickP }}</p>
+      <a class="ctabtn" href="{{ lang.path }}quickstart/">{{ s.ctaQuickBtn }} →</a>
+    </div>
+    <div class="cta">
+      <h2>{{ s.ctaRulesH }}</h2>
+      <p>{{ s.ctaRulesP }}</p>
+      <a class="ctabtn" href="{{ lang.path }}">{{ s.ctaRulesBtn }} →</a>
+    </div>
+  </section>
+
+  {% include "share.njk" %}
+</main>
+
+{% include "footer.njk" %}

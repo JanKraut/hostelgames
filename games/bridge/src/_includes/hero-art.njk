@@ -1,0 +1,9 @@
+{#- Picture in the big header (core includes/hero.njk), between the intro and the goal.
+    The four honor ranks across the four bidding suits from lowest to highest: ♣ < ♦ < ♥ < ♠. -#}
+{%- from "card.njk" import card -%}
+<div class="fan" aria-hidden="true">
+  {{ card("J", "♣") }}
+  {{ card("Q", "♦") }}
+  {{ card("K", "♥") }}
+  {{ card("A", "♠") }}
+</div>

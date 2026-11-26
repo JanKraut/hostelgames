@@ -1,0 +1,929 @@
+/* ==========================================================================
+   Bridge: only what this game needs on top of @hostelgames/core (core.css).
+   Sections follow the pages from top to bottom (rules, strategy, quick start).
+   Shared building blocks (fan, goal, section nav, steps, variants, FAQ, fact sheet …)
+   live in core.css; this file only holds what this game does differently.
+   ========================================================================== */
+
+/* ---------- Header: fanned cards and fact sheet deviations ---------- */
+
+.fan {
+  position: relative;
+  width: 300px;
+  max-width: 100%;
+  height: 160px;
+  margin: 1rem auto 1.4rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .fan .card:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+
+  .fan .card:nth-child(2) {
+    animation-delay: 0.18s;
+  }
+
+  .fan .card:nth-child(3) {
+    animation-delay: 0.31s;
+  }
+
+  .fan .card:nth-child(4) {
+    animation-delay: 0.5s;
+  }
+}
+
+.fs-who {
+  display: grid;
+  line-height: 1.2;
+}
+
+.fs-who span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.fs-gear {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.8rem;
+  align-items: center;
+}
+
+.fs-cards {
+  display: flex;
+}
+
+.fs-count {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+main section[id] {
+  scroll-margin-top: 3.2rem;
+}
+
+ol.steps h3 {
+  margin: 0;
+}
+
+/* ---------- Setup: compass table (N–S vs E–W) ---------- */
+
+.compass {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas:
+    ". north ."
+    "west mid east"
+    ". south .";
+  gap: 0.55rem;
+  align-items: center;
+  justify-items: center;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.seat {
+  display: grid;
+  gap: 0.1rem;
+  width: 100%;
+  max-width: 9rem;
+  padding: 0.5rem 0.45rem;
+  border-radius: 12px;
+  background: var(--paper);
+  color: var(--card-ink);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.24);
+  line-height: 1.2;
+}
+
+.seat b {
+  font-size: 0.98rem;
+  font-weight: 800;
+}
+
+.seat span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.seat.pair-a {
+  border-bottom: 4px solid var(--gold);
+}
+
+.seat.pair-a span {
+  color: var(--menu-accent);
+}
+
+.seat.pair-b {
+  border-bottom: 4px solid var(--card-green);
+}
+
+.seat.pair-b span {
+  color: var(--card-green);
+}
+
+.seat-n { grid-area: north; }
+.seat-e { grid-area: east; }
+.seat-s { grid-area: south; }
+.seat-w { grid-area: west; }
+
+.table-mid {
+  grid-area: mid;
+  padding: 0.35rem 0.5rem;
+  border: 1.5px dashed rgba(255, 244, 226, 0.55);
+  border-radius: 999px;
+  color: var(--wood-text);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-shadow: var(--wood-text-shadow);
+}
+
+/* ---------- Setup: 13-card order (from President) ---------- */
+
+.ranks .card {
+  --w: 52px;
+  box-shadow: -2px 0 4px rgba(0, 0, 0, 0.18), 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Overlap the 13 cards just enough to fit the width. */
+.ranks .card + .card {
+  margin-left: min(-16px, calc((100% - var(--w)) / 12 - var(--w)));
+}
+
+/* ---------- Bidding: five strains from ♣ to NT/SA ---------- */
+
+.suits {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+  gap: 0.6rem;
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.suits li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0 0.7rem;
+  align-items: center;
+  padding: 0.7rem 0.85rem;
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.suits .suit-nt {
+  grid-column: 1 / -1;
+}
+
+.suits .suit {
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 9px;
+  background: var(--paper);
+  color: var(--card-ink);
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 0 0 1px var(--line) inset;
+}
+
+.suits .suit.r {
+  color: var(--card-red);
+}
+
+.suits .suit.nt {
+  background: var(--felt);
+  color: var(--felt-text);
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  box-shadow: none;
+}
+
+.suits b {
+  color: var(--ink-strong);
+}
+
+.suits li span:last-child {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ---------- Bidding: example auction ---------- */
+
+.auction-wrap {
+  margin: 0.8rem 0 0.5rem;
+  padding: 0.85rem 0.75rem;
+  border-radius: 18px;
+  background: var(--felt);
+  color: var(--felt-text);
+}
+
+.auction {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.auction th {
+  padding: 0.25rem 0.2rem 0.55rem;
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.16);
+  color: var(--felt-soft);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.auction td {
+  padding: 0.55rem 0.2rem 0.25rem;
+  font-weight: 700;
+}
+
+.bid {
+  display: inline-block;
+  min-width: 2.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--card-ink);
+  font-family: var(--font-cards);
+  font-weight: var(--font-cards-weight);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16);
+}
+
+.bid-r {
+  color: var(--card-red);
+}
+
+.bid-win {
+  outline: 3px solid var(--card-ink);
+  outline-offset: 1px;
+}
+
+.bid-pass {
+  color: var(--felt-soft);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* ---------- Playing: example trick (from Schafkopf) ---------- */
+
+.trick {
+  display: grid;
+  gap: 0.4rem;
+  margin: 1rem 0 0.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.trick li {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  min-height: 3rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line) inset;
+}
+
+.tr-who {
+  flex: none;
+  width: 3.6rem;
+  color: var(--ink-strong);
+  font-weight: 800;
+}
+
+.tr-cards {
+  display: flex;
+  flex: none;
+}
+
+.tr-cards .card {
+  --w: 40px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), 0 3px 8px rgba(0, 0, 0, 0.22);
+}
+
+.tr-say {
+  min-width: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.tr-win {
+  box-shadow: 0 0 0 2px var(--gold) inset !important;
+}
+
+.tr-win::after {
+  content: "👑";
+  margin-inline-start: auto;
+  font-family: var(--font-emoji);
+}
+
+.tr-note {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ---------- Scoring: tariff table ---------- */
+
+.tariff {
+  width: 100%;
+  margin: 1rem 0;
+  border-collapse: collapse;
+}
+
+.tariff th,
+.tariff td {
+  padding: 0.55rem 0.6rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.tariff thead th {
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tariff tbody th {
+  font-weight: 400;
+}
+
+.tariff tbody th strong {
+  color: var(--ink-strong);
+}
+
+.tariff td {
+  color: var(--ink-strong);
+  font-weight: 800;
+  text-align: right;
+  white-space: nowrap;
+}
+
+@media (max-width: 24rem) {
+  .tariff td {
+    white-space: normal;
+  }
+}
+
+/* ---------- Strategy: HCP tiles, strength ladder, hand example & finesse ---------- */
+
+.strats strong,
+.variants strong {
+  color: var(--ink-strong);
+}
+
+.points {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.points li {
+  display: grid;
+  justify-items: center;
+  gap: 0.35rem;
+  padding: 0.65rem 0.3rem;
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.points b {
+  color: var(--ink-strong);
+  font-size: 1.2rem;
+}
+
+@media (max-width: 24rem) {
+  .points .card.sm {
+    --w: 44px;
+  }
+}
+
+.ladder {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 18px;
+  background: var(--felt);
+  color: var(--felt-text);
+}
+
+.ladder figcaption {
+  margin-bottom: 0.65rem;
+  font-weight: 800;
+}
+
+.ladder-rows {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ladder-rows li {
+  display: grid;
+  grid-template-columns: 5.2rem 1fr;
+  gap: 0.65rem;
+  align-items: baseline;
+  padding: 0.45rem 0.65rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.ladder-rows b {
+  color: var(--card-ink);
+  font-family: var(--font-cards);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.ladder-rows span {
+  min-width: 0;
+  color: var(--felt-soft);
+  font-size: 0.94rem;
+}
+
+.ladder-rows strong {
+  color: var(--felt-text);
+}
+
+/* Example hand evaluation */
+.handex {
+  margin: 1.2rem 0 0;
+  padding: 1rem;
+  border-radius: 18px;
+  background: var(--felt);
+  color: var(--felt-text);
+}
+
+.handex figcaption,
+.finesse figcaption {
+  margin-bottom: 0.7rem;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: var(--font-display-weight);
+}
+
+.hx-suits {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.hx-row {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto;
+  gap: 0.6rem;
+  align-items: center;
+  padding: 0.45rem 0.7rem;
+  border-radius: 10px;
+  background: var(--paper);
+  color: var(--card-ink);
+}
+
+.hx-suit {
+  font-size: 1.35rem;
+  line-height: 1;
+  text-align: center;
+}
+
+.hx-suit.r {
+  color: var(--card-red);
+}
+
+.hx-cards {
+  font-family: var(--font-cards);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.hx-pts {
+  min-width: 1.8rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  background: var(--felt);
+  color: var(--felt-text);
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+.hx-sum {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.75rem 0 0.55rem;
+  padding-top: 0.65rem;
+  border-top: 2px dashed rgba(0, 0, 0, 0.18);
+  font-weight: 800;
+}
+
+.hx-sum b {
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: var(--felt-btn);
+  color: var(--felt-btn-text);
+  font-size: 0.95rem;
+}
+
+.hx-why,
+.fn-why {
+  margin: 0;
+  color: var(--felt-soft);
+  font-size: 0.95rem;
+}
+
+.hx-why strong,
+.fn-why strong {
+  color: var(--felt-text);
+}
+
+/* Finesse diagram */
+.finesse {
+  margin: 1.2rem 0 0;
+  padding: 1rem;
+  border-radius: 18px;
+  background: var(--felt);
+  color: var(--felt-text);
+}
+
+.fn-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin-bottom: 0.85rem;
+}
+
+.fn-pos {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 0.45rem;
+  padding: 0.7rem 0.5rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.45);
+  text-align: center;
+}
+
+.fn-lbl {
+  color: var(--felt-text);
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.fn-cards {
+  display: flex;
+  gap: 0.35rem;
+  justify-content: center;
+}
+
+.fn-step {
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: var(--felt-btn);
+  color: var(--felt-btn-text);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+@media (max-width: 28rem) {
+  .fn-board {
+    grid-template-columns: 1fr;
+  }
+
+  .fn-pos {
+    grid-template-columns: 1fr auto;
+    justify-items: start;
+    align-items: center;
+    text-align: left;
+    padding: 0.65rem 0.8rem;
+  }
+
+  .fn-cards {
+    grid-row: span 2;
+  }
+}
+
+/* ---------- Next-step CTAs (from Kniffel / Shithead) ---------- */
+
+.ctas {
+  display: grid;
+  gap: 0.9rem;
+}
+
+@media (min-width: 34rem) {
+  .ctas {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.ctas .cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ctas .cta h2 {
+  font-size: 1.5rem;
+}
+
+.ctas .ctabtn {
+  margin-top: auto;
+}
+
+/* ---------- Quick start: cheat sheet (from Kniffel / Shithead) ---------- */
+
+.quick section {
+  padding: 0.8rem 0 1.2rem;
+}
+
+.cheat {
+  margin: 0;
+  padding: 0.95rem 1rem;
+  border-radius: 20px;
+  background: var(--cheat-bg);
+  color: var(--cheat-text);
+}
+
+.cheat h2 {
+  margin-bottom: 0.4rem;
+  color: var(--cheat-heading);
+  font-size: 1.6rem;
+}
+
+.ch-block {
+  padding: 0.65rem 0 0.5rem;
+  border-top: 1px solid var(--head-chip-border);
+}
+
+.cheat h2 + .ch-block {
+  border-top: 0;
+}
+
+.ch-block h3 {
+  margin: 0 0 0.45rem;
+  color: var(--cheat-dt);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cheat p {
+  margin: 0;
+}
+
+.ch-rule {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.8rem;
+  align-items: start;
+}
+
+.ch-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--cheat-text);
+  color: var(--cheat-bg);
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.ch-suits {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0 0 0.45rem;
+  padding: 0;
+  list-style: none;
+}
+
+.ch-suits li {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto 2.8rem;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.92rem;
+}
+
+.ch-sym {
+  display: grid;
+  place-items: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--card-ink);
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.ch-sym.r {
+  color: var(--card-red);
+}
+
+.ch-sym.nt {
+  font-size: 0.72rem;
+}
+
+.ch-sname {
+  font-weight: 700;
+}
+
+.ch-spts {
+  font-size: 0.84rem;
+  opacity: 0.82;
+  white-space: nowrap;
+}
+
+.ch-sgame {
+  text-align: end;
+  white-space: nowrap;
+}
+
+.ch-legend {
+  font-size: 0.8rem;
+  opacity: 0.82;
+}
+
+.ch-honors {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.4rem;
+  margin-bottom: 0.55rem;
+}
+
+.ch-honors > span {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem;
+  border-radius: 10px;
+  background: var(--head-well);
+}
+
+.ch-honors b {
+  font-size: 1.05rem;
+}
+
+.ch-targets {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.35rem 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.86rem;
+}
+
+.ch-targets li {
+  display: flex;
+  gap: 0.4rem;
+  align-items: baseline;
+}
+
+.ch-targets b {
+  flex: none;
+  color: var(--cheat-dt);
+}
+
+@media (max-width: 24rem) {
+  .ch-targets {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ch-score {
+  display: grid;
+  gap: 0.3rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9rem;
+}
+
+.ch-score li {
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.ch-score b {
+  flex: none;
+  white-space: nowrap;
+}
+
+/* Mini cards for quick start (from Shithead) */
+.ch-card {
+  display: grid;
+  flex: none;
+  place-content: center;
+  width: 28px;
+  height: 38px;
+  border-radius: 5px;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  color: var(--card-ink);
+  font-family: var(--font-cards);
+  font-weight: var(--font-cards-weight);
+  font-size: 0.92rem;
+  line-height: 1;
+  text-align: center;
+}
+
+.ch-card small {
+  font-size: 0.7rem;
+}
+
+.ch-card.r {
+  color: var(--card-red);
+}
+
+.ch-ranks {
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  gap: 3px;
+}
+
+.ch-ranks .ch-card {
+  width: auto;
+  height: auto;
+  aspect-ratio: 5 / 7;
+  border-radius: 4px;
+  font-size: clamp(0.62rem, 2.6vw, 0.95rem);
+  letter-spacing: -0.04em;
+}
+
+.ch-ranks .ch-card small {
+  font-size: 0.75em;
+}
+
+.ch-rankscale {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.25rem 0 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+/* ---------- Variants and FAQ ---------- */
+
+.variants {
+  display: grid;
+  gap: 0.6rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.variants li {
+  padding: 0.85rem 1rem;
+  border-inline-start: 5px solid var(--gold);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line) inset;
+}
+
+.faq summary {
+  border-radius: 14px;
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1rem;
+  color: var(--ink-strong);
+  font-weight: 800;
+  line-height: 1.3;
+  list-style: none;
+  cursor: pointer;
+  transition: background-color 0.15s, box-shadow 0.15s;
+}
+
+@media (hover: hover) {
+  p a:hover {
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+  }
+}
