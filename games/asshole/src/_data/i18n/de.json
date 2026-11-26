@@ -1,5 +1,4 @@
 {
-  "title": "Arschloch – Regeln",
   "h1": "Arschloch",
   "sub": "Das Kartenspiel, bei dem der Gewinner König wird und der Verlierer dienen muss. In fünf Minuten gelernt, den ganzen Abend gespielt.",
   "goal": "<strong>Das Ziel:</strong> Werde deine Karten so schnell wie möglich los. Wer am Ende noch Karten auf der Hand hat, ist das Arschloch – und muss in der nächsten Runde seine besten Karten an den König abgeben.",
@@ -11,17 +10,26 @@
     "quickT": "Arschloch Quickstart – Spickzettel und Kartenfolge",
     "quickD": "Arschloch auf einen Blick: Überbieten, Kartenfolge von 7 bis Ass, Ränge vom König bis zum Arschloch und der Kartentausch auf einem Bildschirm."
   },
+  "info": {
+    "players1": "3–4",
+    "mode1": "schnelle Runde",
+    "players2": "5–8",
+    "mode2": "am lustigsten",
+    "timeN": "20",
+    "similar": "President, Shithead, Big Two",
+    "gearN": "32 Karten (Skatblatt)",
+    "gearAlt": "Ein Kartenspiel mit 32 Karten",
+    "intro": "Arschloch ist der Klassiker für Kneipe, Klassenfahrt und Hostel: Wer zuerst alle Karten loswird, wird König – wer zuletzt übrig bleibt, muss seine besten Karten nach oben abgeben. In fünf Minuten erklärt, und mit jeder Runde wird es noch besser."
+  },
   "rules": {
     "h1": "Arschloch-Kartenspiel",
     "h1sub": "Regeln & Anleitung",
-    "navLabel": "Abschnitte",
     "nSetup": "Aufbau",
     "nPlay": "Spielen",
     "nRanks": "Ränge",
     "nSwap": "Kartentausch",
     "nVar": "Varianten",
     "nFaq": "FAQ",
-    "nShare": "Teilen",
     "setupH": "Aufbau",
     "setupLead": "Du brauchst ein normales Kartenspiel ohne Joker und 3 bis 8 Leute. Am meisten Spaß macht es zu viert bis zu sechst. In Deutschland spielt man meist mit 32 Skatkarten.",
     "deck1n": "3–5 Spieler",

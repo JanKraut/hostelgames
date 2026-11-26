@@ -1,5 +1,6 @@
-import { test, expect, pathOf } from "@hostelgames/core/testing";
+import { test, expect, pathOf, siteTests } from "@hostelgames/core/testing";
 import languages from "../src/_data/languages.js";
+import site from "../src/_data/site.js";
 const byCode = Object.fromEntries(languages.map((lang) => [lang.code, lang]));
 
 /** Opens a language page without being redirected by the start page. */
@@ -77,24 +78,18 @@ test.describe("strategy and quick start pages", () => {
     await expect(page).toHaveURL(/\/de\/$/);
   });
 
-  test("the English quick start redirects to the saved language", async ({ page, baseURL }) => {
-    await page.addInitScript(() => localStorage.setItem("lang", "de"));
-    await page.goto(baseURL + "quickstart/");
-    await expect(page).toHaveURL(/\/de\/quickstart\/$/);
-  });
-
   test("fact sheet in the rules header and new cheat sheet: only where translated", async ({ page }) => {
     await openLanguage(page, byCode.de);
-    await expect(page.locator(".hero #steckbrief .fs-scale")).toHaveCount(3);
+    await expect(page.locator(".hero #factsheet .fs-scale")).toHaveCount(3);
     await expect(page.locator("#special-cards .sp-tag")).toHaveCount(5);
     await page.goto("de/quickstart/");
-    await expect(page.locator("#steckbrief")).toHaveCount(0);
+    await expect(page.locator("#factsheet")).toHaveCount(0);
     await expect(page.locator("#cheat-sheet .ch-specials li")).toHaveCount(6);
     await expect(page.locator("#special-cards .sp")).toHaveCount(6);
 
     // Every language has the same parts, e.g. English.
     await openLanguage(page, byCode.en);
-    await expect(page.locator("#steckbrief")).toHaveCount(1);
+    await expect(page.locator("#factsheet")).toHaveCount(1);
     await page.goto("quickstart/");
     await expect(page.locator("#cheat-sheet .ch-specials li")).toHaveCount(6);
     await expect(page.locator("#special-cards .sp-tag")).toHaveCount(5);
@@ -641,9 +636,13 @@ test("structured data: one WebSite block, only on the English start page", async
   const data = JSON.parse(blocks[0]);
   expect(data["@type"]).toBe("WebSite");
   expect(data.name).toBe("Shithead");
+  expect(data.alternateName).toEqual(["Shithead card game", "Shithead in 3 minutes"]);
   expect(data.inLanguage).toContain("de");
   await page.goto("de/");
   await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(0);
   await page.goto("strategy/");
   await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(0);
 });
+
+// Language redirect (on all English entry pages) and 404 page (@hostelgames/core/testing).
+siteTests({ languages, site, redirects: ["./", "strategy/", "quickstart/", "play/"] });

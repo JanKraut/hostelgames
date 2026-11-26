@@ -52,6 +52,7 @@ for (const [what, change, message] of [
   ["without rules", { pages: [] }, /must contain "rules"/],
   ["path set by hand", { path: "foo" }, /remove "path"/],
   ["bad players", { players: { min: 4, max: 2 } }, /"players"/],
+  ["bad alternateName", { alternateName: "Shithead" }, /"alternateName"/],
 ]) {
   test(`error: ${what}`, () => {
     assert.throws(() => readGame(gameDir({ ...BASE, ...change })), message);

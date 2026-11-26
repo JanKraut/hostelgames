@@ -1,5 +1,4 @@
 {
-  "title": "Mau-Mau – zasady",
   "h1": "Mau-Mau",
   "sub": "Ulubiona niemiecka gra w pozbywanie się kart: dokładaj do koloru lub figury, wykorzystuj 7, 8 i waleta przeciwko innym – i nie zapomnij powiedzieć „Mau”.",
   "goal": "<strong>Cel gry:</strong> pozbądź się wszystkich swoich kart jako pierwszy. Przed ostatnią kartą powiedz „Mau” – a gdy ją zagrywasz, „Mau-Mau”.",
@@ -21,7 +20,6 @@
   "rules": {
     "h1": "Gra karciana Mau-Mau",
     "h1sub": "Zasady i instrukcja",
-    "navLabel": "Sekcje",
     "nSetup": "Przygotowanie",
     "nPlay": "Przebieg",
     "nSpecial": "Karty specjalne",
@@ -29,7 +27,6 @@
     "nScore": "Punktacja",
     "nVar": "Warianty",
     "nFaq": "FAQ",
-    "nShare": "Udostępnij",
     "setupH": "Przygotowanie",
     "setupLead": "W Mau-Mau gra się zwykle 32-kartową talią do skata (od 7 do asa w czterech kolorach) w 2 do 6 osób. Starszeństwo kart nie bije innych – liczy się tylko to, czy karta <strong>pasuje</strong>.",
     "deck1n": "2–5 graczy",

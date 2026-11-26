@@ -1,5 +1,4 @@
 {
-  "title": "Kniffel – Regeln",
   "h1": "Kniffel",
   "rules": {
     "h1": "Kniffel",
@@ -35,7 +34,6 @@
   "nScoring": "Wertung",
   "nVariants": "Varianten",
   "nFaq": "FAQ",
-  "nShare": "Teilen",
   "setupH": "Aufbau",
   "setupLead": "Ihr braucht nicht viel, und eine Partie mit Freunden dauert etwa eine halbe Stunde.",
   "setup1": "<strong>5 Würfel</strong> – am besten mit Würfelbecher.",

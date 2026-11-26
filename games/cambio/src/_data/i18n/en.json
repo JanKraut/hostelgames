@@ -1,5 +1,4 @@
 {
-  "title": "Cambio – rules",
   "h1": "Cambio",
   "rules": {
     "h1": "Cambio",
@@ -14,6 +13,17 @@
     "strategyD": "Cambio strategy guide: memory habits, using the black king power, cross-stacking opponents, locking in your score and calling Cambio at the right moment.",
     "quickT": "Cambio quick start – cheat sheet, values and powers",
     "quickD": "Cambio at a glance: card values with red king at minus 1, card powers, stacking own and other cards and calling Cambio on one screen."
+  },
+  "info": {
+    "players1": "2–3",
+    "mode1": "memory duel",
+    "players2": "4–6",
+    "mode2": "fast stacking",
+    "timeN": "20",
+    "similar": "Cabo, Tamalou, Golf",
+    "gearN": "54 cards (with jokers)",
+    "gearAlt": "A deck of 52 playing cards plus two jokers",
+    "intro": "Cambio is the faster, more chaotic cousin of Cabo: four face-down cards, special powers to peek and swap, and quick-reaction stacking whenever a matching card hits the pile. Two minutes to learn, impossible to stop after one round."
   },
   "nav": {
     "setup": "Setup",

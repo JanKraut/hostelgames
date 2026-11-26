@@ -1,5 +1,4 @@
 {
-  "title": "Asshole – rules",
   "h1": "Asshole",
   "sub": "The card game where the winner becomes king and the loser has to serve. Learn it in five minutes, play it all night.",
   "goal": "<strong>The goal:</strong> get rid of all your cards as fast as you can. Whoever is left holding cards at the end is the asshole – and has to hand their best cards to the king in the next round.",
@@ -11,17 +10,26 @@
     "quickT": "Asshole quick start – cheat sheet and card order",
     "quickD": "Asshole at a glance: beating cards, 32-card order from 7 to ace, ranks from king to asshole and the card swap on one screen."
   },
+  "info": {
+    "players1": "3–4",
+    "mode1": "fast round",
+    "players2": "5–8",
+    "mode2": "best fun",
+    "timeN": "20",
+    "similar": "President, Shithead, Big Two",
+    "gearN": "32 cards (Skat pack)",
+    "gearAlt": "A pack of 32 playing cards",
+    "intro": "Asshole is the German pub and hostel classic: get rid of your cards first to become king, or finish last and hand your best cards to the top. The rules take five minutes to explain and the social hierarchy makes every round better than the last."
+  },
   "rules": {
     "h1": "Asshole Card Game",
     "h1sub": "Rules & how to play",
-    "navLabel": "Sections",
     "nSetup": "Setup",
     "nPlay": "Playing",
     "nRanks": "Ranks",
     "nSwap": "Card swap",
     "nVar": "Variants",
     "nFaq": "FAQ",
-    "nShare": "Share",
     "setupH": "Setup",
     "setupLead": "You need one ordinary pack of cards, no jokers, and 3 to 8 players. Four to six is the most fun. In Germany the game is usually played with a 32-card Skat pack.",
     "deck1n": "3–5 players",

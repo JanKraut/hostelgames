@@ -1,5 +1,4 @@
 {
-  "title": "Kniffel – regler",
   "h1": "Kniffel",
   "rules": {
     "h1": "Kniffel",
@@ -35,7 +34,6 @@
   "nScoring": "Optælling",
   "nVariants": "Varianter",
   "nFaq": "FAQ",
-  "nShare": "Del",
   "setupH": "Opstilling",
   "setupLead": "I behøver ikke meget, og et spil med venner tager cirka en halv time.",
   "setup1": "<strong>5 terninger</strong> – gerne med et raflebæger.",

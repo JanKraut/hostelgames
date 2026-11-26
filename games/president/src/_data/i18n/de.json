@@ -1,5 +1,4 @@
 {
-  "title": "President – Regeln",
   "h1": "President",
   "rules": {
     "h1": "President",
@@ -14,6 +13,17 @@
     "quickT": "President Quickstart – Spickzettel und Kartenfolge",
     "quickD": "President auf einen Blick: Überbieten, Kartenfolge von 3 bis 2, Ränge und Kartentausch zwischen Präsident und Bettler auf einem Bildschirm."
   },
+  "info": {
+    "players1": "3–4",
+    "mode1": "schnelle Runde",
+    "players2": "5–7",
+    "mode2": "beste Runde",
+    "timeN": "20",
+    "similar": "Arschloch, Shithead, Big Two",
+    "gearN": "52 Karten (ohne Joker)",
+    "gearAlt": "Ein normales Kartenspiel mit 52 Karten",
+    "intro": "President ist das internationale Stich- und Ablegespiel aus Hostels und WGs weltweit: Wer zuerst alle Karten ablegt, wird Präsident – der Bettler gibt in der nächsten Runde seine stärksten Karten ab. Einfache Regeln, große Comebacks."
+  },
   "goal": "<strong>Ziel:</strong> Spiel als Erster alle deine Karten aus. Wer zuerst fertig ist, wird in der nächsten Runde Präsident – wer zuletzt noch Karten hat, wird Bettler.",
   "nSetup": "Aufbau",
   "nPlay": "Spielablauf",
@@ -21,7 +31,6 @@
   "nSwap": "Kartentausch",
   "nVar": "Hausregeln",
   "nFaq": "FAQ",
-  "nShare": "Teilen",
   "setupH": "Aufbau",
   "setupLead": "Ein normales Kartenspiel mit 52 Karten, ohne Joker, und 4 bis 7 Leute. Zu dritt geht es auch; ab etwa 8 Leuten mischt ihr zwei Decks zusammen.",
   "rankH": "Reihenfolge der Karten",

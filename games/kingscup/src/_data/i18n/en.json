@@ -1,5 +1,4 @@
 {
-  "title": "King’s Cup – rules",
   "h1": "King’s Cup",
   "rules": {
     "h1": "King’s Cup",
@@ -31,7 +30,6 @@
   "nSafe": "Play safe",
   "nVariants": "Variants",
   "nFaq": "FAQ",
-  "nShare": "Share",
   "setupH": "Setup",
   "setupLead": "Two minutes and you’re ready to go.",
   "setup1": "<strong>One standard deck</strong> of 52 cards, without Jokers.",

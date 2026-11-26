@@ -1,5 +1,4 @@
 {
-  "title": "President – rules",
   "h1": "President",
   "rules": {
     "h1": "President",
@@ -14,6 +13,17 @@
     "quickT": "President quick start – cheat sheet and card order",
     "quickD": "President at a glance: beating cards, full card order from 3 to 2, ranks and the card swap between President and Scum on one screen."
   },
+  "info": {
+    "players1": "3–4",
+    "mode1": "quick round",
+    "players2": "5–7",
+    "mode2": "best round",
+    "timeN": "20",
+    "similar": "Asshole, Shithead, Big Two",
+    "gearN": "52 cards (no jokers)",
+    "gearAlt": "A standard deck of 52 playing cards",
+    "intro": "President is the international climbing card game played in hostels and living rooms worldwide: shed your cards first to claim the top seat, while the Scum hands over their strongest cards next round. Simple rules, big comebacks."
+  },
   "goal": "<strong>Goal:</strong> be the first to play all your cards. Whoever goes out first is President in the next round – whoever is left holding cards becomes the Scum.",
   "nSetup": "Setup",
   "nPlay": "How to play",
@@ -21,7 +31,6 @@
   "nSwap": "Card swap",
   "nVar": "House rules",
   "nFaq": "FAQ",
-  "nShare": "Share",
   "setupH": "Setup",
   "setupLead": "One normal deck of 52 cards, no jokers, and 4 to 7 players. Three players work too; from about 8 players, shuffle two decks together.",
   "rankH": "Card order",

@@ -1,5 +1,4 @@
 {
-  "title": "Kniffel – regler",
   "h1": "Kniffel",
   "rules": {
     "h1": "Kniffel",
@@ -35,7 +34,6 @@
   "nScoring": "Poäng",
   "nVariants": "Varianter",
   "nFaq": "FAQ",
-  "nShare": "Dela",
   "setupH": "Förberedelse",
   "setupLead": "Det behövs inte mycket, och en omgång med vänner tar ungefär en halvtimme.",
   "setup1": "<strong>5 tärningar</strong> – gärna med en tärningsbägare.",

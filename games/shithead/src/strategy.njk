@@ -4,13 +4,14 @@ pagination:
   size: 1
   alias: lang
 permalink: "{{ lang.path }}strategy/"
-layout: layouts/base.njk
+layout: game
 subpath: "strategy/"
+share: true
 eleventyComputed:
   pageTitle: "{{ lang.t.seo.strategyT }}"
   pageDescription: "{{ lang.t.seo.strategyD }}"
-share: true
 ---
+{%- from "blocks.njk" import secnav -%}
 {%- from "card.njk" import card, stack -%}
 {%- set t = lang.t -%}
 {%- set s = t.strategy -%}
@@ -22,18 +23,10 @@ share: true
 
 {% include "hero.njk" %}
 
-<nav class="secnav" aria-label="{{ t.navLabel }}">
-  <ul>
-    <li><a href="#principle">{{ s.principleNav }}</a></li>
-    <li><a href="#swap">{{ s.swapNav }}</a></li>
-    {%- for phase in s.phases %}
-    <li><a href="#{{ phase.id }}">{{ phase.h }}</a></li>
-    {%- endfor %}
-    <li><a href="#using-special-cards">{{ s.spNav }}</a></li>
-    <li><a href="#mistakes">{{ s.mistakesNav }}</a></li>
-    <li><a href="{{ lang.path }}play/">{{ t.game.ctaBtn }}</a></li>
-  </ul>
-</nav>
+{%- set navItems = [["principle", s.principleNav], ["swap", s.swapNav]] -%}
+{%- for phase in s.phases %}{% set navItems = (navItems.push([phase.id, phase.h]), navItems) %}{% endfor -%}
+{%- set navItems = (navItems.push(["using-special-cards", s.spNav], ["mistakes", s.mistakesNav], [lang.path + "play/", t.game.ctaBtn]), navItems) -%}
+{{ secnav(t.navLabel, navItems) }}
 
 <main class="wrap">
   <section id="principle">

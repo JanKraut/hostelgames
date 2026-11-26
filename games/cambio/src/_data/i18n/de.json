@@ -1,5 +1,4 @@
 {
-  "title": "Cambio – Regeln",
   "h1": "Cambio",
   "rules": {
     "h1": "Cambio",
@@ -14,6 +13,17 @@
     "strategyD": "Cambio-Strategie-Guide: Karten merken, den schwarzen König nutzen, fremde Karten abwerfen, deinen Stand sichern und im besten Moment „Cambio“ rufen.",
     "quickT": "Cambio Quickstart – Spickzettel, Werte und Fähigkeiten",
     "quickD": "Cambio auf einen Blick: Kartenwerte mit rotem König minus 1, Fähigkeiten, eigenes und fremdes Abwerfen sowie „Cambio“ ansagen auf einem Bildschirm."
+  },
+  "info": {
+    "players1": "2–3",
+    "mode1": "Gedächtnis-Duell",
+    "players2": "4–6",
+    "mode2": "schnelles Abwerfen",
+    "timeN": "20",
+    "similar": "Cabo, Tamalou, Golf",
+    "gearN": "54 Karten (mit Jokern)",
+    "gearAlt": "Ein Kartenspiel mit 52 Karten plus zwei Jokern",
+    "intro": "Cambio ist die schnellere, chaotischere Schwester von Cabo: vier verdeckte Karten, Sonderkarten zum Spicken und Tauschen und blitzschnelles Draufwerfen bei gleichem Wert. In zwei Minuten gelernt, und bei einer Runde bleibt es nie."
   },
   "nav": {
     "setup": "Aufbau",

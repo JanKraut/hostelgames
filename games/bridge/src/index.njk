@@ -1,0 +1,168 @@
+---
+pagination:
+  data: languages
+  size: 1
+  alias: lang
+permalink: "{{ lang.path }}"
+layout: game
+share: true
+eleventyComputed:
+  pageTitle: "{{ lang.t.seo.rulesT }}"
+  pageDescription: "{{ lang.t.seo.rulesD }}"
+---
+{%- from "blocks.njk" import secnav, steps, variants, faq -%}
+{%- from "card.njk" import card, cardRow -%}
+{#- Regelseite, eine pro Sprache. Abschnitte: Aufbau & Tisch, Reizen, Spielablauf & Dummy,
+    Wertung & Rubber, Varianten, FAQ, Teilen.
+    Texte in src/_data/i18n/*.json (unter "rules"). Karten aus card.njk im Core. -#}
+{%- set t = lang.t -%}
+{%- set r = t.rules -%}
+{% include "hero.njk" %}
+
+{{ secnav(t.navLabel, [
+  ["setup", r.nSetup],
+  ["bidding", r.nBid],
+  ["how-to-play", r.nPlay],
+  ["scoring", r.nScore],
+  ["variants", r.nVar],
+  ["faq", r.nFaq]
+]) }}
+
+<main class="wrap">
+
+  <section id="setup">
+    <h2>{{ r.setupH }}</h2>
+    <p class="lead">{{ r.setupLead | safe }}</p>
+
+    {#- Vier Spieler am Tisch: Nord & Süd sitzen gegenüber und spielen zusammen gegen Ost & West. -#}
+    <div class="compass wood" role="img" aria-label="{{ r.tableAlt }}">
+      <div class="seat seat-n pair-a"><b>{{ r.seatN }}</b><span>{{ r.pairNS }}</span></div>
+      <div class="seat seat-w pair-b"><b>{{ r.seatW }}</b><span>{{ r.pairEW }}</span></div>
+      <div class="table-mid">{{ r.tableCenter }}</div>
+      <div class="seat seat-e pair-b"><b>{{ r.seatE }}</b><span>{{ r.pairEW }}</span></div>
+      <div class="seat seat-s pair-a"><b>{{ r.seatS }}</b><span>{{ r.pairNS }}</span></div>
+    </div>
+
+    <h3 class="sub">{{ r.rankH }}</h3>
+    <p>{{ r.rankLead | safe }}</p>
+    <div class="ranks" role="img" aria-label="{{ r.rankAlt }}">
+      {{ cardRow([["2","♣"],["3","♦"],["4","♥"],["5","♠"],["6","♣"],["7","♦"],["8","♥"],["9","♠"],["10","♣"],["J","♦"],["Q","♥"],["K","♠"],["A","♠","gold"]]) }}
+    </div>
+    <div class="rankscale" aria-hidden="true"><span>{{ r.rankLow }}</span><span>{{ r.rankHigh }}</span></div>
+
+    <h3 class="sub">{{ r.dealH }}</h3>
+    <p>{{ r.dealP | safe }}</p>
+  </section>
+
+  <section id="bidding">
+    <h2>{{ r.bidH }}</h2>
+    <p class="lead">{{ r.bidLead | safe }}</p>
+
+    {#- Rangfolge der Farben in der Reizung: von Treff (niedrig) bis Sans Atout / No Trump (hoch). -#}
+    <ul class="suits">
+      {%- for s in [
+        ["♣", "sClub", false],
+        ["♦", "sDia", true],
+        ["♥", "sHeart", true],
+        ["♠", "sSpade", false],
+        [r.sNtSym, "sNt", false]
+      ] %}
+      <li{% if loop.last %} class="suit-nt"{% endif %}>
+        <span class="suit{% if s[2] %} r{% endif %}{% if loop.last %} nt{% endif %}" aria-hidden="true">{{ s[0] }}</span>
+        <b>{{ r[s[1]] }}</b>
+        <span>{{ r[s[1] ~ "S"] }}</span>
+      </li>
+      {%- endfor %}
+    </ul>
+
+    <h3 class="sub">{{ r.lvlH }}</h3>
+    <p>{{ r.lvlP | safe }}</p>
+
+    {{ steps(r, "b") }}
+
+    {#- Beispiel-Reizung: Nord eröffnet 1♥, Süd hebt auf 2♥, Nord reizt Vollspiel 4♥, drei Pässe. -#}
+    <h3 class="sub">{{ r.aucH }}</h3>
+    <div class="auction-wrap">
+      <table class="auction" aria-label="{{ r.aucAlt }}">
+        <thead>
+          <tr>
+            <th scope="col">{{ r.seatN }}</th>
+            <th scope="col">{{ r.seatE }}</th>
+            <th scope="col">{{ r.seatS }}</th>
+            <th scope="col">{{ r.seatW }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="bid bid-r">1♥</span></td>
+            <td class="bid-pass">{{ r.aucPass }}</td>
+            <td><span class="bid bid-r">2♥</span></td>
+            <td class="bid-pass">{{ r.aucPass }}</td>
+          </tr>
+          <tr>
+            <td><span class="bid bid-r bid-win">4♥</span></td>
+            <td class="bid-pass">{{ r.aucPass }}</td>
+            <td class="bid-pass">{{ r.aucPass }}</td>
+            <td class="bid-pass">{{ r.aucPass }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tr-note">{{ r.aucNote | safe }}</p>
+  </section>
+
+  <section id="how-to-play">
+    <h2>{{ r.playH }}</h2>
+    <p class="lead">{{ r.playLead | safe }}</p>
+    {{ steps(r, "t") }}
+
+    {#- Beispielstich im Kontrakt 4♥: Ost spielt K♠, Süd (Dummy) legt 4♠, West übernimmt mit A♠,
+        Nord (Alleinspieler) hat kein Pik und sticht mit 3♥. -#}
+    <h3 class="sub">{{ r.trickH }}</h3>
+    <ol class="trick" aria-label="{{ r.trickAlt }}">
+      {%- for m in [
+        [r.seatE, "K", "♠", r.trick1],
+        [r.seatS, "4", "♠", r.trick2],
+        [r.seatW, "A", "♠", r.trick3],
+        [r.seatN, "3", "♥", r.trick4]
+      ] %}
+      <li class="{{ 'tr-win' if loop.last }}">
+        <span class="tr-who">{{ m[0] }}</span>
+        <span class="tr-cards" aria-hidden="true">{{ card(m[1], m[2], "xs", pip=false) }}</span>
+        <span class="tr-say">{{ m[3] }}</span>
+      </li>
+      {%- endfor %}
+    </ol>
+    <p class="tr-note">{{ r.trickNote | safe }}</p>
+  </section>
+
+  <section id="scoring">
+    <h2>{{ r.scH }}</h2>
+    <p class="lead">{{ r.scLead | safe }}</p>
+    <table class="tariff">
+      <thead>
+        <tr><th scope="col">{{ r.scWhat }}</th><th scope="col">{{ r.scPts }}</th></tr>
+      </thead>
+      <tbody>
+        {%- for i in range(1, 8) %}
+        <tr><th scope="row">{{ r["sc" ~ i] | safe }}</th><td>{{ r["sc" ~ i ~ "v"] }}</td></tr>
+        {%- endfor %}
+      </tbody>
+    </table>
+    <p>{{ r.scP | safe }}</p>
+
+    <h3 class="sub">{{ r.vulH }}</h3>
+    <p>{{ r.vulP | safe }}</p>
+
+    <h3 class="sub">{{ r.scExH }}</h3>
+    <p>{{ r.scExP | safe }}</p>
+  </section>
+
+  {{ variants(r) }}
+
+  {{ faq(r) }}
+
+  {% include "share.njk" %}
+</main>
+
+{% include "footer.njk" %}

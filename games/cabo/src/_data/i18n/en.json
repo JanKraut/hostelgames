@@ -1,5 +1,4 @@
 {
-  "title": "Cabo – rules",
   "h1": "Cabo",
   "rules": {
     "h1": "Cabo",
@@ -14,6 +13,17 @@
     "quickT": "Cabo Quick Start – Cheat Sheet and Card Powers",
     "quickD": "Cabo at a glance: card values, peek, spy and swap powers, multi-swapping and calling Cabo on one screen."
   },
+  "info": {
+    "players1": "2–3",
+    "mode1": "tight duel",
+    "players2": "4–5",
+    "mode2": "chaotic swaps",
+    "timeN": "20",
+    "similar": "Cambio, Golf, Skyjo",
+    "gearN": "52 cards (no jokers)",
+    "gearAlt": "A standard deck of 52 playing cards",
+    "intro": "Cabo is a brisk memory card game where your four cards stay face down and you only see them for a moment. Swap smartly, keep track of the table and call Cabo before anyone else beats your score – all with a regular deck of cards."
+  },
   "goal": "<strong>The goal:</strong> End each round with the lowest total of points in front of you. The catch: your four cards lie face down, and you only know them if you remember them.",
   "nSetup": "Setup",
   "nValues": "Card values",
@@ -23,7 +33,6 @@
   "nScoring": "Scoring",
   "nVariants": "Variants",
   "nFaq": "FAQ",
-  "nShare": "Share",
   "setupH": "Setup",
   "setupLead": "You need a standard 52-card deck without jokers and 2 to 5 players. A round takes only a few minutes.",
   "dealH": "Dealing",

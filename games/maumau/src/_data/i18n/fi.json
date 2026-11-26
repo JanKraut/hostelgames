@@ -1,5 +1,4 @@
 {
-  "title": "Mau-Mau – säännöt",
   "h1": "Mau-Mau",
   "sub": "Saksan suosituin poistokorttipeli: pelaa samaa maata tai arvoa, käytä seiskaa, kasia ja jätkää muita vastaan – äläkä unohda sanoa ”Mau”.",
   "goal": "<strong>Tavoite:</strong> Pääse ensimmäisenä eroon kaikista korteistasi. Sano ”Mau” ennen viimeistä korttiasi – ja ”Mau-Mau”, kun pelaat sen.",
@@ -21,7 +20,6 @@
   "rules": {
     "h1": "Mau-Mau-korttipeli",
     "h1sub": "Säännöt & pelin kulku",
-    "navLabel": "Osiot",
     "nSetup": "Valmistelu",
     "nPlay": "Pelaaminen",
     "nSpecial": "Erikoiskortit",
@@ -29,7 +27,6 @@
     "nScore": "Pisteet",
     "nVar": "Muunnelmat",
     "nFaq": "UKK",
-    "nShare": "Jaa",
     "setupH": "Valmistelu",
     "setupLead": "Mau-Mauta pelataan yleensä 32 kortin skat-pakalla (7–ässä neljässä maassa) ja 2–6 pelaajalla. Korttien arvot eivät voita toisiaan – ratkaisevaa on vain se, <strong>sopiiko</strong> kortti.",
     "deck1n": "2–5 pelaajaa",

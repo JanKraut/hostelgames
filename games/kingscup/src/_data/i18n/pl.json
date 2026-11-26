@@ -1,5 +1,4 @@
 {
-  "title": "King’s Cup – zasady",
   "h1": "King’s Cup",
   "rules": {
     "h1": "King’s Cup",
@@ -31,7 +30,6 @@
   "nSafe": "Graj z głową",
   "nVariants": "Warianty",
   "nFaq": "FAQ",
-  "nShare": "Udostępnij",
   "setupH": "Przygotowanie",
   "setupLead": "Dwie minuty i możecie zaczynać.",
   "setup1": "<strong>Jedna standardowa talia</strong> 52 kart, bez jokerów.",

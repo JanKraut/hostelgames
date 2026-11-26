@@ -1,5 +1,4 @@
 {
-  "title": "Mau-Mau – rules",
   "h1": "Mau-Mau",
   "sub": "Germany's favourite shedding game: match the suit or the rank, use the 7, the 8 and the jack against the others – and don't forget to say “Mau”.",
   "goal": "<strong>The goal:</strong> be the first to get rid of all your cards. Say “Mau” before your last card – and “Mau-Mau” when you play it.",
@@ -25,7 +24,6 @@
   "rules": {
     "h1": "Mau-Mau Card Game",
     "h1sub": "Rules & how to play",
-    "navLabel": "Sections",
     "nSetup": "Setup",
     "nPlay": "Playing",
     "nSpecial": "Special cards",
@@ -33,7 +31,6 @@
     "nScore": "Scoring",
     "nVar": "Variants",
     "nFaq": "FAQ",
-    "nShare": "Share",
     "setupH": "Setup",
     "setupLead": "Mau-Mau is usually played with a 32-card Skat pack (7 to ace in four suits) and 2 to 6 players. Ranks don't beat each other – what counts is whether a card <strong>fits</strong>.",
     "deck1n": "2–5 players",

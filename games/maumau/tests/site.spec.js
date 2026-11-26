@@ -140,7 +140,7 @@ test("no horizontal overflow, also on a phone", async ({ page }) => {
   }
   for (const width of [320, 390]) {
     await page.setViewportSize({ width, height: 700 });
-    for (const sub of ["strategy/", "quickstart/"]) {
+    for (const sub of ["", "strategy/", "quickstart/"]) {
       for (const lang of [languages[0], de]) {
         await page.addInitScript((code) => localStorage.setItem("lang", code), lang.code);
         await page.goto(pathOf(lang) + sub);

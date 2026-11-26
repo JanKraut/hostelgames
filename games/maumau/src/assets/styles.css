@@ -458,92 +458,12 @@ main section[id] {
   justify-content: center;
 }
 
-/* ---------- Next-steps boxes ---------- */
-
-.ctas {
-  display: grid;
-  gap: 0.9rem;
-}
-
-@media (min-width: 34rem) {
-  .ctas {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.ctas .cta {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.ctas .cta h2 {
-  font-size: 1.5rem;
-}
-
-.ctas .ctabtn {
-  margin-top: auto;
-}
-
 /* ---------- Quick start: compact cheat sheet ---------- */
-
-.quick section {
-  padding: 0.8rem 0 1.2rem;
-}
-
-.cheat {
-  margin: 0;
-  padding: 0.95rem 1rem;
-  border-radius: 20px;
-  background: var(--cheat-bg);
-  color: var(--cheat-text);
-}
 
 .cheat h2 {
   margin-bottom: 0.4rem;
   color: var(--cheat-heading);
   font-size: 1.6rem;
-}
-
-.ch-block {
-  padding: 0.65rem 0 0.5rem;
-  border-top: 1px solid var(--head-chip-border);
-}
-
-.cheat h2 + .ch-block {
-  border-top: 0;
-}
-
-.ch-block h3 {
-  margin: 0 0 0.45rem;
-  color: var(--cheat-dt);
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.cheat p {
-  margin: 0;
-}
-
-.ch-rule {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.8rem;
-  align-items: start;
-}
-
-.ch-icon {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: var(--cheat-text);
-  color: var(--cheat-bg);
-  font-size: 1.45rem;
-  font-weight: 800;
-  line-height: 1;
 }
 
 .ch-specials {
@@ -606,18 +526,6 @@ main section[id] {
 
 .ch-card small {
   font-size: 0.65rem;
-}
-
-.ch-card.r {
-  color: var(--card-red);
-}
-
-.ch-rows {
-  display: grid;
-  gap: 0.4rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
 
 .ch-rows li {

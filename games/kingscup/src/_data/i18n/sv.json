@@ -1,5 +1,4 @@
 {
-  "title": "King’s Cup – regler",
   "h1": "King’s Cup",
   "rules": {
     "h1": "King’s Cup",
@@ -31,7 +30,6 @@
   "nSafe": "Spela säkert",
   "nVariants": "Varianter",
   "nFaq": "FAQ",
-  "nShare": "Dela",
   "setupH": "Förberedelse",
   "setupLead": "Två minuter, sedan är ni redo att köra.",
   "setup1": "<strong>En vanlig kortlek</strong> med 52 kort, utan jokrar.",

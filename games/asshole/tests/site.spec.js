@@ -45,6 +45,18 @@ for (const lang of languages) {
     // No game against bots on this site.
     await expect(page.locator("a[href*='play/']")).toHaveCount(0);
   });
+
+  test(`${lang.code}: fact sheet in the header`, async ({ page }) => {
+    await page.addInitScript((code) => localStorage.setItem("lang", code), lang.code);
+    await page.goto(pathOf(lang));
+    const sheet = page.locator(".hero #factsheet");
+    await expect(sheet).toBeVisible();
+    await expect(sheet.locator(".fs-scale")).toHaveCount(3);
+    await expect(sheet.locator(".fs-group")).toHaveCount(2);
+    await expect(sheet.locator(".fs-similar li")).toHaveCount(lang.t.info.similar.split(", ").length);
+    await expect(sheet.locator(".fs-cards .card")).toHaveCount(2);
+    await expect(sheet.locator(".fs-intro p")).toHaveText(lang.t.info.intro);
+  });
 }
 
 test("FAQ answers open on tap", async ({ page }) => {
