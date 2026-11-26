@@ -15,16 +15,9 @@ eleventyComputed:
 <header class="hero">
   <div class="wrap">
     {#- Top row as on every game page (sitehead.njk), without the menu "All games":
-        the hub gets its own menu later. The big logo below it. -#}
+        the hub gets its own menu later. The big logo on the left of that row. -#}
+    {% set headlogo = "logo.njk" %}
     {% include "sitehead.njk" %}
-    <a class="hublogo" href="{{ lang.path }}">{% include "logo.njk" %}</a>
-    {#- Logo swings down a little once the page is scrolled (see .is-scrolled in hub.css) -#}
-    <script type="module">
-      const root = document.documentElement;
-      const update = () => root.classList.toggle("is-scrolled", window.scrollY > 24);
-      update();
-      addEventListener("scroll", update, { passive: true });
-    </script>
     <h1>{{ t.h1 }}</h1>
     <p>{{ t.sub }}</p>
   </div>
