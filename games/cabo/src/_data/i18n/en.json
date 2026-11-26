@@ -7,7 +7,11 @@
   "sub": "Peek, swap and remember: a quick memory card game for 2 to 5 players with a standard deck. Read it once, play a round, done.",
   "seo": {
     "rulesT": "Cabo Rules – How to Play the Card Game",
-    "rulesD": "Cabo with a standard deck explained: dealing, card values, peek, spy and swap powers, calling Cabo, scoring and variants."
+    "rulesD": "Cabo with a standard deck explained: dealing, card values, peek, spy and swap powers, calling Cabo, scoring and variants.",
+    "strategyT": "Cabo Strategy – Tips to Win with the Lowest Hand",
+    "strategyD": "Cabo strategy guide: memory tricks, draw pile vs discard pile, using peek, spy and swap powers, smart multi-swaps and when to call Cabo.",
+    "quickT": "Cabo Quick Start – Cheat Sheet and Card Powers",
+    "quickD": "Cabo at a glance: card values, peek, spy and swap powers, multi-swapping and calling Cabo on one screen."
   },
   "info": {
     "players1": "2–3",
@@ -117,5 +121,103 @@
   "faq6q": "Is Cabo the same as Cambio?",
   "faq6a": "They are close relatives. The idea is the same, and the game is also known as <strong>Pablo</strong> or <strong>Cactus</strong>. The details differ from table to table – Cambio, for example, usually lets everyone throw matching cards onto the discard pile at any time (see <a href=\"#variants\">Variants</a>).",
   "faq7q": "Can you buy Cabo?",
-  "faq7a": "Yes, Cabo also exists as a commercial card game with its own deck, created in 2010 by Melissa Limes and Mandy Henning. This page explains how to play with a standard deck of cards."
+  "faq7a": "Yes, Cabo also exists as a commercial card game with its own deck, created in 2010 by Melissa Limes and Mandy Henning. This page explains how to play with a standard deck of cards.",
+  "strategy": {
+    "h1": "Cabo strategy",
+    "sub": "Memory, timing and smart swaps. Cabo is easy to learn, yet knowing when to peek, when to ignore the discard pile and when to call “Cabo” wins far more rounds than lucky draws.",
+    "principleNav": "Principle",
+    "memNav": "Memory",
+    "drawNav": "Drawing",
+    "powNav": "Powers",
+    "multiNav": "Multi-swap",
+    "callNav": "Calling Cabo",
+    "mistakesNav": "Mistakes",
+    "principleH": "The basic principle",
+    "principle": "Cabo is a race for <strong>information and low totals</strong>. Every card you know is an advantage, every unknown card is a hidden risk – and shrinking your hand from four cards to three beats almost any single swap.",
+    "principleItems": [
+      "<strong>Information first, points second.</strong> Early in the round, turning unknown back-row cards into known low cards matters more than shaving a single point off a card you already know.",
+      "<strong>Fewer cards win rounds.</strong> A clean multi-swap drops your hand from four cards to three (or two), cutting your total permanently.",
+      "<strong>Silence is information too.</strong> Never give away your hand by taking middling cards from the discard pile or reacting when you draw a red king."
+    ],
+    "memH": "Remembering your cards",
+    "memLead": "With four face-down cards – and other players spying and swapping – a simple mental habit stops your cards from blurring together.",
+    "memExH": "Read your square like a 4-digit code",
+    "memBefore": "At the start",
+    "memAfter": "After swapping top left",
+    "memExAlt": "Four cards in a 2 by 2 square: two unknown cards at the back, 4 of hearts and 9 of spades in front, read as ? ? 4 9. After swapping a drawn 2 of diamonds into the top-left spot, the code updates to 2 ? 4 9.",
+    "memExWhy": "<strong>Why?</strong> Always read your square in the exact same order – top left, top right, bottom left, bottom right – and repeat the four slots silently after every change. A single updated digit sticks much better than four separate pictures.",
+    "memItems": [
+      "<strong>Repeat the code between turns.</strong> Whenever you swap or peek, silently run through all four positions once right away.",
+      "<strong>Replace unknowns before known medium cards.</strong> Drew a 2? Put it on an unknown back-row spot (or a known 10+) rather than overwriting a known 4 – that reveals the unknown card on the discard pile for free.",
+      "<strong>Track one spot per opponent.</strong> You don’t need to memorize the whole table. Just remember where someone placed a red king, ace or 2 from the discard pile so you have a ready target for a jack or queen."
+    ],
+    "drawH": "Draw pile vs. discard pile",
+    "drawLead": "Where you take your card tells the table almost as much as what you discard.",
+    "drawItems": [
+      "<strong>Be picky with the discard pile.</strong> Taking a face-up card lets everyone see its exact value and where you put it. Only take from the discard pile for a <strong>red king (0), ace (1), 2 or 3</strong> – or to complete a multi-swap.",
+      "<strong>Use clear swap thresholds.</strong> From the draw pile, swap 0 to 3 into an unknown spot; swap 4 or 5 only over a known 8 or higher. Cards from 7 to queen are usually worth more for their power unless they replace a black king (13) or queen (12).",
+      "<strong>Watch what opponents pick up.</strong> Whenever another player grabs a low card from the discard pile, lock in that spot – it’s free information without spending a 9 or 10."
+    ],
+    "drawWarn": "<strong>Don’t grab a 4 or 5 from the discard pile</strong> just because you dislike an unknown card: you tell the whole table where your 4 sits and give up the chance to draw a lower card or a power.",
+    "powH": "Using card powers wisely",
+    "powLead": "Powers only work when drawn from the draw pile and discarded at once – make every one count.",
+    "pow7h": "7 or 8 – Peek at your blind spots first",
+    "pow7p": "Always look at your two unknown back-row cards before re-checking anything else. Once an opponent uses a jack or queen on one of your spots, peek there immediately so a hidden 12 or 13 doesn’t ruin your call.",
+    "pow9h": "9 or 10 – Spy with a plan",
+    "pow9p": "Spy on the player with the fewest cards or on a spot they haven’t replaced all round (often a 0, 1 or 2). Don’t waste a spy on a card you already watched them take from the discard pile.",
+    "powJh": "Jack or queen – Swap with intel, not blind luck",
+    "powJp": "Remember you can swap <strong>any two cards on the table</strong>. Best move: trade your known high card (10–13) for an opponent’s known low card – or disrupt the “Cabo” caller on your final turn by swapping their best card away.",
+    "powKh": "Red king vs. black king – Keep a poker face",
+    "powKp": "Discard a drawn black king (13) straight away. When you draw a red king (0), swap it smoothly into an unknown or high spot without smiling – if nobody notices, it’s far less likely to get stolen.",
+    "multiH": "Multi-swaps and the 100-point reset",
+    "multiLead": "Two rules in Cabo create huge swings if you plan for them.",
+    "multiItems": [
+      "<strong>Prioritize multi-swaps early.</strong> Even trading two 5s (10 points) for a drawn 6 cuts four points immediately and drops you to three cards – from there you are one swap away from calling “Cabo”.",
+      "<strong>Never guess a multi-swap.</strong> A wrong match costs you an extra face-down card on top of keeping the old ones. Only attempt it when you are 100 % sure of every spot.",
+      "<strong>Play for exact 100 when behind.</strong> Sitting at 88–97 points across rounds? Hitting exactly 100 drops you straight back to 50 (once per game) – sometimes keeping one extra card or avoiding a risky call is worth aiming for that exact total."
+    ],
+    "callH": "When to call “Cabo”",
+    "callLead": "Calling too early risks +10 penalty points; calling too late lets everyone else catch up and swap your cards.",
+    "callItems": [
+      "<strong>Remember: your cards are NOT locked.</strong> During their last turn, other players can still spy on or swap your cards with a jack or queen. Calling around 4–6 points early, while opponents still have unknowns, is often safer than waiting for 1–2 points.",
+      "<strong>Know every card before calling.</strong> Calling with an unknown spot is a gamble: a single hidden black king turns a 3-point hand into 16 plus 10 penalty points.",
+      "<strong>Ties go to the caller.</strong> You score 0 even if someone ties your lowest total – so if you hold 3–4 points and nobody has multi-swapped down to two cards, call confidently.",
+      "<strong>Read the table’s card counts.</strong> If an opponent is already down to two cards, expect a total around 3–6 and only call “Cabo” if you can match or beat it."
+    ],
+    "mistakesH": "Common mistakes",
+    "mistakes": [
+      "<strong>Taking medium cards (4–6) from the discard pile.</strong> You show everyone what you took and give up a blind draw that could be a 0–3 or a useful power.",
+      "<strong>Swapping over a known card while unknowns remain.</strong> Putting a 2 on a known 5 leaves your back row blind – replace an unknown card first to learn what was hiding there.",
+      "<strong>Forgetting a swapped spot.</strong> As soon as someone hits your square with a jack or queen, treat that spot as unknown again until you peek or replace it.",
+      "<strong>Blindly using jack or queen without a target.</strong> Swapping two random cards helps your opponent as often as it helps you – wait for discard intel or a 9/10 spy.",
+      "<strong>Gambling on an uncertain multi-swap.</strong> Adding a fifth penalty card almost guarantees a rough round.",
+      "<strong>Calling “Cabo” with an unknown card still face down.</strong> One hidden face card plus the 10-point penalty can swing the score by over 20 points."
+    ],
+    "ctaQuickH": "At the table right now?",
+    "ctaQuickP": "Card values, powers and calling rules on one screen.",
+    "ctaQuickBtn": "Open quick start",
+    "ctaRulesH": "New to the game?",
+    "ctaRulesP": "Read all rules, examples and variants first.",
+    "ctaRulesBtn": "Go to the rules"
+  },
+  "quick": {
+    "h": "Cabo at a glance",
+    "ruleH": "Your turn",
+    "rule": "4 cards face down, peek at the <strong>2 nearest</strong> once. Draw 1 (swap face-down <strong>or</strong> discard &amp; use power) or take the top discard (must swap, no power). Lowest total wins.",
+    "pow7": "<strong>Peek:</strong> look at 1 own card",
+    "pow9": "<strong>Spy:</strong> look at 1 opponent’s card",
+    "powJ": "<strong>Swap:</strong> switch any 2 cards unseen",
+    "powK": "<strong>No power:</strong> red = 0, black = 13",
+    "powNote": "Powers only count when drawn from the <strong>draw pile</strong> and discarded right away.",
+    "endH": "Multi-swap, Cabo & scoring",
+    "multi": "<strong>Multi-swap:</strong> trade 2+ matching own cards for 1 new card (fewer cards!). Wrong = keep all + 1 penalty card.",
+    "cabo": "<strong>Call “Cabo”:</strong> instead of drawing; everyone else gets 1 last turn (may still swap yours). Lowest/tie = <strong>0</strong>, beaten = sum <strong>+ 10</strong>.",
+    "score": "<strong>Game over:</strong> past 100 points (lowest overall wins). Exact 100 drops to <strong>50</strong> (once).",
+    "ctaStratH": "Play better",
+    "ctaStratP": "Memory tricks, smart powers and timing your Cabo call.",
+    "ctaStratBtn": "Go to the strategy",
+    "ctaRulesH": "Full rules",
+    "ctaRulesP": "All details, scoring example, variants and FAQ.",
+    "ctaRulesBtn": "Go to the rules"
+  }
 }

@@ -1,0 +1,116 @@
+---
+pagination:
+  data: languages
+  size: 1
+  alias: lang
+permalink: "{{ lang.path }}strategy/"
+layout: game
+subpath: "strategy/"
+share: true
+eleventyComputed:
+  pageTitle: "{{ lang.t.seo.strategyT }}"
+  pageDescription: "{{ lang.t.seo.strategyD }}"
+---
+{%- from "blocks.njk" import secnav -%}
+{#- Strategieseite für Jule: ehrlich über reines Würfelglück, echte Wahrscheinlichkeiten
+    mit Würfeln aus dice.njk, Taktik für die Stumme Jule, passende Varianten und Fehler. -#}
+{%- from "dice.njk" import die, dice -%}
+{%- set t = lang.t -%}
+{%- set s = t.strategy -%}
+{% include "hero.njk" %}
+
+{{ secnav(t.navLabel, [
+  ["principle", s.principleNav],
+  ["odds", s.oddsNav],
+  ["silent-tactics", s.silentNav],
+  ["variants-guide", s.varNav],
+  ["mistakes", s.mistakesNav]
+]) }}
+
+<main class="wrap">
+  <section id="principle">
+    <h2>{{ s.principleH }}</h2>
+    <p class="lead">{{ s.principle | safe }}</p>
+    <ul class="strats">
+      {%- for item in s.principleItems %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="odds">
+    <h2>{{ s.oddsH }}</h2>
+    <p class="lead">{{ s.oddsLead | safe }}</p>
+    {#- Exakte Wahrscheinlichkeiten für Jule und Varianten (1/6 ≈ 17 %, 1−(5/6)³ ≈ 42 %,
+        (5/6)⁶ ≈ 33 %, 1/36 ≈ 3 %, 6/36 ≈ 17 %). -#}
+    <ul class="odds" role="list">
+      {%- for o in [
+        [[[1, "held"]], "17 %"],
+        [[[3, "held"], 0, 0], "42 %"],
+        [[[6, "held"], [6, "held"]], "3 %"],
+        [[0], "33 %"],
+        [[[1, "held"], [1, "held"]], "3 %"],
+        [[[3, "held"], [4, "held"]], "17 %"]
+      ] %}
+      <li>
+        {{ dice(o[0], "xs") }}
+        <span class="odds-goal">{{ s.odds[loop.index0] }}</span>
+        <b class="odds-pct">{{ o[1] }}</b>
+      </li>
+      {%- endfor %}
+    </ul>
+    <p class="note">{{ s.oddsNote | safe }}</p>
+    <ul class="strats">
+      {%- for item in s.oddsItems %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="silent-tactics">
+    <h2>{{ s.silentH }}</h2>
+    <p class="lead">{{ s.silentLead | safe }}</p>
+    <ul class="strats">
+      {%- for item in s.silentItems %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+    <p class="notup">{{ s.silentWarn | safe }}</p>
+  </section>
+
+  <section id="variants-guide">
+    <h2>{{ s.varH }}</h2>
+    <p class="lead">{{ s.varLead | safe }}</p>
+    <ul class="strats">
+      {%- for item in s.varItems %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="mistakes">
+    <h2>{{ s.mistakesH }}</h2>
+    <ul class="variants">
+      {%- for item in s.mistakes %}
+      <li>{{ item | safe }}</li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="next-steps" class="ctas">
+    <div class="cta">
+      <h2>{{ s.ctaQuickH }}</h2>
+      <p>{{ s.ctaQuickP }}</p>
+      <a class="ctabtn" href="{{ lang.path }}quickstart/">{{ s.ctaQuickBtn }} →</a>
+    </div>
+    <div class="cta">
+      <h2>{{ s.ctaRulesH }}</h2>
+      <p>{{ s.ctaRulesP }}</p>
+      <a class="ctabtn" href="{{ lang.path }}">{{ s.ctaRulesBtn }} →</a>
+    </div>
+  </section>
+
+  {% include "share.njk" %}
+</main>
+
+{% include "footer.njk" %}

@@ -8,7 +8,11 @@
   "goal": "<strong>Das Ziel:</strong> Am Ende der Runde die niedrigste Summe in deinen Karten haben. Du siehst sie fast nie – also merk dir, was du angeschaut hast, tausch hohe Karten aus und behalte die anderen im Blick.",
   "seo": {
     "rulesT": "Cambio – Kartenspiel-Regeln",
-    "rulesD": "So spielst du Cambio mit einem normalen Kartenspiel: Austeilen, Kartenwerte, Fähigkeiten, Abwerfen gleicher Karten, „Cambio“ ansagen und Punkte – kurz und klar."
+    "rulesD": "So spielst du Cambio mit einem normalen Kartenspiel: Austeilen, Kartenwerte, Fähigkeiten, Abwerfen gleicher Karten, „Cambio“ ansagen und Punkte – kurz und klar.",
+    "strategyT": "Cambio Strategie – Tipps fürs Abwerfen und Gewinnen",
+    "strategyD": "Cambio-Strategie-Guide: Karten merken, den schwarzen König nutzen, fremde Karten abwerfen, deinen Stand sichern und im besten Moment „Cambio“ rufen.",
+    "quickT": "Cambio Quickstart – Spickzettel, Werte und Fähigkeiten",
+    "quickD": "Cambio auf einen Blick: Kartenwerte mit rotem König minus 1, Fähigkeiten, eigenes und fremdes Abwerfen sowie „Cambio“ ansagen auf einem Bildschirm."
   },
   "info": {
     "players1": "2–3",
@@ -140,5 +144,98 @@
   "faq7q": "Darf ich gleich am Anfang „Cambio“ sagen?",
   "faq7a": "Ja, zu Beginn jedes deiner Züge. Frühes Ansagen ist mutig, denn du kennst nur zwei deiner Karten.",
   "faq8q": "Was ist der Unterschied zwischen Cambio und Cabo?",
-  "faq8a": "Die beiden sind eng verwandt. Cabo gibt es mit eigenen Karten von 0 bis 13 zu kaufen; Cambio spielt man mit einem normalen Kartenspiel, mit dem roten König als bester Karte und meist mit Abwerfen."
+  "faq8a": "Die beiden sind eng verwandt. Cabo gibt es mit eigenen Karten von 0 bis 13 zu kaufen; Cambio spielt man mit einem normalen Kartenspiel, mit dem roten König als bester Karte und meist mit Abwerfen.",
+  "strategy": {
+    "h1": "Cambio-Strategie",
+    "sub": "Schnelle Augen, gutes Gedächtnis und gnadenloses Abwerfen. Cambio belohnt alle, die ihre Auslage früh verkleinern, 10er an andere abschieben und ihren Stand mit „Cambio!“ rechtzeitig sperren.",
+    "principleNav": "Grundprinzip",
+    "memNav": "Merken",
+    "powNav": "Fähigkeiten",
+    "stackNav": "Abwerfen",
+    "callNav": "Cambio!",
+    "mistakesNav": "Fehler",
+    "principleH": "Das Grundprinzip",
+    "principle": "Cambio gewinnst du über <strong>Kartenanzahl und Tempo</strong>. Tauschen spart ein paar Punkte pro Zug – Abwerfen streicht ganze Karten aus deinem Quadrat und drückt deine schlechtesten Karten den anderen auf.",
+    "principleItems": [
+      "<strong>Jede abgeworfene Karte bleibt weg.</strong> Von vier auf zwei oder eine Karte zu schrumpfen schlägt fast jede Vier-Karten-Hand.",
+      "<strong>Augen immer auf dem Ablagestapel.</strong> Die meisten Runden werden im Zug der anderen entschieden, genau dann, wenn ein Wert fällt, den du kennst.",
+      "<strong>„Cambio!“ sperrt dein Quadrat.</strong> Nach deiner Ansage darf niemand mehr deine Karten tauschen oder abwerfen – nutze diesen Schutz für einen roten König (−1) oder eine 1–2-Karten-Führung."
+    ],
+    "memH": "Karten merken – auch wenn es hektisch wird",
+    "memLead": "Durch das Abwerfen wird Cambio schnell und laut. Eine feste Routine verhindert, dass dir die Plätze durcheinandergeraten.",
+    "memItems": [
+      "<strong>Deine vier Plätze in fester Reihenfolge durchgehen.</strong> Lies immer oben links, oben rechts, unten links, unten rechts (z. B. „? · ? · 8 · 3“) und wiederhole es einmal nach jedem Tausch oder Abwurf.",
+      "<strong>Eine Karte pro Gegner merken.</strong> Sobald du mit 9, 10 oder schwarzem König spionierst, präg dir genau diesen Platz ein – das ist Munition für späteres fremdes Abwerfen.",
+      "<strong>Hände weg von den Karten.</strong> Wer schon über einer Karte schwebt, verrät dem ganzen Tisch, welche Karte er kennt – und lockt blinde Tausche an.",
+      "<strong>Unbekannte Plätze zuerst ersetzen.</strong> Legst du ein gezogenes Ass, eine 2 oder 3 auf eine verdeckte hintere Karte, deckst du die Unbekannte kostenlos auf dem Ablagestapel auf."
+    ],
+    "powH": "Jede Fähigkeit optimal nutzen",
+    "powLead": "Nur Karten, die du vom Nachziehstapel ziehst und sofort abwirfst, lösen eine Fähigkeit aus – nutze jede für Infos oder Abwürfe.",
+    "pow7h": "7 oder 8 – Deine hintere Reihe aufklären",
+    "pow7p": "Schau zuerst deine beiden unbekannten Karten an. Sobald du sie kennst, kannst du sie beim nächsten passenden Wert abwerfen oder austauschen – und prüf nach einem blinden Tausch unbedingt wieder den betroffenen Platz.",
+    "pow9h": "9 oder 10 – Fremde Abwürfe und Tausche vorbereiten",
+    "pow9p": "Spioniere bei der Person mit den wenigsten Karten oder an einem Platz, der die ganze Runde nicht angerührt wurde. Selbst eine fremde 7 oder Dame ist Gold wert: Fällt dieser Wert auf den Stapel, wirfst du ihre Karte ab und gibst ihr deine schlechteste.",
+    "powJh": "Bube oder Dame – Blind tauschen mit Vorwissen",
+    "powJp": "Kombiniere den blinden Tausch mit einer früheren 9 oder 10: Gib deine bekannte 10 ab und hol dir einen bekannten roten König (−1), Joker (0) oder ein Ass. Noch kein Wissen? Ziel auf einen Platz, an dem jemand gerade eine gezogene Karte behalten hat – sie ist fast sicher niedrig.",
+    "powKh": "Schwarzer König – Die stärkste Fähigkeit im Spiel",
+    "powKp": "Schau dir eine deiner <strong>unbekannten</strong> Karten und eine gegnerische Karte an – und tausche nur, wenn es dir hilft. Selbst wenn beide Karten liegen bleiben, hast du zwei kostenlose Blicke in einem Zug gewonnen.",
+    "stackH": "Abwerfen: eigene und fremde Karten",
+    "stackLead": "Abwerfen ist der Motor von Cambio. Wer im richtigen Moment eigene – und vor allem fremde – Karten draufwirft, dreht ganze Runden.",
+    "crossH": "Fremde Karten abwerfen: der stärkste Zug im Spiel",
+    "crossAlt": "Eine Kreuz-6 landet auf dem Ablagestapel. Du wirfst die bekannte Herz-6 eines Gegners darauf und schiebst deine bekannte Pik-Dame (10 Punkte) verdeckt in seine Lücke.",
+    "cross1": "<strong>6♣</strong> landet auf dem Stapel",
+    "cross2": "Fremde <strong>6♥</strong> abwerfen",
+    "cross3": "Deine <strong>Q♠ (10)</strong> rübergeben",
+    "crossWhy": "<strong>Warum das riesig ist:</strong> Du hast eine Karte weniger und wirst sofort 10 Punkte los, während dein Gegner eine 6 gegen eine 10 tauscht – ein Unterschied von 14 Punkten im Zug eines anderen.",
+    "stackItems": [
+      "<strong>Hohe eigene Karten (5–10) sofort abwerfen.</strong> Jede Bild- oder Mittelkarte, die du abwirfst, senkt deine Summe sofort und bringt dich näher an null Karten.",
+      "<strong>Niemals einen roten König (−1) abwerfen.</strong> Wer −1 wegwirft, verschlechtert sich um einen ganzen Punkt! Behalte rote Könige immer – und meistens auch Joker (0), außer du willst weniger Karten für Gleichstände.",
+      "<strong>Immer einhändig und hellwach.</strong> Es zählt nur der Schnellere, und sobald der Nächste zieht, ist die Chance vorbei.",
+      "<strong>Beim fremden Abwerfen deine schlechteste Karte bereithalten.</strong> Überleg dir schon vorher, welche bekannte 10 (oder unbekannte Karte) du verdeckt in die fremde Lücke schiebst."
+    ],
+    "stackWarn": "<strong>Niemals auf Verdacht abwerfen:</strong> Eine falsche Karte kommt zurück an ihren Platz UND kostet dich eine unbekannte Strafkarte – im Schnitt rund +5 bis +6 Punkte.",
+    "callH": "Wann „Cambio!“ rufen?",
+    "callLead": "Weil deine Karten nach dem Ruf gesperrt sind, ist „Cambio!“ zugleich Schutzschild und Risiko.",
+    "callItems": [
+      "<strong>Früh rufen, um eine starke Hand zu schützen.</strong> Du liegst bei 0 bis 3 Punkten – oder hast einen roten König (−1) –, während die anderen noch vier Karten haben? Ruf sofort „Cambio!“, bevor dir jemand den roten König wegschnappt.",
+      "<strong>Gleichstandsregel beachten.</strong> Hat jemand dieselbe Summe wie du, gewinnt <strong>der andere</strong>. Wenn ein Gegner nur noch ein oder zwei Karten hat, lass dir etwas Puffer.",
+      "<strong>Keine Karten mehr? Sofort rufen.</strong> Mit 0 Punkten und null Karten schlägt dich nur noch ein roter König (−1) – abwarten schenkt den anderen nur Extra-Züge.",
+      "<strong>Achte darauf, was gerade abgeworfen wurde.</strong> Nach Runden, in denen Gegner hohe Karten wegwerfen statt niedrige zu behalten, haben sie im letzten Zug weniger gefährliche Karten liegen."
+    ],
+    "mistakesH": "Typische Fehler",
+    "mistakes": [
+      "<strong>Einen roten König (−1) abwerfen.</strong> Eine −1 wegzulegen erhöht deine Summe um 1 Punkt – behalte rote Könige immer.",
+      "<strong>Beim Abwerfen raten.</strong> Ein einziger Fehlgriff bringt eine verdeckte Strafkarte und macht zwei gute Züge zunichte.",
+      "<strong>Fremdes Abwerfen vergessen.</strong> Wer nur auf seine eigenen vier Karten starrt, verpasst den stärksten Zug im Spiel: eine fremde Karte abwerfen und die eigene 10 rübergeben.",
+      "<strong>Schwarzen König auf bekannte Karten verschwenden.</strong> Schau mindestens eine unbekannte Karte an, damit du auch ohne Tausch neues Wissen gewinnst.",
+      "<strong>Zu lange mit „Cambio!“ warten.</strong> Wer eine 1-Punkte-Hand noch zwei Runden liegen lässt, gibt den anderen Zeit für blinde Tausche oder eigene Abwürfe.",
+      "<strong>Die Gleichstandsregel vergessen.</strong> Bei 4 Punkten anzusagen, wenn neben dir jemand nur noch eine Karte hat, endet oft im Gleichstand – und der geht gegen den Ansager."
+    ],
+    "ctaQuickH": "Schon am Tisch?",
+    "ctaQuickP": "Kartenwerte, Fähigkeiten, Abwerfen und Cambio-Regeln auf einem Bildschirm.",
+    "ctaQuickBtn": "Zum Quickstart",
+    "ctaRulesH": "Neu im Spiel?",
+    "ctaRulesP": "Lies zuerst alle Regeln, Beispiele und Varianten.",
+    "ctaRulesBtn": "Zu den Regeln"
+  },
+  "quick": {
+    "h": "Cambio auf einen Blick",
+    "ruleH": "Dein Zug",
+    "rule": "4 Karten verdeckt, die <strong>2 vorderen</strong> einmal anschauen. 1 Karte ziehen: verdeckt <strong>tauschen</strong> (keine Fähigkeit) <strong>oder</strong> abwerfen &amp; Fähigkeit nutzen. Niedrigste Summe gewinnt.",
+    "pow7": "<strong>Anschauen:</strong> 1 eigene Karte ansehen",
+    "pow9": "<strong>Spionieren:</strong> 1 fremde Karte ansehen",
+    "powJ": "<strong>Blind tauschen:</strong> eigene ↔ fremde Karte",
+    "powK": "<strong>Anschauen &amp; tauschen:</strong> 1 eigene + 1 fremde ansehen, dann entscheiden",
+    "powNote": "Nur direkt gezogene und abgeworfene Karten haben eine Fähigkeit. Rote Könige können nichts (−1).",
+    "endH": "Abwerfen & „Cambio!“ rufen",
+    "stackOwn": "<strong>Eigene Karte abwerfen:</strong> gleicher Wert auf dem Stapel? Jederzeit draufwerfen → 1 Karte weniger!",
+    "stackOther": "<strong>Fremde Karte abwerfen:</strong> fremde drauf &amp; 1 eigene verdeckt rübergeben. Falsch = zurück + <strong>1 Strafkarte</strong>.",
+    "cambio": "<strong>„Cambio!“ rufen:</strong> statt zu ziehen → deine Karten sind <strong>gesperrt</strong>, jeder noch 1 Zug. <strong>Gleichstand: der andere gewinnt.</strong>",
+    "ctaStratH": "Besser spielen",
+    "ctaStratP": "Fremdes Abwerfen, schwarzer König und perfektes Cambio-Timing.",
+    "ctaStratBtn": "Zur Strategie",
+    "ctaRulesH": "Alle Regeln",
+    "ctaRulesP": "Alle Details, Rechenbeispiel, Varianten und FAQ.",
+    "ctaRulesBtn": "Zu den Regeln"
+  }
 }

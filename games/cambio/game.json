@@ -6,7 +6,7 @@
   "category": "cards",
   "status": "draft",
   "languages": ["en", "de"],
-  "pages": ["rules"],
+  "pages": ["rules", "strategy", "quickstart"],
   "related": ["cabo"],
   "players": { "min": 2, "max": 6 },
   "duration": "15–30 min",

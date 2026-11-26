@@ -9,7 +9,9 @@
     "rulesT": "President – Kartenspiel-Regeln und Anleitung",
     "rulesD": "So spielt man President (Scum): Austeilen, Einzelkarten und Paare, die Ränge vom Präsidenten bis zum Bettler, der Kartentausch und beliebte Hausregeln.",
     "strategyT": "President Strategie: Tipps, um Präsident zu werden",
-    "strategyD": "Der President-Strategie-Guide: richtig tauschen, das Ausspiel kontrollieren, Paare und 2er klug einsetzen und aus dem Bettler-Rang aufsteigen."
+    "strategyD": "Der President-Strategie-Guide: richtig tauschen, das Ausspiel kontrollieren, Paare und 2er klug einsetzen und aus dem Bettler-Rang aufsteigen.",
+    "quickT": "President Quickstart – Spickzettel und Kartenfolge",
+    "quickD": "President auf einen Blick: Überbieten, Kartenfolge von 3 bis 2, Ränge und Kartentausch zwischen Präsident und Bettler auf einem Bildschirm."
   },
   "info": {
     "players1": "3–4",
@@ -227,6 +229,22 @@
     ],
     "ctaRulesH": "Neu im Spiel?",
     "ctaRulesP": "Lies zuerst die Regeln.",
+    "ctaRulesBtn": "Zu den Regeln"
+  },
+  "quick": {
+    "h": "President auf einen Blick",
+    "ruleH": "Ablauf",
+    "rule": "1–4 gleiche Karten ausspielen. Der Nächste überbietet mit <strong>gleich vielen</strong> und <strong>höheren Karten</strong> – oder passt jederzeit. Wer zuletzt legt, gewinnt den Stich und spielt neu aus.",
+    "rankNote": "Farben zählen nicht. Erste Runde beginnt mit <strong>3♣</strong>, ab Runde zwei startet der Präsident.",
+    "swapH": "Ränge & Kartentausch",
+    "swap1": "<strong>Präsident ↔ Bettler:</strong> Bettler teilt aus und gibt <strong>2 höchste</strong>; Präsident gibt 2 beliebige zurück.",
+    "swap2": "<strong>Vizepräsident ↔ Vize-Bettler:</strong> Vize-Bettler gibt <strong>1 höchste</strong>; Vizepräsident gibt 1 beliebige zurück.",
+    "swap3": "<strong>Bürger:</strong> alle dazwischen – kein Tausch.",
+    "ctaStratH": "Besser spielen",
+    "ctaStratP": "Klug tauschen, Karten mitzählen und im Endspiel gewinnen.",
+    "ctaStratBtn": "Zur Strategie",
+    "ctaRulesH": "Alle Regeln",
+    "ctaRulesP": "Beispiele, Hausregeln und häufige Fragen im Detail.",
     "ctaRulesBtn": "Zu den Regeln"
   }
 }

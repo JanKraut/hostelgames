@@ -121,10 +121,6 @@
 }
 
 /* Quick start: compact cheat sheet that fits one phone screen */
-.quick section {
-  padding: 0.8rem 0 1.2rem;
-}
-
 .quick .cheat {
   margin: 0;
   padding: 0.9rem 1rem;
@@ -688,32 +684,6 @@
   margin-top: 0.3rem;
 }
 
-/* Two boxes at the end: play, rules */
-.ctas {
-  display: grid;
-  gap: 0.9rem;
-}
-
-@media (min-width: 34rem) {
-  .ctas {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.ctas .cta {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.ctas .cta h2 {
-  font-size: 1.5rem;
-}
-
-.ctas .ctabtn {
-  margin-top: auto;
-}
-
 /* ---------- Cheat sheet ---------- */
 
 .cheat {
@@ -786,23 +756,8 @@
   border-top: 0;
 }
 
-.ch-block h3 {
-  margin: 0 0 0.45rem;
-  color: var(--cheat-dt);
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
 .cheat2 p {
   margin: 0;
-}
-
-.ch-rule {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.8rem;
-  align-items: start;
 }
 
 .ch-icon {
@@ -887,10 +842,6 @@
 
 .ch-card small {
   font-size: 0.7rem;
-}
-
-.ch-card.r {
-  color: var(--card-red);
 }
 
 .ch-four {

@@ -7,7 +7,11 @@
   "sub": "Ein Würfel, Zettel und Stift: Würfle die Zahlen <strong>1 bis 6 der Reihe nach</strong> und streiche sie danach von 6 bis 1 wieder weg. Die leise Fassung, die <strong>Stumme Jule</strong>, geht genauso – nur wer einen Ton von sich gibt, fängt von vorn an.",
   "seo": {
     "rulesT": "Jule Würfelspiel Regeln – auch Stumme Jule",
-    "rulesD": "So geht Jule: mit einem Würfel 1 bis 6 der Reihe nach würfeln, dann zurück von 6 bis 1. Aufbau, Beispielrunde, Rückweg, Wertung, Stumme Jule, Varianten und FAQ."
+    "rulesD": "So geht Jule: mit einem Würfel 1 bis 6 der Reihe nach würfeln, dann zurück von 6 bis 1. Aufbau, Beispielrunde, Rückweg, Wertung, Stumme Jule, Varianten und FAQ.",
+    "strategyT": "Jule Strategie – Chancen und Stumme-Jule-Taktik",
+    "strategyD": "Ehrlicher Jule-Strategie-Guide: echte Würfelchancen, warum Pechsträhnen normal sind, wie du bei der Stummen Jule ernst bleibst und welche Variante zur Runde passt.",
+    "quickT": "Jule Quickstart – Spickzettel und Stumme Jule",
+    "quickD": "Jule auf einen Blick: Hinweg 1 bis 6, Rückweg 6 bis 1, neue 6 zum Umdrehen und die Stumme Jule auf einem Bildschirm."
   },
   "goal": "<strong>Das Ziel:</strong> Würfle als Erste oder Erster alle Zahlen von 1 bis 6 in der richtigen Reihenfolge – und danach den ganzen Weg zurück von 6 bis 1.",
   "info": {
@@ -90,5 +94,86 @@
   "faq5q": "Warum heißt das Spiel Jule?",
   "faq5a": "So genau weiß das niemand – Jule ist einfach ein Mädchenname. In manchen Gegenden heißt auch das Würfelspiel <strong>Schocken</strong> Jule, fragt also nach, welches Spiel eure Runde meint.",
   "faq6q": "Kann ich Jule allein spielen?",
-  "faq6a": "Ja, als Herausforderung: Zähl, wie viele Würfe du für Hin- und Rückweg brauchst, und versuch, deinen Rekord zu schlagen."
+  "faq6a": "Ja, als Herausforderung: Zähl, wie viele Würfe du für Hin- und Rückweg brauchst, und versuch, deinen Rekord zu schlagen.",
+  "strategy": {
+    "h1": "Jule-Strategie",
+    "sub": "Ganz ehrlich vorweg: Klassisches Jule mit einem Würfel ist reines Glück. Wo du wirklich besser spielen – und jede Runde runder machen – kannst: die echten Chancen kennen, die passende Variante wählen und die Stumme Jule gewinnen.",
+    "principleNav": "Grundprinzip",
+    "oddsNav": "Chancen",
+    "silentNav": "Stumme Jule",
+    "varNav": "Varianten",
+    "mistakesNav": "Fehler",
+    "principleH": "Das Grundprinzip",
+    "principle": "Im klassischen Jule würfelst du einmal und nimmst, was fällt – es gibt <strong>keinen geheimen Würfeltrick</strong>. Echtes Können kommt erst bei der <strong>Stummen Jule</strong> ins Spiel, wo Nerven, Timing und stumme Komik die Runde entscheiden.",
+    "principleItems": [
+      "<strong>Jede Zahl hat exakt dieselbe Chance.</strong> Zehn Würfe auf eine 1 zu warten fühlt sich verhext an, aber der Würfel hat kein Gedächtnis – auch der nächste Wurf steht wieder 1 zu 6.",
+      "<strong>Die Stumme Jule ist ein Nervenspiel.</strong> Selbst ernst zu bleiben und den Spitzenreiter auf dem Rückweg zum Lachen zu bringen macht aus dem Glücksspiel ein echtes Duell.",
+      "<strong>Die richtige Variante rettet den Abend.</strong> Wer die Regeln an die Gruppengröße anpasst, hält das Tempo knackig, statt die Runde in die Länge zu ziehen."
+    ],
+    "oddsH": "Die echten Chancen bei Jule",
+    "oddsLead": "Wer weiß, was normal ist, schimpft weniger auf den Würfel – und sieht, wie stark die Varianten das Tempo ändern:",
+    "odds": [
+      "Gesuchte Zahl in einem Wurf treffen (1 zu 6)",
+      "In 3 Würfen treffen (Drei-Würfe-Variante)",
+      "Zwei 6en direkt hintereinander beim Umdrehen",
+      "6 Würfe am Stück verfehlen (normale Durststrecke)",
+      "Zwei Würfel: 2 oder 12 treffen (1 zu 36)",
+      "Zwei Würfel: 7 treffen (6 zu 36)"
+    ],
+    "oddsNote": "Gold: Treffer, gestrichelt: weitere Würfe oder Fehlwürfe. Im Schnitt braucht jeder der 12 Schritte 6 Würfe – rund 72 Würfe pro Person für eine komplette Runde klassisches Jule.",
+    "oddsItems": [
+      "<strong>Durststrecken gehören zu jeder Partie.</strong> Die Chance, sechsmal hintereinander danebenzuwürfeln, liegt bei 33 %, und etwa jeder sechste Schritt dauert zehn Würfe oder länger – ganz normal, kein Pechfluch.",
+      "<strong>Die Wende kostet im Schnitt zwölf Würfe.</strong> Weil die 6 am Ende des Hinwegs nicht doppelt zählt, brauchst du zwei einzelne Treffer (durchschnittlich 12 Würfe über die Ecke).",
+      "<strong>Zwei Würfel verfünffachen fast die Dauer.</strong> Von 2 bis 12 und zurück dauert im Schnitt rund 340 Würfe pro Person, weil allein 2 und 12 je 36 Würfe kosten."
+    ],
+    "silentH": "Stumme Jule: ernst bleiben und gewinnen",
+    "silentLead": "Hier steckt die eigentliche Taktik. Jeder Laut wirft deinen ganzen Zettel zurück auf die 1 – erst kommt die eigene Deckung, dann gezielte stumme Ablenkung.",
+    "silentItems": [
+      "<strong>Auf den Tisch schauen, nicht in Gesichter.</strong> Blickkontakt ist der schnellste Lachauslöser. Zieht jemand Grimassen, schau stur auf den Würfel oder deinen Zettel.",
+      "<strong>Ruhig durch die Nase atmen und Kiefer lockern.</strong> Luft anhalten baut Druck auf, bis es als Prusten rausplatzt. Gleichmäßiges Atmen hält dich leise.",
+      "<strong>Immer auf die Leute auf dem Rückweg zielen.</strong> Jemanden auf dem Hinweg zum Lachen zu bringen tut kaum weh. Den Führenden bei 3, 2 oder 1 auf dem Rückweg zu knacken löscht zehn Treffer auf einmal.",
+      "<strong>Trockener Ernst schlägt wildes Fuchteln.</strong> Den Würfel in Zeitlupe weiterreichen, nach dem achten Fehlwurf feierlich nicken oder stumm auf den leeren Zettel tippen bringt größere Lacher – und lässt dich selbst ruhig bleiben.",
+      "<strong>Bei deiner letzten 1 komplett stumm bleiben.</strong> Der Klassiker: die letzte 1 würfeln und reflexartig „Ja!“ rufen – und zack, wieder bei 1 anfangen."
+    ],
+    "silentWarn": "<strong>Niesen und Husten vor dem ersten Wurf klären:</strong> Vorab festzulegen, ob echtes Niesen zählt, verhindert die einzige echte Diskussion bei der Stummen Jule.",
+    "varH": "Welche Variante passt zu eurer Runde?",
+    "varLead": "Da klassisches Jule mit der Spielerzahl länger wird, hält die richtige Hausregel alle bei Laune:",
+    "varItems": [
+      "<strong>2 bis 4 Leute:</strong> Klassisches Jule (ein Wurf pro Zug) trifft mit 10–15 Minuten genau den richtigen Takt.",
+      "<strong>5 und mehr Leute:</strong> Spielt mit <strong>drei Würfen</strong> pro Zug oder <strong>Weiterwürfeln</strong> nach Treffer, damit niemand ewig auf den Würfel wartet.",
+      "<strong>Kleine Kinder:</strong> <strong>Nur Hinweg</strong> (nur 1 bis 6, ~36 Würfe) sorgt für schnelle, motivierende Runden.",
+      "<strong>Hostel- oder Partyrunde:</strong> <strong>Stumme Jule</strong> – mit <strong>milder Stille</strong> (nur die letzte Zahl verlieren), wenn ihr lachen wollt ohne endlose Neustarts.",
+      "<strong>Langer Spieleabend:</strong> <strong>Zwei Würfel (2 bis 12)</strong> für richtig lange Spannung an der 2 und der 12."
+    ],
+    "mistakesH": "Typische Fehler",
+    "mistakes": [
+      "<strong>Die 6 beim Umdrehen doppelt zählen.</strong> Mit der ersten 6 ist der Hinweg fertig – für den Rückweg musst du noch einmal eine 6 würfeln.",
+      "<strong>Bei der Sieger-1 in der Stummen Jule jubeln.</strong> Erst die 1 durchstreichen und den Stift ablegen, bevor ein einziger Ton fällt.",
+      "<strong>Zu acht mit nur einem Wurf spielen.</strong> In großen Runden entstehen lange Pausen – wechselt auf drei Würfe pro Zug.",
+      "<strong>Auf dem Rückweg in die falsche Richtung streichen.</strong> Zurück geht es von 6 runter bis 1, nicht noch einmal von 1 bis 6.",
+      "<strong>Zu verbissen andere zum Lachen bringen und selbst prusten.</strong> Wer es übertreibt, landet meistens als Erster wieder bei der 1."
+    ],
+    "ctaQuickH": "Schon am Tisch?",
+    "ctaQuickP": "Hinweg, Rückweg und Stumme Jule auf einem Handybildschirm.",
+    "ctaQuickBtn": "Zum Quickstart",
+    "ctaRulesH": "Neu im Spiel?",
+    "ctaRulesP": "Lies zuerst alle Regeln, Beispielrunde und Varianten.",
+    "ctaRulesBtn": "Zu den Regeln"
+  },
+  "quick": {
+    "h": "Jule auf einen Blick",
+    "ruleH": "Dein Zug",
+    "rule": "<strong>1 Würfel</strong>, Zettel und Stift. Pro Zug <strong>einmal</strong> würfeln: Triffst du genau deine nächste Zahl, schreibst du sie auf (auf dem Rückweg: streichen). Alles andere zählt nichts.",
+    "pathH": "Hinweg und Rückweg",
+    "pathAlt": "Hinweg: Würfel von 1 bis 6 aufsteigend. Rückweg: Würfel von 6 bis 1 absteigend.",
+    "turnaround": "<strong>Umdrehen:</strong> Nach der 6 auf dem Hinweg brauchst du eine <strong>neue 6</strong>, um den Rückweg zu starten.",
+    "win": "Wer zuerst seine <strong>1</strong> streicht, gewinnt sofort. Freiwillige Strafpunkte: Verlierer addieren alle Zahlen, die ihnen noch fehlen.",
+    "silent": "Genau dasselbe Spiel, <strong>kein einziger Ton</strong>. Wer redet, lacht oder jubelt, verliert seinen ganzen Zettel und <strong>fängt wieder bei 1 an</strong>. Gesten und Grimassen erlaubt!",
+    "ctaStratH": "Chancen & Taktik",
+    "ctaStratP": "Echte Würfelchancen, Stumme-Jule-Tricks und passende Varianten.",
+    "ctaStratBtn": "Zur Strategie",
+    "ctaRulesH": "Alle Regeln",
+    "ctaRulesP": "Beispielrunde, Wertung, Varianten und FAQ im Detail.",
+    "ctaRulesBtn": "Zu den Regeln"
+  }
 }

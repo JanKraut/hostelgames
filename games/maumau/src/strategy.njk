@@ -1,0 +1,140 @@
+---
+pagination:
+  data: languages
+  size: 1
+  alias: lang
+permalink: "{{ lang.path }}strategy/"
+layout: game
+subpath: "strategy/"
+share: true
+eleventyComputed:
+  pageTitle: "{{ lang.t.seo.strategyT }}"
+  pageDescription: "{{ lang.t.seo.strategyD }}"
+---
+{%- from "blocks.njk" import secnav -%}
+{#- Strategieseite für Mau-Mau (32er-Skatblatt, 7 = +2 stapelbar, 8 = aussetzen,
+    Bube = Wünscher, Punkte: Bube 20, Ass 11, 10 = 10, 9/8/7, König 4, Dame 3). -#}
+{%- from "card.njk" import card -%}
+{%- set t = lang.t -%}
+{%- set s = t.strategy -%}
+{% include "hero.njk" %}
+
+{{ secnav(t.navLabel, [
+  ["principle", s.principleNav],
+  ["hand", s.handNav],
+  ["specials", s.spNav],
+  ["wishing", s.wishNav],
+  ["endgame", s.endNav],
+  ["mistakes", s.mistakesNav]
+]) }}
+
+<main class="wrap">
+  <section id="principle">
+    <h2>{{ s.principleH }}</h2>
+    <p class="lead">{{ s.principle | safe }}</p>
+    <ul class="strats">
+      {%- for item in s.principleItems %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="hand">
+    <h2>{{ s.handH }}</h2>
+    <p class="lead">{{ s.handLead | safe }}</p>
+
+    {#- Beispielzug: oben liegt die Pik 9; auf der Hand Pik Ass, Pik Dame, Herz 9, Kreuz Bube.
+        Das Pik Ass (umrandet) baut 11 Punkte ab, hält Pik und Herz offen und spart den Buben. -#}
+    <figure class="playex">
+      <figcaption>{{ s.exH }}</figcaption>
+      <div class="px-row" role="img" aria-label="{{ s.exAlt }}">
+        <div class="px-box">
+          <p class="px-lbl">{{ s.exTop }}</p>
+          {{ card("9", "♠", "sm") }}
+        </div>
+        <div class="px-box px-hand">
+          <p class="px-lbl">{{ s.exHand }}</p>
+          <div class="px-cards">
+            {{ card("A", "♠", "sm", "gold") }}
+            {{ card("Q", "♠", "sm") }}
+            {{ card("9", "♥", "sm") }}
+            {{ card("J", "♣", "sm") }}
+          </div>
+        </div>
+      </div>
+      <p>{{ s.exWhy | safe }}</p>
+    </figure>
+
+    <ul class="strats">
+      {%- for item in s.handItems %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="specials">
+    <h2>{{ s.spH }}</h2>
+    <p class="lead">{{ s.spLead | safe }}</p>
+    <div class="rulecards">
+      <div class="rulecard">
+        {{ card("7", "♥", "sm") }}
+        <div><h3>{{ s.sp7h }}</h3><p>{{ s.sp7p | safe }}</p></div>
+      </div>
+      <div class="rulecard">
+        {{ card("8", "♠", "sm") }}
+        <div><h3>{{ s.sp8h }}</h3><p>{{ s.sp8p | safe }}</p></div>
+      </div>
+      <div class="rulecard wide">
+        {{ card("J", "♣", "sm", "gold") }}
+        <div><h3>{{ s.spJh }}</h3><p>{{ s.spJp | safe }}</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="wishing">
+    <h2>{{ s.wishH }}</h2>
+    <p class="lead">{{ s.wishLead | safe }}</p>
+    <ul class="strats">
+      {%- for item in s.wishItems %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+    <p class="notup">{{ s.wishWarn | safe }}</p>
+  </section>
+
+  <section id="endgame">
+    <h2>{{ s.endH }}</h2>
+    <p class="lead">{{ s.endLead | safe }}</p>
+    <ul class="strats">
+      {%- for item in s.endItems %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="mistakes">
+    <h2>{{ s.mistakesH }}</h2>
+    <ul class="variants">
+      {%- for item in s.mistakes %}
+      <li>{{ item | safe }}</li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="next-steps" class="ctas">
+    <div class="cta">
+      <h2>{{ s.ctaQuickH }}</h2>
+      <p>{{ s.ctaQuickP }}</p>
+      <a class="ctabtn" href="{{ lang.path }}quickstart/">{{ s.ctaQuickBtn }} →</a>
+    </div>
+    <div class="cta">
+      <h2>{{ s.ctaRulesH }}</h2>
+      <p>{{ s.ctaRulesP }}</p>
+      <a class="ctabtn" href="{{ lang.path }}">{{ s.ctaRulesBtn }} →</a>
+    </div>
+  </section>
+
+  {% include "share.njk" %}
+</main>
+
+{% include "footer.njk" %}

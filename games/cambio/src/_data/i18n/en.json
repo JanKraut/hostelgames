@@ -8,7 +8,11 @@
   "goal": "<strong>The goal:</strong> have the lowest total in your cards when the round ends. You hardly ever see them, so remember what you peeked at, swap out high cards and keep an eye on everyone else.",
   "seo": {
     "rulesT": "Cambio card game rules",
-    "rulesD": "How to play Cambio with a normal deck: dealing, card values, card powers, stacking, calling Cambio and scoring – short and clear."
+    "rulesD": "How to play Cambio with a normal deck: dealing, card values, card powers, stacking, calling Cambio and scoring – short and clear.",
+    "strategyT": "Cambio strategy – tips for stacking and winning",
+    "strategyD": "Cambio strategy guide: memory habits, using the black king power, cross-stacking opponents, locking in your score and calling Cambio at the right moment.",
+    "quickT": "Cambio quick start – cheat sheet, values and powers",
+    "quickD": "Cambio at a glance: card values with red king at minus 1, card powers, stacking own and other cards and calling Cambio on one screen."
   },
   "info": {
     "players1": "2–3",
@@ -140,5 +144,98 @@
   "faq7q": "Can I call Cambio right at the start?",
   "faq7a": "Yes, at the start of any of your turns. Early calls are bold, because you only know two of your cards.",
   "faq8q": "What's the difference between Cambio and Cabo?",
-  "faq8a": "They are close relatives. Cabo is sold with its own cards from 0 to 13; Cambio is played with a normal deck, the red king as the best card and usually with stacking."
+  "faq8a": "They are close relatives. Cabo is sold with its own cards from 0 to 13; Cambio is played with a normal deck, the red king as the best card and usually with stacking.",
+  "strategy": {
+    "h1": "Cambio strategy",
+    "sub": "Fast eyes, sharp memory and ruthless stacking. Cambio rewards players who shrink their hand early, dump 10s onto opponents and lock in their score with “Cambio!” before anyone can touch it.",
+    "principleNav": "Principle",
+    "memNav": "Memory",
+    "powNav": "Powers",
+    "stackNav": "Stacking",
+    "callNav": "Cambio!",
+    "mistakesNav": "Mistakes",
+    "principleH": "The basic principle",
+    "principle": "Cambio is won by <strong>card count and speed</strong>. Swapping cuts a few points at a time – stacking removes entire cards from your square and hands your worst cards to the other players.",
+    "principleItems": [
+      "<strong>Every card you shed is permanent.</strong> Dropping from four cards to two or one beats almost any four-card hand.",
+      "<strong>Eyes on the discard pile at all times.</strong> Most games are won on other players’ turns, the split second a rank you remember hits the pile.",
+      "<strong>Calling “Cambio!” locks your square.</strong> Once you call, nobody can swap or stack your cards – use that lock to protect a red king (−1) or a 1–2 card lead."
+    ],
+    "memH": "Memory habits that hold up under pressure",
+    "memLead": "Stacking makes Cambio fast and noisy. A steady mental routine keeps you from blanking out when cards start flying.",
+    "memItems": [
+      "<strong>Chant your four spots in fixed order.</strong> Always read top left, top right, bottom left, bottom right (for example “? · ? · 8 · 3”) and repeat it once after every swap or stack.",
+      "<strong>Remember one card per opponent.</strong> Whenever you spy with a 9, 10 or black king, lock in that single spot – it is future ammunition for cross-stacking.",
+      "<strong>Keep your hands away from your cards.</strong> Hovering over a card before the discard hits gives away what you remember and invites a blind swap.",
+      "<strong>Replace unknown spots with low draws first.</strong> Putting a drawn ace, 2 or 3 onto a blind back-row spot reveals the mystery card onto the discard pile for free."
+    ],
+    "powH": "Making every power count",
+    "powLead": "Only cards drawn from the draw pile and discarded immediately trigger a power – use each one to gain info or set up a stack.",
+    "pow7h": "7 or 8 – Unlock your back row",
+    "pow7p": "Peek at your two unknown cards first. The moment you know what sits there, you can either stack it on the next match or swap it out – and never forget to re-check a spot after a blind swap.",
+    "pow9h": "9 or 10 – Set up cross-stacks and swaps",
+    "pow9p": "Spy on the player with the fewest cards or on a spot they have guarded all round. Even seeing an opponent’s 7 or queen is gold: the next time that rank hits the pile, you can stack their card and dump your worst card into their gap.",
+    "powJh": "Jack or queen – Blind swap with a plan",
+    "powJp": "Pair a blind swap with intel from an earlier 9 or 10: trade your known 10 for their known red king (−1), joker (0) or ace. No spy info yet? Target a spot where someone just kept a drawn card – odds are it’s low.",
+    "powKh": "Black king – The strongest power in the deck",
+    "powKp": "Look at one of your <strong>unknown</strong> cards and one opponent’s card – then only swap if it helps. Even when you leave both cards where they are, you just got a free peek and a free spy in one move.",
+    "stackH": "Stacking: own cards and cross-stacking",
+    "stackLead": "Stacking is the engine of Cambio. Knowing when to slap down your own card – and when to stack an opponent’s card – creates massive point swings.",
+    "crossH": "Cross-stacking: the biggest move in Cambio",
+    "crossAlt": "A 6 of clubs lands on the discard pile. You stack an opponent's known 6 of hearts onto it, then slide your known queen of spades worth 10 points face down into their empty spot.",
+    "cross1": "<strong>6♣</strong> lands on the pile",
+    "cross2": "Stack opponent’s known <strong>6♥</strong>",
+    "cross3": "Give them your <strong>Q♠ (10)</strong>",
+    "crossWhy": "<strong>Why it’s huge:</strong> You shrink your own square by one card and drop 10 points at once, while your opponent trades a 6 for a 10 – a 14-point swing on someone else’s turn.",
+    "stackItems": [
+      "<strong>Stack high own cards (5–10) immediately.</strong> Every face card or middle number you stack cuts your total cleanly and brings you closer to zero cards.",
+      "<strong>Never stack a red king (−1).</strong> Throwing away −1 actually raises your score by a point! Keep red kings locked in your square; usually keep jokers (0) too unless you want fewer cards for tie-breaks.",
+      "<strong>Always use one hand and stay sharp.</strong> Only the fastest stack counts, and the window closes the moment the next player draws.",
+      "<strong>Give away your worst known card on a cross-stack.</strong> Before grabbing an opponent’s matching card, already know which 10 (or unknown card) you will slide into their empty spot."
+    ],
+    "stackWarn": "<strong>Never guess on a stack:</strong> a wrong card goes back to its spot AND saddles you with an unknown penalty card – roughly +5 to +6 points on average.",
+    "callH": "When to call “Cambio!”",
+    "callLead": "Because calling locks your cards, timing “Cambio!” is both a shield and a gamble.",
+    "callItems": [
+      "<strong>Call early to lock in a strong hand.</strong> Sitting on 0 to 3 points – or holding a red king (−1) – while everyone else still has four cards? Call “Cambio!” right away so nobody can steal your red king with a black king or blind swap.",
+      "<strong>Respect the tie rule.</strong> If another player ties your score, <strong>they win</strong>. When someone else is down to one or two cards, leave yourself a small cushion before calling.",
+      "<strong>Down to zero cards? Call immediately.</strong> With 0 points and zero cards, only a red king (−1) can beat you – waiting another turn just gives opponents free draws to find one.",
+      "<strong>Watch what the table just discarded.</strong> Calling right after opponents discard high cards – rather than after they kept fresh draws – gives them less ammo on their final turn."
+    ],
+    "mistakesH": "Common mistakes",
+    "mistakes": [
+      "<strong>Stacking a red king (−1).</strong> Removing a −1 card increases your total by 1 point – always keep red kings.",
+      "<strong>Guessing on stacks.</strong> One wrong guess hands you an extra face-down penalty card and wipes out two good turns.",
+      "<strong>Forgetting about cross-stacking.</strong> Focusing only on your own four cards misses the strongest move in Cambio: stacking an opponent’s card and gifting them your 10.",
+      "<strong>Using a black king on cards you already know.</strong> Always check at least one unknown card so you gain information even if you decide not to swap.",
+      "<strong>Waiting too long to call “Cambio!”.</strong> Holding onto a 1-point hand for two extra turns just gives opponents time to blind-swap your red king or stack down to zero.",
+      "<strong>Forgetting the tie rule.</strong> Calling at 4 points when a neighbour has only one card left often ends in a tie – and ties go to the other player."
+    ],
+    "ctaQuickH": "At the table right now?",
+    "ctaQuickP": "Card values, powers, stacking and Cambio rules on one screen.",
+    "ctaQuickBtn": "Open quick start",
+    "ctaRulesH": "New to the game?",
+    "ctaRulesP": "Read all rules, examples and variants first.",
+    "ctaRulesBtn": "Go to the rules"
+  },
+  "quick": {
+    "h": "Cambio at a glance",
+    "ruleH": "Your turn",
+    "rule": "4 cards face down, peek at the <strong>2 nearest</strong> once. Draw 1: <strong>swap</strong> it face down (no power) <strong>or</strong> discard it &amp; use its power. Lowest total wins.",
+    "pow7": "<strong>Peek:</strong> look at 1 own card",
+    "pow9": "<strong>Spy:</strong> look at 1 opponent’s card",
+    "powJ": "<strong>Blind swap:</strong> yours ↔ opponent’s unseen",
+    "powK": "<strong>Look &amp; swap:</strong> peek 1 own + 1 other, then choose",
+    "powNote": "Only cards drawn and discarded straight away trigger a power. Red kings have no power (−1).",
+    "endH": "Stacking & calling “Cambio!”",
+    "stackOwn": "<strong>Stack own card:</strong> matching rank on pile? Throw it on anytime → 1 fewer card!",
+    "stackOther": "<strong>Stack opponent’s card:</strong> throw theirs on &amp; give them 1 of yours face down. Wrong = back + <strong>1 penalty card</strong>.",
+    "cambio": "<strong>Call “Cambio!”:</strong> instead of drawing → your cards are <strong>locked</strong>, 1 last turn each. <strong>Tie: the other player wins.</strong>",
+    "ctaStratH": "Play better",
+    "ctaStratP": "Cross-stacking, black king tactics and calling timing.",
+    "ctaStratBtn": "Go to the strategy",
+    "ctaRulesH": "Full rules",
+    "ctaRulesP": "All details, scoring example, variants and FAQ.",
+    "ctaRulesBtn": "Go to the rules"
+  }
 }

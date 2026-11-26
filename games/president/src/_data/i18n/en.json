@@ -9,7 +9,9 @@
     "rulesT": "President card game rules – how to play",
     "rulesD": "How to play President (Scum): dealing, singles and pairs, the ranks from President to Scum, the card swap and popular house rules.",
     "strategyT": "President strategy guide – tips to reach the top",
-    "strategyD": "The President card game strategy guide: swap smart, control the lead, play pairs and 2s at the right moment and climb out of Scum."
+    "strategyD": "The President card game strategy guide: swap smart, control the lead, play pairs and 2s at the right moment and climb out of Scum.",
+    "quickT": "President quick start – cheat sheet and card order",
+    "quickD": "President at a glance: beating cards, full card order from 3 to 2, ranks and the card swap between President and Scum on one screen."
   },
   "info": {
     "players1": "3–4",
@@ -227,6 +229,22 @@
     ],
     "ctaRulesH": "New to the game?",
     "ctaRulesP": "Read the rules first.",
+    "ctaRulesBtn": "Go to the rules"
+  },
+  "quick": {
+    "h": "President at a glance",
+    "ruleH": "How it works",
+    "rule": "Lead 1–4 cards of the same rank. Next player beats with the <strong>same count</strong> and a <strong>higher rank</strong> – or passes anytime. Last player standing wins the trick and leads next.",
+    "rankNote": "Suits don’t matter. First round starts with <strong>3♣</strong>; from round two on, the President leads.",
+    "swapH": "Ranks & card swap",
+    "swap1": "<strong>President ↔ Scum:</strong> Scum deals and gives <strong>2 highest</strong>; President returns any 2.",
+    "swap2": "<strong>Vice-President ↔ Vice-Scum:</strong> Vice-Scum gives <strong>1 highest</strong>; Vice-President returns any 1.",
+    "swap3": "<strong>Citizens:</strong> everyone in the middle – no swap.",
+    "ctaStratH": "Play better",
+    "ctaStratP": "Smart swaps, card counting and winning the endgame.",
+    "ctaStratBtn": "Go to the strategy",
+    "ctaRulesH": "Full rules",
+    "ctaRulesP": "All details, examples, house rules and FAQ.",
     "ctaRulesBtn": "Go to the rules"
   }
 }

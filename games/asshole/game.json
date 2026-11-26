@@ -6,7 +6,7 @@
   "category": "cards",
   "status": "draft",
   "languages": ["en", "de"],
-  "pages": ["rules"],
+  "pages": ["rules", "strategy", "quickstart"],
   "related": ["president"],
   "players": { "min": 3, "max": 8 },
   "duration": "15–30 min",
