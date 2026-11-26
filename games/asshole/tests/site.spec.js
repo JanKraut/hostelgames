@@ -45,6 +45,18 @@ for (const lang of languages) {
     // No game against bots on this site.
     await expect(page.locator("a[href*='play/']")).toHaveCount(0);
   });
+
+  test(`${lang.code}: fact sheet in the header`, async ({ page }) => {
+    await page.addInitScript((code) => localStorage.setItem("lang", code), lang.code);
+    await page.goto(pathOf(lang));
+    const sheet = page.locator(".hero #factsheet");
+    await expect(sheet).toBeVisible();
+    await expect(sheet.locator(".fs-scale")).toHaveCount(3);
+    await expect(sheet.locator(".fs-group")).toHaveCount(2);
+    await expect(sheet.locator(".fs-similar li")).toHaveCount(lang.t.info.similar.split(", ").length);
+    await expect(sheet.locator(".fs-cards .card")).toHaveCount(2);
+    await expect(sheet.locator(".fs-intro p")).toHaveText(lang.t.info.intro);
+  });
 }
 
 test("FAQ answers open on tap", async ({ page }) => {
@@ -55,11 +67,15 @@ test("FAQ answers open on tap", async ({ page }) => {
   await expect(first.locator("p")).toBeVisible();
 });
 
-test("no horizontal overflow, also on a phone", async ({ page }) => {
-  for (const lang of languages) {
-    await page.goto(pathOf(lang));
-    const [scroll, width] = await page.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]);
-    expect(scroll, `${lang.code}: page wider than the screen`).toBeLessThanOrEqual(width);
+test("no horizontal overflow, even on a very narrow phone", async ({ page }) => {
+  for (const width of [320, 390]) {
+    await page.setViewportSize({ width, height: 700 });
+    for (const lang of languages) {
+      await page.addInitScript((code) => localStorage.setItem("lang", code), lang.code);
+      await page.goto(pathOf(lang));
+      const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+      expect(overflow, `${lang.code} at ${width}px`).toBeLessThanOrEqual(0);
+    }
   }
 });
 

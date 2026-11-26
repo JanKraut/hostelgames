@@ -107,6 +107,7 @@ export function readGame(file) {
     if (!Array.isArray(people) || people.length !== 2 || !people.every((n) => [1, 2, 3].includes(n))) fail(`"factsheet.people" must be two numbers 1–3, e.g. [2, 3]`);
     if (id !== undefined && !/^[a-z][a-z0-9-]*$/.test(id)) fail(`"factsheet.id" must be lowercase letters, digits and dashes`);
   }
+  if (game.alternateName !== undefined && !list(game.alternateName)) fail(`"alternateName" must be a list of names`);
   return game;
 }
 

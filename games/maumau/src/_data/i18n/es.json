@@ -1,5 +1,4 @@
 {
-  "title": "Mau-Mau – reglas",
   "h1": "Mau-Mau",
   "sub": "El juego de cartas favorito de Alemania para quedarse sin cartas: sigue el palo o el valor, usa el 7, el 8 y la jota contra los demás – y no olvides decir «Mau».",
   "goal": "<strong>El objetivo:</strong> ser el primero en deshacerte de todas tus cartas. Di «Mau» antes de tu última carta y «Mau-Mau» al jugarla.",
@@ -21,7 +20,6 @@
   "rules": {
     "h1": "Juego de cartas Mau-Mau",
     "h1sub": "Reglas y cómo jugar",
-    "navLabel": "Secciones",
     "nSetup": "Preparación",
     "nPlay": "Jugar",
     "nSpecial": "Cartas especiales",
@@ -29,7 +27,6 @@
     "nScore": "Puntos",
     "nVar": "Variantes",
     "nFaq": "FAQ",
-    "nShare": "Compartir",
     "setupH": "Preparación",
     "setupLead": "Mau-Mau se juega normalmente con una baraja de Skat de 32 cartas (del 7 al as en cuatro palos) y de 2 a 6 jugadores. Los valores no se superan entre sí: lo único que cuenta es si una carta <strong>encaja</strong>.",
     "deck1n": "2–5 jugadores",

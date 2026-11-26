@@ -89,5 +89,5 @@ test("no horizontal overflow, even on a very narrow phone", async ({ page }) => 
   }
 });
 
-// Language redirect and 404 page, the same in every game (@hostelgames/core/testing).
-siteTests({ languages, site });
+// Language redirect (on all English entry pages) and 404 page (@hostelgames/core/testing).
+siteTests({ languages, site, redirects: ["./", "strategy/", "quickstart/", "scoresheet/"] });

@@ -1,5 +1,4 @@
 {
-  "title": "Mau-Mau – regler",
   "h1": "Mau-Mau",
   "sub": "Tysklands favorit bland vändåttaspel: matcha färg eller valör, använd 7:an, 8:an och knekten mot de andra – och glöm inte att säga ”Mau”.",
   "goal": "<strong>Målet:</strong> Bli först med att bli av med alla dina kort. Säg ”Mau” före ditt sista kort – och ”Mau-Mau” när du lägger det.",
@@ -21,7 +20,6 @@
   "rules": {
     "h1": "Kortspelet Mau-Mau",
     "h1sub": "Regler & spelgång",
-    "navLabel": "Avsnitt",
     "nSetup": "Förberedelse",
     "nPlay": "Spela",
     "nSpecial": "Specialkort",
@@ -29,7 +27,6 @@
     "nScore": "Poäng",
     "nVar": "Varianter",
     "nFaq": "FAQ",
-    "nShare": "Dela",
     "setupH": "Förberedelse",
     "setupLead": "Mau-Mau spelas vanligtvis med en skatlek på 32 kort (7 till ess i fyra färger) och 2 till 6 spelare. Valörerna slår inte varandra – det som räknas är om ett kort <strong>passar</strong>.",
     "deck1n": "2–5 spelare",

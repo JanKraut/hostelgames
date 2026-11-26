@@ -1,5 +1,4 @@
 {
-  "title": "King’s Cup – regras",
   "h1": "King’s Cup",
   "rules": {
     "h1": "King’s Cup",
@@ -31,7 +30,6 @@
   "nSafe": "Jogar seguro",
   "nVariants": "Variantes",
   "nFaq": "FAQ",
-  "nShare": "Partilhar",
   "setupH": "Preparação",
   "setupLead": "Dois minutos e está tudo pronto.",
   "setup1": "<strong>Um baralho normal</strong> de 52 cartas, sem jokers.",

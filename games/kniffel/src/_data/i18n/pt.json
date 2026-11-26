@@ -1,5 +1,4 @@
 {
-  "title": "Kniffel – regras",
   "h1": "Kniffel",
   "rules": {
     "h1": "Kniffel",
@@ -35,7 +34,6 @@
   "nScoring": "Pontuação",
   "nVariants": "Variantes",
   "nFaq": "FAQ",
-  "nShare": "Partilhar",
   "setupH": "Preparação",
   "setupLead": "Não precisam de muito, e uma partida com amigos dura cerca de meia hora.",
   "setup1": "<strong>5 dados</strong> – de preferência com um copo de dados.",

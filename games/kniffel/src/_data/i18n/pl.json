@@ -1,5 +1,4 @@
 {
-  "title": "Kniffel – zasady",
   "h1": "Kniffel",
   "rules": {
     "h1": "Kniffel",
@@ -35,7 +34,6 @@
   "nScoring": "Punktacja",
   "nVariants": "Warianty",
   "nFaq": "FAQ",
-  "nShare": "Udostępnij",
   "setupH": "Przygotowanie",
   "setupLead": "Nie potrzeba wiele, a partia ze znajomymi trwa około pół godziny.",
   "setup1": "<strong>5 kostek</strong> – najlepiej z kubkiem do kości.",

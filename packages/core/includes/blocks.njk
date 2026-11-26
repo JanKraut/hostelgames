@@ -3,12 +3,15 @@
     The lists end with the last text that exists: one more FAQ, variant or step is only a
     new text in the game's i18n (faq9q + faq9a, var12, s5h + s5p …), no change to the page. -#}
 
-{#- Section navigation below the header. items: [["setup", t.nSetup], ["faq", t.nFaq], …] -#}
+{#- Section navigation below the header. items: [["setup", t.nSetup], ["faq", t.nFaq], …]
+    Targets starting with "/" or "#" are used as href directly (e.g. a link to another page);
+    otherwise "#" is prepended. An optional third element sets a CSS class on the <li>. -#}
 {% macro secnav(label, items) -%}
 <nav class="secnav" aria-label="{{ label }}">
   <ul>
     {%- for item in items %}
-    <li><a href="#{{ item[0] }}">{{ item[1] }}</a></li>
+    {%- set target = item[0] %}
+    <li{% if item[2] %} class="{{ item[2] }}"{% endif %}><a href="{% if target[0] == '/' or target[0] == '#' %}{{ target }}{% else %}#{{ target }}{% endif %}">{{ item[1] }}</a></li>
     {%- endfor %}
   </ul>
 </nav>

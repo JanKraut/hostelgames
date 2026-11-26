@@ -1,5 +1,4 @@
 {
-  "title": "Kniffel – regels",
   "h1": "Kniffel",
   "rules": {
     "h1": "Kniffel",
@@ -35,7 +34,6 @@
   "nScoring": "Telling",
   "nVariants": "Varianten",
   "nFaq": "FAQ",
-  "nShare": "Delen",
   "setupH": "Opzet",
   "setupLead": "Je hebt niet veel nodig, en een potje met vrienden duurt ongeveer een halfuur.",
   "setup1": "<strong>5 dobbelstenen</strong> – het liefst met een dobbelbeker.",

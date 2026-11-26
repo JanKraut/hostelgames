@@ -1,5 +1,4 @@
 {
-  "title": "Mau-Mau – règles",
   "h1": "Mau-Mau",
   "sub": "Le jeu de défausse préféré des Allemands : suis la couleur ou la valeur, utilise le 7, le 8 et le valet contre les autres – et n’oublie pas de dire « Mau ».",
   "goal": "<strong>Le but :</strong> être le premier à te débarrasser de toutes tes cartes. Dis « Mau » avant ta dernière carte – et « Mau-Mau » quand tu la poses.",
@@ -21,7 +20,6 @@
   "rules": {
     "h1": "Jeu de cartes Mau-Mau",
     "h1sub": "Règles et déroulement",
-    "navLabel": "Sections",
     "nSetup": "Mise en place",
     "nPlay": "Jouer",
     "nSpecial": "Cartes spéciales",
@@ -29,7 +27,6 @@
     "nScore": "Points",
     "nVar": "Variantes",
     "nFaq": "FAQ",
-    "nShare": "Partager",
     "setupH": "Mise en place",
     "setupLead": "Le Mau-Mau se joue le plus souvent avec un jeu de 32 cartes (du 7 à l’as dans les quatre couleurs) et de 2 à 6 joueurs. Aucune valeur n’en bat une autre – tout ce qui compte, c’est qu’une carte <strong>convienne</strong>.",
     "deck1n": "2–5 joueurs",

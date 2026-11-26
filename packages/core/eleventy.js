@@ -61,6 +61,15 @@ export default function hostelgamesCore(eleventyConfig, options = {}) {
   eleventyConfig.setServerOptions({ port: Number(process.env.PORT ?? 8080) });
   eleventyConfig.addPlugin(HtmlBasePlugin);
 
+  const srcDir = dirname(assets);
+  const siteFiles = {
+    faviconIco: existsSync(join(srcDir, "favicon.ico")),
+    appleTouchIcon: existsSync(join(assets, "apple-touch-icon.png")),
+    manifest: existsSync(join(srcDir, "manifest.webmanifest")),
+    ogImage: existsSync(join(assets, "og-image.png")) ? "assets/og-image.png" : null,
+    siteScript: existsSync(join(assets, "site.js")),
+  };
+
   // ---------- Assets ----------
   for (const file of PUBLISHED) {
     eleventyConfig.addPassthroughCopy({ [relative(process.cwd(), join(CORE_ASSETS, file))]: `assets/core/${file}` });
@@ -69,6 +78,13 @@ export default function hostelgamesCore(eleventyConfig, options = {}) {
   eleventyConfig.addPassthroughCopy({ [relative(process.cwd(), require.resolve("qrcode-generator/qrcode.js"))]: "assets/core/qrcode.js" });
   for (const [file, source] of fontFiles(fonts)) {
     eleventyConfig.addPassthroughCopy({ [relative(process.cwd(), source)]: `assets/core/fonts/${file}` });
+  }
+  if (site.game) {
+    // Optional files a game may provide at its site root: classic favicon, web manifest, and
+    // Apache config (.htaccess, only for the game's own domain, never below hostelgames.com/<slug>/).
+    if (siteFiles.faviconIco) eleventyConfig.addPassthroughCopy({ [join(srcDir, "favicon.ico")]: "favicon.ico" });
+    if (siteFiles.manifest) eleventyConfig.addPassthroughCopy({ [join(srcDir, "manifest.webmanifest")]: "manifest.webmanifest" });
+    if (site.ownDomain && existsSync(join(srcDir, ".htaccess"))) eleventyConfig.addPassthroughCopy({ [join(srcDir, ".htaccess")]: ".htaccess" });
   }
   eleventyConfig.addWatchTarget(CORE_ASSETS);
   eleventyConfig.addWatchTarget(INCLUDES);
@@ -81,6 +97,7 @@ export default function hostelgamesCore(eleventyConfig, options = {}) {
   // The two files every page needs first (body text and headings), fetched right away.
   eleventyConfig.addGlobalData("coreFonts", ["manrope-latin-400-normal.woff2", "manrope-latin-800-normal.woff2"]);
   eleventyConfig.addGlobalData("assetVersion", hashFiles([CORE_ASSETS, assets]).slice(0, 10));
+  eleventyConfig.addGlobalData("siteFiles", siteFiles);
 
   // ---------- Shared includes ----------
   // Nunjucks looks in the site's own _includes first, then in core/includes.

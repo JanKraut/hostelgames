@@ -1,5 +1,4 @@
 {
-  "title": "King’s Cup – regler",
   "h1": "King’s Cup",
   "rules": {
     "h1": "King’s Cup",
@@ -31,7 +30,6 @@
   "nSafe": "Spill trygt",
   "nVariants": "Varianter",
   "nFaq": "FAQ",
-  "nShare": "Del",
   "setupH": "Oppsett",
   "setupLead": "To minutter, så er dere klare til å starte.",
   "setup1": "<strong>En vanlig kortstokk</strong> med 52 kort, uten jokere.",

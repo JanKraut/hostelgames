@@ -1,5 +1,4 @@
 {
-  "title": "Kniffel – règles",
   "h1": "Kniffel",
   "rules": {
     "h1": "Kniffel",
@@ -35,7 +34,6 @@
   "nScoring": "Décompte",
   "nVariants": "Variantes",
   "nFaq": "FAQ",
-  "nShare": "Partager",
   "setupH": "Mise en place",
   "setupLead": "Il ne faut pas grand-chose, et une partie entre amis dure environ une demi-heure.",
   "setup1": "<strong>5 dés</strong> – idéalement avec un gobelet à dés.",

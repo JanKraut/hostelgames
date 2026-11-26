@@ -1,5 +1,4 @@
 {
-  "title": "Mau-Mau – Regeln",
   "h1": "Mau-Mau",
   "sub": "Das Lieblings-Ablegespiel der Deutschen: Farbe oder Wert bedienen, die 7, die 8 und den Buben gegen die anderen einsetzen – und nicht vergessen, „Mau“ zu sagen.",
   "goal": "<strong>Das Ziel:</strong> Werde als Erste oder Erster alle Karten los. Vor deiner letzten Karte sagst du „Mau“ – und „Mau-Mau“, wenn du sie ablegst.",
@@ -21,7 +20,6 @@
   "rules": {
     "h1": "Mau-Mau-Kartenspiel",
     "h1sub": "Regeln & Spielablauf",
-    "navLabel": "Abschnitte",
     "nSetup": "Aufbau",
     "nPlay": "Spielablauf",
     "nSpecial": "Sonderkarten",
@@ -29,7 +27,6 @@
     "nScore": "Punkte",
     "nVar": "Varianten",
     "nFaq": "FAQ",
-    "nShare": "Teilen",
     "setupH": "Aufbau",
     "setupLead": "Mau-Mau wird meist mit einem Skatblatt mit 32 Karten (7 bis Ass in vier Farben) und 2 bis 6 Leuten gespielt. Kein Wert sticht einen anderen – es zählt nur, ob eine Karte <strong>passt</strong>.",
     "deck1n": "2–5 Spieler",

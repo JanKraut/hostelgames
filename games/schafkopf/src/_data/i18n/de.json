@@ -1,5 +1,4 @@
 {
-  "title": "Schafkopf – Regeln",
   "h1": "Schafkopf",
   "sub": "Das bayerische Nationalkartenspiel: vier Leute, 32 Karten und eine Trumpfreihe wie in keinem anderen Spiel – Ober und Unter stechen immer. Zwei gegen zwei oder einer gegen alle.",
   "goal": "<strong>Das Ziel:</strong> Mit deinem Partner – oder allein im Solo – Stiche mit mindestens <strong>61 der 120 Augen</strong> holen.",
@@ -25,7 +24,6 @@
     "rU": "U",
     "rK": "K",
     "rA": "A",
-    "navLabel": "Abschnitte",
     "nSetup": "Aufbau",
     "nTrumps": "Trümpfe",
     "nPoints": "Augen",
@@ -34,7 +32,6 @@
     "nScore": "Abrechnung",
     "nVar": "Varianten",
     "nFaq": "FAQ",
-    "nShare": "Teilen",
     "setupH": "Aufbau",
     "setupLead": "Schafkopf spielen <strong>genau vier Leute</strong> mit 32 Karten: 7, 8, 9, 10, Unter, Ober, König und Ass (die <strong>Sau</strong>) in vier Farben. Das bayerische Blatt hat eigene Farben – mit einem französischen Blatt übersetzt ihr einfach:",
     "sEichel": "Eichel",

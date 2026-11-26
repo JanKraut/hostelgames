@@ -32,8 +32,7 @@ Beim ersten Mal ggf. den Browser installieren: `npx playwright install chromium`
 | `src/quickstart.njk` | Quickstart: Spickzettel, passt auf einen Handybildschirm (`/quickstart/`, `/de/quickstart/` …) |
 | `src/play.njk` | Spielseite gegen Bots (`/play/`, `/de/play/` …) |
 | `game.json` | Name, Slug, Domain (daraus der Ordner `shitheadgame`), Status, Sprachen und Seiten, siehe Root-README |
-| Aus dem Core | Seitenreiter, Weiterleitung nach Sprache, Teilen-Box (`share: true`), Sitemap – siehe `packages/core/README.md` |
-| `src/_includes/layouts/base.njk` | Rahmen jeder Seite: Kopf, `hreflang`, lädt erst die Core-Styles und -Skripte, dann die eigenen |
+| Aus dem Core | Seitenrahmen (`layout: game`), Seitenreiter, Weiterleitung nach Sprache, Teilen-Box (`share: true`), Sitemap, 404-Seite – siehe `packages/core/README.md` |
 | `src/_includes/shithead-card.njk` | Die Shithead-Karte (Haufen statt Wert und Farbe); die übrigen Spielkarten-Makros kommen aus dem Core (`card.njk`) |
 | `src/_data/languages.js` | Sprachen der Seiten: Codes aus `game.json`, Flagge, Name und Fallbacks aus `@hostelgames/core/languages` |
 | `src/_data/i18n/*.json` | Texte pro Sprache, inklusive Quiztexte unter `quiz` |

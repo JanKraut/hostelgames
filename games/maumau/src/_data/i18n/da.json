@@ -1,5 +1,4 @@
 {
-  "title": "Mau-Mau – regler",
   "h1": "Mau-Mau",
   "sub": "Tysklands yndlings-afkastspil: match kulør eller værdi, brug 7’eren, 8’eren og knægten mod de andre – og glem ikke at sige “Mau”.",
   "goal": "<strong>Målet:</strong> Bliv den første til at slippe af med alle dine kort. Sig “Mau” før dit sidste kort – og “Mau-Mau”, når du lægger det.",
@@ -21,7 +20,6 @@
   "rules": {
     "h1": "Kortspillet Mau-Mau",
     "h1sub": "Regler & spilforløb",
-    "navLabel": "Afsnit",
     "nSetup": "Opstilling",
     "nPlay": "Spilforløb",
     "nSpecial": "Specialkort",
@@ -29,7 +27,6 @@
     "nScore": "Point",
     "nVar": "Varianter",
     "nFaq": "FAQ",
-    "nShare": "Del",
     "setupH": "Opstilling",
     "setupLead": "Mau-Mau spilles normalt med et skat-kortspil på 32 kort (7 til es i fire kulører) og 2 til 6 spillere. Værdierne slår ikke hinanden – det eneste, der tæller, er, om et kort <strong>passer</strong>.",
     "deck1n": "2–5 spillere",

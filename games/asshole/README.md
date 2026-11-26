@@ -14,7 +14,8 @@ npm test -w @hostelgames/asshole            # Tests (vorher bauen)
 | --- | --- |
 | `game.json` | Name, Domain, Status, Sprachen, Seiten, ähnliche Spiele (Felder: Root-README) |
 | `src/index.njk` | Regelseite, einmal pro Sprache |
-| `src/404.njk` | Fehlerseite |
+| `src/_includes/hero-art.njk` | Kartenfächer im Kopfbereich |
+| `src/_includes/factsheet-art.njk` | Kartenbild im Steckbrief |
 | `src/_data/i18n/*.json` | Texte, Referenz `en.json` |
 | `src/assets/styles.css` | eigene Styles zusätzlich zu `core.css` |
 | `tests/site.spec.js` | Playwright-Tests |

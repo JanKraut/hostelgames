@@ -1,10 +1,11 @@
-{#- Frame for every page of a game, from @hostelgames/core. Shithead still has its own
-    (games/shithead/src/_includes/layouts/base.njk); new games use this one: `layout: game` (alias set by the core plugin)
+{#- Frame for every page of a game, from @hostelgames/core (`layout: game`, alias set by the core plugin).
     Pages set: subpath ("" or "strategy/" …), pageTitle, pageDescription, and optionally
     share (true: share box with QR code at the bottom, loads qrcode.js right away), styles, classicScripts and scripts (ES modules) as
     lists of /assets/… paths, notFound (404 page).
-    The game's own /assets/styles.css is always loaded after core.css. Name, languages and pages
-    come from game.json (site.game); og:image only if the game has ogImage in its data. -#}
+    The game's own /assets/styles.css is always loaded after core.css. Name, languages, pages and
+    optional alternateName come from game.json (site.game). Optional files detected by the core plugin
+    (siteFiles): src/favicon.ico, src/manifest.webmanifest, src/assets/apple-touch-icon.png,
+    src/assets/og-image.png and src/assets/site.js. -#}
 {%- set sub = subpath or "" -%}
 {%- set game = site.game -%}
 <!DOCTYPE html>
@@ -29,8 +30,12 @@
 <meta property="og:title" content="{{ pageTitle }}">
 <meta property="og:description" content="{{ pageDescription }}">
 <meta property="og:url" content="{{ lang.url }}{{ sub }}">
-{%- if ogImage %}
-<meta property="og:image" content="{{ site.origin }}{{ site.pathPrefix }}{{ ogImage }}">
+{%- set ogImg = ogImage or (siteFiles and siteFiles.ogImage) -%}
+{%- if ogImg %}
+<meta property="og:image" content="{{ site.origin }}{{ site.pathPrefix }}{{ ogImg }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ game.name }}">
 <meta name="twitter:card" content="summary_large_image">
 {%- endif %}
 {%- if lang.code == "en" and sub == "" %}
@@ -39,6 +44,7 @@
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": game.name,
+  "alternateName": game.alternateName,
   "url": site.origin + site.pathPrefix,
   "description": pageDescription,
   "inLanguage": langList,
@@ -53,7 +59,16 @@
 {%- include "tracking-head.njk" %}
 <meta name="theme-color" content="#f4cf71" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#171a1f" media="(prefers-color-scheme: dark)">
+{%- if siteFiles and siteFiles.faviconIco %}
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+{%- endif %}
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+{%- if siteFiles and siteFiles.appleTouchIcon %}
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+{%- endif %}
+{%- if siteFiles and siteFiles.manifest %}
+<link rel="manifest" href="/manifest.webmanifest">
+{%- endif %}
 {%- for file in coreFonts %}
 <link rel="preload" href="/assets/core/fonts/{{ file }}" as="font" type="font/woff2" crossorigin>
 {%- endfor %}
@@ -70,6 +85,9 @@
 <script src="{{ src }}?v={{ assetVersion }}" defer></script>
 {%- endfor %}
 <script type="module" src="/assets/core/core.js?v={{ assetVersion }}"></script>
+{%- if siteFiles and siteFiles.siteScript %}
+<script type="module" src="/assets/site.js?v={{ assetVersion }}"></script>
+{%- endif %}
 <script type="module" src="/assets/core/share.js?v={{ assetVersion }}"></script>
 {%- for src in scripts %}
 <script type="module" src="{{ src }}?v={{ assetVersion }}"></script>
