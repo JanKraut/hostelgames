@@ -1373,7 +1373,11 @@ footer .heart {
 }
 
 /* QR popup, opened from the QR button next to the light / dark switch */
+/* The popup sits inside <header class="hero">, which sets the header's text colours
+   (white in dark mode). The box is gold in both modes, so it needs the felt text colours. */
 .qrpop {
+  --felt-text: #202020;
+  --felt-soft: #4a3d22;
   width: min(26rem, calc(100vw - 2rem));
   max-height: calc(100dvh - 2rem);
   padding: 0;
