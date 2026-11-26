@@ -4,9 +4,8 @@ Domain: cabogame.de · Ordner: cabogame · Slug: cabo · Status: draft
 Ähnliches Spiel: cambio (gegenseitig in `related` der game.json)
 
 ## Stand
-- Regelseite (src/index.njk) mit Texten de + en.
-- Nächste Schritte: ggf. Strategie / Quickstart
-  (Datei anlegen UND in `pages` der game.json eintragen, sonst bricht der Build ab).
+- Regelseite (src/index.njk), Strategie (src/strategy.njk) und Quickstart (src/quickstart.njk)
+  mit Texten de + en.
 - Kein Spiel gegen Bots (play), solange Jan es nicht ausdrücklich sagt.
 
 ## Regeln für dieses Spiel

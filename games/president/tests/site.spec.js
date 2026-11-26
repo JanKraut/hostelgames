@@ -106,22 +106,60 @@ for (const lang of languages) {
   });
 }
 
-test("the tabs link rules and strategy pages", async ({ page }) => {
+// Quickstart: Spickzettel pro Sprache, über die Reiter im Kopf erreichbar.
+for (const lang of languages) {
+  test(`${lang.code}: quick start page with cheat sheet, card order and swap`, async ({ page }) => {
+    const k = lang.t.quick;
+    await page.addInitScript((code) => localStorage.setItem("lang", code), lang.code);
+    await page.goto(pathOf(lang) + "quickstart/");
+
+    await expect(page).toHaveTitle(lang.t.seo.quickT);
+    await expect(page.locator("html")).toHaveAttribute("lang", lang.htmlLang);
+    await expect(page.locator(".hero h1")).toHaveText(lang.t.h1);
+    await expect(page.locator(".pagetabs a[aria-current=page]")).toHaveText(lang.t.pgQuick);
+    await expect(page.locator("link[rel=canonical]")).toHaveAttribute("href", lang.url + "quickstart/");
+    await expect(page.locator(".cheat h2")).toHaveText(k.h);
+    await expect(page.locator(".ch-ranks .ch-card")).toHaveCount(13);
+    await expect(page.locator(".ch-rows li")).toHaveCount(3);
+    await expect(page.locator(`#next-steps a[href$="${lang.path}strategy/"]`)).toBeVisible();
+    await expect(page.locator("#share .qr svg")).toBeVisible();
+    await expect(page.locator('a[href*="play/"]')).toHaveCount(0);
+
+    const text = await page.locator("body").innerText();
+    expect(text).not.toMatch(/undefined|\[object|\{\{|\{%/);
+  });
+}
+
+test("the tabs link rules, strategy and quickstart pages", async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem("lang", "de"));
   await page.goto("de/");
   await page.locator(".pagetabs a", { hasText: languages[1].t.n6 }).click();
   await expect(page).toHaveURL(/\/de\/strategy\/$/);
-  await page.locator("#next-steps a", { hasText: languages[1].t.strategy.ctaRulesBtn }).click();
+  await page.locator(".pagetabs a", { hasText: languages[1].t.pgQuick }).click();
+  await expect(page).toHaveURL(/\/de\/quickstart\/$/);
+  await page.locator("#next-steps a", { hasText: languages[1].t.quick.ctaRulesBtn }).click();
   await expect(page).toHaveURL(/\/de\/$/);
 });
 
 test("no horizontal overflow, light and dark", async ({ page }) => {
-  for (const sub of ["./", "strategy/"]) {
+  for (const sub of ["./", "strategy/", "quickstart/"]) {
     for (const theme of ["light", "dark"]) {
       await page.addInitScript((th) => localStorage.setItem("theme", th), theme);
       await page.goto(sub);
       const [scroll, width] = await page.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]);
       expect(scroll, `${sub} (${theme}): page wider than the screen`).toBeLessThanOrEqual(width);
+    }
+  }
+});
+
+test("quickstart: no horizontal overflow on narrow phones", async ({ page }) => {
+  for (const width of [320, 390]) {
+    await page.setViewportSize({ width, height: 700 });
+    for (const lang of languages) {
+      await page.addInitScript((code) => localStorage.setItem("lang", code), lang.code);
+      await page.goto(pathOf(lang) + "quickstart/");
+      const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+      expect(overflow, `${lang.code} quickstart at ${width}px`).toBeLessThanOrEqual(0);
     }
   }
 });
@@ -134,4 +172,4 @@ test("the section navigation jumps to the section", async ({ page }) => {
 });
 
 // Language redirect and 404 page, the same in every game (@hostelgames/core/testing).
-siteTests({ languages, site, redirects: ["./", "strategy/"] });
+siteTests({ languages, site, redirects: ["./", "strategy/", "quickstart/"] });

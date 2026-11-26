@@ -6,6 +6,6 @@
   "category": "cards",
   "status": "draft",
   "languages": ["en", "de"],
-  "pages": ["rules"],
+  "pages": ["rules", "strategy", "quickstart"],
   "related": ["president"]
 }

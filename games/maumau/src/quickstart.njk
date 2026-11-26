@@ -1,0 +1,75 @@
+---
+pagination:
+  data: languages
+  size: 1
+  alias: lang
+permalink: "{{ lang.path }}quickstart/"
+layout: game
+subpath: "quickstart/"
+share: true
+eleventyComputed:
+  pageTitle: "{{ lang.t.seo.quickT }}"
+  pageDescription: "{{ lang.t.seo.quickD }}"
+---
+{#- Quickstart: kompakter Spickzettel für Mau-Mau – Grundregel, Sonderkarten (7, 8, Bube),
+    „Mau!“ / „Mau-Mau!“ und Kartenpunkte. Texte unter `quick`. -#}
+{%- set t = lang.t -%}
+{%- set r = t.rules -%}
+{%- set k = t.quick -%}
+{% include "hero.njk" %}
+
+<main class="wrap quick">
+  <section id="cheat-sheet">
+    <div class="cheat cheat2">
+      <h2>{{ k.h }}</h2>
+
+      <div class="ch-block ch-rule">
+        <div class="ch-icon" aria-hidden="true">5</div>
+        <div><h3>{{ k.ruleH }}</h3><p>{{ k.rule | safe }}</p></div>
+      </div>
+
+      <div class="ch-block">
+        <h3>{{ r.spH }}</h3>
+        <ul class="ch-specials" role="list">
+          <li class="order"><span class="ch-card r" aria-hidden="true">7<small>♥</small></span><span>{{ k.sp7 | safe }}</span></li>
+          <li class="order"><span class="ch-card" aria-hidden="true">8<small>♠</small></span><span>{{ k.sp8 | safe }}</span></li>
+          <li class="any wide"><span class="ch-card" aria-hidden="true">J<small>♣</small></span><span>{{ k.spJ | safe }}</span></li>
+        </ul>
+      </div>
+
+      <div class="ch-block">
+        <h3>{{ r.mauH }}</h3>
+        <ul class="ch-rows" role="list">
+          <li><span class="ch-badge" aria-hidden="true">1</span><span>{{ k.mau1 | safe }}</span></li>
+          <li><span class="ch-badge" aria-hidden="true">0</span><span>{{ k.mau2 | safe }}</span></li>
+        </ul>
+      </div>
+
+      <div class="ch-block">
+        <h3>{{ r.scH }}</h3>
+        <ul class="ch-pts" role="list">
+          {%- for p in [["J","♣","20"],["A","♥","11"],["10","♠","10"],["9","♥","9"],["8","♠","8"],["7","♦","7"],["K","♦","4"],["Q","♣","3"]] %}
+          <li><span class="ch-card{% if p[1] in '♥♦' %} r{% endif %}" aria-hidden="true">{{ p[0] }}<small>{{ p[1] }}</small></span><b>{{ p[2] }}</b></li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="next-steps" class="ctas">
+    <div class="cta">
+      <h2>{{ k.ctaStratH }}</h2>
+      <p>{{ k.ctaStratP }}</p>
+      <a class="ctabtn" href="{{ lang.path }}strategy/">{{ k.ctaStratBtn }} →</a>
+    </div>
+    <div class="cta">
+      <h2>{{ k.ctaRulesH }}</h2>
+      <p>{{ k.ctaRulesP }}</p>
+      <a class="ctabtn" href="{{ lang.path }}">{{ k.ctaRulesBtn }} →</a>
+    </div>
+  </section>
+
+  {% include "share.njk" %}
+</main>
+
+{% include "footer.njk" %}

@@ -5,7 +5,11 @@
   "goal": "<strong>Das Ziel:</strong> Werde als Erste oder Erster alle Karten los. Vor deiner letzten Karte sagst du „Mau“ – und „Mau-Mau“, wenn du sie ablegst.",
   "seo": {
     "rulesT": "Mau-Mau Regeln – Kartenspiel einfach erklärt",
-    "rulesD": "So geht Mau-Mau: Austeilen, Farbe oder Wert bedienen, die Sonderkarten 7, 8 und Bube, Mau und Mau-Mau sagen, Punkte zählen, Varianten und FAQ."
+    "rulesD": "So geht Mau-Mau: Austeilen, Farbe oder Wert bedienen, die Sonderkarten 7, 8 und Bube, Mau und Mau-Mau sagen, Punkte zählen, Varianten und FAQ.",
+    "strategyT": "Mau-Mau Strategie – Tipps für Sonderkarten und Wünschen",
+    "strategyD": "Mau-Mau-Strategie-Guide: Farbvielfalt halten, 7er und Buben klug aufheben, die richtige Farbe wünschen, Punkte sparen und im Endspiel gewinnen.",
+    "quickT": "Mau-Mau Quickstart – Spickzettel und Sonderkarten",
+    "quickD": "Mau-Mau auf einen Blick: Farbe oder Wert bedienen, Sonderkarten 7, 8 und Bube, Mau und Mau-Mau sagen und Kartenpunkte auf einem Bildschirm."
   },
   "info": {
     "players1": "2–3",
@@ -103,5 +107,89 @@
     "faq6a": "In der Schweiz <strong>Tschau Sepp</strong>, im englischen Sprachraum <strong>Crazy Eights</strong> (dort ist die 8 die Wunschkarte), in den Niederlanden <strong>Pesten</strong>.",
     "faq7q": "Kann ich Mau-Mau mit 52 Karten spielen?",
     "faq7a": "Ja. Die Regeln bleiben gleich, die Karten von 2 bis 6 haben einfach keine Sonderwirkung und zählen beim Punktezählen ihren Zahlenwert. Mit 52 Karten können bis zu 8 Leute mitspielen."
+  },
+  "strategy": {
+    "h1": "Mau-Mau-Strategie",
+    "sub": "Die erste passende Karte legen kann jeder. Wer seine Farben offen hält, 7 und Bube für den richtigen Moment aufhebt und beobachtet, was die anderen ziehen, gewinnt deutlich öfter.",
+    "principleNav": "Grundprinzip",
+    "handNav": "Reihenfolge",
+    "spNav": "Sonderkarten",
+    "wishNav": "Wünschen",
+    "endNav": "Endspiel",
+    "mistakesNav": "Fehler",
+    "principleH": "Das Grundprinzip",
+    "principle": "Gutes Mau-Mau lebt von <strong>Flexibilität und Timing</strong>. Jede normale Karte, die du spielst, sollte entweder hohe Minuspunkte abbauen, deine Farben ausgewogen halten oder den Tisch weg von der Stärke deines Nachbarn lenken.",
+    "principleItems": [
+      "<strong>Früh viele Farben behalten.</strong> Wer drei oder vier Farben auf der Hand hat, muss nur selten ziehen.",
+      "<strong>Sonderkarten für brenzlige Momente aufheben.</strong> Eine 7 oder ein Bube aus Zug eins fehlt dir später, wenn jemand „Mau!“ ruft oder eine 7er-Kette auf dich zurollt.",
+      "<strong>Schwere Punkte abbauen, wenn du wählen kannst.</strong> Asse (11) und 10er (10) tun weh, falls jemand vor dir rausgeht."
+    ],
+    "handH": "Welche Karte zuerst legen?",
+    "handLead": "Passen mehrere Karten auf den Ablagestapel, entscheidet die Reihenfolge oft über die nächsten drei Züge.",
+    "exH": "Beispiel: Vier Karten passen – welche legst du zuerst?",
+    "exTop": "Liegt oben",
+    "exHand": "Deine Hand",
+    "exAlt": "Auf dem Stapel liegt die Pik 9. Auf der Hand hast du Pik Ass (als bester Zug umrandet), Pik Dame, Herz 9 und Kreuz Bube.",
+    "exWhy": "<strong>Spiel das Pik Ass (A♠).</strong> Damit baust du sofort 11 Minuspunkte ab, behältst die Pik Dame zum Weiterbedienen in Pik, behältst die Herz 9 zum Farbwechsel und sparst dir den Buben für den Notfall.",
+    "handItems": [
+      "<strong>Innerhalb derselben Farbe zuerst hohe Punkte abwerfen.</strong> Hast du ♠A (11) und ♠Q (3)? Spiel zuerst das Ass – beide bedienen Pik, und geht jemand gleich raus, kosten dich die Restkarten 3 statt 11 Punkte.",
+      "<strong>Zuerst aus deiner längsten Farbe spielen.</strong> Bei drei Kreuz und einem Karo spielst du lieber Kreuz – ist dein einzelnes Karo weg, kannst du Karo nicht mehr bedienen.",
+      "<strong>Brücken-Werte behalten.</strong> Zwei Karten mit gleichem Wert in verschiedenen Farben (etwa ♥9 und ♠9) lassen dich sauber die Farbe wechseln, ohne einen Buben zu verbrauchen.",
+      "<strong>Freiwillig ziehen kann klug sein.</strong> Ist früh in einer großen Runde nur dein Bube oder deine letzte 7 spielbar, ist eine Karte vom Ziehstapel manchmal besser, als deinen Schutz zu verbrennen."
+    ],
+    "spH": "7, 8 und Bube richtig einsetzen",
+    "spLead": "Nur drei Werte können bei Mau-Mau mehr – behandle sie als Werkzeuge, nicht als normale Karten.",
+    "sp7h": "7 – Erst Schutzschild, dann Waffe",
+    "sp7p": "Behalte möglichst eine 7 als Versicherung gegen eine 7er-Kette: Legst du sie drauf, schiebst du +4 Karten weiter, statt deine eigene Hand zu sprengen. Offensiv lohnt sich die 7, wenn der Nächste nur noch ein oder zwei Karten hat – besonders direkt nach „Mau!“.",
+    "sp8h": "8 – Spitzenreiter bremsen (oder im Duell durchziehen)",
+    "sp8p": "Heb eine 8 auf, um einen Nachbarn kurz vor dem Sieg auszusetzen – so bekommt der Rest des Tisches noch eine Chance auf Farbwechsel oder eine 7. Zu zweit schenkt dir die 8 sofort einen Doppelzug: Erst 8, dann passende Schlusskarte und die Runde gehört dir.",
+    "spJh": "Bube – Notausgang und Schlussmacher",
+    "spJp": "Der Wünscher passt auf jede Karte (außer eine offene 7), kostet aber <strong>20 Minuspunkte</strong> auf der Hand. Heb ihn für tote Farben oder die Vorbereitung deiner letzten Karte auf – spielt ihr nach Punkten und jemand ruft „Mau!“, wirf ihn rechtzeitig ab.",
+    "wishH": "Klug wünschen",
+    "wishLead": "Den Buben zu legen ist nur der halbe Zug – die gewünschte Farbe bremst oft den ganzen Tisch aus.",
+    "wishItems": [
+      "<strong>Deine stärkste Farbe wünschen.</strong> Früh und in der Mitte wünschst du die Farbe, von der du am meisten hast, damit du ohne Ziehen weiterspielst.",
+      "<strong>Merken, bei welcher Farbe andere ziehen mussten.</strong> Hat dein linker Nachbar gerade bei Karo gezogen, wünsch dir Karo – er zieht noch einmal und du gewinnst Tempo.",
+      "<strong>Die letzte Karte vorbereiten.</strong> Noch zwei Karten inklusive Bube? Leg jetzt den Buben und wünsch genau die Farbe deiner letzten Karte (und vergiss „Mau!“ nicht)."
+    ],
+    "wishWarn": "<strong>Hausregeln prüfen, bevor du den Buben bis zuletzt behältst:</strong> Viele Runden verbieten „Kein Bube zum Schluss“ oder „Bube auf Bube“. Spiel den Buben dann immer als vorletzte Karte, nie als letzte.",
+    "endH": "Endspiel und Punkte",
+    "endLead": "Die letzten zwei Karten – und zwei kleine Wörter – entscheiden knappe Runden.",
+    "endItems": [
+      "<strong>Einen sauberen Zwei-Karten-Abschluss bauen.</strong> Versuch, am Ende zwei Karten gleicher Farbe, gleichen Werts oder eine Kombi aus 8 bzw. Bube und Schlusskarte zu halten.",
+      "<strong>Für „Mau!“ und „Mau-Mau!“ kurz innehalten.</strong> Mehr Runden gehen durch vergessene Ansagen verloren als durch Kartenpech. Sag „Mau!“ bei der vorletzten und „Mau-Mau!“ bei der letzten Karte.",
+      "<strong>Bei Punktezählung rechtzeitig Schaden begrenzen.</strong> Ruft jemand „Mau!“ und du kannst ihn weder mit 7 noch 8 stoppen, wirf sofort Bube (20), Ass (11) oder 10 (10) ab."
+    ],
+    "mistakesH": "Typische Fehler",
+    "mistakes": [
+      "<strong>Den Buben im ersten Zug verbrauchen.</strong> Einen Wünscher zu legen, obwohl eine normale Karte passt, verschenkt deinen besten Notausgang.",
+      "<strong>Die einzige 7 ohne Not abwerfen.</strong> Wer seine letzte 7 früh wegwirft, steht schutzlos da, sobald die nächste 7er-Kette ankommt.",
+      "<strong>Dame statt Ass derselben Farbe spielen.</strong> Ein 11-Punkte-Ass zu behalten und die 3-Punkte-Dame abzuwerfen tut weh, wenn plötzlich jemand rausgeht.",
+      "<strong>Nicht darauf achten, wobei andere ziehen.</strong> Jedes Ziehen verrät eine fehlende Farbe – perfektes Wissen für deinen nächsten Buben.",
+      "<strong>„Mau!“ oder „Mau-Mau!“ vergessen.</strong> Eine Strafkarte auf dem Siegzug schenkt die Runde oft direkt dem Nächsten.",
+      "<strong>Mit Buben rausgehen wollen trotz Verbot.</strong> Gilt „Kein Bube zum Schluss“, kostet dich der Bube am Ende eine Strafkarte statt des Sieges."
+    ],
+    "ctaQuickH": "Schon am Tisch?",
+    "ctaQuickP": "Sonderkarten, Mau-Ansagen und Kartenpunkte auf einem Bildschirm.",
+    "ctaQuickBtn": "Zum Quickstart",
+    "ctaRulesH": "Neu im Spiel?",
+    "ctaRulesP": "Lies zuerst alle Regeln, Beispiele und Varianten.",
+    "ctaRulesBtn": "Zu den Regeln"
+  },
+  "quick": {
+    "h": "Mau-Mau auf einen Blick",
+    "ruleH": "Dein Zug",
+    "rule": "<strong>5 Karten</strong> pro Person (Skatblatt, 32 Karten). 1 Karte passend in <strong>Farbe</strong> oder <strong>Wert</strong> legen – oder 1 ziehen (passt sie, gleich legen). Erste leere Hand gewinnt.",
+    "sp7": "<strong>2 ziehen</strong> – mit weiterer 7 stapelbar (+4, +6…)",
+    "sp8": "<strong>Aussetzen</strong> für den Nächsten (zu zweit: noch mal dran)",
+    "spJ": "<strong>Wünscher:</strong> passt auf alles (nicht auf offene 7) – neue Farbe wählen",
+    "mau1": "<strong>„Mau!“</strong> – bei der vorletzten Karte rufen (vergessen = Strafkarte)",
+    "mau2": "<strong>„Mau-Mau!“</strong> – bei der letzten Karte rufen und gewinnen",
+    "ctaStratH": "Besser spielen",
+    "ctaStratP": "Reihenfolge, 7er und Buben klug sparen und stark wünschen.",
+    "ctaStratBtn": "Zur Strategie",
+    "ctaRulesH": "Alle Regeln",
+    "ctaRulesP": "Alle Details, Beispiele, Varianten und FAQ.",
+    "ctaRulesBtn": "Zu den Regeln"
   }
 }

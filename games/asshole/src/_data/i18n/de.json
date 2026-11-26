@@ -5,7 +5,11 @@
   "goal": "<strong>Das Ziel:</strong> Werde deine Karten so schnell wie möglich los. Wer am Ende noch Karten auf der Hand hat, ist das Arschloch – und muss in der nächsten Runde seine besten Karten an den König abgeben.",
   "seo": {
     "rulesT": "Arschloch Regeln – Kartenspiel einfach erklärt",
-    "rulesD": "So spielst du Arschloch: Austeilen, Überbieten, Ränge vom König bis zum Arschloch, Kartentausch zwischen den Runden, beliebte Varianten und FAQ."
+    "rulesD": "So spielst du Arschloch: Austeilen, Überbieten, Ränge vom König bis zum Arschloch, Kartentausch zwischen den Runden, beliebte Varianten und FAQ.",
+    "strategyT": "Arschloch Strategie – Tipps, um König zu werden",
+    "strategyD": "Strategie-Guide fürs Arschloch-Kartenspiel: klug drücken, das erste Ausspiel als Arschloch nutzen, Asse und Könige mitzählen, Paare halten und im Endspiel gewinnen.",
+    "quickT": "Arschloch Quickstart – Spickzettel und Kartenfolge",
+    "quickD": "Arschloch auf einen Blick: Überbieten, Kartenfolge von 7 bis Ass, Ränge vom König bis zum Arschloch und der Kartentausch auf einem Bildschirm."
   },
   "rules": {
     "h1": "Arschloch-Kartenspiel",
@@ -117,5 +121,141 @@
     "faq6a": "Neben <strong>President</strong> heißt es auch <strong>Scum</strong>, <strong>Bum</strong>, <strong>Rich Man Poor Man</strong> oder in Frankreich <strong>Trou du cul</strong>. Eine Kaufversion ist zum Beispiel <strong>Der große Dalmuti</strong>.",
     "faq7q": "Wie viele Leute brauche ich?",
     "faq7a": "Mindestens 3, am besten 4 bis 6. Ab 6 Leuten nehmt ihr 52 Karten, damit jeder genug auf die Hand bekommt."
+  },
+  "strategy": {
+    "h1": "König werden – und oben bleiben",
+    "sub": "Der Arschloch-Strategie-Guide. Mit nur 32 Karten entscheiden Paare und Drillinge das Spiel – wer klug drückt, richtig passt und Asse mitzählt, bleibt dauerhaft oben.",
+    "principleH": "Das Grundprinzip",
+    "principle": "Bei Arschloch dreht sich alles um <strong>Tempo und Kontrolle</strong>. In einem 32er-Skatblatt gibt es nur acht Werte, deshalb fallen ständig Paare und Drillinge. Hohe Karten kaufen dir das Ausspiel – und nur mit dem Ausspiel wirst du niedrige Einzelkarten los, bevor sie dich im Endspiel festnageln.",
+    "principleNav": "Grundprinzip",
+    "swapH": "Vor der Runde: Das Drücken",
+    "swapLead": "Das Arschloch hat keine Wahl und muss seine zwei höchsten Karten abgeben. Als König oder Vize-König ist die Wahl deiner Rückgabe dagegen der wichtigste Zug der ganzen Runde.",
+    "swapNav": "Kartentausch",
+    "giveH": "Das drückst du dem Arschloch zurück:",
+    "give": [
+      "<strong>Niedrige Einzelkarten zuerst (7, 8, 9).</strong> Lose niedrige Karten wirst du später am schwersten los, weil du dafür das Ausspiel brauchst. Eine einzelne 7 und 9 zurückzugeben räumt deine Hand sofort auf.",
+      "<strong>Paare zusammenhalten.</strong> Reiß niemals ein 8er-Paar auseinander, nur um eine niedrigere Karte loszuwerden. Ein niedriges Paar geht in einem einzigen Zug raus – zwei verschiedene Einzelkarten kosten dich zwei getrennte Ausspiele.",
+      "<strong>Zwei verschiedene Werte zurückgeben.</strong> Schenk dem Arschloch nach Möglichkeit kein Paar. Zwei 7er sind eine fertige Kombination, die es gleich im allerersten Stich wieder ablegt.",
+      "<strong>Erst die neuen Karten prüfen.</strong> Schau dir zuerst an, was du vom Arschloch bekommst. Ergänzt sein König oder Ass dein eigenes zum Paar, schütze dieses Paar und gib lieber lose niedrige Einzelkarten ab.",
+      "<strong>Als Vize-König (eine Karte):</strong> Dasselbe Prinzip – gib deine niedrigste einzelne Karte zurück, nicht die Hälfte eines Paares."
+    ],
+    "notGive": "<strong>Das gibst du nicht zurück:</strong> ein fertiges Paar (wie zwei 7er) oder eine hohe Karte, die eine starke Kombination sprengt. Denk daran: Das Arschloch spielt den ersten Stich aus – ein geschenktes Paar wird es sofort in Zug eins wieder los.",
+    "exH": "Beispiel-Tausch",
+    "exBefore": "Hand des Königs",
+    "exHand": "Nach Ass & König vom Arschloch",
+    "exAfter": "Nach dem Drücken",
+    "exKeep": "Du behältst",
+    "exGive": "Ans Arschloch",
+    "exAlt": "Beispiel-Tausch. Hand des Königs: ein Paar 8er, eine einzelne 7, eine einzelne 9, ein König und ein Ass. Nach dem Tausch: Du behältst das Paar 8er, den König und das Ass und gibst die einzelnen 7 und 9 ans Arschloch.",
+    "exWhy": "<strong>Warum?</strong> Statt das 8er-Paar aufzubrechen – oder dem Arschloch beide 8er als fertiges Paar zu schenken – drückst du die einzelnen 7 und 9 zurück. Dein 8er-Paar geht in einem Zug raus, während das Arschloch zwei lose niedrige Karten bekommt.",
+    "exVariant": "<strong>1-Karten-Tausch (Vize-König):</strong> Darfst du nur eine Karte zurückgeben, wähl die einzelne 7 und lass das 8er-Paar zusammen.",
+    "exVariantAlt": "1-Karten-Tausch: das Paar 8er behalten und die einzelne 7 zurückgeben",
+    "phases": [
+      {
+        "id": "early-game",
+        "h": "Frühes Spiel",
+        "items": [
+          "<strong>Das erste Ausspiel als Arschloch nutzen.</strong> Ab Runde zwei eröffnet das Arschloch den ersten Stich. Spiel keine mittlere Karte an, die du noch brauchst – wirf sofort deine niedrigste einzelne 7 oder ein niedriges Paar ab, solange alle noch drüber können.",
+          "<strong>Erst die Form deiner Hand lesen.</strong> Im 32er-Blatt hat fast jede Hand Paare oder Drillinge. Prüfe früh, ob Einzelkarten oder Paare deine Hand schneller leeren, und lenke deine Ausspiele in dieses Format.",
+          "<strong>Freiwillig passen – Passen kostet nichts.</strong> Nach den Grundregeln bist du nach dem Passen nicht raus und darfst im selben Stich wieder einsteigen. Lass die anderen zuerst ihre Könige und Asse gegeneinander verpulvern.",
+          "<strong>Paare und Drillinge zusammenhalten.</strong> Ein Paar 10er zu zerreißen, nur um eine einzelne 8 zu schlagen, schwächt deine ganze Hand. Kombinationen räumen zwei oder drei Karten auf einmal ab und sind viel schwerer zu überbieten.",
+          "<strong>Von unten spielen:</strong> Leg dich als Arschloch oder Vize-Arschloch nicht im ersten Stich direkt mit dem König an. Schieb mittlere Karten in günstige Stiche und warte, bis die oberen Ränge ihre Asse verbraucht haben."
+        ]
+      },
+      {
+        "id": "middle-game",
+        "h": "Mittleres Spiel",
+        "items": [
+          "<strong>Asse und Könige mitzählen.</strong> Bei nur 32 Karten lassen sich alle vier Asse und vier Könige leicht im Kopf behalten. Ist das vierte Ass weg, garantiert dir ein König das Ausspiel; sind auch die Könige raus, regiert die Dame den Tisch.",
+          "<strong>Hohe Paare im Blick behalten.</strong> In der zweiten Rundenhälfte eines 32er-Spiels gewinnt oft schon ein Paar Buben oder Damen den Stich direkt, weil die höheren Werte längst aufgeteilt wurden.",
+          "<strong>Den Rhythmus des Führenden brechen.</strong> Spielt der König dauernd Paare aus und holt sich den Stich immer wieder zurück, investiere einmal ein starkes Paar fürs Ausspiel – und wechsle dann auf Einzelkarten oder Drillinge.",
+          "<strong>Das Ass für echten Gewinn aufheben.</strong> Wirf kein Ass auf eine einzelne 9, wenn du danach keinen Ballast abzuwerfen hast. Am wertvollsten ist das Ass, wenn du mit dem neuen Ausspiel schwache Karten loswirst oder deinen Abschluss vorbereitest.",
+          "<strong>Kartenanzahl der anderen verfolgen.</strong> Hat jemand nur noch zwei oder drei Karten, schau hin, ob er bisher mit Einzelkarten oder Paaren gewonnen hat – und spiel genau das andere Format an."
+        ]
+      },
+      {
+        "id": "endgame",
+        "h": "Endspiel",
+        "items": [
+          "<strong>Die letzten zwei Züge zusammen planen.</strong> Bevor du dir mit einem Ass oder König das Ausspiel holst, prüf, wie du rausgehst. Der sauberste Abschluss: mit der höchsten Karte den Stich holen und sofort das letzte Paar oder die letzte niedrige Karte ablegen.",
+          "<strong>Mit der schwächsten Karte rausgehen.</strong> Du hast noch ein Ass und eine einzelne 7? Hol dir mit dem Ass das Ausspiel und geh mit der 7 raus – beim eigenen Ausspiel kann dich niemand stoppen. Gefährlich ist die 7 nur, wenn du das Ausspiel vorher verlierst.",
+          "<strong>Ein Paar fürs Finale behalten.</strong> Mit einem Paar rauszugehen räumt zwei Karten in einem Zug ab und verhindert, dass du auf einer einzelnen 7 oder 8 sitzenbleibst.",
+          "<strong>Um jeden Rang kämpfen.</strong> Selbst wenn der König schon draußen ist: Platz zwei (Vize-König) bringt dir in der nächsten Runde eine Top-Karte, statt eine zu verlieren – und nicht Arschloch zu werden zählt immer.",
+          "<strong>Hausregeln im Blick behalten.</strong> Spielt ihr mit „Kein Ass zum Schluss“ oder „10 hoch“? Dann muss deine höchste Karte den vorletzten Stich gewinnen und darf niemals deine allerletzte Karte sein."
+        ]
+      }
+    ],
+    "cardsH": "Schlüsselkarten & Kombinationen",
+    "cardsLead": "Im 32er-Grundspiel hat keine Karte eine Sonderfunktion – trotzdem entscheiden ein paar Werte und Kombinationen fast jede Runde.",
+    "cardsNav": "Schlüsselkarten",
+    "cards": [
+      {
+        "kind": "ace",
+        "h": "Ass – Dein Ticket fürs Ausspiel",
+        "p": "Die höchste Karte im Blatt. Bei Einzelkarten ist ein Ass unschlagbar und sichert dir das nächste Ausspiel.",
+        "items": [
+          "Heb es für den Moment auf, in dem du niedrige Einzelkarten abwerfen oder die Runde beenden willst.",
+          "Zwei Asse auf der Hand? Ein Paar Asse schlägt jedes Paar – teile es nur, wenn dir ein einzelnes Ass sofort den Sieg bringt.",
+          "Mit der Hausregel „Kein Ass zum Schluss“ holst du dir mit dem Ass den vorletzten Stich, damit du nie damit rausgehen musst."
+        ]
+      },
+      {
+        "kind": "king",
+        "h": "König – Der Boss im späten Spiel",
+        "p": "Zweithöchster Wert und unschlagbar, sobald alle vier Asse weg sind. Mit einzelnen Königen lockst du fremde Asse heraus, und ein Paar Könige beherrscht fast jeden Paar-Stich."
+      },
+      {
+        "kind": "pair",
+        "h": "Paare – Das Herz des 32er-Spiels",
+        "p": "Bei nur acht Werten im Blatt entstehen ständig Paare. Selbst ein niedriges Paar räumt zwei Karten in einem Zug ab, und ein Paar Damen oder Könige gewinnt den Stich oft sofort."
+      },
+      {
+        "kind": "triple",
+        "h": "Drillinge – Stich-Abräumer",
+        "p": "Im 32er-Blatt sind Drillinge kaum zu schlagen – selbst drei 9er räumen den Tisch oft komplett ab und bringen dir sofort wieder das Ausspiel. Zerreiß einen Drilling nur im Notfall."
+      },
+      {
+        "kind": "low",
+        "h": "Niedrige Karten (7, 8, 9) – Früh loswerden",
+        "p": "In Runde eins eröffnet die Kreuz 7 das Spiel – wirf möglichst gleich alle deine 7er zusammen ab. In jeder weiteren Runde nutzt du frühe Ausspiele, um einzelne 7er und 8er vor dem Endspiel abzulegen."
+      },
+      {
+        "kind": "four",
+        "h": "Vier Gleiche (Bombe & Revolution)",
+        "p": "Räumt vier Karten auf einmal ab und wird nur von höheren vier Gleichen geschlagen. Spielt ihr mit der Variante <strong>Bombe</strong> oder <strong>Revolution</strong>? Heb vier Gleiche auf, bis deine 7er und 8er nach dem Umdrehen abräumen können."
+      }
+    ],
+    "mistakesH": "Typische Fehler",
+    "mistakesNav": "Fehler",
+    "mistakes": [
+      "<strong>Dem Arschloch beim Drücken ein Paar schenken.</strong> Zwei 7er statt einer 7 und einer 9 zurückzugeben schenkt dem Arschloch eine fertige Kombi direkt fürs erste Ausspiel.",
+      "<strong>Paare für kleine Stiche zerschießen.</strong> Ein Paar 10er zu teilen, nur um eine einzelne 8 zu schlagen, lässt dich mit einer losen Karte zurück und verschenkt ein starkes Paar.",
+      "<strong>Asse zu früh verbrauchen.</strong> Ein Ass im ersten Stich ohne Plan auszugeben lässt dich im Endspiel wehrlos zurück.",
+      "<strong>Niemals passen.</strong> Passen ist nach den Grundregeln kostenlos – lass die anderen erst ihre Könige und Asse gegenseitig aufbrauchen.",
+      "<strong>Asse und Könige nicht mitzählen.</strong> Im 32er-Blatt gibt es nur acht Top-Karten insgesamt. Wer sie mitzählt, merkt sofort, wann König oder Dame unschlagbar sind.",
+      "<strong>Am Ende auf einer einzelnen 7 sitzenbleiben.</strong> Wer zuerst die hohen Karten spielt und am Schluss eine einzelne 7 behält, schaut nur noch zu – werde niedrige Karten los, solange du das Ausspiel noch holen kannst."
+    ],
+    "ctaQuickH": "Schon am Tisch?",
+    "ctaQuickP": "Kartenfolge, Ränge und Kartentausch auf einem Handybildschirm.",
+    "ctaQuickBtn": "Zum Quickstart",
+    "ctaRulesH": "Neu im Spiel?",
+    "ctaRulesP": "Lies zuerst alle Regeln, Beispiele und Varianten.",
+    "ctaRulesBtn": "Zu den Regeln"
+  },
+  "quick": {
+    "h": "Arschloch auf einen Blick",
+    "ruleH": "Ablauf",
+    "rule": "1–4 gleiche Karten ausspielen. Der Nächste überbietet mit <strong>gleich vielen</strong> und <strong>höheren Karten</strong> – oder passt jederzeit. Wer zuletzt legt, gewinnt den Stich und spielt neu aus.",
+    "rankNote": "Farben zählen nicht (mit 52 Karten: 2 bis Ass). Runde 1 beginnt mit <strong>7♣</strong> (bzw. 2♣), danach spielt das Arschloch aus.",
+    "swapH": "Ränge & Kartentausch",
+    "swap1": "<strong>König ↔ Arschloch:</strong> Arschloch teilt aus, gibt <strong>2 höchste</strong>, bekommt 2 beliebige zurück – und spielt zuerst aus.",
+    "swap2": "<strong>Vize-König ↔ Vize-Arschloch:</strong> Vize-Arschloch gibt <strong>1 höchste</strong>; Vize-König gibt 1 beliebige zurück.",
+    "swap3": "<strong>Bürger:</strong> alle dazwischen – kein Tausch.",
+    "ctaStratH": "Besser spielen",
+    "ctaStratP": "Klug drücken, Asse mitzählen und das Endspiel gewinnen.",
+    "ctaStratBtn": "Zur Strategie",
+    "ctaRulesH": "Alle Regeln",
+    "ctaRulesP": "Alle Details, Beispiel-Stich, Varianten und FAQ.",
+    "ctaRulesBtn": "Zu den Regeln"
   }
 }

@@ -5,7 +5,11 @@
   "goal": "<strong>The goal:</strong> get rid of all your cards as fast as you can. Whoever is left holding cards at the end is the asshole – and has to hand their best cards to the king in the next round.",
   "seo": {
     "rulesT": "Asshole card game rules – simply explained",
-    "rulesD": "How to play Asshole: dealing, beating cards, ranks from king to asshole, the card swap between rounds, popular variants and FAQ."
+    "rulesD": "How to play Asshole: dealing, beating cards, ranks from king to asshole, the card swap between rounds, popular variants and FAQ.",
+    "strategyT": "Asshole card game strategy – tips to become king",
+    "strategyD": "Strategy guide for Asshole: smart card swaps, using the asshole’s opening lead, counting aces and kings, keeping pairs and winning the endgame.",
+    "quickT": "Asshole quick start – cheat sheet and card order",
+    "quickD": "Asshole at a glance: beating cards, 32-card order from 7 to ace, ranks from king to asshole and the card swap on one screen."
   },
   "rules": {
     "h1": "Asshole Card Game",
@@ -117,5 +121,141 @@
     "faq6a": "Besides <strong>President</strong> it is known as <strong>Scum</strong>, <strong>Bum</strong>, <strong>Rich Man Poor Man</strong> or <strong>Trou du cul</strong> in France. Commercial versions include <strong>The Great Dalmuti</strong>.",
     "faq7q": "How many players do I need?",
     "faq7a": "At least 3, best 4 to 6. With more than 5 players, use a 52-card pack so that everyone gets enough cards."
+  },
+  "strategy": {
+    "h1": "Become king – and stay on top",
+    "sub": "The Asshole strategy guide. With only 32 cards, pairs and triples rule the table – knowing what to swap, when to pass and how to count aces makes all the difference.",
+    "principleH": "The basic principle",
+    "principle": "Asshole is all about <strong>tempo and control</strong>. In a 32-card Skat pack there are only eight ranks, so pairs and triples show up constantly. High cards buy you the lead – and the lead is how you dump low singletons before the endgame traps you.",
+    "principleNav": "Principle",
+    "swapH": "Before the round: the card swap",
+    "swapLead": "The asshole has no choice and must hand over their two highest cards. As king or vice king, picking what to send back is your most important move of the round.",
+    "swapNav": "Card swap",
+    "giveH": "What to give back to the asshole:",
+    "give": [
+      "<strong>Loose low cards first (7, 8, 9).</strong> Unpaired low cards are the hardest to shed later because you need the lead to play them. Sending back a lone 7 and 9 cleans up your hand at once.",
+      "<strong>Keep your pairs intact.</strong> Never split a pair of 8s just to pass back a lower card. A low pair leaves in one lead – two mismatched single cards cost two separate turns.",
+      "<strong>Return two different ranks.</strong> Avoid handing back two cards of the same value. Giving the asshole a pair of 7s hands them a free combo they can drop on their very first lead.",
+      "<strong>Check the new cards first.</strong> Look at what the asshole gave you before choosing. If their king or ace completes a pair in your hand, protect that pair and trim loose low singletons instead.",
+      "<strong>As vice king (one card):</strong> Same rule – return your lowest unpaired card, not half of a pair."
+    ],
+    "notGive": "<strong>What not to give back:</strong> a matching pair (like two 7s) or a high card that breaks up a strong set. Remember: the asshole leads the first trick, so gifting them a low pair lets them dump two cards immediately.",
+    "exH": "Example swap",
+    "exBefore": "King’s hand",
+    "exHand": "After receiving A & K",
+    "exAfter": "After the swap",
+    "exKeep": "You keep",
+    "exGive": "To the asshole",
+    "exAlt": "Example swap. King's hand: a pair of 8s, a single 7, a single 9, a king and an ace. After the swap: you keep the pair of 8s, the king and the ace, and return the lone 7 and 9 to the asshole.",
+    "exWhy": "<strong>Why?</strong> Instead of breaking the pair of 8s – or giving the asshole both 8s as a ready-made pair – you send back the unpaired 7 and 9. Your pair of 8s clears in one turn while the asshole is stuck with two loose low cards.",
+    "exVariant": "<strong>1-card swap (vice king):</strong> With one card to return, send back the lone 7 and keep the pair of 8s together.",
+    "exVariantAlt": "1-card swap: keep the pair of 8s and return the single 7",
+    "phases": [
+      {
+        "id": "early-game",
+        "h": "Early game",
+        "items": [
+          "<strong>Use the asshole’s opening lead.</strong> From round two on, the asshole starts the first trick. Don’t lead a medium card you’ll need later – dump your lowest loose 7 or low pair straight away while everyone can still beat it.",
+          "<strong>Read your hand shape first.</strong> In a 32-card pack, almost every hand has pairs or triples. Decide early whether singles or pairs empty your hand faster and steer your leads toward that format.",
+          "<strong>Pass freely – passing costs nothing.</strong> In the basic rules you can pass and still jump back in later in the same trick. Let the others burn kings and aces against each other first.",
+          "<strong>Keep pairs and triples together.</strong> Breaking a pair of 10s just to beat a single 8 weakens your whole hand. Sets clear two or three cards in one go and are far harder to beat.",
+          "<strong>Playing from below:</strong> As asshole or vice asshole, don’t duel the king on trick one. Slip your middle cards into cheap tricks and wait for the top ranks to spend their aces."
+        ]
+      },
+      {
+        "id": "middle-game",
+        "h": "Middle game",
+        "items": [
+          "<strong>Count the aces and kings.</strong> With only 32 cards it is easy to track all four aces and four kings. Once the fourth ace drops, any king guarantees the lead; once the kings are gone, a queen rules the table.",
+          "<strong>Watch high pairs closely.</strong> Halfway through a 32-card round, even a pair of jacks or queens frequently wins the trick outright because the higher ranks have already been split.",
+          "<strong>Break the leader’s rhythm.</strong> If the king keeps leading pairs and winning them back, invest a strong pair once to steal the lead – then switch to singles or triples.",
+          "<strong>Save your ace for a real payoff.</strong> Don’t burn an ace on a single 9 if you have no low junk to dump next. An ace is worth most when winning the lead clears weak cards or sets up your finish.",
+          "<strong>Track everyone’s card count.</strong> When someone is down to two or three cards, check whether they’ve been winning with singles or pairs and lead the opposite format."
+        ]
+      },
+      {
+        "id": "endgame",
+        "h": "Endgame",
+        "items": [
+          "<strong>Plan your last two turns together.</strong> Before taking the lead with an ace or king, know how you’ll go out. Cleanest finish: win the trick with your highest card, then drop your final pair or lone low card.",
+          "<strong>Go out on your weakest card.</strong> Holding an ace and a lone 7? Take the lead with the ace and finish on the 7 – nobody can stop your last lead. Leaving the 7 for last only hurts if you lose the lead first.",
+          "<strong>Keep a pair as your closer.</strong> Finishing with a pair clears two cards in one turn and stops you from getting stuck with a single 7 or 8.",
+          "<strong>Fight for every rank.</strong> Even if the king is already out, second place (vice king) earns you a top card next round instead of handing one over – and staying out of asshole always matters.",
+          "<strong>Watch your house rules.</strong> Playing with “No ace at the end” or “10 high”? Make sure your top card wins the second-to-last trick and never ends up as your final play."
+        ]
+      }
+    ],
+    "cardsH": "Key cards & combinations",
+    "cardsLead": "In the basic 32-card game no card has a special power, yet a few ranks and sets decide almost every round.",
+    "cardsNav": "Key cards",
+    "cards": [
+      {
+        "kind": "ace",
+        "h": "Ace – The lead-winner",
+        "p": "The highest card in the pack. On singles, an ace cannot be beaten and hands you the next lead.",
+        "items": [
+          "Save it for the moment you need to dump low singletons or close out the round.",
+          "Holding two aces? A pair of aces beats any pair – only split them if a single ace wins the round.",
+          "With the house rule “No ace at the end”, win the second-to-last trick with your ace so you never go out on it."
+        ]
+      },
+      {
+        "kind": "king",
+        "h": "King – The late-game boss",
+        "p": "Second-highest rank, and unbeatable as soon as all four aces are out. Use single kings to draw out opponents’ aces, or hold a pair of kings to dominate pair tricks."
+      },
+      {
+        "kind": "pair",
+        "h": "Pairs – The heart of a 32-card game",
+        "p": "With only eight ranks in the pack, pairs appear constantly. Even a low pair clears two cards in one turn, while a pair of queens or kings often wins the trick outright."
+      },
+      {
+        "kind": "triple",
+        "h": "Three of a kind – Trick killers",
+        "p": "In a 32-card pack, triples are almost impossible to beat – even three 9s frequently clear the table and return the lead straight to you. Avoid splitting a triple unless you have no other choice."
+      },
+      {
+        "kind": "low",
+        "h": "Low cards (7, 8, 9) – Shed early",
+        "p": "In round one the 7 of clubs opens the game – drop all your 7s together if you can. On every later round, use early leads to shed single 7s and 8s before the endgame starts."
+      },
+      {
+        "kind": "four",
+        "h": "Four of a kind (Bomb & Revolution)",
+        "p": "Clears four cards at once and can only be beaten by a higher four. Playing with the <strong>Bomb</strong> or <strong>Revolution</strong> variant? Hold your four of a kind until flipping the order lets your 7s and 8s run the table."
+      }
+    ],
+    "mistakesH": "Common mistakes",
+    "mistakesNav": "Mistakes",
+    "mistakes": [
+      "<strong>Handing the asshole a pair in the swap.</strong> Returning two 7s instead of a 7 and a 9 gives the asshole a free pair to dump on their opening lead.",
+      "<strong>Breaking pairs for cheap tricks.</strong> Splitting a pair of 10s just to beat a single 8 leaves you with a loose singleton and throws away a strong pair.",
+      "<strong>Burning aces too early.</strong> Spending an ace on trick one without a plan leaves you defenseless in the endgame.",
+      "<strong>Never passing.</strong> Passing is free in the standard rules – let other players exhaust their kings and aces on each other first.",
+      "<strong>Not counting aces and kings.</strong> In a 32-card pack there are only eight top cards total. Tracking them tells you the exact moment your king or queen becomes unbeatable.",
+      "<strong>Getting stranded with a lone 7 at the end.</strong> Playing high cards first and leaving a single 7 for last traps you on the sidelines – clear low cards while you can still win the lead."
+    ],
+    "ctaQuickH": "At the table right now?",
+    "ctaQuickP": "Card order, ranks and swap on one phone screen.",
+    "ctaQuickBtn": "Open quick start",
+    "ctaRulesH": "New to the game?",
+    "ctaRulesP": "Read all rules, examples and variants first.",
+    "ctaRulesBtn": "Go to the rules"
+  },
+  "quick": {
+    "h": "Asshole at a glance",
+    "ruleH": "How it works",
+    "rule": "Lead 1–4 equal cards. Next player beats with the <strong>same count</strong> and a <strong>higher rank</strong> – or passes anytime. Last player standing wins the trick and leads next.",
+    "rankNote": "Suits don’t matter (with 52 cards: 2 to ace). Round 1 starts with <strong>7♣</strong> (or 2♣); after that the asshole leads.",
+    "swapH": "Ranks & card swap",
+    "swap1": "<strong>King ↔ Asshole:</strong> Asshole deals, gives <strong>2 highest</strong>, gets any 2 back – and leads first.",
+    "swap2": "<strong>Vice king ↔ Vice asshole:</strong> Vice asshole gives <strong>1 highest</strong>; vice king returns any 1.",
+    "swap3": "<strong>Citizens:</strong> everyone in the middle – no swap.",
+    "ctaStratH": "Play better",
+    "ctaStratP": "Smart swaps, counting aces and winning the endgame.",
+    "ctaStratBtn": "Go to the strategy",
+    "ctaRulesH": "Full rules",
+    "ctaRulesP": "All details, example trick, variants and FAQ.",
+    "ctaRulesBtn": "Go to the rules"
   }
 }

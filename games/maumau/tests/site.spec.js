@@ -71,13 +71,85 @@ test("FAQ answers open on tap", async ({ page }) => {
   await expect(first.locator("p")).toBeVisible();
 });
 
+const STRATEGY_SECTIONS = ["principle", "hand", "specials", "wishing", "endgame", "mistakes"];
+const de = languages.find((l) => l.code === "de");
+
+for (const lang of languages) {
+  test(`${lang.code}: strategy page with hand example, specials and sections`, async ({ page }) => {
+    const s = lang.t.strategy;
+    await page.addInitScript((code) => localStorage.setItem("lang", code), lang.code);
+    await page.goto(pathOf(lang) + "strategy/");
+
+    await expect(page).toHaveTitle(lang.t.seo.strategyT);
+    await expect(page.locator("html")).toHaveAttribute("lang", lang.htmlLang);
+    await expect(page.locator(".hero h1")).toHaveText(s.h1);
+    await expect(page.locator(".pagetabs a[aria-current=page]")).toHaveText(lang.t.n6);
+    await expect(page.locator("#factsheet")).toHaveCount(0);
+    await expect(page.locator("link[rel=canonical]")).toHaveAttribute("href", lang.url + "strategy/");
+    const nav = await page.locator(".secnav a").evaluateAll((links) => links.map((a) => a.getAttribute("href")));
+    expect(nav).toEqual(STRATEGY_SECTIONS.map((id) => `#${id}`));
+    for (const id of STRATEGY_SECTIONS) await expect(page.locator(`main section#${id} h2`)).toBeVisible();
+    await expect(page.locator(".playex .px-cards .card")).toHaveCount(4);
+    await expect(page.locator("#specials .rulecard")).toHaveCount(3);
+    await expect(page.locator("#mistakes .variants li")).toHaveCount(s.mistakes.length);
+    await expect(page.locator("#share .qr svg")).toBeVisible();
+    await expect(page.locator("a[href*='play/']")).toHaveCount(0);
+    const text = await page.locator("body").innerText();
+    expect(text).not.toMatch(/undefined|\[object|\{\{|\{%/);
+  });
+
+  test(`${lang.code}: quick start page with specials, Mau calls and points`, async ({ page }) => {
+    const k = lang.t.quick;
+    await page.addInitScript((code) => localStorage.setItem("lang", code), lang.code);
+    await page.goto(pathOf(lang) + "quickstart/");
+
+    await expect(page).toHaveTitle(lang.t.seo.quickT);
+    await expect(page.locator("html")).toHaveAttribute("lang", lang.htmlLang);
+    await expect(page.locator(".hero h1")).toHaveText(lang.t.h1);
+    await expect(page.locator(".pagetabs a[aria-current=page]")).toHaveText(lang.t.pgQuick);
+    await expect(page.locator("#factsheet")).toHaveCount(0);
+    await expect(page.locator("link[rel=canonical]")).toHaveAttribute("href", lang.url + "quickstart/");
+    await expect(page.locator(".cheat h2")).toHaveText(k.h);
+    await expect(page.locator(".ch-specials li")).toHaveCount(3);
+    await expect(page.locator(".ch-rows li")).toHaveCount(2);
+    await expect(page.locator(".ch-pts li")).toHaveCount(8);
+    await expect(page.locator(`#next-steps a[href$="${lang.path}strategy/"]`)).toBeVisible();
+    await expect(page.locator("#share .qr svg")).toBeVisible();
+    await expect(page.locator("a[href*='play/']")).toHaveCount(0);
+    const text = await page.locator("body").innerText();
+    expect(text).not.toMatch(/undefined|\[object|\{\{|\{%/);
+  });
+}
+
+test("the tabs link rules, strategy and quickstart pages", async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem("lang", "de"));
+  await page.goto("de/");
+  await page.locator(".pagetabs a", { hasText: de.t.n6 }).click();
+  await expect(page).toHaveURL(/\/de\/strategy\/$/);
+  await page.locator(".pagetabs a", { hasText: de.t.pgQuick }).click();
+  await expect(page).toHaveURL(/\/de\/quickstart\/$/);
+  await page.locator("#next-steps a", { hasText: de.t.quick.ctaRulesBtn }).click();
+  await expect(page).toHaveURL(/\/de\/$/);
+});
+
 test("no horizontal overflow, also on a phone", async ({ page }) => {
   for (const lang of languages) {
     await page.goto(pathOf(lang));
     const [scroll, width] = await page.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]);
     expect(scroll, `${lang.code}: page wider than the screen`).toBeLessThanOrEqual(width);
   }
+  for (const width of [320, 390]) {
+    await page.setViewportSize({ width, height: 700 });
+    for (const sub of ["strategy/", "quickstart/"]) {
+      for (const lang of [languages[0], de]) {
+        await page.addInitScript((code) => localStorage.setItem("lang", code), lang.code);
+        await page.goto(pathOf(lang) + sub);
+        const [scroll, innerWidth] = await page.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]);
+        expect(scroll, `${lang.code} ${sub} at ${width}px`).toBeLessThanOrEqual(innerWidth);
+      }
+    }
+  }
 });
 
 // Language redirect and 404 page, the same in every game (@hostelgames/core/testing).
-siteTests({ languages, site });
+siteTests({ languages, site, redirects: ["./", "strategy/", "quickstart/"] });

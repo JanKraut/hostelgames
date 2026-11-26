@@ -8,7 +8,11 @@
   "sub": "Anschauen, tauschen, merken: ein schnelles Gedächtnis-Kartenspiel für 2 bis 5 Leute mit normalen Spielkarten. Einmal lesen, eine Runde spielen, fertig.",
   "seo": {
     "rulesT": "Cabo Regeln – So geht das Kartenspiel",
-    "rulesD": "Cabo mit normalen Spielkarten erklärt: Austeilen, Kartenwerte, Anschauen, Spionieren und Tauschen, „Cabo“ ansagen, Punkte und Varianten."
+    "rulesD": "Cabo mit normalen Spielkarten erklärt: Austeilen, Kartenwerte, Anschauen, Spionieren und Tauschen, „Cabo“ ansagen, Punkte und Varianten.",
+    "strategyT": "Cabo Strategie – Tipps für die niedrigste Summe",
+    "strategyD": "Cabo-Strategie-Guide: Merktricks, Nachzieh- oder Ablagestapel, Fähigkeiten klug nutzen, mehrere Karten tauschen und im richtigen Moment „Cabo“ sagen.",
+    "quickT": "Cabo Quickstart – Spickzettel und Fähigkeiten",
+    "quickD": "Cabo auf einen Blick: Kartenwerte, Fähigkeiten von 7 bis Dame, Multi-Tausch und „Cabo“ ansagen auf einem Bildschirm."
   },
   "goal": "<strong>Das Ziel:</strong> Am Ende jeder Runde möglichst wenige Punkte vor dir liegen haben. Der Haken: Deine vier Karten liegen verdeckt, und du kennst sie nur, wenn du sie dir merkst.",
   "nSetup": "Aufbau",
@@ -108,5 +112,103 @@
   "faq6q": "Ist Cabo dasselbe wie Cambio?",
   "faq6a": "Die beiden sind eng verwandt. Die Idee ist dieselbe, bekannt ist das Spiel auch als <strong>Pablo</strong> oder <strong>Cactus</strong>. Die Details unterscheiden sich von Tisch zu Tisch – bei Cambio darf zum Beispiel meist jeder jederzeit passende Karten auf den Ablagestapel werfen (siehe <a href=\"#variants\">Varianten</a>).",
   "faq7q": "Kann man Cabo kaufen?",
-  "faq7a": "Ja, Cabo gibt es auch als Kartenspiel im Handel mit eigenem Deck, erfunden 2010 von Melissa Limes und Mandy Henning. Diese Seite erklärt, wie man es mit normalen Spielkarten spielt."
+  "faq7a": "Ja, Cabo gibt es auch als Kartenspiel im Handel mit eigenem Deck, erfunden 2010 von Melissa Limes und Mandy Henning. Diese Seite erklärt, wie man es mit normalen Spielkarten spielt.",
+  "strategy": {
+    "h1": "Cabo-Strategie",
+    "sub": "Gedächtnis, Timing und kluge Tausche. Cabo ist schnell gelernt, aber wann du spähst, wann du den Ablagestapel ignorierst und wann du „Cabo“ sagst, gewinnt deutlich mehr Runden als reines Ziehglück.",
+    "principleNav": "Grundprinzip",
+    "memNav": "Merken",
+    "drawNav": "Ziehen",
+    "powNav": "Fähigkeiten",
+    "multiNav": "Multi-Tausch",
+    "callNav": "Cabo ansagen",
+    "mistakesNav": "Fehler",
+    "principleH": "Das Grundprinzip",
+    "principle": "Cabo ist ein Wettlauf um <strong>Information und niedrige Punkte</strong>. Jede Karte, die du kennst, ist ein Vorteil, jede unbekannte ein Risiko – und von vier auf drei Karten zu schrumpfen schlägt fast jeden einzelnen Tausch.",
+    "principleItems": [
+      "<strong>Information vor Einzelpunkten.</strong> Früh in der Runde ist es wichtiger, deine unbekannten hinteren Karten durch bekannte niedrige zu ersetzen, als bei einer bekannten Karte einen Punkt zu sparen.",
+      "<strong>Weniger Karten gewinnen Runden.</strong> Ein sauberer Multi-Tausch verkürzt deine Auslage von vier auf drei (oder zwei) Karten und senkt deine Summe dauerhaft.",
+      "<strong>Nichts verraten.</strong> Gib deine Karten nicht preis, indem du mittelmäßige Karten vom Ablagestapel nimmst oder beim Ziehen eines roten Königs grinst."
+    ],
+    "memH": "Karten sicher merken",
+    "memLead": "Bei vier verdeckten Karten – und Mitspielern, die spionieren und tauschen – verhindert eine einfache Merk-Routine, dass alles verschwimmt.",
+    "memExH": "Lies dein Quadrat wie einen vierstelligen Code",
+    "memBefore": "Am Anfang",
+    "memAfter": "Nach Tausch oben links",
+    "memExAlt": "Vier Karten im 2-mal-2-Quadrat: hinten zwei unbekannte Karten, vorne Herz 4 und Pik 9, gelesen als ? ? 4 9. Nach dem Tausch einer gezogenen Karo 2 nach oben links lautet der Code 2 ? 4 9.",
+    "memExWhy": "<strong>Warum?</strong> Lies dein Quadrat immer in exakt derselben Reihenfolge – oben links, oben rechts, unten links, unten rechts – und sprich die vier Stellen nach jeder Änderung leise im Kopf nach. Eine geänderte Ziffer sitzt viel fester als vier einzelne Bilder.",
+    "memItems": [
+      "<strong>Den Code zwischen den Zügen wiederholen.</strong> Nach jedem Tausch oder Anschauen gehst du einmal alle vier Positionen im Kopf durch.",
+      "<strong>Unbekannte vor bekannten Mittelkarten tauschen.</strong> Eine 2 gezogen? Leg sie auf eine unbekannte hintere Karte (oder eine bekannte 10+), statt eine bekannte 4 zu überschreiben – so deckst du die unbekannte Karte gratis auf dem Ablagestapel auf.",
+      "<strong>Einen Platz pro Gegner merken.</strong> Du musst nicht den ganzen Tisch auswendig kennen. Merk dir einfach, wohin jemand einen roten König, ein Ass oder eine 2 vom Ablagestapel legt – das perfekte Ziel für Bube oder Dame."
+    ],
+    "drawH": "Nachziehstapel oder Ablagestapel?",
+    "drawLead": "Woher du deine Karte nimmst, verrät dem Tisch fast genauso viel wie das, was du ablegst.",
+    "drawItems": [
+      "<strong>Beim Ablagestapel wählerisch sein.</strong> Nimmst du die offene Karte, sehen alle genau ihren Wert und ihren Platz. Greif dort nur zu bei einem <strong>roten König (0), Ass (1), 2 oder 3</strong> – oder für einen sicheren Multi-Tausch.",
+      "<strong>Klare Grenzen beim Tauschen.</strong> Vom Nachziehstapel tauscht du 0 bis 3 auf unbekannte Plätze; 4 oder 5 nur über eine bekannte 8 oder höher. Karten von 7 bis Dame sind meist für ihre Fähigkeit wertvoller, außer sie ersetzen einen schwarzen König (13) oder eine Dame (12).",
+      "<strong>Beobachte, was andere aufheben.</strong> Nimmt jemand eine niedrige Karte vom Ablagestapel, merk dir genau diesen Platz – kostenlose Information, ohne eine 9 oder 10 zu verbrauchen."
+    ],
+    "drawWarn": "<strong>Nimm keine 4 oder 5 vom Ablagestapel</strong>, nur weil dich eine unbekannte Karte nervt: Du verrätst allen deinen Platz und verzichtest auf die Chance, vom Stapel noch niedriger oder eine Fähigkeit zu ziehen.",
+    "powH": "Fähigkeiten klug einsetzen",
+    "powLead": "Fähigkeiten gelten nur, wenn du die Karte vom Nachziehstapel ziehst und direkt ablegst – mach jede einzelne wertvoll.",
+    "pow7h": "7 oder 8 – Erst deine blinden Flecken klären",
+    "pow7p": "Schau dir zuerst deine beiden unbekannten hinteren Karten an. Wurde einer deiner Plätze mit Bube oder Dame vertauscht, prüfe ihn sofort wieder, damit dir keine versteckte 12 oder 13 deine Ansage verdirbt.",
+    "pow9h": "9 oder 10 – Mit Plan spionieren",
+    "pow9p": "Spioniere bei der Person mit den wenigsten Karten oder an einem Platz, der seit Rundenbeginn nicht getauscht wurde (oft eine 0, 1 oder 2). Verschwende keinen Blick auf eine Karte, die du ohnehin vom Ablagestapel wandern sahst.",
+    "powJh": "Bube oder Dame – Mit Wissen tauschen, nicht blind",
+    "powJp": "Denk daran: Du darfst <strong>zwei beliebige Karten auf dem Tisch</strong> tauschen. Der beste Zug: Tausche deine bekannte hohe Karte (10–13) gegen eine bekannte niedrige Karte eines Gegners – oder störe im letzten Zug den „Cabo“-Ansager, indem du ihm seine beste Karte wegnimmst.",
+    "powKh": "Roter vs. schwarzer König – Pokerface bewahren",
+    "powKp": "Einen gezogenen schwarzen König (13) legst du sofort ab. Ziehst du einen roten König (0), tausche ihn ganz ruhig auf einen unbekannten oder hohen Platz – fällt er niemandem auf, wird er seltener geklaut.",
+    "multiH": "Multi-Tausch und die 100-Punkte-Regel",
+    "multiLead": "Zwei Regeln in Cabo sorgen für riesige Wendungen, wenn du sie gezielt nutzt.",
+    "multiItems": [
+      "<strong>Multi-Tausch früh priorisieren.</strong> Selbst zwei 5en (10 Punkte) gegen eine gezogene 6 zu tauschen spart sofort vier Punkte und bringt dich auf drei Karten – ab da bist du nur noch einen Tausch von „Cabo“ entfernt.",
+      "<strong>Beim Multi-Tausch niemals raten.</strong> Ein Irrtum bringt dir zusätzlich eine fünfte verdeckte Karte ein. Wage ihn nur, wenn du bei jedem Platz 100 % sicher bist.",
+      "<strong>Auf exakt 100 spielen, wenn du hinten liegst.</strong> Stehst du nach mehreren Runden bei 88–97 Punkten? Genau 100 wirft dich sofort auf 50 zurück (einmal pro Spiel) – manchmal lohnt es sich, gezielt auf diese Punktzahl zu spielen."
+    ],
+    "callH": "Wann „Cabo“ ansagen?",
+    "callLead": "Zu früh ansagen riskiert +10 Strafpunkte; zu spät ansagen lässt die anderen aufholen und deine Karten vertauschen.",
+    "callItems": [
+      "<strong>Wichtig: Deine Karten sind NICHT geschützt.</strong> Im letzten Zug dürfen die anderen deine Karten weiter spionieren oder mit Bube und Dame tauschen. Früh bei 4–6 Punkten anzusagen, solange andere noch unbekannte Karten haben, ist oft sicherer als auf 1–2 Punkte zu warten.",
+      "<strong>Erst alle eigenen Karten kennen.</strong> Mit einer unbekannten Karte anzusagen ist Glücksspiel: Ein einziger schwarzer König macht aus 3 Punkten plötzlich 16 plus 10 Strafpunkte.",
+      "<strong>Gleichstand reicht dem Ansager.</strong> Du bekommst 0 Punkte, selbst wenn jemand genauso wenig hat wie du – bei 3–4 Punkten ohne gegnerischen Multi-Tausch darfst du mutig ansagen.",
+      "<strong>Kartenanzahl der anderen im Blick behalten.</strong> Hat jemand per Multi-Tausch schon auf zwei Karten reduziert, rechne dort mit etwa 3–6 Punkten und sag nur an, wenn du das unterbieten oder halten kannst."
+    ],
+    "mistakesH": "Typische Fehler",
+    "mistakes": [
+      "<strong>Mittlere Karten (4–6) vom Ablagestapel nehmen.</strong> Du verrätst allen deinen Platz und verzichtest auf einen Zug vom Stapel mit Chance auf 0–3 oder eine Fähigkeit.",
+      "<strong>Bekannte Karten tauschen, obwohl noch Unbekannte liegen.</strong> Eine 2 auf eine bekannte 5 zu legen lässt deine hintere Reihe blind – ersetze erst Unbekannte, um zu sehen, was dort lag.",
+      "<strong>Getauschte Plätze vergessen.</strong> Sobald jemand mit Bube oder Dame deine Auslage anfasst, gilt dieser Platz wieder als unbekannt, bis du ihn anschaust oder ersetzt.",
+      "<strong>Bube oder Dame blind ohne Ziel spielen.</strong> Zwei zufällige Karten zu tauschen hilft dem Gegner oft genauso viel wie dir – nutze Wissen vom Ablagestapel oder einer 9/10.",
+      "<strong>Einen unsicheren Multi-Tausch riskieren.</strong> Eine fünfte Strafkarte ruiniert fast immer die gesamte Runde.",
+      "<strong>„Cabo“ mit unbekannter Karte ansagen.</strong> Eine versteckte Bildkarte plus 10 Strafpunkte kostet dich schnell über 20 Punkte auf einmal."
+    ],
+    "ctaQuickH": "Schon am Tisch?",
+    "ctaQuickP": "Kartenwerte, Fähigkeiten und Ansage-Regeln auf einem Bildschirm.",
+    "ctaQuickBtn": "Zum Quickstart",
+    "ctaRulesH": "Neu im Spiel?",
+    "ctaRulesP": "Lies zuerst alle Regeln, Beispiele und Varianten.",
+    "ctaRulesBtn": "Zu den Regeln"
+  },
+  "quick": {
+    "h": "Cabo auf einen Blick",
+    "ruleH": "Dein Zug",
+    "rule": "4 Karten verdeckt, die <strong>2 vorderen</strong> einmal ansehen. 1 Karte ziehen (verdeckt tauschen <strong>oder</strong> ablegen &amp; Fähigkeit) oder Ablagestapel nehmen (muss tauschen, keine Fähigkeit). Niedrigste Summe gewinnt.",
+    "pow7": "<strong>Anschauen:</strong> 1 eigene Karte ansehen",
+    "pow9": "<strong>Spionieren:</strong> 1 fremde Karte ansehen",
+    "powJ": "<strong>Tauschen:</strong> 2 beliebige Karten blind tauschen",
+    "powK": "<strong>Keine Fähigkeit:</strong> rot = 0, schwarz = 13",
+    "powNote": "Fähigkeiten gelten nur vom <strong>Nachziehstapel</strong> beim sofortigen Ablegen.",
+    "endH": "Multi-Tausch, Cabo & Punkte",
+    "multi": "<strong>Multi-Tausch:</strong> 2+ gleiche eigene Karten gegen 1 neue tauschen (weniger Karten!). Falsch = behalten + 1 Strafkarte.",
+    "cabo": "<strong>„Cabo“ sagen:</strong> statt zu ziehen; alle anderen haben noch 1 Zug (dürfen deine weiter tauschen). Niedrigste/Gleichstand = <strong>0</strong>, sonst Summe <strong>+ 10</strong>.",
+    "score": "<strong>Spielende:</strong> über 100 Punkte (wenigste gewinnen). Genau 100 fällt auf <strong>50</strong> (einmalig).",
+    "ctaStratH": "Besser spielen",
+    "ctaStratP": "Merktricks, starke Fähigkeiten und richtiges Cabo-Timing.",
+    "ctaStratBtn": "Zur Strategie",
+    "ctaRulesH": "Alle Regeln",
+    "ctaRulesP": "Alle Details, Wertungsbeispiel, Varianten und FAQ.",
+    "ctaRulesBtn": "Zu den Regeln"
+  }
 }

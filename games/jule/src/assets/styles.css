@@ -327,3 +327,200 @@ ol.steps h3 {
   margin: 0;
   padding-left: 1.1rem;
 }
+
+/* ---------- Strategie: Tipps, Chancen und Warnhinweis ---------- */
+
+.strats strong,
+.notup strong {
+  color: var(--ink-strong);
+}
+
+.notup {
+  margin: 0.8rem 0 0;
+  padding: 0.85rem 1rem;
+  border-inline-start: 5px solid var(--red);
+  border-radius: 0 12px 12px 0;
+  background: var(--surface);
+}
+
+.note {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.odds {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0.8rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.odds li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.4rem 0.9rem;
+  align-items: center;
+  padding: 0.6rem 0.8rem;
+  border: 2px solid var(--line);
+  border-radius: 14px;
+}
+
+.odds .dicerow {
+  flex-wrap: nowrap;
+}
+
+.odds-goal {
+  font-weight: 700;
+}
+
+.odds-pct {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--ink-strong);
+  white-space: nowrap;
+}
+
+@media (max-width: 26rem) {
+  .odds li {
+    grid-template-columns: 1fr auto;
+  }
+
+  .odds .dicerow {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ---------- Weiter-Kästen ---------- */
+
+.ctas {
+  display: grid;
+  gap: 0.9rem;
+}
+
+@media (min-width: 34rem) {
+  .ctas {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.ctas .cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ctas .cta h2 {
+  font-size: 1.5rem;
+}
+
+.ctas .ctabtn {
+  margin-top: auto;
+}
+
+/* ---------- Quickstart: Spickzettel ---------- */
+
+.quick section {
+  padding: 0.8rem 0 1.2rem;
+}
+
+.cheat {
+  margin: 0;
+  padding: 0.95rem 1rem;
+  border-radius: 20px;
+  background: var(--cheat-bg);
+  color: var(--cheat-text);
+}
+
+.cheat h2 {
+  margin-bottom: 0.4rem;
+  color: var(--cheat-heading);
+  font-size: 1.6rem;
+}
+
+.ch-block {
+  padding: 0.65rem 0 0.5rem;
+  border-top: 1px solid var(--head-chip-border);
+}
+
+.cheat h2 + .ch-block {
+  border-top: 0;
+}
+
+.ch-block h3 {
+  margin: 0 0 0.45rem;
+  color: var(--cheat-dt);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cheat p {
+  margin: 0;
+}
+
+.ch-rule {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.8rem;
+  align-items: start;
+}
+
+.ch-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--cheat-text);
+  color: var(--cheat-bg);
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.ch-emoji {
+  font-family: var(--font-emoji);
+  font-size: 1.55rem;
+  background: var(--head-well);
+}
+
+.ch-path {
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 0.5rem;
+}
+
+.ch-row {
+  display: grid;
+  grid-template-columns: 4.3rem 1fr;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.45rem 0.6rem;
+  border-radius: 10px;
+  background: var(--head-well);
+}
+
+.ch-dir {
+  font-size: 0.82rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.ch-dice {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.ch-note {
+  font-size: 0.88rem;
+}
+
+@media (max-width: 24rem) {
+  .ch-row {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+}
+

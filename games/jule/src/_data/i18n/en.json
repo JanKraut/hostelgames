@@ -8,7 +8,11 @@
   "sub": "One die, paper and pen: roll the numbers <strong>1 to 6 in order</strong> and then strike them off again from 6 to 1. The quiet version, <strong>Silent Jule</strong>, is the same – but whoever makes a sound starts again.",
   "seo": {
     "rulesT": "Jule Dice Game Rules – also Silent Jule",
-    "rulesD": "How to play Jule: roll 1 to 6 in order with one die, then back from 6 to 1. Setup, a sample round, the way back, scoring, Silent Jule, variants and FAQ."
+    "rulesD": "How to play Jule: roll 1 to 6 in order with one die, then back from 6 to 1. Setup, a sample round, the way back, scoring, Silent Jule, variants and FAQ.",
+    "strategyT": "Jule Strategy – Odds and Silent Jule Tactics",
+    "strategyD": "Honest Jule strategy guide: real dice odds, why dry spells happen, how to keep a poker face and win Silent Jule and which variant fits your group.",
+    "quickT": "Jule Quick Start – Cheat Sheet and Silent Jule",
+    "quickD": "Jule at a glance: 1 to 6 on the way there, 6 to 1 on the way back, turnaround rule and Silent Jule on one screen."
   },
   "goal": "<strong>The goal:</strong> be the first to roll every number from 1 to 6 in the right order – and then all the way back from 6 to 1.",
   "info": {
@@ -92,5 +96,86 @@
   "faq5q": "Why is it called Jule?",
   "faq5a": "Nobody really knows – Jule is simply a German girl's name. In some regions the dice game <strong>Schocken</strong> is also called Jule, so check which game your group means.",
   "faq6q": "Can I play Jule alone?",
-  "faq6a": "Yes, as a challenge: count how many rolls you need to get there and back, and try to beat your record."
+  "faq6a": "Yes, as a challenge: count how many rolls you need to get there and back, and try to beat your record.",
+  "strategy": {
+    "h1": "Jule strategy",
+    "sub": "Honest truth first: standard Jule with one die is pure luck. Where you can actually gain an edge – and make every round better – is understanding the odds, choosing the right variant and winning Silent Jule.",
+    "principleNav": "Principle",
+    "oddsNav": "Odds",
+    "silentNav": "Silent Jule",
+    "varNav": "Variants",
+    "mistakesNav": "Mistakes",
+    "principleH": "The basic principle",
+    "principle": "In classic Jule you roll one die and take whatever lands – there is <strong>no hidden dice trick</strong>. Real skill only enters when you play <strong>Silent Jule</strong>, where nerve, timing and silent comedy decide the game.",
+    "principleItems": [
+      "<strong>Every number has the exact same odds.</strong> Waiting ten rolls for a 1 feels cursed, yet mathematically the die has no memory – the next roll is still 1 in 6.",
+      "<strong>Silent Jule is a mind game.</strong> Keeping a straight face while making the leader crack on their way back turns a luck game into a battle of nerves.",
+      "<strong>The right variant makes or breaks the evening.</strong> Matching the rules to the size of your group keeps the pace crisp instead of dragging on."
+    ],
+    "oddsH": "The real odds behind Jule",
+    "oddsLead": "Knowing what is normal stops you from blaming the die – and shows how dramatically the variants change the pace:",
+    "odds": [
+      "Hit your number on one roll (1 in 6)",
+      "Hit within 3 rolls (three-roll variant)",
+      "Two 6s in a row at the turnaround",
+      "Miss 6 rolls in a row (normal dry spell)",
+      "Two dice: roll a 2 or 12 (1 in 36)",
+      "Two dice: roll a 7 (6 in 36)"
+    ],
+    "oddsNote": "Gold: target roll, dashed: extra rolls or misses. On average each of the 12 steps takes 6 rolls – about 72 rolls per player for a full round of classic Jule.",
+    "oddsItems": [
+      "<strong>Dry spells happen every game.</strong> There is a 33 % chance of missing six times in a row on a single number, and roughly a 1 in 6 chance of waiting ten rolls or more – totally normal, not bad karma.",
+      "<strong>The turnaround takes twelve rolls on average.</strong> Because the 6 at the top of the way there doesn’t count twice, crossing from 6 to 6 requires two separate hits (an average of 12 rolls).",
+      "<strong>Two dice multiply the length nearly fivefold.</strong> Rolling 2 to 12 and back averages around 340 rolls per player because the 2 and 12 each take 36 rolls on average."
+    ],
+    "silentH": "Silent Jule: how to keep a poker face and win",
+    "silentLead": "This is where actual tactics live. Every sound resets your whole sheet to 1 – so defense comes first, and well-timed silent mischief comes second.",
+    "silentItems": [
+      "<strong>Watch the table, never faces.</strong> Eye contact is the fastest way to burst out laughing. When someone starts pulling faces, stare at the die or your sheet.",
+      "<strong>Breathe slowly through your nose and relax your jaw.</strong> Holding your breath builds pressure until it escapes as a snort or giggle. Steady breathing keeps your chest quiet.",
+      "<strong>Target players on the way back.</strong> Making someone laugh on their way there barely hurts them. Making the leader crack at 3, 2 or 1 on the way back wipes out ten hits at once.",
+      "<strong>Dry deadpan beats wild waving.</strong> Handing over the die in slow motion, nodding solemnly after someone’s eighth miss or silently tapping their empty sheet gets bigger laughs while keeping yourself calm.",
+      "<strong>Stay completely frozen on your final 1.</strong> The classic disaster: rolling your last 1 and letting out a tiny “yes!” or gasp – straight back to the start."
+    ],
+    "silentWarn": "<strong>Agree on sneezing and coughing before roll one:</strong> deciding beforehand whether genuine sneezes count as a sound prevents the only real arguments in Silent Jule.",
+    "varH": "Picking the right variant for your table",
+    "varLead": "Because classic Jule scales linearly with player count, choosing the right house rule keeps the energy high:",
+    "varItems": [
+      "<strong>2 to 4 players:</strong> classic Jule (one roll per turn) hits the sweet spot at around 10–15 minutes.",
+      "<strong>5 or more players:</strong> switch to <strong>three rolls</strong> per turn or <strong>keep rolling</strong> after a hit so nobody sits idle waiting for the die.",
+      "<strong>Young kids:</strong> play <strong>just there</strong> (1 to 6 only, ~36 rolls) for quick, snappy rounds.",
+      "<strong>Hostel or party table:</strong> play <strong>Silent Jule</strong> – use <strong>gentle silence</strong> (lose only your last number) if you want laughs without endless restarts.",
+      "<strong>Long evening challenge:</strong> try <strong>two dice (2 to 12)</strong> when you have time for dramatic swings on the 2 and 12."
+    ],
+    "mistakesH": "Common mistakes",
+    "mistakes": [
+      "<strong>Counting the turnaround 6 twice.</strong> Writing down the 6 finishes the way there – you still need to roll a fresh 6 to start the way back.",
+      "<strong>Cheering out loud on your winning 1 in Silent Jule.</strong> Strike off the 1 and put the pen down before you make a single sound.",
+      "<strong>Playing one-roll Jule with eight people.</strong> With a big group, classic rules mean long waits – switch to three rolls per turn.",
+      "<strong>Striking off in the wrong direction.</strong> On the way back you go from 6 down to 1, not from 1 up to 6 again.",
+      "<strong>Trying too hard to make others laugh and cracking yourself.</strong> Going over the top usually gets the prankster reset to 1 first."
+    ],
+    "ctaQuickH": "At the table right now?",
+    "ctaQuickP": "Way there, way back and Silent Jule on one phone screen.",
+    "ctaQuickBtn": "Open quick start",
+    "ctaRulesH": "New to the game?",
+    "ctaRulesP": "Read all rules, sample round and variants first.",
+    "ctaRulesBtn": "Go to the rules"
+  },
+  "quick": {
+    "h": "Jule at a glance",
+    "ruleH": "Your turn",
+    "rule": "<strong>1 die</strong>, paper and pen. Roll <strong>once</strong> per turn: hit the exact number you need to write it down (or strike it off on the way back). Any other number counts for nothing.",
+    "pathH": "Way there and way back",
+    "pathAlt": "Way there: dice 1 to 6 in rising order. Way back: dice 6 to 1 in falling order.",
+    "turnaround": "<strong>Turnaround:</strong> after writing down 6, you need a <strong>new 6</strong> to start striking off on the way back.",
+    "win": "First player to strike off their <strong>1</strong> wins at once. Optional penalty points: losers add up every number they still need.",
+    "silent": "Exact same game, <strong>no sounds at all</strong>. Talk, laugh or cheer and you lose your whole sheet and <strong>restart at 1</strong>. Gestures and grimaces allowed!",
+    "ctaStratH": "Odds & tactics",
+    "ctaStratP": "Real dice odds, Silent Jule tricks and picking variants.",
+    "ctaStratBtn": "Go to the strategy",
+    "ctaRulesH": "Full rules",
+    "ctaRulesP": "Sample round, scoring, variants and FAQ in detail.",
+    "ctaRulesBtn": "Go to the rules"
+  }
 }

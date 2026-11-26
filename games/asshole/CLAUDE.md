@@ -4,13 +4,12 @@ Domain: assholegame.de · Ordner: assholegame · Slug: asshole · Status: draft
 Ähnliches Spiel: president (gegenseitig in `related` der game.json)
 
 ## Stand
-- Regelseite (src/index.njk) geschrieben, Texte de + en. Grundregeln: 32 Karten
+- Regelseite (src/index.njk), Strategie (src/strategy.njk) und Quickstart (src/quickstart.njk)
+  geschrieben, Texte de + en. Grundregeln: 32 Karten
   (7 bis Ass, Ass hoch), gleich viele höhere Karten legen, Passen jederzeit,
   Arschloch gibt 2 höchste an den König, Vize-Arschloch 1 an den Vize-König.
 - Feste Begriffe: König / Vize-König / Bürger / Vize-Arschloch / Arschloch
   (en: king / vice king / citizen / vice asshole / asshole), „drücken“ = Kartentausch.
-- Nächste Schritte: ggf. Strategie / Quickstart
-  (Datei anlegen UND in `pages` der game.json eintragen, sonst bricht der Build ab).
 - Kein Spiel gegen Bots (play), solange Jan es nicht ausdrücklich sagt.
 
 ## Regeln für dieses Spiel

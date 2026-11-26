@@ -1,0 +1,80 @@
+---
+pagination:
+  data: languages
+  size: 1
+  alias: lang
+permalink: "{{ lang.path }}quickstart/"
+layout: game
+subpath: "quickstart/"
+share: true
+eleventyComputed:
+  pageTitle: "{{ lang.t.seo.quickT }}"
+  pageDescription: "{{ lang.t.seo.quickD }}"
+---
+{#- Quickstart: kompakter Spickzettel für Cambio – Ablauf, Kartenwerte (roter König −1,
+    Joker 0), Fähigkeiten, Abwerfen und „Cambio“ ansagen. Texte unter `quick`. -#}
+{%- set t = lang.t -%}
+{%- set k = t.quick -%}
+{% include "hero.njk" %}
+
+<main class="wrap quick">
+  <section id="cheat-sheet">
+    <div class="cheat cheat2">
+      <h2>{{ k.h }}</h2>
+
+      <div class="ch-block ch-rule">
+        <div class="ch-icon" aria-hidden="true">4</div>
+        <div><h3>{{ k.ruleH }}</h3><p>{{ k.rule | safe }}</p></div>
+      </div>
+
+      <div class="ch-block">
+        <h3>{{ t.values.h }}</h3>
+        <ul class="ch-vals" role="list">
+          <li class="best"><span class="ch-card r" aria-hidden="true">K<small>♥♦</small></span><b>−1</b></li>
+          <li><span class="ch-card j" aria-hidden="true">★</span><b>0</b></li>
+          <li><span class="ch-card" aria-hidden="true">A<small>♠</small></span><b>1</b></li>
+          <li><span class="ch-card" aria-hidden="true">2–10</span><b>2–10</b></li>
+          <li><span class="ch-card" aria-hidden="true">J/Q</span><b>10</b></li>
+          <li><span class="ch-card" aria-hidden="true">K<small>♠♣</small></span><b>10</b></li>
+        </ul>
+      </div>
+
+      <div class="ch-block">
+        <h3>{{ t.powers.h }}</h3>
+        <ul class="ch-powers" role="list">
+          <li><span class="ch-pair" aria-hidden="true"><span class="ch-card r">7<small>♥</small></span><span class="ch-card">8<small>♣</small></span></span><span>{{ k.pow7 | safe }}</span></li>
+          <li><span class="ch-pair" aria-hidden="true"><span class="ch-card">9<small>♠</small></span><span class="ch-card r">10<small>♦</small></span></span><span>{{ k.pow9 | safe }}</span></li>
+          <li><span class="ch-pair" aria-hidden="true"><span class="ch-card r">J<small>♦</small></span><span class="ch-card">Q<small>♠</small></span></span><span>{{ k.powJ | safe }}</span></li>
+          <li><span class="ch-pair" aria-hidden="true"><span class="ch-card">K<small>♣</small></span><span class="ch-card">K<small>♠</small></span></span><span>{{ k.powK | safe }}</span></li>
+        </ul>
+        <p class="ch-note">{{ k.powNote | safe }}</p>
+      </div>
+
+      <div class="ch-block">
+        <h3>{{ k.endH }}</h3>
+        <ul class="ch-rows" role="list">
+          <li><span class="ch-badge" aria-hidden="true">⚡</span><span>{{ k.stackOwn | safe }}</span></li>
+          <li><span class="ch-badge" aria-hidden="true">⇄</span><span>{{ k.stackOther | safe }}</span></li>
+          <li><span class="ch-badge" aria-hidden="true">🔒</span><span>{{ k.cambio | safe }}</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="next-steps" class="ctas">
+    <div class="cta">
+      <h2>{{ k.ctaStratH }}</h2>
+      <p>{{ k.ctaStratP }}</p>
+      <a class="ctabtn" href="{{ lang.path }}strategy/">{{ k.ctaStratBtn }} →</a>
+    </div>
+    <div class="cta">
+      <h2>{{ k.ctaRulesH }}</h2>
+      <p>{{ k.ctaRulesP }}</p>
+      <a class="ctabtn" href="{{ lang.path }}">{{ k.ctaRulesBtn }} →</a>
+    </div>
+  </section>
+
+  {% include "share.njk" %}
+</main>
+
+{% include "footer.njk" %}

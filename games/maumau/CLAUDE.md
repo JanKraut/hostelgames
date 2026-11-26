@@ -3,13 +3,14 @@
 Kartenspiel (`category: cards`) · Domain: noch keine · Ordner: maumau · Slug: maumau · Status: draft
 
 ## Stand
-- Regelseite (src/index.njk) mit Texten de + en, aufgebaut wie Asshole, mit Steckbrief wie King’s Cup.
+- Regelseite (src/index.njk), Strategie (src/strategy.njk) und Quickstart (src/quickstart.njk)
+  mit Texten de + en (Regelseite in 15 Sprachen), aufgebaut wie Asshole, mit Steckbrief wie King’s Cup.
 - Grundregeln: 32 Karten, je 5 Karten, Farbe oder Wert bedienen, sonst eine Karte ziehen.
   Sonderkarten: 7 = zwei ziehen (stapelbar), 8 = aussetzen, Bube = Wünscher (passt auf alles,
   nicht auf eine offene 7). „Mau“ bei der vorletzten, „Mau-Mau“ bei der letzten Karte,
   vergessen = Strafkarte. Punkte: Bube 20, Ass 11, 10 = 10, König 4, Dame 3, 9/8/7 Augenwert.
-- Nächste Schritte: ggf. Strategie / Quickstart (Datei anlegen UND in `pages` der game.json
-  eintragen, sonst bricht der Build ab). Domain festlegen, dann `domain` in game.json setzen.
+- Nächste Schritte: Domain festlegen, dann `domain` in game.json setzen; ggf. Strategie/Quickstart
+  in alle Sprachen übersetzen (erst wenn Jan es sagt).
 - Kein Spiel gegen Bots (play), solange Jan es nicht ausdrücklich sagt.
 
 ## Begriffe

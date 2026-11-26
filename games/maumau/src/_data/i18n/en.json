@@ -5,7 +5,11 @@
   "goal": "<strong>The goal:</strong> be the first to get rid of all your cards. Say “Mau” before your last card – and “Mau-Mau” when you play it.",
   "seo": {
     "rulesT": "Mau-Mau card game rules – simply explained",
-    "rulesD": "How to play Mau-Mau: dealing, matching suit or rank, the special cards 7, 8 and jack, saying Mau and Mau-Mau, scoring, variants and FAQ."
+    "rulesD": "How to play Mau-Mau: dealing, matching suit or rank, the special cards 7, 8 and jack, saying Mau and Mau-Mau, scoring, variants and FAQ.",
+    "strategyT": "Mau-Mau strategy – tips for special cards and wishing",
+    "strategyD": "Mau-Mau strategy guide: keeping suit flexibility, saving 7s and jacks, wishing smart suits, cutting penalty points and winning the endgame.",
+    "quickT": "Mau-Mau quick start – cheat sheet and special cards",
+    "quickD": "Mau-Mau at a glance: matching suit or rank, the special cards 7, 8 and jack, saying Mau and Mau-Mau and card points on one screen."
   },
   "info": {
     "players1": "2–3",
@@ -103,5 +107,89 @@
     "faq6a": "In Switzerland <strong>Tschau Sepp</strong>, in English-speaking countries <strong>Crazy Eights</strong> (with the 8 as the wish card), in the Netherlands <strong>Pesten</strong>.",
     "faq7q": "Can I play Mau-Mau with 52 cards?",
     "faq7a": "Yes. The rules stay the same, the cards from 2 to 6 simply have no special effect and count their face value when scoring. With 52 cards up to 8 players can join in."
+  },
+  "strategy": {
+    "h1": "Mau-Mau strategy",
+    "sub": "Anyone can drop the first card that fits. Keeping suit options open, holding your 7 and jack for the right moment and reading what the others draw wins far more rounds.",
+    "principleNav": "Principle",
+    "handNav": "Hand order",
+    "spNav": "Special cards",
+    "wishNav": "Wishing",
+    "endNav": "Endgame",
+    "mistakesNav": "Mistakes",
+    "principleH": "The basic principle",
+    "principle": "Good Mau-Mau is about <strong>flexibility and timing</strong>. Every ordinary card you play should either shed high penalty points, keep your suits balanced or steer the table away from the next player’s strength.",
+    "principleItems": [
+      "<strong>Keep suit variety early.</strong> Holding three or four different suits means you rarely have to draw.",
+      "<strong>Save special cards for moments that hurt.</strong> A 7 or jack spent on turn one won’t be there when someone calls “Mau!” or sends a +2 chain your way.",
+      "<strong>Shed heavy points when you have a choice.</strong> Aces (11) and 10s (10) cost a lot if another player goes out before you."
+    ],
+    "handH": "Which card to play first?",
+    "handLead": "Whenever more than one card fits the discard pile, the order you play them in shapes the next three turns.",
+    "exH": "Example: four cards fit – which one goes first?",
+    "exTop": "On the pile",
+    "exHand": "Your hand",
+    "exAlt": "The 9 of spades lies on the pile. Your hand holds the ace of spades (outlined as best play), queen of spades, 9 of hearts and jack of clubs.",
+    "exWhy": "<strong>Play the ace of spades (A♠).</strong> It clears 11 penalty points right away, keeps the queen of spades in hand so you can still follow spades, keeps the 9 of hearts to switch suits later and saves your jack for an emergency.",
+    "handItems": [
+      "<strong>Dump high points inside the same suit.</strong> Holding ♠A (11) and ♠Q (3)? Play the ace first – both match spades, and if someone goes out next turn you lose 3 points instead of 11.",
+      "<strong>Play out of your longest suit first.</strong> If you hold three clubs and one diamond, stay in clubs while you can – once your single diamond is gone, you can no longer follow diamonds.",
+      "<strong>Keep rank bridges.</strong> A card whose rank matches another suit in your hand (like ♥9 and ♠9) lets you change suits cleanly without spending a jack.",
+      "<strong>Drawing voluntarily can pay off.</strong> If your only playable card is a jack or your last 7 early in a large round, taking one card from the draw pile is sometimes smarter than burning your defense."
+    ],
+    "spH": "Using 7, 8 and jack",
+    "spLead": "Only three ranks carry special effects in Mau-Mau – treat them like tools, not ordinary cards.",
+    "sp7h": "7 – Shield first, weapon second",
+    "sp7p": "Keep one 7 in reserve as insurance against a 7-chain: stacking your 7 passes +4 cards on instead of ruining your own hand. Attack with a 7 when the next player has only one or two cards left – especially right after they call “Mau!”.",
+    "sp8h": "8 – Stop the leader (or chain in a duel)",
+    "sp8p": "Save an 8 to skip a neighbour who is about to win, giving the rest of the table another chance to change the suit or drop a 7. In a two-player game an 8 gives you an immediate extra turn – pair it with a matching final card to close the round on the spot.",
+    "spJh": "Jack – Emergency exit and endgame closer",
+    "spJp": "A jack fits any card (except an open 7), yet costs <strong>20 penalty points</strong> if caught in your hand. Hold it to rescue dead suits or steer into your last card’s suit – and if you play for points and someone calls “Mau!”, dump the jack before the round ends.",
+    "wishH": "Wishing the right suit",
+    "wishLead": "Playing a jack is only half the move – the suit you name can lock down the whole table.",
+    "wishItems": [
+      "<strong>Wish for your strongest suit.</strong> Early and mid-round, name the suit you hold most of so you can keep playing without drawing.",
+      "<strong>Watch what opponents draw on.</strong> If the next player just had to draw on diamonds, wish diamonds – you force them to draw again and buy yourself tempo.",
+      "<strong>Set up your final card.</strong> Down to two cards including a jack? Play the jack now and wish the exact suit of your last card (don’t forget to say “Mau!”)."
+    ],
+    "wishWarn": "<strong>Check house rules before holding a jack for last:</strong> many groups forbid going out on a jack (“No jack at the end”) or stacking “jack on jack”. In those rounds, always play your jack second-to-last, never as your final card.",
+    "endH": "Endgame and scoring",
+    "endLead": "The last two cards – and the two magic words – decide close rounds.",
+    "endItems": [
+      "<strong>Build a clean two-card finish.</strong> Aim to keep two cards that share a suit, share a rank, or pair an 8 or jack with your closer.",
+      "<strong>Slow down for “Mau!” and “Mau-Mau!”.</strong> More rounds are lost to a forgotten call than to bad luck. Say “Mau!” as you lay down your second-to-last card and “Mau-Mau!” on your last.",
+      "<strong>Switch to damage control when playing for points.</strong> The second another player calls “Mau!” and you can’t stop them with a 7 or 8, drop your jack (20), ace (11) or 10 (10) immediately."
+    ],
+    "mistakesH": "Common mistakes",
+    "mistakes": [
+      "<strong>Burning a jack on turn one.</strong> Playing a jack when a normal card fits throws away your best escape hatch for nothing.",
+      "<strong>Dropping your only 7 with no threat.</strong> Sending out a lone 7 early leaves you defenseless when a +2 chain comes back around the table.",
+      "<strong>Playing a queen instead of an ace of the same suit.</strong> Keeping an 11-point ace while shedding a 3-point queen hurts badly if someone goes out suddenly.",
+      "<strong>Ignoring what suits opponents drew on.</strong> Every draw tells you a suit that player is missing – use that information when you play a jack.",
+      "<strong>Forgetting to say “Mau!” or “Mau-Mau!”.</strong> One penalty card on your winning play can hand the whole round to the next player.",
+      "<strong>Holding a jack as your last card under strict house rules.</strong> If “No jack at the end” is active, finishing on a jack costs you a penalty card instead of winning."
+    ],
+    "ctaQuickH": "At the table right now?",
+    "ctaQuickP": "Special cards, Mau calls and card points on one screen.",
+    "ctaQuickBtn": "Open quick start",
+    "ctaRulesH": "New to the game?",
+    "ctaRulesP": "Read all rules, examples and variants first.",
+    "ctaRulesBtn": "Go to the rules"
+  },
+  "quick": {
+    "h": "Mau-Mau at a glance",
+    "ruleH": "Your turn",
+    "rule": "<strong>5 cards</strong> each (32-card pack). Play 1 card matching the top card’s <strong>suit</strong> or <strong>rank</strong> – or draw 1 (play right away if it fits). First empty hand wins.",
+    "sp7": "<strong>Draw 2</strong> – stackable with another 7 (+4, +6…)",
+    "sp8": "<strong>Skip</strong> the next player (2 players: go again)",
+    "spJ": "<strong>Make a wish:</strong> fits any card (not an open 7) – choose the next suit",
+    "mau1": "<strong>“Mau!”</strong> – say it on your second-to-last card (forgot = penalty card)",
+    "mau2": "<strong>“Mau-Mau!”</strong> – say it on your last card to win the round",
+    "ctaStratH": "Play better",
+    "ctaStratP": "Card order, saving 7s and jacks and wishing smart suits.",
+    "ctaStratBtn": "Go to the strategy",
+    "ctaRulesH": "Full rules",
+    "ctaRulesP": "All details, examples, variants and FAQ.",
+    "ctaRulesBtn": "Go to the rules"
   }
 }
