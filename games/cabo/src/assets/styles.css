@@ -1,11 +1,12 @@
 /* ==========================================================================
    Cabo: nur, was dieses Spiel zusätzlich zu @hostelgames/core (core.css) braucht.
    Abschnitte folgen der Seite von oben nach unten.
-   Mit „Core-Kandidat“ markierte Blöcke sind (fast) gleich wie bei Shithead
-   (games/shithead/src/assets/styles.css) und gehören später in den Core.
+   Gemeinsame Bausteine (Kartenfächer, Ziel, Abschnittsnavigation, Schritte, Varianten,
+   FAQ, Steckbrief …) stehen in core.css; hier steht nur, was dieses Spiel anders macht.
+   „Core-Kandidat“: ähnlich wie bei Shithead, aber noch nicht gleich.
    ========================================================================== */
 
-/* ---------- Kopfbereich: Kartenfächer (Core-Kandidat) ---------- */
+/* ---------- Kopfbereich: Kartenfächer (nur Abweichungen vom Core) ---------- */
 
 .fan {
   position: relative;
@@ -15,34 +16,7 @@
   margin: 1rem auto 1.4rem;
 }
 
-.fan .card {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform-origin: 50% 120%;
-}
-
-.fan .card:nth-child(1) {
-  transform: translateX(-50%) rotate(-27deg);
-}
-
-.fan .card:nth-child(2) {
-  transform: translateX(-50%) rotate(-9deg) translateY(-6px);
-}
-
-.fan .card:nth-child(3) {
-  transform: translateX(-50%) rotate(9deg) translateY(-6px);
-}
-
-.fan .card:nth-child(4) {
-  transform: translateX(-50%) rotate(27deg);
-}
-
 @media (prefers-reduced-motion: no-preference) {
-  .fan .card {
-    animation: deal 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-  }
-
   .fan .card:nth-child(2) {
     animation-delay: 0.13s;
   }
@@ -54,81 +28,9 @@
   .fan .card:nth-child(4) {
     animation-delay: 0.45s;
   }
-
-  @keyframes deal {
-    from {
-      transform: translateX(-50%) translateY(60px) rotate(0);
-      opacity: 0;
-    }
-  }
 }
 
-/* ---------- Kopfbereich: Ziel-Box (Core-Kandidat) ---------- */
-
-.goal {
-  display: flex;
-  gap: 0.9rem;
-  align-items: flex-start;
-  margin-top: 0.4rem;
-  padding: 1rem 1.1rem;
-  border-radius: 14px;
-  background: var(--head-well);
-}
-
-.goal-icon {
-  font-size: 1.8rem;
-  line-height: 1;
-}
-
-.goal p {
-  margin: 0;
-  color: var(--felt-text);
-  font-size: 1.05rem;
-}
-
-.goal strong {
-  color: var(--highlight);
-}
-
-/* ---------- Abschnittsnavigation (Core-Kandidat) ---------- */
-
-.secnav {
-  position: sticky;
-  top: env(safe-area-inset-top, 0px);
-  z-index: 9;
-  background: var(--head-bg);
-  color: var(--felt-text);
-}
-
-.secnav ul {
-  display: flex;
-  gap: 0.25rem;
-  max-width: 45rem;
-  overflow-x: auto;
-  margin: 0 auto;
-  padding: 0.55rem 1rem;
-  list-style: none;
-  scrollbar-width: none;
-}
-
-.secnav ul::-webkit-scrollbar {
-  display: none;
-}
-
-.secnav a {
-  display: block;
-  padding: 0.4rem 0.8rem;
-  border-radius: 999px;
-  background: var(--head-chip);
-  font-size: 0.92rem;
-  font-weight: 700;
-  white-space: nowrap;
-  text-decoration: none;
-}
-
-.secnav a:hover {
-  background: var(--head-chip-hover);
-}
+/* ---------- Abschnittsnavigation (nur Abweichungen vom Core) ---------- */
 
 /* Abschnitte nicht unter der klebenden Navigation verstecken */
 main section[id] {
@@ -216,15 +118,7 @@ main section[id] {
   outline-offset: 2px;
 }
 
-/* ---------- Spielzug: Entscheidung (Core-Kandidat, wie .decide bei Shithead) ---------- */
-
-.decide {
-  margin: 1rem 0;
-  padding: 1.2rem 1rem;
-  border-radius: 20px;
-  background: var(--felt);
-  color: var(--felt-text);
-}
+/* ---------- Spielzug: Entscheidung (nur Abweichungen vom Core) ---------- */
 
 .dq {
   margin: 0 0 1rem;
@@ -235,33 +129,8 @@ main section[id] {
   text-align: center;
 }
 
-.branches {
-  display: grid;
-  gap: 0.8rem;
-}
-
-@media (min-width: 34rem) {
-  .branches {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.br {
-  padding: 0.9rem 1rem;
-  border-radius: 14px;
-  background: var(--paper);
-  color: var(--card-ink);
-}
-
 .br a {
   color: inherit;
-}
-
-.bh {
-  margin-bottom: 0.35rem;
-  font-family: var(--font-display);
-  font-weight: var(--font-display-weight);
-  font-size: 1.15rem;
 }
 
 .br ol {
@@ -273,17 +142,6 @@ main section[id] {
 .br li {
   margin: 0.35rem 0;
   line-height: 1.45;
-}
-
-.br .bp {
-  margin: 0.35rem 0 0;
-  line-height: 1.45;
-}
-
-.dnext {
-  margin: 1rem 0 0;
-  font-weight: 700;
-  text-align: center;
 }
 
 /* Mehrere gleiche Karten tauschen */
@@ -348,62 +206,12 @@ main section[id] {
   color: var(--ink-strong);
 }
 
-/* ---------- „Cabo“ ansagen: nummerierte Schritte (Core-Kandidat, wie ol.steps bei Shithead) ---------- */
-
-ol.steps {
-  margin: 1rem 0;
-  padding: 0;
-  list-style: none;
-  counter-reset: step;
-}
-
-ol.steps li {
-  position: relative;
-  padding: 0 0 1.1rem;
-  padding-inline-start: 3.2rem;
-  counter-increment: step;
-}
-
-/* Nummer im Kreis */
-ol.steps li::before {
-  content: counter(step);
-  position: absolute;
-  inset-inline-start: 0;
-  top: -0.1rem;
-  display: grid;
-  place-items: center;
-  width: 2.3rem;
-  height: 2.3rem;
-  border-radius: 50%;
-  background: var(--felt);
-  color: var(--felt-text);
-  font-family: var(--font-cards);
-  font-weight: var(--font-cards-weight);
-  font-size: 1.05rem;
-}
+/* ---------- „Cabo“ ansagen: nummerierte Schritte (nur Abweichungen vom Core) ---------- */
 
 /* Linie zwischen den Kreisen */
-ol.steps li::after {
-  content: "";
-  position: absolute;
-  inset-inline-start: 1.13rem;
-  top: 2.4rem;
-  bottom: 0.2rem;
-  width: 2px;
-  background: var(--line);
-}
-
-ol.steps li:last-child::after {
-  display: none;
-}
 
 ol.steps h3 {
   margin: 0;
-}
-
-ol.steps p {
-  margin: 0.2rem 0 0;
-  color: var(--muted);
 }
 
 /* ---------- Punkte: Beispiel ---------- */
@@ -462,19 +270,7 @@ ol.steps p {
   font-size: 1.3rem;
 }
 
-/* ---------- FAQ: Fragen öffnen sich per Tippen, ohne JavaScript (Core-Kandidat) ---------- */
-
-.faq {
-  display: grid;
-  gap: 0.6rem;
-  margin-top: 1rem;
-}
-
-.faq details {
-  border-radius: 14px;
-  background: var(--surface);
-  box-shadow: 0 0 0 1px var(--line) inset;
-}
+/* ---------- FAQ: Fragen öffnen sich per Tippen, ohne JavaScript (nur Abweichungen vom Core) ---------- */
 
 .faq summary {
   display: flex;
@@ -489,38 +285,4 @@ ol.steps p {
   list-style: none;
   cursor: pointer;
   transition: background-color 0.15s;
-}
-
-.faq summary::-webkit-details-marker {
-  display: none;
-}
-
-.faq summary::after {
-  content: "+";
-  flex: none;
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: var(--felt);
-  color: var(--felt-text);
-  font-size: 1.2rem;
-  line-height: 1;
-}
-
-.faq details[open] summary::after {
-  content: "–";
-}
-
-.faq details p {
-  margin: 0;
-  padding: 0 1rem 1rem;
-  color: var(--muted);
-}
-
-@media (hover: hover) {
-  .faq summary:hover {
-    background: var(--summary-hover);
-  }
 }

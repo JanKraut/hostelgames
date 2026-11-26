@@ -3,10 +3,11 @@
    Farben, Grundstil, Karten, Header, Sprachmenü, Hell/Dunkel und Footer kommen
    aus dem Core. Reihenfolge wie auf der Seite, von oben nach unten.
 
-   Übernommen aus games/shithead/src/assets/styles.css (gehört eigentlich in den
-   Core, weil jede Regelseite es braucht): .fan, .goal, .secnav, ol.steps,
-   .decide/.branches/.br, .specials/.sp/.sp-extra, .dv-note, .variants, .faq
-   und die Hover-Regeln dazu. Nur für Cambio: .grid4vis, .values, .v-pair,
+   Gemeinsame Bausteine (Kartenfächer, Ziel, Abschnittsnavigation, Schritte, Varianten,
+   FAQ, Steckbrief …) stehen in core.css; hier steht nur, was dieses Spiel anders macht.
+
+   Wie bei Shithead (Core-Kandidaten): .decide/.branches/.br, .specials/.sp/.sp-extra,
+   .dv-note. Nur für Cambio: .grid4vis, .values, .v-pair,
    .card.joker, .stackvis, .sumvis.
    ========================================================================== */
 
@@ -19,34 +20,7 @@
   margin: 1rem auto 1.4rem;
 }
 
-.fan .card {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform-origin: 50% 120%;
-}
-
-.fan .card:nth-child(1) {
-  transform: translateX(-50%) rotate(-27deg);
-}
-
-.fan .card:nth-child(2) {
-  transform: translateX(-50%) rotate(-9deg) translateY(-6px);
-}
-
-.fan .card:nth-child(3) {
-  transform: translateX(-50%) rotate(9deg) translateY(-6px);
-}
-
-.fan .card:nth-child(4) {
-  transform: translateX(-50%) rotate(27deg);
-}
-
 @media (prefers-reduced-motion: no-preference) {
-  .fan .card {
-    animation: deal 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-  }
-
   .fan .card:nth-child(1) {
     animation-delay: 0.05s;
   }
@@ -62,79 +36,9 @@
   .fan .card:nth-child(4) {
     animation-delay: 0.5s;
   }
-
-  @keyframes deal {
-    from {
-      transform: translateX(-50%) translateY(60px) rotate(0);
-      opacity: 0;
-    }
-  }
-}
-
-.goal {
-  display: flex;
-  gap: 0.9rem;
-  align-items: flex-start;
-  margin-top: 0.4rem;
-  padding: 1rem 1.1rem;
-  border-radius: 14px;
-  background: var(--head-well);
-}
-
-.goal-icon {
-  font-size: 1.8rem;
-  line-height: 1;
-}
-
-.goal p {
-  margin: 0;
-  color: var(--felt-text);
-  font-size: 1.05rem;
-}
-
-.goal strong {
-  color: var(--highlight);
 }
 
 /* ---------- Abschnittsnavigation (aus Shithead) ---------- */
-
-.secnav {
-  position: sticky;
-  top: env(safe-area-inset-top, 0px);
-  z-index: 9;
-  background: var(--head-bg);
-  color: var(--felt-text);
-}
-
-.secnav ul {
-  display: flex;
-  gap: 0.25rem;
-  max-width: 45rem;
-  overflow-x: auto;
-  margin: 0 auto;
-  padding: 0.55rem 1rem;
-  list-style: none;
-  scrollbar-width: none;
-}
-
-.secnav ul::-webkit-scrollbar {
-  display: none;
-}
-
-.secnav a {
-  display: block;
-  padding: 0.4rem 0.8rem;
-  border-radius: 999px;
-  background: var(--head-chip);
-  font-size: 0.92rem;
-  font-weight: 700;
-  white-space: nowrap;
-  text-decoration: none;
-}
-
-.secnav a:hover {
-  background: var(--head-chip-hover);
-}
 
 /* Abschnitte nicht unter der klebenden Navigation verstecken */
 main section[id] {
@@ -197,58 +101,6 @@ main section[id] {
 
 .g4-note b::after {
   content: " · ";
-}
-
-/* ---------- Nummerierte Schritte (aus Shithead) ---------- */
-
-ol.steps {
-  margin: 1rem 0;
-  padding: 0;
-  list-style: none;
-  counter-reset: step;
-}
-
-ol.steps li {
-  position: relative;
-  padding: 0 0 1.1rem;
-  padding-inline-start: 3.2rem;
-  counter-increment: step;
-}
-
-ol.steps li::before {
-  content: counter(step);
-  position: absolute;
-  inset-inline-start: 0;
-  top: -0.1rem;
-  display: grid;
-  place-items: center;
-  width: 2.3rem;
-  height: 2.3rem;
-  border-radius: 50%;
-  background: var(--felt);
-  color: var(--felt-text);
-  font-family: var(--font-cards);
-  font-weight: var(--font-cards-weight);
-  font-size: 1.05rem;
-}
-
-ol.steps li::after {
-  content: "";
-  position: absolute;
-  inset-inline-start: 1.13rem;
-  top: 2.4rem;
-  bottom: 0.2rem;
-  width: 2px;
-  background: var(--line);
-}
-
-ol.steps li:last-child::after {
-  display: none;
-}
-
-ol.steps p {
-  margin: 0.2rem 0 0;
-  color: var(--muted);
 }
 
 /* ---------- Kartenwerte ---------- */
@@ -320,14 +172,6 @@ ol.steps p {
 
 /* ---------- Ein Spielzug: behalten oder abwerfen (aus Shithead) ---------- */
 
-.decide {
-  margin: 1rem 0;
-  padding: 1.2rem 1rem;
-  border-radius: 20px;
-  background: var(--felt);
-  color: var(--felt-text);
-}
-
 .dq {
   margin: 0 0 0.35rem;
   font-family: var(--font-display);
@@ -344,34 +188,9 @@ ol.steps p {
   text-align: center;
 }
 
-.branches {
-  display: grid;
-  gap: 0.8rem;
-}
-
-@media (min-width: 34rem) {
-  .branches {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.br {
-  padding: 0.9rem 1rem;
-  border-radius: 14px;
-  background: var(--paper);
-  color: var(--card-ink);
-}
-
 /* Links auf hellem Papier auch im dunklen Design lesbar */
 .br a {
   color: var(--card-ink);
-}
-
-.bh {
-  margin-bottom: 0.35rem;
-  font-family: var(--font-display);
-  font-weight: var(--font-display-weight);
-  font-size: 1.15rem;
 }
 
 .keep-br .bh {
@@ -380,17 +199,6 @@ ol.steps p {
 
 .drop-br .bh {
   color: var(--card-red);
-}
-
-.br .bp {
-  margin: 0.35rem 0 0;
-  line-height: 1.45;
-}
-
-.dnext {
-  margin: 1rem 0 0;
-  font-weight: 700;
-  text-align: center;
 }
 
 /* ---------- Kartenfähigkeiten (aus Shithead) ---------- */
@@ -524,18 +332,6 @@ ol.steps p {
 
 /* ---------- FAQ: öffnet per Tippen, ohne JavaScript (aus Shithead) ---------- */
 
-.faq {
-  display: grid;
-  gap: 0.6rem;
-  margin-top: 1rem;
-}
-
-.faq details {
-  border-radius: 14px;
-  background: var(--surface);
-  box-shadow: 0 0 0 1px var(--line) inset;
-}
-
 .faq summary {
   display: flex;
   gap: 0.8rem;
@@ -551,43 +347,11 @@ ol.steps p {
   transition: background-color 0.15s, box-shadow 0.15s;
 }
 
-.faq summary::-webkit-details-marker {
-  display: none;
-}
-
-.faq summary::after {
-  content: "+";
-  flex: none;
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: var(--felt);
-  color: var(--felt-text);
-  font-size: 1.2rem;
-  line-height: 1;
-}
-
-.faq details[open] summary::after {
-  content: "–";
-}
-
-.faq details p {
-  margin: 0;
-  padding: 0 1rem 1rem;
-  color: var(--muted);
-}
-
 /* ---------- Hover nur mit echter Maus (aus Shithead) ---------- */
 
 @media (hover: hover) {
   p a:hover {
     text-decoration-line: underline;
     text-decoration-thickness: 2px;
-  }
-
-  .faq summary:hover {
-    background: var(--summary-hover);
   }
 }
