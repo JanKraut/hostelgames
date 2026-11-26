@@ -1293,7 +1293,7 @@ footer .heart {
 
 .sharebox {
   padding: 1.5rem 1.2rem;
-  border-radius: 20px;
+  border-radius: 8px;
   background: var(--felt);
   color: var(--felt-text);
   text-align: center;
@@ -1410,7 +1410,7 @@ footer .heart {
 .cta {
   padding: 1.4rem 1.2rem;
   border: 2px solid var(--gold-line);
-  border-radius: 20px;
+  border-radius: 8px;
   text-align: center;
 }
 
@@ -1421,8 +1421,8 @@ footer .heart {
 .ctabtn {
   display: inline-block;
   padding: 0.95rem 1.6rem;
-  border-radius: 999px;
-  background: var(--gold);
+  border-radius: 6px;
+  background: #f4cf71;
   color: var(--card-ink);
   font-weight: 700;
   text-decoration: none;
@@ -1808,7 +1808,7 @@ footer .heart {
   overflow: hidden;
   margin: 0.8rem 0 0.35rem;
   padding: 1.1rem 0.9rem;
-  border-radius: 18px;
+  border-radius: 8px;
   background: var(--felt);
 }
 
@@ -1891,7 +1891,7 @@ ol.steps p {
 .decide {
   margin: 1rem 0;
   padding: 1.2rem 1rem;
-  border-radius: 20px;
+  border-radius: 8px;
   background: var(--felt);
   color: var(--felt-text);
 }
@@ -1959,7 +1959,7 @@ ol.steps p {
 }
 
 .faq details {
-  border-radius: 14px;
+  border-radius: 8px;
   background: var(--surface);
   box-shadow: 0 0 0 1px var(--line) inset;
 }
