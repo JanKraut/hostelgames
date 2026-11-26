@@ -71,7 +71,8 @@ Alles auf `github.io` bekommt `noindex` und keine Sitemap.
    Abschnittsnavigation, Schritte, Varianten und FAQ: Makros aus `blocks.njk`
    (`{{ faq(t) }}` zeigt `faqH`, `faq1q`/`faq1a` … bis zum letzten vorhandenen Text).
    Tests: `import { test, expect, siteTests } from "@hostelgames/core/testing"` und
-   `siteTests({ languages, site })` für Sprach-Weiterleitung und 404.
+   `siteTests({ languages, site })` für alles, was jedes Spiel braucht (mit Quiz:
+   `quiz: ["rules", "quickstart"]`); die eigene Spec testet nur, was das Spiel besonders macht.
    Standardtexte (Teilen-Box, Seitennamen, 404, Hell/Dunkel, Steckbrief-Beschriftungen) kommen aus
    `packages/core/i18n/standard/`; in die Texte des Spiels gehört nur, was es anders sagt.
 5. Im Root `build:<slug>` und `start:<slug>` in `package.json` ergänzen und `npm install`. Die Startseite listet das Spiel automatisch (in der Vorschau auch als Entwurf).

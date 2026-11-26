@@ -25,7 +25,7 @@ seinem eigenen `_includes/` anlegt.
 | `lib/games.js` | Liste aller Spiele aus `games/*/game.json`, prüft jede `game.json` (Felder: Root-README), `visibleGames(site)` blendet Entwürfe live aus |
 | `lib/languages.js` | Alle Sprachen (Flagge, Name, Fallback, Menü-Reihenfolge); `createLanguages(site, i18nDir)` baut daraus die Sprachen eines Spiels |
 | `test/` | Tests ohne Browser: `npm test -w @hostelgames/core` |
-| `testing/playwright.js` | `@hostelgames/core/testing` für die Playwright-Tests der Spiele: `test` (scheitert bei JavaScript-Fehlern), `pathOf`, `siteTests({ languages, site })` (Sprach-Weiterleitung, 404) |
+| `testing/playwright.js` | `@hostelgames/core/testing` für die Playwright-Tests der Spiele: `test` (scheitert bei JavaScript-Fehlern), `pathOf`, `open`, `siteTests({ languages, site, quiz })` – alles, was jedes Spiel braucht, gesteuert über `game.json` (Kopf, Menüs, Teilen-Box, #-Links, schmale Handys, Reiter, Steckbrief, FAQ, Sprach-Weiterleitung, 404) und das Übungsquiz auf den Seiten in `quiz` |
 | `lib/fonts-css.js` | Erzeugt `fonts.css` aus den `@fontsource`-Paketen |
 | `scripts/check-i18n.js` | Befehl `hostelgames-check-i18n`: prüft die Übersetzungen eines Spiels |
 | `scripts/serve.js` | Befehl `hostelgames-serve <ordner> <präfix>`: kleiner Server für Tests und Vorschau |

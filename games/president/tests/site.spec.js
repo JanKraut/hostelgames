@@ -1,94 +1,43 @@
-import { test, expect, pathOf, siteTests } from "@hostelgames/core/testing";
+// What is special about President. Head, menus, links, share box, narrow phones, tabs, fact sheet,
+// FAQ, language redirect and 404 are tested for every game in @hostelgames/core/testing.
+import { test, expect, open, siteTests } from "@hostelgames/core/testing";
 import languages from "../src/_data/languages.js";
 import site from "../src/_data/site.js";
 
-for (const lang of languages) {
-  test(`${lang.code}: rules page with its own texts`, async ({ page }) => {
-    await page.addInitScript((code) => localStorage.setItem("lang", code), lang.code);
-    await page.goto(pathOf(lang));
-    await expect(page).toHaveTitle(lang.t.seo.rulesT);
-    await expect(page.locator("html")).toHaveAttribute("lang", lang.htmlLang);
-    await expect(page.locator(".hero h1")).toHaveText(`${lang.t.rules.h1} ${lang.t.rules.h1sub}`);
-    await expect(page.locator(".pagetabs a[aria-current=page]")).toHaveText(lang.t.pgRules);
-    await expect(page.locator(".langmenu a[aria-current=page]")).toHaveAttribute("data-lang", lang.code);
-    await expect(page.locator("link[rel=canonical]")).toHaveAttribute("href", lang.url);
-    await expect(page.locator("link[rel=alternate][hreflang]")).toHaveCount(languages.length + 1);
-    // Draft and preview: never indexed.
-    await expect(page.locator('meta[name=robots][content=noindex]')).toHaveCount(1);
-    // Share box with QR code, and the QR button at the top.
-    await expect(page.locator("#share .qr svg")).toBeVisible();
-    await expect(page.locator(".qrbtn")).toBeVisible();
-    const text = await page.locator("body").innerText();
-    expect(text).not.toMatch(/undefined|\[object|\{\{|\{%/);
-  });
-}
+siteTests({ languages, site });
 
 // Abschnitte der Regelseite, in der Reihenfolge der Seite.
-const SECTIONS = ["setup", "how-to-play", "round-end", "swap", "variants", "faq", "share"];
+const SECTIONS = ["setup", "how-to-play", "round-end", "swap", "variants", "faq"];
 
 for (const lang of languages) {
-  test(`${lang.code}: all rule sections with headings and texts`, async ({ page }) => {
-    await page.goto(pathOf(lang));
+  test(`${lang.code}: rules page with its header, all sections, card order and ranks`, async ({ page }) => {
+    await open(page, lang);
+    await expect(page.locator(".hero h1")).toHaveText(`${lang.t.rules.h1} ${lang.t.rules.h1sub}`);
     for (const id of SECTIONS) {
       const section = page.locator(`main section#${id}`);
       await expect(section, `section #${id}`).toHaveCount(1);
       await expect(section.locator("h2").first()).not.toBeEmpty();
     }
+    const nav = await page.locator(".secnav a").evaluateAll((links) => links.map((a) => a.getAttribute("href")));
+    expect(nav).toEqual(SECTIONS.map((id) => `#${id}`));
+    // Every #link on this page points to a section (not just any element).
+    const targets = await page.locator('a[href^="#"]').evaluateAll((links) => links.map((a) => a.getAttribute("href")));
+    for (const href of targets) await expect(page.locator(`section${href}`), href).toHaveCount(1);
     await expect(page.locator(".hero .goal")).toBeVisible();
     await expect(page.locator(".ranks .card")).toHaveCount(13);
     await expect(page.locator(".ladder li")).toHaveCount(5);
     await expect(page.locator(".variants li")).toHaveCount(7);
     await expect(page.locator(".faq details")).toHaveCount(8);
-    // Kein Spiel gegen Bots: kein Link auf play/.
-    await expect(page.locator('a[href*="play/"]')).toHaveCount(0);
+    await expect(page.locator(".hero #factsheet .fs-cards .card")).toHaveCount(2);
   });
 
-  test(`${lang.code}: every #link points to an existing section`, async ({ page }) => {
-    await page.goto(pathOf(lang));
-    const targets = await page.locator('a[href^="#"]').evaluateAll((links) => links.map((a) => a.getAttribute("href")));
-    expect(targets.length).toBeGreaterThanOrEqual(SECTIONS.length);
-    for (const href of targets) {
-      await expect(page.locator(`section${href}`), href).toHaveCount(1);
-    }
-    // Die Abschnittsnavigation enthält jeden Abschnitt.
-    const nav = await page.locator(".secnav a").evaluateAll((links) => links.map((a) => a.getAttribute("href")));
-    expect(nav).toEqual(SECTIONS.filter((id) => id !== "share").map((id) => `#${id}`));
-  });
-
-  test(`${lang.code}: fact sheet in the header`, async ({ page }) => {
-    await page.addInitScript((code) => localStorage.setItem("lang", code), lang.code);
-    await page.goto(pathOf(lang));
-    const sheet = page.locator(".hero #factsheet");
-    await expect(sheet).toBeVisible();
-    await expect(sheet.locator(".fs-scale")).toHaveCount(3);
-    await expect(sheet.locator(".fs-group")).toHaveCount(2);
-    await expect(sheet.locator(".fs-similar li")).toHaveCount(lang.t.info.similar.split(", ").length);
-    await expect(sheet.locator(".fs-cards .card")).toHaveCount(2);
-    await expect(sheet.locator(".fs-intro p")).toHaveText(lang.t.info.intro);
-  });
-}
-
-// Strategieseite: pro Sprache, über die Reiter im Kopf erreichbar.
-for (const lang of languages) {
   test(`${lang.code}: strategy page with its own texts, graphics and sections`, async ({ page }) => {
     const s = lang.t.strategy;
-    await page.addInitScript((code) => localStorage.setItem("lang", code), lang.code);
-    await page.goto(pathOf(lang) + "strategy/");
-
-    await expect(page).toHaveTitle(lang.t.seo.strategyT);
-    await expect(page.locator("html")).toHaveAttribute("lang", lang.htmlLang);
+    await open(page, lang, "strategy/");
     await expect(page.locator(".hero h1")).toHaveText(s.h1);
     await expect(page.locator(".hero > .wrap > p").first()).toHaveText(s.sub);
     await expect(page.locator(".hero .fan .card")).toHaveCount(4);
     await expect(page.locator(".hero .goal")).toBeVisible();
-    await expect(page.locator("#factsheet")).toHaveCount(0);
-    await expect(page.locator(".pagetabs a[aria-current=page]")).toHaveText(lang.t.n6);
-    await expect(page.locator(`.langmenu a[data-lang="${lang.code}"]`)).toHaveAttribute("href", /strategy\/$/);
-    await expect(page.locator("link[rel=canonical]")).toHaveAttribute("href", lang.url + "strategy/");
-    await expect(page.locator("link[rel=alternate][hreflang]")).toHaveCount(languages.length + 1);
-    await expect(page.locator('meta[name=robots][content=noindex]')).toHaveCount(1);
-    await expect(page.locator("#share .qr svg")).toBeVisible();
-    await expect(page.locator(".qrbtn")).toBeVisible();
 
     await expect(page.locator("#principle h2")).toHaveText(s.principleH);
     await expect(page.locator("#swap .strats li")).toHaveCount(s.give.length);
@@ -104,78 +53,35 @@ for (const lang of languages) {
     await expect(page.locator("#mistakes .variants li")).toHaveCount(s.mistakes.length);
     await expect(page.locator("#next-steps .cta a")).toHaveText(`${s.ctaRulesBtn} →`);
 
-    const expectedNav = ["#principle", "#swap", ...s.phases.map((p) => `#${p.id}`), "#key-cards", "#mistakes"];
     const nav = await page.locator(".secnav a").evaluateAll((links) => links.map((a) => a.getAttribute("href")));
-    expect(nav).toEqual(expectedNav);
-    for (const href of nav) {
-      await expect(page.locator(`section${href}`), href).toHaveCount(1);
-    }
-
-    // Kein Spiel gegen Bots: kein Link auf play/.
-    await expect(page.locator('a[href*="play/"]')).toHaveCount(0);
-
-    const text = await page.locator("body").innerText();
-    expect(text).not.toMatch(/undefined|\[object|\{\{|\{%/);
+    expect(nav).toEqual(["#principle", "#swap", ...s.phases.map((p) => `#${p.id}`), "#key-cards", "#mistakes"]);
   });
-}
 
-// Quickstart: Spickzettel pro Sprache, über die Reiter im Kopf erreichbar.
-for (const lang of languages) {
   test(`${lang.code}: quick start page with cheat sheet, card order and swap`, async ({ page }) => {
-    const k = lang.t.quick;
-    await page.addInitScript((code) => localStorage.setItem("lang", code), lang.code);
-    await page.goto(pathOf(lang) + "quickstart/");
-
-    await expect(page).toHaveTitle(lang.t.seo.quickT);
-    await expect(page.locator("html")).toHaveAttribute("lang", lang.htmlLang);
+    await open(page, lang, "quickstart/");
     await expect(page.locator(".hero h1")).toHaveText(lang.t.h1);
-    await expect(page.locator(".pagetabs a[aria-current=page]")).toHaveText(lang.t.pgQuick);
-    await expect(page.locator("link[rel=canonical]")).toHaveAttribute("href", lang.url + "quickstart/");
-    await expect(page.locator(".cheat h2")).toHaveText(k.h);
+    await expect(page.locator(".cheat h2")).toHaveText(lang.t.quick.h);
     await expect(page.locator(".ch-ranks .ch-card")).toHaveCount(13);
     await expect(page.locator(".ch-rows li")).toHaveCount(3);
     await expect(page.locator(`#next-steps a[href$="${lang.path}strategy/"]`)).toBeVisible();
-    await expect(page.locator("#share .qr svg")).toBeVisible();
-    await expect(page.locator('a[href*="play/"]')).toHaveCount(0);
-
-    const text = await page.locator("body").innerText();
-    expect(text).not.toMatch(/undefined|\[object|\{\{|\{%/);
   });
 }
 
-test("the tabs link rules, strategy and quickstart pages", async ({ page }) => {
-  await page.addInitScript(() => localStorage.setItem("lang", "de"));
-  await page.goto("de/");
-  await page.locator(".pagetabs a", { hasText: languages[1].t.n6 }).click();
-  await expect(page).toHaveURL(/\/de\/strategy\/$/);
-  await page.locator(".pagetabs a", { hasText: languages[1].t.pgQuick }).click();
-  await expect(page).toHaveURL(/\/de\/quickstart\/$/);
-  await page.locator("#next-steps a", { hasText: languages[1].t.quick.ctaRulesBtn }).click();
+test("next steps on the quick start lead back to the rules", async ({ page }) => {
+  const de = languages.find((l) => l.code === "de");
+  await open(page, de, "quickstart/");
+  await page.locator("#next-steps a", { hasText: de.t.quick.ctaRulesBtn }).click();
   await expect(page).toHaveURL(/\/de\/$/);
 });
 
-test("no horizontal overflow, light and dark, even on a very narrow phone", async ({ page }) => {
+test("no horizontal overflow in the dark theme either", async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem("theme", "dark"));
   for (const width of [320, 390]) {
     await page.setViewportSize({ width, height: 700 });
     for (const sub of ["./", "strategy/", "quickstart/"]) {
-      for (const theme of ["light", "dark"]) {
-        await page.addInitScript((th) => localStorage.setItem("theme", th), theme);
-        await page.goto(sub);
-        const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
-        expect(overflow, `${sub} (${theme}) at ${width}px`).toBeLessThanOrEqual(0);
-      }
-    }
-  }
-});
-
-test("quickstart: no horizontal overflow on narrow phones", async ({ page }) => {
-  for (const width of [320, 390]) {
-    await page.setViewportSize({ width, height: 700 });
-    for (const lang of languages) {
-      await page.addInitScript((code) => localStorage.setItem("lang", code), lang.code);
-      await page.goto(pathOf(lang) + "quickstart/");
+      await page.goto(sub);
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
-      expect(overflow, `${lang.code} quickstart at ${width}px`).toBeLessThanOrEqual(0);
+      expect(overflow, `${sub} (dark) at ${width}px`).toBeLessThanOrEqual(0);
     }
   }
 });
@@ -186,6 +92,3 @@ test("the section navigation jumps to the section", async ({ page }) => {
   await expect(page).toHaveURL(/#swap$/);
   await expect(page.locator("section#swap h2")).toBeInViewport();
 });
-
-// Language redirect and 404 page, the same in every game (@hostelgames/core/testing).
-siteTests({ languages, site, redirects: ["./", "strategy/", "quickstart/"] });
