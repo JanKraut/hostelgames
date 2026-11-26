@@ -20,7 +20,7 @@
 //     given as notFoundLayout (default "game")
 //   - the service worker (assets/sw.js) with the list and a hash of all built files,
 //     unless serviceWorker: false
-//   - the dev server port from PORT (default 8080), so parallel worktrees can each run one
+//   - the dev server port from PORT (default 8080)
 import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { createRequire } from "node:module";

@@ -19,9 +19,3 @@ Vor jedem Commit: `npm run check`, `npm run build:<slug>`, Tests des Spiels.
 ## Sprachen
 - Englisch ist Referenz. Jede Textänderung: de UND en, nur diese zwei öffnen.
 - Andere Sprachen nur, wenn Jan es sagt (Ablauf: docs/alle-sprachen.md).
-
-## Parallele Sessions
-- Eigener Branch vom aktuellen main; nie auf einem gemergten Branch weiter.
-  Vor dem PR auf origin/main rebasen, dann check/build/Tests.
-- Nur Dateien der eigenen Aufgabe ändern, nichts nebenbei umformatieren.
-- Neue i18n-Keys neben verwandte Keys, nie ans Dateiende.
