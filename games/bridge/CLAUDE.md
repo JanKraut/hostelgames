@@ -1,10 +1,10 @@
 # Bridge
 
-Kartenspiel (`category: cards`) · Domain: noch keine · Ordner: bridge · Slug: bridge · Status: draft
+Kartenspiel (`category: cards`) · Domain: noch keine · Ordner: bridge · Slug: bridge · Status: draft · Sprachen: 2 (en, de)
 
 ## Stand
-- Regelseite (`src/index.njk`), Strategieseite (`src/strategy.njk`) und Quickstart-Spickzettel
-  (`src/quickstart.njk`) mit Texten de + en, Steckbrief im Kopfbereich.
+- Regelseite (`src/index.njk`), Strategie (`src/strategy.njk`) und Quickstart (`src/quickstart.njk`)
+  mit Texten `de` + `en`.
 - Grundregeln (Kontrakt- / Rubber-Bridge): 4 Spieler in 2 festen Paaren (N–S gegen O–W), 52 Karten,
   je 13 Karten. Farbrangfolge in der Reizung: ♣ < ♦ < ♥ < ♠ < SA (NT). Gebote Stufe 1–7 = Stiche
   über 6 (Buch). Alleinspieler ist, wer die Kontraktfarbe zuerst genannt hat; Partner legt als
@@ -17,7 +17,6 @@ Kartenspiel (`category: cards`) · Domain: noch keine · Ordner: bridge · Slug:
   Schnitt / Finesse mit Grafik), Gegenspiel (Ausspiel, 2. Hand niedrig / 3. Hand hoch).
 - Nächste Schritte: Domain festlegen, dann `domain` in `game.json` setzen; ggf. weitere Sprachen
   auf Wunsch von Jan (`docs/alle-sprachen.md`).
-- Kein Spiel gegen Bots (`play`), solange Jan es nicht ausdrücklich sagt.
 
 ## Begriffe
 - Deutsche Bridge-Begriffe: Treff (♣, Kreuz), Karo (♦), Coeur (♥, Herz), Pik (♠), Sans Atout (SA),
@@ -33,7 +32,9 @@ Kartenspiel (`category: cards`) · Domain: noch keine · Ordner: bridge · Slug:
 
 ## Regeln für dieses Spiel
 - Nur Dateien in `games/bridge/` ändern. Fehlt etwas im Core, Jan fragen.
-- Layout aus dem Core: `layout: game`; Karten, Hero, Steckbrief, Reiter, Teilen-Box, Sprachmenü,
-  404-Seite, Bausteine (`blocks.njk`) und Footer sind Core-Includes.
+- Core-Basis: `layout: game`, Konfiguration (`eleventy.config.js`, `playwright.config.js`),
+  `site`/`languages`/Sitemap, Hero, Steckbrief, Karten (`card.njk`), Bausteine (`blocks.njk`),
+  404-Seite, Teilen-Box, Sprachmenü, Footer und `siteTests` kommen aus `@hostelgames/core`.
 - Eigene Styles nur in `src/assets/styles.css`.
 - Live gehen: `status` in `game.json` auf `"live"` – nur wenn Jan es sagt.
+- Kein Spiel gegen Bots (`play`), solange Jan es nicht ausdrücklich sagt.
