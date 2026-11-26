@@ -13,6 +13,8 @@
 //     legal notice, consent banner texts), fonts, coreFonts (files to preload),
 //     assetVersion (appended as ?v=… to CSS and JS, changes with every change of a file)
 //   - assets/core/share.js (QR button at the top of every page, share box) and qrcode.js
+//   - assets/core/quiz.js: engine of the practice quiz (includes/quiz.njk), started by the
+//     game's own assets/quiz.js with the rules of the game
 //   - the shared includes in includes/ (header with menu, language menu, flags, footer,
 //     tracking, playing cards, share box, language redirect, layouts/game.njk);
 //     a site's own _includes win if a file has the same name
@@ -38,7 +40,7 @@ const CORE_ASSETS = join(CORE, "assets");
 const INCLUDES = join(CORE, "includes");
 const require = createRequire(import.meta.url);
 // Files of assets/ that are published as they are; sw.js is a template.
-const PUBLISHED = ["core.css", "core.js", "share.js"];
+const PUBLISHED = ["core.css", "core.js", "share.js", "quiz.js"];
 
 /** Hash over the contents of every file in the given folders. */
 function hashFiles(dirs) {

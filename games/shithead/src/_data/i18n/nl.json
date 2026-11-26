@@ -84,8 +84,6 @@
   "qTop": "ligt bovenop",
   "qMine": "jouw kaart",
   "qQ": "Mag je hem leggen?",
-  "qYes": "Ja",
-  "qNo": "Nee",
   "qNext": "Volgende kaart",
   "stH": "Strategieën",
   "chH": "Spiekbriefje",
@@ -99,12 +97,7 @@
     "after7no": "Na een 7 moet het 7 of lager zijn.",
     "same": "Dezelfde waarde mag altijd.",
     "higher": "{mine} is hoger dan {top}.",
-    "lower": "{mine} is lager dan {top} – je zou de stapel moeten pakken.",
-    "right": "Goed! ",
-    "wrong": "Net niet. ",
-    "yes": "Ja. ",
-    "no": "Nee. ",
-    "score": "{right} van {total} goed"
+    "lower": "{mine} is lager dan {top} – je zou de stapel moeten pakken."
   },
   "game": {
     "title": "Speel Shithead tegen bots",

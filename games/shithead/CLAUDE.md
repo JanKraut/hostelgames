@@ -19,7 +19,9 @@ das letzte Wort.
 - src/_data/i18n/<lang>.json, Referenz en.json; Sprachcodes in game.json
   (`languages`), Flagge/Name/Fallbacks (es-419 → es, pt-br → pt) im Core
   (packages/core/lib/languages.js)
-- check-i18n prüft auch index.njk, specials.njk, quiz.njk
+- check-i18n prüft auch index.njk, specials.njk
+- Quiz: Rahmen, Ablauf und Standardtexte aus dem Core (quiz.njk), hier nur
+  die Regel in assets/quiz.js und die Texte qH, qLead, qQ, qTop, qMine, qNext, quiz.*
 - Jan liefert neue Texte meist auf Deutsch, einen nach dem anderen
   → de + en anpassen, die übrigen 13 Sprachen nicht
 

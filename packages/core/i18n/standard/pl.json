@@ -30,5 +30,14 @@
     "similarH": "Podobne gry",
     "introH": "Wprowadzenie",
     "gearH": "Czego potrzeba"
+  },
+  "qYes": "Tak",
+  "qNo": "Nie",
+  "quiz": {
+    "right": "Dobrze! ",
+    "wrong": "Niezupełnie. ",
+    "yes": "Tak. ",
+    "no": "Nie. ",
+    "score": "{right} z {total} poprawnie"
   }
 }

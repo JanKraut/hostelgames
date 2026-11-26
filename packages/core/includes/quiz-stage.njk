@@ -1,0 +1,7 @@
+{#- Picture of a quiz question (core default for card games): the card on top of the pile and
+    the card in your hand, filled by the game's assets/quiz.js in #topCard and #myCard.
+    Replace it with a quiz-stage.njk in the game's own _includes. -#}
+<div class="duel">
+  <div><div id="topCard"></div><div class="lbl">{{ lang.t.qTop }}</div></div>
+  <div><div id="myCard"></div><div class="lbl">{{ lang.t.qMine }}</div></div>
+</div>

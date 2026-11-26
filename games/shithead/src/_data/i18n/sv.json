@@ -84,8 +84,6 @@
   "qTop": "ligger överst",
   "qMine": "ditt kort",
   "qQ": "Får du lägga det?",
-  "qYes": "Ja",
-  "qNo": "Nej",
   "qNext": "Nästa kort",
   "stH": "Strategier",
   "chH": "Fusklapp",
@@ -99,12 +97,7 @@
     "after7no": "Efter en 7:a måste det vara 7 eller lägre.",
     "same": "Samma valör går alltid.",
     "higher": "{mine} är högre än {top}.",
-    "lower": "{mine} är lägre än {top} – du skulle behöva ta upp högen.",
-    "right": "Rätt! ",
-    "wrong": "Inte riktigt. ",
-    "yes": "Ja. ",
-    "no": "Nej. ",
-    "score": "{right} av {total} rätt"
+    "lower": "{mine} är lägre än {top} – du skulle behöva ta upp högen."
   },
   "game": {
     "title": "Spela Shithead mot bottar",

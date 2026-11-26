@@ -30,5 +30,14 @@
     "similarH": "Lignende spill",
     "introH": "Introduksjon",
     "gearH": "Dette trenger du"
+  },
+  "qYes": "Ja",
+  "qNo": "Nei",
+  "quiz": {
+    "right": "Riktig! ",
+    "wrong": "Ikke helt. ",
+    "yes": "Ja. ",
+    "no": "Nei. ",
+    "score": "{right} av {total} riktige"
   }
 }

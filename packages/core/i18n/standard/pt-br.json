@@ -6,5 +6,8 @@
   "navLabel": "Seções",
   "info": {
     "gearH": "O que você precisa"
+  },
+  "quiz": {
+    "wrong": "Quase. "
   }
 }

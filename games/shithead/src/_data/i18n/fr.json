@@ -84,8 +84,6 @@
   "qTop": "sur la défausse",
   "qMine": "ta carte",
   "qQ": "Peux-tu la poser ?",
-  "qYes": "Oui",
-  "qNo": "Non",
   "qNext": "Carte suivante",
   "stH": "Stratégies",
   "chH": "Antisèche",
@@ -99,12 +97,7 @@
     "after7no": "Après un 7, il faut 7 ou moins.",
     "same": "La même valeur passe toujours.",
     "higher": "{mine} est plus fort que {top}.",
-    "lower": "{mine} est plus faible que {top} – tu devrais prendre la défausse.",
-    "right": "Bravo ! ",
-    "wrong": "Pas tout à fait. ",
-    "yes": "Oui. ",
-    "no": "Non. ",
-    "score": "{right} sur {total} correctes"
+    "lower": "{mine} est plus faible que {top} – tu devrais prendre la défausse."
   },
   "game": {
     "title": "Jouer au Shithead contre des bots",
