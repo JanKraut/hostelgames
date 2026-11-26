@@ -1,6 +1,7 @@
 {#- Top of every page (games and hub), inside <header class="hero"><div class="wrap">.
     First row, on the right: menu "All games" (games only), search (built in, switched on with
     SEARCH in lib/nav.js), QR button, light / dark switch, language menu.
+    A site can put its own logo on the left of that row (headlogo = include name; the hub).
     Games add a second row: their name with the hostelgames tag hanging next to it, and on the
     right the links to their pages (from "pages" in game.json; "play" as "Play online").
     On phones the tag moves to the top left, the name and the page links get their own rows,
@@ -41,6 +42,10 @@
   {%- endif %}
   {%- endif %}
 
+  {%- if headlogo %}
+  {#- A site's own logo on the left of the first row (hub: set headlogo before the include) -#}
+  <a class="sitelogo" href="{{ lang.path }}">{% include headlogo %}</a>
+  {%- endif %}
   <div class="sitetools">
     {%- if game %}
     {%- set links = nav.links(lang.code) %}

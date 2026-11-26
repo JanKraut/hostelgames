@@ -1,13 +1,14 @@
-{#- The hostelgames logo of every game page: the hub's luggage tag (without its second line),
-    hanging on a string from the top edge of the page. A small "by" sticks on the tag's
-    top-left edge, half over the outline. Links to the hub start page (hostelgames.com, in the
-    page's language if the hub has it). Colours follow the header (light / dark).
-    Placed by sitehead.njk: next to the game's name on wide screens, top left on phones. -#}
+{#- The hostelgames logo of every game page: a luggage tag with the one-line word mark
+    (card as O, die as A; logomark-line.njk), hanging on a string from the top edge of the
+    page. A small "by" sticks on the tag's top-left edge, half over the outline. Links to the
+    hub start page (hostelgames.com, in the page's language if the hub has it). Colours follow
+    the header (light / dark). Placed by sitehead.njk: next to the game's name on wide
+    screens, top left on phones. -#}
 <a class="gamelogo" href="{{ site.hubUrl(lang.code) }}" aria-label="by hostelgames">
-  <svg class="logo" viewBox="0 5 306 80" aria-hidden="true">
-    <path class="logo-tag" d="M40 8h250a10 10 0 0 1 10 10v54a10 10 0 0 1-10 10H40L8 45z"/>
-    <circle class="logo-hole" cx="36" cy="45" r="8"/>
-    <text class="logo-name" x="60" y="57">hostelgames</text>
+  <svg class="logo" viewBox="0 0 922 148" aria-hidden="true">
+    <path class="logo-tag" d="M66 4h844a12 12 0 0 1 12 12v116a12 12 0 0 1-12 12H66L8 74z"/>
+    <circle class="logo-hole" cx="40" cy="74" r="9"/>
+    <g transform="translate(74 12)">{% include "logomark-line.njk" %}</g>
   </svg>
   <span class="gameby" aria-hidden="true">by</span>
 </a>

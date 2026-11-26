@@ -868,27 +868,32 @@ h3.sub.first {
   }
 }
 
-/* The hub's luggage tag (without its second line), hanging on a string from the top edge
-   of the page and tipped slightly, as if hooked up there. Everything is sized in em of the
+/* The hostelgames luggage tag with the one-line word mark (gamelogo.njk), hanging on a
+   string from the top edge of the page and tipped slightly, as if hooked up there. Its letters
+   are as big as the old text tag's (cap height about 9px). Everything is sized in em of the
    tag's height (font-size), so "by" and the string scale with it. The tag turns around its
-   hole (x 36 of 306, y 45 of 5–85 in the SVG); the string is drawn straight up from the hole. */
+   hole (x 40 of 922, y 74 of 148 in the SVG); the string is drawn straight up from the hole.
+   The word mark's colours (--lg-*) follow the header; card and die keep their dark edge. */
 .gamelogo {
-  --tag-h: 1.85rem;
+  --tag-h: 1.2rem;
   --tag-tilt: 6deg;
+  --lg-ink: var(--head-text);
+  --lg-gold: var(--gold);
+  --lg-red: #d2452f;
   position: relative;
   display: flex;
   align-items: center;
   border-radius: 0.4rem;
   font-size: var(--tag-h);
   transform: rotate(var(--tag-tilt));
-  transform-origin: 11.76% 50%;
+  transform-origin: 4.34% 50%;
   filter: drop-shadow(0 3px 3px rgba(60, 40, 0, 0.18));
 }
 
 .gamelogo::before {
   content: "";
   position: absolute;
-  left: calc(11.76% - 1px);
+  left: calc(4.34% - 1px);
   bottom: 60%;
   width: 2px;
   /* long enough to reach above the top edge of the page */
@@ -907,42 +912,29 @@ h3.sub.first {
   height: 1em;
 }
 
-@media (max-width: 30rem) {
-  .gamelogo {
-    --tag-h: 1.35rem;
-  }
-}
-
 .gamelogo .logo-tag,
 .gamelogo .logo-hole {
   fill: var(--head-bg);
   stroke: var(--head-text);
-  stroke-width: 3.5;
+  stroke-width: 10;
   stroke-linejoin: round;
 }
 
 /* "by" on the tag's top edge, right of the string: half over the outline, background =
-   header colour. Its em is its own font size (0.4 of the tag's height). */
+   header colour. Its em is its own font size (0.62 of the tag's height). */
 .gameby {
   position: absolute;
-  left: 1.75em;
-  top: -0.8em;
+  left: 1.2em;
+  top: -1.05em;
   padding: 0 0.3em;
   background: var(--head-bg);
   color: var(--head-accent);
   font-family: var(--font-display);
-  font-size: 0.4em;
+  font-size: 0.62em;
   font-weight: 800;
   line-height: 1.2;
   transform: rotate(-8deg);
   pointer-events: none;
-}
-
-.gamelogo .logo-name {
-  fill: var(--head-text);
-  font-family: var(--font-display);
-  font-size: 34px;
-  font-weight: 800;
 }
 
 .langmenu {

@@ -1,8 +1,6 @@
-{#- hostelgames logo: luggage tag with the name. Colours follow the header (light / dark). -#}
-<svg class="logo" viewBox="0 0 370 120" role="img" aria-labelledby="logo-title">
+{#- hostelgames logo: the two-line word mark (card as O, die as A; core include
+    logomark.njk), without a tag. Colours follow the header (light / dark). -#}
+<svg class="logo" viewBox="0 0 462 222" role="img" aria-labelledby="logo-title">
   <title id="logo-title">hostelgames</title>
-  <path class="logo-tag" d="M40 10h310a10 10 0 0 1 10 10v80a10 10 0 0 1-10 10H40L8 60z"/>
-  <circle class="logo-hole" cx="36" cy="60" r="8"/>
-  <text class="logo-name" x="64" y="58">hostelgames</text>
-  <text class="logo-sub" x="66" y="88">CARD GAMES · WORLDWIDE</text>
+  {% include "logomark.njk" %}
 </svg>

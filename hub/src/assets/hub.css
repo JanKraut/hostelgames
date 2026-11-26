@@ -1,68 +1,43 @@
 /* Hub page (hostelgames.com). Colours, fonts, header and footer come from
    @hostelgames/core (assets/core/core.css). */
 
-/* Header: the top row (sitehead.njk, from core) with QR button, light / dark switch and
-   language menu; below it the big logo (link to the start page), then the heading. */
-.hublogo {
+/* Header: the top row (sitehead.njk, from core) with the big logo on the left (link to the
+   start page, its top in line with the icons) and QR button, light / dark switch and language
+   menu on the right; below it the heading. */
+.sitehead:has(.sitelogo) {
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.sitelogo {
   display: inline-block;
-  margin: 0 0 1.8rem 1.5rem;
+  margin: 0.3rem 0 0 -0.4rem;
   border-radius: 0.6rem;
 }
 
 /* The heading is a sentence here, not just the name (the logo shows the name) */
-.hublogo ~ h1 {
+.sitehead ~ h1 {
   max-width: 22ch;
   font-size: clamp(2rem, 6.5vw, 3.4rem);
   line-height: 1.08;
 }
 
 .logo {
+  /* Colours of the word mark (core include logomark.njk); card and die keep their dark edge */
+  --lg-ink: var(--head-text);
+  --lg-gold: var(--gold);
+  --lg-red: #d2452f;
   display: block;
   width: auto;
-  height: 4.2rem;
-  /* Straight at first; once the page is scrolled, the tag swings down a little
-     from its hole, as if hooked onto something (class set in index.njk) */
-  transform: rotate(0deg);
-  transform-origin: 9.7% 50%;
-  transition: transform 0.7s cubic-bezier(0.34, 1.8, 0.5, 1);
+  height: 7rem;
 }
 
-.is-scrolled .logo {
-  transform: rotate(5deg);
-}
-
-@media (prefers-reduced-motion: reduce) {
+@media (max-width: 30rem) {
   .logo {
-    transition: none;
+    height: 5.6rem;
   }
-}
-
-.logo-tag {
-  fill: var(--head-bg);
-  stroke: var(--head-text);
-  stroke-width: 4;
-  stroke-linejoin: round;
-}
-
-.logo-hole {
-  fill: var(--head-bg);
-  stroke: var(--head-text);
-  stroke-width: 4;
-}
-
-.logo-name {
-  fill: var(--head-text);
-  font-family: var(--font-display);
-  font-size: 40px;
-  font-weight: 800;
-}
-
-.logo-sub {
-  fill: var(--head-accent);
-  font-family: var(--font-display);
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 2.4px;
 }
 
 .hub {
