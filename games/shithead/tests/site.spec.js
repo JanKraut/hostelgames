@@ -2,8 +2,7 @@
 // FAQ, language redirect, 404 and the practice quiz (answer, feedback, score) are tested for
 // every game in @hostelgames/core/testing.
 import { test, expect, pathOf, siteTests } from "@hostelgames/core/testing";
-import languages from "../src/_data/languages.js";
-import site from "../src/_data/site.js";
+import { languages, site } from "@hostelgames/core/game";
 const byCode = Object.fromEntries(languages.map((lang) => [lang.code, lang]));
 
 /** Opens a language page without being redirected by the start page. */

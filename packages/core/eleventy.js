@@ -2,13 +2,15 @@
 // adds it first in its eleventy.config.js:
 //
 //   import hostelgames from "@hostelgames/core/eleventy";
-//   eleventyConfig.addPlugin(hostelgames, { site, cacheName: "shithead" });
+//   eleventyConfig.addPlugin(hostelgames, { site, languages });
+//
+// Games don't call it themselves: their eleventy.config.js re-exports config/eleventy.js.
 //
 // It provides
 //   - root-relative links (/de/, /assets/…) prefixed with site.pathPrefix (HtmlBasePlugin)
 //   - assets/core/: core.css (shared design), core.js (light / dark, language menu, offline),
 //     fonts.css and the self-hosted font files listed in data/fonts.js
-//   - global data: nav (lib/nav.js: texts and links of the header, sitehead.njk),
+//   - global data site and languages (if passed), nav (lib/nav.js: texts and links of the header, sitehead.njk),
 //     tracking (data/tracking.js), legal (data/legal.js: privacy policy,
 //     legal notice, consent banner texts), fonts, coreFonts (files to preload),
 //     assetVersion (appended as ?v=… to CSS and JS, changes with every change of a file)
@@ -18,6 +20,7 @@
 //   - the shared includes in includes/ (header with menu, language menu, flags, footer,
 //     tracking, playing cards, share box, language redirect, layouts/game.njk);
 //     a site's own _includes win if a file has the same name
+//   - for games: sitemap.xml and robots.txt (lib/sitemap.js: only live games on their own domain)
 //   - for games: the 404 page (pages/404.njk, texts nf… from the game's i18n), with the layout
 //     given as notFoundLayout (default "game")
 //   - the service worker (assets/sw.js) with the list and a hash of all built files,
@@ -34,6 +37,7 @@ import legal from "./data/legal.js";
 import tracking from "./data/tracking.js";
 import { createNav } from "./lib/nav.js";
 import { fontFiles, fontsCss } from "./lib/fonts-css.js";
+import { sitemapFiles } from "./lib/sitemap.js";
 
 const CORE = dirname(fileURLToPath(import.meta.url));
 const CORE_ASSETS = join(CORE, "assets");
@@ -55,7 +59,7 @@ function hashFiles(dirs) {
 }
 
 export default function hostelgamesCore(eleventyConfig, options = {}) {
-  const { site, assets = "src/assets", includes = "src/_includes", serviceWorker = true, notFoundLayout = "game" } = options;
+  const { site, languages, assets = "src/assets", includes = "src/_includes", serviceWorker = true, notFoundLayout = "game" } = options;
   if (!site) throw new Error("@hostelgames/core: pass { site } (from @hostelgames/core/site)");
   const cacheName = options.cacheName ?? site.game?.slug ?? "hostelgames";
 
@@ -92,6 +96,8 @@ export default function hostelgamesCore(eleventyConfig, options = {}) {
   eleventyConfig.addWatchTarget(INCLUDES);
 
   // ---------- Global data ----------
+  eleventyConfig.addGlobalData("site", site);
+  if (languages) eleventyConfig.addGlobalData("languages", languages);
   eleventyConfig.addGlobalData("nav", createNav(site));
   eleventyConfig.addGlobalData("tracking", tracking);
   eleventyConfig.addGlobalData("legal", legal);
@@ -112,6 +118,13 @@ export default function hostelgamesCore(eleventyConfig, options = {}) {
   // Page frame for games: `layout: game` (includes/layouts/game.njk). Eleventy looks for layouts
   // in the site's own _includes, so the alias points from there to the core file.
   eleventyConfig.addLayoutAlias("game", relative(join(process.cwd(), includes), join(INCLUDES, "layouts/game.njk")));
+
+  // ---------- sitemap.xml and robots.txt of a game ----------
+  if (site.game && languages) {
+    for (const [file, text] of Object.entries(sitemapFiles(site, languages))) {
+      eleventyConfig.addTemplate(`hostelgames-${file}.11ty.js`, () => text, { permalink: `/${file}`, eleventyExcludeFromCollections: true });
+    }
+  }
 
   // ---------- 404 page of a game ----------
   if (site.game) {

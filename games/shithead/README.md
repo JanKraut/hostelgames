@@ -32,11 +32,9 @@ Beim ersten Mal ggf. den Browser installieren: `npx playwright install chromium`
 | `src/quickstart.njk` | Quickstart: Spickzettel, passt auf einen Handybildschirm (`/quickstart/`, `/de/quickstart/` …) |
 | `src/play.njk` | Spielseite gegen Bots (`/play/`, `/de/play/` …) |
 | `game.json` | Name, Slug, Domain (daraus der Ordner `shitheadgame`), Status, Sprachen und Seiten, siehe Root-README |
-| Aus dem Core | Seitenrahmen (`layout: game`), Seitenreiter, Weiterleitung nach Sprache, Teilen-Box (`share: true`), Sitemap, 404-Seite – siehe `packages/core/README.md` |
+| Aus dem Core | Seitenrahmen (`layout: game`), Seitenreiter, Weiterleitung nach Sprache, Teilen-Box (`share: true`), Sitemap, 404-Seite, Konfiguration (`eleventy.config.js`, `playwright.config.js`), Adresse und Sprachen – siehe `packages/core/README.md` |
 | `src/_includes/shithead-card.njk` | Die Shithead-Karte (Haufen statt Wert und Farbe); die übrigen Spielkarten-Makros kommen aus dem Core (`card.njk`) |
-| `src/_data/languages.js` | Sprachen der Seiten: Codes aus `game.json`, Flagge, Name und Fallbacks aus `@hostelgames/core/languages` |
 | `src/_data/i18n/*.json` | Texte pro Sprache, inklusive der Shithead-Erklärungen des Quiz unter `quiz` |
-| `src/_data/site.js` | Öffentliche URL und Pfad-Präfix (über `@hostelgames/core/site`) |
 | `src/assets/` | Eigenes Stylesheet (nur Shithead-Teile), JavaScript und Icons, werden unverändert kopiert |
 | `src/assets/site.js` | Auf jeder Seite: alte deutsche Abschnitts-Links umleiten |
 | `src/assets/quiz.js` | Regel des Übungsquiz (`deal`, `judge`); Rahmen, Ablauf und Standardtexte aus dem Core (`quiz.njk`, `assets/core/quiz.js`) |
@@ -108,14 +106,14 @@ Eine Sprache muss nur die Texte enthalten, die sie wirklich braucht: Fehlende Te
 nach aus ihren `fallback`-Sprachen und zuletzt aus Englisch. `es-419` (Lateinamerika) enthält zum
 Beispiel nur die wenigen Texte, die von `es` abweichen.
 
-**Neue Sprache:** `src/_data/i18n/<code>.json` anlegen und eine Zeile in `src/_data/languages.js` ergänzen.
+**Neue Sprache:** `src/_data/i18n/<code>.json` anlegen und den Code in `languages` der `game.json` eintragen (Flagge, Name und Fallbacks kommen aus `packages/core/lib/languages.js`).
 
 **Prüfung:** `npm run check` (Teil von `npm run build`, Skript `hostelgames-check-i18n` aus dem Core) bricht mit einer Liste der Probleme ab, wenn
 - ein Text fehlt, also weder in der Sprache selbst noch in einer ihrer Fallback-Sprachen steht und deshalb auf Englisch erscheinen würde,
 - ein Text leer ist oder nicht in Englisch vorkommt (Tippfehler, Überbleibsel),
 - Platzhalter wie `{mine}` oder `{top}` oder die HTML-Tags von Englisch abweichen oder Tags nicht geschlossen sind,
 - ein Link auf einen `#abschnitt` zeigt, den es auf der Seite nicht gibt,
-- `languages.js` und die JSON-Dateien nicht zusammenpassen.
+- `languages` in der `game.json` und die JSON-Dateien nicht zusammenpassen.
 
 ## Deployment und Tracking
 

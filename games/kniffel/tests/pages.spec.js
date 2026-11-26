@@ -1,7 +1,7 @@
 // Strategy and quick start of Kniffel: sections, dice, links. Titles, tabs, share box and
 // narrow phones are tested for every game in @hostelgames/core/testing (site.spec.js).
 import { test, expect, open } from "@hostelgames/core/testing";
-import languages from "../src/_data/languages.js";
+import { languages } from "@hostelgames/core/game";
 
 
 // Abschnitte der Strategie-Seite, in der Reihenfolge der Abschnittsnavigation.

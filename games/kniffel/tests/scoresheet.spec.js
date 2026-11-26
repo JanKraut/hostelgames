@@ -1,5 +1,5 @@
 import { test, expect } from "@hostelgames/core/testing";
-import languages from "../src/_data/languages.js";
+import { languages } from "@hostelgames/core/game";
 
 // Online-Block (scoresheet/): Spieler anlegen, eintragen, Summen und Bonus, Rückgängig,
 // Speichern im Browser, Abrechnung.

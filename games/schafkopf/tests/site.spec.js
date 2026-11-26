@@ -1,8 +1,7 @@
 // What is special about Schafkopf. Head, menus, links, share box, narrow phones, fact sheet,
 // FAQ, language redirect and 404 are tested for every game in @hostelgames/core/testing.
 import { test, expect, open, siteTests } from "@hostelgames/core/testing";
-import languages from "../src/_data/languages.js";
-import site from "../src/_data/site.js";
+import { languages, site } from "@hostelgames/core/game";
 
 siteTests({ languages, site });
 
