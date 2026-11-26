@@ -1,0 +1,13 @@
+{
+  "slug": "bridge",
+  "name": "Bridge",
+  "tagline": "Four players, two pairs, thirteen tricks – bid your contract and play the dummy",
+  "category": "cards",
+  "status": "draft",
+  "languages": ["en", "de"],
+  "pages": ["rules", "strategy", "quickstart"],
+  "related": [],
+  "players": { "min": 4, "max": 4 },
+  "duration": "30–60 min",
+  "factsheet": { "scales": [["luck", "skill", 90], ["easy", "complex", 90], ["kids", "adults", 85]], "people": [2, 3] }
+}

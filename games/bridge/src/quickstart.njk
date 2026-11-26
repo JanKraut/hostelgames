@@ -1,0 +1,105 @@
+---
+pagination:
+  data: languages
+  size: 1
+  alias: lang
+permalink: "{{ lang.path }}quickstart/"
+layout: game
+subpath: "quickstart/"
+share: true
+eleventyComputed:
+  pageTitle: "{{ lang.t.seo.quickT }}"
+  pageDescription: "{{ lang.t.seo.quickD }}"
+---
+{#- Quickstart: kompakter Spickzettel für den Tisch – Ablauf, Farbrangfolge & Stichpunkte,
+    Figurenpunkte & Zielwerte, Rubber-Boni, Kartenrangfolge. Texte unter `quick` und `rules`. -#}
+{%- set t = lang.t -%}
+{%- set r = t.rules -%}
+{%- set k = t.quick -%}
+{% include "hero.njk" %}
+
+<main class="wrap quick">
+  <section id="cheat-sheet">
+    <div class="cheat cheat2">
+      <h2>{{ k.h }}</h2>
+
+      <div class="ch-block ch-rule">
+        <div class="ch-icon" aria-hidden="true">13</div>
+        <div><h3>{{ k.ruleH }}</h3><p>{{ k.rule | safe }}</p></div>
+      </div>
+
+      <div class="ch-block">
+        <h3>{{ k.suitsH }}</h3>
+        <ul class="ch-suits">
+          {%- for s in [
+            ["♣", r.sClub, "20", "5♣", false],
+            ["♦", r.sDia, "20", "5♦", true],
+            ["♥", r.sHeart, "30", "4♥", true],
+            ["♠", r.sSpade, "30", "4♠", false],
+            [r.sNtSym, r.sNt, "40+30", "3" ~ r.sNtSym, false]
+          ] %}
+          <li>
+            <span class="ch-sym{% if s[4] %} r{% endif %}{% if loop.last %} nt{% endif %}" aria-hidden="true">{{ s[0] }}</span>
+            <span class="ch-sname">{{ s[1] }}</span>
+            <span class="ch-spts">{{ s[2] }}</span>
+            <b class="ch-sgame">{{ s[3] }}</b>
+          </li>
+          {%- endfor %}
+        </ul>
+        <p class="ch-legend">{{ k.suitsNote | safe }}</p>
+      </div>
+
+      <div class="ch-block">
+        <h3>{{ k.hcpH }}</h3>
+        <div class="ch-honors" aria-hidden="true">
+          <span><span class="ch-card">A<small>♠</small></span><b>4</b></span>
+          <span><span class="ch-card r">K<small>♥</small></span><b>3</b></span>
+          <span><span class="ch-card r">Q<small>♦</small></span><b>2</b></span>
+          <span><span class="ch-card">J<small>♣</small></span><b>1</b></span>
+        </div>
+        <ul class="ch-targets">
+          {%- for item in k.hcpTargets %}
+          <li><b>{{ item.pts }}</b><span>{{ item.label }}</span></li>
+          {%- endfor %}
+        </ul>
+      </div>
+
+      <div class="ch-block">
+        <h3>{{ k.scoreH }}</h3>
+        <ul class="ch-score">
+          {%- for row in k.scoreRows %}
+          <li><span>{{ row.label | safe }}</span><b>{{ row.val }}</b></li>
+          {%- endfor %}
+        </ul>
+      </div>
+
+      <div class="ch-block">
+        <h3>{{ k.rankH }}</h3>
+        <div class="ch-ranks" aria-hidden="true">
+          {%- for c in [["2","♣"],["3","♦"],["4","♥"],["5","♠"],["6","♣"],["7","♦"],["8","♥"],["9","♠"],["10","♣"],["J","♦"],["Q","♥"],["K","♠"],["A","♠"]] %}
+          <span class="ch-card{% if c[1] in '♥♦' %} r{% endif %}">{{ c[0] }}<small>{{ c[1] }}</small></span>
+          {%- endfor %}
+        </div>
+        <div class="ch-rankscale" aria-hidden="true"><span>{{ r.rankLow }}</span><span>{{ r.rankHigh }}</span></div>
+        <p>{{ k.rankNote | safe }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="next-steps" class="ctas">
+    <div class="cta">
+      <h2>{{ k.ctaRulesH }}</h2>
+      <p>{{ k.ctaRulesP }}</p>
+      <a class="ctabtn" href="{{ lang.path }}">{{ k.ctaRulesBtn }} →</a>
+    </div>
+    <div class="cta">
+      <h2>{{ k.ctaStratH }}</h2>
+      <p>{{ k.ctaStratP }}</p>
+      <a class="ctabtn" href="{{ lang.path }}strategy/">{{ k.ctaStratBtn }} →</a>
+    </div>
+  </section>
+
+  {% include "share.njk" %}
+</main>
+
+{% include "footer.njk" %}
