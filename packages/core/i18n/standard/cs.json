@@ -30,5 +30,14 @@
     "similarH": "Podobné hry",
     "introH": "Úvod",
     "gearH": "Co potřebuješ"
+  },
+  "qYes": "Ano",
+  "qNo": "Ne",
+  "quiz": {
+    "right": "Správně! ",
+    "wrong": "Ne tak úplně. ",
+    "yes": "Ano. ",
+    "no": "Ne. ",
+    "score": "{right} z {total} správně"
   }
 }

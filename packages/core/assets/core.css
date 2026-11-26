@@ -2044,3 +2044,89 @@ ol.steps p {
   padding: 0;
   list-style: none;
 }
+
+/* ---------- Practice quiz (includes/quiz.njk, assets/quiz.js) ---------- */
+
+.trainer {
+  margin: 1rem 0;
+  padding: 1.3rem 1rem 1.2rem;
+  border-radius: 20px;
+  background: var(--felt);
+  color: var(--felt-text);
+  text-align: center;
+}
+
+.trainer .duel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.4rem;
+  margin: 0.6rem 0 1rem;
+}
+
+.trainer .lbl {
+  margin-top: 0.45rem;
+  color: var(--felt-soft);
+  font-size: 0.85rem;
+}
+
+.trainer .q {
+  margin: 0 0 0.8rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.trainer .btns {
+  display: flex;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+.trainer .btns button,
+.trainer .next {
+  min-width: 7rem;
+  padding: 0.95rem 1.6rem;
+  border: 0;
+  border-radius: 999px;
+  font: 700 1.1rem/1 var(--font-body);
+  cursor: pointer;
+}
+
+.trainer .yes {
+  background: var(--paper);
+  color: var(--card-ink);
+}
+
+.trainer .no {
+  background: var(--red);
+  color: var(--on-red);
+}
+
+.trainer .next {
+  margin-top: 0.8rem;
+  background: var(--felt-btn);
+  color: var(--felt-btn-text);
+}
+
+.trainer .fb {
+  max-width: 26rem;
+  min-height: 3.2rem;
+  margin: 0.9rem auto 0;
+  font-size: 1rem;
+}
+
+.trainer .fb .ok {
+  color: var(--ok);
+  font-weight: 700;
+}
+
+.trainer .fb .ko {
+  color: var(--ko);
+  font-weight: 700;
+}
+
+.trainer .score {
+  margin-top: 0.4rem;
+  color: var(--felt-soft);
+  font-size: 0.9rem;
+}

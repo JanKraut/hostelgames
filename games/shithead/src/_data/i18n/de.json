@@ -84,8 +84,6 @@
   "qTop": "liegt oben",
   "qMine": "deine Karte",
   "qQ": "Darfst du sie legen?",
-  "qYes": "Ja",
-  "qNo": "Nein",
   "qNext": "Nächste Karte",
   "stH": "Strategien",
   "chH": "Spickzettel",
@@ -99,12 +97,7 @@
     "after7no": "Nach einer 7 muss es 7 oder niedriger sein.",
     "same": "Gleiche Karte geht immer.",
     "higher": "{mine} ist höher als {top}.",
-    "lower": "{mine} ist niedriger als {top} – du müsstest den Stapel nehmen.",
-    "right": "Richtig! ",
-    "wrong": "Nicht ganz. ",
-    "yes": "Ja. ",
-    "no": "Nein. ",
-    "score": "{right} von {total} richtig"
+    "lower": "{mine} ist niedriger als {top} – du müsstest den Stapel nehmen."
   },
   "game": {
     "title": "Shithead gegen Bots spielen",

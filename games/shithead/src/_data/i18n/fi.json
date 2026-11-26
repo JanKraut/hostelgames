@@ -84,8 +84,6 @@
   "qTop": "päällä",
   "qMine": "sinun korttisi",
   "qQ": "Saatko pelata sen?",
-  "qYes": "Kyllä",
-  "qNo": "Ei",
   "qNext": "Seuraava kortti",
   "stH": "Strategiat",
   "chH": "Lunttilappu",
@@ -99,12 +97,7 @@
     "after7no": "7:n jälkeen on pelattava 7 tai pienempi.",
     "same": "Saman arvon voi pelata aina.",
     "higher": "{mine} on suurempi kuin {top}.",
-    "lower": "{mine} on pienempi kuin {top} – joutuisit nostamaan pinon.",
-    "right": "Oikein! ",
-    "wrong": "Ei aivan. ",
-    "yes": "Kyllä. ",
-    "no": "Ei. ",
-    "score": "{right}/{total} oikein"
+    "lower": "{mine} on pienempi kuin {top} – joutuisit nostamaan pinon."
   },
   "game": {
     "title": "Pelaa Shitheadia botteja vastaan",

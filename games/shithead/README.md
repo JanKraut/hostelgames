@@ -35,11 +35,11 @@ Beim ersten Mal ggf. den Browser installieren: `npx playwright install chromium`
 | Aus dem Core | Seitenrahmen (`layout: game`), Seitenreiter, Weiterleitung nach Sprache, Teilen-Box (`share: true`), Sitemap, 404-Seite – siehe `packages/core/README.md` |
 | `src/_includes/shithead-card.njk` | Die Shithead-Karte (Haufen statt Wert und Farbe); die übrigen Spielkarten-Makros kommen aus dem Core (`card.njk`) |
 | `src/_data/languages.js` | Sprachen der Seiten: Codes aus `game.json`, Flagge, Name und Fallbacks aus `@hostelgames/core/languages` |
-| `src/_data/i18n/*.json` | Texte pro Sprache, inklusive Quiztexte unter `quiz` |
+| `src/_data/i18n/*.json` | Texte pro Sprache, inklusive der Shithead-Erklärungen des Quiz unter `quiz` |
 | `src/_data/site.js` | Öffentliche URL und Pfad-Präfix (über `@hostelgames/core/site`) |
 | `src/assets/` | Eigenes Stylesheet (nur Shithead-Teile), JavaScript und Icons, werden unverändert kopiert |
 | `src/assets/site.js` | Auf jeder Seite: alte deutsche Abschnitts-Links umleiten |
-| `src/assets/rules.js` | Regelseite: Quiz |
+| `src/assets/quiz.js` | Regel des Übungsquiz (`deal`, `judge`); Rahmen, Ablauf und Standardtexte aus dem Core (`quiz.njk`, `assets/core/quiz.js`) |
 | `src/assets/game/` | Spiel: `engine.js` (Regeln), `bots.js` (Computergegner), `ui.js` (Oberfläche), `fx.js` (Animationen), `game.css` |
 | `src/manifest.webmanifest` | Web-App-Manifest, macht die Seite installierbar |
 | `tests/site.spec.js` | Playwright-Tests: alle Sprachseiten, Weiterleitung, ohne JavaScript, Quiz, Teilen, Offline |

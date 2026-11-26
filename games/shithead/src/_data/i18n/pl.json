@@ -84,8 +84,6 @@
   "qTop": "na wierzchu",
   "qMine": "twoja karta",
   "qQ": "Możesz ją położyć?",
-  "qYes": "Tak",
-  "qNo": "Nie",
   "qNext": "Następna karta",
   "stH": "Strategie",
   "chH": "Ściąga",
@@ -99,12 +97,7 @@
     "after7no": "Po siódemce musi być 7 lub niżej.",
     "same": "Ta sama wartość pasuje zawsze.",
     "higher": "{mine} jest wyżej niż {top}.",
-    "lower": "{mine} jest niżej niż {top} – musiał(a)byś wziąć stos.",
-    "right": "Dobrze! ",
-    "wrong": "Niezupełnie. ",
-    "yes": "Tak. ",
-    "no": "Nie. ",
-    "score": "{right} z {total} poprawnie"
+    "lower": "{mine} jest niżej niż {top} – musiał(a)byś wziąć stos."
   },
   "game": {
     "title": "Zagraj w Shithead z botami",

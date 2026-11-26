@@ -30,5 +30,14 @@
     "similarH": "Vergelijkbare spellen",
     "introH": "Introductie",
     "gearH": "Wat je nodig hebt"
+  },
+  "qYes": "Ja",
+  "qNo": "Nee",
+  "quiz": {
+    "right": "Goed! ",
+    "wrong": "Net niet. ",
+    "yes": "Ja. ",
+    "no": "Nee. ",
+    "score": "{right} van {total} goed"
   }
 }

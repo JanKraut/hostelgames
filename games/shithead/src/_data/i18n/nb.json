@@ -84,8 +84,6 @@
   "qTop": "ligger øverst",
   "qMine": "kortet ditt",
   "qQ": "Kan du legge det?",
-  "qYes": "Ja",
-  "qNo": "Nei",
   "qNext": "Neste kort",
   "stH": "Strategier",
   "chH": "Jukselapp",
@@ -99,12 +97,7 @@
     "after7no": "Etter en 7-er må det være 7 eller lavere.",
     "same": "Samme verdi går alltid.",
     "higher": "{mine} er høyere enn {top}.",
-    "lower": "{mine} er lavere enn {top} – du måtte ha tatt bunken.",
-    "right": "Riktig! ",
-    "wrong": "Ikke helt. ",
-    "yes": "Ja. ",
-    "no": "Nei. ",
-    "score": "{right} av {total} riktige"
+    "lower": "{mine} er lavere enn {top} – du måtte ha tatt bunken."
   },
   "game": {
     "title": "Spill Shithead mot boter",

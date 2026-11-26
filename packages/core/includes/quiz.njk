@@ -1,0 +1,32 @@
+{#- Practice quiz of every game, from @hostelgames/core. Include it where the quiz belongs
+    ({% include "quiz.njk" %}, usually rules page and quick start). Hidden without JavaScript.
+    It loads the game's own /assets/quiz.js (the rules), which starts the core engine
+    /assets/core/quiz.js. Tests: siteTests({ …, quiz: ["rules", "quickstart"] }).
+
+    Texts (i18n): qH heading (on the quick start quick.tryH, if the game has it), qLead, qQ
+    (question), qNext (button to the next question), quiz.* (the game's explanations);
+    qYes, qNo and quiz.right / wrong / yes / no / score are standard texts of the core.
+
+    The picture of the question comes from quiz-stage.njk: core default two cards ("on top"
+    qTop in #topCard, "your card" qMine in #myCard). A game with another picture (dice …)
+    puts its own quiz-stage.njk into its _includes. -#}
+{%- set t = lang.t -%}
+{%- set quizH = t.qH -%}
+{%- if subpath == "quickstart/" and t.quick and t.quick.tryH %}{% set quizH = t.quick.tryH %}{% endif -%}
+<section id="practice" class="js-only">
+  <h2>{{ quizH }}</h2>
+  <p class="lead">{{ t.qLead | safe }}</p>
+  <div class="trainer" aria-live="polite">
+    {% include "quiz-stage.njk" %}
+    <p class="q">{{ t.qQ }}</p>
+    <div class="btns" id="btns">
+      <button class="yes" data-a="1">{{ t.qYes }}</button>
+      <button class="no" data-a="0">{{ t.qNo }}</button>
+    </div>
+    <div class="fb" id="fb"></div>
+    <button class="next" id="next" hidden>{{ t.qNext }}</button>
+    <div class="score" id="score"></div>
+  </div>
+  <script type="application/json" id="quiz-text">{{ t.quiz | dump | safe }}</script>
+  <script type="module" src="/assets/quiz.js?v={{ assetVersion }}"></script>
+</section>

@@ -30,5 +30,14 @@
     "similarH": "Lignende spil",
     "introH": "Introduktion",
     "gearH": "Det skal du bruge"
+  },
+  "qYes": "Ja",
+  "qNo": "Nej",
+  "quiz": {
+    "right": "Rigtigt! ",
+    "wrong": "Ikke helt. ",
+    "yes": "Ja. ",
+    "no": "Nej. ",
+    "score": "{right} af {total} rigtige"
   }
 }

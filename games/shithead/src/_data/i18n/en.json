@@ -85,8 +85,6 @@
   "qTop": "on top",
   "qMine": "your card",
   "qQ": "Can you play it?",
-  "qYes": "Yes",
-  "qNo": "No",
   "qNext": "Next card",
   "stH": "Strategies",
   "chH": "Cheat sheet",
@@ -106,12 +104,7 @@
     "after7no": "After a 7 it has to be 7 or lower.",
     "same": "The same rank can always be played.",
     "higher": "{mine} is higher than {top}.",
-    "lower": "{mine} is lower than {top} – you’d have to pick up the pile.",
-    "right": "Correct! ",
-    "wrong": "Not quite. ",
-    "yes": "Yes. ",
-    "no": "No. ",
-    "score": "{right} of {total} correct"
+    "lower": "{mine} is lower than {top} – you’d have to pick up the pile."
   },
   "game": {
     "title": "Play Shithead against bots",

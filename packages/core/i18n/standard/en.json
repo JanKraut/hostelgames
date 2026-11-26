@@ -30,5 +30,14 @@
     "similarH": "Similar games",
     "introH": "Introduction",
     "gearH": "What you need"
+  },
+  "qYes": "Yes",
+  "qNo": "No",
+  "quiz": {
+    "right": "Correct! ",
+    "wrong": "Not quite. ",
+    "yes": "Yes. ",
+    "no": "No. ",
+    "score": "{right} of {total} correct"
   }
 }

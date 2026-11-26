@@ -84,8 +84,6 @@
   "qTop": "in cima",
   "qMine": "la tua carta",
   "qQ": "Puoi giocarla?",
-  "qYes": "Sì",
-  "qNo": "No",
   "qNext": "Prossima carta",
   "stH": "Strategie",
   "chH": "Bigino",
@@ -99,12 +97,7 @@
     "after7no": "Dopo un 7 serve un 7 o meno.",
     "same": "Lo stesso valore va sempre bene.",
     "higher": "{mine} è più alto di {top}.",
-    "lower": "{mine} è più basso di {top} – dovresti prendere la pila.",
-    "right": "Giusto! ",
-    "wrong": "Non proprio. ",
-    "yes": "Sì. ",
-    "no": "No. ",
-    "score": "{right} su {total} giuste"
+    "lower": "{mine} è più basso di {top} – dovresti prendere la pila."
   },
   "game": {
     "title": "Gioca a Shithead contro i bot",

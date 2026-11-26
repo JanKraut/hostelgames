@@ -84,8 +84,6 @@
   "qTop": "navrchu",
   "qMine": "tvoje karta",
   "qQ": "Můžeš ji zahrát?",
-  "qYes": "Ano",
-  "qNo": "Ne",
   "qNext": "Další karta",
   "stH": "Strategie",
   "chH": "Tahák",
@@ -99,12 +97,7 @@
     "after7no": "Po sedmičce musí být 7 nebo nižší.",
     "same": "Stejná hodnota jde vždycky.",
     "higher": "{mine} je výš než {top}.",
-    "lower": "{mine} je níž než {top} – musel(a) bys vzít balíček.",
-    "right": "Správně! ",
-    "wrong": "Ne tak úplně. ",
-    "yes": "Ano. ",
-    "no": "Ne. ",
-    "score": "{right} z {total} správně"
+    "lower": "{mine} je níž než {top} – musel(a) bys vzít balíček."
   },
   "game": {
     "title": "Hraj Shithead proti botům",

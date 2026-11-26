@@ -84,8 +84,6 @@
   "qTop": "ligger øverst",
   "qMine": "dit kort",
   "qQ": "Må du lægge det?",
-  "qYes": "Ja",
-  "qNo": "Nej",
   "qNext": "Næste kort",
   "stH": "Strategier",
   "chH": "Snydeseddel",
@@ -99,12 +97,7 @@
     "after7no": "Efter en 7’er skal det være 7 eller lavere.",
     "same": "Samme værdi må altid spilles.",
     "higher": "{mine} er højere end {top}.",
-    "lower": "{mine} er lavere end {top} – du ville skulle tage bunken.",
-    "right": "Rigtigt! ",
-    "wrong": "Ikke helt. ",
-    "yes": "Ja. ",
-    "no": "Nej. ",
-    "score": "{right} af {total} rigtige"
+    "lower": "{mine} er lavere end {top} – du ville skulle tage bunken."
   },
   "game": {
     "title": "Spil Shithead mod bots",
