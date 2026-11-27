@@ -1,6 +1,8 @@
 # @hostelgames/core
 
-Gemeinsamer Kern aller Seiten im Monorepo (Spiele und Hub). Was hier liegt, sieht und verhält sich inNjedem Spiel gleich. Ein Spiel kann eine Include-Datei überschreiben, indem es eine gleichnamige inCseinem eigenen `_includes/` anlegt.
+Gemeinsamer Kern aller Seiten im Monorepo (Spiele und Hub). Was hier liegt, sieht und verhält sich in
+jedem Spiel gleich. Ein Spiel kann eine Include-Datei überschreiben, indem es eine gleichnamige in
+seinem eigenen `_includes/` anlegt.
 
 | Pfad | Inhalt |
 | --- | --- |

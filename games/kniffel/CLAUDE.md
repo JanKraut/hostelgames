@@ -1,7 +1,7 @@
 # Kniffel
 
 ## Besonderheiten
-- Online-Block (`src/scoresheet.njk`, `src/assets/scoresheet.js`): 1–8 Spieler auf einem Gerät,
+- Online-Block (Dateien siehe `README.md`): 1–8 Spieler auf einem Gerät,
   gespeichert nur in `localStorage` (`hostelgames:kniffel:scoresheet`), kein Server, kein Teilen.
   Konzept: Projekt-Doku „kniffel-block-konzept.md“. Styles am Ende von `src/assets/styles.css`
   (nur Core-Farben). Beim zweiten Block-Spiel Logik und Styles in den Core verschieben.

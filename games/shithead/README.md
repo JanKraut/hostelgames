@@ -2,12 +2,6 @@
 
 Webseite zum Kartenspiel Shithead (**Shithead in 3 minutes**), erstes Spiel im Monorepo
 [hostelgames](../../README.md).
-**Live** (`status: live`): eigene Domain https://shitheadgame.de (zusätzlich unter
-https://hostelgames.com/shitheadgame/).
-
-Standard-Aufbau und gemeinsame Teile siehe [Aufbau eines Spiels](../../README.md#aufbau-eines-spiels)
-und [`@hostelgames/core`](../../packages/core/README.md); aktive Seiten, Sprachen und Status stehen
-in [`game.json`](game.json).
 
 ```sh
 # Build für die eigene Domain (inkl. src/.htaccess):

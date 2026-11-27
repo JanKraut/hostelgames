@@ -42,6 +42,29 @@ liegen nur seine eigenen Inhalte:
 | `src/assets/favicon.svg`, `styles.css` | Favicon und eigene Styles zusätzlich zu `core.css` (optional z. B. `quiz.js`, `scoresheet.js`, `game/`) |
 | `tests/site.spec.js` | Playwright-Tests (`siteTests` aus dem Core + spielspezifische Checks) |
 
+Das `README.md` eines Spiels enthält nur, was es vom Standard-Aufbau abhebt (eigene Dateien, Tests,
+Build-Befehle). Aktive Seiten, Sprachen und Status stehen in seiner `game.json`.
+
+### Alle Spiele
+
+Stand der `game.json`-Dateien. Entwürfe (`draft`) gibt es nur in der Vorschau auf GitHub Pages.
+
+| Spiel | Status | Adresse |
+| --- | --- | --- |
+| [Asshole](games/asshole/) | Entwurf | [Vorschau](https://jankraut.github.io/hostelgames/assholegame/) (Domain assholegame.de noch nicht aktiv) |
+| [Bridge](games/bridge/) | Entwurf | [Vorschau](https://jankraut.github.io/hostelgames/bridge/) |
+| [Cabo](games/cabo/) | Entwurf | [Vorschau](https://jankraut.github.io/hostelgames/cabogame/) (Domain cabogame.de noch nicht aktiv) |
+| [Cambio](games/cambio/) | Entwurf | [Vorschau](https://jankraut.github.io/hostelgames/cambiogame/) (Domain cambiogame.de noch nicht aktiv) |
+| [Jule](games/jule/) | Entwurf | [Vorschau](https://jankraut.github.io/hostelgames/jule/) |
+| [King’s Cup](games/kingscup/) | Entwurf | [Vorschau](https://jankraut.github.io/hostelgames/kingscup/) |
+| [Kniffel](games/kniffel/) | Live | https://hostelgames.com/kniffel/ |
+| [Mau-Mau](games/maumau/) | Entwurf | [Vorschau](https://jankraut.github.io/hostelgames/maumau/) |
+| [President](games/president/) | Entwurf | [Vorschau](https://jankraut.github.io/hostelgames/presidentsgame/) (Domain presidentsgame.de noch nicht aktiv) |
+| [Schafkopf](games/schafkopf/) | Entwurf | [Vorschau](https://jankraut.github.io/hostelgames/schafkopf/) |
+| [Shithead](games/shithead/) | Live | https://shitheadgame.de (auch https://hostelgames.com/shitheadgame/) |
+
+Ändert sich `status` oder `domain` in einer `game.json`, diese Tabelle mit anpassen.
+
 ## Entwickeln
 
 ```sh

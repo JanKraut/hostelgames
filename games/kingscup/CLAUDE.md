@@ -1,7 +1,7 @@
 # King’s Cup
 
 ## Besonderheiten
-- Kartenring und Becher (`src/_includes/ring.njk`) nur hier.
+- Kartenring mit Becher gibt es nur in diesem Spiel (Datei siehe `README.md`).
 - Abschnitt „Verantwortungsvoll spielen“ (`#safe`) bleibt immer drin.
 - Nächste Schritte: ggf. Quickstart (Spickzettel A–K fürs Handy).
 

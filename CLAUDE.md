@@ -10,8 +10,9 @@ Hub hostelgames.com, jedes Spiel optional auf eigener Domain. Details: `README.m
   Gemeinsames gehört hierher, nicht ins Spiel.
 - `hub/` hostelgames.com, listet `games/*/game.json`.
 - `games/<slug>/` ein Spiel mit eigener `CLAUDE.md` (nur Spielregeln, feste Begriffe und
-  Besonderheiten). `game.json` ist die einzige Quelle für `category`, `domain`, `status`,
-  `languages`, `pages` und `related`.
+  Regeln für Besonderheiten). Welche Dateien besonders sind, steht nur im `README.md` des Spiels.
+  `game.json` ist die einzige Quelle für `category`, `domain`, `status`, `languages`, `pages` und
+  `related`. Ändern sich `status` oder `domain`: Tabelle „Alle Spiele“ im Root-`README.md` anpassen.
 - Ordner = Domain ohne Endung (`shitheadgame.de` → `shitheadgame`, ohne Domain: `slug`).
 
 Vor jedem Commit: `npm run check`, `npm run build:<slug>`, Tests des Spiels.
