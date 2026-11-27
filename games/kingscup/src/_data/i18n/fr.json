@@ -106,7 +106,11 @@
   "sub": "Aussi connu sous le nom de <strong>Ring of Fire</strong> ou <strong>Circle of Death</strong> : un jeu de cartes en cercle, un gobelet au milieu et une règle pour chaque carte. Une lecture, on pioche, et c’est parti.",
   "seo": {
     "rulesT": "Règles du King’s Cup – le jeu à boire Ring of Fire",
-    "rulesD": "King’s Cup (Ring of Fire, Circle of Death) expliqué : mise en place, signification de chaque carte de l’as au roi, les quatre rois, variantes et jouer de manière responsable."
+    "rulesD": "King’s Cup (Ring of Fire, Circle of Death) expliqué : mise en place, signification de chaque carte de l’as au roi, les quatre rois, variantes et jouer de manière responsable.",
+    "strategyT": "Stratégie King’s Cup – astuces pour le cercle, les cartes et les rois",
+    "strategyD": "Astuces King’s Cup : piocher sans casser le cercle, gérer Cascade, Rime, Règle et Maître des questions, jouer les rois et garder son rythme.",
+    "quickT": "King’s Cup en bref – toutes les cartes sur un écran",
+    "quickD": "King’s Cup en un coup d’œil : ton tour, la signification de chaque carte de l’As au roi, les quatre rois et comment jouer de manière responsable."
   },
   "goal": "<strong>Le but :</strong> piocher des cartes chacun son tour, suivre la règle de chaque carte – et espérer ne pas être celui qui tire le quatrième roi.",
   "info": {
@@ -121,5 +125,104 @@
     "gearN": "52 cartes, grand gobelet et boissons",
     "gearAlt": "Un jeu de cartes et un grand gobelet",
     "intro": "Le King’s Cup est le grand classique des salles communes d’auberges de jeunesse et des débuts de soirée : pas de stratégie, pas de feuille de score, juste un jeu de cartes et une règle par carte. Chacun connaît une version un peu différente – mettez-vous donc d’accord sur les règles avant la première carte."
+  },
+  "strategy": {
+    "h1": "Stratégie King’s Cup",
+    "h1sub": "",
+    "sub": "King’s Cup, c’est surtout de la chance. Mais ta façon de piocher, de gérer les cartes délicates et de doser ton rythme décide si tu t’amuses encore au quatrième roi.",
+    "principleNav": "Principe",
+    "ringNav": "Le cercle",
+    "cardsNav": "Cartes délicates",
+    "kingsNav": "Les rois",
+    "paceNav": "Rythme",
+    "mistakesNav": "Erreurs",
+    "principleH": "Le principe de base",
+    "principle": "Tu ne choisis pas la carte que tu tires – mais tu choisis <strong>Comment tu réagis</strong>. Des réflexes rapides, une bonne mémoire des règles en jeu et un rythme raisonnable font la différence.",
+    "principleItems": [
+      "<strong>Fixez les règles avant la première carte.</strong> Passez en revue les treize cartes et vos variantes, pour que personne ne discute en pleine partie.",
+      "<strong>Reste attentif même quand ce n’est pas ton tour.</strong> Sol, Ciel, la Cascade et le Maître des questions piègent tous ceux qui regardent leur téléphone.",
+      "<strong>Garde une vue d’ensemble.</strong> Chaque valet ajoute une règle, chaque dame donne un nouveau Maître des questions et chaque 8 un nouveau partenaire."
+    ],
+    "ringH": "Piocher sans casser le cercle",
+    "ringLead": "Le cercle est la seule chose que tu contrôles vraiment pendant ton tour.",
+    "ringItems": [
+      "<strong>Pioche là où les cartes se chevauchent le moins.</strong> Une carte qui touche à peine ses voisines sort sans les déplacer.",
+      "<strong>Fais glisser, ne soulève pas.</strong> Maintiens la carte voisine d’un doigt et fais sortir la tienne sur le côté.",
+      "<strong>Prends ton temps.</strong> Il n’y a pas de limite de temps – piocher prudemment coûte moins cher qu’une gorgée de pénalité.",
+      "<strong>Réparez le cercle ensemble.</strong> Si des cartes ont bougé, remettez-les en place avant le tour suivant, pour que personne ne se dispute plus tard sur qui a ouvert le trou."
+    ],
+    "cardsH": "Astuces pour les cartes délicates",
+    "cardsLead": "La plupart des cartes se règlent en une seconde. Pour celles-ci, un peu de stratégie paie.",
+    "c_a": "Si tu la tires, c’est toi qui donnes le rythme : arrête-toi après une petite gorgée et toute la table peut s’arrêter. Tu es en bout de Cascade ? Prends de toutes petites gorgées – c’est toi qui bois le plus longtemps.",
+    "c_8": "Choisis quelqu’un qui boit à peu près à ton rythme. Varie : prendre toujours la même personne n’est pas drôle longtemps.",
+    "c_9": "Commence par un mot qui a beaucoup de rimes faciles pour faire durer le tour, ou par un mot rare pour le finir vite. Prépare ta rime pendant que les autres parlent encore.",
+    "c_10": "Choisis une catégorie que tu connais bien et qui a beaucoup de réponses. N’en prends jamais une où tu serais le premier à sécher.",
+    "c_j": "Les meilleures règles sont faciles à retenir et faciles à enfreindre par mégarde, comme « interdit de montrer du doigt » ou « dire santé avant chaque gorgée ». Évite les règles qui excluent quelqu’un ou mettent mal à l’aise.",
+    "c_q": "Glisse tes questions dans la conversation – « Je te ramène de l’eau ? » marche mieux qu’un quiz évident. Et quand quelqu’un d’autre est Maître des questions, garde « Oublie ça, Maître des questions » sous le coude.",
+    "kingsH": "Jouer les rois",
+    "kingsLead": "Le gobelet du milieu se remplit à chaque roi – ce qu’on y verse décide de la difficulté du quatrième roi.",
+    "kingsItems": [
+      "<strong>Verse seulement un peu.</strong> Une petite goutte suffit. Le quatrième roi doit faire rire, pas punir – et ça peut tomber sur toi.",
+      "<strong>Seulement des boissons qui vont ensemble.</strong> Ne verse jamais rien que quelqu’un à la table ne peut pas ou ne veut pas boire.",
+      "<strong>Compte les rois.</strong> Après le troisième roi, chaque pioche est un pari – c’est là que la table devient bruyante.",
+      "<strong>Le quatrième roi n’a pas à finir le gobelet.</strong> Autant de gorgées que nécessaire, et on a toujours le droit d’arrêter."
+    ],
+    "paceH": "Garde ton rythme",
+    "paceLead": "Les meilleurs joueurs sont ceux qui sont encore à table pour la deuxième partie.",
+    "paceItems": [
+      "<strong>Toujours de petites gorgées.</strong> Presque chaque carte peut signifier une gorgée – en une heure, ça s’accumule.",
+      "<strong>Garde de l’eau à côté de ton verre</strong> et bois-en entre les tours.",
+      "<strong>Passe au sans alcool quand tu veux.</strong> Les softs comptent autant pour chaque règle.",
+      "<strong>Mange avant de jouer.</strong> Une partie le ventre vide se termine tôt pour tout le monde."
+    ],
+    "paceWarn": "<strong>Celui ou celle qui en a assez arrête – sans discussion.</strong> Ne pousse jamais personne à boire et ne conduis jamais après avoir joué.",
+    "paceWarnLink": "Jouer de manière responsable",
+    "mistakesH": "Erreurs fréquentes",
+    "mistakes": [
+      "<strong>Commencer sans s’être mis d’accord sur les règles.</strong> Dix minutes de débat sur le sens du 7 cassent l’ambiance.",
+      "<strong>Attraper une carte à la va-vite.</strong> Une pioche précipitée casse le cercle – et te coûte une gorgée.",
+      "<strong>Oublier sa propre règle.</strong> Rien n’amuse plus la table que l’auteur d’une règle qui l’enfreint.",
+      "<strong>Répondre au Maître des questions.</strong> Un simple « Quoi ? » suffit pour se faire avoir.",
+      "<strong>Remplir le gobelet à ras bord.</strong> Quelqu’un devra le boire au quatrième roi – peut-être toi.",
+      "<strong>Boire à grandes lampées.</strong> La partie est longue et les cartes continuent : des gorgées, pas des lampées."
+    ],
+    "ctaQuickH": "Déjà à table ?",
+    "ctaQuickP": "Les treize cartes et les quatre rois sur un seul écran.",
+    "ctaQuickBtn": "Ouvrir l’aide-mémoire",
+    "ctaRulesH": "Nouveau dans le jeu ?",
+    "ctaRulesP": "Lis d’abord toutes les règles, les variantes et la FAQ.",
+    "ctaRulesBtn": "Voir les règles"
+  },
+  "quick": {
+    "h": "King’s Cup en un coup d’œil",
+    "ruleH": "Ton tour",
+    "rule": "Tire <strong>Une carte</strong> du cercle autour du gobelet, montre-la et applique sa règle. <strong>Cercle cassé</strong> = une gorgée. On joue dans le sens des aiguilles d’une montre.",
+    "cardsH": "Les cartes",
+    "c_a": "Tout le monde boit ; on s’arrête seulement après la personne à sa droite",
+    "c_2": "Désigne quelqu’un qui boit une gorgée",
+    "c_3": "Tu bois une gorgée",
+    "c_4": "Le dernier à toucher le sol boit",
+    "c_5": "Tous les gars boivent",
+    "c_6": "Toutes les filles boivent",
+    "c_7": "Le dernier à pointer en l’air boit",
+    "c_8": "Boit chaque fois que tu bois",
+    "c_9": "Le premier qui sèche boit",
+    "c_10": "Le premier qui sèche boit",
+    "c_j": "Nouvelle règle jusqu’à la fin",
+    "c_q": "Répondre à une question = une gorgée",
+    "c_k": "Verse un peu de ta boisson dans le gobelet",
+    "kings1": "<strong>1er au 3e roi :</strong> verser un peu dans le gobelet",
+    "kings4": "<strong>4e roi :</strong> boire le gobelet – en autant de gorgées que nécessaire. Fin de la partie.",
+    "safe": [
+      "<strong>Des gorgées, jamais de shots</strong> – et personne n’est obligé de boire de l’alcool.",
+      "<strong>De l’eau sur la table</strong>, les pauses sont permises, jamais de volant après.",
+      "<strong>Tu en as assez ?</strong> Alors tu arrêtes – sans discussion."
+    ],
+    "ctaStratH": "Mieux jouer",
+    "ctaStratP": "Piocher sans risque, cartes délicates, les rois et ton rythme.",
+    "ctaStratBtn": "Voir la stratégie",
+    "ctaRulesH": "Toutes les règles",
+    "ctaRulesP": "Chaque carte en détail, variantes et FAQ.",
+    "ctaRulesBtn": "Voir les règles"
   }
 }

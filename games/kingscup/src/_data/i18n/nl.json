@@ -106,7 +106,11 @@
   "sub": "Ook bekend als <strong>Ring of Fire</strong> of <strong>Circle of Death</strong>: een spel kaarten in een cirkel, een beker in het midden en een regel voor elke kaart. Eén keer lezen, trekken, klaar.",
   "seo": {
     "rulesT": "King’s Cup regels – het drankspel Ring of Fire uitgelegd",
-    "rulesD": "King’s Cup (Ring of Fire, Circle of Death) uitgelegd: opzet, wat elke kaart van aas tot heer betekent, de vier heren, varianten en verantwoord spelen."
+    "rulesD": "King’s Cup (Ring of Fire, Circle of Death) uitgelegd: opzet, wat elke kaart van aas tot heer betekent, de vier heren, varianten en verantwoord spelen.",
+    "strategyT": "King’s Cup strategie – tips voor de cirkel, de kaarten en de heren",
+    "strategyD": "King’s Cup tips: trekken zonder de cirkel te breken, Waterval, Rijmen, Regel en Vragenmeester slim spelen, de heren spelen en je eigen tempo houden.",
+    "quickT": "King’s Cup in het kort – alle kaarten op één scherm",
+    "quickD": "King’s Cup in één oogopslag: jouw beurt, wat elke kaart van aas tot heer betekent, de vier heren en verantwoord spelen."
   },
   "goal": "<strong>Het doel:</strong> Trek om de beurt een kaart, volg de regel van elke kaart – en hoop dat jij niet degene bent die de vierde heer trekt.",
   "info": {
@@ -121,5 +125,104 @@
     "gearN": "52 kaarten, grote beker & drankjes",
     "gearAlt": "Een kaartspel en een grote beker",
     "intro": "King’s Cup is dé klassieker voor hostel-lounges en indrinken: geen strategie, geen scoreblok, alleen een kaartspel en een regel voor elke kaart. Iedereen kent een net iets andere versie – spreek de regels dus af voor de eerste kaart."
+  },
+  "strategy": {
+    "h1": "King’s Cup strategie",
+    "h1sub": "",
+    "sub": "King’s Cup is vooral geluk. Maar hoe je trekt, hoe je met de lastige kaarten omgaat en welk tempo je aanhoudt, bepaalt of je bij de vierde heer nog plezier hebt.",
+    "principleNav": "Principe",
+    "ringNav": "De cirkel",
+    "cardsNav": "Lastige kaarten",
+    "kingsNav": "De heren",
+    "paceNav": "Tempo",
+    "mistakesNav": "Fouten",
+    "principleH": "Het basisprincipe",
+    "principle": "Welke kaart je krijgt, kies je niet – maar wel <strong>Hoe goed je reageert</strong>. Snelle reflexen, een goed geheugen voor de regels op tafel en een verstandig tempo maken het verschil.",
+    "principleItems": [
+      "<strong>Spreek de regels af voor de eerste kaart.</strong> Loop alle dertien kaarten en jullie varianten vooraf door, zodat niemand halverwege gaat discussiëren.",
+      "<strong>Blijf alert, ook als je niet aan de beurt bent.</strong> Vloer, Hemel, de Waterval en de Vragenmeester pakken iedereen die op z’n telefoon kijkt.",
+      "<strong>Houd bij wat er speelt.</strong> Elke boer voegt een regel toe, elke vrouw brengt een nieuwe Vragenmeester en elke 8 een nieuw maatje."
+    ],
+    "ringH": "Trekken zonder de cirkel te breken",
+    "ringLead": "De cirkel is het enige wat je in je beurt echt in de hand hebt.",
+    "ringItems": [
+      "<strong>Trek waar de kaarten het minst overlappen.</strong> Een kaart die zijn buren nauwelijks raakt, komt eruit zonder ze te verschuiven.",
+      "<strong>Schuiven, niet optillen.</strong> Houd de buurkaart met één vinger vast en schuif de jouwe zijwaarts eruit.",
+      "<strong>Neem de tijd.</strong> Er is geen tijdslimiet – voorzichtig trekken is goedkoper dan een strafslok.",
+      "<strong>Herstel de cirkel samen.</strong> Zijn er kaarten verschoven, schuif ze dan voor de volgende beurt terug, zodat later niemand ruziet over wie het gat maakte."
+    ],
+    "cardsH": "Tips voor de lastige kaarten",
+    "cardsLead": "De meeste kaarten zijn in een seconde klaar. Bij deze loont een beetje planning.",
+    "c_a": "Trek je hem, dan bepaal jij het tempo: stop na een korte slok en de hele tafel kan stoppen. Zit je aan het eind van de Waterval? Neem piepkleine slokjes – jij drinkt het langst.",
+    "c_8": "Kies iemand die ongeveer even snel drinkt als jij. Wissel af: steeds dezelfde persoon kiezen is snel niet leuk meer.",
+    "c_9": "Begin met een woord waar veel makkelijke rijmwoorden op zijn om de ronde lang te maken, of met een zeldzaam woord om hem snel te beëindigen. Bedenk je rijmwoord terwijl de anderen nog praten.",
+    "c_10": "Kies een categorie die je goed kent en met veel antwoorden. Kies er nooit een waarin jij zelf als eerste niets meer weet.",
+    "c_j": "De beste regels zijn makkelijk te onthouden en makkelijk per ongeluk te breken, zoals “niet wijzen” of “voor elke slok proost zeggen”. Sla regels over die iemand buitensluiten of ongemakkelijk zijn.",
+    "c_q": "Verstop je vragen in het gewone gesprek – “Zal ik water voor je halen?” werkt beter dan een overduidelijke quiz. En is iemand anders Vragenmeester, houd dan “Vergeet het maar, vragenmeester” paraat.",
+    "kingsH": "De heren spelen",
+    "kingsLead": "De beker in het midden groeit met elke heer – wat erin gaat, bepaalt hoe zwaar de vierde heer wordt.",
+    "kingsItems": [
+      "<strong>Schenk maar een klein beetje.</strong> Een scheutje is genoeg. De vierde heer moet lachen opleveren, geen straf – en het kan jou treffen.",
+      "<strong>Alleen drankjes die bij elkaar passen.</strong> Schenk nooit iets wat iemand aan tafel niet kan of wil drinken.",
+      "<strong>Tel de heren.</strong> Na de derde heer is elke kaart een gok – dan wordt het luid aan tafel.",
+      "<strong>De vierde heer hoeft de beker niet leeg te drinken.</strong> Zoveel slokken als nodig, en stoppen mag altijd."
+    ],
+    "paceH": "Je eigen tempo",
+    "paceLead": "De beste spelers zijn degenen die bij de tweede ronde nog aan tafel zitten.",
+    "paceItems": [
+      "<strong>Altijd kleine slokken.</strong> Bijna elke kaart kan een slok betekenen – in een uur loopt dat op.",
+      "<strong>Zet water naast je drankje</strong> en drink er tussen de beurten van.",
+      "<strong>Stap over op alcoholvrij wanneer je wilt.</strong> Frisdrank telt bij elke regel net zo goed.",
+      "<strong>Eet voor je gaat spelen.</strong> Een potje met een lege maag is voor iedereen snel voorbij."
+    ],
+    "paceWarn": "<strong>Wie genoeg heeft, stopt – zonder discussie.</strong> Zet nooit iemand onder druk om te drinken en rijd nooit auto na het spelen.",
+    "paceWarnLink": "Speel verantwoord",
+    "mistakesH": "Typische fouten",
+    "mistakes": [
+      "<strong>Beginnen zonder afgesproken regels.</strong> Tien minuten discussie over wat de 7 betekent, verpest de sfeer.",
+      "<strong>Haastig een kaart pakken.</strong> Wie te snel trekt, breekt de cirkel – en drinkt een slok.",
+      "<strong>Je eigen regel vergeten.</strong> Niets is grappiger voor de tafel dan wie de regel bedacht en hem zelf breekt.",
+      "<strong>De Vragenmeester antwoorden.</strong> Een snel “Wat?” is al genoeg.",
+      "<strong>De beker tot de rand vullen.</strong> Bij de vierde heer moet iemand hem leegdrinken – misschien jij.",
+      "<strong>Grote teugen nemen.</strong> Het spel duurt lang en de kaarten blijven komen: slokjes, geen teugen."
+    ],
+    "ctaQuickH": "Zitten jullie al aan tafel?",
+    "ctaQuickP": "Alle dertien kaarten en de vier heren op één scherm.",
+    "ctaQuickBtn": "Naar de spiekbrief",
+    "ctaRulesH": "Nieuw in het spel?",
+    "ctaRulesP": "Lees eerst alle regels, varianten en de FAQ.",
+    "ctaRulesBtn": "Naar de regels"
+  },
+  "quick": {
+    "h": "King’s Cup in één oogopslag",
+    "ruleH": "Jouw beurt",
+    "rule": "Trek <strong>Één kaart</strong> uit de cirkel rond de beker, laat hem zien en volg de regel. <strong>Cirkel gebroken</strong> = een slok. Er wordt met de klok mee gespeeld.",
+    "cardsH": "De kaarten",
+    "c_a": "Iedereen drinkt; stoppen pas na de persoon rechts van je",
+    "c_2": "Wijs iemand aan die een slok neemt",
+    "c_3": "Jij neemt een slok",
+    "c_4": "Wie als laatste de vloer raakt, drinkt",
+    "c_5": "Alle jongens drinken",
+    "c_6": "Alle meiden drinken",
+    "c_7": "Wie als laatste omhoog wijst, drinkt",
+    "c_8": "Drinkt mee wanneer jij drinkt",
+    "c_9": "Wie als eerste faalt, drinkt",
+    "c_10": "Wie als eerste faalt, drinkt",
+    "c_j": "Nieuwe regel tot het einde",
+    "c_q": "Een vraag beantwoorden = een slok",
+    "c_k": "Schenk een beetje van je drankje in de beker",
+    "kings1": "<strong>1e t/m 3e heer:</strong> een beetje in de beker schenken",
+    "kings4": "<strong>4e heer:</strong> de beker drinken – zoveel slokken als nodig. Einde spel.",
+    "safe": [
+      "<strong>Slokken, nooit shots</strong> – en niemand hoeft alcohol te drinken.",
+      "<strong>Water op tafel</strong>, pauzes mogen, daarna nooit autorijden.",
+      "<strong>Genoeg gehad?</strong> Dan stop je – zonder discussie."
+    ],
+    "ctaStratH": "Beter spelen",
+    "ctaStratP": "Veilig trekken, lastige kaarten, de heren en je eigen tempo.",
+    "ctaStratBtn": "Naar de strategie",
+    "ctaRulesH": "Alle regels",
+    "ctaRulesP": "Elke kaart in detail, varianten en FAQ.",
+    "ctaRulesBtn": "Naar de regels"
   }
 }

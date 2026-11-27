@@ -106,7 +106,11 @@
   "sub": "Também conhecido como <strong>Ring of Fire</strong> ou <strong>Circle of Death</strong>: um baralho em círculo, um copo no meio e uma regra para cada carta. Lês uma vez, tiras uma carta e pronto.",
   "seo": {
     "rulesT": "Regras do King’s Cup – Jogo de beber Ring of Fire",
-    "rulesD": "King’s Cup (Ring of Fire, Circle of Death) explicado: preparação, o que significa cada carta do ás ao rei, os quatro reis, variantes e como jogar com responsabilidade."
+    "rulesD": "King’s Cup (Ring of Fire, Circle of Death) explicado: preparação, o que significa cada carta do ás ao rei, os quatro reis, variantes e como jogar com responsabilidade.",
+    "strategyT": "Estratégia King’s Cup – dicas para o círculo, as cartas e os reis",
+    "strategyD": "Dicas de King’s Cup: tirar cartas sem quebrar o círculo, dominar Cascata, Rima, Regra e Mestre das perguntas, jogar os reis e manter o teu ritmo.",
+    "quickT": "King’s Cup em resumo – todas as cartas num só ecrã",
+    "quickD": "King’s Cup num relance: a tua vez, o que significa cada carta do ás ao rei, os quatro reis e como jogar com responsabilidade."
   },
   "goal": "<strong>O objetivo:</strong> Tirar cartas à vez, seguir a regra de cada carta – e esperar que não sejas tu a tirar o quarto rei.",
   "info": {
@@ -121,5 +125,104 @@
     "gearN": "52 cartas, um copo grande e bebidas",
     "gearAlt": "Um baralho de cartas e um copo grande",
     "intro": "O King’s Cup é o clássico das salas comuns de hostels e para aquecer antes de sair: sem estratégia, sem folha de pontuação, só um baralho e uma regra para cada carta. Cada um conhece uma versão ligeiramente diferente – por isso combinem as regras antes da primeira carta."
+  },
+  "strategy": {
+    "h1": "Estratégia King’s Cup",
+    "h1sub": "",
+    "sub": "King’s Cup é sobretudo sorte. Mas a forma como tiras as cartas, lidas com as cartas difíceis e geres o teu ritmo decide se ainda te estás a divertir no quarto rei.",
+    "principleNav": "Princípio",
+    "ringNav": "O círculo",
+    "cardsNav": "Cartas difíceis",
+    "kingsNav": "Os reis",
+    "paceNav": "Ritmo",
+    "mistakesNav": "Erros",
+    "principleH": "O princípio básico",
+    "principle": "Não escolhes a carta que te sai – mas escolhes <strong>Como reages</strong>. Reflexos rápidos, boa memória para as regras em jogo e um ritmo sensato fazem a diferença.",
+    "principleItems": [
+      "<strong>Combinem as regras antes da primeira carta.</strong> Revejam as treze cartas e as vossas variantes, para ninguém discutir a meio do jogo.",
+      "<strong>Fica atento mesmo quando não é a tua vez.</strong> Chão, Céu, a Cascata e o Mestre das perguntas apanham quem estiver a olhar para o telemóvel.",
+      "<strong>Não percas a conta.</strong> Cada valete junta uma regra, cada dama traz um novo Mestre das perguntas e cada 8 um novo parceiro."
+    ],
+    "ringH": "Tirar cartas sem quebrar o círculo",
+    "ringLead": "O círculo é a única coisa que controlas mesmo na tua vez.",
+    "ringItems": [
+      "<strong>Tira onde as cartas se sobrepõem menos.</strong> Uma carta que mal toca nas vizinhas sai sem as mexer.",
+      "<strong>Desliza, não levantes.</strong> Segura a carta vizinha com um dedo e puxa a tua de lado.",
+      "<strong>Não tenhas pressa.</strong> Não há limite de tempo – tirar com cuidado sai mais barato do que um gole de castigo.",
+      "<strong>Arrumem o círculo juntos.</strong> Se alguma carta saiu do lugar, ponham-na de volta antes da vez seguinte, para depois ninguém discutir quem abriu o buraco."
+    ],
+    "cardsH": "Dicas para as cartas difíceis",
+    "cardsLead": "A maioria das cartas resolve-se num segundo. Nestas compensa planear um pouco.",
+    "c_a": "Se a tirares, és tu que marcas o ritmo: pára depois de um gole curto e a mesa toda pode parar. Estás no fim da Cascata? Bebe golinhos minúsculos – és tu quem bebe durante mais tempo.",
+    "c_8": "Escolhe alguém que beba mais ou menos ao teu ritmo. Vai variando: escolher sempre a mesma pessoa depressa perde a graça.",
+    "c_9": "Começa com uma palavra com muitas rimas fáceis para a ronda durar, ou com uma rara para a acabar depressa. Pensa na tua rima enquanto os outros ainda falam.",
+    "c_10": "Escolhe uma categoria que conheças bem e com muitas respostas. Nunca escolhas uma em que serias o primeiro a ficar sem ideias.",
+    "c_j": "As melhores regras são fáceis de lembrar e fáceis de quebrar sem querer, como «proibido apontar» ou «dizer saúde antes de cada gole». Evita regras que deixem alguém de fora ou causem desconforto.",
+    "c_q": "Mete as tuas perguntas na conversa – «Queres que te traga água?» resulta melhor do que um quiz óbvio. E quando o Mestre das perguntas for outra pessoa, tem pronto «Esquece lá isso, Mestre das perguntas».",
+    "kingsH": "Jogar os reis",
+    "kingsLead": "O copo do meio cresce a cada rei – o que lá entra decide quão duro vai ser o quarto rei.",
+    "kingsItems": [
+      "<strong>Deita só um bocadinho.</strong> Um pouco chega. O quarto rei deve dar risada, não ser um castigo – e pode calhar-te a ti.",
+      "<strong>Só bebidas que combinem.</strong> Nunca deites nada que alguém à mesa não possa ou não queira beber.",
+      "<strong>Conta os reis.</strong> Depois do terceiro rei, cada carta é uma aposta – é aí que a mesa fica barulhenta.",
+      "<strong>O quarto rei não tem de acabar o copo.</strong> Tantos goles quantos forem precisos, e parar é sempre permitido."
+    ],
+    "paceH": "O teu ritmo",
+    "paceLead": "Os melhores jogadores são os que ainda estão à mesa na segunda ronda.",
+    "paceItems": [
+      "<strong>Sempre goles pequenos.</strong> Quase todas as cartas podem significar um gole – numa hora, isso acumula.",
+      "<strong>Tem água ao lado da tua bebida</strong> e bebe entre as jogadas.",
+      "<strong>Passa para sem álcool quando quiseres.</strong> Os refrigerantes contam o mesmo em todas as regras.",
+      "<strong>Come antes de jogar.</strong> Um jogo de estômago vazio acaba cedo para todos."
+    ],
+    "paceWarn": "<strong>Quem já bebeu o suficiente sai – sem discussão.</strong> Nunca pressiones ninguém a beber e nunca conduzas depois de jogar.",
+    "paceWarnLink": "Joga com responsabilidade",
+    "mistakesH": "Erros típicos",
+    "mistakes": [
+      "<strong>Começar sem combinar as regras.</strong> Dez minutos a discutir o que significa o 7 matam o ambiente.",
+      "<strong>Tirar uma carta à pressa.</strong> Quem tira depressa quebra o círculo – e bebe um gole.",
+      "<strong>Esquecer a tua própria regra.</strong> Nada diverte mais a mesa do que ver quem inventou a regra quebrá-la.",
+      "<strong>Responder ao Mestre das perguntas.</strong> Um simples «O quê?» basta para seres apanhado.",
+      "<strong>Encher o copo até cima.</strong> Alguém vai ter de o beber no quarto rei – talvez tu.",
+      "<strong>Beber aos grandes tragos.</strong> O jogo é longo e as cartas não param: goles, não tragos."
+    ],
+    "ctaQuickH": "Já estão à mesa?",
+    "ctaQuickP": "As treze cartas e os quatro reis num só ecrã.",
+    "ctaQuickBtn": "Abrir o guia rápido",
+    "ctaRulesH": "Novo no jogo?",
+    "ctaRulesP": "Lê primeiro todas as regras, variantes e perguntas frequentes.",
+    "ctaRulesBtn": "Ir para as regras"
+  },
+  "quick": {
+    "h": "King’s Cup num relance",
+    "ruleH": "A tua vez",
+    "rule": "Tira <strong>Uma carta</strong> do círculo à volta do copo, mostra-a e segue a regra. <strong>Círculo quebrado</strong> = um gole. Joga-se no sentido dos ponteiros do relógio.",
+    "cardsH": "As cartas",
+    "c_a": "Todos bebem; só paras depois da pessoa à tua direita",
+    "c_2": "Escolhe alguém para beber um gole",
+    "c_3": "Bebes tu um gole",
+    "c_4": "O último a tocar no chão bebe",
+    "c_5": "Todos os rapazes bebem",
+    "c_6": "Todas as raparigas bebem",
+    "c_7": "O último a apontar para cima bebe",
+    "c_8": "Bebe sempre que tu bebes",
+    "c_9": "O primeiro a falhar bebe",
+    "c_10": "O primeiro a falhar bebe",
+    "c_j": "Nova regra até ao fim",
+    "c_q": "Responder a uma pergunta = um gole",
+    "c_k": "Deita um pouco da tua bebida no copo",
+    "kings1": "<strong>1.º ao 3.º rei:</strong> deitar um pouco no copo",
+    "kings4": "<strong>4.º rei:</strong> beber o copo – em tantos goles quantos precisares. Fim do jogo.",
+    "safe": [
+      "<strong>Goles, nunca shots</strong> – e ninguém tem de beber álcool.",
+      "<strong>Água na mesa</strong>, pausas permitidas, nunca conduzir depois.",
+      "<strong>Já chega?</strong> Então sais – sem discussão."
+    ],
+    "ctaStratH": "Joga melhor",
+    "ctaStratP": "Tirar cartas com segurança, cartas difíceis, os reis e o teu ritmo.",
+    "ctaStratBtn": "Ir para a estratégia",
+    "ctaRulesH": "Todas as regras",
+    "ctaRulesP": "Cada carta em detalhe, variantes e perguntas frequentes.",
+    "ctaRulesBtn": "Ir para as regras"
   }
 }

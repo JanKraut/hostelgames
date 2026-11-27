@@ -106,7 +106,11 @@
   "sub": "Znana także jako <strong>Ring of Fire</strong> lub <strong>Circle of Death</strong>: talia kart ułożona w krąg, kubek na środku i zasada dla każdej karty. Raz przeczytać, ciągnąć i gotowe.",
   "seo": {
     "rulesT": "Zasady King’s Cup – gra imprezowa Ring of Fire",
-    "rulesD": "King’s Cup (Ring of Fire, Circle of Death) wyjaśniony: przygotowanie, znaczenie każdej karty od asa do króla, czterej królowie, warianty i odpowiedzialna gra."
+    "rulesD": "King’s Cup (Ring of Fire, Circle of Death) wyjaśniony: przygotowanie, znaczenie każdej karty od asa do króla, czterej królowie, warianty i odpowiedzialna gra.",
+    "strategyT": "Strategia King’s Cup – porady na krąg, karty i Królów",
+    "strategyD": "Porady do King’s Cup: jak ciągnąć karty, nie przerywając kręgu, jak ogarnąć Wodospad, Rym, Zasadę i Mistrza pytań, jak grać Królami i trzymać własne tempo.",
+    "quickT": "King’s Cup w skrócie – wszystkie karty na jednym ekranie",
+    "quickD": "King’s Cup w pigułce: twój ruch, co oznacza każda karta od Asa do Króla, czterej Królowie i odpowiedzialna gra."
   },
   "goal": "<strong>Cel gry:</strong> Ciągnijcie karty po kolei, wykonujcie przypisane im zasady – i miej nadzieję, że to nie ty wyciągniesz czwartego króla.",
   "info": {
@@ -121,5 +125,104 @@
     "gearN": "52 karty, duży kubek i napoje",
     "gearAlt": "Talia kart i duży kubek",
     "intro": "King’s Cup to klasyk w hostelowych pokojach wspólnych i na bifor: bez strategii, bez tabeli punktów, tylko talia kart i zasada do każdej karty. Każdy zna trochę inną wersję – ustalcie więc zasady przed pierwszą kartą."
+  },
+  "strategy": {
+    "h1": "Strategia King’s Cup",
+    "h1sub": "",
+    "sub": "King’s Cup to głównie szczęście. Ale to, jak ciągniesz karty, jak radzisz sobie z trudnymi kartami i jakie tempo trzymasz, decyduje, czy przy czwartym Królu nadal dobrze się bawisz.",
+    "principleNav": "Zasada",
+    "ringNav": "Krąg",
+    "cardsNav": "Trudne karty",
+    "kingsNav": "Królowie",
+    "paceNav": "Tempo",
+    "mistakesNav": "Błędy",
+    "principleH": "Podstawowa zasada",
+    "principle": "Nie wybierasz, jaka karta ci przypadnie – ale wybierasz, <strong>jak dobrze zareagujesz</strong>. Szybki refleks, dobra pamięć do zasad w grze i rozsądne tempo robią różnicę.",
+    "principleItems": [
+      "<strong>Ustalcie zasady przed pierwszą kartą.</strong> Przejdźcie wszystkie trzynaście kart i wasze warianty, żeby nikt nie kłócił się w połowie gry.",
+      "<strong>Bądź czujny, nawet gdy nie twój ruch.</strong> Podłoga, Niebo, Wodospad i Mistrz pytań łapią każdego, kto akurat patrzy w telefon.",
+      "<strong>Pilnuj, co obowiązuje.</strong> Każdy Walet dodaje zasadę, każda Dama przynosi nowego Mistrza pytań, a każda 8 nowego partnera."
+    ],
+    "ringH": "Ciągnij, nie przerywając kręgu",
+    "ringLead": "Krąg to jedyna rzecz, którą naprawdę kontrolujesz w swoim ruchu.",
+    "ringItems": [
+      "<strong>Ciągnij tam, gdzie karty najmniej na siebie zachodzą.</strong> Karta, która ledwo dotyka sąsiadek, wyjdzie, nie przesuwając ich.",
+      "<strong>Wysuwaj, nie podnoś.</strong> Przytrzymaj sąsiednią kartę palcem i wysuń swoją bokiem.",
+      "<strong>Nie spiesz się.</strong> Nie ma limitu czasu – ostrożne ciągnięcie kosztuje mniej niż karny łyk.",
+      "<strong>Poprawiajcie krąg razem.</strong> Jeśli karty się przesunęły, dosuńcie je przed kolejnym ruchem, żeby potem nikt nie kłócił się, kto zrobił przerwę."
+    ],
+    "cardsH": "Porady na trudne karty",
+    "cardsLead": "Większość kart załatwia się w sekundę. Przy tych opłaca się chwilę pomyśleć.",
+    "c_a": "Jeśli ją wyciągniesz, ty narzucasz tempo: przestań po krótkim łyku, a cały stół będzie mógł przestać. Siedzisz na końcu Wodospadu? Bierz malutkie łyki – pijesz najdłużej.",
+    "c_8": "Wybierz kogoś, kto pije mniej więcej w twoim tempie. Zmieniaj: wybieranie ciągle tej samej osoby szybko przestaje bawić.",
+    "c_9": "Zacznij od słowa z mnóstwem łatwych rymów, żeby runda trwała, albo od rzadkiego, żeby szybko ją skończyć. Wymyśl swój rym, kiedy inni jeszcze mówią.",
+    "c_10": "Wybierz kategorię, na której się znasz i która ma dużo odpowiedzi. Nigdy nie wybieraj takiej, w której sam pierwszy byś się zaciął.",
+    "c_j": "Najlepsze zasady łatwo zapamiętać i łatwo niechcący złamać, np. „nie wolno pokazywać palcem” albo „przed każdym łykiem mówimy na zdrowie”. Odpuść zasady, które kogoś wykluczają albo są dla kogoś niekomfortowe.",
+    "c_q": "Przemycaj pytania w zwykłej rozmowie – „Przynieść ci wody?” działa lepiej niż oczywisty quiz. A gdy Mistrzem pytań jest ktoś inny, miej w zanadrzu „Spadaj, mistrzu pytań”.",
+    "kingsH": "Gra Królami",
+    "kingsLead": "Kubek na środku rośnie z każdym Królem – to, co do niego trafia, decyduje, jak ciężki będzie czwarty Król.",
+    "kingsItems": [
+      "<strong>Wlewaj tylko trochę.</strong> Mały łyk wystarczy. Czwarty Król ma bawić, a nie karać – i może trafić na ciebie.",
+      "<strong>Tylko napoje, które do siebie pasują.</strong> Nigdy nie wlewaj niczego, czego ktoś przy stole nie może albo nie chce pić.",
+      "<strong>Licz Królów.</strong> Po trzecim Królu każda karta to ryzyko – wtedy przy stole robi się głośno.",
+      "<strong>Czwarty Król nie musi dopić kubka.</strong> Tyle łyków, ile trzeba, a przerwać zawsze wolno."
+    ],
+    "paceH": "Własne tempo",
+    "paceLead": "Najlepsi gracze to ci, którzy w drugiej rundzie wciąż siedzą przy stole.",
+    "paceItems": [
+      "<strong>Zawsze małe łyki.</strong> Prawie każda karta może oznaczać łyk – przez godzinę sporo się uzbiera.",
+      "<strong>Postaw wodę obok swojego napoju</strong> i pij ją między ruchami.",
+      "<strong>Przejdź na bezalkoholowe, kiedy chcesz.</strong> Napoje gazowane liczą się tak samo w każdej zasadzie.",
+      "<strong>Zjedz przed grą.</strong> Gra na pusty żołądek szybko kończy się dla wszystkich."
+    ],
+    "paceWarn": "<strong>Kto ma dość, ten odpada – bez dyskusji.</strong> Nigdy nikogo nie namawiaj do picia i nigdy nie siadaj za kierownicę po grze.",
+    "paceWarnLink": "Graj odpowiedzialnie",
+    "mistakesH": "Typowe błędy",
+    "mistakes": [
+      "<strong>Zaczynanie bez ustalonych zasad.</strong> Dziesięć minut kłótni o to, co znaczy 7, zabija klimat.",
+      "<strong>Łapanie karty w pośpiechu.</strong> Kto ciągnie za szybko, przerywa krąg – i pije łyk.",
+      "<strong>Zapominanie własnej zasady.</strong> Nic nie bawi stołu bardziej niż autor zasady, który sam ją łamie.",
+      "<strong>Odpowiadanie Mistrzowi pytań.</strong> Wystarczy szybkie „Co?”.",
+      "<strong>Napełnianie kubka po brzegi.</strong> Przy czwartym Królu ktoś musi go wypić – może ty.",
+      "<strong>Picie dużymi haustami.</strong> Gra trwa długo, a karty wciąż przychodzą: łyki, nie hausty."
+    ],
+    "ctaQuickH": "Siedzicie już przy stole?",
+    "ctaQuickP": "Wszystkie trzynaście kart i czterej Królowie na jednym ekranie.",
+    "ctaQuickBtn": "Otwórz ściągę",
+    "ctaRulesH": "Pierwszy raz?",
+    "ctaRulesP": "Przeczytaj najpierw wszystkie zasady, warianty i FAQ.",
+    "ctaRulesBtn": "Do zasad"
+  },
+  "quick": {
+    "h": "King’s Cup w pigułce",
+    "ruleH": "Twój ruch",
+    "rule": "Wyciągnij <strong>jedną kartę</strong> z kręgu wokół kubka, pokaż ją i wykonaj jej zasadę. <strong>Przerwany krąg</strong> = łyk. Gra toczy się zgodnie z ruchem wskazówek zegara.",
+    "cardsH": "Karty",
+    "c_a": "wszyscy piją; przestajesz dopiero po osobie po twojej prawej",
+    "c_2": "wskaż kogoś, kto pije łyk",
+    "c_3": "ty pijesz łyk",
+    "c_4": "kto ostatni dotknie podłogi, pije",
+    "c_5": "wszyscy chłopacy piją",
+    "c_6": "wszystkie dziewczyny piją",
+    "c_7": "kto ostatni wskaże w górę, pije",
+    "c_8": "pije zawsze, gdy ty pijesz",
+    "c_9": "kto pierwszy się zatnie, pije",
+    "c_10": "kto pierwszy się zatnie, pije",
+    "c_j": "nowa zasada do końca gry",
+    "c_q": "odpowiedź na pytanie = łyk",
+    "c_k": "wlej trochę swojego napoju do kubka",
+    "kings1": "<strong>1. do 3. Króla:</strong> wlać trochę do kubka",
+    "kings4": "<strong>4. Król:</strong> wypić kubek – tyle łyków, ile trzeba. Koniec gry.",
+    "safe": [
+      "<strong>Łyki, nigdy shoty</strong> – i nikt nie musi pić alkoholu.",
+      "<strong>Woda na stole</strong>, przerwy są ok, po grze nigdy za kierownicę.",
+      "<strong>Masz dość?</strong> To odpadasz – bez dyskusji."
+    ],
+    "ctaStratH": "Graj lepiej",
+    "ctaStratP": "Bezpieczne ciągnięcie, trudne karty, Królowie i własne tempo.",
+    "ctaStratBtn": "Do strategii",
+    "ctaRulesH": "Wszystkie zasady",
+    "ctaRulesP": "Każda karta szczegółowo, warianty i FAQ.",
+    "ctaRulesBtn": "Do zasad"
   }
 }

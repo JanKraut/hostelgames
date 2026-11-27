@@ -106,7 +106,11 @@
   "sub": "Auch bekannt als <strong>Ring of Fire</strong> oder <strong>Circle of Death</strong>: ein Kartenspiel im Kreis, ein Becher in der Mitte und zu jeder Karte eine Regel. Einmal lesen, ziehen, fertig.",
   "seo": {
     "rulesT": "King’s Cup Regeln – Trinkspiel Ring of Fire erklärt",
-    "rulesD": "King’s Cup (Ring of Fire, Circle of Death) erklärt: Aufbau, was jede Karte von Ass bis König bedeutet, die vier Könige, Varianten und verantwortungsvoll spielen."
+    "rulesD": "King’s Cup (Ring of Fire, Circle of Death) erklärt: Aufbau, was jede Karte von Ass bis König bedeutet, die vier Könige, Varianten und verantwortungsvoll spielen.",
+    "strategyT": "King’s Cup Strategie – Tipps für Ring, Karten und Könige",
+    "strategyD": "King’s-Cup-Tipps: ziehen, ohne den Ring zu brechen, Wasserfall, Reim, Regel und Fragemeister meistern, die Könige spielen und das eigene Tempo finden.",
+    "quickT": "King’s Cup Kurzanleitung – alle Karten auf einen Blick",
+    "quickD": "King’s Cup auf einen Blick: dein Zug, was jede Karte von Ass bis König bedeutet, die vier Könige und verantwortungsvoll spielen."
   },
   "goal": "<strong>Das Ziel:</strong> Reihum Karten ziehen, die Regel jeder Karte befolgen – und hoffen, dass nicht du den vierten König ziehst.",
   "info": {
@@ -121,5 +125,104 @@
     "gearN": "52 Karten, großer Becher & Getränke",
     "gearAlt": "Ein Kartenspiel und ein großer Becher",
     "intro": "King’s Cup ist der Klassiker für Hostel-Gemeinschaftsräume und zum Vorglühen: keine Taktik, kein Spielblock, nur ein Kartenspiel und zu jeder Karte eine Regel. Jeder kennt eine etwas andere Version – also klärt die Regeln vor der ersten Karte."
+  },
+  "strategy": {
+    "h1": "King’s Cup Strategie",
+    "h1sub": "",
+    "sub": "King’s Cup ist vor allem Glück. Aber wie du ziehst, wie du mit den kniffligen Karten umgehst und welches Tempo du gehst, entscheidet, ob du beim vierten König noch Spaß hast.",
+    "principleNav": "Prinzip",
+    "ringNav": "Der Ring",
+    "cardsNav": "Knifflige Karten",
+    "kingsNav": "Die Könige",
+    "paceNav": "Tempo",
+    "mistakesNav": "Fehler",
+    "principleH": "Das Grundprinzip",
+    "principle": "Welche Karte du bekommst, kannst du nicht beeinflussen – aber <strong>wie gut du reagierst</strong>. Schnelle Reflexe, ein gutes Gedächtnis für die Regeln am Tisch und ein vernünftiges Tempo machen den Unterschied.",
+    "principleItems": [
+      "<strong>Regeln vor der ersten Karte klären.</strong> Geht alle dreizehn Karten und eure Varianten vorher durch, damit mitten im Spiel niemand diskutiert.",
+      "<strong>Wach bleiben, auch wenn du nicht dran bist.</strong> Boden, Himmel, Wasserfall und der Fragemeister erwischen alle, die gerade aufs Handy schauen.",
+      "<strong>Den Überblick behalten.</strong> Jeder Bube bringt eine neue Regel, jede Dame einen neuen Fragemeister und jede 8 einen neuen Partner."
+    ],
+    "ringH": "Ziehen, ohne den Ring zu brechen",
+    "ringLead": "Der Ring ist das Einzige, was du in deinem Zug wirklich in der Hand hast.",
+    "ringItems": [
+      "<strong>Zieh dort, wo die Karten am wenigsten überlappen.</strong> Eine Karte, die ihre Nachbarn kaum berührt, kommt heraus, ohne sie zu verschieben.",
+      "<strong>Schieben statt anheben.</strong> Halte die Nachbarkarte mit einem Finger fest und zieh deine seitlich heraus.",
+      "<strong>Lass dir Zeit.</strong> Es gibt kein Zeitlimit – vorsichtig ziehen ist billiger als ein Strafschluck.",
+      "<strong>Den Ring gemeinsam richten.</strong> Sind Karten verrutscht, schiebt sie vor dem nächsten Zug zurück, damit später niemand streitet, wer die Lücke aufgemacht hat."
+    ],
+    "cardsH": "Tipps für die kniffligen Karten",
+    "cardsLead": "Die meisten Karten sind in einer Sekunde erledigt. Bei diesen lohnt sich ein bisschen Planung.",
+    "c_a": "Ziehst du ihn, bestimmst du das Tempo: Hör nach einem kurzen Schluck auf, dann kann der ganze Tisch aufhören. Sitzt du am Ende des Wasserfalls? Nimm winzige Schlucke – du trinkst am längsten.",
+    "c_8": "Wähl jemanden, der ungefähr so schnell trinkt wie du. Wechsel ab: Immer dieselbe Person zu nehmen, macht nicht lange Spaß.",
+    "c_9": "Fang mit einem Wort an, auf das sich viel reimt, damit die Runde läuft – oder mit einem seltenen, um sie schnell zu beenden. Überleg dir deinen Reim, während die anderen noch sprechen.",
+    "c_10": "Nimm eine Kategorie, in der du dich auskennst und die viele Antworten hat. Wähl nie eine, bei der dir selbst zuerst nichts mehr einfällt.",
+    "c_j": "Die besten Regeln sind leicht zu merken und leicht aus Versehen zu brechen, etwa „nicht mit dem Finger zeigen“ oder „vor jedem Schluck Prost sagen“. Lass Regeln weg, die jemanden ausschließen oder unangenehm sind.",
+    "c_q": "Versteck deine Fragen im normalen Gespräch – „Soll ich dir Wasser holen?“ funktioniert besser als ein offensichtliches Quiz. Und wenn jemand anderes Fragemeister ist, halte „Vergiss es, Fragemeister“ bereit.",
+    "kingsH": "Die Könige spielen",
+    "kingsLead": "Der Becher in der Mitte wächst mit jedem König – was hineinkommt, entscheidet, wie hart der vierte König wird.",
+    "kingsItems": [
+      "<strong>Nur wenig hineinschütten.</strong> Ein kleiner Schluck reicht. Der vierte König soll lustig sein, keine Strafe – und es kann dich treffen.",
+      "<strong>Nur Getränke, die zusammenpassen.</strong> Schütte nie etwas hinein, das jemand am Tisch nicht trinken kann oder will.",
+      "<strong>Zähl die Könige mit.</strong> Nach dem dritten König ist jeder Zug ein Risiko – dann wird es laut am Tisch.",
+      "<strong>Der vierte König muss den Becher nicht leeren.</strong> So viele Schlucke wie nötig, und aufhören ist immer erlaubt."
+    ],
+    "paceH": "Das eigene Tempo",
+    "paceLead": "Am besten spielt, wer in der zweiten Runde noch am Tisch sitzt.",
+    "paceItems": [
+      "<strong>Immer kleine Schlucke.</strong> Fast jede Karte kann einen Schluck bedeuten – über eine Stunde kommt einiges zusammen.",
+      "<strong>Stell Wasser neben dein Getränk</strong> und trink zwischendurch davon.",
+      "<strong>Wechsel jederzeit auf alkoholfrei.</strong> Softdrinks zählen bei jeder Regel genauso.",
+      "<strong>Iss vor dem Spiel.</strong> Eine Runde mit leerem Magen ist für alle früh vorbei."
+    ],
+    "paceWarn": "<strong>Wer genug hat, ist raus – ohne Diskussion.</strong> Dräng niemanden zum Trinken und fahr nach dem Spiel nie Auto.",
+    "paceWarnLink": "Verantwortungsvoll spielen",
+    "mistakesH": "Typische Fehler",
+    "mistakes": [
+      "<strong>Ohne geklärte Regeln anfangen.</strong> Zehn Minuten Streit darüber, was die 7 bedeutet, killen die Stimmung.",
+      "<strong>Hastig eine Karte greifen.</strong> Wer zu schnell zieht, bricht den Ring – und trinkt einen Schluck.",
+      "<strong>Die eigene Regel vergessen.</strong> Nichts ist für den Tisch lustiger, als wenn ausgerechnet die Person, die die Regel erfunden hat, sie bricht.",
+      "<strong>Dem Fragemeister antworten.</strong> Ein schnelles „Hä?“ reicht schon.",
+      "<strong>Den Becher randvoll machen.</strong> Beim vierten König muss ihn jemand trinken – vielleicht du.",
+      "<strong>Große Schlucke nehmen.</strong> Das Spiel dauert und die Karten hören nicht auf: Schlucke, keine Züge."
+    ],
+    "ctaQuickH": "Sitzt ihr schon am Tisch?",
+    "ctaQuickP": "Alle dreizehn Karten und die vier Könige auf einem Bildschirm.",
+    "ctaQuickBtn": "Zur Kurzanleitung",
+    "ctaRulesH": "Neu im Spiel?",
+    "ctaRulesP": "Lies zuerst alle Regeln, Varianten und die FAQ.",
+    "ctaRulesBtn": "Zu den Regeln"
+  },
+  "quick": {
+    "h": "King’s Cup auf einen Blick",
+    "ruleH": "Dein Zug",
+    "rule": "Zieh <strong>eine Karte</strong> aus dem Ring um den Becher, zeig sie und befolge ihre Regel. <strong>Ring gebrochen</strong> = ein Schluck. Es geht im Uhrzeigersinn weiter.",
+    "cardsH": "Die Karten",
+    "c_a": "alle trinken; aufhören erst nach der Person rechts von dir",
+    "c_2": "bestimme jemanden, der einen Schluck trinkt",
+    "c_3": "du trinkst einen Schluck",
+    "c_4": "wer zuletzt den Boden berührt, trinkt",
+    "c_5": "alle Jungs trinken",
+    "c_6": "alle Mädels trinken",
+    "c_7": "wer zuletzt nach oben zeigt, trinkt",
+    "c_8": "trinkt immer mit, wenn du trinkst",
+    "c_9": "wer zuerst passt, trinkt",
+    "c_10": "wer zuerst passt, trinkt",
+    "c_j": "neue Regel bis zum Spielende",
+    "c_q": "wer eine Frage beantwortet, trinkt",
+    "c_k": "etwas vom eigenen Getränk in den Becher",
+    "kings1": "<strong>1. bis 3. König:</strong> etwas in den Becher schütten",
+    "kings4": "<strong>4. König:</strong> den Becher trinken – so viele Schlucke wie nötig. Spielende.",
+    "safe": [
+      "<strong>Schlucke, nie Shots</strong> – und niemand muss Alkohol trinken.",
+      "<strong>Wasser auf den Tisch</strong>, Pausen sind erlaubt, danach nie Auto fahren.",
+      "<strong>Genug?</strong> Dann bist du raus – ohne Diskussion."
+    ],
+    "ctaStratH": "Besser spielen",
+    "ctaStratP": "Sicher ziehen, knifflige Karten, die Könige und das eigene Tempo.",
+    "ctaStratBtn": "Zur Strategie",
+    "ctaRulesH": "Alle Regeln",
+    "ctaRulesP": "Jede Karte im Detail, Varianten und FAQ.",
+    "ctaRulesBtn": "Zu den Regeln"
   }
 }
