@@ -5,7 +5,7 @@
   "category": "cards",
   "status": "draft",
   "languages": ["en", "de"],
-  "pages": ["rules", "scoresheet"],
+  "pages": ["rules", "strategy", "quickstart", "scoresheet"],
   "related": [],
   "players": { "min": 4, "max": 4 },
   "duration": "60–120 min",
