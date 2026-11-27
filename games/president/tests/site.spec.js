@@ -50,7 +50,7 @@ for (const lang of languages) {
     }
     await expect(page.locator("#key-cards .sp")).toHaveCount(s.cards.length);
     await expect(page.locator("#mistakes .variants li")).toHaveCount(s.mistakes.length);
-    await expect(page.locator("#next-steps .cta a")).toHaveText(`${s.ctaRulesBtn} →`);
+    await expect(page.locator("#next-steps .cta a")).toHaveText(s.ctaRulesBtn);
 
     const nav = await page.locator(".secnav a").evaluateAll((links) => links.map((a) => a.getAttribute("href")));
     expect(nav).toEqual(["#principle", "#swap", ...s.phases.map((p) => `#${p.id}`), "#key-cards", "#mistakes"]);

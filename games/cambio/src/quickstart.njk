@@ -28,7 +28,7 @@ eleventyComputed:
       </div>
 
       <div class="ch-block">
-        <h3>{{ t.values.h }}</h3>
+        <h3>{{ t.rules.valuesH }}</h3>
         <ul class="ch-vals" role="list">
           <li class="best"><span class="ch-card r" aria-hidden="true">K<small>♥♦</small></span><b>−1</b></li>
           <li><span class="ch-card j" aria-hidden="true">★</span><b>0</b></li>
@@ -40,7 +40,7 @@ eleventyComputed:
       </div>
 
       <div class="ch-block">
-        <h3>{{ t.powers.h }}</h3>
+        <h3>{{ t.rules.powersH }}</h3>
         <ul class="ch-powers" role="list">
           <li><span class="ch-pair" aria-hidden="true"><span class="ch-card r">7<small>♥</small></span><span class="ch-card">8<small>♣</small></span></span><span>{{ k.pow7 | safe }}</span></li>
           <li><span class="ch-pair" aria-hidden="true"><span class="ch-card">9<small>♠</small></span><span class="ch-card r">10<small>♦</small></span></span><span>{{ k.pow9 | safe }}</span></li>
@@ -65,12 +65,12 @@ eleventyComputed:
     <div class="cta">
       <h2>{{ k.ctaStratH }}</h2>
       <p>{{ k.ctaStratP }}</p>
-      <a class="ctabtn" href="{{ lang.path }}strategy/">{{ k.ctaStratBtn }} →</a>
+      <a class="ctabtn go" href="{{ lang.path }}strategy/">{{ k.ctaStratBtn }}<span class="go-ic" aria-hidden="true"></span></a>
     </div>
     <div class="cta">
       <h2>{{ k.ctaRulesH }}</h2>
       <p>{{ k.ctaRulesP }}</p>
-      <a class="ctabtn" href="{{ lang.path }}">{{ k.ctaRulesBtn }} →</a>
+      <a class="ctabtn go" href="{{ lang.path }}">{{ k.ctaRulesBtn }}<span class="go-ic" aria-hidden="true"></span></a>
     </div>
   </section>
 

@@ -28,13 +28,13 @@ eleventyComputed:
       </div>
 
       <div class="ch-block">
-        <h3>{{ t.rankH }}</h3>
-        <div class="ch-ranks" role="img" aria-label="{{ t.rankAlt }}">
+        <h3>{{ t.rules.rankH }}</h3>
+        <div class="ch-ranks" role="img" aria-label="{{ t.rules.rankAlt }}">
           {%- for c in [["3","♣"],["4","♥"],["5","♠"],["6","♦"],["7","♣"],["8","♥"],["9","♠"],["10","♦"],["J","♣"],["Q","♥"],["K","♠"],["A","♦"],["2","♠","top"]] %}
           <span class="ch-card{% if c[1] in '♥♦' %} r{% endif %}{% if c[2] %} {{ c[2] }}{% endif %}" aria-hidden="true">{{ c[0] }}<small>{{ c[1] }}</small></span>
           {%- endfor %}
         </div>
-        <div class="ch-rankscale" aria-hidden="true"><span>{{ t.rankLow }}</span><span>{{ t.rankHigh }}</span></div>
+        <div class="ch-rankscale" aria-hidden="true"><span>{{ t.rules.rankLow }}</span><span>{{ t.rules.rankHigh }}</span></div>
         <p>{{ k.rankNote | safe }}</p>
       </div>
 
@@ -53,12 +53,12 @@ eleventyComputed:
     <div class="cta">
       <h2>{{ k.ctaStratH }}</h2>
       <p>{{ k.ctaStratP }}</p>
-      <a class="ctabtn" href="{{ lang.path }}strategy/">{{ k.ctaStratBtn }} →</a>
+      <a class="ctabtn go" href="{{ lang.path }}strategy/">{{ k.ctaStratBtn }}<span class="go-ic" aria-hidden="true"></span></a>
     </div>
     <div class="cta">
       <h2>{{ k.ctaRulesH }}</h2>
       <p>{{ k.ctaRulesP }}</p>
-      <a class="ctabtn" href="{{ lang.path }}">{{ k.ctaRulesBtn }} →</a>
+      <a class="ctabtn go" href="{{ lang.path }}">{{ k.ctaRulesBtn }}<span class="go-ic" aria-hidden="true"></span></a>
     </div>
   </section>
 

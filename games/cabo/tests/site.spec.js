@@ -24,7 +24,7 @@ for (const lang of languages) {
     const s = lang.t.strategy;
     await open(page, lang, "strategy/");
     await expect(page.locator(".hero h1")).toHaveText(s.h1);
-    await expect(page.locator(".pagetabs a[aria-current=page]")).toHaveText(lang.t.n6);
+    await expect(page.locator(".pagetabs a[aria-current=page]")).toHaveText(lang.t.pgStrategy);
     const nav = await page.locator(".secnav a").evaluateAll((links) => links.map((a) => a.getAttribute("href")));
     expect(nav).toEqual(STRATEGY_SECTIONS.map((id) => `#${id}`));
     for (const id of STRATEGY_SECTIONS) await expect(page.locator(`main section#${id} h2`)).toBeVisible();

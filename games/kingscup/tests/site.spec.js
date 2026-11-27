@@ -28,8 +28,8 @@ for (const lang of languages) {
     const ranks = await page.locator(".rulecards .rulecard .card .c").evaluateAll((all) => all.map((c) => c.firstChild.textContent));
     expect(ranks).toEqual(["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]);
     await expect(page.locator(".rulecard h3")).toHaveText([
-      lang.t.c_aH, lang.t.c_2H, lang.t.c_3H, lang.t.c_4H, lang.t.c_5H, lang.t.c_6H, lang.t.c_7H,
-      lang.t.c_8H, lang.t.c_9H, lang.t.c_10H, lang.t.c_jH, lang.t.c_qH, lang.t.c_kH,
+      lang.t.rules.c_aH, lang.t.rules.c_2H, lang.t.rules.c_3H, lang.t.rules.c_4H, lang.t.rules.c_5H, lang.t.rules.c_6H, lang.t.rules.c_7H,
+      lang.t.rules.c_8H, lang.t.rules.c_9H, lang.t.rules.c_10H, lang.t.rules.c_jH, lang.t.rules.c_qH, lang.t.rules.c_kH,
     ]);
     await expect(page.locator(".kings li")).toHaveCount(4);
     await expect(page.locator(".kings li.last .card.gold")).toHaveCount(1);

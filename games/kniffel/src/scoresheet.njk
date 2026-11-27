@@ -91,9 +91,9 @@ eleventyComputed:
 </main>
 
 {%- set labels = {
-  ones: t.up1, twos: t.up2, threes: t.up3, fours: t.up4, fives: t.up5, sixes: t.up6,
-  three: t.lb_threeH, four: t.lb_fourH, full: t.lb_fullH, small: t.lb_smallH,
-  large: t.lb_largeH, kniffel: t.lb_kniffelH, chance: t.lb_chanceH
+  ones: t.rules.up1, twos: t.rules.up2, threes: t.rules.up3, fours: t.rules.up4, fives: t.rules.up5, sixes: t.rules.up6,
+  three: t.rules.lb_threeH, four: t.rules.lb_fourH, full: t.rules.lb_fullH, small: t.rules.lb_smallH,
+  large: t.rules.lb_largeH, kniffel: t.rules.lb_kniffelH, chance: t.rules.lb_chanceH
 } %}
 <script type="application/json" id="sheet-texts">{{ { lang: lang.code, t: s, fields: labels } | dump | safe }}</script>
 

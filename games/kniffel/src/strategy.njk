@@ -52,7 +52,7 @@ eleventyComputed:
         {%- set diff = (row[1] - 3) * row[0] %}
         <li>
           {{ die(row[0], "xs") }}
-          <b>{{ t["up" ~ row[0]] }}</b>
+          <b>{{ t.rules["up" ~ row[0]] }}</b>
           <span class="par-got">{{ row[1] }} × {{ row[0] }} = {{ row[1] * row[0] }}</span>
           <span class="par-diff{% if diff > 0 %} plus{% elif diff < 0 %} minus{% endif %}">{% if diff > 0 %}+{% elif diff < 0 %}−{% else %}±{% endif %}{{ diff | abs }}</span>
         </li>
@@ -142,12 +142,12 @@ eleventyComputed:
     <div class="cta">
       <h2>{{ s.ctaSheetH }}</h2>
       <p>{{ s.ctaSheetP }}</p>
-      <a class="ctabtn" href="{{ lang.path }}scoresheet/">{{ s.ctaSheetBtn }} →</a>
+      <a class="ctabtn go" href="{{ lang.path }}scoresheet/">{{ s.ctaSheetBtn }}<span class="go-ic" aria-hidden="true"></span></a>
     </div>
     <div class="cta">
       <h2>{{ s.ctaRulesH }}</h2>
       <p>{{ s.ctaRulesP }}</p>
-      <a class="ctabtn" href="{{ lang.path }}">{{ s.ctaRulesBtn }} →</a>
+      <a class="ctabtn go" href="{{ lang.path }}">{{ s.ctaRulesBtn }}<span class="go-ic" aria-hidden="true"></span></a>
     </div>
   </section>
 

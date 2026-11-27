@@ -30,17 +30,17 @@ eleventyComputed:
       </div>
 
       <div class="ch-block">
-        <h3>{{ t.upH }}</h3>
+        <h3>{{ t.rules.upH }}</h3>
         <ul class="ch-upper" role="list">
           {%- for n in range(1, 7) %}
-          <li>{{ die(n, "xs") }}<span>{{ t["up" ~ n] }}</span><b>{{ 3 * n }}</b></li>
+          <li>{{ die(n, "xs") }}<span>{{ t.rules["up" ~ n] }}</span><b>{{ 3 * n }}</b></li>
           {%- endfor %}
         </ul>
         <p>{{ k.upper | safe }}</p>
       </div>
 
       <div class="ch-block">
-        <h3>{{ t.lowH }}</h3>
+        <h3>{{ t.rules.lowH }}</h3>
         <ul class="ch-lower" role="list">
           {%- for b in [
             ["three", [4, 4, 4, 2, 6], "Σ"],
@@ -51,7 +51,7 @@ eleventyComputed:
             ["kniffel", [2, 2, 2, 2, 2], "50"],
             ["chance", [6, 5, 3, 3, 1], "Σ"]
           ] %}
-          <li><span>{{ t["lb_" ~ b[0] ~ "H"] }}</span>{{ dice(b[1], "fs") }}<b>{{ b[2] }}</b></li>
+          <li><span>{{ t.rules["lb_" ~ b[0] ~ "H"] }}</span>{{ dice(b[1], "fs") }}<b>{{ b[2] }}</b></li>
           {%- endfor %}
         </ul>
         <p class="ch-legend">{{ k.sigma | safe }}</p>
@@ -59,7 +59,7 @@ eleventyComputed:
 
       <div class="ch-block ch-rule">
         <div class="ch-icon" aria-hidden="true">0</div>
-        <div><h3>{{ t.strikeH }}</h3><p>{{ k.strike | safe }}</p></div>
+        <div><h3>{{ t.rules.strikeH }}</h3><p>{{ k.strike | safe }}</p></div>
       </div>
     </div>
   </section>
@@ -68,12 +68,12 @@ eleventyComputed:
     <div class="cta">
       <h2>{{ k.ctaSheetH }}</h2>
       <p>{{ k.ctaSheetP }}</p>
-      <a class="ctabtn" href="{{ lang.path }}scoresheet/">{{ t.setupCtaBtn }} →</a>
+      <a class="ctabtn go" href="{{ lang.path }}scoresheet/">{{ t.rules.setupCtaBtn }}<span class="go-ic" aria-hidden="true"></span></a>
     </div>
     <div class="cta">
       <h2>{{ k.ctaStratH }}</h2>
       <p>{{ k.ctaStratP }}</p>
-      <a class="ctabtn" href="{{ lang.path }}strategy/">{{ k.ctaStratBtn }} →</a>
+      <a class="ctabtn go" href="{{ lang.path }}strategy/">{{ k.ctaStratBtn }}<span class="go-ic" aria-hidden="true"></span></a>
     </div>
   </section>
 

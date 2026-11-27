@@ -35,3 +35,7 @@ Vor jedem Commit: `npm run check`, `npm run build:<slug>`, Tests des Spiels.
 - Feste Begriffe unter „Begriffe“ in der `CLAUDE.md` eines Spiels gelten in allen Sprachen: Ein
   Begriff ohne Übersetzung bleibt überall gleich (nicht übersetzen). Bei Paaren `en / de` die übrigen
   Sprachen aus dem englischen Begriff übersetzen und auf allen Seiten gleich verwenden.
+- Einheitliches Key-Schema in jedem Spiel: oben `h1`, `sub`, `goal`, `seo`, `info`;
+  alle Texte der Regelseite unter `rules` (Navigation `nSetup`, `nPlay` … `nVar`, `nFaq`,
+  Abschnitte `setupH`, `setupLead` …, Listen `var1…`, `faq1q/faq1a`; im Template
+  `r = t.rules`); weitere Seiten unter `strategy`, `quick`, `sheet`; Quiz `q…`/`quiz`, 404 `nf…`.

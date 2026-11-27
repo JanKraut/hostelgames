@@ -15,76 +15,77 @@ eleventyComputed:
     Oberer Block, Unterer Block, Punkte & Ende, Varianten, FAQ, Teilen. -#}
 {%- from "dice.njk" import die, dice -%}
 {%- set t = lang.t -%}
+{%- set r = t.rules -%}
 {% include "hero.njk" %}
 
 {{ secnav(t.navLabel, [
-  ["setup", t.nSetup],
-  ["turn", t.nTurn],
-  ["upper", t.nUpper],
-  ["lower", t.nLower],
-  ["scoring", t.nScoring],
-  ["variants", t.nVariants],
-  ["faq", t.nFaq]
+  ["setup", r.nSetup],
+  ["turn", r.nTurn],
+  ["upper", r.nUpper],
+  ["lower", r.nLower],
+  ["scoring", r.nScoring],
+  ["variants", r.nVar],
+  ["faq", r.nFaq]
 ]) }}
 
 <main class="wrap">
 
   <section id="setup">
-    <h2>{{ t.setupH }}</h2>
-    <p class="lead">{{ t.setupLead | safe }}</p>
+    <h2>{{ r.setupH }}</h2>
+    <p class="lead">{{ r.setupLead | safe }}</p>
     <ul class="rules">
-      <li>{{ t.setup1 | safe }}</li>
-      <li>{{ t.setup2 | safe }}</li>
-      <li>{{ t.setup3 | safe }}</li>
+      <li>{{ r.setup1 | safe }}</li>
+      <li>{{ r.setup2 | safe }}</li>
+      <li>{{ r.setup3 | safe }}</li>
     </ul>
-    <p>{{ t.setupP | safe }}</p>
+    <p>{{ r.setupP | safe }}</p>
     {#- Hinweis auf den Online-Block (scoresheet/) -#}
     <div class="cta sheet-cta">
-      <p>{{ t.setupCta }}</p>
-      <a class="ctabtn" href="{{ lang.path }}scoresheet/">{{ t.setupCtaBtn }}</a>
+      <p>{{ r.setupCta }}</p>
+      <a class="ctabtn" href="{{ lang.path }}scoresheet/">{{ r.setupCtaBtn }}</a>
     </div>
   </section>
 
   <section id="turn">
-    <h2>{{ t.turnH }}</h2>
-    <p class="lead">{{ t.turnLead | safe }}</p>
-    {{ steps(t, "s") }}
+    <h2>{{ r.turnH }}</h2>
+    <p class="lead">{{ r.turnLead | safe }}</p>
+    {{ steps(r, "s") }}
 
     {#- Beispielzug: Fünfen sammeln. Gold = beiseitegelegt. -#}
-    <h3 class="sub">{{ t.exH }}</h3>
-    <div class="rolls" role="img" aria-label="{{ t.exAlt }}">
-      <div class="roll"><p class="roll-n">{{ t.exR1 }}</p>{{ dice([2, [5, "held"], [5, "held"], 1, [5, "held"]], "sm") }}</div>
-      <div class="roll"><p class="roll-n">{{ t.exR2 }}</p>{{ dice([[5, "held"], [5, "held"], [5, "held"], 3, 6], "sm") }}</div>
-      <div class="roll"><p class="roll-n">{{ t.exR3 }}</p>{{ dice([[5, "held"], [5, "held"], [5, "held"], [5, "held"], 2], "sm") }}</div>
+    <h3 class="sub">{{ r.exH }}</h3>
+    <div class="rolls" role="img" aria-label="{{ r.exAlt }}">
+      <div class="roll"><p class="roll-n">{{ r.exR1 }}</p>{{ dice([2, [5, "held"], [5, "held"], 1, [5, "held"]], "sm") }}</div>
+      <div class="roll"><p class="roll-n">{{ r.exR2 }}</p>{{ dice([[5, "held"], [5, "held"], [5, "held"], 3, 6], "sm") }}</div>
+      <div class="roll"><p class="roll-n">{{ r.exR3 }}</p>{{ dice([[5, "held"], [5, "held"], [5, "held"], [5, "held"], 2], "sm") }}</div>
     </div>
-    <p>{{ t.exP | safe }}</p>
+    <p>{{ r.exP | safe }}</p>
 
-    <h3 class="sub">{{ t.strikeH }}</h3>
-    <p>{{ t.strikeP | safe }}</p>
+    <h3 class="sub">{{ r.strikeH }}</h3>
+    <p>{{ r.strikeP | safe }}</p>
   </section>
 
   <section id="upper">
-    <h2>{{ t.upH }}</h2>
-    <p class="lead">{{ t.upLead | safe }}</p>
+    <h2>{{ r.upH }}</h2>
+    <p class="lead">{{ r.upLead | safe }}</p>
     <ul class="upper" role="list">
       {%- for n in range(1, 7) %}
       <li>
         {{ die(n, "xs") }}
-        <b>{{ t["up" ~ n] }}</b>
+        <b>{{ r["up" ~ n] }}</b>
         <span class="up-goal">3 × {{ n }} = {{ 3 * n }}</span>
       </li>
       {%- endfor %}
     </ul>
-    <p>{{ t.upP | safe }}</p>
+    <p>{{ r.upP | safe }}</p>
     <div class="bonus">
       <div class="bonus-n">+35</div>
-      <p>{{ t.bonusP | safe }}</p>
+      <p>{{ r.bonusP | safe }}</p>
     </div>
   </section>
 
   <section id="lower">
-    <h2>{{ t.lowH }}</h2>
-    <p class="lead">{{ t.lowLead | safe }}</p>
+    <h2>{{ r.lowH }}</h2>
+    <p class="lead">{{ r.lowLead | safe }}</p>
     {#- Name, Bedingung, Beispielwurf (gold = zählt), Punkte. -#}
     <div class="boxes">
       {%- for b in [
@@ -98,10 +99,10 @@ eleventyComputed:
       ] %}
       <div class="box">
         <div class="box-head">
-          <h3>{{ t["lb_" ~ b[0] ~ "H"] }}</h3>
-          <span class="box-pts">{% if b[2] == "t" %}{{ t.ptsTotal }}{% else %}{{ b[2] }}{% endif %}</span>
+          <h3>{{ r["lb_" ~ b[0] ~ "H"] }}</h3>
+          <span class="box-pts">{% if b[2] == "t" %}{{ r.ptsTotal }}{% else %}{{ b[2] }}{% endif %}</span>
         </div>
-        <p>{{ t["lb_" ~ b[0] ~ "P"] | safe }}</p>
+        <p>{{ r["lb_" ~ b[0] ~ "P"] | safe }}</p>
         {{ dice(b[1], "xs") }}
       </div>
       {%- endfor %}
@@ -109,21 +110,21 @@ eleventyComputed:
   </section>
 
   <section id="scoring">
-    <h2>{{ t.scoreH }}</h2>
-    <p class="lead">{{ t.scoreLead | safe }}</p>
+    <h2>{{ r.scoreH }}</h2>
+    <p class="lead">{{ r.scoreLead | safe }}</p>
     <ol class="sum">
-      <li><span>{{ t.sum1 }}</span><b>{{ t.sum1v }}</b></li>
-      <li><span>{{ t.sum2 }}</span><b>{{ t.sum2v }}</b></li>
-      <li><span>{{ t.sum3 }}</span><b>{{ t.sum3v }}</b></li>
-      <li class="total"><span>{{ t.sum4 }}</span><b>{{ t.sum4v }}</b></li>
+      <li><span>{{ r.sum1 }}</span><b>{{ r.sum1v }}</b></li>
+      <li><span>{{ r.sum2 }}</span><b>{{ r.sum2v }}</b></li>
+      <li><span>{{ r.sum3 }}</span><b>{{ r.sum3v }}</b></li>
+      <li class="total"><span>{{ r.sum4 }}</span><b>{{ r.sum4v }}</b></li>
     </ol>
-    <h3 class="sub">{{ t.endH }}</h3>
-    <p>{{ t.endP | safe }}</p>
+    <h3 class="sub">{{ r.endH }}</h3>
+    <p>{{ r.endP | safe }}</p>
   </section>
 
-  {{ variants(t) }}
+  {{ variants(r) }}
 
-  {{ faq(t) }}
+  {{ faq(r) }}
 
   {% include "share.njk" %}
 </main>
