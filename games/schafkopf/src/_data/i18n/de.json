@@ -4,7 +4,9 @@
   "goal": "<strong>Das Ziel:</strong> Mit deinem Partner – oder allein im Solo – Stiche mit mindestens <strong>61 der 120 Augen</strong> holen.",
   "seo": {
     "rulesT": "Schafkopf Regeln – das bayerische Kartenspiel erklärt",
-    "rulesD": "So geht Schafkopf: Austeilen, die 14 Trümpfe, Augen zählen, Sauspiel, Wenz und Solo, Ansagen, Stiche, Abrechnung mit Schneider und Laufenden, Varianten und FAQ."
+    "rulesD": "So geht Schafkopf: Austeilen, die 14 Trümpfe, Augen zählen, Sauspiel, Wenz und Solo, Ansagen, Stiche, Abrechnung mit Schneider und Laufenden, Varianten und FAQ.",
+    "sheetT": "Schafkopf Block online – kostenlos, für vier Spieler",
+    "sheetD": "Der Schafkopf-Block im Browser: Spiel eintragen, Spielwert mit Schneider, Laufenden und Kontra wird automatisch gerechnet und verteilt. Ohne Anmeldung, gespeichert auf deinem Gerät."
   },
   "info": {
     "players1": "4",
@@ -140,6 +142,36 @@
     "faq7q": "Kann ich Schafkopf mit normalen Karten spielen?",
     "faq7a": "Ja. Nehmt ein Skatblatt mit 32 Karten: Kreuz für Eichel, Pik für Gras, Herz für Herz und Karo für Schellen, die Damen als Ober und die Buben als Unter – siehe <a href=\"#setup\">Aufbau</a>.",
     "faq8q": "Können auch drei spielen?",
-    "faq8a": "Richtiger Schafkopf braucht vier. Zu dritt probiert ihr am besten <strong>Skat</strong>, einen nahen Verwandten mit denselben 32 Karten. Zu fünft <a href=\"#variants\">setzt der Geber aus</a>."
+    "faq8a": "Richtiger Schafkopf braucht vier. Zu dritt probiert ihr am besten <strong>Skat</strong>, einen nahen Verwandten mit denselben 32 Karten. Zu fünft <a href=\"#variants\">setzt der Geber aus</a>.",
+    "sheetCta": "Mit dem kostenlosen Online-Block behaltet ihr den Überblick: Spiel eintragen, er rechnet Spielwert und Zahlungen.",
+    "sheetCtaBtn": "Block öffnen"
+  },
+  "sheet": {
+    "h1": "Online-Block",
+    "sub": "Der Schafkopf-Block für euren Tisch, für vier Spieler. Trag jedes Spiel ein – Spielwert und wer wem zahlt rechnet er für euch.",
+    "optSau": "Sauspiel (Wert)",
+    "optSolo": "Wenz und Solo (Wert)",
+    "optExtra": "Schneider, Laufende (je; Schwarz zählt doppelt)",
+    "gameQ": "Welches Spiel?",
+    "gSau": "Sauspiel",
+    "gWenz": "Wenz",
+    "gSolo": "Solo",
+    "playerQ": "Wer hat gespielt?",
+    "partnerQ": "Partner (die gerufene Sau)",
+    "resultQ": "Ergebnis",
+    "won": "Gewonnen",
+    "lost": "Verloren",
+    "cutQ": "Schneider oder Schwarz",
+    "cutNone": "Keins",
+    "cutSchneider": "Schneider",
+    "cutSchwarz": "Schwarz",
+    "runQ": "Laufende",
+    "dblQ": "Verdoppelt (Klopfen, Kontra, Re)",
+    "preview": "Spielwert: {value}",
+    "needPlayer": "Wähle, wer gespielt hat.",
+    "needPartner": "Wähle den Partner.",
+    "partnerSame": "Der Partner kann nicht der Spieler sein.",
+    "needResult": "Wähle gewonnen oder verloren.",
+    "runInvalid": "Laufende: gib eine Zahl von 0 bis {max} ein."
   }
 }

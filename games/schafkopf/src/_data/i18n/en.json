@@ -4,7 +4,9 @@
   "goal": "<strong>The goal:</strong> together with your partner – or alone in a Solo – take tricks worth at least <strong>61 of the 120 card points</strong>.",
   "seo": {
     "rulesT": "Schafkopf rules – the Bavarian card game explained",
-    "rulesD": "How to play Schafkopf: dealing, the 14 trumps, card points, Sauspiel, Wenz and Solo, announcing, tricks, scoring with Schneider and Laufende, variants and FAQ."
+    "rulesD": "How to play Schafkopf: dealing, the 14 trumps, card points, Sauspiel, Wenz and Solo, announcing, tricks, scoring with Schneider and Laufende, variants and FAQ.",
+    "sheetT": "Schafkopf Score Sheet Online – Free, for Four Players",
+    "sheetD": "The Schafkopf score sheet in your browser: enter each game, the value with Schneider, Laufende and Kontra is worked out and shared out automatically. No sign-up, saved on your device."
   },
   "info": {
     "players1": "4",
@@ -140,6 +142,36 @@
     "faq7q": "Can I play Schafkopf with a normal pack of cards?",
     "faq7a": "Yes. Use a 32-card Skat pack: clubs for Eichel, spades for Gras, hearts for Herz and diamonds for Schellen, the queens as Ober and the jacks as Unter – see <a href=\"#setup\">Setup</a>.",
     "faq8q": "Can three people play?",
-    "faq8a": "Real Schafkopf needs four. With three, try <strong>Skat</strong>, a close cousin with the same 32 cards. With five, the <a href=\"#variants\">dealer sits out</a>."
+    "faq8a": "Real Schafkopf needs four. With three, try <strong>Skat</strong>, a close cousin with the same 32 cards. With five, the <a href=\"#variants\">dealer sits out</a>.",
+    "sheetCta": "Keep score with the free online score sheet: enter each game and it works out the value and who pays whom.",
+    "sheetCtaBtn": "Open the score sheet"
+  },
+  "sheet": {
+    "h1": "Online score sheet",
+    "sub": "The Schafkopf score sheet for your table, for four players. Enter each game – the game value and who pays whom are worked out for you.",
+    "optSau": "Sauspiel (value)",
+    "optSolo": "Wenz and Solo (value)",
+    "optExtra": "Schneider, Laufende (each; Schwarz counts double)",
+    "gameQ": "Which game?",
+    "gSau": "Sauspiel",
+    "gWenz": "Wenz",
+    "gSolo": "Solo",
+    "playerQ": "Who played?",
+    "partnerQ": "Partner (the called ace)",
+    "resultQ": "Result",
+    "won": "Won",
+    "lost": "Lost",
+    "cutQ": "Schneider or Schwarz",
+    "cutNone": "None",
+    "cutSchneider": "Schneider",
+    "cutSchwarz": "Schwarz",
+    "runQ": "Laufende",
+    "dblQ": "Doubled (Klopfen, Kontra, Re)",
+    "preview": "Game value: {value}",
+    "needPlayer": "Pick who played.",
+    "needPartner": "Pick the partner.",
+    "partnerSame": "The partner can’t be the player.",
+    "needResult": "Pick won or lost.",
+    "runInvalid": "Laufende: enter a number from 0 to {max}."
   }
 }

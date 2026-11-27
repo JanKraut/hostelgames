@@ -1,0 +1,16 @@
+---
+pagination:
+  data: languages
+  size: 1
+  alias: lang
+permalink: "{{ lang.path }}scoresheet/"
+layout: game
+subpath: "scoresheet/"
+scripts: ["/assets/scoresheet.js"]
+eleventyComputed:
+  pageTitle: "{{ lang.t.seo.sheetT }}"
+  pageDescription: "{{ lang.t.seo.sheetD }}"
+---
+{#- Online-Block: Cabo auf einem Gerät, gespeichert nur im Browser (localStorage).
+    Rahmen und Ansichten kommen aus dem Core (sheet.njk), die Regeln aus assets/scoresheet.js. -#}
+{% include "sheet.njk" %}

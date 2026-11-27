@@ -2179,3 +2179,810 @@ ol.steps p {
   color: var(--felt-soft);
   font-size: 0.9rem;
 }
+
+/* ==========================================================================
+   Online-Block (scoresheet/, includes/sheet.njk): Neues Spiel, Block, Abrechnung, Eingabe-Dialog.
+   Für alle Spiele mit Block (Kniffel, Cabo, Cambio, Schafkopf …).
+   Nur Core-Farben (Amber/Gelb), damit hell und dunkel ohne eigene Werte passen.
+   ========================================================================== */
+
+.sheet {
+  padding-bottom: 2rem;
+}
+
+.sheet section {
+  padding-top: 1.6rem;
+}
+
+.sheet-vh {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.sheet-note {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+.sheet-card {
+  display: grid;
+  gap: 0.7rem;
+  padding: 1.1rem;
+  border: 1.5px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+}
+
+.sheet-card h3,
+#sheet-recent h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+#sheet-recent h3 {
+  margin: 1.6rem 0 0.6rem;
+}
+
+.sheet-players {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sheet-players li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sheet-num {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  background: var(--felt);
+  color: var(--felt-text);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.sheet-players input,
+.sheet-sum-input input {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 2.9rem;
+  box-sizing: border-box;
+  padding: 0 0.8rem;
+  border: 1.5px solid var(--control-line);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--ink);
+  font: 600 1rem/1 var(--font-body);
+}
+
+.sheet-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.sheet-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 2.9rem;
+  border: 1.5px dashed var(--control-line);
+  border-radius: 12px;
+  background: transparent;
+  color: var(--ink);
+  font: 700 1rem/1 var(--font-body);
+  cursor: pointer;
+}
+
+.sheet-add[hidden] {
+  display: none;
+}
+
+/* Hauptknopf: Amber-Fläche aus dem Core (.ctabtn), hier als echter <button> */
+.sheet-primary {
+  border: 0;
+  font: 800 1.05rem/1.2 var(--font-body);
+  text-align: center;
+  cursor: pointer;
+}
+
+.sheet-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.9rem 1.3rem;
+  border: 1.5px solid var(--control-line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  font: 700 1rem/1.2 var(--font-body);
+  cursor: pointer;
+}
+
+.sheet-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.sheet-link {
+  padding: 0.6rem 0.4rem;
+  border: 0;
+  background: none;
+  color: var(--gold-line);
+  font: 800 0.95rem/1.2 var(--font-body);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.sheet-links {
+  text-align: center;
+}
+
+/* Letzte Spiele */
+.sheet-recent {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sheet-recent li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.4rem 0.5rem 1rem;
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.sheet-recent li.running {
+  border-color: var(--gold-line);
+}
+
+.sheet-recent-text {
+  flex: 1 1 auto;
+  display: grid;
+  min-width: 0;
+}
+
+.sheet-recent-text b {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sheet-recent-text span {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* Block */
+.sheet-round {
+  margin: 0 0 0.6rem;
+  color: var(--muted);
+  font-weight: 700;
+  text-align: center;
+}
+
+.sheet-scroll {
+  overflow-x: auto;
+  border: 1.5px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+}
+
+.sheet-table {
+  width: 100%;
+  min-width: calc(7.5rem + var(--cols, 3) * 3.6rem);
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.sheet-table th,
+.sheet-table td {
+  padding: 0;
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+
+.sheet-table .sheet-label {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  width: 7.5rem;
+  padding: 0 0.6rem 0 0.8rem;
+  background: var(--surface);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.sheet-table thead th {
+  padding: 0.6rem 0.25rem;
+  vertical-align: bottom;
+}
+
+.sheet-table thead th.turn {
+  background: var(--gold);
+  color: var(--card-ink);
+}
+
+.sheet-name {
+  display: block;
+  max-width: 6rem;
+  margin: 0 auto;
+  overflow: hidden;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sheet-turn {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.sheet-section th {
+  padding: 0.5rem 0.8rem 0.35rem;
+  background: var(--page);
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.sheet-cell {
+  display: block;
+  width: calc(100% - 0.5rem);
+  min-width: 2.75rem;
+  height: 2.4rem;
+  margin: 0.2rem auto;
+  border: 1.5px dashed var(--control-line);
+  border-radius: 9px;
+  background: transparent;
+  color: var(--ink-strong);
+  font: 800 1rem/1 var(--font-body);
+  cursor: pointer;
+}
+
+.sheet-cell.filled {
+  border-color: transparent;
+}
+
+.sheet-cell.struck {
+  color: var(--muted);
+  font-weight: 600;
+  text-decoration: line-through;
+}
+
+/* Nächstes freies Feld des Spielers, der dran ist */
+.sheet-cell.next {
+  border-style: solid;
+  border-color: var(--gold-line);
+}
+
+@media (hover: hover) {
+  .sheet-cell:hover {
+    background: var(--summary-hover);
+  }
+}
+
+.sheet-sum td,
+.sheet-sum th {
+  background: var(--summary-hover);
+}
+
+.sheet-sum td {
+  height: 2.5rem;
+  font-weight: 800;
+}
+
+/* Kurzer Hinweis unter dem Feldnamen (Bonus, Full House, Straßen, Kniffel, Chance) */
+.sheet-label small {
+  display: block;
+  margin-bottom: 0.15rem;
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.25;
+  white-space: normal;
+}
+
+.sheet-chip {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  background: var(--felt);
+  color: var(--felt-text);
+  font-size: 0.72rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.sheet-table .sheet-total th,
+.sheet-table .sheet-total td {
+  height: 3rem;
+  border-bottom: 0;
+  background: var(--head-bg);
+  color: var(--head-text);
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.sheet-saved {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.sheet-actions {
+  display: flex;
+  gap: 0.7rem;
+}
+
+.sheet-actions > * {
+  flex: 1 1 0;
+  min-height: 3.2rem;
+}
+
+.sheet-actions-col {
+  flex-direction: column;
+  margin-top: 1.4rem;
+}
+
+/* Abrechnung */
+.sheet-winner {
+  display: grid;
+  justify-items: center;
+  gap: 0.2rem;
+  padding: 1.4rem 1rem;
+  border-radius: 20px;
+  background: var(--felt);
+  color: var(--felt-text);
+  text-align: center;
+}
+
+.sheet-winner-label {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sheet-winner-name {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  font-weight: var(--font-display-weight);
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.sheet-winner-points {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.sheet-ranking {
+  display: grid;
+  gap: 0.6rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sheet-ranking li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.sheet-ranking li.first {
+  border-color: var(--gold-line);
+}
+
+.sheet-ranking div {
+  flex: 1 1 auto;
+  display: grid;
+  min-width: 0;
+}
+
+.sheet-ranking div span {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.sheet-place {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  background: var(--page);
+  font-weight: 800;
+}
+
+.sheet-ranking .first .sheet-place {
+  background: var(--gold);
+  color: var(--card-ink);
+}
+
+.sheet-points {
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+/* Eingabe-Dialog: unten am Handy, mittig am großen Bildschirm */
+.sheet-dialog {
+  width: min(28rem, 100vw);
+  max-width: 100vw;
+  max-height: 100dvh;
+  overflow-y: auto;
+  margin: auto auto 0;
+  padding: 0.6rem 1.25rem calc(1.2rem + env(safe-area-inset-bottom));
+  border: 0;
+  border-radius: 22px 22px 0 0;
+  background: var(--surface);
+  color: var(--ink);
+}
+
+@media (min-width: 40rem) {
+  .sheet-dialog {
+    margin: auto;
+    border-radius: 22px;
+  }
+}
+
+.sheet-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.sheet-dialog form {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.sheet-dialog h2 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.sheet-dialog-player {
+  margin: 0.6rem 0 0;
+  color: var(--gold-line);
+  font-weight: 800;
+}
+
+.sheet-dialog-q {
+  margin: 0;
+  color: var(--muted);
+}
+
+.sheet-dialog-error {
+  margin: 0;
+  color: var(--red);
+  font-weight: 700;
+}
+
+.sheet-dialog-error:empty {
+  display: none;
+}
+
+.sheet-choices {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.sheet-choice {
+  display: grid;
+  justify-items: center;
+  gap: 0.1rem;
+  min-height: 4rem;
+  padding: 0.5rem;
+  border: 1.5px solid var(--control-line);
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--ink-strong);
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+.sheet-choice b {
+  font-size: 1.4rem;
+}
+
+.sheet-choice span {
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Viererpasch: zwei Reihen mit je sechs Würfelzahlen */
+.sheet-dice {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+
+.sheet-dice .sheet-choice {
+  min-height: 3rem;
+  align-items: center;
+}
+
+.sheet-dialog-sub {
+  margin: 0.3rem 0 0;
+  font-weight: 700;
+}
+
+.sheet-quad-total {
+  min-height: 1.4em;
+  margin: 0.2rem 0 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.sheet-choice.picked {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--card-ink);
+}
+
+.sheet-choice.picked span {
+  color: var(--card-ink);
+}
+
+.sheet-sum-input {
+  display: flex;
+}
+
+.sheet-sum-input input {
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.sheet-dialog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.sheet-dialog-actions > * {
+  flex: 1 1 8rem;
+  min-height: 3.1rem;
+}
+
+.sheet-dialog-actions .sheet-clear {
+  flex-basis: 100%;
+  min-height: 2.75rem;
+}
+
+@media print {
+  .sheet-actions,
+  .sheet-links,
+  .sheet-saved {
+    display: none;
+  }
+}
+
+/* Hinweis auf den Online-Block auf der Regelseite */
+.sheet-cta {
+  margin-top: 1.4rem;
+}
+
+.sheet-cta p {
+  margin-top: 0;
+}
+
+/* ---------- Online-Block mit Runden (Cabo, Cambio, Schafkopf) ---------- */
+
+/* Setup-Felder: Punktegrenze, Strafe, Tarif */
+.sheet-options {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.sheet-options[hidden] {
+  display: none;
+}
+
+.sheet-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  font-weight: 600;
+}
+
+.sheet-option input[type="number"] {
+  flex: none;
+  width: 5.5rem;
+  min-height: 2.6rem;
+  box-sizing: border-box;
+  padding: 0 0.6rem;
+  border: 1.5px solid var(--control-line);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--ink);
+  font: 700 1rem/1 var(--font-body);
+  text-align: center;
+}
+
+.sheet-option-check {
+  justify-content: flex-start;
+}
+
+.sheet-option-check input {
+  flex: none;
+  width: 1.3rem;
+  height: 1.3rem;
+  accent-color: var(--gold-line);
+}
+
+/* Zeile „Runde 3“: antippen zum Korrigieren */
+.sheet-rowbtn {
+  padding: 0.7rem 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.sheet-empty td {
+  padding: 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.sheet-cell {
+  position: relative;
+}
+
+.sheet-cell.zero {
+  color: var(--muted);
+}
+
+/* Kleiner Stern in der Ecke: wer die Runde beendet hat (Cabo, Cambio) */
+.sheet-mark {
+  position: absolute;
+  top: 0.1rem;
+  right: 0.3rem;
+  color: var(--gold-line);
+  font-size: 0.7rem;
+  line-height: 1;
+}
+
+.sheet-extra {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.sheet-extra:empty {
+  display: none;
+}
+
+.sheet-addround {
+  min-height: 3.2rem;
+}
+
+.sheet-notice {
+  margin: 0;
+  padding: 0.8rem 1rem;
+  border-radius: 14px;
+  background: var(--felt);
+  color: var(--felt-text);
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Eingabe: eine Zahl je Spieler */
+.sheet-values {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.sheet-value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  font-weight: 700;
+}
+
+.sheet-value span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sheet-value input {
+  flex: none;
+  width: 6rem;
+  min-height: 2.9rem;
+  box-sizing: border-box;
+  padding: 0 0.6rem;
+  border: 1.5px solid var(--control-line);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--ink);
+  font: 800 1.2rem/1 var(--font-body);
+  text-align: center;
+}
+
+/* Auswahl in vier, zwei oder drei Spalten (Spieler, Spielart, Ergebnis) */
+.sheet-choices.cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.sheet-choices.cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.sheet-choice b {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sheet-preview {
+  margin: 0.2rem 0 0;
+  padding: 0.6rem 0.8rem;
+  border-radius: 12px;
+  background: var(--summary-hover);
+  font-weight: 700;
+  text-align: center;
+}
+
+.sheet-preview:empty {
+  display: none;
+}
+
+.sheet-choices.cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Drei Spalten am Handy: längere Wörter (Schneider) sollen nicht abgeschnitten werden */
+.sheet-choices.cols-3 .sheet-choice b {
+  font-size: 1.05rem;
+}

@@ -106,7 +106,9 @@
     "faq7q": "Darf ich gleich am Anfang „Cambio“ sagen?",
     "faq7a": "Ja, zu Beginn jedes deiner Züge. Frühes Ansagen ist mutig, denn du kennst nur zwei deiner Karten.",
     "faq8q": "Was ist der Unterschied zwischen Cambio und Cabo?",
-    "faq8a": "Die beiden sind eng verwandt. Cabo gibt es mit eigenen Karten von 0 bis 13 zu kaufen; Cambio spielt man mit einem normalen Kartenspiel, mit dem roten König als bester Karte und meist mit Abwerfen."
+    "faq8a": "Die beiden sind eng verwandt. Cabo gibt es mit eigenen Karten von 0 bis 13 zu kaufen; Cambio spielt man mit einem normalen Kartenspiel, mit dem roten König als bester Karte und meist mit Abwerfen.",
+    "sheetCta": "Punkte zählen geht mit dem kostenlosen Online-Block: Er addiert die Runden und zeigt, wer über 100 liegt.",
+    "sheetCtaBtn": "Block öffnen"
   },
   "sub": "Vier Karten verdeckt, ein kurzer Blick, danach zählt nur dein Gedächtnis. Ein Hostel-Klassiker, den du in zwei Minuten lernst.",
   "goal": "<strong>Das Ziel:</strong> Am Ende der Runde die niedrigste Summe in deinen Karten haben. Du siehst sie fast nie – also merk dir, was du angeschaut hast, tausch hohe Karten aus und behalte die anderen im Blick.",
@@ -116,7 +118,9 @@
     "strategyT": "Cambio Strategie – Tipps fürs Abwerfen und Gewinnen",
     "strategyD": "Cambio-Strategie-Guide: Karten merken, den schwarzen König nutzen, fremde Karten abwerfen, deinen Stand sichern und im besten Moment „Cambio“ rufen.",
     "quickT": "Cambio Quickstart – Spickzettel, Werte und Fähigkeiten",
-    "quickD": "Cambio auf einen Blick: Kartenwerte mit rotem König minus 1, Fähigkeiten, eigenes und fremdes Abwerfen sowie „Cambio“ ansagen auf einem Bildschirm."
+    "quickD": "Cambio auf einen Blick: Kartenwerte mit rotem König minus 1, Fähigkeiten, eigenes und fremdes Abwerfen sowie „Cambio“ ansagen auf einem Bildschirm.",
+    "sheetT": "Cambio Punktezettel online – kostenlos, Runde für Runde",
+    "sheetD": "Der Cambio-Block im Browser: Kartensummen jeder Runde eintragen, der Gesamtstand wird automatisch gerechnet, auch mit rotem König bei −1. Ohne Anmeldung, gespeichert auf deinem Gerät."
   },
   "info": {
     "players1": "2–3",
@@ -221,5 +225,11 @@
     "ctaRulesH": "Alle Regeln",
     "ctaRulesP": "Alle Details, Rechenbeispiel, Varianten und FAQ.",
     "ctaRulesBtn": "Zu den Regeln"
+  },
+  "sheet": {
+    "h1": "Online-Block",
+    "sub": "Der Cambio-Block im Browser, für 2 bis 6 Spieler. Trag nach jeder Runde die Kartensummen ein – Gesamtstand und Spielende rechnet er für dich.",
+    "who": "Wer hat „Cambio“ gesagt?",
+    "calledBy": "{name} hat Cambio gesagt"
   }
 }

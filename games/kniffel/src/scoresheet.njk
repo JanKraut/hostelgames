@@ -12,89 +12,12 @@ eleventyComputed:
   pageDescription: "{{ lang.t.seo.sheetD }}"
 ---
 {#- Online-Block: Kniffel auf einem Gerät, gespeichert nur im Browser (localStorage).
-    Drei Ansichten, von scoresheet.js umgeschaltet: Neues Spiel (#sheet-setup), Block (#sheet-game),
-    Abrechnung (#sheet-result). Tabelle, Listen und Eingabe-Dialog baut das Skript; Texte und
-    Feldnamen kommen aus dem JSON unten (sheet.*, up1–up6, lb_*H). -#}
-{%- set t = lang.t -%}
-{%- set s = t.sheet -%}
-<header class="hero hero-small">
-  <div class="wrap">
-    {% include "sitehead.njk" %}
-    <h1>{{ s.h1 }}</h1>
-    <p>{{ s.sub }}</p>
-  </div>
-</header>
-
-<main class="wrap sheet" id="sheet">
-  <noscript><p class="sheet-note">{{ s.noJs }}</p></noscript>
-
-  <section id="sheet-setup" class="js-only" aria-labelledby="sheet-setup-h">
-    <h2 id="sheet-setup-h">{{ s.newH }}</h2>
-    <form class="sheet-card" id="sheet-form">
-      <h3 class="sheet-players-h" id="sheet-players-h"></h3>
-      <ol class="sheet-players" id="sheet-players"></ol>
-      <button type="button" class="sheet-add" id="sheet-add">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-        {{ s.add }}
-      </button>
-      <button type="submit" class="ctabtn sheet-primary">{{ s.start }}</button>
-    </form>
-    <div id="sheet-recent" hidden>
-      <h3>{{ s.recentH }}</h3>
-      <ul class="sheet-recent" id="sheet-recent-list"></ul>
-    </div>
-    <p class="sheet-note">{{ s.storageNote }}</p>
-  </section>
-
-  <section id="sheet-game" hidden aria-label="{{ s.h1 }}">
-    <p class="sheet-round" id="sheet-round" aria-live="polite"></p>
-    <div class="sheet-scroll">
-      <table class="sheet-table" id="sheet-table"></table>
-    </div>
-    <p class="sheet-note sheet-saved">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
-      {{ s.saved }}
-    </p>
-    <div class="sheet-actions">
-      <button type="button" class="sheet-btn" id="sheet-undo">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14 4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></svg>
-        {{ s.undo }}
-      </button>
-      <button type="button" class="ctabtn sheet-primary" id="sheet-finish">{{ s.finish }}</button>
-    </div>
-    <p class="sheet-links"><button type="button" class="sheet-link" id="sheet-new">{{ s.newGame }}</button></p>
-  </section>
-
-  <section id="sheet-result" hidden aria-labelledby="sheet-result-h">
-    <h2 id="sheet-result-h" tabindex="-1">{{ s.resultH }}</h2>
-    <div class="sheet-winner" id="sheet-winner"></div>
-    <ol class="sheet-ranking" id="sheet-ranking"></ol>
-    <div class="sheet-actions sheet-actions-col">
-      <button type="button" class="ctabtn sheet-primary" id="sheet-again">{{ s.again }}</button>
-      <button type="button" class="sheet-btn" id="sheet-back">{{ s.back }}</button>
-      <button type="button" class="sheet-btn" id="sheet-all">{{ s.allGames }}</button>
-    </div>
-  </section>
-
-  {#- Eingabe für ein Feld: Inhalt je nach Feldart (Augenzahl, Summe, feste Punkte). -#}
-  <dialog class="sheet-dialog" id="sheet-dialog" aria-labelledby="sheet-dialog-h">
-    <form method="dialog" id="sheet-dialog-form">
-      <p class="sheet-dialog-player" id="sheet-dialog-player"></p>
-      <h2 id="sheet-dialog-h"></h2>
-      <p class="sheet-dialog-q" id="sheet-dialog-q"></p>
-      <div id="sheet-dialog-body"></div>
-      <p class="sheet-dialog-error" id="sheet-dialog-error" role="alert"></p>
-      <div class="sheet-dialog-actions" id="sheet-dialog-actions"></div>
-      <button type="button" class="sheet-link" id="sheet-dialog-cancel">{{ s.cancel }}</button>
-    </form>
-  </dialog>
-</main>
-
-{%- set labels = {
-  ones: t.rules.up1, twos: t.rules.up2, threes: t.rules.up3, fours: t.rules.up4, fives: t.rules.up5, sixes: t.rules.up6,
-  three: t.rules.lb_threeH, four: t.rules.lb_fourH, full: t.rules.lb_fullH, small: t.rules.lb_smallH,
-  large: t.rules.lb_largeH, kniffel: t.rules.lb_kniffelH, chance: t.rules.lb_chanceH
-} %}
-<script type="application/json" id="sheet-texts">{{ { lang: lang.code, t: s, fields: labels } | dump | safe }}</script>
-
-{% include "footer.njk" %}
+    Rahmen und Ansichten kommen aus dem Core (sheet.njk), die Regeln aus assets/scoresheet.js.
+    Feldnamen für den Eingabe-Dialog kommen aus den Regeltexten (up1–up6, lb_*H). -#}
+{%- set r = lang.t.rules -%}
+{%- set sheetExtra = { fields: {
+  ones: r.up1, twos: r.up2, threes: r.up3, fours: r.up4, fives: r.up5, sixes: r.up6,
+  three: r.lb_threeH, four: r.lb_fourH, full: r.lb_fullH, small: r.lb_smallH,
+  large: r.lb_largeH, kniffel: r.lb_kniffelH, chance: r.lb_chanceH
+} } -%}
+{% include "sheet.njk" %}
