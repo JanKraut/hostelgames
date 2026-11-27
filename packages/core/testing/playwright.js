@@ -37,7 +37,7 @@ export async function open(page, lang, sub = "") {
 // Page title of each page: lang.t.seo.<key>.
 const TITLES = { rules: "rulesT", strategy: "strategyT", quickstart: "quickT", scoresheet: "sheetT", play: "playT" };
 // Name of each tab: lang.t.<key> (the game against bots has its own, from the menu texts).
-const TABS = { rules: "pgRules", strategy: "n6", quickstart: "pgQuick", scoresheet: "pgSheet" };
+const TABS = { rules: "pgRules", strategy: "pgStrategy", quickstart: "pgQuick", scoresheet: "pgSheet" };
 // Template leftovers or texts that are missing.
 const LEFTOVERS = /undefined|\[object|\{\{|\{%/;
 

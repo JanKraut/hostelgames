@@ -19,3 +19,7 @@ Vor jedem Commit: `npm run check`, `npm run build:<slug>`, Tests des Spiels.
 ## Sprachen
 - Englisch ist Referenz. Jede Textänderung: de UND en, nur diese zwei öffnen.
 - Andere Sprachen nur, wenn Jan es sagt (Ablauf: docs/alle-sprachen.md).
+- Einheitliches Key-Schema in jedem Spiel: oben `h1`, `sub`, `goal`, `seo`, `info`;
+  alle Texte der Regelseite unter `rules` (Navigation `nSetup`, `nPlay` … `nVar`, `nFaq`,
+  Abschnitte `setupH`, `setupLead` …, Listen `var1…`, `faq1q/faq1a`; im Template
+  `r = t.rules`); weitere Seiten unter `strategy`, `quick`, `sheet`; Quiz `q…`/`quiz`, 404 `nf…`.

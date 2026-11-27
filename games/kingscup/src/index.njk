@@ -16,6 +16,7 @@ eleventyComputed:
 {%- from "card.njk" import card -%}
 {%- from "ring.njk" import ring, cup -%}
 {%- set t = lang.t -%}
+{%- set r = t.rules -%}
 {#- Rang, Key in den Texten, Farbe für die Beispielkarte (Reihenfolge = Kartenwert). -#}
 {%- set CARDS = [
   ["A", "a", "♠"], ["2", "2", "♥"], ["3", "3", "♣"], ["4", "4", "♦"], ["5", "5", "♠"],
@@ -25,90 +26,90 @@ eleventyComputed:
 {% include "hero.njk" %}
 
 {{ secnav(t.navLabel, [
-  ["setup", t.nSetup],
-  ["turn", t.nTurn],
-  ["cards", t.nCards],
-  ["kings", t.nKings],
-  ["safe", t.nSafe],
-  ["variants", t.nVariants],
-  ["faq", t.nFaq]
+  ["setup", r.nSetup],
+  ["turn", r.nTurn],
+  ["cards", r.nCards],
+  ["kings", r.nKings],
+  ["safe", r.nSafe],
+  ["variants", r.nVar],
+  ["faq", r.nFaq]
 ]) }}
 
 <main class="wrap">
 
   <section id="setup">
-    <h2>{{ t.setupH }}</h2>
-    <p class="lead">{{ t.setupLead | safe }}</p>
+    <h2>{{ r.setupH }}</h2>
+    <p class="lead">{{ r.setupLead | safe }}</p>
     <ul class="rules">
-      <li>{{ t.setup1 | safe }}</li>
-      <li>{{ t.setup2 | safe }}</li>
-      <li>{{ t.setup3 | safe }}</li>
-      <li>{{ t.setup4 | safe }}</li>
+      <li>{{ r.setup1 | safe }}</li>
+      <li>{{ r.setup2 | safe }}</li>
+      <li>{{ r.setup3 | safe }}</li>
+      <li>{{ r.setup4 | safe }}</li>
     </ul>
-    <p>{{ t.setupP | safe }}</p>
+    <p>{{ r.setupP | safe }}</p>
   </section>
 
   <section id="turn">
-    <h2>{{ t.turnH }}</h2>
-    <p class="lead">{{ t.turnLead | safe }}</p>
-    {{ steps(t, "s") }}
+    <h2>{{ r.turnH }}</h2>
+    <p class="lead">{{ r.turnLead | safe }}</p>
+    {{ steps(r, "s") }}
 
-    <h3 class="sub">{{ t.breakH }}</h3>
-    <p>{{ t.breakP | safe }}</p>
+    <h3 class="sub">{{ r.breakH }}</h3>
+    <p>{{ r.breakP | safe }}</p>
   </section>
 
   <section id="cards">
-    <h2>{{ t.cardsH }}</h2>
-    <p class="lead">{{ t.cardsLead | safe }}</p>
+    <h2>{{ r.cardsH }}</h2>
+    <p class="lead">{{ r.cardsLead | safe }}</p>
     {#- Eine Box pro Rang: Karte, Name, was passiert. -#}
     <div class="rulecards">
       {%- for c in CARDS %}
       <div class="rulecard" id="card-{{ c[1] }}">
         {{ card(c[0], c[2], "sm") }}
         <div>
-          <h3>{{ t["c_" ~ c[1] ~ "H"] }}</h3>
-          <p>{{ t["c_" ~ c[1] ~ "P"] | safe }}</p>
+          <h3>{{ r["c_" ~ c[1] ~ "H"] }}</h3>
+          <p>{{ r["c_" ~ c[1] ~ "P"] | safe }}</p>
         </div>
       </div>
       {%- endfor %}
     </div>
-    <p class="note">{{ t.cardsP | safe }}</p>
+    <p class="note">{{ r.cardsP | safe }}</p>
   </section>
 
   <section id="kings">
-    <h2>{{ t.kingsH }}</h2>
-    <p class="lead">{{ t.kingsLead | safe }}</p>
+    <h2>{{ r.kingsH }}</h2>
+    <p class="lead">{{ r.kingsLead | safe }}</p>
     {#- Die vier Könige: drei schütten nach, der vierte trinkt den Becher. -#}
     <ol class="kings" role="list">
       {%- for k in [["♠", "1"], ["♥", "2"], ["♣", "3"], ["♦", "4"]] %}
       <li{% if loop.last %} class="last"{% endif %}>
         {{ card("K", k[0], "sm", "gold" if loop.last else "") }}
-        <b>{{ t["king" ~ k[1] ~ "H"] }}</b>
-        <span>{{ t["king" ~ k[1] ~ "P"] }}</span>
+        <b>{{ r["king" ~ k[1] ~ "H"] }}</b>
+        <span>{{ r["king" ~ k[1] ~ "P"] }}</span>
       </li>
       {%- endfor %}
     </ol>
     <div class="bonus">
       {{ cup("bonus-cup") }}
-      <p>{{ t.kingsP | safe }}</p>
+      <p>{{ r.kingsP | safe }}</p>
     </div>
-    <h3 class="sub">{{ t.endH }}</h3>
-    <p>{{ t.endP | safe }}</p>
+    <h3 class="sub">{{ r.endH }}</h3>
+    <p>{{ r.endP | safe }}</p>
   </section>
 
   <section id="safe">
-    <h2>{{ t.safeH }}</h2>
-    <p class="lead">{{ t.safeLead | safe }}</p>
+    <h2>{{ r.safeH }}</h2>
+    <p class="lead">{{ r.safeLead | safe }}</p>
     <ul class="rules safe">
       {%- for i in range(1, 6) %}
-      <li>{{ t["safe" ~ i] | safe }}</li>
+      <li>{{ r["safe" ~ i] | safe }}</li>
       {%- endfor %}
     </ul>
   </section>
 
-  {{ variants(t) }}
+  {{ variants(r) }}
 
-  {{ faq(t) }}
+  {{ faq(r) }}
 
   {% include "share.njk" %}
 </main>

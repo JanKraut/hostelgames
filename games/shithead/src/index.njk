@@ -13,43 +13,44 @@ eleventyComputed:
 {%- from "blocks.njk" import secnav, steps, faq, variants -%}
 {%- from "card.njk" import card, back, stack, cardRow -%}
 {%- set t = lang.t -%}
+{%- set r = t.rules -%}
 
 {% include "hero.njk" %}
 
 {{ secnav(t.navLabel, [
-  ["setup", t.n1],
-  ["variants", t.rules.varNav],
-  ["swap", t.n1b],
-  ["how-to-play", t.n2],
-  ["special-cards", t.n3],
-  ["endgame", t.n4],
-  ["faq", t.rules.faqNav],
-  ["practice", t.n5, "js-only"],
+  ["setup", r.nSetup],
+  ["variants", r.nVar],
+  ["swap", r.nSwap],
+  ["how-to-play", r.nPlay],
+  ["special-cards", r.nSpecial],
+  ["endgame", r.nEnd],
+  ["faq", r.nFaq],
+  ["practice", r.nPractice, "js-only"],
   [lang.path + "play/", t.game.ctaBtn]
 ]) }}
 
 <main class="wrap">
 
   <section id="setup">
-    <h2>{{ t.setupH }}</h2>
-    <p class="lead">{{ t.setupLead | safe }}</p>
+    <h2>{{ r.setupH }}</h2>
+    <p class="lead">{{ r.setupLead | safe }}</p>
 
-    <h3 class="sub">{{ t.rankH }}</h3>
-    <p class="lead">{{ t.rankLead | safe }}</p>
-    <div class="ranks" role="img" aria-label="{{ t.rankAlt }}">
+    <h3 class="sub">{{ r.rankH }}</h3>
+    <p class="lead">{{ r.rankLead | safe }}</p>
+    <div class="ranks" role="img" aria-label="{{ r.rankAlt }}">
       {{ cardRow([["2","♠"],["3","♥"],["4","♣"],["5","♦"],["6","♠"],["7","♥"],["8","♣"],["9","♦"],["10","♠"],["J","♥"],["Q","♣"],["K","♦"],["A","♠"]]) }}
     </div>
-    <div class="rankscale" aria-hidden="true"><span>{{ t.rankLow }}</span><span>{{ t.rankHigh }}</span></div>
-    <p>{{ t.rankP | safe }}</p>
+    <div class="rankscale" aria-hidden="true"><span>{{ r.rankLow }}</span><span>{{ r.rankHigh }}</span></div>
+    <p>{{ r.rankP | safe }}</p>
 
-    <h3 class="sub">{{ t.dealH }}</h3>
-    <p>{{ t.dealP | safe }}</p>
+    <h3 class="sub">{{ r.dealH }}</h3>
+    <p>{{ r.dealP | safe }}</p>
 
     {#- Dealing: hand cards fanned on top, below three face-up cards on three
         face-down ones. Labels point at each layer with curved arrows. -#}
-    <div class="dealvis" role="img" aria-label="{{ t.setupAlt }}">
+    <div class="dealvis" role="img" aria-label="{{ r.setupAlt }}">
       <div class="dv-hand">
-        <p class="dv-note dv-note-hand">{{ t.lgHand | safe }}</p>
+        <p class="dv-note dv-note-hand">{{ r.lgHand | safe }}</p>
         <svg class="dv-arrow" viewBox="0 0 64 40" aria-hidden="true"><path d="M4 30 C 20 6, 40 4, 56 16"/><path d="M47 10 L57 17 L45 21"/></svg>
         <div class="dv-fan">{{ back("sm") }}{{ back("sm") }}{{ back("sm") }}</div>
       </div>
@@ -61,28 +62,28 @@ eleventyComputed:
       <div class="dv-notes">
         <div class="dv-up">
           <svg class="dv-arrow" viewBox="0 0 64 40" aria-hidden="true"><path d="M10 36 C 6 20, 14 8, 30 4"/><path d="M20 1 L31 4 L23 12"/></svg>
-          <p class="dv-note">{{ t.lgUp | safe }}</p>
+          <p class="dv-note">{{ r.lgUp | safe }}</p>
         </div>
         <div class="dv-down">
           <svg class="dv-arrow" viewBox="0 0 64 40" aria-hidden="true"><path d="M54 36 C 58 20, 50 10, 36 6"/><path d="M44 1 L34 6 L42 13"/></svg>
-          <p class="dv-note">{{ t.lgDown | safe }}</p>
+          <p class="dv-note">{{ r.lgDown | safe }}</p>
         </div>
       </div>
     </div>
 
-    <p>{{ t.setupP | safe }}</p>
+    <p>{{ r.setupP | safe }}</p>
   </section>
 
-  {{ variants(t.rules) }}
+  {{ variants(r) }}
 
   <section id="swap">
-    <h2>{{ t.swH }}</h2>
-    <p class="lead">{{ t.swLead | safe }}</p>
+    <h2>{{ r.swH }}</h2>
+    <p class="lead">{{ r.swLead | safe }}</p>
     {#- Swapping: same style as the dealing graphic. The ace from the hand
         and the 4 on the table (outlined) change places. -#}
-    <div class="dealvis swapvis" role="img" aria-label="{{ t.swAlt }}">
+    <div class="dealvis swapvis" role="img" aria-label="{{ r.swAlt }}">
       <div class="dv-hand">
-        <p class="dv-note dv-note-hand">{{ t.swHand | safe }}</p>
+        <p class="dv-note dv-note-hand">{{ r.swHand | safe }}</p>
         <svg class="dv-arrow" viewBox="0 0 64 40" aria-hidden="true"><path d="M4 30 C 20 6, 40 4, 56 16"/><path d="M47 10 L57 17 L45 21"/></svg>
         <div class="dv-fan">{{ card("6", "♥", "sm") }}{{ card("A", "♠", "sm", "gold") }}{{ card("J", "♦", "sm") }}</div>
       </div>
@@ -98,60 +99,60 @@ eleventyComputed:
       <div class="dv-notes">
         <div class="dv-up">
           <svg class="dv-arrow" viewBox="0 0 64 40" aria-hidden="true"><path d="M10 36 C 6 20, 14 8, 30 4"/><path d="M20 1 L31 4 L23 12"/></svg>
-          <p class="dv-note">{{ t.swUp | safe }}</p>
+          <p class="dv-note">{{ r.swUp | safe }}</p>
         </div>
       </div>
     </div>
 
-    {{ steps(t, "w") }}
-    <p>{{ t.swWhy | safe }}</p>
+    {{ steps(r, "w") }}
+    <p>{{ r.swWhy | safe }}</p>
   </section>
 
   <section id="how-to-play">
-    <h2>{{ t.playH }}</h2>
+    <h2>{{ r.playH }}</h2>
 
-    <h3 class="sub first">{{ t.startH }}</h3>
-    <p>{{ t.startP | safe }}</p>
+    <h3 class="sub first">{{ r.startH }}</h3>
+    <p>{{ r.startP | safe }}</p>
 
-    <h3 class="sub">{{ t.turnH }}</h3>
-    <p>{{ t.turnLead | safe }}</p>
+    <h3 class="sub">{{ r.turnH }}</h3>
+    <p>{{ r.turnLead | safe }}</p>
     <div class="decide">
-      <p class="dq">{{ t.dq }}</p>
-      <p class="dqs">{{ t.dqs | safe }}</p>
+      <p class="dq">{{ r.dq }}</p>
+      <p class="dqs">{{ r.dqs | safe }}</p>
       <div class="branches">
         <div class="br yes-br">
-          <div class="bh">{{ t.byH }}</div>
+          <div class="bh">{{ r.byH }}</div>
           <ol>
-            <li>{{ t.by1 | safe }}</li>
-            <li>{{ t.by2 | safe }}</li>
+            <li>{{ r.by1 | safe }}</li>
+            <li>{{ r.by2 | safe }}</li>
           </ol>
         </div>
         <div class="br no-br">
-          <div class="bh">{{ t.bnH }}</div>
-          <p class="bp">{{ t.bn1 | safe }}</p>
-          <p class="bp bfree">{{ t.rules.bnFree | safe }}</p>
+          <div class="bh">{{ r.bnH }}</div>
+          <p class="bp">{{ r.bn1 | safe }}</p>
+          <p class="bp bfree">{{ r.bnFree | safe }}</p>
         </div>
       </div>
-      <p class="dnext">{{ t.dnext | safe }}</p>
+      <p class="dnext">{{ r.dnext | safe }}</p>
     </div>
   </section>
 
   {% include "specials.njk" %}
 
   <section id="endgame">
-    <h2>{{ t.endH }}</h2>
+    <h2>{{ r.endH }}</h2>
 
-    <h3 class="sub first">{{ t.e1h }}</h3>
-    <p>{{ t.e1p | safe }}</p>
+    <h3 class="sub first">{{ r.e1h }}</h3>
+    <p>{{ r.e1p | safe }}</p>
 
-    <h3 class="sub">{{ t.e2h }}</h3>
-    <p>{{ t.e2p | safe }}</p>
+    <h3 class="sub">{{ r.e2h }}</h3>
+    <p>{{ r.e2p | safe }}</p>
     {#- Order once the hand is empty: hand, then face-up, then face-down cards.
         Same style as the dealing graphic. -#}
     <div class="dealvis phasevis">
       <div class="pv-step">
         <div class="pv-cards pv-fan" aria-hidden="true">{{ card("5", "♥", "xs", pip=false) }}{{ card("9", "♠", "xs", pip=false) }}</div>
-        <p class="dv-note"><b>{{ t.ph1b }}</b>{{ t.ph1s }}</p>
+        <p class="dv-note"><b>{{ r.ph1b }}</b>{{ r.ph1s }}</p>
       </div>
       <svg class="pv-arrow" viewBox="0 0 40 24" aria-hidden="true"><path d="M3 16 C 12 4, 26 4, 35 13"/><path d="M27 12 L36 14 L34 5"/></svg>
       <div class="pv-step">
@@ -159,26 +160,26 @@ eleventyComputed:
           <div class="pv-stack">{{ back("xs") }}{{ card("K", "♠", "xs", pip=false) }}</div>
           <div class="pv-stack">{{ back("xs") }}{{ card("A", "♦", "xs", pip=false) }}</div>
         </div>
-        <p class="dv-note"><b>{{ t.ph2b }}</b>{{ t.ph2s }}</p>
+        <p class="dv-note"><b>{{ r.ph2b }}</b>{{ r.ph2s }}</p>
       </div>
       <svg class="pv-arrow" viewBox="0 0 40 24" aria-hidden="true"><path d="M3 16 C 12 4, 26 4, 35 13"/><path d="M27 12 L36 14 L34 5"/></svg>
       <div class="pv-step">
         <div class="pv-cards pv-backs" aria-hidden="true">{{ back("xs") }}{{ back("xs") }}</div>
-        <p class="dv-note"><b>{{ t.ph3b }}</b>{{ t.ph3s }}</p>
+        <p class="dv-note"><b>{{ r.ph3b }}</b>{{ r.ph3s }}</p>
       </div>
     </div>
 
-    <h3 class="sub">{{ t.e3h }}</h3>
-    <p>{{ t.e3p | safe }}</p>
+    <h3 class="sub">{{ r.e3h }}</h3>
+    <p>{{ r.e3p | safe }}</p>
 
-    <h3 class="sub">{{ t.e4h }}</h3>
-    <p>{{ t.e4p | safe }}</p>
+    <h3 class="sub">{{ r.e4h }}</h3>
+    <p>{{ r.e4p | safe }}</p>
 
-    <h3 class="sub">{{ t.e5h }}</h3>
-    <p>{{ t.e5p | safe }}</p>
+    <h3 class="sub">{{ r.e5h }}</h3>
+    <p>{{ r.e5p | safe }}</p>
   </section>
 
-  {{ faq(t.rules) }}
+  {{ faq(r) }}
 
   {% include "quiz.njk" %}
 

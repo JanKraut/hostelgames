@@ -15,102 +15,103 @@ eleventyComputed:
     Rückweg, Gewinnen, Stumme Jule, Varianten, FAQ, Teilen. Texte in src/_data/i18n/*.json. -#}
 {%- from "dice.njk" import die, dice -%}
 {%- set t = lang.t -%}
+{%- set r = t.rules -%}
 {% include "hero.njk" %}
 
 {{ secnav(t.navLabel, [
-  ["setup", t.nSetup],
-  ["turn", t.nTurn],
-  ["back", t.nBack],
-  ["winning", t.nWin],
-  ["silent", t.nSilent],
-  ["variants", t.nVariants],
-  ["faq", t.nFaq]
+  ["setup", r.nSetup],
+  ["turn", r.nTurn],
+  ["back", r.nBack],
+  ["winning", r.nWin],
+  ["silent", r.nSilent],
+  ["variants", r.nVar],
+  ["faq", r.nFaq]
 ]) }}
 
 <main class="wrap">
 
   <section id="setup">
-    <h2>{{ t.setupH }}</h2>
-    <p class="lead">{{ t.setupLead | safe }}</p>
+    <h2>{{ r.setupH }}</h2>
+    <p class="lead">{{ r.setupLead | safe }}</p>
     <ul class="rules">
-      <li>{{ t.setup1 | safe }}</li>
-      <li>{{ t.setup2 | safe }}</li>
-      <li>{{ t.setup3 | safe }}</li>
+      <li>{{ r.setup1 | safe }}</li>
+      <li>{{ r.setup2 | safe }}</li>
+      <li>{{ r.setup3 | safe }}</li>
     </ul>
-    <p>{{ t.setupP | safe }}</p>
+    <p>{{ r.setupP | safe }}</p>
   </section>
 
   <section id="turn">
-    <h2>{{ t.turnH }}</h2>
-    <p class="lead">{{ t.turnLead | safe }}</p>
-    {{ steps(t, "s") }}
+    <h2>{{ r.turnH }}</h2>
+    <p class="lead">{{ r.turnLead | safe }}</p>
+    {{ steps(r, "s") }}
 
     {#- Beispielrunde: Anna braucht die 3, Ben die 1, Cem die 5. Gold = Treffer, wird notiert. -#}
-    <h3 class="sub">{{ t.exH }}</h3>
-    <div class="rolls" role="img" aria-label="{{ t.exAlt }}">
-      {%- for r in [[t.pA, 3, 3], [t.pB, 1, 4], [t.pC, 5, 5], [t.pA, 4, 2]] %}
-      <div class="roll{% if r[1] == r[2] %} hit{% endif %}">
-        <p class="roll-n">{{ r[0] }}</p>
-        <span class="roll-need">{{ t.exNeed }} {{ r[1] }}</span>
-        {{ die(r[2], "sm", "held" if r[1] == r[2] else "") }}
-        <span class="roll-res">{{ t.exHit if r[1] == r[2] else t.exMiss }}</span>
+    <h3 class="sub">{{ r.exH }}</h3>
+    <div class="rolls" role="img" aria-label="{{ r.exAlt }}">
+      {%- for ex in [[r.pA, 3, 3], [r.pB, 1, 4], [r.pC, 5, 5], [r.pA, 4, 2]] %}
+      <div class="roll{% if ex[1] == ex[2] %} hit{% endif %}">
+        <p class="roll-n">{{ ex[0] }}</p>
+        <span class="roll-need">{{ r.exNeed }} {{ ex[1] }}</span>
+        {{ die(ex[2], "sm", "held" if ex[1] == ex[2] else "") }}
+        <span class="roll-res">{{ r.exHit if ex[1] == ex[2] else r.exMiss }}</span>
       </div>
       {%- endfor %}
     </div>
-    <p>{{ t.exP | safe }}</p>
+    <p>{{ r.exP | safe }}</p>
   </section>
 
   <section id="back">
-    <h2>{{ t.backH }}</h2>
-    <p class="lead">{{ t.backLead | safe }}</p>
+    <h2>{{ r.backH }}</h2>
+    <p class="lead">{{ r.backLead | safe }}</p>
     {#- Zettel von Anna: Hinweg komplett, auf dem Rückweg 6 und 5 schon gestrichen. -#}
-    <figure class="jsheet" role="img" aria-label="{{ t.sheetAlt }}">
-      <p class="js-name">{{ t.pA }}</p>
+    <figure class="jsheet" role="img" aria-label="{{ r.sheetAlt }}">
+      <p class="js-name">{{ r.pA }}</p>
       <div class="js-row">
-        <span class="js-label">{{ t.sheetUp }} →</span>
+        <span class="js-label">{{ r.sheetUp }} →</span>
         <ol class="js-nums">
           {%- for n in range(1, 7) %}<li class="done">{{ n }}</li>{% endfor -%}
         </ol>
       </div>
       <div class="js-row">
-        <span class="js-label">← {{ t.sheetDown }}</span>
+        <span class="js-label">← {{ r.sheetDown }}</span>
         <ol class="js-nums">
           {%- for n in [6, 5, 4, 3, 2, 1] %}<li class="{{ 'struck' if n > 4 else ('next' if n == 4 else '') }}">{{ n }}</li>{% endfor -%}
         </ol>
       </div>
-      <figcaption>{{ t.sheetNote }}</figcaption>
+      <figcaption>{{ r.sheetNote }}</figcaption>
     </figure>
-    <p>{{ t.backP | safe }}</p>
+    <p>{{ r.backP | safe }}</p>
   </section>
 
   <section id="winning">
-    <h2>{{ t.winH }}</h2>
-    <p class="lead">{{ t.winLead | safe }}</p>
-    <h3 class="sub">{{ t.scoreH }}</h3>
-    <p>{{ t.scoreP | safe }}</p>
+    <h2>{{ r.winH }}</h2>
+    <p class="lead">{{ r.winLead | safe }}</p>
+    <h3 class="sub">{{ r.scoreH }}</h3>
+    <p>{{ r.scoreP | safe }}</p>
     <ul class="rules">
-      <li>{{ t.score1 | safe }}</li>
-      <li>{{ t.score2 | safe }}</li>
+      <li>{{ r.score1 | safe }}</li>
+      <li>{{ r.score2 | safe }}</li>
     </ul>
   </section>
 
   <section id="silent">
-    <h2>{{ t.silentH }}</h2>
-    <p class="lead">{{ t.silentLead | safe }}</p>
+    <h2>{{ r.silentH }}</h2>
+    <p class="lead">{{ r.silentLead | safe }}</p>
     <div class="silent">
       <div class="silent-icon" aria-hidden="true">🤫</div>
       <ul class="rules">
-        <li>{{ t.silent1 | safe }}</li>
-        <li>{{ t.silent2 | safe }}</li>
-        <li>{{ t.silent3 | safe }}</li>
+        <li>{{ r.silent1 | safe }}</li>
+        <li>{{ r.silent2 | safe }}</li>
+        <li>{{ r.silent3 | safe }}</li>
       </ul>
     </div>
-    <p>{{ t.silentP | safe }}</p>
+    <p>{{ r.silentP | safe }}</p>
   </section>
 
-  {{ variants(t) }}
+  {{ variants(r) }}
 
-  {{ faq(t) }}
+  {{ faq(r) }}
 
   {% include "share.njk" %}
 </main>
