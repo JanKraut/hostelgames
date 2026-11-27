@@ -42,6 +42,25 @@ Erwartete Daten einer Seite: `site` (aus `lib/site.js`), für Sprachmenü und Fo
 (mit `t` = Texte) und `languages`; bei Spielen setzt das Plugin `site` und `languages` als globale
 Daten (aus `lib/game.js`).
 
+## Spielkarten und Würfel
+
+- Karten (`card.njk`) haben französische Farben (♣ ♠ ♥ ♦) und internationale Buchstaben
+  (A, K, Q, J) – in allen Spielen gleich, auch wenn die Texte deutsche Namen nutzen (Bube, Dame …).
+  Ein Spiel mit anderen Rangnamen setzt nur die Buchstaben über seine Texte (z. B. Schafkopf
+  `rules.rO`/`rU`).
+- Würfel (`dice.njk`) zeigen 1–6 Augen.
+
+## Offene Punkte
+
+Was ein einzelnes Spiel selbst gebaut hat und in den Core kommt, sobald ein zweites Spiel es braucht:
+
+- **Bayerische Kartenbilder** (Eichel, Gras, Herz, Schellen; Ober, Unter, Sau) gibt es noch nicht.
+  Schafkopf nutzt deshalb die französischen Farben.
+- **Online-Spielblock** (Kniffel, `games/kniffel/src/assets/scoresheet.js` + Styles): beim zweiten
+  Spiel mit Block Logik und Styles hierher verschieben.
+- **Becher** (King’s Cup, Makro `cup()` in `games/kingscup/src/_includes/ring.njk`): beim zweiten
+  Trinkspiel hierher verschieben.
+
 ## Keine externen Ressourcen
 
 Die Seiten laden nichts von fremden Servern (kein Google Fonts, kein CDN):

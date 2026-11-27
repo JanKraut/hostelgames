@@ -9,5 +9,5 @@
   (übrige Sprachen zeigen dort Englisch; erst auf Wunsch von Jan übersetzen).
 
 ## Begriffe
-- Name in allen Sprachen „Mau-Mau“; Ausrufe „Mau!“ und „Mau-Mau!“ nicht übersetzen.
+- Name „Mau-Mau“, Ausrufe „Mau!“ und „Mau-Mau!“.
 - Ziehstapel / Ablagestapel (en: draw pile / discard pile), Bube = Wünscher (en: jack, make a wish).

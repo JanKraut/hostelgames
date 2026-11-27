@@ -12,4 +12,4 @@ Gehört inhaltlich zu mut-im-rucksack.de: beim Design hat Mut im Rucksack das le
 - Alte deutsche `#abschnitt`-Links müssen weiter funktionieren (Weiterleitung, siehe `README.md`).
 
 ## Begriffe
-- „Four of a Kind Burn“, nicht „Vierling“ – in allen Sprachen.
+- „Four of a Kind Burn“, nicht „Vierling“.

@@ -119,8 +119,11 @@ Alles auf `github.io` bekommt `noindex` und keine Sitemap.
    `quiz: ["rules", "quickstart"]`); die eigene Spec testet nur, was das Spiel besonders macht.
    Standardtexte (Teilen-Box, Seitennamen, Quiz, 404, Hell/Dunkel, Steckbrief-Beschriftungen) kommen aus
    `packages/core/i18n/standard/`; in die Texte des Spiels gehört nur, was es anders sagt.
-4. Im Root `build:<slug>` und `start:<slug>` in `package.json` ergänzen und `npm install`. Die Startseite listet das Spiel automatisch (in der Vorschau auch als Entwurf).
-5. Nichts in `ci.yml` nötig: Tests und Deploy erkennen das Spiel automatisch. Für ein Deploy
+4. `CLAUDE.md` nach [`docs/vorlage-spiel-claude.md`](docs/vorlage-spiel-claude.md) anlegen
+   (Spielregeln, Besonderheiten, Begriffe) und ein kurzes `README.md` (Name, eine Zeile, ggf.
+   besondere Dateien).
+5. Im Root `build:<slug>` und `start:<slug>` in `package.json` ergänzen und `npm install`. Die Startseite listet das Spiel automatisch (in der Vorschau auch als Entwurf).
+6. Nichts in `ci.yml` nötig: Tests und Deploy erkennen das Spiel automatisch. Für ein Deploy
    `domain` in `game.json` setzen – der Ordnername ergibt sich daraus (siehe unten).
 
 ### `game.json`

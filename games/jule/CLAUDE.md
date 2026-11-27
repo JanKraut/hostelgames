@@ -7,5 +7,5 @@
 - Stumme Jule als eigener Abschnitt (`#silent`): wer einen Ton macht, fängt bei der 1 neu an.
 
 ## Begriffe
-- Name in allen Sprachen „Jule“; Variante „Stumme Jule“ (en: Silent Jule).
+- Name „Jule“; Variante „Stumme Jule“ (en: Silent Jule).
 - Hinweg / Rückweg (en: way there / way back).

@@ -20,5 +20,3 @@
 - Englisch: Clubs, Diamonds, Hearts, Spades, No Trump (NT), auction/bidding, contract, declarer,
   dummy, defenders, opening lead, double/redouble, High Card Points (HCP), fit, finesse,
   part-score, game, small slam, grand slam, rubber, vulnerable, overtricks, undertricks, book.
-- Kartenbilder nutzen internationale Buchstaben (A, K, Q, J) wie alle anderen Spiele mit
-  französischem Blatt im Repo.

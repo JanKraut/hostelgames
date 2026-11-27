@@ -13,6 +13,8 @@ Hub hostelgames.com, jedes Spiel optional auf eigener Domain. Details: `README.m
   Regeln für Besonderheiten). Welche Dateien besonders sind, steht nur im `README.md` des Spiels.
   `game.json` ist die einzige Quelle für `category`, `domain`, `status`, `languages`, `pages` und
   `related`. Ändern sich `status` oder `domain`: Tabelle „Alle Spiele“ im Root-`README.md` anpassen.
+  `related` immer gegenseitig eintragen (A nennt B, B nennt A).
+- Aufbau der `CLAUDE.md` eines Spiels: Vorlage `docs/vorlage-spiel-claude.md`.
 - Ordner = Domain ohne Endung (`shitheadgame.de` → `shitheadgame`, ohne Domain: `slug`).
 
 Vor jedem Commit: `npm run check`, `npm run build:<slug>`, Tests des Spiels.
@@ -23,7 +25,13 @@ Vor jedem Commit: `npm run check`, `npm run build:<slug>`, Tests des Spiels.
 - **Neue Seite:** Datei in `src/` anlegen UND in `pages` der `game.json` eintragen (sonst bricht der Build ab).
 - **Live gehen:** Neue Spiele bleiben `draft`, bis Jan sie freigibt (`status` in `game.json` nur auf Wunsch von Jan ändern).
 - **Kein Spiel gegen Bots (`play`, Engine, Bots), solange Jan es nicht ausdrücklich für dieses Spiel sagt** – auch nicht als Entwurf oder Vorbereitung.
+- **Eigene Grafik oder Funktion eines Spiels** (z. B. Becher bei King’s Cup, Block bei Kniffel) bleibt
+  im Spiel. Braucht ein zweites Spiel dasselbe, Jan vorschlagen, es in den Core zu verschieben
+  (offene Punkte: `packages/core/README.md`).
 
 ## Sprachen
 - Englisch ist Referenz. Jede Textänderung: `de` UND `en`, nur diese zwei öffnen.
 - Andere Sprachen nur, wenn Jan es sagt (Ablauf: `docs/alle-sprachen.md`).
+- Feste Begriffe unter „Begriffe“ in der `CLAUDE.md` eines Spiels gelten in allen Sprachen: Ein
+  Begriff ohne Übersetzung bleibt überall gleich (nicht übersetzen). Bei Paaren `en / de` die übrigen
+  Sprachen aus dem englischen Begriff übersetzen und auf allen Seiten gleich verwenden.
