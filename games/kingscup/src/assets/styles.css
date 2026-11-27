@@ -114,59 +114,13 @@
 
 /* ---------- Kopfbereich: Steckbrief (nur Abweichungen vom Core) ---------- */
 
-/* Spieler: allein / gegeneinander */
-
-.fs-who {
-  display: grid;
-  line-height: 1.2;
-}
-
-.fs-who span {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-/* Was ihr braucht: Karten und Becher */
-.fs-gear {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 0.8rem;
-  align-items: center;
-}
-
-.fs-cards {
-  display: flex;
-}
-
+/* Was ihr braucht: Becher */
 .fs-cup {
   width: 30px;
   height: 34px;
 }
 
-.fs-count {
-  font-size: 0.9rem;
-  font-weight: 700;
-}
-
-/* ---------- Abschnittsnavigation (nur Abweichungen vom Core) ---------- */
-
-/* Abschnitte nicht unter der klebenden Navigation verstecken */
-main section[id] {
-  scroll-margin-top: 3.2rem;
-}
-
-/* ---------- Dein Zug: nummerierte Schritte (nur Abweichungen vom Core) ---------- */
-
-/* Linie zwischen den Kreisen */
-
-ol.steps h3 {
-  margin: 0;
-}
-
-.rules strong,
-.variants strong {
+.rules strong {
   color: var(--ink-strong);
 }
 
@@ -268,40 +222,6 @@ ol.steps h3 {
 
 .rules.safe li + li {
   margin-top: 0.4rem;
-}
-
-/* ---------- FAQ: Fragen öffnen sich per Tippen, ohne JavaScript (nur Abweichungen vom Core) ---------- */
-
-.faq summary {
-  display: flex;
-  gap: 0.8rem;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.9rem 1rem;
-  border-radius: 14px;
-  color: var(--ink-strong);
-  font-weight: 800;
-  line-height: 1.3;
-  list-style: none;
-  cursor: pointer;
-  transition: background-color 0.15s;
-}
-
-/* ---------- Strategie (strategy.njk, nur Abweichungen vom Core) ----------
-   Core-Kandidat: .strats strong und .notup gibt es gleich auch bei Mau-Mau. */
-
-.strats strong,
-.notup strong {
-  color: var(--ink-strong);
-}
-
-.notup {
-  margin: 0.8rem 0 0;
-  padding: 0.85rem 1rem;
-  border-inline-start: 5px solid var(--red);
-  border-radius: 12px;
-  background: var(--surface);
-  box-shadow: 0 0 0 1px var(--line) inset;
 }
 
 /* ---------- Kurzanleitung: Spickzettel (quickstart.njk, nur Abweichungen vom Core) ----------
