@@ -228,6 +228,14 @@ a {
   color: inherit;
 }
 
+@media (hover: hover) {
+  /* Links in running text: the underline gets thicker or appears */
+  :where(p:not(.poweredby) a:not(.ctabtn)):hover {
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+  }
+}
+
 :focus-visible {
   outline: 3px solid var(--gold-line);
   outline-offset: 3px;
@@ -1594,8 +1602,20 @@ footer .heart {
   border-inline-start: 1px solid var(--head-chip-border);
 }
 
+.fs-who {
+  display: grid;
+  line-height: 1.2;
+}
+
 .fs-who b {
   font-size: 1.05rem;
+}
+
+.fs-who b + span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .fs-people {
@@ -1702,6 +1722,15 @@ footer .heart {
   font-size: 1rem;
 }
 
+/* Fanned cards */
+.fan {
+  position: relative;
+  width: 300px;
+  max-width: 100%;
+  height: 160px;
+  margin: 1rem auto 1.4rem;
+}
+
 .fan .card {
   position: absolute;
   left: 50%;
@@ -1728,6 +1757,22 @@ footer .heart {
 @media (prefers-reduced-motion: no-preference) {
   .fan .card {
     animation: deal 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  .fan .card:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+
+  .fan .card:nth-child(2) {
+    animation-delay: 0.18s;
+  }
+
+  .fan .card:nth-child(3) {
+    animation-delay: 0.31s;
+  }
+
+  .fan .card:nth-child(4) {
+    animation-delay: 0.5s;
   }
 
   @keyframes deal {
@@ -1800,6 +1845,11 @@ footer .heart {
 
 .secnav a:hover {
   background: var(--head-chip-hover);
+}
+
+/* Keep anchored sections clear of the sticky section bar */
+.secnav ~ main section[id] {
+  scroll-margin-top: 3.2rem;
 }
 
 .ranks {
@@ -1883,6 +1933,10 @@ ol.steps li:last-child::after {
   display: none;
 }
 
+ol.steps h3 {
+  margin: 0;
+}
+
 ol.steps p {
   margin: 0.2rem 0 0;
   color: var(--muted);
@@ -1952,6 +2006,44 @@ ol.steps p {
   color: var(--muted);
 }
 
+.strats strong,
+.notup strong {
+  color: var(--ink-strong);
+}
+
+.notup {
+  margin: 0.8rem 0 0;
+  padding: 0.85rem 1rem;
+  border-inline-start: 5px solid var(--red);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line) inset;
+}
+
+.variants {
+  display: grid;
+  gap: 0.6rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.variants li {
+  padding: 0.85rem 1rem;
+  border-inline-start: 5px solid var(--gold);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line) inset;
+}
+
+.variants strong {
+  color: var(--ink-strong);
+}
+
+.variants + p {
+  margin-top: 1rem;
+}
+
 .faq {
   display: grid;
   gap: 0.6rem;
@@ -1962,6 +2054,21 @@ ol.steps p {
   border-radius: 14px;
   background: var(--surface);
   box-shadow: 0 0 0 1px var(--line) inset;
+}
+
+.faq summary {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  color: var(--ink-strong);
+  font-weight: 800;
+  line-height: 1.3;
+  list-style: none;
+  cursor: pointer;
+  transition: background-color 0.15s, box-shadow 0.15s;
 }
 
 .faq summary::-webkit-details-marker {

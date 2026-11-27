@@ -54,26 +54,9 @@
 
 /* ---------- Kopfbereich: Steckbrief (nur Abweichungen vom Core) ---------- */
 
-/* Spieler: allein / gegeneinander */
-
-.fs-who {
-  display: grid;
-  line-height: 1.2;
-}
-
-.fs-who span {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
 /* Was ihr braucht: fünf Würfel, Block und Stift */
 .fs-gear {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 0.7rem;
-  align-items: center;
+  column-gap: 0.7rem;
 }
 
 .fs-dice {
@@ -104,26 +87,6 @@
 
 .fs-sheet .fs-pen {
   fill: var(--red);
-}
-
-.fs-count {
-  font-size: 0.9rem;
-  font-weight: 700;
-}
-
-/* ---------- Abschnittsnavigation (nur Abweichungen vom Core) ---------- */
-
-/* Abschnitte nicht unter der klebenden Navigation verstecken */
-main section[id] {
-  scroll-margin-top: 3.2rem;
-}
-
-/* ---------- Dein Zug: nummerierte Schritte (nur Abweichungen vom Core) ---------- */
-
-/* Linie zwischen den Kreisen */
-
-ol.steps h3 {
-  margin: 0;
 }
 
 /* ---------- Dein Zug: Beispielrunde (wie die Würfe bei Kniffel) ---------- */
@@ -157,8 +120,7 @@ ol.steps h3 {
   }
 }
 
-.rules strong,
-.variants strong {
+.rules strong {
   color: var(--ink-strong);
 }
 
@@ -170,23 +132,6 @@ ol.steps h3 {
   outline: 2px dashed currentColor;
   outline-offset: -2px;
   opacity: 0.55;
-}
-
-/* ---------- FAQ: Fragen öffnen sich per Tippen, ohne JavaScript (nur Abweichungen vom Core) ---------- */
-
-.faq summary {
-  display: flex;
-  gap: 0.8rem;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.9rem 1rem;
-  border-radius: 14px;
-  color: var(--ink-strong);
-  font-weight: 800;
-  line-height: 1.3;
-  list-style: none;
-  cursor: pointer;
-  transition: background-color 0.15s;
 }
 
 /* ---------- Dein Zug: Beispielrunde, eine Zeile pro Wurf ----------
@@ -328,20 +273,7 @@ ol.steps h3 {
   padding-left: 1.1rem;
 }
 
-/* ---------- Strategie: Tipps, Chancen und Warnhinweis ---------- */
-
-.strats strong,
-.notup strong {
-  color: var(--ink-strong);
-}
-
-.notup {
-  margin: 0.8rem 0 0;
-  padding: 0.85rem 1rem;
-  border-inline-start: 5px solid var(--red);
-  border-radius: 0 12px 12px 0;
-  background: var(--surface);
-}
+/* ---------- Strategie: Chancen und Hinweise ---------- */
 
 .note {
   color: var(--muted);
