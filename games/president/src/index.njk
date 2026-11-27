@@ -15,119 +15,120 @@ eleventyComputed:
     Hausregeln nur im Abschnitt „variants“. Kein Spiel gegen Bots. -#}
 {%- from "card.njk" import card, back, cardRow -%}
 {%- set t = lang.t -%}
+{%- set r = t.rules -%}
 {% include "hero.njk" %}
 
 {{ secnav(t.navLabel, [
-  ["setup", t.nSetup],
-  ["how-to-play", t.nPlay],
-  ["round-end", t.nEnd],
-  ["swap", t.nSwap],
-  ["variants", t.nVar],
-  ["faq", t.nFaq]
+  ["setup", r.nSetup],
+  ["how-to-play", r.nPlay],
+  ["round-end", r.nEnd],
+  ["swap", r.nSwap],
+  ["variants", r.nVar],
+  ["faq", r.nFaq]
 ]) }}
 
 <main class="wrap">
 
   <section id="setup">
-    <h2>{{ t.setupH }}</h2>
-    <p class="lead">{{ t.setupLead | safe }}</p>
+    <h2>{{ r.setupH }}</h2>
+    <p class="lead">{{ r.setupLead | safe }}</p>
 
-    <h3 class="sub">{{ t.rankH }}</h3>
-    <p>{{ t.rankLead | safe }}</p>
-    <div class="ranks" role="img" aria-label="{{ t.rankAlt }}">
+    <h3 class="sub">{{ r.rankH }}</h3>
+    <p>{{ r.rankLead | safe }}</p>
+    <div class="ranks" role="img" aria-label="{{ r.rankAlt }}">
       {{ cardRow([["3","♣"],["4","♥"],["5","♠"],["6","♦"],["7","♣"],["8","♥"],["9","♠"],["10","♦"],["J","♣"],["Q","♥"],["K","♠"],["A","♦"],["2","♠","gold"]]) }}
     </div>
-    <div class="rankscale" aria-hidden="true"><span>{{ t.rankLow }}</span><span>{{ t.rankHigh }}</span></div>
+    <div class="rankscale" aria-hidden="true"><span>{{ r.rankLow }}</span><span>{{ r.rankHigh }}</span></div>
 
-    <h3 class="sub">{{ t.dealH }}</h3>
-    <p>{{ t.dealP | safe }}</p>
+    <h3 class="sub">{{ r.dealH }}</h3>
+    <p>{{ r.dealP | safe }}</p>
   </section>
 
   <section id="how-to-play">
-    <h2>{{ t.playH }}</h2>
+    <h2>{{ r.playH }}</h2>
 
-    <h3 class="sub first">{{ t.leadH }}</h3>
-    <p>{{ t.leadP | safe }}</p>
+    <h3 class="sub first">{{ r.leadH }}</h3>
+    <p>{{ r.leadP | safe }}</p>
     {#- Was man ausspielen darf: eine Karte, ein Paar, ein Drilling. -#}
-    <div class="combos" role="img" aria-label="{{ t.comboAlt }}">
-      <div class="cb"><div class="cb-cards">{{ cardRow([["5","♦"]], "xs") }}</div><p>{{ t.cb1 }}</p></div>
-      <div class="cb"><div class="cb-cards">{{ cardRow([["8","♠"],["8","♥"]], "xs") }}</div><p>{{ t.cb2 }}</p></div>
-      <div class="cb"><div class="cb-cards">{{ cardRow([["J","♣"],["J","♦"],["J","♠"]], "xs") }}</div><p>{{ t.cb3 }}</p></div>
+    <div class="combos" role="img" aria-label="{{ r.comboAlt }}">
+      <div class="cb"><div class="cb-cards">{{ cardRow([["5","♦"]], "xs") }}</div><p>{{ r.cb1 }}</p></div>
+      <div class="cb"><div class="cb-cards">{{ cardRow([["8","♠"],["8","♥"]], "xs") }}</div><p>{{ r.cb2 }}</p></div>
+      <div class="cb"><div class="cb-cards">{{ cardRow([["J","♣"],["J","♦"],["J","♠"]], "xs") }}</div><p>{{ r.cb3 }}</p></div>
     </div>
 
-    <h3 class="sub">{{ t.beatH }}</h3>
-    <p>{{ t.beatLead | safe }}</p>
-    {{ steps(t, "s") }}
+    <h3 class="sub">{{ r.beatH }}</h3>
+    <p>{{ r.beatLead | safe }}</p>
+    {{ steps(r, "s") }}
 
     {#- Beispiel: auf dem Tisch liegt ein Paar 7er – was darf drauf? -#}
     <div class="beat">
       <div class="bt-table">
-        <p class="bt-lbl">{{ t.btTable }}</p>
-        <div class="bt-cards" role="img" aria-label="{{ t.btTableAlt }}">{{ cardRow([["7","♥"],["7","♣"]], "sm") }}</div>
+        <p class="bt-lbl">{{ r.btTable }}</p>
+        <div class="bt-cards" role="img" aria-label="{{ r.btTableAlt }}">{{ cardRow([["7","♥"],["7","♣"]], "sm") }}</div>
       </div>
       <ul class="bt-opts">
         <li class="ok">
           <div class="bt-cards" aria-hidden="true">{{ cardRow([["10","♠"],["10","♦"]], "xs") }}</div>
-          <p><b>✓</b> {{ t.btOk | safe }}</p>
+          <p><b>✓</b> {{ r.btOk | safe }}</p>
         </li>
         <li class="ko">
           <div class="bt-cards" aria-hidden="true">{{ cardRow([["K","♠"]], "xs") }}</div>
-          <p><b>✗</b> {{ t.btNo1 | safe }}</p>
+          <p><b>✗</b> {{ r.btNo1 | safe }}</p>
         </li>
         <li class="ko">
           <div class="bt-cards" aria-hidden="true">{{ cardRow([["5","♥"],["5","♣"]], "xs") }}</div>
-          <p><b>✗</b> {{ t.btNo2 | safe }}</p>
+          <p><b>✗</b> {{ r.btNo2 | safe }}</p>
         </li>
       </ul>
     </div>
 
-    <h3 class="sub">{{ t.trickH }}</h3>
-    <p>{{ t.trickP | safe }}</p>
+    <h3 class="sub">{{ r.trickH }}</h3>
+    <p>{{ r.trickP | safe }}</p>
   </section>
 
   <section id="round-end">
-    <h2>{{ t.endH }}</h2>
-    <p class="lead">{{ t.endLead | safe }}</p>
+    <h2>{{ r.endH }}</h2>
+    <p class="lead">{{ r.endLead | safe }}</p>
     <ol class="ladder">
-      {%- for r in [["👑", "r1"], ["🎩", "r2"], ["🙂", "r3"], ["😬", "r4"], ["🧹", "r5"]] %}
-      <li><span class="ld-icon" aria-hidden="true">{{ r[0] }}</span><p>{{ t[r[1]] | safe }}</p></li>
+      {%- for rk in [["👑", "r1"], ["🎩", "r2"], ["🙂", "r3"], ["😬", "r4"], ["🧹", "r5"]] %}
+      <li><span class="ld-icon" aria-hidden="true">{{ rk[0] }}</span><p>{{ r[rk[1]] | safe }}</p></li>
       {%- endfor %}
     </ol>
-    <p>{{ t.ladderNote | safe }}</p>
+    <p>{{ r.ladderNote | safe }}</p>
 
-    <h3 class="sub">{{ t.seatH }}</h3>
-    <p>{{ t.seatP | safe }}</p>
+    <h3 class="sub">{{ r.seatH }}</h3>
+    <p>{{ r.seatP | safe }}</p>
   </section>
 
   <section id="swap">
-    <h2>{{ t.swH }}</h2>
-    <p class="lead">{{ t.swLead | safe }}</p>
+    <h2>{{ r.swH }}</h2>
+    <p class="lead">{{ r.swLead | safe }}</p>
     {#- Tausch: der Bettler gibt seine zwei besten Karten (umrandet) ab,
         der Präsident gibt zwei beliebige zurück. -#}
-    <div class="swapvis" role="img" aria-label="{{ t.swAlt }}">
-      <div class="sw-who"><span aria-hidden="true">🧹</span>{{ t.swScum }}</div>
+    <div class="swapvis" role="img" aria-label="{{ r.swAlt }}">
+      <div class="sw-who"><span aria-hidden="true">🧹</span>{{ r.swScum }}</div>
       <div class="sw-mid">
         <div class="sw-row">
           <div class="sw-cards">{{ cardRow([["2","♠","gold"],["A","♥","gold"]], "xs") }}</div>
           <svg class="sw-arrow" viewBox="0 0 60 16" aria-hidden="true"><path d="M2 8 H54"/><path d="M47 2 L56 8 L47 14"/></svg>
-          <p>{{ t.swGive }}</p>
+          <p>{{ r.swGive }}</p>
         </div>
         <div class="sw-row back">
           <div class="sw-cards">{{ cardRow([["4","♣"],["6","♦"]], "xs") }}</div>
           <svg class="sw-arrow" viewBox="0 0 60 16" aria-hidden="true"><path d="M58 8 H6"/><path d="M13 2 L4 8 L13 14"/></svg>
-          <p>{{ t.swBack }}</p>
+          <p>{{ r.swBack }}</p>
         </div>
       </div>
-      <div class="sw-who"><span aria-hidden="true">👑</span>{{ t.swPres }}</div>
+      <div class="sw-who"><span aria-hidden="true">👑</span>{{ r.swPres }}</div>
     </div>
 
-    {{ steps(t, "w") }}
-    <p>{{ t.swWhy | safe }}</p>
+    {{ steps(r, "w") }}
+    <p>{{ r.swWhy | safe }}</p>
   </section>
 
-  {{ variants(t) }}
+  {{ variants(r) }}
 
-  {{ faq(t) }}
+  {{ faq(r) }}
 
   {% include "share.njk" %}
 </main>

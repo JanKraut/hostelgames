@@ -3,21 +3,21 @@
 {%- from "card.njk" import card -%}
 {%- set t = lang.t -%}
 <section id="special-cards">
-  <h2>{{ t.spH }}</h2>
-  <p class="lead">{{ t.spLead | safe }}</p>
+  <h2>{{ t.rules.spH }}</h2>
+  <p class="lead">{{ t.rules.spLead | safe }}</p>
   <div class="specials">
-    <div class="sp">{{ card("2", "♣", "sm") }}<div><h3>{{ t.sp2h }} <span class="sp-tag any">{{ t.quick.tagAny }}</span></h3><p>{{ t.sp2p | safe }}</p><p class="sp-default">{{ t.quick.default }}: 2</p></div></div>
-    <div class="sp">{{ card("3", "♥", "sm") }}<div><h3>{{ t.sp3h }} <span class="sp-tag any">{{ t.quick.tagAny }}</span></h3><p>{{ t.sp3p | safe }}</p><p class="sp-default">{{ t.quick.default }}: 3</p></div></div>
-    <div class="sp">{{ card("7", "♠", "sm") }}<div><h3>{{ t.sp7h }} <span class="sp-tag order">{{ t.quick.tagOrder }}</span></h3><p>{{ t.sp7p | safe }}</p><p class="sp-default">{{ t.quick.default }}: 7</p></div></div>
-    <div class="sp">{{ card("8", "♥", "sm") }}<div><h3>{{ t.sp8h }} <span class="sp-tag order">{{ t.quick.tagOrder }}</span></h3><p>{{ t.sp8p | safe }}</p><p class="sp-default">{{ t.quick.default }}: 8</p></div></div>
-    <div class="sp">{{ card("10", "♦", "sm") }}<div><h3>{{ t.sp10h }} <span class="sp-tag any">{{ t.quick.tagAny }}</span></h3><p>{{ t.sp10p | safe }}</p><p class="sp-default">{{ t.quick.default }}: 10</p></div></div>
+    <div class="sp">{{ card("2", "♣", "sm") }}<div><h3>{{ t.rules.sp2h }} <span class="sp-tag any">{{ t.quick.tagAny }}</span></h3><p>{{ t.rules.sp2p | safe }}</p><p class="sp-default">{{ t.quick.default }}: 2</p></div></div>
+    <div class="sp">{{ card("3", "♥", "sm") }}<div><h3>{{ t.rules.sp3h }} <span class="sp-tag any">{{ t.quick.tagAny }}</span></h3><p>{{ t.rules.sp3p | safe }}</p><p class="sp-default">{{ t.quick.default }}: 3</p></div></div>
+    <div class="sp">{{ card("7", "♠", "sm") }}<div><h3>{{ t.rules.sp7h }} <span class="sp-tag order">{{ t.quick.tagOrder }}</span></h3><p>{{ t.rules.sp7p | safe }}</p><p class="sp-default">{{ t.quick.default }}: 7</p></div></div>
+    <div class="sp">{{ card("8", "♥", "sm") }}<div><h3>{{ t.rules.sp8h }} <span class="sp-tag order">{{ t.quick.tagOrder }}</span></h3><p>{{ t.rules.sp8p | safe }}</p><p class="sp-default">{{ t.quick.default }}: 8</p></div></div>
+    <div class="sp">{{ card("10", "♦", "sm") }}<div><h3>{{ t.rules.sp10h }} <span class="sp-tag any">{{ t.quick.tagAny }}</span></h3><p>{{ t.rules.sp10p | safe }}</p><p class="sp-default">{{ t.quick.default }}: 10</p></div></div>
     <div class="sp">
       <div class="four">
         {%- for s in ["♠","♥","♣","♦"] %}
         {{ card("9", s, "xs") }}
         {%- endfor %}
       </div>
-      <div><h3>{{ t.sp4h }}</h3><p>{{ t.sp4p | safe }}</p></div>
+      <div><h3>{{ t.rules.sp4h }}</h3><p>{{ t.rules.sp4p | safe }}</p></div>
     </div>
     <p class="sp-extra">{{ t.quick.sp4extra | safe }}</p>
   </div>

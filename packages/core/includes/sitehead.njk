@@ -7,7 +7,7 @@
     On phones the tag moves to the top left, the name and the page links get their own rows,
     and the menu becomes a burger button; the light / dark switch is then inside the menu.
     Texts: header and menu from @hostelgames/core (i18n/, nav.t), page names, share and switch
-    texts from the site's own i18n (pgLabel, pgRules, n6, pgQuick, pgSheet, shH, themeSwitch).
+    texts from the site's own i18n (pgLabel, pgRules, pgStrategy, pgQuick, pgSheet, shH, themeSwitch).
     Links of the menu: lib/nav.js. -#}
 {%- from "flags.njk" import flag -%}
 {%- from "sharebox.njk" import sharebox -%}
@@ -24,7 +24,7 @@
   <a class="gamename" href="{{ lang.path }}">{{ game.name }}</a>
   {#- Links to the pages of the game, in the order of "pages" in game.json; the game against
       bots last, as "Play online". Only with more than one page. -#}
-  {%- set known = { "rules": ["", t.pgRules], "strategy": ["strategy/", t.n6], "quickstart": ["quickstart/", t.pgQuick], "scoresheet": ["scoresheet/", t.pgSheet] } -%}
+  {%- set known = { "rules": ["", t.pgRules], "strategy": ["strategy/", t.pgStrategy], "quickstart": ["quickstart/", t.pgQuick], "scoresheet": ["scoresheet/", t.pgSheet] } -%}
   {%- set tabs = [] -%}
   {%- for name in game.pages -%}
   {%- if known[name] %}{% set tabs = (tabs.push(known[name]), tabs) %}{% endif -%}

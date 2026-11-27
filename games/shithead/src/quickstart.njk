@@ -21,7 +21,7 @@ share: true
   <section id="cheat-sheet">
     {%- set k = t.quick %}
     <div class="cheat cheat2">
-      <h2>{{ t.chH }}</h2>
+      <h2>{{ t.rules.chH }}</h2>
 
       <div class="ch-block ch-rule">
         <div class="ch-icon" aria-hidden="true">≥</div>
@@ -29,7 +29,7 @@ share: true
       </div>
 
       <div class="ch-block">
-        <h3>{{ t.spH }}</h3>
+        <h3>{{ t.rules.spH }}</h3>
         <ul class="ch-specials">
           {%- for c in [["2", "♣", k.sp2, "any"], ["3", "♥", k.sp3, "any"], ["10", "♦", k.sp10, "any"], ["7", "♠", k.sp7, "order"], ["8", "♥", k.sp8, "order"]] %}
           <li class="{{ c[3] }}"><span class="ch-card{% if c[1] in "♥♦" %} r{% endif %}" aria-hidden="true">{{ c[0] }}<small>{{ c[1] }}</small></span><span>{{ c[2] }}</span></li>
@@ -46,8 +46,8 @@ share: true
           <span class="ch-card{% if c[1] in "♥♦" %} r{% endif %}">{{ c[0] }}<small>{{ c[1] }}</small></span>
           {%- endfor %}
         </div>
-        <div class="ch-rankscale" aria-hidden="true"><span>{{ t.rankLow }}</span><span>{{ t.rankHigh }}</span></div>
-        <p>{{ t.rankLead | safe }}</p>
+        <div class="ch-rankscale" aria-hidden="true"><span>{{ t.rules.rankLow }}</span><span>{{ t.rules.rankHigh }}</span></div>
+        <p>{{ t.rules.rankLead | safe }}</p>
       </div>
     </div>
   </section>

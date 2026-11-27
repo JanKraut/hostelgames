@@ -1,7 +1,9 @@
 {
-  "dnext": "En ambos casos, después le toca al siguiente, en sentido horario.",
-  "startP": "Quien tenga un 4 en la mano lo juega y empieza. Si nadie tiene un 4, empieza la siguiente carta más alta, o sea un 5, y así sucesivamente. Después se sigue en sentido horario.",
-  "chH": "Resumen",
+  "rules": {
+    "dnext": "En ambos casos, después le toca al siguiente, en sentido horario.",
+    "startP": "Quien tenga un 4 en la mano lo juega y empieza. Si nadie tiene un 4, empieza la siguiente carta más alta, o sea un 5, y así sucesivamente. Después se sigue en sentido horario.",
+    "chH": "Resumen"
+  },
   "game": {
     "ctaH": "¿Quieres jugar una partida de verdad?",
     "botNames": "Mateo/Diego, Valentina/Isabella, Santiago/Sebastián, Camila/Mariana"

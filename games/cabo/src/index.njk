@@ -15,142 +15,143 @@ eleventyComputed:
     Spielzug, Fähigkeiten, „Cabo“ ansagen, Punkte, Varianten, FAQ, Teilen. -#}
 {%- from "card.njk" import card, back, cardRow -%}
 {%- set t = lang.t -%}
+{%- set r = t.rules -%}
 {% include "hero.njk" %}
 
 {{ secnav(t.navLabel, [
-  ["setup", t.nSetup],
-  ["values", t.nValues],
-  ["turn", t.nTurn],
-  ["powers", t.nPowers],
-  ["cabo", t.nCabo],
-  ["scoring", t.nScoring],
-  ["variants", t.nVariants],
-  ["faq", t.nFaq]
+  ["setup", r.nSetup],
+  ["values", r.nValues],
+  ["turn", r.nTurn],
+  ["powers", r.nPowers],
+  ["cabo", r.nCabo],
+  ["scoring", r.nScoring],
+  ["variants", r.nVar],
+  ["faq", r.nFaq]
 ]) }}
 
 <main class="wrap">
 
   <section id="setup">
-    <h2>{{ t.setupH }}</h2>
-    <p class="lead">{{ t.setupLead | safe }}</p>
+    <h2>{{ r.setupH }}</h2>
+    <p class="lead">{{ r.setupLead | safe }}</p>
 
-    <h3 class="sub">{{ t.dealH }}</h3>
-    <p>{{ t.dealP | safe }}</p>
+    <h3 class="sub">{{ r.dealH }}</h3>
+    <p>{{ r.dealP | safe }}</p>
 
     {#- Auslage: Stapel in der Mitte, darunter die eigenen vier Karten im Quadrat.
         Die beiden vorderen (näher am Spieler) sind einmal angesehen. -#}
-    <div class="tablevis" role="img" aria-label="{{ t.setupAlt }}">
+    <div class="tablevis" role="img" aria-label="{{ r.setupAlt }}">
       <div class="tv-piles">
-        <div class="tv-pile">{{ back("sm") }}<p class="tv-note"><b>{{ t.lgStock }}</b>{{ t.lgStockS }}</p></div>
-        <div class="tv-pile">{{ card("6", "♣", "sm") }}<p class="tv-note"><b>{{ t.lgDiscard }}</b>{{ t.lgDiscardS }}</p></div>
+        <div class="tv-pile">{{ back("sm") }}<p class="tv-note"><b>{{ r.lgStock }}</b>{{ r.lgStockS }}</p></div>
+        <div class="tv-pile">{{ card("6", "♣", "sm") }}<p class="tv-note"><b>{{ r.lgDiscard }}</b>{{ r.lgDiscardS }}</p></div>
       </div>
       <div class="tv-grid">
         {{ back("sm") }}{{ back("sm") }}
         {{ card("4", "♥", "sm", "gold") }}{{ card("9", "♠", "sm", "gold") }}
       </div>
-      <p class="tv-note tv-center"><b>{{ t.lgPeek }}</b>{{ t.lgPeekS }}</p>
+      <p class="tv-note tv-center"><b>{{ r.lgPeek }}</b>{{ r.lgPeekS }}</p>
     </div>
 
-    <p>{{ t.setupP | safe }}</p>
+    <p>{{ r.setupP | safe }}</p>
   </section>
 
   <section id="values">
-    <h2>{{ t.valH }}</h2>
-    <p class="lead">{{ t.valLead | safe }}</p>
+    <h2>{{ r.valH }}</h2>
+    <p class="lead">{{ r.valLead | safe }}</p>
     <ul class="values" role="list">
       {%- for v in [["A","♠","1"],["2","♥","2"],["3","♣","3"],["4","♦","4"],["5","♠","5"],["6","♥","6"],["7","♣","7"],["8","♦","8"],["9","♠","9"],["10","♥","10"],["J","♣","11"],["Q","♦","12"],["K","♠","13"],["K","♥","0"]] %}
       <li{% if v[2] == "0" %} class="best"{% endif %}>{{ card(v[0], v[1], "xs") }}<span>{{ v[2] }}</span></li>
       {%- endfor %}
     </ul>
-    <p>{{ t.valP | safe }}</p>
+    <p>{{ r.valP | safe }}</p>
   </section>
 
   <section id="turn">
-    <h2>{{ t.turnH }}</h2>
-    <p class="lead">{{ t.turnLead | safe }}</p>
+    <h2>{{ r.turnH }}</h2>
+    <p class="lead">{{ r.turnLead | safe }}</p>
     <div class="decide">
-      <p class="dq">{{ t.dq }}</p>
+      <p class="dq">{{ r.dq }}</p>
       <div class="branches">
         <div class="br">
-          <div class="bh">{{ t.bStockH }}</div>
-          <p class="bp">{{ t.bStockP | safe }}</p>
+          <div class="bh">{{ r.bStockH }}</div>
+          <p class="bp">{{ r.bStockP | safe }}</p>
           <ol>
-            <li>{{ t.bStock1 | safe }}</li>
-            <li>{{ t.bStock2 | safe }}</li>
+            <li>{{ r.bStock1 | safe }}</li>
+            <li>{{ r.bStock2 | safe }}</li>
           </ol>
         </div>
         <div class="br">
-          <div class="bh">{{ t.bDiscH }}</div>
-          <p class="bp">{{ t.bDiscP | safe }}</p>
+          <div class="bh">{{ r.bDiscH }}</div>
+          <p class="bp">{{ r.bDiscP | safe }}</p>
         </div>
       </div>
-      <p class="dnext">{{ t.dnext | safe }}</p>
+      <p class="dnext">{{ r.dnext | safe }}</p>
     </div>
 
-    <h3 class="sub">{{ t.multiH }}</h3>
-    <p>{{ t.multiP | safe }}</p>
-    <div class="row multi" role="img" aria-label="{{ t.multiAlt }}">
+    <h3 class="sub">{{ r.multiH }}</h3>
+    <p>{{ r.multiP | safe }}</p>
+    <div class="row multi" role="img" aria-label="{{ r.multiAlt }}">
       {{ card("2", "♦", "sm") }}
       <span class="arrow" aria-hidden="true">→</span>
       {{ card("5", "♠", "sm", "gold") }}{{ card("5", "♥", "sm", "gold") }}
     </div>
-    <p>{{ t.multiFail | safe }}</p>
+    <p>{{ r.multiFail | safe }}</p>
 
-    <h3 class="sub">{{ t.memH }}</h3>
-    <p>{{ t.memP | safe }}</p>
+    <h3 class="sub">{{ r.memH }}</h3>
+    <p>{{ r.memP | safe }}</p>
   </section>
 
   <section id="powers">
-    <h2>{{ t.powH }}</h2>
-    <p class="lead">{{ t.powLead | safe }}</p>
+    <h2>{{ r.powH }}</h2>
+    <p class="lead">{{ r.powLead | safe }}</p>
     <div class="specials">
-      <div class="sp"><div class="pair">{{ card("7", "♣", "xs") }}{{ card("8", "♦", "xs") }}</div><div><h3>{{ t.pow7h }}</h3><p>{{ t.pow7p | safe }}</p></div></div>
-      <div class="sp"><div class="pair">{{ card("9", "♥", "xs") }}{{ card("10", "♠", "xs") }}</div><div><h3>{{ t.pow9h }}</h3><p>{{ t.pow9p | safe }}</p></div></div>
-      <div class="sp"><div class="pair">{{ card("J", "♠", "xs") }}{{ card("Q", "♥", "xs") }}</div><div><h3>{{ t.powJh }}</h3><p>{{ t.powJp | safe }}</p></div></div>
-      <div class="sp"><div class="pair">{{ card("K", "♣", "xs") }}</div><div><h3>{{ t.powKh }}</h3><p>{{ t.powKp | safe }}</p></div></div>
+      <div class="sp"><div class="pair">{{ card("7", "♣", "xs") }}{{ card("8", "♦", "xs") }}</div><div><h3>{{ r.pow7h }}</h3><p>{{ r.pow7p | safe }}</p></div></div>
+      <div class="sp"><div class="pair">{{ card("9", "♥", "xs") }}{{ card("10", "♠", "xs") }}</div><div><h3>{{ r.pow9h }}</h3><p>{{ r.pow9p | safe }}</p></div></div>
+      <div class="sp"><div class="pair">{{ card("J", "♠", "xs") }}{{ card("Q", "♥", "xs") }}</div><div><h3>{{ r.powJh }}</h3><p>{{ r.powJp | safe }}</p></div></div>
+      <div class="sp"><div class="pair">{{ card("K", "♣", "xs") }}</div><div><h3>{{ r.powKh }}</h3><p>{{ r.powKp | safe }}</p></div></div>
     </div>
-    <p class="rhyme">{{ t.powRhyme | safe }}</p>
+    <p class="rhyme">{{ r.powRhyme | safe }}</p>
   </section>
 
   <section id="cabo">
-    <h2>{{ t.caboH }}</h2>
-    <p class="lead">{{ t.caboLead | safe }}</p>
-    {{ steps(t, "c") }}
-    <p>{{ t.caboEmpty | safe }}</p>
+    <h2>{{ r.caboH }}</h2>
+    <p class="lead">{{ r.caboLead | safe }}</p>
+    {{ steps(r, "c") }}
+    <p>{{ r.caboEmpty | safe }}</p>
   </section>
 
   <section id="scoring">
-    <h2>{{ t.scoreH }}</h2>
-    <p class="lead">{{ t.scoreLead | safe }}</p>
+    <h2>{{ r.scoreH }}</h2>
+    <p class="lead">{{ r.scoreLead | safe }}</p>
     <ul class="rules">
-      <li>{{ t.score1 | safe }}</li>
-      <li>{{ t.score2 | safe }}</li>
-      <li>{{ t.score3 | safe }}</li>
+      <li>{{ r.score1 | safe }}</li>
+      <li>{{ r.score2 | safe }}</li>
+      <li>{{ r.score3 | safe }}</li>
     </ul>
 
     {#- Beispiel einer Wertung: Mia sagt Cabo und hat die niedrigste Summe. -#}
-    <h3 class="sub">{{ t.exH }}</h3>
+    <h3 class="sub">{{ r.exH }}</h3>
     <div class="scoreex">
       <div class="sx-row">
-        <p class="sx-name"><b>{{ t.exMia }}</b>{{ t.exCaller }}</p>
+        <p class="sx-name"><b>{{ r.exMia }}</b>{{ r.exCaller }}</p>
         <div class="sx-cards" aria-hidden="true">{{ cardRow([["A","♣"],["3","♥"],["K","♦"],["2","♠"]], "xs") }}</div>
-        <p class="sx-sum">{{ t.exSum }} 6 → <b>0</b></p>
+        <p class="sx-sum">{{ r.exSum }} 6 → <b>0</b></p>
       </div>
       <div class="sx-row">
-        <p class="sx-name"><b>{{ t.exBen }}</b></p>
+        <p class="sx-name"><b>{{ r.exBen }}</b></p>
         <div class="sx-cards" aria-hidden="true">{{ cardRow([["4","♠"],["5","♦"],["A","♥"],["2","♣"]], "xs") }}</div>
-        <p class="sx-sum">{{ t.exSum }} 12 → <b>12</b></p>
+        <p class="sx-sum">{{ r.exSum }} 12 → <b>12</b></p>
       </div>
     </div>
-    <p>{{ t.exP | safe }}</p>
+    <p>{{ r.exP | safe }}</p>
 
-    <h3 class="sub">{{ t.endH }}</h3>
-    <p>{{ t.endP | safe }}</p>
+    <h3 class="sub">{{ r.endH }}</h3>
+    <p>{{ r.endP | safe }}</p>
   </section>
 
-  {{ variants(t) }}
+  {{ variants(r) }}
 
-  {{ faq(t) }}
+  {{ faq(r) }}
 
   {% include "share.njk" %}
 </main>

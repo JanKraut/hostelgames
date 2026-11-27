@@ -28,7 +28,7 @@ eleventyComputed:
       </div>
 
       <div class="ch-block">
-        <h3>{{ t.valH }}</h3>
+        <h3>{{ t.rules.valH }}</h3>
         <ul class="ch-vals" role="list">
           <li class="best"><span class="ch-card r" aria-hidden="true">K<small>♥♦</small></span><b>0</b></li>
           <li><span class="ch-card" aria-hidden="true">A<small>♠</small></span><b>1</b></li>
@@ -40,7 +40,7 @@ eleventyComputed:
       </div>
 
       <div class="ch-block">
-        <h3>{{ t.powH }}</h3>
+        <h3>{{ t.rules.powH }}</h3>
         <ul class="ch-powers" role="list">
           <li><span class="ch-pair" aria-hidden="true"><span class="ch-card">7<small>♣</small></span><span class="ch-card r">8<small>♦</small></span></span><span>{{ k.pow7 | safe }}</span></li>
           <li><span class="ch-pair" aria-hidden="true"><span class="ch-card r">9<small>♥</small></span><span class="ch-card">10<small>♠</small></span></span><span>{{ k.pow9 | safe }}</span></li>

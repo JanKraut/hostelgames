@@ -16,7 +16,7 @@ test.describe("every language page", () => {
     test(`${lang.code} renders its own texts`, async ({ page }) => {
       await openLanguage(page, lang);
 
-      await expect(page.locator("main h2").first()).toHaveText(lang.t.setupH);
+      await expect(page.locator("main h2").first()).toHaveText(lang.t.rules.setupH);
       await expect(page.locator(".hero h1")).toHaveText(`${lang.t.rules.h1} ${lang.t.rules.h1sub}`);
       await expect(page.locator("#cheat-sheet")).toHaveCount(0);
       await expect(page.locator(".pagetabs a[aria-current=page]")).toHaveText(lang.t.pgRules);
@@ -31,7 +31,7 @@ test.describe("every language page", () => {
 // Strategy and quick start: one page each per language, linked by the tabs at the top.
 const SUBPAGES = [
   // Languages with the new strategy guide show it, the others the short list.
-  { sub: "strategy/", tab: (t) => t.n6, check: () => "#swap .swapex" },
+  { sub: "strategy/", tab: (t) => t.pgStrategy, check: () => "#swap .swapex" },
   { sub: "quickstart/", tab: (t) => t.pgQuick, check: () => "#cheat-sheet h2" },
 ];
 
@@ -252,7 +252,7 @@ test.describe("without JavaScript", () => {
   test("the rules are readable and the menu works", async ({ page }) => {
     await page.goto("de/");
     await expect(page.locator("h1")).toContainText("Shithead");
-    await expect(page.locator("#special-cards h3").first()).toContainText(byCode.de.t.sp2h);
+    await expect(page.locator("#special-cards h3").first()).toContainText(byCode.de.t.rules.sp2h);
     await expect(page.locator("#shurl")).toHaveText(byCode.de.url.replace("https://", ""));
 
     // Things that need JavaScript are hidden.
@@ -511,14 +511,14 @@ test.describe("offline", () => {
     await context.setOffline(true);
 
     await page.reload();
-    await expect(page.locator("main h2").first()).toHaveText(byCode.de.t.setupH);
+    await expect(page.locator("main h2").first()).toHaveText(byCode.de.t.rules.setupH);
     await expect(page.locator("#qr svg")).toBeVisible();
 
     // Other languages were cached too, not only the visited page.
     await page.locator(".langmenu summary").click();
     await page.locator('.langmenu a[data-lang="pl"]').click();
     await expect(page).toHaveURL(/\/pl\/$/);
-    await expect(page.locator("main h2").first()).toHaveText(byCode.pl.t.setupH);
+    await expect(page.locator("main h2").first()).toHaveText(byCode.pl.t.rules.setupH);
     await page.evaluate(() => document.fonts.ready);
     const failedFonts = await page.evaluate(() => [...document.fonts].filter((f) => f.status === "error").length);
     expect(failedFonts, "fonts that failed to load offline").toBe(0);
@@ -542,7 +542,7 @@ test.describe("offline", () => {
     await page.evaluate(() => localStorage.setItem("lang", "es"));
     await page.goto(baseURL);
     await expect(page).toHaveURL(/\/es\/$/);
-    await expect(page.locator("main h2").first()).toHaveText(byCode.es.t.setupH);
+    await expect(page.locator("main h2").first()).toHaveText(byCode.es.t.rules.setupH);
     await context.close();
   });
 
