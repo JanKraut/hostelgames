@@ -106,7 +106,11 @@
   "sub": "Tunnetaan myös nimillä <strong>Ring of Fire</strong> ja <strong>Circle of Death</strong>: korttipakka kehässä, muki keskellä ja oma sääntö jokaiselle kortille. Lue kerran, nosta kortti, valmis.",
   "seo": {
     "rulesT": "King’s Cup säännöt – Ring of Fire -juomapeli selitettynä",
-    "rulesD": "King’s Cup (Ring of Fire, Circle of Death) selitettynä: valmistelu, kaikkien korttien merkitykset ässästä kuninkaaseen, neljä kuningasta, muunnelmat ja vastuullinen pelaaminen."
+    "rulesD": "King’s Cup (Ring of Fire, Circle of Death) selitettynä: valmistelu, kaikkien korttien merkitykset ässästä kuninkaaseen, neljä kuningasta, muunnelmat ja vastuullinen pelaaminen.",
+    "strategyT": "King’s Cup -strategia – vinkit kehään, kortteihin ja kuninkaisiin",
+    "strategyD": "King’s Cup -vinkit: nosta rikkomatta kehää, hallitse Vesiputous, Riimi, Sääntö ja Kysymysmestari, pelaa kuninkaat ja löydä oma tahtisi.",
+    "quickT": "King’s Cup lyhyesti – kaikki kortit yhdellä näytöllä",
+    "quickD": "King’s Cup yhdellä silmäyksellä: vuorosi, mitä jokainen kortti ässästä kuninkaaseen tarkoittaa, neljä kuningasta ja vastuullinen pelaaminen."
   },
   "goal": "<strong>Tavoite:</strong> Nostakaa kortteja vuorotellen, noudattakaa kortin sääntöä – ja toivo, ettet joudu nostamaan neljättä kuningasta.",
   "info": {
@@ -121,5 +125,104 @@
     "gearN": "52 korttia, iso muki & juomat",
     "gearAlt": "Korttipakka ja iso muki",
     "intro": "King’s Cup on hostellien yhteistilojen ja etkobileiden klassikko: ei taktikointia, ei pistelappua, vain korttipakka ja sääntö jokaiselle kortille. Jokainen tuntee hieman eri version – sopikaa siis säännöt ennen ensimmäistä korttia."
+  },
+  "strategy": {
+    "h1": "King’s Cup -strategia",
+    "h1sub": "",
+    "sub": "King’s Cup on enimmäkseen tuuria. Mutta se, miten nostat, miten hoidat hankalat kortit ja millaista tahtia pidät, ratkaisee, onko sinulla vielä hauskaa neljännen kuninkaan kohdalla.",
+    "principleNav": "Periaate",
+    "ringNav": "Kehä",
+    "cardsNav": "Hankalat kortit",
+    "kingsNav": "Kuninkaat",
+    "paceNav": "Tahti",
+    "mistakesNav": "Virheet",
+    "principleH": "Perusperiaate",
+    "principle": "Et voi valita, minkä kortin saat – mutta voit valita, <strong>miten hyvin reagoit</strong>. Nopeat refleksit, hyvä muisti pöydän säännöille ja järkevä tahti tekevät eron.",
+    "principleItems": [
+      "<strong>Sopikaa säännöt ennen ensimmäistä korttia.</strong> Käykää kaikki kolmetoista korttia ja omat muunnelmanne läpi etukäteen, ettei kukaan väittele kesken pelin.",
+      "<strong>Pysy hereillä, vaikka ei olisi vuorosi.</strong> Lattia, Taivas, Vesiputous ja Kysymysmestari nappaavat jokaisen, joka tuijottaa puhelintaan.",
+      "<strong>Pidä kirjaa siitä, mikä on voimassa.</strong> Jokainen jätkä tuo uuden säännön, jokainen kuningatar uuden Kysymysmestarin ja jokainen 8 uuden kaverin."
+    ],
+    "ringH": "Nosta rikkomatta kehää",
+    "ringLead": "Kehä on ainoa asia, jota todella hallitset vuorollasi.",
+    "ringItems": [
+      "<strong>Nosta kohdasta, jossa kortit ovat vähiten päällekkäin.</strong> Kortti, joka tuskin koskee naapureitaan, irtoaa liikuttamatta niitä.",
+      "<strong>Liu’uta, älä nosta ylös.</strong> Pidä naapurikorttia paikallaan sormella ja liu’uta omasi ulos sivuttain.",
+      "<strong>Ota aikaa.</strong> Aikarajaa ei ole – varovainen nosto on halvempi kuin rangaistushörppy.",
+      "<strong>Korjatkaa kehä yhdessä.</strong> Jos kortteja on siirtynyt, työntäkää ne takaisin ennen seuraavaa vuoroa, ettei myöhemmin riidellä siitä, kuka teki aukon."
+    ],
+    "cardsH": "Vinkit hankaliin kortteihin",
+    "cardsLead": "Useimmat kortit hoituvat sekunnissa. Näiden kanssa vähän suunnittelua kannattaa.",
+    "c_a": "Jos nostat sen, sinä määräät tahdin: lopeta lyhyen hörpyn jälkeen, niin koko pöytä voi lopettaa. Istutko Vesiputouksen lopussa? Ota pikkuruisia hörppyjä – juot pisimpään.",
+    "c_8": "Valitse joku, joka juo suunnilleen samaa tahtia kuin sinä. Vaihtele: saman ihmisen valitseminen joka kerta lakkaa nopeasti olemasta hauskaa.",
+    "c_9": "Aloita sanalla, johon on paljon helppoja riimejä, jotta kierros kestää, tai harvinaisella sanalla, jotta se loppuu nopeasti. Keksi riimisi, kun muut vielä puhuvat.",
+    "c_10": "Valitse kategoria, jonka tunnet hyvin ja jossa on paljon vastauksia. Älä koskaan valitse sellaista, jossa itse jäät ensimmäisenä tyhjin käsin.",
+    "c_j": "Parhaat säännöt on helppo muistaa ja helppo rikkoa vahingossa, kuten ”ei saa osoittaa” tai ”sano kippis ennen jokaista hörppyä”. Jätä pois säännöt, jotka sulkevat jonkun ulkopuolelle tai tuntuvat jostakusta epämukavilta.",
+    "c_q": "Piilota kysymyksesi tavalliseen juttelyyn – ”Haenko sinulle vettä?” toimii paremmin kuin ilmeinen tietovisa. Ja kun joku muu on Kysymysmestari, pidä ”Unohda, Kysymysmestari” valmiina.",
+    "kingsH": "Kuninkaiden pelaaminen",
+    "kingsLead": "Keskellä oleva kuppi kasvaa jokaisen kuninkaan myötä – se, mitä siihen kaadetaan, ratkaisee, kuinka rankka neljäs kuningas on.",
+    "kingsItems": [
+      "<strong>Kaada vain vähän.</strong> Pieni loraus riittää. Neljännen kuninkaan pitää naurattaa, ei rangaista – ja se voi osua sinuun.",
+      "<strong>Vain juomia, jotka sopivat yhteen.</strong> Älä koskaan kaada mitään, mitä joku pöydässä ei voi tai halua juoda.",
+      "<strong>Laske kuninkaat.</strong> Kolmannen kuninkaan jälkeen jokainen nosto on uhkapeliä – silloin pöydässä alkaa meteli.",
+      "<strong>Neljännen kuninkaan ei tarvitse tyhjentää kuppia.</strong> Niin monta hörppyä kuin tarvitaan, ja lopettaa saa aina."
+    ],
+    "paceH": "Oma tahti",
+    "paceLead": "Parhaat pelaajat ovat niitä, jotka istuvat pöydässä vielä toisella kierroksella.",
+    "paceItems": [
+      "<strong>Aina pieniä hörppyjä.</strong> Melkein jokainen kortti voi tarkoittaa hörppyä – tunnissa sitä kertyy.",
+      "<strong>Pidä vettä juomasi vieressä</strong> ja juo sitä vuorojen välillä.",
+      "<strong>Vaihda alkoholittomaan milloin haluat.</strong> Limsat käyvät jokaisessa säännössä yhtä hyvin.",
+      "<strong>Syö ennen peliä.</strong> Tyhjällä vatsalla pelattu peli loppuu kaikilta aikaisin."
+    ],
+    "paceWarn": "<strong>Kun joku on saanut tarpeekseen, hän lopettaa – ei keskustelua.</strong> Älä koskaan painosta ketään juomaan, äläkä koskaan aja autoa pelin jälkeen.",
+    "paceWarnLink": "Pelaa vastuullisesti",
+    "mistakesH": "Tyypilliset virheet",
+    "mistakes": [
+      "<strong>Aloittaminen ilman sovittuja sääntöjä.</strong> Kymmenen minuutin väittely siitä, mitä 7 tarkoittaa, tappaa tunnelman.",
+      "<strong>Kortin nappaaminen kiireessä.</strong> Hätäinen nosto rikkoo kehän – ja maksaa hörpyn.",
+      "<strong>Oman säännön unohtaminen.</strong> Mikään ei huvita pöytää enemmän kuin säännön keksijä, joka rikkoo sen itse.",
+      "<strong>Kysymysmestarille vastaaminen.</strong> Nopea ”Häh?” riittää.",
+      "<strong>Kupin täyttäminen piripintaan.</strong> Neljännen kuninkaan kohdalla jonkun on juotava se – ehkä sinun.",
+      "<strong>Isot kulaukset.</strong> Peli on pitkä ja kortteja tulee koko ajan: hörppyjä, ei kulauksia."
+    ],
+    "ctaQuickH": "Istutteko jo pöydässä?",
+    "ctaQuickP": "Kaikki kolmetoista korttia ja neljä kuningasta yhdellä näytöllä.",
+    "ctaQuickBtn": "Avaa lunttilappu",
+    "ctaRulesH": "Uusi pelissä?",
+    "ctaRulesP": "Lue ensin kaikki säännöt, muunnelmat ja UKK.",
+    "ctaRulesBtn": "Sääntöihin"
+  },
+  "quick": {
+    "h": "King’s Cup yhdellä silmäyksellä",
+    "ruleH": "Vuorosi",
+    "rule": "Nosta <strong>yksi kortti</strong> kupin ympärillä olevasta kehästä, näytä se ja noudata sen sääntöä. <strong>Kehä rikki</strong> = hörppy. Peli etenee myötäpäivään.",
+    "cardsH": "Kortit",
+    "c_a": "kaikki juovat; lopetat vasta oikealla puolellasi istuvan jälkeen",
+    "c_2": "valitse joku ottamaan hörppy",
+    "c_3": "otat itse hörpyn",
+    "c_4": "viimeinen lattiaan koskeva juo",
+    "c_5": "kaikki pojat juovat",
+    "c_6": "kaikki tytöt juovat",
+    "c_7": "viimeinen ylös osoittava juo",
+    "c_8": "juo aina kun sinä juot",
+    "c_9": "ensimmäinen, joka jää jumiin, juo",
+    "c_10": "ensimmäinen, joka jää jumiin, juo",
+    "c_j": "uusi sääntö pelin loppuun asti",
+    "c_q": "kysymykseen vastaaminen = hörppy",
+    "c_k": "kaada vähän juomaasi kuppiin",
+    "kings1": "<strong>1.–3. kuningas:</strong> kaada vähän kuppiin",
+    "kings4": "<strong>4. kuningas:</strong> juo kuppi – niin monella hörpyllä kuin tarvitset. Peli päättyy.",
+    "safe": [
+      "<strong>Hörppyjä, ei koskaan shotteja</strong> – eikä kenenkään tarvitse juoda alkoholia.",
+      "<strong>Vettä pöytään</strong>, taukoja saa pitää, autoa ei koskaan ajeta jälkeenpäin.",
+      "<strong>Riittää?</strong> Sitten lopetat – ei keskustelua."
+    ],
+    "ctaStratH": "Pelaa paremmin",
+    "ctaStratP": "Turvallinen nosto, hankalat kortit, kuninkaat ja oma tahti.",
+    "ctaStratBtn": "Strategiaan",
+    "ctaRulesH": "Kaikki säännöt",
+    "ctaRulesP": "Jokainen kortti tarkemmin, muunnelmat ja UKK.",
+    "ctaRulesBtn": "Sääntöihin"
   }
 }

@@ -1,0 +1,118 @@
+---
+pagination:
+  data: languages
+  size: 1
+  alias: lang
+permalink: "{{ lang.path }}strategy/"
+layout: game
+subpath: "strategy/"
+share: true
+eleventyComputed:
+  pageTitle: "{{ lang.t.seo.strategyT }}"
+  pageDescription: "{{ lang.t.seo.strategyD }}"
+---
+{%- from "blocks.njk" import secnav -%}
+{#- Strategieseite für King’s Cup: Grundprinzip, Ziehen ohne den Ring zu brechen, Tipps für die
+    kniffligen Karten (A, 8, 9, 10, J, Q), die Könige, das eigene Tempo und typische Fehler.
+    Texte unter `strategy`, Kartennamen aus `rules` (feste Begriffe). -#}
+{%- from "card.njk" import card -%}
+{%- set t = lang.t -%}
+{%- set r = t.rules -%}
+{%- set s = t.strategy -%}
+{#- Rang, Key, Farbe der Beispielkarte – dieselben Farben wie auf der Regelseite. -#}
+{%- set TRICKY = [["A", "a", "♠"], ["8", "8", "♦"], ["9", "9", "♠"], ["10", "10", "♥"], ["J", "j", "♣"], ["Q", "q", "♦"]] -%}
+{% include "hero.njk" %}
+
+{{ secnav(t.navLabel, [
+  ["principle", s.principleNav],
+  ["ring", s.ringNav],
+  ["cards", s.cardsNav],
+  ["kings", s.kingsNav],
+  ["pace", s.paceNav],
+  ["mistakes", s.mistakesNav]
+]) }}
+
+<main class="wrap">
+  <section id="principle">
+    <h2>{{ s.principleH }}</h2>
+    <p class="lead">{{ s.principle | safe }}</p>
+    <ul class="strats">
+      {%- for item in s.principleItems %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="ring">
+    <h2>{{ s.ringH }}</h2>
+    <p class="lead">{{ s.ringLead | safe }}</p>
+    <ul class="strats">
+      {%- for item in s.ringItems %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="cards">
+    <h2>{{ s.cardsH }}</h2>
+    <p class="lead">{{ s.cardsLead | safe }}</p>
+    <div class="rulecards">
+      {%- for c in TRICKY %}
+      <div class="rulecard">
+        {{ card(c[0], c[2], "sm") }}
+        <div>
+          <h3>{{ r["c_" ~ c[1] ~ "H"] }}</h3>
+          <p>{{ s["c_" ~ c[1]] | safe }}</p>
+        </div>
+      </div>
+      {%- endfor %}
+    </div>
+  </section>
+
+  <section id="kings">
+    <h2>{{ s.kingsH }}</h2>
+    <p class="lead">{{ s.kingsLead | safe }}</p>
+    <ul class="strats">
+      {%- for item in s.kingsItems %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="pace">
+    <h2>{{ s.paceH }}</h2>
+    <p class="lead">{{ s.paceLead | safe }}</p>
+    <ul class="strats">
+      {%- for item in s.paceItems %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+    <p class="notup">{{ s.paceWarn | safe }} <a href="{{ lang.path }}#safe">{{ s.paceWarnLink }}</a></p>
+  </section>
+
+  <section id="mistakes">
+    <h2>{{ s.mistakesH }}</h2>
+    <ul class="variants">
+      {%- for item in s.mistakes %}
+      <li>{{ item | safe }}</li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="next-steps" class="ctas">
+    <div class="cta">
+      <h2>{{ s.ctaQuickH }}</h2>
+      <p>{{ s.ctaQuickP }}</p>
+      <a class="ctabtn go" href="{{ lang.path }}quickstart/">{{ s.ctaQuickBtn }}<span class="go-ic" aria-hidden="true"></span></a>
+    </div>
+    <div class="cta">
+      <h2>{{ s.ctaRulesH }}</h2>
+      <p>{{ s.ctaRulesP }}</p>
+      <a class="ctabtn go" href="{{ lang.path }}">{{ s.ctaRulesBtn }}<span class="go-ic" aria-hidden="true"></span></a>
+    </div>
+  </section>
+
+  {% include "share.njk" %}
+</main>
+
+{% include "footer.njk" %}

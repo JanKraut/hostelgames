@@ -106,7 +106,11 @@
   "sub": "Conosciuto anche come <strong>Ring of Fire</strong> o <strong>Circle of Death</strong>: un mazzo di carte in cerchio, un bicchiere al centro e una regola per ogni carta. Leggi una volta, pesca, fatto.",
   "seo": {
     "rulesT": "Regole di King’s Cup – il gioco alcolico Ring of Fire",
-    "rulesD": "King’s Cup (Ring of Fire, Circle of Death) spiegato: preparazione, cosa significa ogni carta dall’asso al re, i quattro re, varianti e come giocare responsabilmente."
+    "rulesD": "King’s Cup (Ring of Fire, Circle of Death) spiegato: preparazione, cosa significa ogni carta dall’asso al re, i quattro re, varianti e come giocare responsabilmente.",
+    "strategyT": "Strategia King’s Cup – consigli per l’anello, le carte e i re",
+    "strategyD": "Consigli per King’s Cup: pescare senza rompere l’anello, gestire Cascata, Rima, Regola e Maestro delle domande, giocare i re e tenere il proprio ritmo.",
+    "quickT": "King’s Cup in breve – tutte le carte in una schermata",
+    "quickD": "King’s Cup a colpo d’occhio: il tuo turno, cosa significa ogni carta dall’Asso al re, i quattro re e come giocare responsabilmente."
   },
   "goal": "<strong>L’obiettivo:</strong> pescare carte a turno, seguire la regola di ogni carta – e sperare di non essere proprio tu a pescare il quarto re.",
   "info": {
@@ -121,5 +125,104 @@
     "gearN": "52 carte, bicchiere grande e bevande",
     "gearAlt": "Un mazzo di carte e un bicchiere grande",
     "intro": "King’s Cup è il grande classico delle sale comuni degli ostelli e del pre-serata: nessuna strategia, nessun segnapunti, solo un mazzo di carte e una regola per ogni carta. Ognuno conosce una versione leggermente diversa – quindi chiarite le regole prima della prima carta."
+  },
+  "strategy": {
+    "h1": "Strategia King’s Cup",
+    "h1sub": "",
+    "sub": "King’s Cup è soprattutto fortuna. Ma come peschi, come gestisci le carte difficili e che ritmo tieni decide se al quarto re ti stai ancora divertendo.",
+    "principleNav": "Principio",
+    "ringNav": "L’anello",
+    "cardsNav": "Carte difficili",
+    "kingsNav": "I re",
+    "paceNav": "Ritmo",
+    "mistakesNav": "Errori",
+    "principleH": "Il principio di base",
+    "principle": "Non puoi scegliere quale carta ti capita, ma puoi scegliere <strong>Come reagisci</strong>. Riflessi pronti, buona memoria per le regole in gioco e un ritmo sensato fanno la differenza.",
+    "principleItems": [
+      "<strong>Decidete le regole prima della prima carta.</strong> Ripassate tutte e tredici le carte e le vostre varianti, così nessuno discute a metà partita.",
+      "<strong>Resta attento anche quando non tocca a te.</strong> Terra, Cielo, la Cascata e il Maestro delle domande fregano chiunque stia guardando il telefono.",
+      "<strong>Tieni il conto di cosa è in gioco.</strong> Ogni fante aggiunge una regola, ogni donna porta un nuovo Maestro delle domande e ogni 8 un nuovo partner."
+    ],
+    "ringH": "Pescare senza rompere l’anello",
+    "ringLead": "L’anello è l’unica cosa che controlli davvero nel tuo turno.",
+    "ringItems": [
+      "<strong>Pesca dove le carte si sovrappongono meno.</strong> Una carta che tocca appena le vicine esce senza spostarle.",
+      "<strong>Fai scivolare, non sollevare.</strong> Tieni ferma la carta vicina con un dito e sfila la tua di lato.",
+      "<strong>Prenditi il tuo tempo.</strong> Non c’è limite di tempo: pescare con calma costa meno di un sorso di penalità.",
+      "<strong>Sistemate l’anello insieme.</strong> Se qualche carta si è spostata, rimettetela a posto prima del turno successivo, così dopo nessuno litiga su chi ha aperto il buco."
+    ],
+    "cardsH": "Consigli per le carte difficili",
+    "cardsLead": "La maggior parte delle carte si risolve in un secondo. Per queste conviene pensarci un attimo.",
+    "c_a": "Se la peschi, il ritmo lo decidi tu: fermati dopo un sorso breve e tutto il tavolo potrà fermarsi. Sei in fondo alla Cascata? Prendi sorsi minuscoli: sei tu a bere più a lungo.",
+    "c_8": "Scegli qualcuno che beve più o meno al tuo ritmo. Cambia ogni tanto: scegliere sempre la stessa persona smette presto di essere divertente.",
+    "c_9": "Parti da una parola con tante rime facili per far durare il giro, o da una rara per chiuderlo in fretta. Pensa alla tua rima mentre gli altri stanno ancora parlando.",
+    "c_10": "Scegli una categoria che conosci bene e con tante risposte. Non sceglierne mai una in cui saresti il primo a restare a secco.",
+    "c_j": "Le regole migliori sono facili da ricordare e facili da infrangere per sbaglio, come «vietato indicare» o «dire salute prima di ogni sorso». Evita regole che escludono qualcuno o mettono a disagio.",
+    "c_q": "Infila le tue domande nella conversazione: «Ti porto un po’ d’acqua?» funziona meglio di un quiz evidente. E quando il Maestro delle domande è qualcun altro, tieni pronto «Scordatelo, Maestro delle domande».",
+    "kingsH": "Giocare i re",
+    "kingsLead": "Il bicchiere al centro cresce a ogni re: quello che ci finisce dentro decide quanto sarà duro il quarto re.",
+    "kingsItems": [
+      "<strong>Versa solo un goccio.</strong> Basta poco. Il quarto re deve far ridere, non essere una punizione – e può toccare a te.",
+      "<strong>Solo bevande che stanno bene insieme.</strong> Non versare mai niente che qualcuno al tavolo non può o non vuole bere.",
+      "<strong>Conta i re.</strong> Dopo il terzo re ogni pescata è una scommessa: è lì che il tavolo si scalda.",
+      "<strong>Il quarto re non deve finire il bicchiere.</strong> Tutti i sorsi che servono, e fermarsi è sempre permesso."
+    ],
+    "paceH": "Il tuo ritmo",
+    "paceLead": "I giocatori migliori sono quelli che al secondo giro sono ancora al tavolo.",
+    "paceItems": [
+      "<strong>Sempre piccoli sorsi.</strong> Quasi ogni carta può voler dire un sorso: in un’ora si accumula.",
+      "<strong>Tieni dell’acqua accanto al tuo bicchiere</strong> e bevila tra un turno e l’altro.",
+      "<strong>Passa all’analcolico quando vuoi.</strong> Le bibite valgono uguale per ogni regola.",
+      "<strong>Mangia prima di giocare.</strong> Una partita a stomaco vuoto finisce presto per tutti."
+    ],
+    "paceWarn": "<strong>Chi ne ha abbastanza è fuori – senza discussioni.</strong> Non spingere mai nessuno a bere e non guidare mai dopo aver giocato.",
+    "paceWarnLink": "Gioca responsabilmente",
+    "mistakesH": "Errori tipici",
+    "mistakes": [
+      "<strong>Iniziare senza aver deciso le regole.</strong> Dieci minuti di discussione su cosa significa il 7 uccidono l’atmosfera.",
+      "<strong>Afferrare una carta di fretta.</strong> Una pescata frettolosa rompe l’anello – e ti costa un sorso.",
+      "<strong>Dimenticare la propria regola.</strong> Niente diverte di più il tavolo di chi ha inventato una regola e la infrange.",
+      "<strong>Rispondere al Maestro delle domande.</strong> Basta un «Eh?» per farsi beccare.",
+      "<strong>Riempire il bicchiere fino all’orlo.</strong> Qualcuno dovrà berlo al quarto re – magari tu.",
+      "<strong>Bere a grandi sorsate.</strong> La partita è lunga e le carte continuano: sorsi, non sorsate."
+    ],
+    "ctaQuickH": "Siete già al tavolo?",
+    "ctaQuickP": "Tutte e tredici le carte e i quattro re in una schermata.",
+    "ctaQuickBtn": "Apri la guida rapida",
+    "ctaRulesH": "Nuovo del gioco?",
+    "ctaRulesP": "Leggi prima tutte le regole, le varianti e le FAQ.",
+    "ctaRulesBtn": "Vai alle regole"
+  },
+  "quick": {
+    "h": "King’s Cup a colpo d’occhio",
+    "ruleH": "Il tuo turno",
+    "rule": "Pesca <strong>Una carta</strong> dall’anello intorno al bicchiere, mostrala e segui la sua regola. <strong>Anello rotto</strong> = un sorso. Si gioca in senso orario.",
+    "cardsH": "Le carte",
+    "c_a": "Bevono tutti; ti fermi solo dopo la persona alla tua destra",
+    "c_2": "Scegli qualcuno che beve un sorso",
+    "c_3": "Bevi tu un sorso",
+    "c_4": "L’ultimo a toccare terra beve",
+    "c_5": "Bevono tutti i ragazzi",
+    "c_6": "Bevono tutte le ragazze",
+    "c_7": "L’ultimo a indicare in alto beve",
+    "c_8": "Beve ogni volta che bevi tu",
+    "c_9": "Il primo che sbaglia beve",
+    "c_10": "Il primo che sbaglia beve",
+    "c_j": "Nuova regola fino alla fine",
+    "c_q": "Rispondere a una domanda = un sorso",
+    "c_k": "Versa un po’ della tua bevanda nel bicchiere",
+    "kings1": "<strong>Dal 1° al 3° re:</strong> versare un po’ nel bicchiere",
+    "kings4": "<strong>4° re:</strong> bere il bicchiere – in tutti i sorsi che servono. Fine della partita.",
+    "safe": [
+      "<strong>Sorsi, mai shot</strong> – e nessuno deve bere alcol.",
+      "<strong>Acqua sul tavolo</strong>, pause permesse, mai guidare dopo.",
+      "<strong>Ne hai abbastanza?</strong> Allora sei fuori – senza discussioni."
+    ],
+    "ctaStratH": "Gioca meglio",
+    "ctaStratP": "Pescare in sicurezza, carte difficili, i re e il tuo ritmo.",
+    "ctaStratBtn": "Vai alla strategia",
+    "ctaRulesH": "Tutte le regole",
+    "ctaRulesP": "Ogni carta nel dettaglio, varianti e FAQ.",
+    "ctaRulesBtn": "Vai alle regole"
   }
 }

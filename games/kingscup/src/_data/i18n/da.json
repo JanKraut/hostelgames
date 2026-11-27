@@ -106,7 +106,11 @@
   "sub": "Også kendt som <strong>Ring of Fire</strong> eller <strong>Circle of Death</strong>: et spil kort i en cirkel, et bæger i midten og en regel til hvert kort. Læs én gang, træk, færdig.",
   "seo": {
     "rulesT": "King’s Cup regler – drukspillet Ring of Fire forklaret",
-    "rulesD": "King’s Cup (Ring of Fire, Circle of Death) forklaret: opstilling, hvad hvert kort fra es til konge betyder, de fire konger, varianter og hvordan man spiller ansvarligt."
+    "rulesD": "King’s Cup (Ring of Fire, Circle of Death) forklaret: opstilling, hvad hvert kort fra es til konge betyder, de fire konger, varianter og hvordan man spiller ansvarligt.",
+    "strategyT": "King’s Cup strategi – tips til ringen, kortene og kongerne",
+    "strategyD": "King’s Cup-tips: træk uden at bryde ringen, mestr Vandfald, Rim, Regel og Spørgemester, spil kongerne og find dit eget tempo.",
+    "quickT": "King’s Cup kort fortalt – alle kort på én skærm",
+    "quickD": "King’s Cup på et øjeblik: din tur, hvad hvert kort fra es til konge betyder, de fire konger og hvordan man spiller ansvarligt."
   },
   "goal": "<strong>Målet:</strong> Træk kort på skift, følg reglen for hvert kort – og håb, at det ikke er dig, der trækker den fjerde konge.",
   "info": {
@@ -121,5 +125,104 @@
     "gearN": "52 kort, stort bæger & drikkevarer",
     "gearAlt": "Et spil kort og et stort bæger",
     "intro": "King’s Cup er klassikeren til hostel-fællesrum og opvarmning til fest: ingen taktik, ingen pointblok, bare et spil kort og en regel til hvert kort. Alle kender en lidt anden version – så aftal reglerne før første kort."
+  },
+  "strategy": {
+    "h1": "King’s Cup strategi",
+    "h1sub": "",
+    "sub": "King’s Cup handler mest om held. Men hvordan du trækker, hvordan du håndterer de drilske kort, og hvilket tempo du holder, afgør, om du stadig har det sjovt ved den fjerde konge.",
+    "principleNav": "Princip",
+    "ringNav": "Ringen",
+    "cardsNav": "Drilske kort",
+    "kingsNav": "Kongerne",
+    "paceNav": "Tempo",
+    "mistakesNav": "Fejl",
+    "principleH": "Grundprincippet",
+    "principle": "Du kan ikke vælge, hvilket kort du får – men du kan vælge, <strong>hvor godt du reagerer</strong>. Hurtige reflekser, god hukommelse for reglerne på bordet og et fornuftigt tempo gør forskellen.",
+    "principleItems": [
+      "<strong>Aftal reglerne før første kort.</strong> Gå alle tretten kort og jeres varianter igennem på forhånd, så ingen diskuterer midt i spillet.",
+      "<strong>Vær vågen, også når det ikke er din tur.</strong> Gulv, Himmel, Vandfaldet og Spørgemesteren fanger alle, der kigger på deres telefon.",
+      "<strong>Hold styr på, hvad der gælder.</strong> Hver knægt giver en ny regel, hver dame en ny Spørgemester og hvert 8-tal en ny makker."
+    ],
+    "ringH": "Træk uden at bryde ringen",
+    "ringLead": "Ringen er det eneste, du virkelig har styr på i din tur.",
+    "ringItems": [
+      "<strong>Træk dér, hvor kortene overlapper mindst.</strong> Et kort, der knap rører naboerne, kommer ud uden at flytte dem.",
+      "<strong>Skub, løft ikke.</strong> Hold nabokortet fast med én finger, og skub dit eget ud til siden.",
+      "<strong>Tag dig tid.</strong> Der er ingen tidsgrænse – et forsigtigt træk er billigere end en strafslurk.",
+      "<strong>Ret ringen sammen.</strong> Er kort blevet skubbet ud af plads, så skub dem tilbage før næste træk, så ingen senere skændes om, hvem der lavede hullet."
+    ],
+    "cardsH": "Tips til de drilske kort",
+    "cardsLead": "De fleste kort er klaret på et sekund. Ved disse betaler det sig at tænke lidt.",
+    "c_a": "Trækker du det, bestemmer du tempoet: stop efter en kort slurk, så kan hele bordet stoppe. Sidder du sidst i Vandfaldet? Tag bittesmå slurke – du drikker længst.",
+    "c_8": "Vælg en, der drikker i nogenlunde samme tempo som dig. Skift rundt: at vælge den samme hver gang er hurtigt ikke sjovt længere.",
+    "c_9": "Start med et ord, der har mange lette rim, så runden varer, eller et sjældent ord for at slutte den hurtigt. Find dit rim, mens de andre stadig taler.",
+    "c_10": "Vælg en kategori, du kender godt, og som har mange svar. Vælg aldrig en, hvor du selv løber tør først.",
+    "c_j": "De bedste regler er lette at huske og lette at bryde ved et uheld, som “ingen må pege” eller “sig skål før hver slurk”. Spring regler over, der holder nogen udenfor eller gør nogen utilpasse.",
+    "c_q": "Gem dine spørgsmål i den almindelige snak – “Skal jeg hente dig noget vand?” virker bedre end en tydelig quiz. Og når en anden er Spørgemester, så hav “Glem det, Spørgemester” klar.",
+    "kingsH": "Spil kongerne",
+    "kingsLead": "Bægeret i midten vokser med hver konge – det, der kommer i, afgør, hvor hård den fjerde konge bliver.",
+    "kingsItems": [
+      "<strong>Hæld kun lidt i.</strong> En lille skvat er nok. Den fjerde konge skal være sjov, ikke en straf – og den kan ramme dig.",
+      "<strong>Kun drikke, der passer sammen.</strong> Hæld aldrig noget i, som nogen ved bordet ikke kan eller vil drikke.",
+      "<strong>Tæl kongerne.</strong> Efter den tredje konge er hvert træk et væddemål – så bliver der larm ved bordet.",
+      "<strong>Den fjerde konge behøver ikke tømme bægeret.</strong> Så mange slurke som nødvendigt, og man må altid stoppe."
+    ],
+    "paceH": "Dit eget tempo",
+    "paceLead": "De bedste spillere er dem, der stadig sidder ved bordet i anden runde.",
+    "paceItems": [
+      "<strong>Altid små slurke.</strong> Næsten hvert kort kan betyde en slurk – over en time bliver det til en del.",
+      "<strong>Hav vand ved siden af din drink</strong>, og drik af det mellem turene.",
+      "<strong>Skift til alkoholfrit, når du vil.</strong> Sodavand tæller lige så meget ved alle regler.",
+      "<strong>Spis, før I spiller.</strong> Et spil på tom mave slutter tidligt for alle."
+    ],
+    "paceWarn": "<strong>Har nogen fået nok, er de ude – ingen diskussion.</strong> Pres aldrig nogen til at drikke, og kør aldrig bil efter spillet.",
+    "paceWarnLink": "Spil ansvarligt",
+    "mistakesH": "Typiske fejl",
+    "mistakes": [
+      "<strong>At starte uden aftalte regler.</strong> Ti minutters diskussion om, hvad 7’eren betyder, dræber stemningen.",
+      "<strong>At snuppe et kort i hast.</strong> Et forhastet træk bryder ringen – og koster en slurk.",
+      "<strong>At glemme sin egen regel.</strong> Intet er sjovere for bordet, end når den, der fandt på reglen, selv bryder den.",
+      "<strong>At svare Spørgemesteren.</strong> Et hurtigt “Hvad?” er nok.",
+      "<strong>At fylde bægeret til randen.</strong> Ved den fjerde konge skal nogen drikke det – måske dig.",
+      "<strong>At tage store tåre.</strong> Spillet er langt, og kortene bliver ved: slurke, ikke tåre."
+    ],
+    "ctaQuickH": "Sidder I allerede ved bordet?",
+    "ctaQuickP": "Alle tretten kort og de fire konger på én skærm.",
+    "ctaQuickBtn": "Åbn snydearket",
+    "ctaRulesH": "Ny i spillet?",
+    "ctaRulesP": "Læs først alle regler, varianter og FAQ.",
+    "ctaRulesBtn": "Til reglerne"
+  },
+  "quick": {
+    "h": "King’s Cup på et øjeblik",
+    "ruleH": "Din tur",
+    "rule": "Træk <strong>ét kort</strong> fra ringen rundt om bægeret, vis det, og følg dets regel. <strong>Ringen brudt</strong> = en slurk. Der spilles med uret.",
+    "cardsH": "Kortene",
+    "c_a": "alle drikker; stop først efter personen til højre for dig",
+    "c_2": "udpeg en, der tager en slurk",
+    "c_3": "du tager en slurk",
+    "c_4": "sidste til at røre gulvet drikker",
+    "c_5": "alle drenge drikker",
+    "c_6": "alle piger drikker",
+    "c_7": "sidste til at pege op drikker",
+    "c_8": "drikker, hver gang du drikker",
+    "c_9": "første, der går i stå, drikker",
+    "c_10": "første, der går i stå, drikker",
+    "c_j": "ny regel til spillets slutning",
+    "c_q": "svar på et spørgsmål = en slurk",
+    "c_k": "hæld lidt af din drink i bægeret",
+    "kings1": "<strong>1. til 3. konge:</strong> hæld lidt i bægeret",
+    "kings4": "<strong>4. konge:</strong> drik bægeret – så mange slurke som nødvendigt. Spillet slut.",
+    "safe": [
+      "<strong>Slurke, aldrig shots</strong> – og ingen skal drikke alkohol.",
+      "<strong>Vand på bordet</strong>, pauser er tilladt, kør aldrig bil bagefter.",
+      "<strong>Fået nok?</strong> Så er du ude – ingen diskussion."
+    ],
+    "ctaStratH": "Spil bedre",
+    "ctaStratP": "Sikre træk, drilske kort, kongerne og dit eget tempo.",
+    "ctaStratBtn": "Til strategien",
+    "ctaRulesH": "Alle regler",
+    "ctaRulesP": "Hvert kort i detaljer, varianter og FAQ.",
+    "ctaRulesBtn": "Til reglerne"
   }
 }

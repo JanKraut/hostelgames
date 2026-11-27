@@ -106,7 +106,11 @@
   "sub": "Även känt som <strong>Ring of Fire</strong> eller <strong>Circle of Death</strong>: en kortlek i en cirkel, en bägare i mitten och en regel för varje kort. Läs en gång, dra, klart.",
   "seo": {
     "rulesT": "King’s Cup regler – drickspelet Ring of Fire förklarat",
-    "rulesD": "King’s Cup (Ring of Fire, Circle of Death) förklarat: förberedelser, vad varje kort från ess till kung betyder, de fyra kungarna, varianter och ansvarsfullt spelande."
+    "rulesD": "King’s Cup (Ring of Fire, Circle of Death) förklarat: förberedelser, vad varje kort från ess till kung betyder, de fyra kungarna, varianter och ansvarsfullt spelande.",
+    "strategyT": "King’s Cup strategi – tips för ringen, korten och kungarna",
+    "strategyD": "King’s Cup-tips: dra utan att bryta ringen, bemästra Vattenfall, Rim, Regel och Frågemästare, spela kungarna och hitta ditt eget tempo.",
+    "quickT": "King’s Cup i korthet – alla kort på en skärm",
+    "quickD": "King’s Cup i en blick: din tur, vad varje kort från ess till kung betyder, de fyra kungarna och hur man spelar ansvarsfullt."
   },
   "goal": "<strong>Målet:</strong> Dra kort i turordning, följ regeln för varje kort – och hoppas att du inte är den som drar fjärde kungen.",
   "info": {
@@ -121,5 +125,104 @@
     "gearN": "52 kort, stor bägare & dryck",
     "gearAlt": "En kortlek och en stor bägare",
     "intro": "King’s Cup är klassikern för vandrarhemmets allrum och förfesten: ingen taktik, inget poängblock, bara en kortlek och en regel för varje kort. Alla kan en lite egen variant – så kom överens om reglerna före första kortet."
+  },
+  "strategy": {
+    "h1": "King’s Cup strategi",
+    "h1sub": "",
+    "sub": "King’s Cup handlar mest om tur. Men hur du drar, hur du hanterar de kluriga korten och vilket tempo du håller avgör om du fortfarande har kul vid den fjärde kungen.",
+    "principleNav": "Princip",
+    "ringNav": "Ringen",
+    "cardsNav": "Kluriga kort",
+    "kingsNav": "Kungarna",
+    "paceNav": "Tempo",
+    "mistakesNav": "Misstag",
+    "principleH": "Grundprincipen",
+    "principle": "Du kan inte välja vilket kort du får – men du kan välja <strong>hur bra du reagerar</strong>. Snabba reflexer, bra minne för reglerna på bordet och ett vettigt tempo gör skillnaden.",
+    "principleItems": [
+      "<strong>Kom överens om reglerna före första kortet.</strong> Gå igenom alla tretton kort och era varianter i förväg, så att ingen bråkar mitt i spelet.",
+      "<strong>Var vaken även när det inte är din tur.</strong> Golv, Himmel, Vattenfallet och Frågemästaren sätter dit alla som tittar i mobilen.",
+      "<strong>Håll koll på vad som gäller.</strong> Varje knekt ger en ny regel, varje dam en ny Frågemästare och varje åtta en ny kompis."
+    ],
+    "ringH": "Dra utan att bryta ringen",
+    "ringLead": "Ringen är det enda du verkligen styr över på din tur.",
+    "ringItems": [
+      "<strong>Dra där korten överlappar minst.</strong> Ett kort som knappt rör grannarna kommer ut utan att flytta dem.",
+      "<strong>Skjut, lyft inte.</strong> Håll grannkortet med ett finger och skjut ut ditt åt sidan.",
+      "<strong>Ta din tid.</strong> Det finns ingen tidsgräns – att dra försiktigt är billigare än en straffklunk.",
+      "<strong>Laga ringen tillsammans.</strong> Har kort hamnat snett, skjut tillbaka dem före nästa drag, så att ingen senare bråkar om vem som gjorde luckan."
+    ],
+    "cardsH": "Tips för de kluriga korten",
+    "cardsLead": "De flesta kort är avklarade på en sekund. Med de här lönar det sig att tänka lite.",
+    "c_a": "Drar du det bestämmer du tempot: sluta efter en kort klunk så kan hela bordet sluta. Sitter du sist i Vattenfallet? Ta pyttesmå klunkar – du dricker längst.",
+    "c_8": "Välj någon som dricker i ungefär samma tempo som du. Växla: att välja samma person varje gång blir snabbt tråkigt.",
+    "c_9": "Börja med ett ord som har många lätta rim så att rundan håller, eller ett ovanligt ord för att avsluta den snabbt. Kom på ditt rim medan de andra fortfarande pratar.",
+    "c_10": "Välj en kategori du kan bra och som har många svar. Välj aldrig en där du själv tar slut först.",
+    "c_j": "De bästa reglerna är lätta att komma ihåg och lätta att bryta av misstag, som ”ingen får peka” eller ”säg skål före varje klunk”. Hoppa över regler som utesluter någon eller känns obekväma.",
+    "c_q": "Göm dina frågor i vanligt prat – ”Ska jag hämta vatten åt dig?” funkar bättre än en uppenbar frågesport. Och när någon annan är Frågemästare, ha ”Glöm det, Frågemästare” redo.",
+    "kingsH": "Spela kungarna",
+    "kingsLead": "Bägaren i mitten växer med varje kung – det som hamnar i den avgör hur tuff den fjärde kungen blir.",
+    "kingsItems": [
+      "<strong>Häll bara i lite.</strong> En liten skvätt räcker. Den fjärde kungen ska vara kul, inte ett straff – och den kan drabba dig.",
+      "<strong>Bara drycker som passar ihop.</strong> Häll aldrig i något som någon vid bordet inte kan eller vill dricka.",
+      "<strong>Räkna kungarna.</strong> Efter den tredje kungen är varje drag ett vågspel – då blir det högljutt vid bordet.",
+      "<strong>Den fjärde kungen behöver inte tömma bägaren.</strong> Så många klunkar som behövs, och det är alltid okej att sluta."
+    ],
+    "paceH": "Ditt eget tempo",
+    "paceLead": "De bästa spelarna är de som fortfarande sitter vid bordet i andra rundan.",
+    "paceItems": [
+      "<strong>Alltid små klunkar.</strong> Nästan varje kort kan betyda en klunk – under en timme blir det en hel del.",
+      "<strong>Ha vatten bredvid din dryck</strong> och drick av det mellan dragen.",
+      "<strong>Byt till alkoholfritt när du vill.</strong> Läsk räknas lika mycket för alla regler.",
+      "<strong>Ät innan ni spelar.</strong> Ett spel på tom mage tar slut tidigt för alla."
+    ],
+    "paceWarn": "<strong>Den som har fått nog är ute – ingen diskussion.</strong> Pressa aldrig någon att dricka och kör aldrig bil efter spelet.",
+    "paceWarnLink": "Spela ansvarsfullt",
+    "mistakesH": "Vanliga misstag",
+    "mistakes": [
+      "<strong>Att börja utan överenskomna regler.</strong> Tio minuters bråk om vad sjuan betyder dödar stämningen.",
+      "<strong>Att rycka ett kort i farten.</strong> Ett förhastat drag bryter ringen – och kostar en klunk.",
+      "<strong>Att glömma sin egen regel.</strong> Inget är roligare för bordet än när den som hittade på regeln bryter den själv.",
+      "<strong>Att svara Frågemästaren.</strong> Ett snabbt ”Va?” räcker.",
+      "<strong>Att fylla bägaren till brädden.</strong> Vid den fjärde kungen måste någon dricka den – kanske du.",
+      "<strong>Att ta stora klunkar.</strong> Spelet är långt och korten fortsätter komma: små klunkar, inte stora."
+    ],
+    "ctaQuickH": "Sitter ni redan vid bordet?",
+    "ctaQuickP": "Alla tretton kort och de fyra kungarna på en skärm.",
+    "ctaQuickBtn": "Öppna fusklappen",
+    "ctaRulesH": "Ny i spelet?",
+    "ctaRulesP": "Läs först alla regler, varianter och FAQ.",
+    "ctaRulesBtn": "Till reglerna"
+  },
+  "quick": {
+    "h": "King’s Cup i en blick",
+    "ruleH": "Din tur",
+    "rule": "Dra <strong>ett kort</strong> från ringen runt bägaren, visa det och följ dess regel. <strong>Bruten ring</strong> = en klunk. Spelet går medurs.",
+    "cardsH": "Korten",
+    "c_a": "alla dricker; sluta först efter personen till höger om dig",
+    "c_2": "utse någon som tar en klunk",
+    "c_3": "du tar en klunk",
+    "c_4": "sist att röra golvet dricker",
+    "c_5": "alla killar dricker",
+    "c_6": "alla tjejer dricker",
+    "c_7": "sist att peka uppåt dricker",
+    "c_8": "dricker varje gång du dricker",
+    "c_9": "den som först tar slut dricker",
+    "c_10": "den som först tar slut dricker",
+    "c_j": "ny regel till spelets slut",
+    "c_q": "svarar du på en fråga = en klunk",
+    "c_k": "häll lite av din dryck i bägaren",
+    "kings1": "<strong>1:a till 3:e kungen:</strong> häll lite i bägaren",
+    "kings4": "<strong>4:e kungen:</strong> drick bägaren – så många klunkar som behövs. Spelet slut.",
+    "safe": [
+      "<strong>Klunkar, aldrig shots</strong> – och ingen måste dricka alkohol.",
+      "<strong>Vatten på bordet</strong>, pauser är okej, kör aldrig bil efteråt.",
+      "<strong>Fått nog?</strong> Då är du ute – ingen diskussion."
+    ],
+    "ctaStratH": "Spela bättre",
+    "ctaStratP": "Säkra drag, kluriga kort, kungarna och ditt eget tempo.",
+    "ctaStratBtn": "Till strategin",
+    "ctaRulesH": "Alla regler",
+    "ctaRulesP": "Varje kort i detalj, varianter och FAQ.",
+    "ctaRulesBtn": "Till reglerna"
   }
 }

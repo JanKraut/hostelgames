@@ -106,7 +106,11 @@
   "sub": "Známý také jako <strong>Ring of Fire</strong> nebo <strong>Circle of Death</strong>: balíček karet do kruhu, kelímek doprostřed a pravidlo ke každé kartě. Jednou přečíst, táhnout a hotovo.",
   "seo": {
     "rulesT": "King’s Cup pravidla – pitná hra Ring of Fire",
-    "rulesD": "King’s Cup (Ring of Fire, Circle of Death) jednoduše: příprava, co znamená každá karta od esa po krále, čtyři králové, varianty a zodpovědné hraní."
+    "rulesD": "King’s Cup (Ring of Fire, Circle of Death) jednoduše: příprava, co znamená každá karta od esa po krále, čtyři králové, varianty a zodpovědné hraní.",
+    "strategyT": "Strategie King’s Cup – tipy na kruh, karty a krále",
+    "strategyD": "Tipy na King’s Cup: jak tahat bez protržení kruhu, jak zvládnout Vodopád, Rým, Pravidlo a Mistra otázek, jak hrát krále a držet si vlastní tempo.",
+    "quickT": "King’s Cup ve zkratce – všechny karty na jedné obrazovce",
+    "quickD": "King’s Cup v kostce: tvůj tah, co znamená každá karta od esa po krále, čtyři králové a zodpovědná hra."
   },
   "goal": "<strong>Cíl hry:</strong> Střídavě táhněte karty, plňte pravidlo každé z nich – a doufej, že zrovna ty nevytáhneš čtvrtého krále.",
   "info": {
@@ -121,5 +125,104 @@
     "gearN": "52 karet, velký kelímek a pití",
     "gearAlt": "Balíček karet a velký kelímek",
     "intro": "King’s Cup je klasika do hostelových společenských místností a na rozjezd večera: žádná taktika, žádný zapisovací blok, jen balíček karet a pravidlo ke každé z nich. Každý zná trochu jinou verzi – tak si pravidla vyjasněte před první kartou."
+  },
+  "strategy": {
+    "h1": "Strategie King’s Cup",
+    "h1sub": "",
+    "sub": "King’s Cup je hlavně o štěstí. Ale jak taháš, jak zvládáš záludné karty a jaké tempo držíš, rozhoduje, jestli se u čtvrtého krále pořád bavíš.",
+    "principleNav": "Princip",
+    "ringNav": "Kruh",
+    "cardsNav": "Záludné karty",
+    "kingsNav": "Králové",
+    "paceNav": "Tempo",
+    "mistakesNav": "Chyby",
+    "principleH": "Základní princip",
+    "principle": "Jakou kartu dostaneš, neovlivníš – ale můžeš ovlivnit, <strong>jak dobře zareaguješ</strong>. Rychlé reflexy, dobrá paměť na pravidla ve hře a rozumné tempo dělají rozdíl.",
+    "principleItems": [
+      "<strong>Domluvte si pravidla před první kartou.</strong> Projděte všech třináct karet a vaše varianty, ať se nikdo nehádá uprostřed hry.",
+      "<strong>Buď ve střehu, i když nejsi na tahu.</strong> Zem, Nebe, Vodopád a Mistr otázek nachytají každého, kdo zrovna kouká do mobilu.",
+      "<strong>Hlídej, co platí.</strong> Každý kluk přidá pravidlo, každá dáma přinese nového Mistra otázek a každá 8 nového parťáka."
+    ],
+    "ringH": "Tahej, aniž bys protrhl kruh",
+    "ringLead": "Kruh je jediná věc, kterou ve svém tahu opravdu ovládáš.",
+    "ringItems": [
+      "<strong>Tahej tam, kde se karty nejméně překrývají.</strong> Karta, která se sousedek sotva dotýká, vyjde, aniž by je posunula.",
+      "<strong>Vysouvej, nezvedej.</strong> Přidrž sousední kartu prstem a svou vysuň bokem.",
+      "<strong>Nespěchej.</strong> Žádný časový limit není – opatrné tahání vyjde levněji než trestný doušek.",
+      "<strong>Opravujte kruh společně.</strong> Když se karty posunou, vraťte je před dalším tahem na místo, ať se pak nikdo nehádá, kdo udělal mezeru."
+    ],
+    "cardsH": "Tipy na záludné karty",
+    "cardsLead": "Většina karet je vyřízená za vteřinu. U těchto se vyplatí trochu přemýšlet.",
+    "c_a": "Když ho vytáhneš, určuješ tempo ty: přestaň po krátkém doušku a celý stůl může přestat. Sedíš na konci Vodopádu? Ber si malinké doušky – piješ nejdéle.",
+    "c_8": "Vyber někoho, kdo pije zhruba stejným tempem jako ty. Střídej: vybírat pořád stejného člověka brzy přestane bavit.",
+    "c_9": "Začni slovem, na které se snadno rýmuje hodně slov, ať kolo vydrží, nebo vzácným, ať rychle skončí. Vymysli si rým, zatímco ostatní ještě mluví.",
+    "c_10": "Vyber kategorii, ve které se vyznáš a která má hodně odpovědí. Nikdy nevybírej takovou, kde bys sám jako první nevěděl.",
+    "c_j": "Nejlepší pravidla se snadno pamatují a snadno se omylem poruší, třeba „neukazovat prstem“ nebo „před každým douškem říct na zdraví“. Vynech pravidla, která někoho vylučují nebo jsou někomu nepříjemná.",
+    "c_q": "Propašuj otázky do běžného hovoru – „Mám ti přinést vodu?“ funguje líp než okaté kvízování. A když je Mistrem otázek někdo jiný, měj po ruce „Trhni si, mistře otázek“.",
+    "kingsH": "Hra s králi",
+    "kingsLead": "Kelímek uprostřed roste s každým králem – co se do něj nalije, rozhoduje, jak těžký bude čtvrtý král.",
+    "kingsItems": [
+      "<strong>Nalévej jen trochu.</strong> Malý doušek stačí. Čtvrtý král má být k smíchu, ne trest – a může padnout na tebe.",
+      "<strong>Jen nápoje, které k sobě sedí.</strong> Nikdy nenalévej nic, co někdo u stolu nemůže nebo nechce pít.",
+      "<strong>Počítej krále.</strong> Po třetím králi je každý tah sázka – tehdy se u stolu rozjede hluk.",
+      "<strong>Čtvrtý král nemusí kelímek dopít.</strong> Tolik doušků, kolik je potřeba, a přestat se smí vždycky."
+    ],
+    "paceH": "Vlastní tempo",
+    "paceLead": "Nejlepší hráči jsou ti, kdo u stolu sedí i ve druhém kole.",
+    "paceItems": [
+      "<strong>Vždycky malé doušky.</strong> Skoro každá karta může znamenat doušek – za hodinu se toho nasbírá dost.",
+      "<strong>Měj vedle pití vodu</strong> a pij ji mezi tahy.",
+      "<strong>Přejdi na nealko, kdykoli chceš.</strong> Limonády se počítají u každého pravidla stejně.",
+      "<strong>Najez se před hrou.</strong> Hra na lačno skončí brzo pro všechny."
+    ],
+    "paceWarn": "<strong>Kdo má dost, končí – bez diskuze.</strong> Nikoho nenuť pít a po hře nikdy neseď za volantem.",
+    "paceWarnLink": "Hraj zodpovědně",
+    "mistakesH": "Typické chyby",
+    "mistakes": [
+      "<strong>Začít bez domluvených pravidel.</strong> Deset minut hádek o tom, co znamená 7, zabije atmosféru.",
+      "<strong>Chňapnout po kartě ve spěchu.</strong> Kdo tahá moc rychle, protrhne kruh – a pije doušek.",
+      "<strong>Zapomenout vlastní pravidlo.</strong> Nic stůl nepobaví víc než autor pravidla, který ho sám poruší.",
+      "<strong>Odpovědět Mistrovi otázek.</strong> Stačí rychlé „Co?“.",
+      "<strong>Nalít kelímek po okraj.</strong> U čtvrtého krále ho někdo musí vypít – třeba ty.",
+      "<strong>Pít velkými loky.</strong> Hra je dlouhá a karty pořád chodí: doušky, ne loky."
+    ],
+    "ctaQuickH": "Už sedíte u stolu?",
+    "ctaQuickP": "Všech třináct karet a čtyři králové na jedné obrazovce.",
+    "ctaQuickBtn": "Otevřít tahák",
+    "ctaRulesH": "Hraješ poprvé?",
+    "ctaRulesP": "Nejdřív si přečti všechna pravidla, varianty a FAQ.",
+    "ctaRulesBtn": "Na pravidla"
+  },
+  "quick": {
+    "h": "King’s Cup v kostce",
+    "ruleH": "Tvůj tah",
+    "rule": "Vytáhni <strong>jednu kartu</strong> z kruhu kolem kelímku, ukaž ji a splň její pravidlo. <strong>Protržený kruh</strong> = doušek. Hraje se po směru hodinových ručiček.",
+    "cardsH": "Karty",
+    "c_a": "pijí všichni; přestaneš až po člověku po tvé pravici",
+    "c_2": "urči někoho, kdo si dá doušek",
+    "c_3": "doušek si dáš ty",
+    "c_4": "kdo se poslední dotkne země, pije",
+    "c_5": "pijí všichni kluci",
+    "c_6": "pijí všechny holky",
+    "c_7": "kdo poslední ukáže nahoru, pije",
+    "c_8": "pije pokaždé, když piješ ty",
+    "c_9": "kdo první zaváhá, pije",
+    "c_10": "kdo první zaváhá, pije",
+    "c_j": "nové pravidlo do konce hry",
+    "c_q": "odpověď na otázku = doušek",
+    "c_k": "nalij trochu svého pití do kelímku",
+    "kings1": "<strong>1. až 3. král:</strong> nalít trochu do kelímku",
+    "kings4": "<strong>4. král:</strong> vypít kelímek – na tolik doušků, kolik je potřeba. Konec hry.",
+    "safe": [
+      "<strong>Doušky, nikdy panáky</strong> – a nikdo nemusí pít alkohol.",
+      "<strong>Voda na stole</strong>, pauzy jsou v pohodě, po hře nikdy za volant.",
+      "<strong>Máš dost?</strong> Tak končíš – bez diskuze."
+    ],
+    "ctaStratH": "Hraj líp",
+    "ctaStratP": "Bezpečné tahání, záludné karty, králové a vlastní tempo.",
+    "ctaStratBtn": "Na strategii",
+    "ctaRulesH": "Všechna pravidla",
+    "ctaRulesP": "Každá karta podrobně, varianty a FAQ.",
+    "ctaRulesBtn": "Na pravidla"
   }
 }

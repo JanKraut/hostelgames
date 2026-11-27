@@ -48,10 +48,74 @@
   },
   "sub": "También conocido como <strong>Ring of Fire</strong> o <strong>Circle of Death</strong>: una baraja en círculo, un vaso en el centro y una regla para cada carta. Léelo una vez, toma una carta y listo.",
   "seo": {
-    "rulesT": "Reglas de King’s Cup – El juego de tomar Ring of Fire"
+    "rulesT": "Reglas de King’s Cup – El juego de tomar Ring of Fire",
+    "strategyD": "Consejos de King’s Cup: robar sin romper el círculo, dominar Cascada, Rima, Regla y Maestro de preguntas, jugar los reyes y llevar tu propio ritmo al tomar.",
+    "quickD": "King’s Cup de un vistazo: tu turno, qué significa cada carta del as al rey, los cuatro reyes y cómo jugar con responsabilidad."
   },
   "info": {
     "similar": "Ride the Bus, Kings, Yo nunca nunca",
     "intro": "King’s Cup es el clásico de las salas comunes de hostales y previas: sin estrategia, sin hoja de puntaje, solo una baraja y una regla para cada carta. Cada uno conoce una versión un poco distinta, así que pónganse de acuerdo en las reglas antes de la primera carta."
+  },
+  "strategy": {
+    "principleItems": [
+      "<strong>Acuerden las reglas antes de la primera carta.</strong> Repasen las trece cartas y sus variantes, para que nadie discuta a mitad del juego.",
+      "<strong>Atento aunque no sea tu turno.</strong> Piso, Cielo, la Cascada y el Maestro de preguntas atrapan a cualquiera que esté mirando el celular.",
+      "<strong>No pierdas la cuenta.</strong> Cada jota agrega una regla, cada reina trae un nuevo Maestro de preguntas y cada 8 un nuevo compañero."
+    ],
+    "ringItems": [
+      "<strong>Roba donde las cartas se encimen menos.</strong> Una carta que apenas toca a sus vecinas sale sin moverlas.",
+      "<strong>Desliza, no levantes.</strong> Sostén la carta vecina con un dedo y saca la tuya de lado.",
+      "<strong>Tómate tu tiempo.</strong> No hay límite de tiempo: robar con cuidado sale más barato que un trago de castigo.",
+      "<strong>Arreglen el círculo entre todos.</strong> Si alguna carta se movió, regrésenla a su lugar antes del siguiente turno, para que luego nadie discuta quién abrió el hueco."
+    ],
+    "c_a": "Si la robas, tú marcas el ritmo: para tras un trago corto y toda la mesa podrá parar. ¿Estás al final de la Cascada? Toma tragos mínimos: eres quien toma por más tiempo.",
+    "c_8": "Elige a alguien que tome más o menos a tu ritmo. Ve cambiando: elegir siempre a la misma persona deja de ser divertido muy rápido.",
+    "c_j": "Las mejores reglas son fáciles de recordar y fáciles de romper sin querer, como «prohibido señalar» o «decir salud antes de cada trago». Evita reglas que dejen fuera a alguien o hagan sentir incómodo a alguien.",
+    "c_q": "Mete tus preguntas en la plática: «¿Te traigo agua?» funciona mejor que un concurso obvio. Y cuando otro sea Maestro de preguntas, ten listo «¡Olvídate, Maestro de preguntas!».",
+    "kingsLead": "El vaso del centro crece con cada rey: lo que se sirve decide qué tan duro será el cuarto rey.",
+    "kingsItems": [
+      "<strong>Sirve solo un poco.</strong> Un chorrito basta. El cuarto rey debe dar risa, no ser un castigo, y te puede tocar a ti.",
+      "<strong>Solo bebidas que combinen.</strong> Nunca sirvas nada que alguien de la mesa no pueda o no quiera tomar.",
+      "<strong>Cuenta los reyes.</strong> Tras el tercer rey, cada carta es una apuesta: ahí es cuando la mesa se pone ruidosa.",
+      "<strong>El cuarto rey no tiene que terminarse el vaso.</strong> Tantos tragos como haga falta, y siempre se puede parar."
+    ],
+    "paceLead": "Los mejores jugadores son los que siguen en la mesa en la segunda ronda.",
+    "paceItems": [
+      "<strong>Siempre tragos pequeños.</strong> Casi cada carta puede significar un trago y, en una hora, se acumula.",
+      "<strong>Ten agua junto a tu bebida</strong> y toma entre turnos.",
+      "<strong>Cámbiate a sin alcohol cuando quieras.</strong> Los refrescos cuentan igual en todas las reglas.",
+      "<strong>Come antes de jugar.</strong> Una ronda con el estómago vacío termina pronto para todos."
+    ],
+    "paceWarn": "<strong>Quien ya tuvo suficiente, deja de jugar, sin discusión.</strong> Nunca presiones a nadie para tomar y nunca manejes después de jugar.",
+    "mistakes": [
+      "<strong>Empezar sin acordar las reglas.</strong> Diez minutos discutiendo qué significa el 7 matan el ambiente.",
+      "<strong>Agarrar una carta con prisa.</strong> Robar rápido rompe el círculo y te cuesta un trago.",
+      "<strong>Olvidar tu propia regla.</strong> Nada divierte más a la mesa que ver a quien inventó la regla romperla.",
+      "<strong>Responder al Maestro de preguntas.</strong> Basta un «¿Qué?» para caer.",
+      "<strong>Llenar el vaso hasta el tope.</strong> Alguien tendrá que tomárselo con el cuarto rey, quizá tú.",
+      "<strong>Tomar a grandes sorbos.</strong> El juego es largo y las cartas no paran: tragos pequeños, no grandes."
+    ],
+    "ctaQuickH": "¿Ya están en la mesa?"
+  },
+  "quick": {
+    "c_a": "Todos toman; solo paras después de la persona a tu derecha",
+    "c_2": "Elige a alguien que tome un trago",
+    "c_3": "Tomas tú un trago",
+    "c_4": "El último en tocar el piso toma",
+    "c_5": "Todos los chicos toman",
+    "c_6": "Todas las chicas toman",
+    "c_7": "El último en señalar arriba toma",
+    "c_8": "Toma cada vez que tú tomas",
+    "c_9": "El primero que falla toma",
+    "c_10": "El primero que falla toma",
+    "c_q": "Responder una pregunta = un trago",
+    "c_k": "Sirve un poco de tu bebida en el vaso",
+    "kings1": "<strong>1.º a 3.er rey:</strong> servir un poco en el vaso",
+    "kings4": "<strong>4.º rey:</strong> tomarse el vaso, en tantos tragos como haga falta. Fin del juego.",
+    "safe": [
+      "<strong>Tragos, nunca shots</strong>, y nadie tiene que tomar alcohol.",
+      "<strong>Agua en la mesa</strong>, las pausas están permitidas y nunca se maneja después.",
+      "<strong>¿Ya fue suficiente?</strong> Entonces dejas de jugar, sin discusión."
+    ]
   }
 }
