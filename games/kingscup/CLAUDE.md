@@ -3,7 +3,6 @@
 ## Besonderheiten
 - Kartenring mit Becher gibt es nur in diesem Spiel (Datei siehe `README.md`).
 - Abschnitt „Verantwortungsvoll spielen“ (`#safe`) bleibt immer drin.
-- Nächste Schritte: ggf. Quickstart (Spickzettel A–K fürs Handy).
 
 ## Begriffe
 - Name „King’s Cup“; „Ring of Fire“ und „Circle of Death“ als andere Namen.

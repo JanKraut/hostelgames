@@ -27,3 +27,4 @@ Nicht hinein:
 - Status, Domain, Sprachen, Seiten, ähnliche Spiele (`game.json`)
 - Dateilisten (`README.md` des Spiels)
 - Regeln für alle Spiele oder den Core (Root-`CLAUDE.md`, `packages/core/README.md`)
+- Nächste Schritte (GitHub-Issues) und Übersetzungsstand (meldet `npm run check`)

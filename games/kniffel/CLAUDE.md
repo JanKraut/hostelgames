@@ -7,7 +7,6 @@
   (nur Core-Farben).
 - Strategie (`src/strategy.njk`): die Wahrscheinlichkeiten in der Chancen-Tabelle sind exakt
   gerechnet – bei Änderungen neu rechnen.
-- Nächste Schritte: ggf. Spielblock zum Ausdrucken.
 
 ## Begriffe
 - Feste Namen der Felder: de Einser … Sechser, Dreierpasch, Viererpasch, Full House,

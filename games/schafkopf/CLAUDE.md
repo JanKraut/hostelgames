@@ -7,7 +7,6 @@
   Laufende ab 3 (Wenz ab 2) je +1.
 - Karten nutzen französische Farben aus dem Core: ♣ Eichel, ♠ Gras, ♥ Herz, ♦ Schellen;
   Rang-Buchstaben aus `rules.rO`/`rU`/`rK`/`rA` (de: O, U, K, A – en: Q, J, K, A).
-- Nächste Schritte: ggf. Strategie und Quickstart.
 
 ## Begriffe
 - Bayerische Begriffe: Ober, Unter, Sau, Sauspiel, Wenz, Solo,
