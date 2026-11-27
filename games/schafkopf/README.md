@@ -1,21 +1,3 @@
 # Schafkopf
 
-Webseite zum bayerischen Kartenspiel Schafkopf, Teil des Monorepos hostelgames.
-**Entwurf** (`status: draft`): nur in der Vorschau unter https://jankraut.github.io/hostelgames/schafkopf/.
-Noch keine eigene Domain.
-
-```sh
-npm run start:schafkopf                   # Dev-Server: http://localhost:8080/hostelgames/schafkopf/
-npm run build:schafkopf                   # nach games/schafkopf/_site/
-npm test -w @hostelgames/schafkopf        # Tests (vorher bauen)
-```
-
-| Pfad | Inhalt |
-| --- | --- |
-| `game.json` | Name, Kategorie, Status, Sprachen, Seiten (Felder: Root-README) |
-| `src/index.njk` | Regelseite, einmal pro Sprache |
-| `src/_includes/hero-art.njk` | Kartenfächer im Kopfbereich |
-| `src/_includes/factsheet-art.njk` | Kartenbild im Steckbrief |
-| `src/_data/i18n/*.json` | Texte, Referenz `en.json` |
-| `src/assets/styles.css` | eigene Styles zusätzlich zu `core.css` |
-| `tests/site.spec.js` | Playwright-Tests |
+Webseite zum bayerischen Kartenspiel Schafkopf, Teil des Monorepos [hostelgames](../../README.md).

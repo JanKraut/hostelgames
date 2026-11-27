@@ -4,9 +4,9 @@ Kartenspiele aus jedem Hostel der Welt: Regeln, Strategie, Spickzettel und Spiel
 mehrsprachig und offline-fähig. Ein Monorepo: alle Spiele teilen sich einen Core, damit Design und
 Verhalten überall gleich sind. Pro Spiel gibt es einen Unterordner.
 
-Später: Hauptdomain **hostelgames.com** (Startseite + jedes Spiel unter `/<path>/`) und zusätzlich
-eine eigene Domain pro Spiel (z. B. shitheadgame.de). Bis die Domains bereitstehen, gibt es eine
-Vorschau auf GitHub Pages: `https://jankraut.github.io/hostelgames/`, jedes Spiel in seinem Unterordner,
+Hauptdomain **hostelgames.com** (Startseite + jedes Live-Spiel unter `/<path>/`) und zusätzlich
+eine eigene Domain pro Spiel (z. B. shitheadgame.de). Für Entwürfe und PRs gibt es eine Vorschau
+auf GitHub Pages: `https://jankraut.github.io/hostelgames/`, jedes Spiel in seinem Unterordner,
 z. B. `https://jankraut.github.io/hostelgames/shitheadgame/`.
 
 ## Aufbau
@@ -14,14 +14,56 @@ z. B. `https://jankraut.github.io/hostelgames/shitheadgame/`.
 | Pfad | Inhalt |
 | --- | --- |
 | `packages/core/` | **`@hostelgames/core`**: gemeinsamer Kern aller Seiten, siehe [README](packages/core/README.md) |
-| `games/<slug>/` | Ein Spiel, eigene Eleventy-Seite mit `game.json`, Texten, Tests. Erstes Spiel: [`games/shithead/`](games/shithead/README.md) |
+| `games/<slug>/` | Ein Spiel, eigene Eleventy-Seite mit `game.json`, Texten, Tests. |
 | `hub/` | Startseite von hostelgames.com, listet automatisch alle Spiele aus `games/*/game.json` |
-| `scripts/build-all.js` | Baut Hub und alle Spiele in ein gemeinsames `_site/` (Aufbau wie hostelgames.com) |
+| `scripts/build-all.js` | Baut Hub und alle Spiele in ein gemeinsames `_site/` |
 | `scripts/ci-plan.js` | Bestimmt, welche Spiele getestet und deployt werden (geänderte Dateien) |
-| `.github/workflows/ci.yml` | Build und Tests bei jedem Push und Pull Request; auf `main` danach **automatisches Deployment** |
+| `.github/workflows/ci.yml` | Build und Tests bei jedem Push und Pull Request; auf `main` danach **automatisches Deployment** auf Github Pages |
 
 Die Workspaces (npm) sind `packages/*`, `games/*` und `hub`. Abhängigkeiten werden einmal im Root
 installiert.
+
+### Aufbau eines Spiels
+
+Alle Ordner unter `games/<slug>/` folgen demselben Grundgerüst. Alles Gemeinsame – Design, Schrift,
+Seitenrahmen (`layout: game`), Kopf/Footer, Sprachmenü, Seitenreiter, Teilen-Box, Steckbrief,
+Quiz-Rahmen, 404-Seite, Sitemap, Offline-Service-Worker, `site`/`languages`, `check-i18n` und
+Basis-Tests (`siteTests`) – kommt aus [`@hostelgames/core`](packages/core/README.md). Im Spiel selbst
+liegen nur seine eigenen Inhalte:
+
+| Pfad | Inhalt |
+| --- | --- |
+| `game.json` | Einzige Quelle für Name, Kategorie, Domain, Status, Sprachen, Seiten, Steckbrief, ähnliche Spiele |
+| `eleventy.config.js`, `playwright.config.js` | je eine Zeile, übernehmen die Konfiguration aus dem Core |
+| `src/index.njk` | Regelseite (`/`, `/de/` …) |
+| `src/strategy.njk`, `quickstart.njk`, `scoresheet.njk`, `play.njk` | optionale weitere Seiten, müssen zu `pages` in `game.json` passen |
+| `src/_includes/hero-art.njk`, `factsheet-art.njk` | eigene Grafiken für Kopfbereich und Steckbrief (optional: `notfound-art.njk`, `quiz-stage.njk`) |
+| `src/_data/i18n/*.json` | Texte pro Sprache, Referenz `en.json` |
+| `src/assets/favicon.svg`, `styles.css` | Favicon und eigene Styles zusätzlich zu `core.css` (optional z. B. `quiz.js`, `scoresheet.js`, `game/`) |
+| `tests/site.spec.js` | Playwright-Tests (`siteTests` aus dem Core + spielspezifische Checks) |
+
+Das `README.md` eines Spiels enthält nur, was es vom Standard-Aufbau abhebt (eigene Dateien, Tests,
+Build-Befehle). Aktive Seiten, Sprachen und Status stehen in seiner `game.json`.
+
+### Alle Spiele
+
+Stand der `game.json`-Dateien. Entwürfe (`draft`) gibt es nur in der Vorschau auf GitHub Pages.
+
+| Spiel | Status | Adresse |
+| --- | --- | --- |
+| [Asshole](games/asshole/) | Entwurf | [Vorschau](https://jankraut.github.io/hostelgames/assholegame/) (Domain assholegame.de noch nicht aktiv) |
+| [Bridge](games/bridge/) | Entwurf | [Vorschau](https://jankraut.github.io/hostelgames/bridge/) |
+| [Cabo](games/cabo/) | Entwurf | [Vorschau](https://jankraut.github.io/hostelgames/cabogame/) (Domain cabogame.de noch nicht aktiv) |
+| [Cambio](games/cambio/) | Entwurf | [Vorschau](https://jankraut.github.io/hostelgames/cambiogame/) (Domain cambiogame.de noch nicht aktiv) |
+| [Jule](games/jule/) | Entwurf | [Vorschau](https://jankraut.github.io/hostelgames/jule/) |
+| [King’s Cup](games/kingscup/) | Entwurf | [Vorschau](https://jankraut.github.io/hostelgames/kingscup/) |
+| [Kniffel](games/kniffel/) | Live | https://hostelgames.com/kniffel/ |
+| [Mau-Mau](games/maumau/) | Entwurf | [Vorschau](https://jankraut.github.io/hostelgames/maumau/) |
+| [President](games/president/) | Entwurf | [Vorschau](https://jankraut.github.io/hostelgames/presidentsgame/) (Domain presidentsgame.de noch nicht aktiv) |
+| [Schafkopf](games/schafkopf/) | Entwurf | [Vorschau](https://jankraut.github.io/hostelgames/schafkopf/) |
+| [Shithead](games/shithead/) | Live | https://shitheadgame.de (auch https://hostelgames.com/shitheadgame/) |
+
+Ändert sich `status` oder `domain` in einer `game.json`, diese Tabelle mit anpassen.
 
 ## Entwickeln
 
@@ -43,8 +85,8 @@ Jede Seite bekommt Adresse und Pfad-Präfix beim Build über Umgebungsvariablen
 | Ziel | `SITE_ORIGIN` | `SITE_PATH_PREFIX` | Befehl |
 | --- | --- | --- | --- |
 | Vorschau GitHub Pages (Standard, `noindex`) | `https://jankraut.github.io` | `/hostelgames/` | `npm run build` |
-| Hauptdomain, später | `https://hostelgames.com` | `/` | `npm run build` |
-| Eigene Domain eines Spiels, später | z. B. `https://shitheadgame.de` | `/` | `npm run build -w @hostelgames/shithead` |
+| Hauptdomain | `https://hostelgames.com` | `/` | `npm run build` |
+| Eigene Domain eines Spiels | z. B. `https://shitheadgame.de` | `/` | `npm run build -w @hostelgames/shithead` |
 
 `npm run build` legt die Startseite nach `_site/` und jedes Spiel nach `_site/<path>/`, mit passendem
 Präfix. Eine Spiel-Domain baut nur dieses Spiel (Ausgabe in `games/<slug>/_site/`); stimmt die Adresse
@@ -63,8 +105,9 @@ Alles auf `github.io` bekommt `noindex` und keine Sitemap.
    `"languages": ["en", "de"]`. Der Ordner in den URLs und auf dem Server ist die Domain ohne Endung
    (ohne Domain: `slug`).
 3. Seiten nutzen das Layout aus dem Core (`layout: game`). Es lädt `core.css` und danach die eigene
-   `src/assets/styles.css`. Sprachmenü, Seitenreiter, Spielkarten (`card.njk`), Teilen-Box
-   (`share.njk`, mit `share: true`), Footer und Tracking kommen per `{% include %}` aus dem Core.
+   `src/assets/styles.css`. Sprachmenü, Seitenreiter, Spielkarten (`card.njk`), Würfel (`dice.njk`),
+   Teilen-Box (`share.njk`, mit `share: true`), Übungsquiz (`quiz.njk` + eigene Regel in
+   `src/assets/quiz.js`), Footer und Tracking kommen per `{% include %}` aus dem Core.
    Den Kopf baut der Core: `{% include "hero.njk" %}` (Texte wie bei Shithead: `rules.h1`,
    `rules.h1sub` – leer = keine zweite Zeile –, `sub`, `goal`; Kurzanleitung `h1`; andere Seiten
    `<seite>.h1`, `<seite>.sub`). Das Bild darin kommt aus `src/_includes/hero-art.njk` des Spiels.
@@ -74,10 +117,13 @@ Alles auf `github.io` bekommt `noindex` und keine Sitemap.
    Tests: `import { test, expect, siteTests } from "@hostelgames/core/testing"`,
    `import { languages, site } from "@hostelgames/core/game"` und `siteTests({ languages, site })` für alles, was jedes Spiel braucht (mit Quiz:
    `quiz: ["rules", "quickstart"]`); die eigene Spec testet nur, was das Spiel besonders macht.
-   Standardtexte (Teilen-Box, Seitennamen, 404, Hell/Dunkel, Steckbrief-Beschriftungen) kommen aus
+   Standardtexte (Teilen-Box, Seitennamen, Quiz, 404, Hell/Dunkel, Steckbrief-Beschriftungen) kommen aus
    `packages/core/i18n/standard/`; in die Texte des Spiels gehört nur, was es anders sagt.
-4. Im Root `build:<slug>` und `start:<slug>` in `package.json` ergänzen und `npm install`. Die Startseite listet das Spiel automatisch (in der Vorschau auch als Entwurf).
-5. Nichts in `ci.yml` nötig: Tests und Deploy erkennen das Spiel automatisch. Für ein Deploy
+4. `CLAUDE.md` nach [`docs/vorlage-spiel-claude.md`](docs/vorlage-spiel-claude.md) anlegen
+   (Spielregeln, Besonderheiten, Begriffe) und ein kurzes `README.md` (Name, eine Zeile, ggf.
+   besondere Dateien).
+5. Im Root `build:<slug>` und `start:<slug>` in `package.json` ergänzen und `npm install`. Die Startseite listet das Spiel automatisch (in der Vorschau auch als Entwurf).
+6. Nichts in `ci.yml` nötig: Tests und Deploy erkennen das Spiel automatisch. Für ein Deploy
    `domain` in `game.json` setzen – der Ordnername ergibt sich daraus (siehe unten).
 
 ### `game.json`
@@ -93,7 +139,7 @@ Beschreibt das Spiel und ist die einzige Stelle für diese Angaben. Geprüft wir
 | `category` | `"cards"` / `"dice"` / `"drinking"` | Abschnitt auf der Startseite (Kartenspiele, Würfelspiele, Trinkspiele); Liste und Reihenfolge: `CATEGORIES` in `packages/core/lib/games.js` |
 | `status` | `"draft"` / `"live"` | `draft`: nur in der Vorschau (GitHub Pages, mit Hinweis), nicht auf hostelgames.com, kein Deploy auf die eigene Domain |
 | `languages` | `["en", "de", "fr"]` | angebotene Sprachen, `en` und `de` immer. Flagge, Name, Fallback und Reihenfolge im Menü: `packages/core/lib/languages.js` |
-| `pages` | `["rules", "strategy", "quickstart", "play"]` | vorhandene Seiten, `rules` immer, `play` = Spiel gegen Bots. Die Reihenfolge ist auch die der Reiter oben auf der Seite. Muss zu den Dateien in `src/` passen (`index.njk`, `strategy.njk`, `quickstart.njk`, `play.njk`) |
+| `pages` | `["rules", "strategy", "quickstart", "play"]` | vorhandene Seiten, `rules` immer, `scoresheet` = Online-Spielblock, `play` = Spiel gegen Bots. Die Reihenfolge ist auch die der Reiter oben auf der Seite. Muss zu den Dateien in `src/` passen (`index.njk`, `strategy.njk`, `quickstart.njk`, `scoresheet.njk`, `play.njk`) |
 | `related` | `["president"]` | ähnliche Spiele (Slugs), optional |
 | `players`, `duration` | `{ "min": 3, "max": 6 }`, `"20–30 min"` | optional, für die Startseite |
 | `factsheet` | `{ "scales": [["luck", "skill", 35], ["easy", "complex", 20], ["kids", "adults", 15]], "people": [2, 3] }` | optional: Steckbrief im Kopf der Regelseite (`packages/core/includes/factsheet.njk`). `scales`: zwei Texte aus `info` und ein Wert 0–100; `people`: Personen im Symbol der beiden Spielergruppen (1–3); `id`: Anker (Standard `factsheet`) |

@@ -1,48 +1,25 @@
-# Shithead (games/shithead)
+# Shithead
 
-**Shithead in 3 minutes** – eine mehrsprachige Kurzanleitung für das Kartenspiel Shithead.
-Statische Seiten, gebaut mit [Eleventy](https://www.11ty.dev/): Jede Sprache ist eine eigene, fertig
-gerenderte Seite (`/`, `/de/`, `/es/`, …), die Regeln sind also auch ohne JavaScript lesbar.
-JavaScript ergänzt nur das Übungsquiz, QR-Code und Teilen-Buttons und merkt sich die gewählte Sprache.
-
-Das erste Spiel im Monorepo [hostelgames](../../README.md). Design, Schrift, Spielkarten-Grafik,
-Hell/Dunkel-Schalter, Sprachmenü, Footer, Tracking, Offline-Service-Worker, Übersetzungsprüfung und
-Testserver kommen aus dem gemeinsamen Core [`packages/core`](../../packages/core/README.md).
-
-## Entwickeln
-
-Einmal im Root des Repos `npm install` (installiert alle Workspaces). Dann in `games/shithead/`:
+Webseite zum Kartenspiel Shithead (**Shithead in 3 minutes**), erstes Spiel im Monorepo
+[hostelgames](../../README.md).
 
 ```sh
-npm start        # Dev-Server mit Live-Reload: http://localhost:8080/hostelgames/shitheadgame/
-npm run check    # prüft die Übersetzungen (läuft auch bei jedem Build)
-npm run build    # schreibt die Seite nach games/shithead/_site/
-npm test         # Playwright-Tests gegen das gebaute _site/ (vorher npm run build)
+# Build für die eigene Domain (inkl. src/.htaccess):
+SITE_ORIGIN=https://shitheadgame.de SITE_PATH_PREFIX=/ npm run build:shithead
 ```
 
-Oder aus dem Root: `npm run start:shithead`, `npm run build:shithead`.
-Beim ersten Mal ggf. den Browser installieren: `npx playwright install chromium`.
-
-## Aufbau
+## Besonderheiten
 
 | Pfad | Inhalt |
 | --- | --- |
-| `src/index.njk` | Regelseite, wird einmal pro Sprache gerendert |
-| `src/strategy.njk` | Strategieseite (`/strategy/`, `/de/strategy/` …) |
-| `src/quickstart.njk` | Quickstart: Spickzettel, passt auf einen Handybildschirm (`/quickstart/`, `/de/quickstart/` …) |
-| `src/play.njk` | Spielseite gegen Bots (`/play/`, `/de/play/` …) |
-| `game.json` | Name, Slug, Domain (daraus der Ordner `shitheadgame`), Status, Sprachen und Seiten, siehe Root-README |
-| Aus dem Core | Seitenrahmen (`layout: game`), Seitenreiter, Weiterleitung nach Sprache, Teilen-Box (`share: true`), Sitemap, 404-Seite, Konfiguration (`eleventy.config.js`, `playwright.config.js`), Adresse und Sprachen – siehe `packages/core/README.md` |
-| `src/_includes/shithead-card.njk` | Die Shithead-Karte (Haufen statt Wert und Farbe); die übrigen Spielkarten-Makros kommen aus dem Core (`card.njk`) |
-| `src/_data/i18n/*.json` | Texte pro Sprache, inklusive der Shithead-Erklärungen des Quiz unter `quiz` |
-| `src/assets/` | Eigenes Stylesheet (nur Shithead-Teile), JavaScript und Icons, werden unverändert kopiert |
-| `src/assets/site.js` | Auf jeder Seite: alte deutsche Abschnitts-Links umleiten |
-| `src/assets/quiz.js` | Regel des Übungsquiz (`deal`, `judge`); Rahmen, Ablauf und Standardtexte aus dem Core (`quiz.njk`, `assets/core/quiz.js`) |
-| `src/assets/game/` | Spiel: `engine.js` (Regeln), `bots.js` (Computergegner), `ui.js` (Oberfläche), `fx.js` (Animationen), `game.css` |
-| `src/manifest.webmanifest` | Web-App-Manifest, macht die Seite installierbar |
-| `tests/site.spec.js` | Playwright-Tests: alle Sprachseiten, Weiterleitung, ohne JavaScript, Quiz, Teilen, Offline |
-| `tests/play.spec.js` | Spielseite in allen Sprachen, komplette Partien über die Oberfläche |
-| `tests/engine.spec.js` | Spielregeln und Bots ohne Browser, inklusive Tausender simulierter Partien |
+| `src/play.njk`, `src/assets/game/` | Spiel gegen Bots (`engine.js`, `bots.js`, `ui.js`, `fx.js`, `game.css`) |
+| `src/assets/quiz.js` | Shithead-Regel (`deal`, `judge`) für das Übungsquiz aus dem Core |
+| `src/assets/site.js` | Weiterleitung alter deutscher `#abschnitt`-Links auf jeder Seite |
+| `src/_includes/factsheet-players.njk`, `factsheet-gear.njk` | Shithead-Steckbrief-Overrides (Decks statt Text, Karten mit Joker) |
+| `src/_includes/notfound-art.njk`, `shithead-card.njk`, `specials.njk` | 404-Grafik, Shithead-Karte (Haufen statt Wert/Farbe), Sonderkarten-Abschnitt |
+| `src/favicon.ico`, `src/manifest.webmanifest`, `src/.htaccess` | Root-Dateien (klassisches Favicon, Web-App-Manifest, Apache-Konfiguration nur für eigene Domain) |
+| `src/assets/apple-touch-icon.png`, `icon-*.png`, `og-image.png` | PWA-Icons und Social-Vorschaubild |
+| `tests/play.spec.js`, `tests/engine.spec.js` | Bot-Spiel-UI-Tests und Engine-/Bot-Simulationen |
 
 ## Gegen Bots spielen
 
@@ -71,53 +48,3 @@ Die Spielseite läuft komplett im Browser, ohne Server, auch offline.
 - **Endlosschleifen:** In seltenen Endspielen ist jeder Zug erzwungen und dieselben Karten wandern ewig
   im Kreis (gefunden per Simulation, etwa 1 von 3.000 Partien). Kommt dieselbe Stellung zum 10. Mal vor,
   endet die Partie unentschieden. Bots weichen wiederholten Stellungen aus, wo sie eine Wahl haben.
-
-## Keine externen Ressourcen
-
-Die Seite lädt nichts von fremden Servern (kein Google Fonts, kein CDN):
-
-- **Schriften** kommen über den Core aus dem npm-Paket `@fontsource/manrope` (SIL Open Font License 1.1). Ausgeliefert werden nur die in
-  `packages/core/data/fonts.js` gelisteten Schnitte und Zeichensätze. Dank `unicode-range` lädt der Browser
-  nur, was eine Sprache wirklich braucht.
-- **QR-Code** erzeugt `qrcode-generator` (MIT), kopiert nach `/assets/qrcode.js`.
-
-Ein Test stellt sicher, dass das so bleibt. Einzige Ausnahme ist ein Tracking, falls es beim Build
-eingeschaltet wird (siehe „Tracking“).
-
-## Offline
-
-Nach dem ersten Besuch funktioniert die ganze Seite ohne Netz, inklusive aller Sprachen, Quiz und
-QR-Code. Dafür speichert ein Service Worker alle Dateien der Seite (unter 1 MB):
-
-- Das Eleventy-Plugin des Cores schreibt nach jedem Build `_site/sw.js` aus der Vorlage `packages/core/assets/sw.js` und
-  trägt die Liste aller Dateien und einen Hash über ihren Inhalt ein. Ändert sich etwas, bekommt
-  der nächste Besuch eine neue Version und der alte Speicher wird gelöscht.
-- Seiten kommen zuerst aus dem Netz (Updates sind sofort da), nur offline aus dem Speicher.
-  CSS, JavaScript, Schriften und Icons kommen aus dem Speicher.
-- Über das Manifest lässt sich die Seite auf den Homescreen legen.
-
-Beim Entwickeln mit `npm start` ist der Service Worker auch aktiv: Geänderte CSS- oder JS-Dateien
-erscheinen deshalb erst nach einem zweiten Neuladen (oder in den DevTools „Update on reload“ aktivieren).
-
-## Sprachen und Fallbacks
-
-Englisch ist Standard und liegt unter `/`, jede andere Sprache unter `/<code>/`.
-Eine Sprache muss nur die Texte enthalten, die sie wirklich braucht: Fehlende Texte kommen der Reihe
-nach aus ihren `fallback`-Sprachen und zuletzt aus Englisch. `es-419` (Lateinamerika) enthält zum
-Beispiel nur die wenigen Texte, die von `es` abweichen.
-
-**Neue Sprache:** `src/_data/i18n/<code>.json` anlegen und den Code in `languages` der `game.json` eintragen (Flagge, Name und Fallbacks kommen aus `packages/core/lib/languages.js`).
-
-**Prüfung:** `npm run check` (Teil von `npm run build`, Skript `hostelgames-check-i18n` aus dem Core) bricht mit einer Liste der Probleme ab, wenn
-- ein Text fehlt, also weder in der Sprache selbst noch in einer ihrer Fallback-Sprachen steht und deshalb auf Englisch erscheinen würde,
-- ein Text leer ist oder nicht in Englisch vorkommt (Tippfehler, Überbleibsel),
-- Platzhalter wie `{mine}` oder `{top}` oder die HTML-Tags von Englisch abweichen oder Tags nicht geschlossen sind,
-- ein Link auf einen `#abschnitt` zeigt, den es auf der Seite nicht gibt,
-- `languages` in der `game.json` und die JSON-Dateien nicht zusammenpassen.
-
-## Deployment und Tracking
-
-Gebaut und deployt wird aus dem Root des Repos, siehe [README im Root](../../README.md#deployment).
-Kurz: `SITE_ORIGIN=https://shitheadgame.de SITE_PATH_PREFIX=/ npm run build -w @hostelgames/shithead`
-baut die Seite für die eigene Domain (dann mit `src/.htaccess`); Tracking per Umgebungsvariablen
-wie im Root-README beschrieben.

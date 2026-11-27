@@ -34,9 +34,71 @@ seinem eigenen `_includes/` anlegt.
 | `scripts/serve.js` | Befehl `hostelgames-serve <ordner> <präfix>`: kleiner Server für Tests und Vorschau |
 
 Veröffentlicht wird alles unter `/assets/core/` jeder Seite (`core.css`, `core.js`, `share.js`,
-`qrcode.js`, `fonts.css`, `fonts/`). Die Texte für Schalter, Teilen-Box und Seitenreiter kommen aus
-`i18n/standard/`; ein Spiel kann jeden davon in seinen eigenen i18n-Dateien überschreiben (z. B. `shH`).
-`foot` (Zeile über dem Footer) hat nur ein Spiel, das eine eigene will.
+`quiz.js`, `qrcode.js`, `fonts.css`, `fonts/`). Die Texte für Schalter, Teilen-Box, Quiz und
+Seitenreiter kommen aus `i18n/standard/`; ein Spiel kann jeden davon in seinen eigenen i18n-Dateien
+überschreiben (z. B. `shH`). `foot` (Zeile über dem Footer) hat nur ein Spiel, das eine eigene will.
 
 Erwartete Daten einer Seite: `site` (aus `lib/site.js`), für Sprachmenü und Footer außerdem `lang`
-(mit `t` = Texte) und `languages`; bei Spielen setzt das Plugin `site` und `languages` als globale Daten (aus `lib/game.js`).
+(mit `t` = Texte) und `languages`; bei Spielen setzt das Plugin `site` und `languages` als globale
+Daten (aus `lib/game.js`).
+
+## Spielkarten und Würfel
+
+- Karten (`card.njk`) haben französische Farben (♣ ♠ ♥ ♦) und internationale Buchstaben
+  (A, K, Q, J) – in allen Spielen gleich, auch wenn die Texte deutsche Namen nutzen (Bube, Dame …).
+  Ein Spiel mit anderen Rangnamen setzt nur die Buchstaben über seine Texte (z. B. Schafkopf
+  `rules.rO`/`rU`).
+- Würfel (`dice.njk`) zeigen 1–6 Augen.
+
+## Offene Punkte
+
+Was ein einzelnes Spiel selbst gebaut hat und in den Core kommt, sobald ein zweites Spiel es braucht:
+
+- **Bayerische Kartenbilder** (Eichel, Gras, Herz, Schellen; Ober, Unter, Sau) gibt es noch nicht.
+  Schafkopf nutzt deshalb die französischen Farben.
+- **Online-Spielblock** (Kniffel, `games/kniffel/src/assets/scoresheet.js` + Styles): beim zweiten
+  Spiel mit Block Logik und Styles hierher verschieben.
+- **Becher** (King’s Cup, Makro `cup()` in `games/kingscup/src/_includes/ring.njk`): beim zweiten
+  Trinkspiel hierher verschieben.
+
+## Keine externen Ressourcen
+
+Die Seiten laden nichts von fremden Servern (kein Google Fonts, kein CDN):
+
+- **Schriften** kommen aus dem npm-Paket `@fontsource/manrope` (SIL Open Font License 1.1).
+  Ausgeliefert werden nur die in `data/fonts.js` gelisteten Schnitte und Zeichensätze; dank
+  `unicode-range` lädt der Browser nur, was eine Sprache wirklich braucht.
+- **QR-Code** erzeugt `qrcode-generator` (MIT), veröffentlicht als `/assets/core/qrcode.js`.
+
+Einzige Ausnahme ist ein Tracking, falls es beim Build über Umgebungsvariablen eingeschaltet wird
+(siehe [Root-README](../../README.md#tracking)).
+
+## Offline
+
+Nach dem ersten Besuch funktionieren die Spielseiten auch ohne Netz (inklusive aller Sprachen,
+Quiz und QR-Code):
+
+- Das Eleventy-Plugin schreibt nach jedem Build `_site/sw.js` aus der Vorlage `assets/sw.js` und
+  trägt die Liste aller gebauten Dateien sowie einen Hash über deren Inhalt ein. Ändert sich etwas,
+  bekommt der nächste Besuch eine neue Cache-Version und der alte Speicher wird gelöscht.
+- HTML-Seiten kommen zuerst aus dem Netz (Updates sind sofort da) und nur offline aus dem Cache;
+  CSS, JavaScript, Schriften und Icons kommen aus dem Cache.
+- Beim Entwickeln mit `npm start` ist der Service Worker ebenfalls aktiv: geänderte CSS- oder
+  JS-Dateien erscheinen deshalb ggf. erst nach einem zweiten Neuladen (oder in den DevTools
+  „Update on reload“ aktivieren).
+
+## Sprachen und Fallbacks
+
+Englisch ist Standard und liegt unter `/`, jede andere Sprache unter `/<code>/`. Eine Sprache muss
+nur die Texte enthalten, die sie wirklich braucht: fehlende Texte kommen der Reihe nach aus ihren
+`fallback`-Sprachen (`lib/languages.js`) und zuletzt aus Englisch (`es-419` enthält z. B. nur die
+Abweichungen von `es`).
+
+**Neue Sprache:** `src/_data/i18n/<code>.json` anlegen und den Code in `languages` der `game.json`
+eintragen (Ablauf: [`docs/alle-sprachen.md`](../../docs/alle-sprachen.md)).
+
+**Prüfung:** `npm run check` (Teil von `npm run build`, Befehl `hostelgames-check-i18n`) prüft
+automatisch alle `.njk`-Dateien in `src/` und im Core. Streng für `en` und `de` (Fehler bei
+fehlenden oder überzähligen Texten), für weitere Sprachen als Warnung. Platzhalter (`{mine}` …),
+unbalancierte/abweichende HTML-Tags, tote `#abschnitt`-Links und Abweichungen zwischen `game.json`
+und den JSON-Dateien sind in allen Sprachen Fehler.

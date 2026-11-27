@@ -6,7 +6,8 @@ Gilt genauso für einzelne Sprachen („… Spanisch und Französisch“).
 2. Fehlende Sprachen und fehlende/veraltete Texte ermitteln
    (Warnungen von `npm run check`).
 3. Aus Englisch übersetzen, Deutsch als Abgleich für Sinn und Ton.
-4. Feste Begriffe aus der CLAUDE.md des Spiels beibehalten.
+4. Feste Begriffe aus der CLAUDE.md des Spiels beibehalten: ohne Übersetzung = in allen
+   Sprachen gleich lassen; bei `en / de` aus Englisch übersetzen und überall einheitlich nutzen.
 5. Neue Sprachcodes in `languages` der game.json eintragen. Eine Sprache, die
    es noch in keinem Spiel gibt, zuerst in packages/core/lib/languages.js
    (Flagge in packages/core/includes/flags.njk).
