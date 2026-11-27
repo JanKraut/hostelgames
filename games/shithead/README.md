@@ -10,10 +10,6 @@ und [`@hostelgames/core`](../../packages/core/README.md); aktive Seiten, Sprache
 in [`game.json`](game.json).
 
 ```sh
-npm run start:shithead                   # Dev-Server: http://localhost:8080/hostelgames/shitheadgame/
-npm run build:shithead                   # prüft Texte und baut nach games/shithead/_site/
-npm test -w @hostelgames/shithead        # Playwright-Tests (vorher bauen)
-
 # Build für die eigene Domain (inkl. src/.htaccess):
 SITE_ORIGIN=https://shitheadgame.de SITE_PATH_PREFIX=/ npm run build:shithead
 ```

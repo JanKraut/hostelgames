@@ -9,12 +9,6 @@ Standard-Aufbau und gemeinsame Teile siehe [Aufbau eines Spiels](../../README.md
 und [`@hostelgames/core`](../../packages/core/README.md); aktive Seiten, Sprachen und Status stehen
 in [`game.json`](game.json).
 
-```sh
-npm run start:kingscup                   # Dev-Server: http://localhost:8080/hostelgames/kingscup/
-npm run build:kingscup                   # prüft Texte und baut nach games/kingscup/_site/
-npm test -w @hostelgames/kingscup        # Playwright-Tests (vorher bauen)
-```
-
 ## Besonderheiten
 
 - `src/_includes/ring.njk` – Kartenring mit Becher für Kopfbereich und Aufbau.

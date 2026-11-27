@@ -9,12 +9,6 @@ Standard-Aufbau und gemeinsame Teile siehe [Aufbau eines Spiels](../../README.md
 und [`@hostelgames/core`](../../packages/core/README.md); aktive Seiten, Sprachen und Status stehen
 in [`game.json`](game.json).
 
-```sh
-npm run start:bridge                     # Dev-Server: http://localhost:8080/hostelgames/bridge/
-npm run build:bridge                     # prüft Texte und baut nach games/bridge/_site/
-npm test -w @hostelgames/bridge          # Playwright-Tests (vorher bauen)
-```
-
 ## Besonderheiten
 
 - `tests/pages.spec.js` – zusätzliche Tests für Strategie- und Quickstart-Seite.

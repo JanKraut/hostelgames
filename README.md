@@ -14,11 +14,11 @@ z. B. `https://jankraut.github.io/hostelgames/shitheadgame/`.
 | Pfad | Inhalt |
 | --- | --- |
 | `packages/core/` | **`@hostelgames/core`**: gemeinsamer Kern aller Seiten, siehe [README](packages/core/README.md) |
-| `games/<slug>/` | Ein Spiel, eigene Eleventy-Seite mit `game.json`, Texten, Tests. Erstes Spiel: [`games/shithead/`](games/shithead/README.md) |
+| `games/<slug>/` | Ein Spiel, eigene Eleventy-Seite mit `game.json`, Texten, Tests. |
 | `hub/` | Startseite von hostelgames.com, listet automatisch alle Spiele aus `games/*/game.json` |
-| `scripts/build-all.js` | Baut Hub und alle Spiele in ein gemeinsames `_site/` (Aufbau wie hostelgames.com) |
+| `scripts/build-all.js` | Baut Hub und alle Spiele in ein gemeinsames `_site/` |
 | `scripts/ci-plan.js` | Bestimmt, welche Spiele getestet und deployt werden (geänderte Dateien) |
-| `.github/workflows/ci.yml` | Build und Tests bei jedem Push und Pull Request; auf `main` danach **automatisches Deployment** |
+| `.github/workflows/ci.yml` | Build und Tests bei jedem Push und Pull Request; auf `main` danach **automatisches Deployment** auf Github Pages |
 
 Die Workspaces (npm) sind `packages/*`, `games/*` und `hub`. Abhängigkeiten werden einmal im Root
 installiert.
