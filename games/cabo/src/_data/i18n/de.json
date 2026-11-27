@@ -99,7 +99,9 @@
     "faq6q": "Ist Cabo dasselbe wie Cambio?",
     "faq6a": "Die beiden sind eng verwandt. Die Idee ist dieselbe, bekannt ist das Spiel auch als <strong>Pablo</strong> oder <strong>Cactus</strong>. Die Details unterscheiden sich von Tisch zu Tisch – bei Cambio darf zum Beispiel meist jeder jederzeit passende Karten auf den Ablagestapel werfen (siehe <a href=\"#variants\">Varianten</a>).",
     "faq7q": "Kann man Cabo kaufen?",
-    "faq7a": "Ja, Cabo gibt es auch als Kartenspiel im Handel mit eigenem Deck, erfunden 2010 von Melissa Limes und Mandy Henning. Diese Seite erklärt, wie man es mit normalen Spielkarten spielt."
+    "faq7a": "Ja, Cabo gibt es auch als Kartenspiel im Handel mit eigenem Deck, erfunden 2010 von Melissa Limes und Mandy Henning. Diese Seite erklärt, wie man es mit normalen Spielkarten spielt.",
+    "sheetCta": "Punkte zählen geht mit dem kostenlosen Online-Block: Er addiert die Runden und rechnet die Strafpunkte für dich.",
+    "sheetCtaBtn": "Block öffnen"
   },
   "sub": "Anschauen, tauschen, merken: ein schnelles Gedächtnis-Kartenspiel für 2 bis 5 Leute mit normalen Spielkarten. Einmal lesen, eine Runde spielen, fertig.",
   "seo": {
@@ -108,7 +110,9 @@
     "strategyT": "Cabo Strategie – Tipps für die niedrigste Summe",
     "strategyD": "Cabo-Strategie-Guide: Merktricks, Nachzieh- oder Ablagestapel, Fähigkeiten klug nutzen, mehrere Karten tauschen und im richtigen Moment „Cabo“ sagen.",
     "quickT": "Cabo Quickstart – Spickzettel und Fähigkeiten",
-    "quickD": "Cabo auf einen Blick: Kartenwerte, Fähigkeiten von 7 bis Dame, Multi-Tausch und „Cabo“ ansagen auf einem Bildschirm."
+    "quickD": "Cabo auf einen Blick: Kartenwerte, Fähigkeiten von 7 bis Dame, Multi-Tausch und „Cabo“ ansagen auf einem Bildschirm.",
+    "sheetT": "Cabo Punktezettel online – kostenlos, Runde für Runde",
+    "sheetD": "Der Cabo-Block im Browser: Kartensummen jeder Runde eintragen, Strafpunkte und die 100-Punkte-Regel werden automatisch gerechnet. Ohne Anmeldung, gespeichert auf deinem Gerät."
   },
   "info": {
     "players1": "2–3",
@@ -219,5 +223,11 @@
     "ctaRulesH": "Alle Regeln",
     "ctaRulesP": "Alle Details, Wertungsbeispiel, Varianten und FAQ.",
     "ctaRulesBtn": "Zu den Regeln"
+  },
+  "sheet": {
+    "h1": "Online-Block",
+    "sub": "Der Cabo-Block im Browser, für 2 bis 5 Spieler. Trag nach jeder Runde die Kartensummen ein – Strafpunkte für den Ansager und die 100-Punkte-Regel rechnet er für dich.",
+    "who": "Wer hat „Cabo“ gesagt?",
+    "calledBy": "{name} hat Cabo gesagt"
   }
 }

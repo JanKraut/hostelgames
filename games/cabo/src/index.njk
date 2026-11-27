@@ -147,6 +147,12 @@ eleventyComputed:
 
     <h3 class="sub">{{ r.endH }}</h3>
     <p>{{ r.endP | safe }}</p>
+
+    {#- Hinweis auf den Online-Block (scoresheet/) -#}
+    <div class="cta sheet-cta">
+      <p>{{ r.sheetCta }}</p>
+      <a class="ctabtn" href="{{ lang.path }}scoresheet/">{{ r.sheetCtaBtn }}</a>
+    </div>
   </section>
 
   {{ variants(r) }}

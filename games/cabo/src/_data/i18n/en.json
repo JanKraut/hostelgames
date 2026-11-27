@@ -99,7 +99,9 @@
     "faq6q": "Is Cabo the same as Cambio?",
     "faq6a": "They are close relatives. The idea is the same, and the game is also known as <strong>Pablo</strong> or <strong>Cactus</strong>. The details differ from table to table – Cambio, for example, usually lets everyone throw matching cards onto the discard pile at any time (see <a href=\"#variants\">Variants</a>).",
     "faq7q": "Can you buy Cabo?",
-    "faq7a": "Yes, Cabo also exists as a commercial card game with its own deck, created in 2010 by Melissa Limes and Mandy Henning. This page explains how to play with a standard deck of cards."
+    "faq7a": "Yes, Cabo also exists as a commercial card game with its own deck, created in 2010 by Melissa Limes and Mandy Henning. This page explains how to play with a standard deck of cards.",
+    "sheetCta": "Keep score with the free online score sheet: it adds up the rounds and applies the penalty for you.",
+    "sheetCtaBtn": "Open the score sheet"
   },
   "sub": "Peek, swap and remember: a quick memory card game for 2 to 5 players with a standard deck. Read it once, play a round, done.",
   "seo": {
@@ -108,7 +110,9 @@
     "strategyT": "Cabo Strategy – Tips to Win with the Lowest Hand",
     "strategyD": "Cabo strategy guide: memory tricks, draw pile vs discard pile, using peek, spy and swap powers, smart multi-swaps and when to call Cabo.",
     "quickT": "Cabo Quick Start – Cheat Sheet and Card Powers",
-    "quickD": "Cabo at a glance: card values, peek, spy and swap powers, multi-swapping and calling Cabo on one screen."
+    "quickD": "Cabo at a glance: card values, peek, spy and swap powers, multi-swapping and calling Cabo on one screen.",
+    "sheetT": "Cabo Score Sheet Online – Free, Round by Round",
+    "sheetD": "The Cabo score sheet in your browser: enter the card totals of each round, penalty points and the 100-point rule are added up automatically. No sign-up, saved on your device."
   },
   "info": {
     "players1": "2–3",
@@ -219,5 +223,11 @@
     "ctaRulesH": "Full rules",
     "ctaRulesP": "All details, scoring example, variants and FAQ.",
     "ctaRulesBtn": "Go to the rules"
+  },
+  "sheet": {
+    "h1": "Online score sheet",
+    "sub": "The Cabo score sheet in your browser, for 2 to 5 players. Enter the card totals after each round – the caller’s penalty and the 100-point rule are worked out for you.",
+    "who": "Who called “Cabo”?",
+    "calledBy": "{name} called Cabo"
   }
 }

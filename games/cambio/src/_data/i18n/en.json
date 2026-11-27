@@ -106,7 +106,9 @@
     "faq7q": "Can I call Cambio right at the start?",
     "faq7a": "Yes, at the start of any of your turns. Early calls are bold, because you only know two of your cards.",
     "faq8q": "What's the difference between Cambio and Cabo?",
-    "faq8a": "They are close relatives. Cabo is sold with its own cards from 0 to 13; Cambio is played with a normal deck, the red king as the best card and usually with stacking."
+    "faq8a": "They are close relatives. Cabo is sold with its own cards from 0 to 13; Cambio is played with a normal deck, the red king as the best card and usually with stacking.",
+    "sheetCta": "Keep score with the free online score sheet: it adds up the rounds and shows who is over 100.",
+    "sheetCtaBtn": "Open the score sheet"
   },
   "sub": "Four cards face down, one quick peek, and from then on it's all memory. A hostel favourite that takes two minutes to learn.",
   "goal": "<strong>The goal:</strong> have the lowest total in your cards when the round ends. You hardly ever see them, so remember what you peeked at, swap out high cards and keep an eye on everyone else.",
@@ -116,7 +118,9 @@
     "strategyT": "Cambio strategy – tips for stacking and winning",
     "strategyD": "Cambio strategy guide: memory habits, using the black king power, cross-stacking opponents, locking in your score and calling Cambio at the right moment.",
     "quickT": "Cambio quick start – cheat sheet, values and powers",
-    "quickD": "Cambio at a glance: card values with red king at minus 1, card powers, stacking own and other cards and calling Cambio on one screen."
+    "quickD": "Cambio at a glance: card values with red king at minus 1, card powers, stacking own and other cards and calling Cambio on one screen.",
+    "sheetT": "Cambio Score Sheet Online – Free, Round by Round",
+    "sheetD": "The Cambio score sheet in your browser: enter the card totals of each round, totals are added up automatically, even with the red king at −1. No sign-up, saved on your device."
   },
   "info": {
     "players1": "2–3",
@@ -221,5 +225,11 @@
     "ctaRulesH": "Full rules",
     "ctaRulesP": "All details, scoring example, variants and FAQ.",
     "ctaRulesBtn": "Go to the rules"
+  },
+  "sheet": {
+    "h1": "Online score sheet",
+    "sub": "The Cambio score sheet in your browser, for 2 to 6 players. Enter the card totals after each round – totals and the end of the game are worked out for you.",
+    "who": "Who called “Cambio”?",
+    "calledBy": "{name} called Cambio"
   }
 }

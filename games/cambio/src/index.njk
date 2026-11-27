@@ -151,6 +151,12 @@ eleventyComputed:
       <p class="sum-total">= 10 {{ r.scoringPoints }}</p>
     </div>
     <p>{{ r.scoringP | safe }}</p>
+
+    {#- Hinweis auf den Online-Block (scoresheet/) -#}
+    <div class="cta sheet-cta">
+      <p>{{ r.sheetCta }}</p>
+      <a class="ctabtn" href="{{ lang.path }}scoresheet/">{{ r.sheetCtaBtn }}</a>
+    </div>
   </section>
 
   {{ variants(r) }}
