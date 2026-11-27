@@ -1,0 +1,149 @@
+---
+pagination:
+  data: languages
+  size: 1
+  alias: lang
+permalink: "{{ lang.path }}strategy/"
+layout: game
+subpath: "strategy/"
+share: true
+eleventyComputed:
+  pageTitle: "{{ lang.t.seo.strategyT }}"
+  pageDescription: "{{ lang.t.seo.strategyD }}"
+---
+{%- from "blocks.njk" import secnav -%}
+{#- Strategieseite für Schafkopf: Grundprinzip, Hand bewerten (drei Beispielhände), Sau rufen,
+    als Spieler, als Gegenspieler, Schmieren & Zählen, Wenz & Solo, Fehler. Texte unter
+    `strategy`. Karten mit französischen Farben und den Rang-Buchstaben aus rules.rO/rU/rK/rA
+    (wie auf der Regelseite). -#}
+{%- from "card.njk" import card, cardRow -%}
+{%- set t = lang.t -%}
+{%- set s = t.strategy -%}
+{%- set r = t.rules -%}
+{%- set O = r.rO -%}{%- set U = r.rU -%}{%- set K = r.rK -%}{%- set A = r.rA -%}
+{% include "hero.njk" %}
+
+{{ secnav(t.navLabel, [
+  ["principle", s.principleNav],
+  ["hand", s.handNav],
+  ["calling", s.callNav],
+  ["player", s.playerNav],
+  ["defending", s.defNav],
+  ["points", s.ptsNav],
+  ["wenz-solo", s.soloNav],
+  ["mistakes", s.mistakesNav]
+]) }}
+
+<main class="wrap">
+  <section id="principle">
+    <h2>{{ s.principleH }}</h2>
+    <p class="lead">{{ s.principle | safe }}</p>
+    <ul class="strats">
+      {%- for item in s.principleItems %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="hand">
+    <h2>{{ s.handH }}</h2>
+    <p class="lead">{{ s.handLead | safe }}</p>
+    {#- Drei Beispielhände mit je acht Karten: Trümpfe links, dann die Farben. -#}
+    <div class="hands" role="group" aria-label="{{ s.handAlt }}">
+      {%- for h in [
+        ["Sau", [[O, "♠"], [U, "♣"], [U, "♦"], [A, "♥"], ["9", "♥"], [A, "♣"], ["10", "♣"], ["7", "♠"]]],
+        ["Wenz", [[U, "♣"], [U, "♠"], [A, "♦"], ["10", "♦"], [K, "♦"], ["9", "♦"], [A, "♣"], [A, "♠"]]],
+        ["Solo", [[O, "♣"], [O, "♠"], [U, "♣"], [U, "♠"], [U, "♦"], [A, "♥"], ["10", "♥"], [A, "♣"]]]
+      ] %}
+      <div class="hand">
+        <h3>{{ s["hand" ~ h[0] ~ "H"] }}</h3>
+        <div class="hand-cards" aria-hidden="true">{{ cardRow(h[1], "xs") }}</div>
+        <p>{{ s["hand" ~ h[0] ~ "P"] | safe }}</p>
+      </div>
+      {%- endfor %}
+    </div>
+    <p class="notup">{{ s.handNote | safe }}</p>
+  </section>
+
+  <section id="calling">
+    <h2>{{ s.callH }}</h2>
+    <p class="lead">{{ s.callLead | safe }}</p>
+    <ul class="strats">
+      {%- for item in s.callItems %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="player">
+    <h2>{{ s.playerH }}</h2>
+    <p class="lead">{{ s.playerLead | safe }}</p>
+    <ul class="strats">
+      {%- for item in s.playerItems %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="defending">
+    <h2>{{ s.defH }}</h2>
+    <p class="lead">{{ s.defLead | safe }}</p>
+    <ul class="strats">
+      {%- for item in s.defItems %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="points">
+    <h2>{{ s.ptsH }}</h2>
+    <p class="lead">{{ s.ptsLead | safe }}</p>
+    <ul class="strats">
+      {%- for item in s.ptsItems %}
+      <li><p>{{ item | safe }}</p></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="wenz-solo">
+    <h2>{{ s.soloH }}</h2>
+    <p class="lead">{{ s.soloLead | safe }}</p>
+    <div class="rulecards">
+      {%- for g in [[U, "♣"], [U, "♦"], [O, "♣"], [A, "♠"]] %}
+      <div class="rulecard">
+        {{ card(g[0], g[1], "sm") }}
+        <div>
+          <h3>{{ s["solo" ~ loop.index ~ "h"] }}</h3>
+          <p>{{ s["solo" ~ loop.index ~ "p"] | safe }}</p>
+        </div>
+      </div>
+      {%- endfor %}
+    </div>
+  </section>
+
+  <section id="mistakes">
+    <h2>{{ s.mistakesH }}</h2>
+    <ul class="variants">
+      {%- for item in s.mistakes %}
+      <li>{{ item | safe }}</li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section id="next-steps" class="ctas">
+    <div class="cta">
+      <h2>{{ s.ctaQuickH }}</h2>
+      <p>{{ s.ctaQuickP }}</p>
+      <a class="ctabtn go" href="{{ lang.path }}quickstart/">{{ s.ctaQuickBtn }}<span class="go-ic" aria-hidden="true"></span></a>
+    </div>
+    <div class="cta">
+      <h2>{{ s.ctaRulesH }}</h2>
+      <p>{{ s.ctaRulesP }}</p>
+      <a class="ctabtn go" href="{{ lang.path }}">{{ s.ctaRulesBtn }}<span class="go-ic" aria-hidden="true"></span></a>
+    </div>
+  </section>
+
+  {% include "share.njk" %}
+</main>
+
+{% include "footer.njk" %}

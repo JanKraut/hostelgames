@@ -1,0 +1,95 @@
+---
+pagination:
+  data: languages
+  size: 1
+  alias: lang
+permalink: "{{ lang.path }}quickstart/"
+layout: game
+subpath: "quickstart/"
+share: true
+eleventyComputed:
+  pageTitle: "{{ lang.t.seo.quickT }}"
+  pageDescription: "{{ lang.t.seo.quickD }}"
+---
+{#- Quickstart: kompakter Spickzettel für Schafkopf – Ziel, die 14 Trümpfe, Augen, Spielarten
+    mit Tarif und Zuschläge. Texte unter `quick`, Überschriften teils aus `rules`.
+    Rang-Buchstaben aus rules.rO/rU/rK/rA (de: O, U, K, A – en: Q, J, K, A). -#}
+{%- set t = lang.t -%}
+{%- set k = t.quick -%}
+{%- set r = t.rules -%}
+{%- set O = r.rO -%}{%- set U = r.rU -%}{%- set K = r.rK -%}{%- set A = r.rA -%}
+{%- macro chcard(rank, suit) -%}
+<span class="ch-card{% if suit == '♥' or suit == '♦' %} r{% endif %}">{{ rank }}<small>{{ suit }}</small></span>
+{%- endmacro -%}
+{% include "hero.njk" %}
+
+<main class="wrap quick">
+  <section id="cheat-sheet">
+    <div class="cheat">
+      <h2>{{ k.h }}</h2>
+
+      <div class="ch-block ch-rule">
+        <div class="ch-icon" aria-hidden="true">61</div>
+        <div><h3>{{ k.ruleH }}</h3><p>{{ k.rule | safe }}</p></div>
+      </div>
+
+      <div class="ch-block">
+        <h3>{{ k.trH }}</h3>
+        {#- Die 14 Trümpfe von hoch nach niedrig, in drei Reihen. -#}
+        <ul class="ch-trumps" role="list" aria-label="{{ r.trAlt }}">
+          <li><b>{{ r.trOber }}</b><span class="ch-run" aria-hidden="true">{% for s in ["♣", "♠", "♥", "♦"] %}{{ chcard(O, s) }}{% endfor %}</span></li>
+          <li><b>{{ r.trUnter }}</b><span class="ch-run" aria-hidden="true">{% for s in ["♣", "♠", "♥", "♦"] %}{{ chcard(U, s) }}{% endfor %}</span></li>
+          <li><b>{{ r.trHerz }}</b><span class="ch-run" aria-hidden="true">{% for rank in [A, "10", K, "9", "8", "7"] %}{{ chcard(rank, "♥") }}{% endfor %}</span></li>
+        </ul>
+        <p class="ch-note">{{ k.trSuit | safe }}</p>
+      </div>
+
+      <div class="ch-block">
+        <h3>{{ k.ptH }}</h3>
+        <ul class="ch-vals" role="list">
+          <li class="best">{{ chcard(A, "♣") }}<b>11</b></li>
+          <li class="best">{{ chcard("10", "♠") }}<b>10</b></li>
+          <li>{{ chcard(K, "♥") }}<b>4</b></li>
+          <li>{{ chcard(O, "♦") }}<b>3</b></li>
+          <li>{{ chcard(U, "♣") }}<b>2</b></li>
+          <li><span class="ch-card">9–7</span><b>0</b></li>
+        </ul>
+      </div>
+
+      <div class="ch-block">
+        <h3>{{ k.gmH }}</h3>
+        <ul class="ch-rows" role="list">
+          <li><span class="ch-badge" aria-hidden="true">1</span><span>{{ k.gmSau | safe }}</span></li>
+          <li><span class="ch-badge" aria-hidden="true">5</span><span>{{ k.gmWenz | safe }}</span></li>
+          <li><span class="ch-badge" aria-hidden="true">5</span><span>{{ k.gmSolo | safe }}</span></li>
+        </ul>
+      </div>
+
+      <div class="ch-block">
+        <h3>{{ k.scH }}</h3>
+        <ul class="ch-rows" role="list">
+          <li><span class="ch-badge" aria-hidden="true">+1</span><span>{{ k.scSchneider | safe }}</span></li>
+          <li><span class="ch-badge" aria-hidden="true">+2</span><span>{{ k.scSchwarz | safe }}</span></li>
+          <li><span class="ch-badge" aria-hidden="true">+1</span><span>{{ k.scLauf | safe }}</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="next-steps" class="ctas">
+    <div class="cta">
+      <h2>{{ k.ctaStratH }}</h2>
+      <p>{{ k.ctaStratP }}</p>
+      <a class="ctabtn go" href="{{ lang.path }}strategy/">{{ k.ctaStratBtn }}<span class="go-ic" aria-hidden="true"></span></a>
+    </div>
+    <div class="cta">
+      <h2>{{ k.ctaRulesH }}</h2>
+      <p>{{ k.ctaRulesP }}</p>
+      <a class="ctabtn go" href="{{ lang.path }}">{{ k.ctaRulesBtn }}<span class="go-ic" aria-hidden="true"></span></a>
+    </div>
+  </section>
+
+  {% include "share.njk" %}
+</main>
+
+{% include "footer.njk" %}
