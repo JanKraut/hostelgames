@@ -11,7 +11,7 @@ eleventyComputed:
   pageTitle: "{{ lang.t.seo.strategyT }}"
   pageDescription: "{{ lang.t.seo.strategyD }}"
 ---
-{%- from "blocks.njk" import secnav -%}
+{%- from "blocks.njk" import secnav, strats, mistakes, nextSteps -%}
 {#- Strategieseite für Schafkopf: Grundprinzip, Hand bewerten (drei Beispielhände), Sau rufen,
     als Spieler, als Gegenspieler, Schmieren & Zählen, Wenz & Solo, Fehler. Texte unter
     `strategy`. Karten mit französischen Farben und den Rang-Buchstaben aus rules.rO/rU/rK/rA
@@ -38,11 +38,7 @@ eleventyComputed:
   <section id="principle">
     <h2>{{ s.principleH }}</h2>
     <p class="lead">{{ s.principle | safe }}</p>
-    <ul class="strats">
-      {%- for item in s.principleItems %}
-      <li><p>{{ item | safe }}</p></li>
-      {%- endfor %}
-    </ul>
+    {{ strats(s.principleItems) }}
   </section>
 
   <section id="hand">
@@ -68,41 +64,25 @@ eleventyComputed:
   <section id="calling">
     <h2>{{ s.callH }}</h2>
     <p class="lead">{{ s.callLead | safe }}</p>
-    <ul class="strats">
-      {%- for item in s.callItems %}
-      <li><p>{{ item | safe }}</p></li>
-      {%- endfor %}
-    </ul>
+    {{ strats(s.callItems) }}
   </section>
 
   <section id="player">
     <h2>{{ s.playerH }}</h2>
     <p class="lead">{{ s.playerLead | safe }}</p>
-    <ul class="strats">
-      {%- for item in s.playerItems %}
-      <li><p>{{ item | safe }}</p></li>
-      {%- endfor %}
-    </ul>
+    {{ strats(s.playerItems) }}
   </section>
 
   <section id="defending">
     <h2>{{ s.defH }}</h2>
     <p class="lead">{{ s.defLead | safe }}</p>
-    <ul class="strats">
-      {%- for item in s.defItems %}
-      <li><p>{{ item | safe }}</p></li>
-      {%- endfor %}
-    </ul>
+    {{ strats(s.defItems) }}
   </section>
 
   <section id="points">
     <h2>{{ s.ptsH }}</h2>
     <p class="lead">{{ s.ptsLead | safe }}</p>
-    <ul class="strats">
-      {%- for item in s.ptsItems %}
-      <li><p>{{ item | safe }}</p></li>
-      {%- endfor %}
-    </ul>
+    {{ strats(s.ptsItems) }}
   </section>
 
   <section id="wenz-solo">
@@ -121,27 +101,12 @@ eleventyComputed:
     </div>
   </section>
 
-  <section id="mistakes">
-    <h2>{{ s.mistakesH }}</h2>
-    <ul class="variants">
-      {%- for item in s.mistakes %}
-      <li>{{ item | safe }}</li>
-      {%- endfor %}
-    </ul>
-  </section>
+  {{ mistakes(s) }}
 
-  <section id="next-steps" class="ctas">
-    <div class="cta">
-      <h2>{{ s.ctaQuickH }}</h2>
-      <p>{{ s.ctaQuickP }}</p>
-      <a class="ctabtn go" href="{{ lang.path }}quickstart/">{{ s.ctaQuickBtn }}<span class="go-ic" aria-hidden="true"></span></a>
-    </div>
-    <div class="cta">
-      <h2>{{ s.ctaRulesH }}</h2>
-      <p>{{ s.ctaRulesP }}</p>
-      <a class="ctabtn go" href="{{ lang.path }}">{{ s.ctaRulesBtn }}<span class="go-ic" aria-hidden="true"></span></a>
-    </div>
-  </section>
+  {{ nextSteps([
+    [s.ctaQuickH, s.ctaQuickP, lang.path + "quickstart/", s.ctaQuickBtn],
+    [s.ctaRulesH, s.ctaRulesP, lang.path, s.ctaRulesBtn]
+  ]) }}
 
   {% include "share.njk" %}
 </main>

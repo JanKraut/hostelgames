@@ -10,7 +10,7 @@ eleventyComputed:
   pageTitle: "{{ lang.t.seo.rulesT }}"
   pageDescription: "{{ lang.t.seo.rulesD }}"
 ---
-{%- from "blocks.njk" import secnav, steps, variants, faq -%}
+{%- from "blocks.njk" import secnav, steps, variants, faq, sheetCta -%}
 {#- Rules page, one per language. Sections follow the course of a round:
     setup, card values, one turn, card powers, stacking, calling Cambio, scoring,
     then variants and FAQ. Texts in src/_data/i18n, styles in src/assets/styles.css. -#}
@@ -153,10 +153,7 @@ eleventyComputed:
     <p>{{ r.scoringP | safe }}</p>
 
     {#- Hinweis auf den Online-Block (scoresheet/) -#}
-    <div class="cta sheet-cta">
-      <p>{{ r.sheetCta }}</p>
-      <a class="ctabtn" href="{{ lang.path }}scoresheet/">{{ r.sheetCtaBtn }}</a>
-    </div>
+    {{ sheetCta(lang.path + "scoresheet/", r.sheetCta, r.sheetCtaBtn) }}
   </section>
 
   {{ variants(r) }}

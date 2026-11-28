@@ -11,7 +11,7 @@ eleventyComputed:
   pageTitle: "{{ lang.t.seo.strategyT }}"
   pageDescription: "{{ lang.t.seo.strategyD }}"
 ---
-{%- from "blocks.njk" import secnav -%}
+{%- from "blocks.njk" import secnav, strats, mistakes, nextSteps -%}
 {#- Strategieseite für Cambio (52 + 2 Joker, roter König −1, schwarzer König anschauen & tauschen,
     Abwerfen eigener und fremder Karten, gesperrte Karten nach „Cambio“). Kein Spiel gegen Bots. -#}
 {%- from "card.njk" import card -%}
@@ -32,21 +32,13 @@ eleventyComputed:
   <section id="principle">
     <h2>{{ s.principleH }}</h2>
     <p class="lead">{{ s.principle | safe }}</p>
-    <ul class="strats">
-      {%- for item in s.principleItems %}
-      <li><p>{{ item | safe }}</p></li>
-      {%- endfor %}
-    </ul>
+    {{ strats(s.principleItems) }}
   </section>
 
   <section id="memory">
     <h2>{{ s.memH }}</h2>
     <p class="lead">{{ s.memLead | safe }}</p>
-    <ul class="strats">
-      {%- for item in s.memItems %}
-      <li><p>{{ item | safe }}</p></li>
-      {%- endfor %}
-    </ul>
+    {{ strats(s.memItems) }}
   </section>
 
   <section id="powers">
@@ -86,45 +78,22 @@ eleventyComputed:
       <p>{{ s.crossWhy | safe }}</p>
     </figure>
 
-    <ul class="strats">
-      {%- for item in s.stackItems %}
-      <li><p>{{ item | safe }}</p></li>
-      {%- endfor %}
-    </ul>
+    {{ strats(s.stackItems) }}
     <p class="notup">{{ s.stackWarn | safe }}</p>
   </section>
 
   <section id="calling">
     <h2>{{ s.callH }}</h2>
     <p class="lead">{{ s.callLead | safe }}</p>
-    <ul class="strats">
-      {%- for item in s.callItems %}
-      <li><p>{{ item | safe }}</p></li>
-      {%- endfor %}
-    </ul>
+    {{ strats(s.callItems) }}
   </section>
 
-  <section id="mistakes">
-    <h2>{{ s.mistakesH }}</h2>
-    <ul class="variants">
-      {%- for item in s.mistakes %}
-      <li>{{ item | safe }}</li>
-      {%- endfor %}
-    </ul>
-  </section>
+  {{ mistakes(s) }}
 
-  <section id="next-steps" class="ctas">
-    <div class="cta">
-      <h2>{{ s.ctaQuickH }}</h2>
-      <p>{{ s.ctaQuickP }}</p>
-      <a class="ctabtn go" href="{{ lang.path }}quickstart/">{{ s.ctaQuickBtn }}<span class="go-ic" aria-hidden="true"></span></a>
-    </div>
-    <div class="cta">
-      <h2>{{ s.ctaRulesH }}</h2>
-      <p>{{ s.ctaRulesP }}</p>
-      <a class="ctabtn go" href="{{ lang.path }}">{{ s.ctaRulesBtn }}<span class="go-ic" aria-hidden="true"></span></a>
-    </div>
-  </section>
+  {{ nextSteps([
+    [s.ctaQuickH, s.ctaQuickP, lang.path + "quickstart/", s.ctaQuickBtn],
+    [s.ctaRulesH, s.ctaRulesP, lang.path, s.ctaRulesBtn]
+  ]) }}
 
   {% include "share.njk" %}
 </main>

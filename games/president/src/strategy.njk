@@ -12,7 +12,7 @@ eleventyComputed:
   pageDescription: "{{ lang.t.seo.strategyD }}"
 ---
 {#- Strategieseite, einmal pro Sprache. Kein Spiel gegen Bots. -#}
-{%- from "blocks.njk" import secnav -%}
+{%- from "blocks.njk" import secnav, strats, mistakes, nextSteps -%}
 {%- from "card.njk" import card, cardRow -%}
 {%- set t = lang.t -%}
 {%- set s = t.strategy -%}
@@ -34,11 +34,7 @@ eleventyComputed:
     <h2>{{ s.swapH }}</h2>
     <p class="lead">{{ s.swapLead | safe }}</p>
     <h3 class="sub first">{{ s.giveH }}</h3>
-    <ul class="strats">
-      {%- for item in s.give %}
-      <li><p>{{ item | safe }}</p></li>
-      {%- endfor %}
-    </ul>
+    {{ strats(s.give) }}
     <p class="notup">{{ s.notGive | safe }}</p>
 
     {#- Tausch-Beispiel: der Präsident behält das 4er-Paar und gibt die zwei
@@ -84,11 +80,7 @@ eleventyComputed:
 
   <section id="{{ phase.id }}">
     <h2>{{ phase.h }}</h2>
-    <ul class="strats">
-      {%- for item in phase.items %}
-      <li><p>{{ item | safe }}</p></li>
-      {%- endfor %}
-    </ul>
+    {{ strats(phase.items) }}
   </section>
   {%- endfor %}
 
@@ -131,22 +123,11 @@ eleventyComputed:
     </div>
   </section>
 
-  <section id="mistakes">
-    <h2>{{ s.mistakesH }}</h2>
-    <ul class="variants">
-      {%- for item in s.mistakes %}
-      <li>{{ item | safe }}</li>
-      {%- endfor %}
-    </ul>
-  </section>
+  {{ mistakes(s) }}
 
-  <section id="next-steps">
-    <div class="cta">
-      <h2>{{ s.ctaRulesH }}</h2>
-      <p>{{ s.ctaRulesP }}</p>
-      <a class="ctabtn go" href="{{ lang.path }}">{{ s.ctaRulesBtn }}<span class="go-ic" aria-hidden="true"></span></a>
-    </div>
-  </section>
+  {{ nextSteps([
+    [s.ctaRulesH, s.ctaRulesP, lang.path, s.ctaRulesBtn]
+  ]) }}
 
   {% include "share.njk" %}
 </main>

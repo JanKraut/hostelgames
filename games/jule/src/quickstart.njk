@@ -13,6 +13,7 @@ eleventyComputed:
 ---
 {#- Quickstart: kompakter Spickzettel für Jule – Grundregel, Hin- und Rückweg mit
     Würfeln, Umdrehen & Gewinnen, Stumme Jule. Texte unter `quick`. -#}
+{%- from "blocks.njk" import nextSteps -%}
 {%- from "dice.njk" import die -%}
 {%- set t = lang.t -%}
 {%- set k = t.quick -%}
@@ -55,18 +56,10 @@ eleventyComputed:
     </div>
   </section>
 
-  <section id="next-steps" class="ctas">
-    <div class="cta">
-      <h2>{{ k.ctaStratH }}</h2>
-      <p>{{ k.ctaStratP }}</p>
-      <a class="ctabtn go" href="{{ lang.path }}strategy/">{{ k.ctaStratBtn }}<span class="go-ic" aria-hidden="true"></span></a>
-    </div>
-    <div class="cta">
-      <h2>{{ k.ctaRulesH }}</h2>
-      <p>{{ k.ctaRulesP }}</p>
-      <a class="ctabtn go" href="{{ lang.path }}">{{ k.ctaRulesBtn }}<span class="go-ic" aria-hidden="true"></span></a>
-    </div>
-  </section>
+  {{ nextSteps([
+    [k.ctaStratH, k.ctaStratP, lang.path + "strategy/", k.ctaStratBtn],
+    [k.ctaRulesH, k.ctaRulesP, lang.path, k.ctaRulesBtn]
+  ]) }}
 
   {% include "share.njk" %}
 </main>

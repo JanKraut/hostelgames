@@ -11,7 +11,7 @@ eleventyComputed:
   pageTitle: "{{ lang.t.seo.strategyT }}"
   pageDescription: "{{ lang.t.seo.strategyD }}"
 ---
-{%- from "blocks.njk" import secnav -%}
+{%- from "blocks.njk" import secnav, strats, mistakes, nextSteps -%}
 {%- from "card.njk" import card, cardRow -%}
 {#- Strategieseite, eine pro Sprache. Abschnitte: Grundprinzip, Hand bewerten (FP & Fit),
     Reizen, Alleinspiel (mit Schnitt-Grafik), Gegenspiel, typische Fehler, Weiter, Teilen.
@@ -33,11 +33,7 @@ eleventyComputed:
   <section id="principle">
     <h2>{{ s.principleH }}</h2>
     <p class="lead">{{ s.principle | safe }}</p>
-    <ul class="strats">
-      {%- for item in s.principleItems %}
-      <li><p>{{ item | safe }}</p></li>
-      {%- endfor %}
-    </ul>
+    {{ strats(s.principleItems) }}
   </section>
 
   <section id="hand-eval">
@@ -67,11 +63,7 @@ eleventyComputed:
   <section id="bidding-basics">
     <h2>{{ s.bidH }}</h2>
     <p class="lead">{{ s.bidLead | safe }}</p>
-    <ul class="strats">
-      {%- for item in s.bidItems %}
-      <li><p>{{ item | safe }}</p></li>
-      {%- endfor %}
-    </ul>
+    {{ strats(s.bidItems) }}
 
     {#- Beispielhand: ♠ A K 10 8 4 (7), ♥ Q 6 3 (2), ♦ K J 2 (4), ♣ 7 5 (0) = 13 FP + 5er-Pik → 1♠. -#}
     <figure class="handex">
@@ -90,11 +82,7 @@ eleventyComputed:
   <section id="declarer-play">
     <h2>{{ s.decH }}</h2>
     <p class="lead">{{ s.decLead | safe }}</p>
-    <ul class="strats">
-      {%- for item in s.decItems %}
-      <li><p>{{ item | safe }}</p></li>
-      {%- endfor %}
-    </ul>
+    {{ strats(s.decItems) }}
 
     {#- Schnitt-Beispiel (Finesse): Dummy spielt 4♠ an, Ost legt 7♠, Alleinspieler schneidet mit Q♠. -#}
     <figure class="finesse">
@@ -122,34 +110,15 @@ eleventyComputed:
   <section id="defense">
     <h2>{{ s.defH }}</h2>
     <p class="lead">{{ s.defLead | safe }}</p>
-    <ul class="strats">
-      {%- for item in s.defItems %}
-      <li><p>{{ item | safe }}</p></li>
-      {%- endfor %}
-    </ul>
+    {{ strats(s.defItems) }}
   </section>
 
-  <section id="mistakes">
-    <h2>{{ s.mistakesH }}</h2>
-    <ul class="variants">
-      {%- for item in s.mistakes %}
-      <li>{{ item | safe }}</li>
-      {%- endfor %}
-    </ul>
-  </section>
+  {{ mistakes(s) }}
 
-  <section id="next-steps" class="ctas">
-    <div class="cta">
-      <h2>{{ s.ctaQuickH }}</h2>
-      <p>{{ s.ctaQuickP }}</p>
-      <a class="ctabtn go" href="{{ lang.path }}quickstart/">{{ s.ctaQuickBtn }}<span class="go-ic" aria-hidden="true"></span></a>
-    </div>
-    <div class="cta">
-      <h2>{{ s.ctaRulesH }}</h2>
-      <p>{{ s.ctaRulesP }}</p>
-      <a class="ctabtn go" href="{{ lang.path }}">{{ s.ctaRulesBtn }}<span class="go-ic" aria-hidden="true"></span></a>
-    </div>
-  </section>
+  {{ nextSteps([
+    [s.ctaQuickH, s.ctaQuickP, lang.path + "quickstart/", s.ctaQuickBtn],
+    [s.ctaRulesH, s.ctaRulesP, lang.path, s.ctaRulesBtn]
+  ]) }}
 
   {% include "share.njk" %}
 </main>

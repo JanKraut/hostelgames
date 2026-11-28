@@ -10,7 +10,7 @@ eleventyComputed:
   pageTitle: "{{ lang.t.seo.rulesT }}"
   pageDescription: "{{ lang.t.seo.rulesD }}"
 ---
-{%- from "blocks.njk" import secnav, steps, variants, faq -%}
+{%- from "blocks.njk" import secnav, steps, variants, faq, sheetCta -%}
 {#- Regelseite, eine pro Sprache. Abschnitte von oben nach unten: Aufbau, Trümpfe, Augen,
     Spielarten, Spielablauf, Abrechnung, Varianten, FAQ, Teilen.
     Texte in src/_data/i18n/*.json (unter "rules"). Karten aus card.njk im Core, mit
@@ -154,10 +154,7 @@ eleventyComputed:
     <p>{{ r.payP | safe }}</p>
 
     {#- Hinweis auf den Online-Block (scoresheet/) -#}
-    <div class="cta sheet-cta">
-      <p>{{ r.sheetCta }}</p>
-      <a class="ctabtn" href="{{ lang.path }}scoresheet/">{{ r.sheetCtaBtn }}</a>
-    </div>
+    {{ sheetCta(lang.path + "scoresheet/", r.sheetCta, r.sheetCtaBtn) }}
   </section>
 
   {{ variants(r) }}

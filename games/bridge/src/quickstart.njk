@@ -13,6 +13,7 @@ eleventyComputed:
 ---
 {#- Quickstart: kompakter Spickzettel für den Tisch – Ablauf, Farbrangfolge & Stichpunkte,
     Figurenpunkte & Zielwerte, Rubber-Boni, Kartenrangfolge. Texte unter `quick` und `rules`. -#}
+{%- from "blocks.njk" import nextSteps -%}
 {%- set t = lang.t -%}
 {%- set r = t.rules -%}
 {%- set k = t.quick -%}
@@ -86,18 +87,10 @@ eleventyComputed:
     </div>
   </section>
 
-  <section id="next-steps" class="ctas">
-    <div class="cta">
-      <h2>{{ k.ctaRulesH }}</h2>
-      <p>{{ k.ctaRulesP }}</p>
-      <a class="ctabtn go" href="{{ lang.path }}">{{ k.ctaRulesBtn }}<span class="go-ic" aria-hidden="true"></span></a>
-    </div>
-    <div class="cta">
-      <h2>{{ k.ctaStratH }}</h2>
-      <p>{{ k.ctaStratP }}</p>
-      <a class="ctabtn go" href="{{ lang.path }}strategy/">{{ k.ctaStratBtn }}<span class="go-ic" aria-hidden="true"></span></a>
-    </div>
-  </section>
+  {{ nextSteps([
+    [k.ctaRulesH, k.ctaRulesP, lang.path, k.ctaRulesBtn],
+    [k.ctaStratH, k.ctaStratP, lang.path + "strategy/", k.ctaStratBtn]
+  ]) }}
 
   {% include "share.njk" %}
 </main>
