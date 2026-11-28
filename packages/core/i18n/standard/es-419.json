@@ -1,3 +1,15 @@
 {
-  "pgSheet": "Hoja de puntaje"
+  "pgSheet": "Hoja de puntaje",
+  "sheet": {
+    "noJs": "La hoja de puntaje necesita JavaScript.",
+    "add": "Agregar jugador",
+    "finish": "Puntaje final",
+    "resultH": "Puntaje final",
+    "addRound": "Agregar ronda",
+    "noRounds": "Todavía no hay rondas. Agrega la primera.",
+    "valueInvalid": "Ingresa un número entero del {min} al {max} para cada jugador.",
+    "optPenalty": "Penalización si quien canta no tiene el puntaje más bajo",
+    "optReset": "Llegar exactamente al límite reduce tu puntaje a la mitad (una vez por jugador)",
+    "over": "{names}: más de {limit} puntos. La partida terminó – toca “Puntaje final”."
+  }
 }

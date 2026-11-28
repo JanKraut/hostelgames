@@ -239,7 +239,6 @@
     "hintChance": "Summe aller Würfel",
     "bonusLeft": "noch {n}",
     "lowerSum": "Summe unten",
-    "total": "Gesamt",
     "finishOpen": "Es sind noch {n} Felder frei. Trotzdem abrechnen?",
     "cellLabel": "{field} für {name}",
     "upperQ": "Wie viele Würfel zeigen eine {n}?",

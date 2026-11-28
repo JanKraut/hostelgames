@@ -74,13 +74,9 @@
   "sheet": {
     "h1": "Hoja de puntaje online",
     "sub": "La hoja de puntaje de Kniffel en tu navegador, para 1 a 8 jugadores. Calcula los totales y el bonus por ti.",
-    "noJs": "La hoja de puntaje necesita JavaScript.",
-    "add": "Agregar jugador",
-    "finish": "Puntaje final",
     "finishOpen": "Aún quedan {n} casillas vacías. ¿Terminar de todos modos?",
     "tripleQ": "Al menos tres dados muestran el mismo número. Ingresa la suma de los cinco dados.",
     "sumQ": "Cuenta cualquier tirada. Ingresa la suma de los cinco dados.",
-    "sumInvalid": "Ingresa un número del 5 al 30.",
-    "resultH": "Puntaje final"
+    "sumInvalid": "Ingresa un número del 5 al 30."
   }
 }

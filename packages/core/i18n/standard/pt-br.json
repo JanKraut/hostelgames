@@ -9,5 +9,25 @@
   },
   "quiz": {
     "wrong": "Quase. "
+  },
+  "sheet": {
+    "finished": "Finalizado · vitória de {name} ({points})",
+    "storageNote": "Tudo fica salvo só neste navegador. Em modo anônimo ou depois de limpar os dados de navegação, a lista some.",
+    "saved": "Salvo automaticamente, só neste aparelho",
+    "turn": "na vez",
+    "undo": "Desfazer",
+    "enter": "Anotar",
+    "running": "Em andamento · rodada {round}",
+    "round": "Rodada {round}",
+    "roundRow": "Rodada {round}",
+    "addRound": "Adicionar rodada",
+    "noRounds": "Ainda não há rodadas. Adicione a primeira.",
+    "saveRound": "Salvar rodada",
+    "deleteRound": "Apagar rodada",
+    "roundsDone": "{n} rodadas",
+    "valueInvalid": "Digite um número inteiro de {min} a {max} para cada jogador.",
+    "optPenalty": "Penalidade se quem anunciou não tiver a menor pontuação",
+    "optReset": "Atingir exatamente o limite reduz sua pontuação pela metade (uma vez por jogador)",
+    "over": "{names}: acima de {limit} pontos. O jogo acabou – toque em “Pontuação final”."
   }
 }
