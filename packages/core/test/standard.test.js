@@ -24,11 +24,13 @@ test("standard texts: en and de complete, other languages only known texts, regi
   const codes = LANGUAGES.map((lang) => lang.code);
   for (const file of readdirSync(STANDARD_TEXTS)) assert.ok(codes.includes(file.replace(/\.json$/, "")), `unknown language ${file}`);
 
+  const placeholders = (text) => [...text.matchAll(/\{(\w+)\}/g)].map((m) => m[1]).sort().join(",");
   for (const { code, fallback = [] } of LANGUAGES) {
     const own = flatten(standardTexts(code));
     for (const [key, value] of Object.entries(own)) {
       assert.ok(key in english, `${code}: unknown text ${key}`);
       assert.ok(typeof value === "string" && value.trim(), `${code} › ${key}: empty`);
+      assert.equal(placeholders(value), placeholders(english[key]), `${code} › ${key}: placeholders differ from en`);
       for (const base of fallback) assert.notEqual(value, flatten(standardTexts(base))[key], `${code} › ${key}: same as ${base}`);
     }
   }
