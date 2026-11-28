@@ -416,68 +416,12 @@ ol.steps h3 {
 
 /* ---------- Quick start: compact cheat sheet ---------- */
 
-.cheat h2 {
-  margin-bottom: 0.4rem;
-  color: var(--cheat-heading);
-  font-size: 1.6rem;
-}
-
 .ch-ranks {
-  display: grid;
-  grid-template-columns: repeat(13, minmax(0, 1fr));
   gap: 2px;
 }
 
-.ch-card {
-  display: grid;
-  flex: none;
-  place-content: center;
-  aspect-ratio: 5 / 7;
-  border-radius: 4px;
-  background: #ffffff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
-  color: var(--card-ink);
-  font-family: var(--font-cards);
-  font-weight: var(--font-cards-weight);
-  font-size: clamp(0.58rem, 2.3vw, 0.92rem);
-  letter-spacing: -0.04em;
-  line-height: 1;
-  text-align: center;
-}
-
-.ch-card small {
-  font-size: 0.72em;
-}
-
-.ch-card.top {
-  outline: 2px solid var(--gold-line);
-  outline-offset: -1px;
-}
-
-.ch-rankscale {
-  display: flex;
-  justify-content: space-between;
-  margin: 0.25rem 0 0.35rem;
-  font-size: 0.78rem;
-  font-weight: 700;
-}
-
 .ch-rows li {
-  display: grid;
-  grid-template-columns: 3.4rem 1fr;
+  --ch-col: 3.4rem;
   gap: 0.5rem;
-  align-items: center;
-  padding: 0.45rem 0.6rem;
-  border-radius: 10px;
-  background: var(--head-well);
-  font-size: 0.88rem;
-  line-height: 1.3;
-}
-
-.ch-badge {
-  font-family: var(--font-emoji);
-  font-size: 1rem;
-  text-align: center;
-  white-space: nowrap;
 }
 

@@ -46,8 +46,8 @@ eleventyComputed:
       <div class="ch-block">
         <h3>{{ r.kingsH }}</h3>
         <ul class="ch-rows" role="list">
-          <li><span class="ch-badge" aria-hidden="true">3×</span><span>{{ k.kings1 | safe }}</span></li>
-          <li class="last"><span class="ch-badge" aria-hidden="true">4</span><span>{{ k.kings4 | safe }}</span></li>
+          <li><span class="ch-badge round" aria-hidden="true">3×</span><span>{{ k.kings1 | safe }}</span></li>
+          <li class="last"><span class="ch-badge round" aria-hidden="true">4</span><span>{{ k.kings4 | safe }}</span></li>
         </ul>
       </div>
 
@@ -55,7 +55,7 @@ eleventyComputed:
         <h3>{{ r.safeH }}</h3>
         <ul class="ch-rows" role="list">
           {%- for item in k.safe %}
-          <li><span class="ch-badge" aria-hidden="true">!</span><span>{{ item | safe }}</span></li>
+          <li><span class="ch-badge round" aria-hidden="true">!</span><span>{{ item | safe }}</span></li>
           {%- endfor %}
         </ul>
       </div>

@@ -2133,8 +2133,10 @@ ol.steps p {
 }
 
 /* ---------- Quickstart: Spickzettel (.cheat, .ch-*) ----------
-   Die Überschrift (.cheat h2) und spielspezifische Teile (Karten, Werte, Badges)
-   bleiben in der styles.css des Spiels. */
+   Gemeinsame Teile aller Spickzettel: Kasten, Überschrift, Regel-Zeile mit Icon,
+   Mini-Karten (.ch-card), Kartenfolge (.ch-ranks / .ch-rankscale), Kartenwerte (.ch-vals),
+   Sonderkarten (.ch-specials), Fähigkeiten (.ch-powers / .ch-pair), Zeilen mit Badge
+   (.ch-rows / .ch-badge) und Hinweise (.ch-note). */
 
 .quick section {
   padding: 0.8rem 0 1.2rem;
@@ -2146,6 +2148,12 @@ ol.steps p {
   border-radius: 20px;
   background: var(--cheat-bg);
   color: var(--cheat-text);
+}
+
+.cheat h2 {
+  margin-bottom: 0.4rem;
+  color: var(--cheat-heading);
+  font-size: 1.6rem;
 }
 
 .ch-block {
@@ -2169,6 +2177,12 @@ ol.steps p {
   margin: 0;
 }
 
+.cheat .ch-note {
+  margin-top: 0.45rem;
+  font-size: 0.82rem;
+  opacity: 0.85;
+}
+
 .ch-rule {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -2189,16 +2203,211 @@ ol.steps p {
   line-height: 1;
 }
 
+/* Mini card: big rank, small suit */
+.ch-card {
+  display: grid;
+  flex: none;
+  place-content: center;
+  min-width: 30px;
+  height: 40px;
+  padding: 0 3px;
+  border-radius: 5px;
+  background: var(--paper);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  color: var(--card-ink);
+  font-family: var(--font-cards);
+  font-weight: var(--font-cards-weight);
+  font-size: 0.92rem;
+  line-height: 1;
+  text-align: center;
+}
+
+.ch-card small {
+  font-size: 0.68em;
+}
+
 .ch-card.r {
   color: var(--card-red);
 }
 
+.ch-card.top {
+  outline: 2px solid var(--gold-line);
+  outline-offset: -1px;
+}
+
+/* Card order: default 13 ranks in one row (override --ch-ranks for fewer, e.g. 8) */
+.ch-ranks {
+  display: grid;
+  grid-template-columns: repeat(var(--ch-ranks, 13), minmax(0, 1fr));
+  gap: 3px;
+}
+
+.ch-ranks .ch-card {
+  min-width: 0;
+  width: auto;
+  height: auto;
+  padding: 0;
+  aspect-ratio: 5 / 7;
+  border-radius: 4px;
+  font-size: clamp(0.58rem, 2.4vw, 0.95rem);
+  letter-spacing: -0.04em;
+}
+
+.ch-ranks .ch-card small {
+  font-size: 0.72em;
+}
+
+.ch-rankscale {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.25rem 0 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+/* Card values: six tiles per row, three on narrow phones */
+.ch-vals {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (max-width: 24rem) {
+  .ch-vals {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.ch-vals li {
+  display: grid;
+  justify-items: center;
+  gap: 0.2rem;
+  padding: 0.35rem 0.2rem;
+  border-radius: 10px;
+  background: var(--head-well);
+}
+
+.ch-vals li.best {
+  box-shadow: 0 0 0 2px var(--gold-line) inset;
+}
+
+.ch-vals b {
+  font-family: var(--font-cards);
+  font-weight: var(--font-cards-weight);
+  font-size: 0.92rem;
+}
+
+/* Special cards and powers in two columns */
+.ch-specials,
+.ch-powers {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (max-width: 26rem) {
+  .ch-specials,
+  .ch-powers {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ch-specials li,
+.ch-powers li {
+  display: flex;
+  gap: 0.55rem;
+  align-items: center;
+  padding: 0.45rem 0.55rem;
+  border-radius: 10px;
+  background: var(--head-well);
+  font-size: 0.86rem;
+  line-height: 1.25;
+}
+
+.ch-specials li {
+  border-inline-start: 8px solid transparent;
+}
+
+/* Long words (Finnish, German) may break instead of pushing the tile wider */
+.ch-specials li > span:last-child {
+  min-width: 0;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+.ch-specials li.any {
+  border-color: var(--card-green);
+  background: color-mix(in srgb, var(--card-green) 22%, transparent);
+}
+
+.ch-specials li.order {
+  border-color: var(--gold);
+  background: color-mix(in srgb, var(--gold) 28%, transparent);
+}
+
+.ch-specials li.wide {
+  grid-column: 1 / -1;
+}
+
+.ch-pair {
+  display: flex;
+  flex: none;
+}
+
+.ch-pair .ch-card + .ch-card {
+  margin-left: -10px;
+}
+
+/* Rows with badge on the left (override --ch-col for wider or narrower badges) */
 .ch-rows {
   display: grid;
   gap: 0.4rem;
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.ch-rows li {
+  display: grid;
+  grid-template-columns: var(--ch-col, 2.8rem) 1fr;
+  gap: 0.55rem;
+  align-items: center;
+  padding: 0.45rem 0.6rem;
+  border-radius: 10px;
+  background: var(--head-well);
+  font-size: 0.88rem;
+  line-height: 1.3;
+}
+
+.ch-rows:has(.ch-badge.round) li {
+  --ch-col: 2rem;
+}
+
+.ch-badge {
+  font-family: var(--font-emoji);
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.ch-badge.round {
+  display: grid;
+  place-items: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  background: var(--cheat-text);
+  color: var(--cheat-bg);
+  font-family: var(--font-cards);
+  font-weight: var(--font-cards-weight);
+  font-size: 0.88rem;
 }
 
 /* ---------- Practice quiz (includes/quiz.njk, assets/quiz.js) ---------- */

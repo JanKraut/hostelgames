@@ -552,25 +552,10 @@
   }
 }
 
-/* ---------- Quick start: cheat sheet (from Kniffel / Shithead) ---------- */
-
-.cheat h2 {
-  margin-bottom: 0.4rem;
-  color: var(--cheat-heading);
-  font-size: 1.6rem;
-}
+/* ---------- Quick start: cheat sheet ---------- */
 
 .ch-icon {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: var(--cheat-text);
-  color: var(--cheat-bg);
   font-size: 1.25rem;
-  font-weight: 800;
-  line-height: 1;
 }
 
 .ch-suits {
@@ -699,51 +684,7 @@
   white-space: nowrap;
 }
 
-/* Mini cards for quick start (from Shithead) */
-.ch-card {
-  display: grid;
-  flex: none;
-  place-content: center;
-  width: 28px;
+.ch-honors .ch-card {
+  min-width: 28px;
   height: 38px;
-  border-radius: 5px;
-  background: #ffffff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
-  color: var(--card-ink);
-  font-family: var(--font-cards);
-  font-weight: var(--font-cards-weight);
-  font-size: 0.92rem;
-  line-height: 1;
-  text-align: center;
-}
-
-.ch-card small {
-  font-size: 0.7rem;
-}
-
-.ch-ranks {
-  display: grid;
-  grid-template-columns: repeat(13, 1fr);
-  gap: 3px;
-}
-
-.ch-ranks .ch-card {
-  width: auto;
-  height: auto;
-  aspect-ratio: 5 / 7;
-  border-radius: 4px;
-  font-size: clamp(0.62rem, 2.6vw, 0.95rem);
-  letter-spacing: -0.04em;
-}
-
-.ch-ranks .ch-card small {
-  font-size: 0.75em;
-}
-
-.ch-rankscale {
-  display: flex;
-  justify-content: space-between;
-  margin: 0.25rem 0 0.35rem;
-  font-size: 0.78rem;
-  font-weight: 700;
 }

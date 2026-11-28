@@ -325,23 +325,8 @@
 
 /* ---------- Quickstart: Spickzettel ---------- */
 
-.cheat h2 {
-  margin-bottom: 0.4rem;
-  color: var(--cheat-heading);
-  font-size: 1.6rem;
-}
-
 .ch-icon {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: var(--cheat-text);
-  color: var(--cheat-bg);
   font-size: 1.25rem;
-  font-weight: 800;
-  line-height: 1;
 }
 
 .ch-emoji {
@@ -378,8 +363,10 @@
   gap: 4px;
 }
 
-.ch-note {
+.cheat .ch-note {
+  margin-top: 0;
   font-size: 0.88rem;
+  opacity: 1;
 }
 
 @media (max-width: 24rem) {
