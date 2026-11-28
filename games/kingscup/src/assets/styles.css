@@ -132,16 +132,6 @@
   }
 }
 
-.rulecard {
-  display: flex;
-  gap: 0.9rem;
-  align-items: flex-start;
-  padding: 0.8rem 0.9rem;
-  border: 2px solid var(--line);
-  border-radius: 16px;
-  scroll-margin-top: 3.2rem;
-}
-
 .note {
   margin-top: 1rem;
   color: var(--muted);

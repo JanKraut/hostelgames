@@ -120,18 +120,6 @@
   font-weight: 700;
 }
 
-/* ---------- Setup: card order ---------- */
-
-.ranks .card {
-  --w: 52px;
-  box-shadow: -2px 0 4px rgba(0, 0, 0, 0.18), 0 4px 10px rgba(0, 0, 0, 0.25);
-}
-
-/* Overlap the 13 cards just enough to fit the width. */
-.ranks .card + .card {
-  margin-left: min(-16px, calc((100% - var(--w)) / 12 - var(--w)));
-}
-
 /* ---------- Setup: table and hand ---------- */
 
 /* Dealing: hand cards fanned on top, three face-up on face-down cards below */
@@ -255,39 +243,12 @@
 
 /* ---------- One turn: yes / no decision ---------- */
 
-.dq {
-  margin: 0 0 0.35rem;
-  font-family: var(--font-display);
-  font-weight: var(--font-display-weight);
-  font-size: 1.2rem;
-  line-height: 1.25;
-  text-align: center;
-}
-
-.dqs {
-  margin: 0 0 1rem;
-  color: var(--felt-soft);
-  font-size: 0.92rem;
-  text-align: center;
-}
-
 .yes-br .bh {
   color: var(--card-green);
 }
 
 .no-br .bh {
   color: var(--card-red);
-}
-
-.br ol {
-  margin: 0;
-  padding: 0;
-  padding-inline-start: 1.2rem;
-}
-
-.br li {
-  margin: 0.35rem 0;
-  line-height: 1.45;
 }
 
 /* Note under the "no" branch: picking up voluntarily */
@@ -298,38 +259,6 @@
   color: #55605a;
   font-size: 0.92rem;
   font-style: italic;
-}
-
-/* ---------- Special cards ---------- */
-
-.specials {
-  display: grid;
-  gap: 0.9rem;
-  margin-top: 1rem;
-}
-
-.sp {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1rem;
-  align-items: center;
-  padding: 0.9rem;
-  border: 2px solid var(--line);
-  border-radius: 16px;
-}
-
-.sp p {
-  margin: 0;
-  color: var(--muted);
-}
-
-/* Four of a kind */
-.four {
-  display: flex;
-}
-
-.four .card:not(:last-child) {
-  margin-right: -30px;
 }
 
 /* ---------- Later in the game: hand → face-up → face-down ---------- */
@@ -428,126 +357,13 @@
 
 /* ---------- Strategy guide ---------- */
 
-/* Swap example: before → after, in the style of the dealing graphic */
-.swapex {
-  margin: 1.4rem 0 0;
-  padding: 1.1rem 1rem 0.4rem;
-  border-radius: 18px;
-  background: var(--felt);
-  color: var(--felt-text);
-}
-
-.swapex figcaption {
-  margin-bottom: 0.8rem;
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: var(--font-display-weight);
-  text-align: center;
-}
-
-.swapex strong {
-  color: var(--felt-text);
-}
-
-.swapex p {
-  color: var(--felt-soft);
-}
-
-.sx-pair {
-  display: grid;
-  gap: 0.3rem;
-  justify-items: center;
-  margin-bottom: 1rem;
-}
-
-.sx-panel {
-  display: grid;
-  justify-items: center;
-  width: 100%;
-  padding: 0.7rem 0.5rem 1rem;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.35);
-}
-
-.swapex .sx-title {
-  margin: 0;
-  color: var(--felt-text);
-  font-weight: 800;
-}
-
-.swapex .sx-label {
-  margin: 0.3rem 0 0;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
+/* Swap example: table spacing inside core .swapex */
 .sx-panel .dv-table {
   gap: 1.1rem;
   padding-top: 0.5rem;
 }
 
-.sx-arrow {
-  width: 40px;
-  height: 40px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 3;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  transform: rotate(90deg);
-}
-
-@media (min-width: 34rem) {
-  .sx-pair {
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-    align-items: center;
-  }
-
-  .sx-arrow {
-    transform: none;
-  }
-}
-
-.sx-variant {
-  display: flex;
-  gap: 0.9rem;
-  align-items: center;
-}
-
-.sx-variant p {
-  margin: 0;
-}
-
-.sx-mini {
-  display: flex;
-  flex: none;
-  padding-bottom: 0.8rem;
-}
-
-.sx-mini .card:not(:last-child) {
-  margin-right: -14px;
-}
-
-/* Lists inside a special card, e.g. tips for the 10 */
-.sp:has(.sp-list) {
-  align-items: start;
-}
-
-.sp-list {
-  margin: 0.5rem 0 0;
-  padding-inline-start: 1.1rem;
-  color: var(--muted);
-}
-
-.sp-list li + li {
-  margin-top: 0.3rem;
-}
-
-/* ---------- Cheat sheet ---------- */
-
-/* "Default: 2" under a special card, and the note below the four-of-a-kind box */
+/* "Default: 2" under a special card */
 .sp .sp-default {
   margin-top: 0.3rem;
   color: var(--muted);
@@ -555,12 +371,6 @@
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-}
-
-.sp-extra {
-  margin: -0.2rem 0.3rem 0;
-  color: var(--muted);
-  font-size: 0.95rem;
 }
 
 /* Tags on the special cards: "play anytime" and "play in order" */

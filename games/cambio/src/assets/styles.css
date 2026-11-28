@@ -138,27 +138,6 @@
 
 /* ---------- Ein Spielzug: behalten oder abwerfen (aus Shithead) ---------- */
 
-.dq {
-  margin: 0 0 0.35rem;
-  font-family: var(--font-display);
-  font-weight: var(--font-display-weight);
-  font-size: 1.2rem;
-  line-height: 1.25;
-  text-align: center;
-}
-
-.dqs {
-  margin: 0 0 1rem;
-  color: var(--felt-soft);
-  font-size: 0.92rem;
-  text-align: center;
-}
-
-/* Links auf hellem Papier auch im dunklen Design lesbar */
-.br a {
-  color: var(--card-ink);
-}
-
 .keep-br .bh {
   color: var(--card-green);
 }
@@ -167,32 +146,15 @@
   color: var(--card-red);
 }
 
-/* ---------- Kartenfähigkeiten (aus Shithead) ---------- */
+/* ---------- Kartenfähigkeiten (nur Abweichungen vom Core) ---------- */
 
 .specials {
-  display: grid;
-  gap: 0.9rem;
-  margin: 1rem 0;
-}
-
-.sp {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1rem;
-  align-items: center;
-  padding: 0.9rem;
-  border: 2px solid var(--line);
-  border-radius: 16px;
+  margin-bottom: 1rem;
 }
 
 .sp h3 {
   margin: 0 0 0.2rem;
   font-size: 1.1rem;
-}
-
-.sp p {
-  margin: 0;
-  color: var(--muted);
 }
 
 .sp .v-pair {
@@ -201,12 +163,6 @@
 
 .sp .v-pair .card + .card {
   margin-left: -18px;
-}
-
-.sp-extra {
-  margin: -0.2rem 0.3rem 0;
-  color: var(--muted);
-  font-size: 0.95rem;
 }
 
 /* ---------- Abwerfen gleicher Karten ---------- */
