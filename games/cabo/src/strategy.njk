@@ -11,7 +11,7 @@ eleventyComputed:
   pageTitle: "{{ lang.t.seo.strategyT }}"
   pageDescription: "{{ lang.t.seo.strategyD }}"
 ---
-{%- from "blocks.njk" import secnav -%}
+{%- from "blocks.njk" import secnav, strats, mistakes, nextSteps -%}
 {#- Strategieseite für Cabo (52er-Blatt, rote Könige 0, schwarze 13, Multi-Tausch,
     Ansager darf im letzten Zug noch getauscht werden). Kein Spiel gegen Bots. -#}
 {%- from "card.njk" import card, back -%}
@@ -33,11 +33,7 @@ eleventyComputed:
   <section id="principle">
     <h2>{{ s.principleH }}</h2>
     <p class="lead">{{ s.principle | safe }}</p>
-    <ul class="strats">
-      {%- for item in s.principleItems %}
-      <li><p>{{ item | safe }}</p></li>
-      {%- endfor %}
-    </ul>
+    {{ strats(s.principleItems) }}
   </section>
 
   <section id="memory">
@@ -69,21 +65,13 @@ eleventyComputed:
       <p>{{ s.memExWhy | safe }}</p>
     </figure>
 
-    <ul class="strats">
-      {%- for item in s.memItems %}
-      <li><p>{{ item | safe }}</p></li>
-      {%- endfor %}
-    </ul>
+    {{ strats(s.memItems) }}
   </section>
 
   <section id="drawing">
     <h2>{{ s.drawH }}</h2>
     <p class="lead">{{ s.drawLead | safe }}</p>
-    <ul class="strats">
-      {%- for item in s.drawItems %}
-      <li><p>{{ item | safe }}</p></li>
-      {%- endfor %}
-    </ul>
+    {{ strats(s.drawItems) }}
     <p class="notup">{{ s.drawWarn | safe }}</p>
   </section>
 
@@ -113,44 +101,21 @@ eleventyComputed:
   <section id="multiswap">
     <h2>{{ s.multiH }}</h2>
     <p class="lead">{{ s.multiLead | safe }}</p>
-    <ul class="strats">
-      {%- for item in s.multiItems %}
-      <li><p>{{ item | safe }}</p></li>
-      {%- endfor %}
-    </ul>
+    {{ strats(s.multiItems) }}
   </section>
 
   <section id="calling">
     <h2>{{ s.callH }}</h2>
     <p class="lead">{{ s.callLead | safe }}</p>
-    <ul class="strats">
-      {%- for item in s.callItems %}
-      <li><p>{{ item | safe }}</p></li>
-      {%- endfor %}
-    </ul>
+    {{ strats(s.callItems) }}
   </section>
 
-  <section id="mistakes">
-    <h2>{{ s.mistakesH }}</h2>
-    <ul class="variants">
-      {%- for item in s.mistakes %}
-      <li>{{ item | safe }}</li>
-      {%- endfor %}
-    </ul>
-  </section>
+  {{ mistakes(s) }}
 
-  <section id="next-steps" class="ctas">
-    <div class="cta">
-      <h2>{{ s.ctaQuickH }}</h2>
-      <p>{{ s.ctaQuickP }}</p>
-      <a class="ctabtn go" href="{{ lang.path }}quickstart/">{{ s.ctaQuickBtn }}<span class="go-ic" aria-hidden="true"></span></a>
-    </div>
-    <div class="cta">
-      <h2>{{ s.ctaRulesH }}</h2>
-      <p>{{ s.ctaRulesP }}</p>
-      <a class="ctabtn go" href="{{ lang.path }}">{{ s.ctaRulesBtn }}<span class="go-ic" aria-hidden="true"></span></a>
-    </div>
-  </section>
+  {{ nextSteps([
+    [s.ctaQuickH, s.ctaQuickP, lang.path + "quickstart/", s.ctaQuickBtn],
+    [s.ctaRulesH, s.ctaRulesP, lang.path, s.ctaRulesBtn]
+  ]) }}
 
   {% include "share.njk" %}
 </main>

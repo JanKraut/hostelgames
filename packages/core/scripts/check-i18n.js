@@ -103,13 +103,15 @@ function unbalanced(text) {
   return open.length ? `<${open.join(">, <")}> not closed` : null;
 }
 
-// Sections: <section id="…"> and the section macros of blocks.njk, {{ faq(t) }} / {{ variants(t, "id") }}.
+// Sections: <section id="…"> and the section macros of blocks.njk:
+// {{ faq(t) }}, {{ variants(t, "id") }}, {{ mistakes(s) }}, {{ nextSteps([…], "id") }}.
 const sectionIds = new Set(
   TEMPLATES.flatMap((file) => {
     const text = readFileSync(file, "utf8");
     return [
       ...[...text.matchAll(/<section id="([^"]+)"/g)].map((m) => m[1]),
-      ...[...text.matchAll(/\{\{\s*(faq|variants)\(\s*[\w.]+\s*(?:,\s*"([^"]+)")?\s*\)/g)].map((m) => m[2] ?? m[1]),
+      ...[...text.matchAll(/\{\{\s*(faq|variants|mistakes)\(\s*[\w.]+\s*(?:,\s*"([^"]+)")?\s*\)/g)].map((m) => m[2] ?? m[1]),
+      ...[...text.matchAll(/\{\{\s*nextSteps\((?:(?!\}\})[\s\S])*?(?:,\s*"([^"]+)")?\s*\)\s*\}\}/g)].map((m) => m[1] ?? "next-steps"),
     ];
   }),
 );

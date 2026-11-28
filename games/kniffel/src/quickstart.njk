@@ -14,6 +14,7 @@ eleventyComputed:
 {#- Quickstart: Spickzettel, der auf einen Handybildschirm passt – Ablauf, oberer Block mit
     Soll und Bonus, unterer Block mit Punkten. Danach Link zum Online-Block. Texte unter `quick`,
     Feldnamen wie auf der Regelseite (up1–up6, lb_*H). -#}
+{%- from "blocks.njk" import nextSteps -%}
 {%- from "dice.njk" import die, dice -%}
 {%- set t = lang.t -%}
 {%- set k = t.quick -%}
@@ -64,18 +65,10 @@ eleventyComputed:
     </div>
   </section>
 
-  <section id="next-steps" class="ctas">
-    <div class="cta">
-      <h2>{{ k.ctaSheetH }}</h2>
-      <p>{{ k.ctaSheetP }}</p>
-      <a class="ctabtn go" href="{{ lang.path }}scoresheet/">{{ t.rules.setupCtaBtn }}<span class="go-ic" aria-hidden="true"></span></a>
-    </div>
-    <div class="cta">
-      <h2>{{ k.ctaStratH }}</h2>
-      <p>{{ k.ctaStratP }}</p>
-      <a class="ctabtn go" href="{{ lang.path }}strategy/">{{ k.ctaStratBtn }}<span class="go-ic" aria-hidden="true"></span></a>
-    </div>
-  </section>
+  {{ nextSteps([
+    [k.ctaSheetH, k.ctaSheetP, lang.path + "scoresheet/", t.rules.setupCtaBtn],
+    [k.ctaStratH, k.ctaStratP, lang.path + "strategy/", k.ctaStratBtn]
+  ]) }}
 
   {% include "share.njk" %}
 </main>

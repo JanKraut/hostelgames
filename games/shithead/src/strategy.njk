@@ -11,7 +11,7 @@ eleventyComputed:
   pageTitle: "{{ lang.t.seo.strategyT }}"
   pageDescription: "{{ lang.t.seo.strategyD }}"
 ---
-{%- from "blocks.njk" import secnav -%}
+{%- from "blocks.njk" import secnav, strats, mistakes, nextSteps -%}
 {%- from "card.njk" import card, stack -%}
 {%- set t = lang.t -%}
 {%- set s = t.strategy -%}
@@ -38,11 +38,7 @@ eleventyComputed:
     <h2>{{ s.swapH }}</h2>
     <p class="lead">{{ s.swapLead | safe }}</p>
     <h3 class="sub first">{{ s.upH }}</h3>
-    <ul class="strats">
-      {%- for item in s.up %}
-      <li><p>{{ item | safe }}</p></li>
-      {%- endfor %}
-    </ul>
+    {{ strats(s.up) }}
     <p class="notup">{{ s.notUp | safe }}</p>
 
     {#- Swap example: before and after. 10 and king from the hand change places
@@ -78,11 +74,7 @@ eleventyComputed:
 
   <section id="{{ phase.id }}">
     <h2>{{ phase.h }}</h2>
-    <ul class="strats">
-      {%- for item in phase.items %}
-      <li><p>{{ item | safe }}</p></li>
-      {%- endfor %}
-    </ul>
+    {{ strats(phase.items) }}
   </section>
   {%- endfor %}
 
@@ -118,27 +110,12 @@ eleventyComputed:
     </div>
   </section>
 
-  <section id="mistakes">
-    <h2>{{ s.mistakesH }}</h2>
-    <ul class="variants">
-      {%- for item in s.mistakes %}
-      <li>{{ item | safe }}</li>
-      {%- endfor %}
-    </ul>
-  </section>
+  {{ mistakes(s) }}
 
-  <section id="next-steps" class="ctas">
-    <div class="cta">
-      <h2>{{ s.ctaPlayH }}</h2>
-      <p>{{ s.ctaPlayP }}</p>
-      <a class="ctabtn go" href="{{ lang.path }}play/">{{ s.ctaPlayBtn }}<span class="go-ic" aria-hidden="true"></span></a>
-    </div>
-    <div class="cta">
-      <h2>{{ s.ctaRulesH }}</h2>
-      <p>{{ s.ctaRulesP }}</p>
-      <a class="ctabtn go" href="{{ lang.path }}">{{ s.ctaRulesBtn }}<span class="go-ic" aria-hidden="true"></span></a>
-    </div>
-  </section>
+  {{ nextSteps([
+    [s.ctaPlayH, s.ctaPlayP, lang.path + "play/", s.ctaPlayBtn],
+    [s.ctaRulesH, s.ctaRulesP, lang.path, s.ctaRulesBtn]
+  ]) }}
 
   {% include "share.njk" %}
 </main>

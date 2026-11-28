@@ -1,5 +1,5 @@
 {#- Building blocks of the game pages (styles in core.css). Import what a page needs:
-      {%- from "blocks.njk" import secnav, steps, variants, faq -%}
+      {%- from "blocks.njk" import secnav, steps, variants, faq, strats, mistakes, nextSteps, sheetCta -%}
     The lists end with the last text that exists: one more FAQ, variant or step is only a
     new text in the game's i18n (faq9q + faq9a, var12, s5h + s5p …), no change to the page. -#}
 
@@ -54,4 +54,47 @@
     {%- endif %}{% endfor %}
   </div>
 </section>
+{%- endmacro %}
+
+{#- Strategy tip list: items is an array of HTML strings (e.g. s.openTips). -#}
+{% macro strats(items) -%}
+<ul class="strats">
+  {%- for item in items %}
+  <li><p>{{ item | safe }}</p></li>
+  {%- endfor %}
+</ul>
+{%- endmacro %}
+
+{#- Section "Common mistakes": texts.mistakesH and texts.mistakes (array of HTML strings). -#}
+{% macro mistakes(texts, id="mistakes") -%}
+<section id="{{ id }}">
+  <h2>{{ texts.mistakesH }}</h2>
+  <ul class="variants">
+    {%- for item in texts.mistakes %}
+    <li>{{ item | safe }}</li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endmacro %}
+
+{#- Next-step CTA cards: items is [[heading, text, href, buttonLabel], …].
+    Two or more cards get the two-column .ctas grid; a single card renders without it. -#}
+{% macro nextSteps(items, id="next-steps") -%}
+<section id="{{ id }}"{% if items.length > 1 %} class="ctas"{% endif %}>
+  {%- for item in items %}
+  <div class="cta">
+    <h2>{{ item[0] }}</h2>
+    <p>{{ item[1] }}</p>
+    <a class="ctabtn go" href="{{ item[2] }}">{{ item[3] }}<span class="go-ic" aria-hidden="true"></span></a>
+  </div>
+  {%- endfor %}
+</section>
+{%- endmacro %}
+
+{#- Compact inline CTA box linking to the online score sheet (rules pages). -#}
+{% macro sheetCta(href, text, btn) -%}
+<div class="cta sheet-cta">
+  <p>{{ text }}</p>
+  <a class="ctabtn" href="{{ href }}">{{ btn }}</a>
+</div>
 {%- endmacro %}

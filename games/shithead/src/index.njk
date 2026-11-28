@@ -10,7 +10,7 @@ eleventyComputed:
   pageTitle: "{{ lang.t.seo.rulesT }}"
   pageDescription: "{{ lang.t.seo.rulesD }}"
 ---
-{%- from "blocks.njk" import secnav, steps, faq, variants -%}
+{%- from "blocks.njk" import secnav, steps, faq, variants, nextSteps -%}
 {%- from "card.njk" import card, back, stack, cardRow -%}
 {%- set t = lang.t -%}
 {%- set r = t.rules -%}
@@ -183,13 +183,9 @@ eleventyComputed:
 
   {% include "quiz.njk" %}
 
-  <section id="play-bots">
-    <div class="cta">
-      <h2>{{ t.game.ctaH }}</h2>
-      <p>{{ t.game.ctaP }}</p>
-      <a class="ctabtn go" href="{{ lang.path }}play/">{{ t.game.ctaBtn }}<span class="go-ic" aria-hidden="true"></span></a>
-    </div>
-  </section>
+  {{ nextSteps([
+    [t.game.ctaH, t.game.ctaP, lang.path + "play/", t.game.ctaBtn]
+  ], "play-bots") }}
 
   {% include "share.njk" %}
 </main>

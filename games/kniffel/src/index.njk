@@ -10,7 +10,7 @@ eleventyComputed:
   pageTitle: "{{ lang.t.seo.rulesT }}"
   pageDescription: "{{ lang.t.seo.rulesD }}"
 ---
-{%- from "blocks.njk" import secnav, steps, variants, faq -%}
+{%- from "blocks.njk" import secnav, steps, variants, faq, sheetCta -%}
 {#- Regelseite, eine pro Sprache. Abschnitte von oben nach unten: Aufbau, Dein Zug,
     Oberer Block, Unterer Block, Punkte & Ende, Varianten, FAQ, Teilen. -#}
 {%- from "dice.njk" import die, dice -%}
@@ -40,10 +40,7 @@ eleventyComputed:
     </ul>
     <p>{{ r.setupP | safe }}</p>
     {#- Hinweis auf den Online-Block (scoresheet/) -#}
-    <div class="cta sheet-cta">
-      <p>{{ r.setupCta }}</p>
-      <a class="ctabtn" href="{{ lang.path }}scoresheet/">{{ r.setupCtaBtn }}</a>
-    </div>
+    {{ sheetCta(lang.path + "scoresheet/", r.setupCta, r.setupCtaBtn) }}
   </section>
 
   <section id="turn">
