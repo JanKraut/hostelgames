@@ -87,32 +87,6 @@
   outline-offset: 2px;
 }
 
-/* ---------- Spielzug: Entscheidung (nur Abweichungen vom Core) ---------- */
-
-.dq {
-  margin: 0 0 1rem;
-  font-family: var(--font-display);
-  font-weight: var(--font-display-weight);
-  font-size: 1.2rem;
-  line-height: 1.25;
-  text-align: center;
-}
-
-.br a {
-  color: inherit;
-}
-
-.br ol {
-  margin: 0.35rem 0 0;
-  padding: 0;
-  padding-inline-start: 1.2rem;
-}
-
-.br li {
-  margin: 0.35rem 0;
-  line-height: 1.45;
-}
-
 /* Mehrere gleiche Karten tauschen */
 .multi {
   margin: 1rem 0;
@@ -127,22 +101,10 @@
   font-weight: 800;
 }
 
-/* ---------- Fähigkeiten (Core-Kandidat, wie .specials bei Shithead) ---------- */
-
-.specials {
-  display: grid;
-  gap: 0.9rem;
-  margin-top: 1rem;
-}
+/* ---------- Fähigkeiten (nur Abweichungen vom Core) ---------- */
 
 .sp {
-  display: grid;
-  grid-template-columns: 5.6rem 1fr;
-  gap: 1rem;
-  align-items: center;
-  padding: 0.9rem;
-  border: 2px solid var(--line);
-  border-radius: 16px;
+  --sp-col: 5.6rem;
 }
 
 .sp h3 {
@@ -150,8 +112,7 @@
 }
 
 .sp p {
-  margin: 0.2rem 0 0;
-  color: var(--muted);
+  margin-top: 0.2rem;
 }
 
 .pair {

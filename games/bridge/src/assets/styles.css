@@ -78,18 +78,6 @@
   text-shadow: var(--wood-text-shadow);
 }
 
-/* ---------- Setup: 13-card order (from President) ---------- */
-
-.ranks .card {
-  --w: 52px;
-  box-shadow: -2px 0 4px rgba(0, 0, 0, 0.18), 0 4px 10px rgba(0, 0, 0, 0.25);
-}
-
-/* Overlap the 13 cards just enough to fit the width. */
-.ranks .card + .card {
-  margin-left: min(-16px, calc((100% - var(--w)) / 12 - var(--w)));
-}
-
 /* ---------- Bidding: five strains from ♣ to NT/SA ---------- */
 
 .suits {
@@ -211,65 +199,6 @@
   font-weight: 600;
 }
 
-/* ---------- Playing: example trick (from Schafkopf) ---------- */
-
-.trick {
-  display: grid;
-  gap: 0.4rem;
-  margin: 1rem 0 0.5rem;
-  padding: 0;
-  list-style: none;
-}
-
-.trick li {
-  display: flex;
-  gap: 0.8rem;
-  align-items: center;
-  min-height: 3rem;
-  padding: 0.35rem 0.9rem;
-  border-radius: 12px;
-  background: var(--surface);
-  box-shadow: 0 0 0 1px var(--line) inset;
-}
-
-.tr-who {
-  flex: none;
-  width: 3.6rem;
-  color: var(--ink-strong);
-  font-weight: 800;
-}
-
-.tr-cards {
-  display: flex;
-  flex: none;
-}
-
-.tr-cards .card {
-  --w: 40px;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), 0 3px 8px rgba(0, 0, 0, 0.22);
-}
-
-.tr-say {
-  min-width: 0;
-  color: var(--muted);
-  font-size: 0.92rem;
-}
-
-.tr-win {
-  box-shadow: 0 0 0 2px var(--gold) inset !important;
-}
-
-.tr-win::after {
-  content: "👑";
-  margin-inline-start: auto;
-  font-family: var(--font-emoji);
-}
-
-.tr-note {
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
 /* ---------- Scoring: tariff table ---------- */
 
 .tariff {
@@ -317,21 +246,12 @@
 /* ---------- Strategy: HCP tiles, strength ladder, hand example & finesse ---------- */
 
 .points {
-  display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.6rem;
-  margin: 1rem 0;
-  padding: 0;
-  list-style: none;
 }
 
 .points li {
-  display: grid;
-  justify-items: center;
   gap: 0.35rem;
   padding: 0.65rem 0.3rem;
-  border: 2px solid var(--line);
-  border-radius: 14px;
   background: var(--surface);
 }
 
