@@ -419,33 +419,10 @@
   color: var(--ink-strong);
 }
 
-/* ---------- Quickstart: Spickzettel (Core-Kandidat, wie .cheat bei Shithead) ---------- */
-
-.cheat {
-  margin: 0;
-  padding: 0.9rem 1rem;
-  border-radius: 20px;
-  background: var(--cheat-bg);
-  color: var(--cheat-text);
-}
-
-.cheat h2 {
-  margin-bottom: 0.4rem;
-  color: var(--cheat-heading);
-  font-size: 1.6rem;
-}
+/* ---------- Quickstart: Spickzettel ---------- */
 
 .ch-icon {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: var(--cheat-text);
-  color: var(--cheat-bg);
   font-size: 1.25rem;
-  font-weight: 800;
-  line-height: 1;
 }
 
 /* Oberer Block: sechs Felder mit Soll (3 × Augenzahl) */

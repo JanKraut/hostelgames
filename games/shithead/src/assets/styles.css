@@ -120,18 +120,6 @@
   font-weight: 700;
 }
 
-/* Quick start: compact cheat sheet that fits one phone screen */
-.quick .cheat {
-  margin: 0;
-  padding: 0.9rem 1rem;
-}
-
-.quick .cheat h2 {
-  margin-bottom: 0.6rem;
-  color: var(--cheat-heading);
-  font-size: 1.6rem;
-}
-
 /* ---------- Setup: card order ---------- */
 
 .ranks .card {
@@ -559,18 +547,6 @@
 
 /* ---------- Cheat sheet ---------- */
 
-.cheat {
-  margin: 1rem 0 0;
-  padding: 1.4rem 1.2rem;
-  border-radius: 20px;
-  background: var(--cheat-bg);
-  color: var(--cheat-text);
-}
-
-.cheat h2 {
-  color: var(--cheat-heading);
-}
-
 /* "Default: 2" under a special card, and the note below the four-of-a-kind box */
 .sp .sp-default {
   margin-top: 0.3rem;
@@ -615,54 +591,24 @@
   color: #202020;
 }
 
-/* New cheat sheet on the quick start: rule, special cards, card order */
-.cheat2 h2 {
-  margin-bottom: 0.4rem;
-}
-
+/* Quick start cheat sheet overrides so it fits on one phone screen */
 .ch-block {
-  padding: 0.65rem 0 0.15rem;
-  border-top: 1px solid var(--head-chip-border);
-}
-
-.cheat2 h2 + .ch-block {
-  border-top: 0;
-}
-
-.cheat2 p {
-  margin: 0;
+  padding-bottom: 0.15rem;
 }
 
 .ch-icon {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: var(--cheat-text);
-  color: var(--cheat-bg);
   font-size: 1.6rem;
-  font-weight: 800;
-  line-height: 1;
 }
 
-.ch-specials {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 0.45rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+@media (max-width: 26rem) {
+  .ch-specials {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
 }
 
 .ch-specials li {
-  display: flex;
-  gap: 0.55rem;
-  align-items: center;
   padding: 0.4rem 0.5rem;
-  border-inline-start: 4px solid transparent;
-  border-radius: 10px;
-  background: var(--head-well);
+  border-inline-start-width: 4px;
   font-size: 0.88rem;
   font-weight: 700;
   line-height: 1.2;
@@ -674,47 +620,10 @@
   border-inline-start-width: 10px;
 }
 
-.ch-specials li.any {
-  border-color: var(--card-green);
-  background: color-mix(in srgb, var(--card-green) 22%, transparent);
-}
-
-.ch-specials li.order {
-  border-color: var(--gold);
-  background: color-mix(in srgb, var(--gold) 28%, transparent);
-}
-
-.ch-specials li.wide {
-  grid-column: 1 / -1;
-}
-
-/* Long words (Finnish, German) may break instead of pushing the tile wider */
-.ch-specials li > span:last-child {
-  min-width: 0;
-  hyphens: auto;
-  overflow-wrap: break-word;
-}
-
-/* Mini card: big rank, small suit */
-.ch-card {
-  display: grid;
-  flex: none;
-  place-content: center;
-  width: 32px;
+.ch-specials .ch-card {
+  min-width: 32px;
   height: 44px;
-  border-radius: 5px;
-  background: #ffffff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
-  color: var(--card-ink);
-  font-family: var(--font-cards);
-  font-weight: var(--font-cards-weight);
   font-size: 1.05rem;
-  line-height: 1;
-  text-align: center;
-}
-
-.ch-card small {
-  font-size: 0.7rem;
 }
 
 .ch-four {
@@ -741,34 +650,6 @@
   height: 10px;
   margin-inline-end: 0.35rem;
   border-radius: 3px;
-}
-
-/* Card order: all 13 ranks in one row */
-.ch-ranks {
-  display: grid;
-  grid-template-columns: repeat(13, 1fr);
-  gap: 3px;
-}
-
-.ch-ranks .ch-card {
-  width: auto;
-  height: auto;
-  aspect-ratio: 5 / 7;
-  border-radius: 4px;
-  font-size: clamp(0.62rem, 2.6vw, 0.95rem);
-  letter-spacing: -0.04em;
-}
-
-.ch-ranks .ch-card small {
-  font-size: 0.75em;
-}
-
-.ch-rankscale {
-  display: flex;
-  justify-content: space-between;
-  margin: 0.25rem 0 0.35rem;
-  font-size: 0.78rem;
-  font-weight: 700;
 }
 
 .quick #special-cards {
